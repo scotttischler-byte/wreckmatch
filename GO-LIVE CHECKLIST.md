@@ -12,13 +12,13 @@ Use this checklist from top to bottom. Do not skip steps.
 4. Thank-you page with 3:00 countdown implemented.
 5. Retell chat + callback integration implemented with mode-aware launcher.
 6. Production helper files added:
-   - `.env.example`
-   - `.env.local` (template style placeholders)
-   - `SETUP.md`
-   - `DEPLOY.md`
-   - `vercel.json`
+  - `.env.example`
+  - `.env.local` (template style placeholders)
+  - `SETUP.md`
+  - `DEPLOY.md`
+  - `vercel.json`
 7. Production deploy script added to `package.json`:
-   - `npm run deploy`
+  - `npm run deploy`
 
 ### 🟡 Remaining Before Final Go-Live
 
@@ -33,15 +33,15 @@ Use this checklist from top to bottom. Do not skip steps.
 ## 0) Before You Start (5 minutes)
 
 1. Confirm you are in the project folder:
-   - Open Terminal.
-   - Run:
-     ```bash
-     cd /Users/scott/wreckmatch
-     ```
+  - Open Terminal.
+  - Run:
+    ```bash
+    cd /Users/scott/wreckmatch
+    ```
 2. Confirm required files exist:
-   - `.env.local`
-   - `.env.example`
-   - `SETUP.md`
+  - `.env.local`
+  - `.env.example`
+  - `SETUP.md`
 3. If anything is missing, stop and add it before continuing.
 
 [Screenshot: Finder/IDE root showing `.env.local`, `.env.example`, `SETUP.md`, and `GO-LIVE CHECKLIST.md`]
@@ -59,9 +59,9 @@ Open `.env.local` in Cursor and replace placeholder values with real values.
 3. Left sidebar -> **Keys** -> **Public Keys**.
 4. Copy your public key.
 5. Paste into:
-   ```env
+  ```env
    NEXT_PUBLIC_RETELL_PUBLIC_KEY=YOUR_REAL_VALUE
-   ```
+  ```
 
 [Screenshot: Retell Dashboard -> Keys -> Public Keys -> Copy button]
 
@@ -71,9 +71,9 @@ Open `.env.local` in Cursor and replace placeholder values with real values.
 2. Open your Chat Agent.
 3. Find **Agent ID** on the details page.
 4. Copy and paste into:
-   ```env
+  ```env
    NEXT_PUBLIC_RETELL_CHAT_AGENT_ID=YOUR_REAL_VALUE
-   ```
+  ```
 
 [Screenshot: Retell Agent page showing “Agent ID” field]
 
@@ -83,9 +83,9 @@ Open `.env.local` in Cursor and replace placeholder values with real values.
 2. Open your Voice Agent (callback agent).
 3. Find **Agent ID**.
 4. Copy and paste into:
-   ```env
+  ```env
    NEXT_PUBLIC_RETELL_VOICE_AGENT_ID=YOUR_REAL_VALUE
-   ```
+  ```
 
 [Screenshot: Retell Voice Agent page with Agent ID highlighted]
 
@@ -93,12 +93,12 @@ Open `.env.local` in Cursor and replace placeholder values with real values.
 
 1. Use the number Retell uses for callback calls.
 2. Enter one of these formats:
-   - `+19785156063` (recommended)
-   - `9785156063`
+  - `+19785156063` (recommended)
+  - `9785156063`
 3. Paste into:
-   ```env
+  ```env
    NEXT_PUBLIC_RETELL_PHONE_NUMBER=+19785156063
-   ```
+  ```
 
 ### 1.5 GoHighLevel Webhook URL
 
@@ -108,9 +108,9 @@ Open `.env.local` in Cursor and replace placeholder values with real values.
 4. Add/open webhook step.
 5. Copy webhook URL.
 6. Paste into:
-   ```env
+  ```env
    GHL_WEBHOOK_URL=https://your-real-ghl-webhook-url
-   ```
+  ```
 
 [Screenshot: GHL Workflow -> Webhook step -> URL copy icon]
 
@@ -119,18 +119,18 @@ Open `.env.local` in Cursor and replace placeholder values with real values.
 1. Get your DocuHub template ID from your DocuHub dashboard/template details.
 2. Get your signing link URL.
 3. Paste into:
-   ```env
+  ```env
    DOCUHUB_TEMPLATE_ID=YOUR_REAL_TEMPLATE_ID
    DOCUHUB_TEMPLATE_LINK=https://your-real-docuhub-link
-   ```
+  ```
 
 ### 1.7 Site URL
 
 1. Leave this for now if deploying to Vercel.
 2. After deployment, set it to your real production URL:
-   ```env
+  ```env
    NEXT_PUBLIC_SITE_URL=https://wreckmatch.com
-   ```
+  ```
 
 ### 1.8 Save and sanity-check
 
@@ -157,6 +157,7 @@ npm run dev
 ```
 
 You should see something like:
+
 - `Local: http://localhost:3000`
 
 [Screenshot: Terminal showing `next dev` and `http://localhost:3000`]
@@ -166,10 +167,10 @@ You should see something like:
 1. Open browser.
 2. Go to `http://localhost:3000`.
 3. Confirm page loads with:
-   - dark law-firm theme
-   - hero section
-   - phone number
-   - 8-question intake card
+  - dark law-firm theme
+  - hero section
+  - phone number
+  - 8-question intake card
 
 ### 2.4 Test the 8-step form
 
@@ -199,7 +200,7 @@ Expected: build finishes successfully with no errors.
 ### 3.1 Main CTA test (chat)
 
 1. On homepage, click:
-   - **Talk to Ava 24/7 (AI or Live Expert)**
+  - **Talk to Ava 24/7 (AI or Live Expert)**
 2. Confirm Retell widget opens.
 3. Send a test message in chat.
 
@@ -218,6 +219,7 @@ Expected: build finishes successfully with no errors.
 ### 3.3 If widget does not open
 
 Check these first:
+
 1. `NEXT_PUBLIC_RETELL_PUBLIC_KEY` is real (not placeholder).
 2. Agent IDs are correct (chat vs voice not swapped).
 3. Hard refresh browser (`Cmd+Shift+R` on Mac).
@@ -233,13 +235,13 @@ If not already in GitHub:
 
 1. Create new GitHub repository.
 2. In project terminal:
-   ```bash
+  ```bash
    git add .
    git commit -m "Prepare WreckMatch for go-live"
    git branch -M main
    git remote add origin <YOUR_GITHUB_REPO_URL>
    git push -u origin main
-   ```
+  ```
 
 ### 4.2 Import project in Vercel
 
@@ -343,3 +345,4 @@ If any item fails, fix it first and retest.
 2. Add error monitoring (Sentry).
 3. Add rate limiting/CAPTCHA to submission endpoint.
 4. Add real-time alert (Slack/email) for each new lead.
+

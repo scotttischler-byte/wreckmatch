@@ -74,6 +74,10 @@ const insuranceOptions = [
 ];
 
 type FormState = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  preContactPhone: string;
   accidentTime: string;
   cityState: string;
   accidentType: string;
@@ -86,6 +90,10 @@ type FormState = {
 };
 
 const initialFormState: FormState = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  preContactPhone: "",
   accidentTime: "",
   cityState: "",
   accidentType: "",
@@ -97,7 +105,11 @@ const initialFormState: FormState = {
   phone: "",
 };
 
-const steps = [
+const stepLabels = [
+  "First Name",
+  "Last Name",
+  "Email Address",
+  "Phone Number",
   "When did the accident happen?",
   "Where did the accident occur?",
   "What type of accident was it?",
@@ -107,6 +119,8 @@ const steps = [
   "Have you already hired an attorney?",
   "What's the best phone number to reach you?",
 ];
+
+const phoneRegex = /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
 
 export default function Home() {
   const router = useRouter();
@@ -118,38 +132,48 @@ export default function Home() {
   const [stepError, setStepError] = useState("");
   const [formData, setFormData] = useState<FormState>(initialFormState);
 
-  const progressValue = useMemo(() => ((step + 1) / steps.length) * 100, [step]);
+  const progressValue = useMemo(() => ((step + 1) / stepLabels.length) * 100, [step]);
 
   const canContinue = useMemo(() => {
-    if (step === 0) return Boolean(formData.accidentTime);
-    if (step === 1) return Boolean(formData.cityState.trim());
-    if (step === 2) return Boolean(formData.accidentType);
-    if (step === 3) {
+    if (step === 0) return formData.firstName.trim().length >= 2;
+    if (step === 1) return formData.lastName.trim().length >= 2;
+    if (step === 2) return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email);
+    if (step === 3) return phoneRegex.test(formData.preContactPhone);
+    if (step === 4) return Boolean(formData.accidentTime);
+    if (step === 5) return Boolean(formData.cityState.trim());
+    if (step === 6) return Boolean(formData.accidentType);
+    if (step === 7) {
       if (!formData.injured) return false;
       if (formData.injured === "Yes") return Boolean(formData.injuryType);
       return true;
     }
-    if (step === 4) return Boolean(formData.medicalTreatment);
-    if (step === 5) return Boolean(formData.insurance);
-    if (step === 6) return Boolean(formData.hasAttorney);
-    if (step === 7) return /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/.test(formData.phone);
+    if (step === 8) return Boolean(formData.medicalTreatment);
+    if (step === 9) return Boolean(formData.insurance);
+    if (step === 10) return Boolean(formData.hasAttorney);
+    if (step === 11) return phoneRegex.test(formData.phone);
     return false;
   }, [formData, step]);
 
   const getStepError = () => {
-    if (step === 0 && !formData.accidentTime) return "Please select when the accident happened.";
-    if (step === 1 && !formData.cityState.trim()) return "Please enter city and state.";
-    if (step === 2 && !formData.accidentType) return "Please select the accident type.";
-    if (step === 3) {
+    if (step === 0 && formData.firstName.trim().length < 2) return "Please enter your first name.";
+    if (step === 1 && formData.lastName.trim().length < 2) return "Please enter your last name.";
+    if (step === 2 && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      return "Please enter a valid email address.";
+    }
+    if (step === 3 && !phoneRegex.test(formData.preContactPhone)) {
+      return "Please enter a valid 10-digit phone number.";
+    }
+    if (step === 4 && !formData.accidentTime) return "Please select when the accident happened.";
+    if (step === 5 && !formData.cityState.trim()) return "Please enter city and state.";
+    if (step === 6 && !formData.accidentType) return "Please select the accident type.";
+    if (step === 7) {
       if (!formData.injured) return "Please select whether you were injured.";
       if (formData.injured === "Yes" && !formData.injuryType) return "Please select your injury type.";
     }
-    if (step === 4 && !formData.medicalTreatment) return "Please select your treatment status.";
-    if (step === 5 && !formData.insurance) return "Please select your insurance status.";
-    if (step === 6 && !formData.hasAttorney) return "Please select whether you have an attorney.";
-    if (step === 7 && !/^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/.test(formData.phone)) {
-      return "Please enter a valid 10-digit phone number.";
-    }
+    if (step === 8 && !formData.medicalTreatment) return "Please select your treatment status.";
+    if (step === 9 && !formData.insurance) return "Please select your insurance status.";
+    if (step === 10 && !formData.hasAttorney) return "Please select whether you have an attorney.";
+    if (step === 11 && !phoneRegex.test(formData.phone)) return "Please confirm your best callback number.";
     return "";
   };
 
@@ -209,11 +233,11 @@ export default function Home() {
         preferredMode === "chat" ? RETELL_CHAT_AGENT_ID : RETELL_VOICE_AGENT_ID,
       );
       script.setAttribute("data-title", preferredMode === "chat" ? "Talk to Ava" : "Request Callback");
-      script.setAttribute("data-color", "#dc2626");
+      script.setAttribute("data-color", "#991b1b");
 
       if (preferredMode === "chat") {
         script.setAttribute("data-bot-name", "Ava");
-        script.setAttribute("data-popup-message", "Need help after an accident? Talk to Ava now.");
+        script.setAttribute("data-popup-message", "Need reassuring legal guidance now? Ava is here.");
         script.setAttribute("data-show-ai-popup", "true");
         script.setAttribute("data-show-ai-popup-time", "4");
       } else {
@@ -233,9 +257,7 @@ export default function Home() {
         await wait(300);
       }
 
-      setSubmitError(
-        "Ava is still loading. Please try again in a moment or call (978) 515-6063 now.",
-      );
+      setSubmitError("Ava is loading. Please try again in a moment or call (978) 515-6063 now.");
     } finally {
       setIsOpeningRetell(false);
     }
@@ -246,10 +268,15 @@ export default function Home() {
     setSubmitError("");
 
     try {
+      const payload = {
+        ...formData,
+        phone: formData.phone || formData.preContactPhone,
+      };
+
       const response = await fetch("/api/submit-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       const result = (await response.json()) as {
@@ -276,7 +303,7 @@ export default function Home() {
     }
     setStepError("");
 
-    if (step === steps.length - 1) {
+    if (step === stepLabels.length - 1) {
       await submitLead();
       return;
     }
@@ -290,35 +317,53 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-white">
-      <header className="border-b border-red-900/50 bg-neutral-950/90 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-          <p className="text-lg font-semibold tracking-wide text-white">{LAW_FIRM_NAME}</p>
+    <div className="min-h-screen bg-gradient-to-b from-[#120506] via-[#15090a] to-[#0b0808] text-white">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(185,28,28,0.18),transparent_45%),radial-gradient(circle_at_80%_30%,rgba(252,165,165,0.1),transparent_40%)]" />
+
+      <header className="relative border-b border-red-900/40 bg-black/25 backdrop-blur-md">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-5 sm:px-8">
+          <p className="text-xl font-semibold tracking-wide text-rose-50">{LAW_FIRM_NAME}</p>
           <a
             href={`tel:${SUPPORT_PHONE_E164}`}
-            className="rounded-md border border-red-500 px-3 py-2 text-sm font-semibold text-red-300 transition hover:bg-red-600 hover:text-white"
+            className="rounded-full border border-rose-400/50 bg-rose-950/40 px-4 py-2 text-sm font-semibold text-rose-100 transition hover:bg-rose-700/70"
           >
             {SUPPORT_PHONE_DISPLAY}
           </a>
         </div>
       </header>
 
-      <main className="mx-auto grid w-full max-w-6xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-2 md:py-16">
-        <section className="space-y-6">
-          <span className="inline-block rounded-full border border-red-700/60 bg-red-950/40 px-3 py-1 text-xs font-semibold tracking-wide text-red-200">
-            Immediate Accident Help
+      <main className="relative mx-auto grid w-full max-w-6xl gap-12 px-5 py-12 sm:px-8 md:grid-cols-[1.05fr_1fr] md:py-20">
+        <section className="space-y-8">
+          <div className="overflow-hidden rounded-3xl border border-amber-300/20 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+            <div
+              className="h-52 w-full bg-cover bg-center sm:h-64"
+              style={{
+                backgroundImage:
+                  "linear-gradient(120deg, rgba(25,8,8,0.35), rgba(25,8,8,0.75)), url('https://images.unsplash.com/photo-1617814076668-314406f5f113?auto=format&fit=crop&w=1600&q=80')",
+              }}
+            />
+          </div>
+          <span className="inline-block rounded-full border border-rose-300/30 bg-rose-950/40 px-4 py-1.5 text-xs font-semibold tracking-[0.12em] text-rose-100">
+            Compassionate 24/7 Accident Intake
           </span>
-          <h1 className="text-4xl font-bold leading-tight sm:text-5xl">
-            Get Matched With A Car Accident Expert In Minutes.
+          <h1 className="text-4xl font-semibold leading-tight text-rose-50 sm:text-5xl">
+            Injured in a Car Accident? Get the Maximum Compensation You Deserve - 24/7
           </h1>
-          <p className="max-w-xl text-base text-neutral-300 sm:text-lg">
-            Answer 8 quick questions to review your accident case. Speak with an AI or live expert
-            24/7 and get clear next steps fast.
+          <p className="max-w-xl text-lg leading-relaxed text-rose-100/90">
+            We&apos;re so sorry this happened to you. Speak to an attorney at no cost to you. No
+            money out of pocket. Your medical bills, time off work, and pain and suffering may be
+            covered.
           </p>
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="flex flex-col gap-4">
+            <a
+              href={`tel:${SUPPORT_PHONE_E164}`}
+              className="inline-flex w-full animate-[pulse_2.8s_ease-in-out_infinite] items-center justify-center rounded-full bg-gradient-to-r from-[#c81e1e] via-[#ea580c] to-[#dc2626] px-8 py-5 text-center text-xl font-extrabold tracking-wide text-white shadow-[0_14px_36px_rgba(234,88,12,0.45)] transition hover:from-[#dc2626] hover:to-[#ea580c] sm:text-2xl"
+            >
+              CALL {SUPPORT_PHONE_DISPLAY} NOW
+            </a>
             <Button
               size="lg"
-              className="bg-red-600 text-white hover:bg-red-700"
+              className="h-16 rounded-full border border-amber-300/40 bg-gradient-to-r from-[#3a1a1a] to-[#251212] px-7 text-lg font-semibold text-amber-100 shadow-[0_10px_28px_rgba(0,0,0,0.45)] hover:from-[#4a2020] hover:to-[#341818]"
               onClick={() => openRetellWidget("chat")}
               disabled={isOpeningRetell}
             >
@@ -326,38 +371,96 @@ export default function Home() {
                 ? "Opening Ava..."
                 : "Talk to Ava 24/7 (AI or Live Expert)"}
             </Button>
-            <a
-              href={`tel:${SUPPORT_PHONE_E164}`}
-              className="inline-flex items-center justify-center rounded-md border border-neutral-600 px-5 py-3 font-semibold text-white hover:border-red-500"
-            >
-              Call {SUPPORT_PHONE_DISPLAY}
-            </a>
           </div>
-          <p className="text-sm text-neutral-400">
-            Retell widget is integrated for both chat and voice callback workflows.
-          </p>
+          <div className="grid gap-3 sm:grid-cols-3">
+            <div className="rounded-xl border border-amber-300/25 bg-black/30 px-4 py-3 text-center text-sm font-semibold text-amber-100">
+              No Win, No Fee - No Cost to Talk to an Attorney
+            </div>
+            <div className="rounded-xl border border-amber-300/25 bg-black/30 px-4 py-3 text-center text-sm font-semibold text-amber-100">
+              No Money Out of Pocket
+            </div>
+            <div className="rounded-xl border border-amber-300/25 bg-black/30 px-4 py-3 text-center text-sm font-semibold text-amber-100">
+              Medical Bills, Lost Wages and Pain and Suffering May Be Covered
+            </div>
+          </div>
+          <div className="max-w-xl rounded-2xl border border-rose-200/15 bg-white/5 p-5">
+            <p className="text-sm leading-relaxed text-rose-100/85">
+              &quot;WreckMatch called me in minutes and handled everything with compassion and total
+              professionalism. I finally felt protected.&quot; - Recent Client
+            </p>
+          </div>
         </section>
 
         <section>
-          <Card className="border-neutral-800 bg-neutral-900/80 text-white shadow-2xl">
-            <CardHeader className="space-y-3">
-              <CardTitle className="text-xl font-bold">Free Case Check</CardTitle>
-              <Progress value={progressValue} className="h-2 bg-neutral-800" />
-              <p className="text-sm text-neutral-400">
-                Question {step + 1} of {steps.length}
+          <Card className="border-rose-300/20 bg-[#1f1113]/85 text-white shadow-[0_16px_50px_rgba(0,0,0,0.45)] backdrop-blur-sm">
+            <CardHeader className="space-y-4 pb-3">
+              <CardTitle className="text-2xl font-semibold text-rose-50">Private Case Review</CardTitle>
+              <Progress value={progressValue} className="h-2 bg-rose-950/70" />
+              <p className="text-sm text-rose-100/80">
+                Step {step + 1} of {stepLabels.length}
               </p>
             </CardHeader>
-            <CardContent className="space-y-5">
-              <p className="text-lg font-semibold">{steps[step]}</p>
+            <CardContent className="space-y-6 pb-7">
+              <p className="text-lg font-medium text-rose-50">{stepLabels[step]}</p>
 
               {step === 0 && (
+                <Input
+                  value={formData.firstName}
+                  onChange={(event) =>
+                    setFormData((prev) => ({ ...prev, firstName: event.target.value }))
+                  }
+                  placeholder="Enter your first name"
+                  className="h-12 border-rose-200/20 bg-[#120c0d] text-white placeholder:text-rose-100/40"
+                />
+              )}
+
+              {step === 1 && (
+                <Input
+                  value={formData.lastName}
+                  onChange={(event) =>
+                    setFormData((prev) => ({ ...prev, lastName: event.target.value }))
+                  }
+                  placeholder="Enter your last name"
+                  className="h-12 border-rose-200/20 bg-[#120c0d] text-white placeholder:text-rose-100/40"
+                />
+              )}
+
+              {step === 2 && (
+                <Input
+                  type="email"
+                  value={formData.email}
+                  onChange={(event) =>
+                    setFormData((prev) => ({ ...prev, email: event.target.value }))
+                  }
+                  placeholder="name@email.com"
+                  className="h-12 border-rose-200/20 bg-[#120c0d] text-white placeholder:text-rose-100/40"
+                />
+              )}
+
+              {step === 3 && (
+                <Input
+                  type="tel"
+                  value={formData.preContactPhone}
+                  onChange={(event) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      preContactPhone: event.target.value,
+                      phone: prev.phone || event.target.value,
+                    }))
+                  }
+                  placeholder="(555) 123-4567"
+                  className="h-12 border-rose-200/20 bg-[#120c0d] text-white placeholder:text-rose-100/40"
+                />
+              )}
+
+              {step === 4 && (
                 <Select
                   value={formData.accidentTime}
                   onValueChange={(value) =>
                     setFormData((prev) => ({ ...prev, accidentTime: value ?? "" }))
                   }
                 >
-                  <SelectTrigger className="h-11 w-full border-neutral-700 bg-neutral-950 text-white">
+                  <SelectTrigger className="h-12 w-full border-rose-200/20 bg-[#120c0d] text-white">
                     <SelectValue placeholder="Select timeline" />
                   </SelectTrigger>
                   <SelectContent>
@@ -370,25 +473,25 @@ export default function Home() {
                 </Select>
               )}
 
-              {step === 1 && (
+              {step === 5 && (
                 <Input
                   value={formData.cityState}
                   onChange={(event) =>
                     setFormData((prev) => ({ ...prev, cityState: event.target.value }))
                   }
-                  placeholder="Enter city and state (e.g., Boston, MA)"
-                  className="h-11 border-neutral-700 bg-neutral-950 text-white placeholder:text-neutral-500"
+                  placeholder="City, State (e.g., Boston, MA)"
+                  className="h-12 border-rose-200/20 bg-[#120c0d] text-white placeholder:text-rose-100/40"
                 />
               )}
 
-              {step === 2 && (
+              {step === 6 && (
                 <Select
                   value={formData.accidentType}
                   onValueChange={(value) =>
                     setFormData((prev) => ({ ...prev, accidentType: value ?? "" }))
                   }
                 >
-                  <SelectTrigger className="h-11 w-full border-neutral-700 bg-neutral-950 text-white">
+                  <SelectTrigger className="h-12 w-full border-rose-200/20 bg-[#120c0d] text-white">
                     <SelectValue placeholder="Select accident type" />
                   </SelectTrigger>
                   <SelectContent>
@@ -401,7 +504,7 @@ export default function Home() {
                 </Select>
               )}
 
-              {step === 3 && (
+              {step === 7 && (
                 <div className="space-y-4">
                   <Select
                     value={formData.injured}
@@ -413,7 +516,7 @@ export default function Home() {
                       }))
                     }
                   >
-                    <SelectTrigger className="h-11 w-full border-neutral-700 bg-neutral-950 text-white">
+                    <SelectTrigger className="h-12 w-full border-rose-200/20 bg-[#120c0d] text-white">
                       <SelectValue placeholder="Were you injured?" />
                     </SelectTrigger>
                     <SelectContent>
@@ -429,7 +532,7 @@ export default function Home() {
                         setFormData((prev) => ({ ...prev, injuryType: value ?? "" }))
                       }
                     >
-                      <SelectTrigger className="h-11 w-full border-neutral-700 bg-neutral-950 text-white">
+                      <SelectTrigger className="h-12 w-full border-rose-200/20 bg-[#120c0d] text-white">
                         <SelectValue placeholder="Select injury type" />
                       </SelectTrigger>
                       <SelectContent>
@@ -444,14 +547,14 @@ export default function Home() {
                 </div>
               )}
 
-              {step === 4 && (
+              {step === 8 && (
                 <Select
                   value={formData.medicalTreatment}
                   onValueChange={(value) =>
                     setFormData((prev) => ({ ...prev, medicalTreatment: value ?? "" }))
                   }
                 >
-                  <SelectTrigger className="h-11 w-full border-neutral-700 bg-neutral-950 text-white">
+                  <SelectTrigger className="h-12 w-full border-rose-200/20 bg-[#120c0d] text-white">
                     <SelectValue placeholder="Select treatment status" />
                   </SelectTrigger>
                   <SelectContent>
@@ -464,14 +567,14 @@ export default function Home() {
                 </Select>
               )}
 
-              {step === 5 && (
+              {step === 9 && (
                 <Select
                   value={formData.insurance}
                   onValueChange={(value) =>
                     setFormData((prev) => ({ ...prev, insurance: value ?? "" }))
                   }
                 >
-                  <SelectTrigger className="h-11 w-full border-neutral-700 bg-neutral-950 text-white">
+                  <SelectTrigger className="h-12 w-full border-rose-200/20 bg-[#120c0d] text-white">
                     <SelectValue placeholder="Select insurance status" />
                   </SelectTrigger>
                   <SelectContent>
@@ -484,14 +587,14 @@ export default function Home() {
                 </Select>
               )}
 
-              {step === 6 && (
+              {step === 10 && (
                 <Select
                   value={formData.hasAttorney}
                   onValueChange={(value) =>
                     setFormData((prev) => ({ ...prev, hasAttorney: value ?? "" }))
                   }
                 >
-                  <SelectTrigger className="h-11 w-full border-neutral-700 bg-neutral-950 text-white">
+                  <SelectTrigger className="h-12 w-full border-rose-200/20 bg-[#120c0d] text-white">
                     <SelectValue placeholder="Select yes or no" />
                   </SelectTrigger>
                   <SelectContent>
@@ -501,35 +604,35 @@ export default function Home() {
                 </Select>
               )}
 
-              {step === 7 && (
+              {step === 11 && (
                 <Input
                   type="tel"
                   value={formData.phone}
                   onChange={(event) =>
                     setFormData((prev) => ({ ...prev, phone: event.target.value }))
                   }
-                  placeholder="(555) 123-4567"
-                  className="h-11 border-neutral-700 bg-neutral-950 text-white placeholder:text-neutral-500"
+                  placeholder="Confirm best callback number"
+                  className="h-12 border-rose-200/20 bg-[#120c0d] text-white placeholder:text-rose-100/40"
                 />
               )}
 
               {stepError ? (
-                <p className="rounded-md border border-amber-700 bg-amber-950/30 p-3 text-sm text-amber-100">
+                <p className="rounded-xl border border-amber-700/70 bg-amber-950/35 p-3 text-sm text-amber-100">
                   {stepError}
                 </p>
               ) : null}
 
               {submitError ? (
-                <p className="rounded-md border border-red-800 bg-red-950/40 p-3 text-sm text-red-100">
+                <p className="rounded-xl border border-red-700/70 bg-red-950/35 p-3 text-sm text-red-100">
                   {submitError}
                 </p>
               ) : null}
 
-              <div className="flex items-center justify-between gap-3 pt-2">
+              <div className="flex items-center justify-between gap-3 pt-1">
                 <Button
                   type="button"
                   variant="outline"
-                  className="border-neutral-700 bg-transparent text-white hover:bg-neutral-800 hover:text-white"
+                  className="rounded-full border-rose-200/25 bg-transparent px-6 text-rose-50 hover:bg-rose-900/40 hover:text-rose-50"
                   onClick={handleBack}
                   disabled={step === 0 || isSubmitting}
                 >
@@ -537,13 +640,13 @@ export default function Home() {
                 </Button>
                 <Button
                   type="button"
-                  className="bg-red-600 text-white hover:bg-red-700"
+                  className="rounded-full bg-gradient-to-r from-red-700 to-red-600 px-7 text-white hover:from-red-600 hover:to-red-500"
                   onClick={handleNext}
                   disabled={!canContinue || isSubmitting}
                 >
                   {isSubmitting
                     ? "Submitting..."
-                    : step === steps.length - 1
+                    : step === stepLabels.length - 1
                       ? "Submit"
                       : "Next"}
                 </Button>
@@ -553,9 +656,30 @@ export default function Home() {
         </section>
       </main>
 
+      <section className="relative mx-auto grid w-full max-w-6xl gap-4 px-5 pb-14 sm:px-8 md:grid-cols-3">
+        <div className="rounded-2xl border border-rose-300/20 bg-black/35 p-5">
+          <p className="text-sm font-semibold text-amber-200">Trusted by Accident Victims</p>
+          <p className="mt-2 text-sm text-rose-100/85">
+            Premium intake support with immediate legal routing.
+          </p>
+        </div>
+        <div className="rounded-2xl border border-rose-300/20 bg-black/35 p-5">
+          <p className="text-sm font-semibold text-amber-200">Luxury-Level Client Care</p>
+          <p className="mt-2 text-sm text-rose-100/85">
+            Calm, clear, and reassuring guidance from first contact to attorney handoff.
+          </p>
+        </div>
+        <div className="rounded-2xl border border-rose-300/20 bg-black/35 p-5">
+          <p className="text-sm font-semibold text-amber-200">Maximum Recovery Focus</p>
+          <p className="mt-2 text-sm text-rose-100/85">
+            Built to capture critical details quickly and pursue the strongest compensation path.
+          </p>
+        </div>
+      </section>
+
       <Button
         type="button"
-        className="fixed right-4 bottom-4 z-40 bg-red-600 text-white shadow-lg hover:bg-red-700 md:hidden"
+        className="fixed right-4 bottom-4 z-40 rounded-full bg-gradient-to-r from-red-700 to-red-600 text-white shadow-xl hover:from-red-600 hover:to-red-500 md:hidden"
         onClick={() => openRetellWidget("callback")}
         disabled={isOpeningRetell}
       >
