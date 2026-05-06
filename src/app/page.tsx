@@ -258,18 +258,23 @@ export default function Home() {
   const [exitModalOpen, setExitModalOpen] = useState(false);
   const [headerElevated, setHeaderElevated] = useState(false);
   const [showFloatAva, setShowFloatAva] = useState(false);
-  const calcScrollAnchor = useRef<number | null>(null);
+  const calcScrollSnapshot = useRef<number | null>(null);
 
-  const preserveScrollForCalc = (update: () => void) => {
-    calcScrollAnchor.current = typeof window !== "undefined" ? window.scrollY : null;
-    update();
-  };
+  const captureCalcScroll = useCallback(() => {
+    if (typeof window === "undefined") return;
+    calcScrollSnapshot.current = window.scrollY;
+  }, []);
 
   useLayoutEffect(() => {
-    if (calcScrollAnchor.current === null) return;
-    const top = calcScrollAnchor.current;
-    calcScrollAnchor.current = null;
-    window.scrollTo({ top, left: 0, behavior: "auto" });
+    const y = calcScrollSnapshot.current;
+    if (y === null) return;
+    calcScrollSnapshot.current = null;
+    const fix = () => window.scrollTo({ top: y, left: 0, behavior: "auto" });
+    fix();
+    requestAnimationFrame(() => {
+      fix();
+      requestAnimationFrame(fix);
+    });
   }, [calc, calcResult]);
 
   useEffect(() => {
@@ -285,15 +290,47 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const key = "wreckmatch_exit_modal_v1";
+    const key = "wreckmatch_exit_modal_session_v4";
     if (sessionStorage.getItem(key)) return;
-    const onLeave = (e: MouseEvent) => {
-      if (e.clientY > 24) return;
-      sessionStorage.setItem(key, "1");
-      setExitModalOpen(true);
+
+    let leaveTimer: number | null = null;
+
+    const scrollDepthRatio = () => {
+      const el = document.documentElement;
+      const max = Math.max(1, el.scrollHeight - window.innerHeight);
+      return window.scrollY / max;
     };
+
+    const cancelLeaveTimer = () => {
+      if (leaveTimer) clearTimeout(leaveTimer);
+      leaveTimer = null;
+    };
+
+    const onLeave = (e: MouseEvent) => {
+      if (sessionStorage.getItem(key)) return;
+      if (e.clientY > 28) return;
+      if (scrollDepthRatio() < 0.3) return;
+
+      cancelLeaveTimer();
+      leaveTimer = window.setTimeout(() => {
+        leaveTimer = null;
+        if (sessionStorage.getItem(key)) return;
+        if (scrollDepthRatio() < 0.3) return;
+        sessionStorage.setItem(key, "1");
+        setExitModalOpen(true);
+      }, 800);
+    };
+
+    const onEnter = () => cancelLeaveTimer();
+
     document.documentElement.addEventListener("mouseleave", onLeave);
-    return () => document.documentElement.removeEventListener("mouseleave", onLeave);
+    document.documentElement.addEventListener("mouseenter", onEnter);
+
+    return () => {
+      cancelLeaveTimer();
+      document.documentElement.removeEventListener("mouseleave", onLeave);
+      document.documentElement.removeEventListener("mouseenter", onEnter);
+    };
   }, []);
 
   useEffect(() => {
@@ -454,20 +491,22 @@ export default function Home() {
 
   const runCalculator = (e?: ReactMouseEvent<HTMLButtonElement>) => {
     e?.preventDefault();
+    e?.stopPropagation();
+    captureCalcScroll();
     const keys = ["severity", "medBills", "workLoss", "fault", "crashType", "ongoing"] as const;
     for (const k of keys) {
       if (!calc[k]) return;
     }
     const { low, high } = estimateCaseRange(calc);
-    preserveScrollForCalc(() => setCalcResult({ low, high }));
+    setCalcResult({ low, high });
   };
 
   const resetCalculator = (e?: ReactMouseEvent<HTMLButtonElement>) => {
     e?.preventDefault();
-    preserveScrollForCalc(() => {
-      setCalc({ severity: "", medBills: "", workLoss: "", fault: "", crashType: "", ongoing: "" });
-      setCalcResult(null);
-    });
+    e?.stopPropagation();
+    captureCalcScroll();
+    setCalc({ severity: "", medBills: "", workLoss: "", fault: "", crashType: "", ongoing: "" });
+    setCalcResult(null);
   };
 
   const calcComplete = useMemo(
@@ -505,6 +544,7 @@ export default function Home() {
                   ? "border-[#c9a227]/60 bg-gradient-to-br from-[#fffdf6] via-amber-50/98 to-white shadow-[0_12px_40px_-14px_rgba(201,162,39,0.28)] ring-2 ring-amber-200/55"
                   : "border-slate-300/65 bg-white/98 hover:-translate-y-0.5 hover:border-[#c9a227]/45 hover:shadow-[0_16px_44px_-18px_rgba(15,23,42,0.14)]",
               )}
+              onPointerDownCapture={() => captureCalcScroll()}
             >
               <input
                 type="radio"
@@ -512,9 +552,11 @@ export default function Home() {
                 checked={value === o.id}
                 onChange={() => onChange(o.id)}
                 className="mt-1"
-                onFocus={(ev) =>
-                  (ev.target as HTMLInputElement).scrollIntoView({ block: "nearest", behavior: "auto" })
-                }
+                onPointerDownCapture={() => captureCalcScroll()}
+                onFocus={(ev) => {
+                  captureCalcScroll();
+                  (ev.target as HTMLInputElement).scrollIntoView({ block: "nearest", behavior: "auto" });
+                }}
               />
               <span className="text-slate-700">{o.label}</span>
             </label>
@@ -717,7 +759,11 @@ export default function Home() {
             </p>
           </div>
 
-          <Card className="relative mt-14 overflow-hidden rounded-[1.65rem] border border-white shadow-[0_36px_88px_-34px_rgba(15,23,42,0.28)] ring-1 ring-[#c9a227]/32 [overflow-anchor:none] sm:mt-20 sm:rounded-[1.85rem] sm:shadow-[0_40px_96px_-36px_rgba(15,23,42,0.2)]">
+          <Card
+            className="relative mt-14 overflow-hidden rounded-[1.65rem] border border-white shadow-[0_36px_88px_-34px_rgba(15,23,42,0.28)] ring-1 ring-[#c9a227]/32 [overflow-anchor:none] sm:mt-20 sm:rounded-[1.85rem] sm:shadow-[0_40px_96px_-36px_rgba(15,23,42,0.2)]"
+            onPointerDownCapture={captureCalcScroll}
+            onFocusCapture={captureCalcScroll}
+          >
             <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#d4af72]/70 to-transparent" />
             <CardHeader className="relative space-y-4 border-b border-slate-200/65 bg-gradient-to-br from-white via-[#fffdf9] to-[#faf6ee] px-6 pb-10 pt-10 sm:px-12 sm:pb-12 sm:pt-12">
               <CardTitle className="font-serif text-[1.75rem] font-medium tracking-tight text-slate-900 sm:text-3xl">
@@ -728,47 +774,48 @@ export default function Home() {
                 story. Consider this compass rose: orienting—not binding.
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-10 bg-gradient-to-b from-[#fefcf8] to-[#f2ebe1] px-6 pb-12 pt-10 [overflow-anchor:none] sm:space-y-14 sm:px-12 sm:pb-16 sm:pt-14">
+            <form noValidate className="contents" onSubmit={(event) => event.preventDefault()}>
+              <CardContent className="space-y-10 bg-gradient-to-b from-[#fefcf8] to-[#f2ebe1] px-6 pb-12 pt-10 [overflow-anchor:none] sm:space-y-14 sm:px-12 sm:pb-16 sm:pt-14">
               <OptionGroup
                 name="sev"
                 label="1. Injury description"
                 value={calc.severity}
-                onChange={(v) => preserveScrollForCalc(() => setCalc((c) => ({ ...c, severity: v })))}
+                onChange={(v) => setCalc((c) => ({ ...c, severity: v }))}
                 options={CALC_SEVERITY}
               />
               <OptionGroup
                 name="bills"
                 label="2. Medical expenses (rough estimate)"
                 value={calc.medBills}
-                onChange={(v) => preserveScrollForCalc(() => setCalc((c) => ({ ...c, medBills: v })))}
+                onChange={(v) => setCalc((c) => ({ ...c, medBills: v }))}
                 options={CALC_BILLS}
               />
               <OptionGroup
                 name="wk"
                 label="3. Lost income"
                 value={calc.workLoss}
-                onChange={(v) => preserveScrollForCalc(() => setCalc((c) => ({ ...c, workLoss: v })))}
+                onChange={(v) => setCalc((c) => ({ ...c, workLoss: v }))}
                 options={CALC_WORK}
               />
               <OptionGroup
                 name="flt"
                 label="4. Fault clarity"
                 value={calc.fault}
-                onChange={(v) => preserveScrollForCalc(() => setCalc((c) => ({ ...c, fault: v })))}
+                onChange={(v) => setCalc((c) => ({ ...c, fault: v }))}
                 options={CALC_FAULT}
               />
               <OptionGroup
                 name="cr"
                 label="5. Severity of collision"
                 value={calc.crashType}
-                onChange={(v) => preserveScrollForCalc(() => setCalc((c) => ({ ...c, crashType: v })))}
+                onChange={(v) => setCalc((c) => ({ ...c, crashType: v }))}
                 options={CALC_CRASH}
               />
               <OptionGroup
                 name="on"
                 label="6. Ongoing treatment"
                 value={calc.ongoing}
-                onChange={(v) => preserveScrollForCalc(() => setCalc((c) => ({ ...c, ongoing: v })))}
+                onChange={(v) => setCalc((c) => ({ ...c, ongoing: v }))}
                 options={CALC_ONGOING}
               />
 
@@ -780,7 +827,11 @@ export default function Home() {
                 <Button
                   type="button"
                   disabled={!calcComplete}
-                  onClick={runCalculator}
+                  onClick={(ev) => {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                    runCalculator(ev);
+                  }}
                   className="h-12 flex-1 rounded-2xl bg-gradient-to-b from-[#1e293b] to-[#0f172a] text-[0.9rem] font-semibold text-white shadow-[0_14px_36px_-10px_rgba(15,23,42,0.48)] transition-all duration-300 hover:-translate-y-px hover:from-[#334155] hover:to-[#1e293b] hover:shadow-xl disabled:pointer-events-none disabled:translate-y-0 disabled:opacity-35 sm:h-14 sm:text-[0.9375rem]"
                 >
                   Reveal range
@@ -788,7 +839,11 @@ export default function Home() {
                 <Button
                   type="button"
                   variant="outline"
-                  onClick={resetCalculator}
+                  onClick={(ev) => {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                    resetCalculator(ev);
+                  }}
                   className="h-12 shrink-0 rounded-2xl border-slate-200 bg-white px-6 font-medium text-slate-800 shadow-md transition hover:border-[#c9a227]/55 hover:bg-amber-50/55 hover:shadow-lg sm:h-14 sm:px-8"
                 >
                   Clear
@@ -817,7 +872,11 @@ export default function Home() {
                   <div className="mt-8 flex flex-col justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
                     <Button
                       type="button"
-                      onClick={openRetellWidget}
+                      onClick={(ev) => {
+                        ev.preventDefault();
+                        ev.stopPropagation();
+                        openRetellWidget();
+                      }}
                       className="h-12 rounded-2xl bg-gradient-to-b from-[#1e293b] to-[#0b1220] text-[0.9rem] font-semibold text-white shadow-[0_16px_40px_-12px_rgba(15,23,42,0.45)] transition-all duration-300 hover:-translate-y-px hover:shadow-xl sm:h-14 sm:px-9 sm:text-[0.95rem]"
                     >
                       <MessageSquare />
@@ -835,7 +894,8 @@ export default function Home() {
                   </div>
                 </div>
               ) : null}
-            </CardContent>
+              </CardContent>
+            </form>
           </Card>
         </div>
       </section>
@@ -1264,13 +1324,13 @@ export default function Home() {
             >
               <X className="size-5" />
             </button>
-            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-amber-800/85">Before you go</p>
-            <h2 id="exit-modal-title" className="mt-4 text-[1.65rem] font-semibold leading-snug tracking-[-0.02em] text-slate-900 sm:text-[1.85rem]">
-              Leaving already? You don&apos;t have to go through this alone.
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-amber-900/78">Whenever you&apos;re ready</p>
+            <h2 id="exit-modal-title" className="mt-4 text-[1.58rem] font-semibold leading-snug tracking-[-0.02em] text-slate-900 sm:text-[1.72rem]">
+              Taking a pause is okay
             </h2>
-            <p className="mt-5 text-[0.95rem] leading-[1.65] text-slate-600">
-              However today feels—we are steady beside you. A calm specialist—or Ava—can walk you through options in plain language. Still no pressure,
-              still no cost just to talk.
+            <p className="mt-5 text-[0.95rem] leading-[1.72] text-slate-600">
+              If today feels overwhelming, you don&apos;t have to carry it silently. Ava or one of our calm specialists can
+              listen—with zero pressure and nothing owed for a thoughtful conversation whenever you&apos;re ready to return.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <Button
@@ -1299,9 +1359,9 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setExitModalOpen(false)}
-              className="mt-8 w-full text-center text-sm font-medium text-slate-500 underline-offset-4 transition hover:text-slate-700 hover:underline"
+              className="mt-8 w-full text-center text-sm font-medium text-slate-600 underline-offset-4 transition hover:text-slate-800 hover:underline"
             >
-              Continue browsing
+              Close—for now · we&apos;ll be here when you need us
             </button>
           </div>
         </div>
