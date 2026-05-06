@@ -2,7 +2,15 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  type MouseEvent as ReactMouseEvent,
+} from "react";
 import {
   ArrowRight,
   BadgeCheck,
@@ -90,14 +98,14 @@ const INTRO_STEPS = [
 ];
 
 const INTAKE_WHISPER: Record<number, string> = {
-  1: "Rough timing helps us honor urgency—never to rush you.",
+  1: "You’re safe here. Rough timing helps us honor urgency—never to rush you.",
   2: "Exact street address not required—city and state guide us gently.",
   3: "Choose what feels closest. Everything can be clarified later, calmly.",
   4: "Your symptoms are valid whichever box you tap.",
   5: "Whether you visited the ER yesterday or haven’t gone yet—you are still deserving of clarity.",
   6: "Insurance riddles are common; decoding them together is exactly what we do.",
   7: "Shopping for counsel is prudent. Exploring options builds confidence.",
-  8: "We reach out thoughtfully—often within minutes—with warmth, not hustle.",
+  8: "Almost home. We’ve got you—we reach out thoughtfully, often within minutes, with warmth not hustle.",
 };
 
 const ACCIDENT_TIMES = [
@@ -250,6 +258,19 @@ export default function Home() {
   const [exitModalOpen, setExitModalOpen] = useState(false);
   const [headerElevated, setHeaderElevated] = useState(false);
   const [showFloatAva, setShowFloatAva] = useState(false);
+  const calcScrollAnchor = useRef<number | null>(null);
+
+  const preserveScrollForCalc = (update: () => void) => {
+    calcScrollAnchor.current = typeof window !== "undefined" ? window.scrollY : null;
+    update();
+  };
+
+  useLayoutEffect(() => {
+    if (calcScrollAnchor.current === null) return;
+    const top = calcScrollAnchor.current;
+    calcScrollAnchor.current = null;
+    window.scrollTo({ top, left: 0, behavior: "auto" });
+  }, [calc, calcResult]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -431,18 +452,22 @@ export default function Home() {
     }
   };
 
-  const runCalculator = () => {
+  const runCalculator = (e?: ReactMouseEvent<HTMLButtonElement>) => {
+    e?.preventDefault();
     const keys = ["severity", "medBills", "workLoss", "fault", "crashType", "ongoing"] as const;
     for (const k of keys) {
       if (!calc[k]) return;
     }
     const { low, high } = estimateCaseRange(calc);
-    setCalcResult({ low, high });
+    preserveScrollForCalc(() => setCalcResult({ low, high }));
   };
 
-  const resetCalculator = () => {
-    setCalc({ severity: "", medBills: "", workLoss: "", fault: "", crashType: "", ongoing: "" });
-    setCalcResult(null);
+  const resetCalculator = (e?: ReactMouseEvent<HTMLButtonElement>) => {
+    e?.preventDefault();
+    preserveScrollForCalc(() => {
+      setCalc({ severity: "", medBills: "", workLoss: "", fault: "", crashType: "", ongoing: "" });
+      setCalcResult(null);
+    });
   };
 
   const calcComplete = useMemo(
@@ -452,7 +477,7 @@ export default function Home() {
   );
 
   const selectClass =
-    "h-14 w-full rounded-2xl border border-slate-200/90 bg-white/95 px-4 text-sm text-slate-800 shadow-sm outline-none transition-all duration-200 hover:border-amber-200/80 hover:shadow-md focus:border-amber-400/70 focus:ring-4 focus:ring-amber-100/60";
+    "h-12 w-full rounded-2xl border border-slate-200/90 bg-white/95 px-3.5 text-sm text-slate-800 shadow-sm outline-none transition-all duration-200 hover:border-amber-200/80 hover:shadow-md focus:border-amber-400/70 focus:ring-[3px] focus:ring-amber-100/60 sm:h-14 sm:px-4";
 
   function OptionGroup({
     label,
@@ -468,20 +493,29 @@ export default function Home() {
     name: string;
   }) {
     return (
-      <div className="space-y-4">
-        <p className="text-sm font-medium tracking-wide text-slate-800">{label}</p>
-        <div className="grid gap-3 sm:grid-cols-2">
+      <div className="space-y-3 sm:space-y-4 [overflow-anchor:none]">
+        <p className="text-sm font-medium tracking-wide text-slate-900">{label}</p>
+        <div className="grid gap-2.5 sm:grid-cols-2 sm:gap-3">
           {options.map((o) => (
             <label
               key={o.id}
               className={cn(
-                "group flex cursor-pointer items-start gap-3 rounded-2xl border px-4 py-4 text-sm leading-relaxed shadow-sm transition-all duration-200",
+                "group flex cursor-pointer items-start gap-2.5 rounded-2xl border px-3.5 py-3.5 text-sm leading-relaxed shadow-sm transition-all duration-300 sm:gap-3 sm:px-4 sm:py-4",
                 value === o.id
-                  ? "border-[#d4af72]/55 bg-gradient-to-br from-[#fffdf6] via-amber-50/98 to-white shadow-[0_10px_38px_-16px_rgba(212,175,114,0.35)] ring-2 ring-amber-200/45"
-                  : "border-slate-200/70 bg-white/98 hover:-translate-y-1 hover:border-[#d4af72]/35 hover:shadow-[0_14px_40px_-20px_rgba(15,23,42,0.12)]",
+                  ? "border-[#c9a227]/60 bg-gradient-to-br from-[#fffdf6] via-amber-50/98 to-white shadow-[0_12px_40px_-14px_rgba(201,162,39,0.28)] ring-2 ring-amber-200/55"
+                  : "border-slate-300/65 bg-white/98 hover:-translate-y-0.5 hover:border-[#c9a227]/45 hover:shadow-[0_16px_44px_-18px_rgba(15,23,42,0.14)]",
               )}
             >
-              <input type="radio" name={name} checked={value === o.id} onChange={() => onChange(o.id)} className="mt-1" />
+              <input
+                type="radio"
+                name={name}
+                checked={value === o.id}
+                onChange={() => onChange(o.id)}
+                className="mt-1"
+                onFocus={(ev) =>
+                  (ev.target as HTMLInputElement).scrollIntoView({ block: "nearest", behavior: "auto" })
+                }
+              />
               <span className="text-slate-700">{o.label}</span>
             </label>
           ))}
@@ -497,16 +531,16 @@ export default function Home() {
           __html: `@keyframes wm-ken{0%{transform:scale(1.05)translate3d(0,0,0)}100%{transform:scale(1.11)translate3d(-0.75%,0.35%,0)}}@keyframes wm-badge{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}@keyframes wm-fade-up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}@keyframes wm-gold-line{0%,100%{opacity:.55}50%{opacity:1}}.wm-ken{animation:wm-ken 32s ease-in-out infinite alternate}.wm-badge-motion{animation:wm-badge 6.5s ease-in-out infinite}.wm-result-rise{animation:wm-fade-up .75s cubic-bezier(.22,1,.36,1) both}.wm-gold-line{animation:wm-gold-line 4s ease-in-out infinite}@media (prefers-reduced-motion:reduce){.wm-ken,.wm-badge-motion,.wm-result-rise,.wm-gold-line{animation:none!important}.wm-ken{transform:scale(1.06)}}`,
         }}
       />
-      <div className="min-h-screen bg-[#f4efe6] text-slate-900 antialiased selection:bg-amber-200/45 selection:text-slate-900">
+      <div className="min-h-screen bg-[#f2ebe1] text-slate-950 antialiased selection:bg-amber-200/50 selection:text-slate-900">
       <header
         className={cn(
           "sticky top-0 z-40 border-b backdrop-blur-xl transition-[box-shadow,border-color,background-color] duration-300",
           headerElevated
-            ? "border-slate-200/60 bg-[#f4efe6]/94 shadow-[0_12px_40px_-14px_rgba(15,23,42,0.14)]"
-            : "border-transparent bg-[#f4efe6]/75",
+            ? "border-slate-300/55 bg-[#f2ebe1]/95 shadow-[0_14px_48px_-12px_rgba(15,23,42,0.16)]"
+            : "border-transparent bg-[#f2ebe1]/78",
         )}
       >
-        <div className="mx-auto flex max-w-[72rem] items-center justify-between gap-6 px-6 py-5 sm:px-10 lg:px-12">
+        <div className="mx-auto flex max-w-[72rem] items-center justify-between gap-3 px-5 py-3.5 sm:gap-6 sm:px-10 sm:py-5 lg:px-12">
           <div className="flex items-center gap-3 font-semibold tracking-tight text-slate-900">
             <span className="flex size-9 items-center justify-center rounded-xl bg-gradient-to-br from-amber-100 to-white shadow-inner ring-1 ring-amber-200/60">
               <Shield className="size-5 text-[#a16207]" aria-hidden />
@@ -529,8 +563,8 @@ export default function Home() {
               className="inline-flex items-center gap-2 rounded-full border border-slate-200/90 bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 shadow-sm transition-all duration-200 hover:-translate-y-px hover:border-amber-200/90 hover:shadow-md"
             >
               <Phone className="size-4 text-amber-800" />
-              <span className="hidden lg:inline">{SUPPORT_PHONE_DISPLAY}</span>
-              <span className="lg:hidden">Call</span>
+              <span className="hidden sm:inline">{SUPPORT_PHONE_DISPLAY}</span>
+              <span className="sm:hidden">Call</span>
             </a>
           </div>
         </div>
@@ -540,8 +574,8 @@ export default function Home() {
         <div className="relative min-h-[92vh] w-full overflow-hidden lg:min-h-[93vh]">
           <div className="pointer-events-none absolute inset-0 z-0 wm-ken">
             <Image
-              src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=2400&q=88"
-              alt="Warm, professional advocates offering calm guidance—hope after difficulty"
+              src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=2400&q=88"
+              alt="Warm, hopeful support and human care after an accident"
               fill
               priority
               className="object-cover object-[center_30%]"
@@ -553,7 +587,7 @@ export default function Home() {
           <div className="pointer-events-none absolute inset-0 z-[3] bg-[radial-gradient(ellipse_at_20%_20%,rgba(212,175,114,0.14),transparent_45%)]" />
           <div className="pointer-events-none absolute inset-0 z-[3] bg-[radial-gradient(ellipse_at_80%_80%,rgba(251,191,36,0.08),transparent_50%)]" />
 
-          <div className="relative z-10 mx-auto flex min-h-[92vh] max-w-5xl flex-col justify-center px-6 py-28 sm:px-10 lg:min-h-[93vh] lg:max-w-[76rem] lg:px-16 lg:py-36">
+          <div className="relative z-10 mx-auto flex min-h-[92vh] max-w-5xl flex-col justify-center px-5 pb-24 pt-20 sm:px-10 sm:pb-28 sm:pt-28 lg:min-h-[93vh] lg:max-w-[76rem] lg:px-20 lg:pb-36 lg:pt-36">
             <div className="mb-10 inline-flex w-fit items-center gap-2 rounded-full border border-white/25 bg-white/[0.07] px-6 py-2.5 text-[0.62rem] font-semibold uppercase tracking-[0.32em] text-amber-100/95 shadow-[0_8px_32px_-12px_rgba(0,0,0,0.35)] backdrop-blur-xl">
               <Sparkles className="size-3.5 text-amber-200 wm-gold-line" />
               Boutique care · National reach · Private by design
@@ -565,8 +599,11 @@ export default function Home() {
               </span>
             </h1>
             <p className="mt-11 max-w-2xl text-pretty font-light leading-[1.75] text-slate-100/95 text-lg sm:max-w-3xl sm:text-xl lg:text-[1.45rem] lg:leading-[1.72]">
-              We built WreckMatch for the moment your world feels loud: a composed team, clear language, and advocates who
-              treat you like a person—not a file number. When you are ready, we move with quiet confidence beside you.
+              Network counsel have recovered <span className="font-semibold text-white">$1 Billion+</span> for families
+              like yours. You can be personally matched in about <span className="font-semibold text-white">60 seconds</span>
+              {" "}
+              <span className="text-amber-100/95">No Win, No Fee</span> when a lawyer takes your case, and{" "}
+              <span className="text-amber-100/95">Ava is here 24/7</span>—calm answers the moment anxiety spikes.
             </p>
             <div className="mt-9 flex flex-wrap gap-2.5 sm:mt-10 sm:gap-3">
               {(
@@ -587,12 +624,12 @@ export default function Home() {
                 </span>
               ))}
             </div>
-            <div className="mt-14 flex max-w-xl flex-col gap-5 sm:max-w-none sm:flex-row sm:flex-wrap lg:mt-16 lg:gap-6">
+            <div className="mt-10 flex max-w-xl flex-col gap-3.5 sm:mt-14 sm:max-w-none sm:flex-row sm:flex-wrap sm:gap-5 lg:mt-16 lg:gap-6">
               <a
                 href="#intake"
                 className={cn(
                   buttonVariants({ size: "lg" }),
-                  "inline-flex min-h-[3.75rem] items-center justify-center rounded-2xl bg-gradient-to-b from-[#e8c87a] via-amber-400 to-[#c9953a] px-11 text-[1.05rem] font-semibold text-slate-950 shadow-[0_16px_50px_-12px_rgba(212,175,72,0.55)] ring-1 ring-white/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_60px_-10px_rgba(245,200,105,0.45)] active:translate-y-0",
+                  "inline-flex min-h-[3.25rem] items-center justify-center rounded-2xl bg-gradient-to-b from-[#e8c87a] via-amber-400 to-[#c9953a] px-8 text-[0.95rem] font-semibold text-slate-950 shadow-[0_14px_44px_-10px_rgba(212,175,72,0.5)] ring-1 ring-white/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_56px_-8px_rgba(245,200,105,0.42)] active:translate-y-0 sm:min-h-[3.75rem] sm:px-11 sm:text-[1.05rem]",
                 )}
               >
                 Begin your free review
@@ -600,13 +637,13 @@ export default function Home() {
               </a>
               <a
                 href={telHref}
-                className="inline-flex min-h-[3.85rem] min-w-0 flex-1 touch-manipulation items-center justify-center gap-3 rounded-2xl border-2 border-amber-200/55 bg-white/[0.12] px-10 text-[1.05rem] font-semibold tabular-nums text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-amber-200/80 hover:bg-white/[0.18] hover:shadow-2xl sm:min-h-[4rem] sm:min-w-[18.5rem] sm:flex-initial sm:text-[1.125rem]"
+                className="inline-flex min-h-[3.35rem] min-w-0 flex-1 touch-manipulation items-center justify-center gap-2.5 rounded-2xl border-2 border-amber-200/55 bg-white/[0.14] px-7 text-[0.92rem] font-semibold tabular-nums text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-amber-200/85 hover:bg-white/[0.2] hover:shadow-2xl sm:min-h-[4rem] sm:min-w-[18.5rem] sm:gap-3 sm:px-10 sm:text-[1.125rem]"
               >
-                <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-amber-200 to-amber-400 text-slate-900 shadow-inner ring-2 ring-white/20">
-                  <Phone className="size-6" aria-hidden />
+                <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-amber-200 to-amber-400 text-slate-900 shadow-inner ring-2 ring-white/25 sm:size-12">
+                  <Phone className="size-5 sm:size-6" aria-hidden />
                 </span>
                 <span className="flex flex-col items-start gap-0.5 text-left">
-                  <span className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-amber-100/90">Speak live now</span>
+                  <span className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-amber-100/95 sm:text-[0.7rem] sm:tracking-[0.2em]">Speak live now</span>
                   <span>{SUPPORT_PHONE_DISPLAY}</span>
                 </span>
               </a>
@@ -615,16 +652,16 @@ export default function Home() {
                 onClick={openRetellWidget}
                 className={cn(
                   buttonVariants({ size: "lg", variant: "secondary" }),
-                  "inline-flex min-h-[3.75rem] flex-1 items-center justify-center gap-2 rounded-2xl border border-white/12 bg-[#071018]/55 px-10 text-[1.03rem] font-semibold text-amber-50 shadow-[0_16px_50px_-20px_rgba(0,0,0,0.55)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-amber-200/35 hover:bg-[#0a1822]/70 sm:flex-initial sm:min-w-[17.5rem]",
+                  "inline-flex min-h-[3.25rem] flex-1 items-center justify-center gap-2 rounded-2xl border border-white/14 bg-[#061016]/62 px-8 text-[0.92rem] font-semibold text-amber-50 shadow-[0_14px_48px_-18px_rgba(0,0,0,0.58)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-[#0a1822]/74 sm:flex-initial sm:min-h-[3.75rem] sm:min-w-[17.5rem] sm:px-10 sm:text-[1.03rem]",
                 )}
               >
-                <MessageSquare className="size-5 text-amber-200" />
+                <MessageSquare className="size-[1.15rem] text-amber-200 sm:size-5" />
                 Speak with Ava 24/7
               </button>
             </div>
-            <p className="mt-14 max-w-xl text-sm font-light leading-[1.8] text-slate-300/95 sm:max-w-2xl sm:text-[0.95rem]">
-              No obligation. No ambush scripts. Quiet expertise for the moments that shake you—and a promise to treat your
-              story with the dignity it deserves.
+            <p className="mt-10 max-w-xl text-sm font-light leading-[1.85] text-slate-300/96 sm:mt-14 sm:max-w-2xl sm:text-[0.95rem]">
+              You&apos;re safe here. No obligation, no ambush scripts—we&apos;ve got you with quiet expertise and dignity
+              for your story.
             </p>
           </div>
         </div>
@@ -662,27 +699,27 @@ export default function Home() {
 
       <section
         id="calculator"
-        className="relative scroll-mt-28 overflow-hidden border-t border-slate-200/45 bg-gradient-to-b from-[#ebe4d8] via-[#f4efe6] to-[#f0e9df] py-28 sm:py-32 lg:py-36"
+        className="relative scroll-mt-24 overflow-hidden border-t border-slate-300/40 bg-gradient-to-b from-[#e8e1d6] via-[#f2ebe1] to-[#ebe3d8] py-24 sm:scroll-mt-28 sm:py-32 lg:py-40"
       >
-        <div className="pointer-events-none absolute right-[-20%] top-[-30%] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(212,175,114,0.12),transparent_68%)]" />
-        <div className="mx-auto max-w-3xl px-6 sm:max-w-[41rem] sm:px-10 lg:px-14">
+        <div className="pointer-events-none absolute right-[-20%] top-[-30%] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(201,162,39,0.14),transparent_68%)]" />
+        <div className="mx-auto max-w-3xl px-4 sm:max-w-[41rem] sm:px-10 lg:px-16">
           <div className="text-center">
-            <p className="inline-flex items-center gap-2 font-serif text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-amber-900/85">
-              <Calculator className="size-[1.08rem] text-[#92400e]" />
+            <p className="inline-flex items-center gap-2 font-serif text-[0.62rem] font-semibold uppercase tracking-[0.34em] text-amber-950/88 sm:text-[0.65rem] sm:tracking-[0.35em]">
+              <Calculator className="size-[1.05rem] text-[#7c2d12] sm:size-[1.08rem]" />
               Case value atelier
             </p>
-            <h2 className="mt-8 text-balance font-serif text-[2.15rem] font-medium tracking-tight text-slate-900 sm:text-[2.85rem] lg:text-[3.1rem]">
+            <h2 className="mt-8 text-balance font-serif text-[2rem] font-medium tracking-tight text-slate-950 sm:text-[2.85rem] lg:mt-10 lg:text-[3.15rem]">
               Six discerning questions—not a courtroom
             </h2>
-            <p className="mx-auto mt-7 max-w-xl text-pretty text-[1.05rem] leading-[1.8] text-slate-600 sm:max-w-2xl sm:text-[1.12rem]">
-              An illustrative band—not a verdict—crafted to settle your mind before Ava or distinguished counsel deepen the
-              picture. Luxuriously optional; never an interrogation.
+            <p className="mx-auto mt-6 max-w-xl text-pretty text-[0.98rem] leading-[1.82] text-slate-700 sm:mt-8 sm:max-w-2xl sm:text-[1.12rem] sm:leading-[1.8]">
+              Breathe—you&apos;re not alone. An illustrative band, not a verdict, to steadier ground before Ava or counsel go
+              deeper. Optional, humane, unrushed.
             </p>
           </div>
 
-          <Card className="relative mt-20 overflow-hidden rounded-[1.75rem] border border-white/95 bg-white/90 shadow-[0_32px_80px_-32px_rgba(15,23,42,0.28)] ring-1 ring-[#d4af72]/25">
+          <Card className="relative mt-14 overflow-hidden rounded-[1.65rem] border border-white shadow-[0_36px_88px_-34px_rgba(15,23,42,0.28)] ring-1 ring-[#c9a227]/32 [overflow-anchor:none] sm:mt-20 sm:rounded-[1.85rem] sm:shadow-[0_40px_96px_-36px_rgba(15,23,42,0.2)]">
             <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#d4af72]/70 to-transparent" />
-            <CardHeader className="relative space-y-4 border-b border-slate-100/80 bg-gradient-to-br from-white via-[#fffdf9] to-[#faf6ee] px-9 pb-12 pt-12 sm:px-12">
+            <CardHeader className="relative space-y-4 border-b border-slate-200/65 bg-gradient-to-br from-white via-[#fffdf9] to-[#faf6ee] px-6 pb-10 pt-10 sm:px-12 sm:pb-12 sm:pt-12">
               <CardTitle className="font-serif text-[1.75rem] font-medium tracking-tight text-slate-900 sm:text-3xl">
                 Illustrative valuation band
               </CardTitle>
@@ -691,56 +728,60 @@ export default function Home() {
                 story. Consider this compass rose: orienting—not binding.
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-14 bg-gradient-to-b from-[#fefcf8] to-[#f4efe6] px-9 pb-14 pt-14 sm:px-12">
+            <CardContent className="space-y-10 bg-gradient-to-b from-[#fefcf8] to-[#f2ebe1] px-6 pb-12 pt-10 [overflow-anchor:none] sm:space-y-14 sm:px-12 sm:pb-16 sm:pt-14">
               <OptionGroup
                 name="sev"
                 label="1. Injury description"
                 value={calc.severity}
-                onChange={(v) => setCalc((c) => ({ ...c, severity: v }))}
+                onChange={(v) => preserveScrollForCalc(() => setCalc((c) => ({ ...c, severity: v })))}
                 options={CALC_SEVERITY}
               />
               <OptionGroup
                 name="bills"
                 label="2. Medical expenses (rough estimate)"
                 value={calc.medBills}
-                onChange={(v) => setCalc((c) => ({ ...c, medBills: v }))}
+                onChange={(v) => preserveScrollForCalc(() => setCalc((c) => ({ ...c, medBills: v })))}
                 options={CALC_BILLS}
               />
               <OptionGroup
                 name="wk"
                 label="3. Lost income"
                 value={calc.workLoss}
-                onChange={(v) => setCalc((c) => ({ ...c, workLoss: v }))}
+                onChange={(v) => preserveScrollForCalc(() => setCalc((c) => ({ ...c, workLoss: v })))}
                 options={CALC_WORK}
               />
               <OptionGroup
                 name="flt"
                 label="4. Fault clarity"
                 value={calc.fault}
-                onChange={(v) => setCalc((c) => ({ ...c, fault: v }))}
+                onChange={(v) => preserveScrollForCalc(() => setCalc((c) => ({ ...c, fault: v })))}
                 options={CALC_FAULT}
               />
               <OptionGroup
                 name="cr"
                 label="5. Severity of collision"
                 value={calc.crashType}
-                onChange={(v) => setCalc((c) => ({ ...c, crashType: v }))}
+                onChange={(v) => preserveScrollForCalc(() => setCalc((c) => ({ ...c, crashType: v })))}
                 options={CALC_CRASH}
               />
               <OptionGroup
                 name="on"
                 label="6. Ongoing treatment"
                 value={calc.ongoing}
-                onChange={(v) => setCalc((c) => ({ ...c, ongoing: v }))}
+                onChange={(v) => preserveScrollForCalc(() => setCalc((c) => ({ ...c, ongoing: v })))}
                 options={CALC_ONGOING}
               />
 
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-stretch">
+              <p className="text-center text-[0.85rem] leading-relaxed text-slate-600 sm:text-[0.9rem]">
+                You&apos;re not alone in this—we&apos;ll hold this space gently while numbers find their shape.
+              </p>
+
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-stretch sm:gap-4">
                 <Button
                   type="button"
                   disabled={!calcComplete}
                   onClick={runCalculator}
-                  className="h-14 flex-1 rounded-2xl bg-gradient-to-b from-[#1e293b] to-[#0f172a] text-[0.9375rem] font-semibold text-white shadow-[0_12px_32px_-8px_rgba(15,23,42,0.45)] transition-all duration-200 hover:-translate-y-0.5 hover:from-[#334155] hover:to-[#1e293b] disabled:pointer-events-none disabled:translate-y-0 disabled:opacity-35"
+                  className="h-12 flex-1 rounded-2xl bg-gradient-to-b from-[#1e293b] to-[#0f172a] text-[0.9rem] font-semibold text-white shadow-[0_14px_36px_-10px_rgba(15,23,42,0.48)] transition-all duration-300 hover:-translate-y-px hover:from-[#334155] hover:to-[#1e293b] hover:shadow-xl disabled:pointer-events-none disabled:translate-y-0 disabled:opacity-35 sm:h-14 sm:text-[0.9375rem]"
                 >
                   Reveal range
                 </Button>
@@ -748,14 +789,14 @@ export default function Home() {
                   type="button"
                   variant="outline"
                   onClick={resetCalculator}
-                  className="h-14 shrink-0 rounded-2xl border-slate-200 bg-white px-8 font-medium text-slate-700 shadow-sm transition hover:border-amber-200/70 hover:bg-amber-50/50 hover:shadow"
+                  className="h-12 shrink-0 rounded-2xl border-slate-200 bg-white px-6 font-medium text-slate-800 shadow-md transition hover:border-[#c9a227]/55 hover:bg-amber-50/55 hover:shadow-lg sm:h-14 sm:px-8"
                 >
                   Clear
                 </Button>
               </div>
 
               {calcResult ? (
-                <div className="wm-result-rise rounded-[1.5rem] border border-[#d4af72]/40 bg-gradient-to-br from-[#fffaf0] via-white to-[#fffdfb] p-11 text-center shadow-[inset_0_3px_0_rgba(255,255,255,0.85),0_28px_60px_-32px_rgba(212,175,114,0.22)] sm:p-12">
+                <div className="wm-result-rise rounded-[1.35rem] border border-[#c9a227]/42 bg-gradient-to-br from-[#fffaf2] via-white to-[#fffdfb] px-8 py-9 text-center shadow-[inset_0_2px_0_rgba(255,255,255,0.9),0_32px_64px_-28px_rgba(201,162,39,0.22)] transition-shadow duration-300 sm:rounded-[1.5rem] sm:p-12">
                   <p className="font-serif text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-amber-900/55">
                     Sculpted estimate span
                   </p>
@@ -772,11 +813,12 @@ export default function Home() {
                     Numbers can feel cold; this moment is anything but. When you want warmth and precision together, Ava or
                     our intake team can personalize this—with no fee to talk it through.
                   </p>
-                  <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row sm:gap-4">
+                  <p className="mt-6 text-[0.88rem] font-medium italic text-slate-500 sm:text-[0.9rem]">We&apos;ve got you—these figures are simply a foothold.</p>
+                  <div className="mt-8 flex flex-col justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
                     <Button
                       type="button"
                       onClick={openRetellWidget}
-                      className="h-14 rounded-2xl bg-gradient-to-b from-[#1e293b] to-[#0b1220] text-[0.95rem] font-semibold text-white shadow-[0_16px_40px_-12px_rgba(15,23,42,0.45)] transition hover:-translate-y-1 hover:shadow-xl sm:px-9"
+                      className="h-12 rounded-2xl bg-gradient-to-b from-[#1e293b] to-[#0b1220] text-[0.9rem] font-semibold text-white shadow-[0_16px_40px_-12px_rgba(15,23,42,0.45)] transition-all duration-300 hover:-translate-y-px hover:shadow-xl sm:h-14 sm:px-9 sm:text-[0.95rem]"
                     >
                       <MessageSquare />
                       Chat with Ava
@@ -785,7 +827,7 @@ export default function Home() {
                       href="#intake"
                       className={cn(
                         buttonVariants({ variant: "outline" }),
-                        "inline-flex h-14 items-center justify-center rounded-2xl border-slate-200/90 bg-white px-9 text-[0.95rem] font-semibold text-slate-900 shadow-md transition hover:-translate-y-1 hover:border-[#d4af72]/45 hover:bg-[#fffefb] hover:shadow-lg",
+                        "inline-flex h-12 items-center justify-center rounded-2xl border-slate-200/95 bg-white px-7 text-[0.9rem] font-semibold text-slate-950 shadow-md transition-all duration-300 hover:-translate-y-px hover:border-[#c9a227]/45 hover:bg-[#fffefb] hover:shadow-xl sm:h-14 sm:px-9 sm:text-[0.95rem]",
                       )}
                     >
                       Official intake →
@@ -798,24 +840,24 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t border-slate-200/50 bg-[#fdfcfa] py-28 sm:py-32 lg:py-36">
-        <div className="mx-auto max-w-[76rem] px-6 sm:px-10 lg:px-14">
+      <section className="border-t border-slate-300/45 bg-[#faf7f2] py-24 sm:py-32 lg:py-40">
+        <div className="mx-auto max-w-[76rem] px-4 sm:px-10 lg:px-16">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-balance font-serif text-[2.2rem] font-medium tracking-tight text-slate-900 sm:text-[2.75rem] lg:text-[3.05rem]">
+            <h2 className="text-balance font-serif text-[1.95rem] font-medium tracking-tight text-slate-950 sm:text-[2.75rem] lg:text-[3.1rem] lg:leading-tight">
               Eight questions—weighted toward kindness
             </h2>
-            <p className="mt-8 text-pretty text-lg leading-[1.75] text-slate-600 sm:text-xl">
-              You might be juggling grief, pain, paperwork, and sleepless nights. We keep wording soft, spacing wide, and
-              judgment nowhere in sight—most folks finish calmly in minutes.
+            <p className="mt-6 text-pretty text-base leading-[1.78] text-slate-700 sm:mt-10 sm:text-xl sm:leading-[1.75]">
+              You might be juggling grief, pain, paperwork, and sleepless nights. We&apos;ve got you—soft wording, wide
+              spacing, zero side-eye. Most people finish in a few quiet minutes.
             </p>
           </div>
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-7">
+          <div className="mt-12 grid gap-4 sm:mt-16 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4 lg:gap-8">
             {INTRO_STEPS.map((item, idx) => {
               const Ico = item.icon;
               return (
                 <article
                   key={item.title}
-                  className="group flex gap-5 rounded-[1.35rem] border border-slate-100 bg-gradient-to-b from-[#fffdfb] to-[#faf7f2] p-7 shadow-[0_14px_40px_-26px_rgba(15,23,42,0.18)] transition-all duration-200 hover:border-amber-200/35 hover:shadow-xl"
+                  className="group flex gap-4 rounded-[1.25rem] border border-slate-200/65 bg-gradient-to-b from-[#fffdfb] to-[#f7f0e8] p-5 shadow-[0_14px_42px_-22px_rgba(15,23,42,0.16)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#c9a227]/38 hover:shadow-xl sm:gap-5 sm:rounded-[1.35rem] sm:p-7"
                 >
                   <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-white text-sm font-bold text-[#92400e] shadow-sm ring-1 ring-amber-100/90">
                     {idx + 1}
@@ -920,11 +962,11 @@ export default function Home() {
         <div className="relative mx-auto w-full max-w-lg px-6 sm:max-w-xl sm:px-10 lg:max-w-[29rem]">
           <Card className="overflow-hidden rounded-[1.85rem] border border-white/90 shadow-[0_36px_90px_-36px_rgba(15,23,42,0.32)] ring-1 ring-[#d4af72]/22">
             <CardHeader className="border-b border-slate-100/90 bg-gradient-to-br from-white via-[#fefdfb] to-[#faf6ef] pb-10 pt-10">
-              <CardTitle className="font-serif text-[1.85rem] font-medium tracking-tight text-slate-900 sm:text-[2rem]">
+              <CardTitle className="font-serif text-[1.65rem] font-medium tracking-tight text-slate-950 sm:text-[2rem]">
                 Concierge intake
               </CardTitle>
-              <CardDescription className="mt-3 text-[1.02rem] leading-relaxed text-slate-600">
-                Step {step} of 8 · breathe between beats · perfection is optional
+              <CardDescription className="mt-3 text-[0.95rem] leading-relaxed text-slate-700 sm:text-[1.02rem]">
+                Step {step} of 8 · you&apos;re safe here · take breaths between beats
               </CardDescription>
               <div className="pt-5">
                 <Progress value={progress}>
@@ -935,7 +977,7 @@ export default function Home() {
                 </Progress>
               </div>
             </CardHeader>
-            <CardContent className="space-y-8 bg-white px-8 pb-11 pt-10 sm:px-11">
+            <CardContent className="space-y-6 bg-white px-5 pb-10 pt-8 sm:space-y-8 sm:px-11 sm:pb-11 sm:pt-10">
               <p className="rounded-[1rem] border border-amber-100/80 bg-[#fffdf8] px-4 py-3 text-[0.8125rem] italic leading-relaxed text-slate-600">
                 {INTAKE_WHISPER[step]}
               </p>
@@ -954,7 +996,7 @@ export default function Home() {
                 <div className="space-y-2">
                   <label className="text-sm font-semibold tracking-wide text-slate-900">Where (city & state)?</label>
                   <Input
-                    className="h-14 rounded-2xl border-slate-200 shadow-sm transition focus-visible:ring-amber-100"
+                    className="h-12 rounded-2xl border-slate-200 shadow-sm transition focus-visible:ring-amber-100 sm:h-14"
                     placeholder="e.g. Knoxville, TN"
                     value={form.cityState}
                     onChange={(e) => update("cityState", e.target.value)}
@@ -1025,7 +1067,7 @@ export default function Home() {
                     placeholder="digits only okay"
                     value={form.phone}
                     onChange={(e) => update("phone", e.target.value)}
-                    className="h-14 rounded-2xl border-slate-200 shadow-sm transition focus-visible:ring-amber-100"
+                    className="h-12 rounded-2xl border-slate-200 shadow-sm transition focus-visible:ring-amber-100 sm:h-14"
                   />
                 </div>
               )}
@@ -1036,13 +1078,13 @@ export default function Home() {
                 <p className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{submitError}</p>
               )}
             </CardContent>
-            <CardFooter className="flex flex-col-reverse gap-4 border-t border-slate-100 bg-gradient-to-b from-[#fffdfb] to-[#faf7f2] px-8 pb-10 pt-8 sm:flex-row sm:justify-between sm:px-10">
+            <CardFooter className="flex flex-col-reverse gap-3 border-t border-slate-100 bg-gradient-to-b from-[#fffdfb] to-[#faf7f2] px-5 pb-9 pt-7 sm:flex-row sm:gap-4 sm:justify-between sm:px-10 sm:pb-10 sm:pt-8">
               <Button
                 type="button"
                 variant="outline"
                 onClick={goBack}
                 disabled={step === 1 || submitting}
-                className="h-14 rounded-2xl border-slate-200 bg-white font-medium shadow-sm transition hover:border-amber-200/70 hover:bg-amber-50/30"
+                className="h-12 rounded-2xl border-slate-200 bg-white text-[0.9rem] font-medium shadow-md transition hover:border-amber-200/70 hover:bg-amber-50/30 sm:h-14 sm:text-sm"
               >
                 Previous
               </Button>
@@ -1050,7 +1092,7 @@ export default function Home() {
                 <Button
                   type="button"
                   onClick={goNext}
-                  className="h-14 rounded-2xl bg-gradient-to-b from-amber-600 to-amber-700 px-10 text-[0.9375rem] font-semibold text-white shadow-lg shadow-amber-900/25 transition hover:-translate-y-0.5 hover:from-amber-500 hover:to-amber-600"
+                  className="h-12 rounded-2xl bg-gradient-to-b from-amber-600 to-amber-700 px-8 text-[0.9rem] font-semibold text-white shadow-lg shadow-amber-900/25 transition hover:-translate-y-px hover:from-amber-500 hover:to-amber-600 sm:h-14 sm:px-10 sm:text-[0.9375rem]"
                 >
                   Continue
                   <ArrowRight />
@@ -1060,7 +1102,7 @@ export default function Home() {
                   type="button"
                   disabled={submitting}
                   onClick={handleSubmit}
-                  className="h-14 rounded-2xl bg-gradient-to-b from-[#1e293b] to-[#0f172a] px-8 text-[0.9375rem] font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:from-slate-700 hover:to-slate-900 disabled:translate-y-0"
+                  className="h-12 rounded-2xl bg-gradient-to-b from-[#1e293b] to-[#0f172a] px-6 text-[0.9rem] font-semibold text-white shadow-lg transition hover:-translate-y-px hover:from-slate-700 hover:to-slate-900 disabled:translate-y-0 sm:h-14 sm:px-8 sm:text-[0.9375rem]"
                 >
                   {submitting ? "Submitting…" : "Secure consult request"}
                 </Button>
@@ -1141,7 +1183,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="border-t border-slate-200/65 bg-[#f4efe6] pb-24 pt-20 sm:pb-28 sm:pt-24">
+      <footer className="border-t border-slate-300/50 bg-[#f2ebe1] pb-20 pt-16 sm:pb-28 sm:pt-24">
         <div className="mx-auto flex max-w-[72rem] flex-col items-center gap-10 px-6 text-center sm:px-10 lg:px-12">
           <div className="flex items-center gap-3 text-xl font-semibold tracking-tight text-slate-900">
             <span className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-100 to-white shadow-inner ring-1 ring-amber-200/50">
@@ -1186,12 +1228,12 @@ export default function Home() {
           <button
             type="button"
             onClick={openRetellWidget}
-            className="inline-flex items-center gap-3 rounded-full border border-amber-300/50 bg-gradient-to-r from-[#172554] via-[#0f172a] to-[#0c1526] px-5 py-3.5 text-[0.82rem] font-semibold text-amber-50 shadow-[0_22px_56px_-14px_rgba(15,23,42,0.58)] ring-[3px] ring-black/5 transition-all duration-300 hover:-translate-y-[3px] hover:border-amber-200/80 hover:shadow-[0_26px_62px_-12px_rgba(251,191,36,0.38)] active:translate-y-0 sm:px-7 sm:text-[0.9rem]"
+            className="inline-flex items-center gap-2 rounded-full border border-amber-300/55 bg-gradient-to-r from-[#172554] via-[#0f172a] to-[#0c1526] px-4 py-3 text-[0.8rem] font-semibold leading-tight text-amber-50 shadow-[0_22px_56px_-14px_rgba(15,23,42,0.58)] ring-[3px] ring-black/5 transition-all duration-300 hover:-translate-y-[2px] hover:border-amber-200/85 hover:shadow-[0_26px_62px_-12px_rgba(251,191,36,0.38)] active:translate-y-0 sm:gap-3 sm:px-7 sm:py-3.5 sm:text-[0.9rem]"
           >
             <span className="flex size-9 items-center justify-center rounded-full bg-amber-400/20 ring-1 ring-amber-300/30">
               <MessageSquare className="size-4 text-amber-200" />
             </span>
-            <span className="pr-1 sm:whitespace-nowrap">Speak with Ava 24/7</span>
+            <span className="pr-1 sm:whitespace-nowrap">Speak with Ava</span>
           </button>
           <p className="hidden max-w-[12rem] text-right text-[0.65rem] font-medium uppercase tracking-wider text-slate-500 sm:block">
             24/7 · always free to ask
