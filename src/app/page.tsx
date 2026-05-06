@@ -89,6 +89,17 @@ const INTRO_STEPS = [
   },
 ];
 
+const INTAKE_WHISPER: Record<number, string> = {
+  1: "Rough timing helps us honor urgency—never to rush you.",
+  2: "Exact street address not required—city and state guide us gently.",
+  3: "Choose what feels closest. Everything can be clarified later, calmly.",
+  4: "Your symptoms are valid whichever box you tap.",
+  5: "Whether you visited the ER yesterday or haven’t gone yet—you are still deserving of clarity.",
+  6: "Insurance riddles are common; decoding them together is exactly what we do.",
+  7: "Shopping for counsel is prudent. Exploring options builds confidence.",
+  8: "We reach out thoughtfully—often within minutes—with warmth, not hustle.",
+};
+
 const ACCIDENT_TIMES = [
   "Today",
   "Yesterday",
@@ -466,8 +477,8 @@ export default function Home() {
               className={cn(
                 "group flex cursor-pointer items-start gap-3 rounded-2xl border px-4 py-4 text-sm leading-relaxed shadow-sm transition-all duration-200",
                 value === o.id
-                  ? "border-amber-400/45 bg-gradient-to-br from-amber-50/95 to-white shadow-md ring-2 ring-amber-200/35"
-                  : "border-slate-200/75 bg-white/95 hover:-translate-y-0.5 hover:border-amber-200/55 hover:shadow-md",
+                  ? "border-[#d4af72]/55 bg-gradient-to-br from-[#fffdf6] via-amber-50/98 to-white shadow-[0_10px_38px_-16px_rgba(212,175,114,0.35)] ring-2 ring-amber-200/45"
+                  : "border-slate-200/70 bg-white/98 hover:-translate-y-1 hover:border-[#d4af72]/35 hover:shadow-[0_14px_40px_-20px_rgba(15,23,42,0.12)]",
               )}
             >
               <input type="radio" name={name} checked={value === o.id} onChange={() => onChange(o.id)} className="mt-1" />
@@ -480,13 +491,19 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-[#faf7f2] text-slate-900 antialiased selection:bg-amber-200/40 selection:text-slate-900">
+    <>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `@keyframes wm-ken{0%{transform:scale(1.05)translate3d(0,0,0)}100%{transform:scale(1.11)translate3d(-0.75%,0.35%,0)}}@keyframes wm-badge{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}@keyframes wm-fade-up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}@keyframes wm-gold-line{0%,100%{opacity:.55}50%{opacity:1}}.wm-ken{animation:wm-ken 32s ease-in-out infinite alternate}.wm-badge-motion{animation:wm-badge 6.5s ease-in-out infinite}.wm-result-rise{animation:wm-fade-up .75s cubic-bezier(.22,1,.36,1) both}.wm-gold-line{animation:wm-gold-line 4s ease-in-out infinite}@media (prefers-reduced-motion:reduce){.wm-ken,.wm-badge-motion,.wm-result-rise,.wm-gold-line{animation:none!important}.wm-ken{transform:scale(1.06)}}`,
+        }}
+      />
+      <div className="min-h-screen bg-[#f4efe6] text-slate-900 antialiased selection:bg-amber-200/45 selection:text-slate-900">
       <header
         className={cn(
           "sticky top-0 z-40 border-b backdrop-blur-xl transition-[box-shadow,border-color,background-color] duration-300",
           headerElevated
-            ? "border-slate-200/70 bg-[#faf7f2]/92 shadow-[0_8px_30px_-12px_rgba(15,23,42,0.12)]"
-            : "border-transparent bg-[#faf7f2]/80",
+            ? "border-slate-200/60 bg-[#f4efe6]/94 shadow-[0_12px_40px_-14px_rgba(15,23,42,0.14)]"
+            : "border-transparent bg-[#f4efe6]/75",
         )}
       >
         <div className="mx-auto flex max-w-[72rem] items-center justify-between gap-6 px-6 py-5 sm:px-10 lg:px-12">
@@ -520,96 +537,122 @@ export default function Home() {
       </header>
 
       <section className="relative">
-        <div className="relative min-h-[85vh] w-full overflow-hidden lg:min-h-[88vh]">
-          <Image
-            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=2200&q=82"
-            alt="Hopeful, caring support after an accident—not alone"
-            fill
-            priority
-            className="object-cover object-[center_22%] scale-105 sm:scale-100"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/88 via-[#172554]/82 to-[#0c1222]/92" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(251,191,36,0.12),_transparent_55%)]" />
+        <div className="relative min-h-[92vh] w-full overflow-hidden lg:min-h-[93vh]">
+          <div className="pointer-events-none absolute inset-0 z-0 wm-ken">
+            <Image
+              src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=2400&q=88"
+              alt="Warm, professional advocates offering calm guidance—hope after difficulty"
+              fill
+              priority
+              className="object-cover object-[center_30%]"
+              sizes="100vw"
+            />
+          </div>
+          <div className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_110%_80%_at_50%_0%,rgba(15,23,42,0.15),transparent_52%)]" />
+          <div className="absolute inset-0 z-[2] bg-gradient-to-br from-slate-950/90 via-[#0f1c3f]/85 to-[#061018]/93" />
+          <div className="pointer-events-none absolute inset-0 z-[3] bg-[radial-gradient(ellipse_at_20%_20%,rgba(212,175,114,0.14),transparent_45%)]" />
+          <div className="pointer-events-none absolute inset-0 z-[3] bg-[radial-gradient(ellipse_at_80%_80%,rgba(251,191,36,0.08),transparent_50%)]" />
 
-          <div className="relative z-10 mx-auto flex min-h-[85vh] max-w-5xl flex-col justify-center px-6 py-24 sm:px-10 lg:min-h-[88vh] lg:max-w-6xl lg:px-14 lg:py-32">
-            <div className="mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/[0.09] px-5 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-amber-100/95 shadow-sm backdrop-blur-md">
-              <Sparkles className="size-3.5 text-amber-200" />
-              Confidential · Fast · Nationwide
+          <div className="relative z-10 mx-auto flex min-h-[92vh] max-w-5xl flex-col justify-center px-6 py-28 sm:px-10 lg:min-h-[93vh] lg:max-w-[76rem] lg:px-16 lg:py-36">
+            <div className="mb-10 inline-flex w-fit items-center gap-2 rounded-full border border-white/25 bg-white/[0.07] px-6 py-2.5 text-[0.62rem] font-semibold uppercase tracking-[0.32em] text-amber-100/95 shadow-[0_8px_32px_-12px_rgba(0,0,0,0.35)] backdrop-blur-xl">
+              <Sparkles className="size-3.5 text-amber-200 wm-gold-line" />
+              Boutique care · National reach · Private by design
             </div>
-            <h1 className="max-w-[20ch] text-balance font-semibold tracking-[-0.02em] text-white text-[2.35rem] leading-[1.05] sm:max-w-none sm:text-6xl sm:leading-[1.02] lg:text-[3.65rem]">
+            <h1 className="max-w-[22ch] text-balance font-semibold tracking-[-0.03em] text-white text-[2.5rem] leading-[1.03] sm:max-w-none sm:text-[3.25rem] sm:leading-[1.02] lg:text-[4rem] lg:tracking-[-0.035em]">
               Injured in a Car Accident?
-              <span className="mt-4 block bg-gradient-to-r from-amber-50 via-amber-100 to-amber-200/90 bg-clip-text font-medium text-transparent sm:mt-5">
+              <span className="mt-5 block bg-gradient-to-r from-[#fff8e7] via-amber-100 to-[#d4af72] bg-clip-text font-medium text-transparent sm:mt-6 lg:text-[3.55rem]">
                 Welcome Home to Real Help.
               </span>
             </h1>
-            <p className="mt-10 max-w-2xl text-pretty font-light leading-[1.7] text-slate-100/95 text-lg sm:text-xl lg:text-[1.35rem]">
-              Whatever happened, you deserve steadiness—not stress. Attorneys in our network have recovered{" "}
-              <span className="font-semibold text-white">$1 Billion+</span> for families like yours. Match in about{" "}
-              <span className="font-medium text-white">60&nbsp;seconds</span>.{" "}
-              <span className="font-medium text-amber-100/98">No Win, No Fee</span>
-              <span className="text-slate-300/90"> · </span>
-              <span className="font-medium text-amber-100/98">Ava is here 24/7</span>
-              {" — tender, clear, human help whenever you are ready."}
+            <p className="mt-11 max-w-2xl text-pretty font-light leading-[1.75] text-slate-100/95 text-lg sm:max-w-3xl sm:text-xl lg:text-[1.45rem] lg:leading-[1.72]">
+              We built WreckMatch for the moment your world feels loud: a composed team, clear language, and advocates who
+              treat you like a person—not a file number. When you are ready, we move with quiet confidence beside you.
             </p>
-            <div className="mt-14 flex max-w-xl flex-col gap-4 sm:max-w-none sm:flex-row sm:flex-wrap sm:gap-5">
+            <div className="mt-9 flex flex-wrap gap-2.5 sm:mt-10 sm:gap-3">
+              {(
+                [
+                  { t: "$1 Billion+ recovered", Icon: Sparkles },
+                  { t: "~60 second personal match", Icon: Clock },
+                  { t: "No Win, No Fee", Icon: Scale },
+                  { t: "Ava 24/7", Icon: MessageSquare },
+                ] as const
+              ).map(({ t, Icon }, i) => (
+                <span
+                  key={t}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-2 text-[0.8125rem] font-medium text-amber-50/95 shadow-sm backdrop-blur-md transition hover:border-amber-200/25 hover:bg-white/[0.1] sm:text-sm"
+                  style={{ animationDelay: `${i * 0.08}s` }}
+                >
+                  <Icon className="size-3.5 shrink-0 text-amber-200/90" aria-hidden />
+                  {t}
+                </span>
+              ))}
+            </div>
+            <div className="mt-14 flex max-w-xl flex-col gap-5 sm:max-w-none sm:flex-row sm:flex-wrap lg:mt-16 lg:gap-6">
               <a
                 href="#intake"
                 className={cn(
                   buttonVariants({ size: "lg" }),
-                  "inline-flex min-h-[3.5rem] items-center justify-center rounded-2xl bg-gradient-to-b from-amber-400 to-amber-500 px-10 text-base font-semibold text-slate-950 shadow-[0_12px_40px_-10px_rgba(245,158,11,0.55)] transition-all duration-200 hover:-translate-y-0.5 hover:from-amber-300 hover:to-amber-400 hover:shadow-[0_16px_44px_-8px_rgba(245,158,11,0.5)] active:translate-y-0",
+                  "inline-flex min-h-[3.75rem] items-center justify-center rounded-2xl bg-gradient-to-b from-[#e8c87a] via-amber-400 to-[#c9953a] px-11 text-[1.05rem] font-semibold text-slate-950 shadow-[0_16px_50px_-12px_rgba(212,175,72,0.55)] ring-1 ring-white/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_60px_-10px_rgba(245,200,105,0.45)] active:translate-y-0",
                 )}
               >
-                Start free review
-                <ArrowRight className="size-4" />
+                Begin your free review
+                <ArrowRight className="size-5" />
               </a>
               <a
                 href={telHref}
-                className="inline-flex min-h-[3.5rem] flex-1 touch-manipulation items-center justify-center gap-2.5 rounded-2xl border border-white/35 bg-white/[0.08] px-8 text-base font-semibold text-white shadow-inner backdrop-blur-md transition-all duration-200 hover:border-white/50 hover:bg-white/[0.14] hover:shadow-lg sm:min-w-[16rem]"
+                className="inline-flex min-h-[3.85rem] min-w-0 flex-1 touch-manipulation items-center justify-center gap-3 rounded-2xl border-2 border-amber-200/55 bg-white/[0.12] px-10 text-[1.05rem] font-semibold tabular-nums text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-amber-200/80 hover:bg-white/[0.18] hover:shadow-2xl sm:min-h-[4rem] sm:min-w-[18.5rem] sm:flex-initial sm:text-[1.125rem]"
               >
-                <Phone className="size-5 text-amber-200" />
-                Call {SUPPORT_PHONE_DISPLAY}
+                <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-amber-200 to-amber-400 text-slate-900 shadow-inner ring-2 ring-white/20">
+                  <Phone className="size-6" aria-hidden />
+                </span>
+                <span className="flex flex-col items-start gap-0.5 text-left">
+                  <span className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-amber-100/90">Speak live now</span>
+                  <span>{SUPPORT_PHONE_DISPLAY}</span>
+                </span>
               </a>
               <button
                 type="button"
                 onClick={openRetellWidget}
                 className={cn(
                   buttonVariants({ size: "lg", variant: "secondary" }),
-                  "inline-flex min-h-[3.5rem] flex-1 items-center justify-center gap-2 rounded-2xl border border-amber-300/25 bg-slate-950/40 px-9 text-base font-semibold text-amber-50 shadow-lg shadow-slate-950/30 backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-slate-950/55 sm:flex-initial sm:min-w-[16rem]",
+                  "inline-flex min-h-[3.75rem] flex-1 items-center justify-center gap-2 rounded-2xl border border-white/12 bg-[#071018]/55 px-10 text-[1.03rem] font-semibold text-amber-50 shadow-[0_16px_50px_-20px_rgba(0,0,0,0.55)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-amber-200/35 hover:bg-[#0a1822]/70 sm:flex-initial sm:min-w-[17.5rem]",
                 )}
               >
-                <MessageSquare className="size-4 text-amber-200" />
+                <MessageSquare className="size-5 text-amber-200" />
                 Speak with Ava 24/7
               </button>
             </div>
-            <p className="mt-12 max-w-xl text-sm font-light leading-relaxed text-slate-300/90 sm:text-[0.95rem]">
-              There is no wrong time to ask for help. We move gently, answer honestly, and protect your privacy like it
-              were our own family on the line.
+            <p className="mt-14 max-w-xl text-sm font-light leading-[1.8] text-slate-300/95 sm:max-w-2xl sm:text-[0.95rem]">
+              No obligation. No ambush scripts. Quiet expertise for the moments that shake you—and a promise to treat your
+              story with the dignity it deserves.
             </p>
           </div>
         </div>
 
-        <div className="border-y border-slate-200/60 bg-gradient-to-b from-white to-[#faf7f2] py-14 sm:py-16">
-          <div className="mx-auto grid max-w-[72rem] gap-5 px-6 sm:grid-cols-2 sm:gap-6 sm:px-10 lg:grid-cols-5 lg:gap-6 lg:px-12">
+        <div className="relative border-y border-slate-200/50 bg-gradient-to-b from-white via-[#faf6ef] to-[#f4efe6] py-16 sm:py-20">
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d4af72]/50 to-transparent" />
+          <div className="mx-auto grid max-w-[76rem] gap-6 px-6 sm:grid-cols-2 sm:gap-7 sm:px-10 lg:grid-cols-5 lg:px-14">
             {(
               [
-                { headline: "$1 Billion+", sub: "network recoveries", Icon: Sparkles },
-                { headline: "No Win, No Fee", sub: "when attorneys take your case", Icon: Scale },
-                { headline: "100% Confidential", sub: "your story stays yours", Icon: Shield },
-                { headline: "~60 sec match", sub: "then human follow-through", Icon: Clock },
-                { headline: "Ava 24/7", sub: "always on duty", Icon: MessageSquare },
+                { headline: "$1 Billion+", sub: "combined network recoveries", Icon: Sparkles },
+                { headline: "No Win, No Fee", sub: "when counsel accepts your matter", Icon: Scale },
+                { headline: "100% Confidential", sub: "discretion as a first principle", Icon: Shield },
+                { headline: "~60 sec match", sub: "then white-glove follow-through", Icon: Clock },
+                { headline: "Ava 24/7", sub: "empathetic voice, always on duty", Icon: MessageSquare },
               ] as const
-            ).map(({ headline, sub, Icon }) => (
+            ).map(({ headline, sub, Icon }, idx) => (
               <div
                 key={headline}
-                className="group flex gap-4 rounded-2xl border border-slate-100/90 bg-white/80 px-5 py-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-amber-200/40 hover:shadow-lg"
+                className="wm-badge-motion group relative flex gap-5 overflow-hidden rounded-[1.15rem] border border-white/90 bg-white/75 px-6 py-6 shadow-[0_14px_40px_-26px_rgba(15,23,42,0.2)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-amber-200/45 hover:shadow-xl"
+                style={{ animationDelay: `${idx * 0.65}s` }}
               >
-                <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-amber-50 to-white shadow-sm ring-1 ring-amber-100/80 transition group-hover:ring-amber-200/60">
-                  <Icon className="size-5 text-[#b45309]" aria-hidden />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-amber-50/0 via-amber-50/30 to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
+                <span className="relative flex size-[3.25rem] shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#fff8e7] to-white shadow-inner ring-1 ring-amber-200/60">
+                  <Icon className="size-[1.35rem] text-[#9a5b0a]" aria-hidden />
                 </span>
-                <div className="min-w-0">
-                  <p className="text-sm font-bold tracking-tight text-slate-900">{headline}</p>
-                  <p className="mt-1 text-xs leading-relaxed text-slate-600">{sub}</p>
+                <div className="relative min-w-0">
+                  <p className="text-[0.95rem] font-bold tracking-tight text-slate-900">{headline}</p>
+                  <p className="mt-1.5 text-[0.8rem] leading-relaxed text-slate-600">{sub}</p>
                 </div>
               </div>
             ))}
@@ -619,32 +662,36 @@ export default function Home() {
 
       <section
         id="calculator"
-        className="scroll-mt-28 border-t border-slate-200/50 bg-gradient-to-b from-[#f3ece4] via-[#faf7f2] to-[#faf7f2] py-24 sm:py-28 lg:py-32"
+        className="relative scroll-mt-28 overflow-hidden border-t border-slate-200/45 bg-gradient-to-b from-[#ebe4d8] via-[#f4efe6] to-[#f0e9df] py-28 sm:py-32 lg:py-36"
       >
-        <div className="mx-auto max-w-3xl px-6 sm:max-w-[40rem] sm:px-10 lg:px-12">
+        <div className="pointer-events-none absolute right-[-20%] top-[-30%] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(212,175,114,0.12),transparent_68%)]" />
+        <div className="mx-auto max-w-3xl px-6 sm:max-w-[41rem] sm:px-10 lg:px-14">
           <div className="text-center">
-            <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.26em] text-amber-900/80">
-              <Calculator className="size-4 text-amber-800" />
-              Case value snapshot
+            <p className="inline-flex items-center gap-2 font-serif text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-amber-900/85">
+              <Calculator className="size-[1.08rem] text-[#92400e]" />
+              Case value atelier
             </p>
-            <h2 className="mt-6 text-balance text-[2rem] font-semibold tracking-[-0.02em] text-slate-900 sm:text-[2.5rem] lg:text-[2.75rem]">
-              Six calm questions—not a courtroom
+            <h2 className="mt-8 text-balance font-serif text-[2.15rem] font-medium tracking-tight text-slate-900 sm:text-[2.85rem] lg:text-[3.1rem]">
+              Six discerning questions—not a courtroom
             </h2>
-            <p className="mx-auto mt-6 max-w-lg text-pretty text-base leading-[1.7] text-slate-600 sm:text-lg">
-              A soft range—not a verdict—before you speak with Ava or counsel. Take your time; skip anything that feels
-              heavy. Completely optional.
+            <p className="mx-auto mt-7 max-w-xl text-pretty text-[1.05rem] leading-[1.8] text-slate-600 sm:max-w-2xl sm:text-[1.12rem]">
+              An illustrative band—not a verdict—crafted to settle your mind before Ava or distinguished counsel deepen the
+              picture. Luxuriously optional; never an interrogation.
             </p>
           </div>
 
-          <Card className="mt-16 overflow-hidden rounded-3xl border-slate-200/80 bg-white shadow-[0_24px_60px_-28px_rgba(15,23,42,0.22)] ring-1 ring-slate-900/[0.04]">
-            <CardHeader className="space-y-3 border-b border-slate-100/90 bg-gradient-to-br from-white to-[#fffbf6] px-8 pb-10 pt-10 sm:px-10">
-              <CardTitle className="text-2xl font-semibold tracking-tight text-slate-900">Illustrative band</CardTitle>
-              <CardDescription className="text-[1rem] leading-relaxed text-slate-600">
-                Education only—not legal advice. Real outcomes depend on evidence, jurisdiction, and coverage limits.
-                We show this so you can breathe a little easier while you decide your next step.
+          <Card className="relative mt-20 overflow-hidden rounded-[1.75rem] border border-white/95 bg-white/90 shadow-[0_32px_80px_-32px_rgba(15,23,42,0.28)] ring-1 ring-[#d4af72]/25">
+            <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#d4af72]/70 to-transparent" />
+            <CardHeader className="relative space-y-4 border-b border-slate-100/80 bg-gradient-to-br from-white via-[#fffdf9] to-[#faf6ee] px-9 pb-12 pt-12 sm:px-12">
+              <CardTitle className="font-serif text-[1.75rem] font-medium tracking-tight text-slate-900 sm:text-3xl">
+                Illustrative valuation band
+              </CardTitle>
+              <CardDescription className="text-[1.02rem] leading-[1.75] text-slate-600">
+                Education only—not legal advice. Matters resolve along evidence, geography, insurer appetite, and human
+                story. Consider this compass rose: orienting—not binding.
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-12 bg-gradient-to-b from-[#fffdf9] to-[#faf7f2] px-8 pb-12 pt-12 sm:px-10">
+            <CardContent className="space-y-14 bg-gradient-to-b from-[#fefcf8] to-[#f4efe6] px-9 pb-14 pt-14 sm:px-12">
               <OptionGroup
                 name="sev"
                 label="1. Injury description"
@@ -707,21 +754,29 @@ export default function Home() {
                 </Button>
               </div>
 
-              {calcResult && (
-                <div className="rounded-3xl border border-amber-200/50 bg-gradient-to-br from-amber-50 via-white to-[#fffdfb] p-10 text-center shadow-[inset_0_2px_0_rgba(255,255,255,0.8)] sm:p-11">
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-900/60">Soft estimate band</p>
-                  <p className="mt-6 font-serif text-3xl font-medium tracking-tight text-slate-900 sm:text-4xl">
-                    {formatUsd(calcResult.low)} — {formatUsd(calcResult.high)}
+              {calcResult ? (
+                <div className="wm-result-rise rounded-[1.5rem] border border-[#d4af72]/40 bg-gradient-to-br from-[#fffaf0] via-white to-[#fffdfb] p-11 text-center shadow-[inset_0_3px_0_rgba(255,255,255,0.85),0_28px_60px_-32px_rgba(212,175,114,0.22)] sm:p-12">
+                  <p className="font-serif text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-amber-900/55">
+                    Sculpted estimate span
+                  </p>
+                  <p className="mt-8 font-serif text-[2.1rem] font-medium tracking-[0.01em] text-slate-900 sm:text-[2.65rem]">
+                    <span className="bg-gradient-to-r from-slate-800 to-slate-900 bg-clip-text text-transparent">
+                      {formatUsd(calcResult.low)}
+                    </span>
+                    <span className="mx-3 align-middle text-[#d4af72]/80">—</span>
+                    <span className="bg-gradient-to-r from-slate-800 to-slate-900 bg-clip-text text-transparent">
+                      {formatUsd(calcResult.high)}
+                    </span>
                   </p>
                   <p className="mx-auto mt-6 max-w-md text-[0.9375rem] leading-relaxed text-slate-600">
                     Numbers can feel cold; this moment is anything but. When you want warmth and precision together, Ava or
                     our intake team can personalize this—with no fee to talk it through.
                   </p>
-                  <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
+                  <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row sm:gap-4">
                     <Button
                       type="button"
                       onClick={openRetellWidget}
-                      className="h-14 rounded-2xl bg-slate-900 text-[0.9375rem] font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-800 sm:px-8"
+                      className="h-14 rounded-2xl bg-gradient-to-b from-[#1e293b] to-[#0b1220] text-[0.95rem] font-semibold text-white shadow-[0_16px_40px_-12px_rgba(15,23,42,0.45)] transition hover:-translate-y-1 hover:shadow-xl sm:px-9"
                     >
                       <MessageSquare />
                       Chat with Ava
@@ -730,23 +785,23 @@ export default function Home() {
                       href="#intake"
                       className={cn(
                         buttonVariants({ variant: "outline" }),
-                        "inline-flex h-14 items-center justify-center rounded-2xl border-slate-200 bg-white px-8 text-[0.9375rem] font-semibold text-slate-900 shadow-sm transition hover:border-amber-200/70 hover:bg-amber-50/40 hover:shadow",
+                        "inline-flex h-14 items-center justify-center rounded-2xl border-slate-200/90 bg-white px-9 text-[0.95rem] font-semibold text-slate-900 shadow-md transition hover:-translate-y-1 hover:border-[#d4af72]/45 hover:bg-[#fffefb] hover:shadow-lg",
                       )}
                     >
                       Official intake →
                     </a>
                   </div>
                 </div>
-              )}
+              ) : null}
             </CardContent>
           </Card>
         </div>
       </section>
 
-      <section className="border-t border-slate-200/55 bg-white py-24 sm:py-28 lg:py-32">
-        <div className="mx-auto max-w-[72rem] px-6 sm:px-10 lg:px-12">
+      <section className="border-t border-slate-200/50 bg-[#fdfcfa] py-28 sm:py-32 lg:py-36">
+        <div className="mx-auto max-w-[76rem] px-6 sm:px-10 lg:px-14">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-balance text-[2rem] font-semibold tracking-[-0.02em] text-slate-900 sm:text-[2.5rem] lg:text-[2.75rem]">
+            <h2 className="text-balance font-serif text-[2.2rem] font-medium tracking-tight text-slate-900 sm:text-[2.75rem] lg:text-[3.05rem]">
               Eight questions—weighted toward kindness
             </h2>
             <p className="mt-8 text-pretty text-lg leading-[1.75] text-slate-600 sm:text-xl">
@@ -801,9 +856,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t border-slate-200/55 bg-gradient-to-b from-[#fcf8f5] to-[#faf7f2] py-24 sm:py-28 lg:py-32">
-        <div className="mx-auto max-w-[72rem] px-6 sm:px-10 lg:px-12">
-          <h2 className="text-center text-balance text-[2rem] font-semibold tracking-[-0.02em] text-slate-900 sm:text-[2.5rem]">
+      <section className="border-t border-slate-200/50 bg-gradient-to-b from-[#f8f3ec] to-[#f0e9df] py-28 sm:py-32 lg:py-36">
+        <div className="mx-auto max-w-[76rem] px-6 sm:px-10 lg:px-14">
+          <h2 className="text-center text-balance font-serif text-[2.2rem] font-medium tracking-tight text-slate-900 sm:text-[2.75rem]">
             How WreckMatch works
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-center text-[1.05rem] leading-[1.7] text-slate-600 sm:text-lg">
@@ -840,13 +895,18 @@ export default function Home() {
               return (
                 <div
                   key={item.n}
-                  className="group rounded-[1.35rem] border border-white/80 bg-white/90 p-8 shadow-[0_18px_50px_-30px_rgba(15,23,42,0.2)] backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 hover:border-amber-200/40 hover:shadow-xl"
+                  className="group rounded-[1.35rem] border border-white/90 bg-white/95 p-9 shadow-[0_22px_55px_-32px_rgba(15,23,42,0.22)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-[6px] hover:border-[#d4af72]/35 hover:shadow-[0_30px_70px_-28px_rgba(212,175,114,0.18)]"
                 >
-                  <span className="text-xs font-bold uppercase tracking-[0.24em] text-slate-400">{item.n}</span>
-                  <div className="mt-6 flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-50 to-white shadow-inner ring-1 ring-amber-100/90">
-                    <I className="size-5 text-[#b45309]" aria-hidden />
+                  <span className="text-[0.65rem] font-bold uppercase tracking-[0.28em] text-slate-400">{item.n}</span>
+                  <div className="mt-8 flex justify-start">
+                    <div className="relative flex size-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#fffaf0] to-amber-100/95 shadow-inner ring-[1.5px] ring-[#d4af72]/35 transition group-hover:ring-[#d4af72]/55">
+                      <div className="absolute inset-[3px] rotate-45 rounded-lg border border-[#d4af72]/20 bg-white/30" aria-hidden />
+                      <span className="relative">
+                        <I className="size-[1.35rem] text-[#8a5412]" aria-hidden />
+                      </span>
+                    </div>
                   </div>
-                  <h3 className="mt-6 text-lg font-semibold tracking-tight text-slate-900">{item.title}</h3>
+                  <h3 className="mt-7 text-xl font-semibold tracking-tight text-slate-900">{item.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.copy}</p>
                 </div>
               );
@@ -855,15 +915,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="intake" className="scroll-mt-28 border-t border-slate-200/50 bg-[#ebe4da]/55 py-24 sm:py-28 lg:py-32">
-        <div className="mx-auto w-full max-w-lg px-6 sm:max-w-xl sm:px-10 lg:max-w-[28rem]">
-          <Card className="overflow-hidden rounded-[1.65rem] border-slate-200/85 shadow-[0_28px_70px_-32px_rgba(15,23,42,0.28)] ring-1 ring-slate-900/[0.04]">
-            <CardHeader className="border-b border-slate-100 bg-gradient-to-br from-white to-[#fffcf8] pb-8 pt-8">
-              <CardTitle className="text-2xl font-semibold tracking-tight text-slate-900">Soft intake doorway</CardTitle>
-              <CardDescription className="mt-2 text-[1rem] text-slate-600">
-                Step {step} of 8 · pause anytime · your pace is perfect
+      <section id="intake" className="relative scroll-mt-28 overflow-hidden border-t border-slate-200/45 bg-[#e8dfd4]/65 py-28 sm:py-32 lg:py-36">
+        <div className="pointer-events-none absolute left-[-35%] bottom-[-40%] h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,251,243,0.9),transparent_65%)]" />
+        <div className="relative mx-auto w-full max-w-lg px-6 sm:max-w-xl sm:px-10 lg:max-w-[29rem]">
+          <Card className="overflow-hidden rounded-[1.85rem] border border-white/90 shadow-[0_36px_90px_-36px_rgba(15,23,42,0.32)] ring-1 ring-[#d4af72]/22">
+            <CardHeader className="border-b border-slate-100/90 bg-gradient-to-br from-white via-[#fefdfb] to-[#faf6ef] pb-10 pt-10">
+              <CardTitle className="font-serif text-[1.85rem] font-medium tracking-tight text-slate-900 sm:text-[2rem]">
+                Concierge intake
+              </CardTitle>
+              <CardDescription className="mt-3 text-[1.02rem] leading-relaxed text-slate-600">
+                Step {step} of 8 · breathe between beats · perfection is optional
               </CardDescription>
-              <div className="pt-4">
+              <div className="pt-5">
                 <Progress value={progress}>
                   <div className="mb-2 flex justify-between gap-2 text-xs text-stone-500">
                     <ProgressLabel>Journey</ProgressLabel>
@@ -872,10 +935,13 @@ export default function Home() {
                 </Progress>
               </div>
             </CardHeader>
-            <CardContent className="space-y-7 bg-white px-8 pb-10 pt-10 sm:px-10">
+            <CardContent className="space-y-8 bg-white px-8 pb-11 pt-10 sm:px-11">
+              <p className="rounded-[1rem] border border-amber-100/80 bg-[#fffdf8] px-4 py-3 text-[0.8125rem] italic leading-relaxed text-slate-600">
+                {INTAKE_WHISPER[step]}
+              </p>
               {step === 1 && (
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">When?</label>
+                  <label className="text-sm font-semibold tracking-wide text-slate-900">When did it happen?</label>
                   <select className={selectClass} value={form.accidentTime} onChange={(e) => update("accidentTime", e.target.value)}>
                     <option value="">Choose…</option>
                     {ACCIDENT_TIMES.map((t) => (
@@ -886,7 +952,7 @@ export default function Home() {
               )}
               {step === 2 && (
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Where (city & state)?</label>
+                  <label className="text-sm font-semibold tracking-wide text-slate-900">Where (city & state)?</label>
                   <Input
                     className="h-14 rounded-2xl border-slate-200 shadow-sm transition focus-visible:ring-amber-100"
                     placeholder="e.g. Knoxville, TN"
@@ -897,7 +963,7 @@ export default function Home() {
               )}
               {step === 3 && (
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Accident shape</label>
+                  <label className="text-sm font-semibold tracking-wide text-slate-900">Accident shape</label>
                   <select className={selectClass} value={form.accidentType} onChange={(e) => update("accidentType", e.target.value)}>
                     <option value="">Choose…</option>
                     {ACCIDENT_TYPES.map((t) => (
@@ -908,7 +974,7 @@ export default function Home() {
               )}
               {step === 4 && (
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Injuries?</label>
+                  <label className="text-sm font-semibold tracking-wide text-slate-900">Injuries?</label>
                   <select className={selectClass} value={form.injured} onChange={(e) => update("injured", e.target.value)}>
                     <option value="">Choose…</option>
                     {INJURY_OPTIONS.map((t) => (
@@ -919,7 +985,7 @@ export default function Home() {
               )}
               {step === 5 && (
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Care received?</label>
+                  <label className="text-sm font-semibold tracking-wide text-slate-900">Care received?</label>
                   <select className={selectClass} value={form.medicalTreatment} onChange={(e) => update("medicalTreatment", e.target.value)}>
                     <option value="">Choose…</option>
                     {MEDICAL_OPTIONS.map((t) => (
@@ -930,7 +996,7 @@ export default function Home() {
               )}
               {step === 6 && (
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Insurance context</label>
+                  <label className="text-sm font-semibold tracking-wide text-slate-900">Insurance context</label>
                   <select className={selectClass} value={form.insurance} onChange={(e) => update("insurance", e.target.value)}>
                     <option value="">Choose…</option>
                     {INSURANCE_OPTIONS.map((t) => (
@@ -941,7 +1007,7 @@ export default function Home() {
               )}
               {step === 7 && (
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Attorney already?</label>
+                  <label className="text-sm font-semibold tracking-wide text-slate-900">Attorney already?</label>
                   <select className={selectClass} value={form.hasAttorney} onChange={(e) => update("hasAttorney", e.target.value)}>
                     <option value="">Choose…</option>
                     {ATTORNEY_OPTIONS.map((t) => (
@@ -952,7 +1018,7 @@ export default function Home() {
               )}
               {step === 8 && (
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Your phone</label>
+                  <label className="text-sm font-semibold tracking-wide text-slate-900">Your phone number</label>
                   <Input
                     type="tel"
                     autoComplete="tel"
@@ -1062,7 +1128,7 @@ export default function Home() {
                     Verified
                   </span>
                 </div>
-                <p className="relative mt-8 flex-1 text-lg font-light leading-[1.7] tracking-tight text-slate-100 sm:text-xl">
+                <p className="relative mt-9 flex-1 text-[1.35rem] font-light leading-[1.75] tracking-tight text-slate-100 sm:text-[1.45rem] lg:text-[1.55rem]">
                   {t.q}
                 </p>
                 <footer className="relative mt-10 border-t border-white/[0.12] pt-8">
@@ -1075,7 +1141,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="border-t border-slate-200/70 bg-[#faf7f2] pb-20 pt-16 sm:pb-24">
+      <footer className="border-t border-slate-200/65 bg-[#f4efe6] pb-24 pt-20 sm:pb-28 sm:pt-24">
         <div className="mx-auto flex max-w-[72rem] flex-col items-center gap-10 px-6 text-center sm:px-10 lg:px-12">
           <div className="flex items-center gap-3 text-xl font-semibold tracking-tight text-slate-900">
             <span className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-100 to-white shadow-inner ring-1 ring-amber-200/50">
@@ -1120,12 +1186,12 @@ export default function Home() {
           <button
             type="button"
             onClick={openRetellWidget}
-            className="inline-flex items-center gap-3 rounded-full border border-amber-200/55 bg-gradient-to-r from-[#1e293b] to-[#0f172a] px-5 py-3.5 text-[0.9rem] font-semibold text-amber-50 shadow-[0_18px_50px_-12px_rgba(15,23,42,0.55)] ring-2 ring-white/10 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_22px_56px_-10px_rgba(245,158,11,0.35)] active:translate-y-0"
+            className="inline-flex items-center gap-3 rounded-full border border-amber-300/50 bg-gradient-to-r from-[#172554] via-[#0f172a] to-[#0c1526] px-5 py-3.5 text-[0.82rem] font-semibold text-amber-50 shadow-[0_22px_56px_-14px_rgba(15,23,42,0.58)] ring-[3px] ring-black/5 transition-all duration-300 hover:-translate-y-[3px] hover:border-amber-200/80 hover:shadow-[0_26px_62px_-12px_rgba(251,191,36,0.38)] active:translate-y-0 sm:px-7 sm:text-[0.9rem]"
           >
             <span className="flex size-9 items-center justify-center rounded-full bg-amber-400/20 ring-1 ring-amber-300/30">
               <MessageSquare className="size-4 text-amber-200" />
             </span>
-            <span className="pr-1">Speak with Ava</span>
+            <span className="pr-1 sm:whitespace-nowrap">Speak with Ava 24/7</span>
           </button>
           <p className="hidden max-w-[12rem] text-right text-[0.65rem] font-medium uppercase tracking-wider text-slate-500 sm:block">
             24/7 · always free to ask
@@ -1146,7 +1212,8 @@ export default function Home() {
             aria-label="Close dialog background"
             onClick={() => setExitModalOpen(false)}
           />
-          <div className="relative z-10 w-full max-w-[26rem] overflow-hidden rounded-[1.65rem] border border-white/60 bg-gradient-to-br from-[#fffdfb] via-[#faf7f2] to-[#f5ede4] p-9 shadow-[0_30px_90px_-24px_rgba(15,23,42,0.5)] sm:p-11">
+          <div className="relative z-10 w-full max-w-[26rem] overflow-hidden rounded-[1.65rem] border border-white/70 bg-gradient-to-br from-[#fffdfb] via-[#faf7f2] to-[#f0e6dc] p-9 shadow-[0_34px_96px_-28px_rgba(15,23,42,0.52)] sm:p-11">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-transparent via-[#d4af72]/90 to-transparent" aria-hidden />
             <button
               type="button"
               onClick={() => setExitModalOpen(false)}
@@ -1197,6 +1264,7 @@ export default function Home() {
           </div>
         </div>
       )}
-    </div>
+      </div>
+    </>
   );
 }
