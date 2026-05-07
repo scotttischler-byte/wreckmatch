@@ -65,6 +65,27 @@ declare global {
   }
 }
 
+function clickRetellWidgetFab(): boolean {
+  if (typeof document === "undefined") return false;
+
+  const walk = (root: Document | ShadowRoot): boolean => {
+    const fab = root.querySelector("#retell-fab");
+    const chat = root.querySelector("#retell-chat");
+    if (fab && chat) {
+      (fab as HTMLElement).click();
+      return true;
+    }
+    for (const el of root.querySelectorAll("*")) {
+      if (el instanceof HTMLElement && el.shadowRoot && walk(el.shadowRoot)) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  return walk(document);
+}
+
 const INTRO_STEPS = [
   {
     title: "When did the accident happen?",
@@ -361,36 +382,47 @@ export default function Home() {
   const retellPollRef = useRef<number | null>(null);
 
   const openRetellWidget = useCallback(() => {
+    console.log("Ava button clicked - attempting to open widget");
     if (typeof window === "undefined") return;
-    const launch = () => window.RetellWidget?.open?.();
-    if (window.RetellWidget?.open) {
-      launch();
-      return;
-    }
-    if (retellPollRef.current) {
+
+    const launch = () => {
+      if (clickRetellWidgetFab()) return true;
+      const open = window.RetellWidget?.open;
+      if (typeof open === "function") {
+        open();
+        return true;
+      }
+      return false;
+    };
+
+    if (launch()) return;
+
+    if (retellPollRef.current !== null) {
       window.clearInterval(retellPollRef.current);
       retellPollRef.current = null;
     }
-    let attempts = 0;
+
+    const started = Date.now();
+    const POLL_MS = 400;
+    const MAX_MS = 3000;
+
     retellPollRef.current = window.setInterval(() => {
-      attempts += 1;
-      if (window.RetellWidget?.open) {
-        if (retellPollRef.current) window.clearInterval(retellPollRef.current);
+      if (launch()) {
+        if (retellPollRef.current !== null) window.clearInterval(retellPollRef.current);
         retellPollRef.current = null;
-        launch();
         return;
       }
-      if (attempts >= 48) {
-        if (retellPollRef.current) window.clearInterval(retellPollRef.current);
+      if (Date.now() - started >= MAX_MS) {
+        if (retellPollRef.current !== null) window.clearInterval(retellPollRef.current);
         retellPollRef.current = null;
-        console.warn("Retell widget not loaded yet");
+        console.warn("Retell widget not ready within 3s — check embed and network");
       }
-    }, 125);
+    }, POLL_MS);
   }, []);
 
   useEffect(
     () => () => {
-      if (retellPollRef.current) window.clearInterval(retellPollRef.current);
+      if (retellPollRef.current !== null) window.clearInterval(retellPollRef.current);
     },
     [],
   );
