@@ -10,9 +10,8 @@ Fastest path to get WreckMatch live on Vercel.
 cd /Users/scott/wreckmatch
 ```
 
-2. Make sure `.env.local` has real values (no placeholders).
-
-3. Run a quick production check:
+1. Make sure `.env.local` has real values (no placeholders).
+2. Run a quick production check:
 
 ```bash
 npm install
@@ -69,7 +68,7 @@ git push -u origin main
 
 Use the same values from `.env.local`.
 
-7. Click **Deploy**
+1. Click **Deploy**
 
 ---
 
@@ -95,8 +94,8 @@ npm run deploy
 
 1. In Vercel project: **Settings -> Domains**
 2. Add:
-   - `wreckmatch.com`
-   - `www.wreckmatch.com`
+  - `wreckmatch.com`
+  - `www.wreckmatch.com`
 3. Copy DNS records Vercel gives you
 4. Add those records in your domain provider (GoDaddy/Cloudflare/etc.)
 5. Wait until Vercel shows **Valid Configuration**

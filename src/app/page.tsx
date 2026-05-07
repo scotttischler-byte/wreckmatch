@@ -657,98 +657,109 @@ export default function Home() {
           <div className="pointer-events-none absolute inset-0 z-[3] bg-[radial-gradient(ellipse_at_85%_70%,rgba(251,233,209,0.07),transparent_48%)]" />
           <div className="pointer-events-none absolute inset-0 z-[4] bg-gradient-to-t from-[#050b14]/90 via-transparent to-[#081428]/55" />
 
-          <div className="relative z-10 mx-auto flex min-h-[min(92vh,940px)] max-w-[80rem] flex-col justify-center px-4 pb-28 pt-[calc(5rem+env(safe-area-inset-top))] sm:px-10 sm:pb-32 sm:pt-28 lg:min-h-[94vh] lg:px-24 lg:pb-40 lg:pt-36">
-            <div className="mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-white/22 bg-white/[0.065] px-5 py-2.5 shadow-[0_12px_40px_-14px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:mb-10 sm:px-7">
-              <Sparkles className="size-3.5 shrink-0 text-[#fde68a] wm-gold-line" aria-hidden />
-              <span className="text-[0.6rem] font-semibold uppercase tracking-[0.34em] text-[#fde68a]/95 sm:text-[0.62rem] sm:tracking-[0.38em]">
-                White‑glove care · Nationwide · Your story stays yours
-              </span>
-            </div>
-            <h1
-              className={cn(
-                wmDisplay,
-                "max-w-[21ch] text-balance text-[2.55rem] font-semibold leading-[1.04] tracking-[-0.035em] text-white drop-shadow-[0_2px_48px_rgba(0,0,0,0.35)] sm:max-w-[19ch] sm:text-[2.85rem] sm:leading-[1.06] lg:max-w-none lg:text-[4.35rem] lg:leading-[1.02]",
-              )}
-            >
-              Injured After a Crash?
-              <span className="mt-4 block bg-gradient-to-r from-[#fff9ed] via-[#fde68a] to-[#d4af72] bg-clip-text font-medium text-transparent drop-shadow-none sm:mt-5 lg:mt-6 lg:text-[3.95rem]">
-                You&apos;re Safe Here—and We&apos;ve Got You.
-              </span>
-            </h1>
-            <p className="mt-10 max-w-2xl text-pretty font-light leading-[1.78] text-[#eef2f9]/93 sm:mt-12 sm:max-w-3xl sm:text-xl sm:leading-[1.74] lg:mt-14 lg:text-[1.425rem] lg:leading-[1.76]">
-              Counsel in our network have secured{" "}
-              <span className="font-semibold text-white">$1 Billion+</span>—proof that precision and compassion belong in the same
-              sentence. Get personally matched in about{" "}
-              <span className="font-semibold text-white">60 seconds</span>.{" "}
-              <span className="text-[#fdebbf]">No Win, No Fee</span> when a lawyer steps in, and{" "}
-              <span className="text-[#fdebbf]">Ava answers 24/7</span> so you&apos;re{" "}
-              <span className="italic text-white/95">never alone with the spinning thoughts</span> again.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-2 sm:mt-11 sm:gap-2.5">
-              {(
-                [
-                  { t: "$1 Billion+ recovered", Icon: Sparkles },
-                  { t: "~60s personal match", Icon: Clock },
-                  { t: "No Win, No Fee", Icon: Scale },
-                  { t: "Ava 24/7", Icon: MessageSquare },
-                ] as const
-              ).map(({ t, Icon }, i) => (
-                <span
-                  key={t}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/16 bg-[#081428]/42 px-[0.875rem] py-2 text-[0.78rem] font-medium text-[#fdf6ec]/95 shadow-sm backdrop-blur-md transition hover:border-[#fde68a]/35 hover:bg-white/[0.08] sm:px-4 sm:py-2.5 sm:text-sm"
-                  style={{ animationDelay: `${i * 0.08}s` }}
-                >
-                  <Icon className="size-3.5 shrink-0 text-[#fde68a]/90" aria-hidden />
-                  {t}
+          <div className="relative z-10 mx-auto grid min-h-[min(92vh,940px)] max-w-[80rem] items-center gap-10 px-4 pb-28 pt-[calc(5rem+env(safe-area-inset-top))] sm:gap-12 sm:px-10 sm:pb-32 sm:pt-28 lg:min-h-[94vh] lg:grid-cols-[1.06fr_0.94fr] lg:gap-16 lg:px-24 lg:pb-40 lg:pt-36">
+            <div>
+              <div className="mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-white/22 bg-white/[0.065] px-5 py-2.5 shadow-[0_12px_40px_-14px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:mb-10 sm:px-7">
+                <Sparkles className="size-3.5 shrink-0 text-[#fde68a] wm-gold-line" aria-hidden />
+                <span className="text-[0.6rem] font-semibold uppercase tracking-[0.34em] text-[#fde68a]/95 sm:text-[0.62rem] sm:tracking-[0.38em]">
+                  White‑glove care · Nationwide · Your story stays yours
                 </span>
-              ))}
-            </div>
-            <div className="mt-11 flex max-w-xl flex-col gap-3 sm:mt-14 sm:max-w-none sm:flex-row sm:flex-wrap sm:gap-4 lg:mt-[4.75rem] lg:gap-5">
-              <a
-                href="#intake"
+              </div>
+              <h1
                 className={cn(
-                  buttonVariants({ size: "lg" }),
-                  wmBody,
-                  "inline-flex min-h-[3.5rem] min-w-0 flex-1 touch-manipulation items-center justify-center rounded-[1rem] bg-gradient-to-b from-[#f3dfa3] via-[#ebc85c] to-[#c9a227] px-8 text-[0.9375rem] font-semibold text-[#172032] shadow-[0_22px_50px_-12px_rgba(201,162,39,0.55)] ring-1 ring-white/45 transition-all duration-300 hover:-translate-y-[3px] hover:shadow-[0_28px_60px_-8px_rgba(245,200,105,0.45)] active:translate-y-0 sm:min-h-[3.75rem] sm:flex-none sm:px-12 sm:text-[1.0625rem]",
+                  wmDisplay,
+                  "max-w-[20ch] text-balance text-[2.35rem] font-semibold leading-[1.04] tracking-[-0.03em] text-white drop-shadow-[0_2px_48px_rgba(0,0,0,0.35)] sm:text-[2.95rem] sm:leading-[1.05] lg:max-w-[17ch] lg:text-[4.05rem] lg:leading-[1.01]",
                 )}
               >
-                Begin your free review
-                <ArrowRight className="size-5" />
-              </a>
-              <a
-                href={telHref}
-                className={cn(
-                  wmBody,
-                  "inline-flex min-h-[3.55rem] min-w-0 flex-1 touch-manipulation items-center justify-center gap-3 rounded-[1rem] border-[1.5px] border-[#fdebbf]/52 bg-[#050d14]/35 px-6 text-[0.9375rem] font-semibold tabular-nums text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_20px_50px_-20px_rgba(0,0,0,0.55)] backdrop-blur-xl transition-all hover:-translate-y-[3px] hover:border-[#fde68a]/75 hover:bg-[#081428]/50 sm:min-h-[4rem] sm:min-w-[18rem] sm:px-9 sm:text-[1.0625rem] lg:min-w-[18.75rem]",
-                )}
-              >
-                <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#fef3c7] via-[#fbbf24] to-[#ca8a04] text-[#172032] shadow-inner ring-[1.5px] ring-white/35 sm:size-[3rem]">
-                  <Phone className="size-[1.125rem] sm:size-6" aria-hidden />
-                </span>
-                <span className="flex flex-col items-start gap-0.5 text-left">
-                  <span className={cn(wmDisplay, "text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-[#fdebbf]/95 sm:text-[0.65rem]")}>
-                    Speak live now
+                Injured in a Car Accident? Welcome Home to Real Help.
+              </h1>
+              <p className="mt-8 max-w-2xl text-pretty font-light leading-[1.78] text-[#eef2f9]/93 sm:mt-10 sm:max-w-3xl sm:text-[1.12rem] sm:leading-[1.74] lg:text-[1.32rem] lg:leading-[1.76]">
+                Counsel in our network has secured <span className="font-semibold text-white">$1 Billion+</span>. Get
+                personally matched in about <span className="font-semibold text-white">60 seconds</span>.{" "}
+                <span className="text-[#fdebbf]">No Win, No Fee</span> when a lawyer steps in, and{" "}
+                <span className="text-[#fdebbf]">Ava is here 24/7</span> so you never carry this alone.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-2.5 sm:mt-10">
+                {(
+                  [
+                    { t: "$1 Billion+ recovered", Icon: Sparkles },
+                    { t: "~60s personal match", Icon: Clock },
+                    { t: "No Win, No Fee", Icon: Scale },
+                    { t: "Ava 24/7", Icon: MessageSquare },
+                  ] as const
+                ).map(({ t, Icon }, i) => (
+                  <span
+                    key={t}
+                    className="inline-flex items-center gap-2 rounded-full border border-white/16 bg-[#081428]/42 px-[0.875rem] py-2 text-[0.78rem] font-medium text-[#fdf6ec]/95 shadow-sm backdrop-blur-md transition hover:border-[#fde68a]/35 hover:bg-white/[0.08] sm:px-4 sm:py-2.5 sm:text-sm"
+                    style={{ animationDelay: `${i * 0.08}s` }}
+                  >
+                    <Icon className="size-3.5 shrink-0 text-[#fde68a]/90" aria-hidden />
+                    {t}
                   </span>
-                  <span>{SUPPORT_PHONE_DISPLAY}</span>
-                </span>
-              </a>
-              <button
-                type="button"
-                onClick={openRetellWidget}
-                className={cn(
-                  buttonVariants({ size: "lg", variant: "secondary" }),
-                  wmBody,
-                  "inline-flex min-h-[3.5rem] flex-1 touch-manipulation items-center justify-center gap-2.5 rounded-[1rem] border border-white/18 bg-[#050b12]/55 px-7 text-[0.92rem] font-semibold text-[#fff7ed] shadow-[0_22px_56px_-18px_rgba(0,0,0,0.65)] backdrop-blur-2xl transition-all hover:-translate-y-[3px] hover:border-[#fde68a]/38 hover:bg-[#0a1520]/68 sm:flex-initial sm:min-h-[3.75rem] sm:min-w-[17.5rem] sm:px-10 sm:text-[1.02rem]",
-                )}
-              >
-                <MessageSquare className="size-[1.15rem] text-[#fde68a] sm:size-5" />
-                Speak with Ava 24/7
-              </button>
+                ))}
+              </div>
+              <div className="mt-10 flex flex-col gap-3 sm:mt-12 sm:flex-row sm:flex-wrap sm:gap-4">
+                <a
+                  href={telHref}
+                  className={cn(
+                    wmBody,
+                    "inline-flex min-h-[3.5rem] min-w-0 flex-1 touch-manipulation items-center justify-center gap-3 rounded-[1rem] border-[1.5px] border-[#fdebbf]/58 bg-[#050d14]/35 px-6 text-[0.95rem] font-semibold tabular-nums text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_20px_50px_-20px_rgba(0,0,0,0.55)] backdrop-blur-xl transition-all hover:-translate-y-[3px] hover:border-[#fde68a]/85 hover:bg-[#081428]/50 sm:min-h-[3.9rem] sm:min-w-[18rem] sm:px-9 sm:text-[1.08rem] lg:min-w-[19rem]",
+                  )}
+                >
+                  <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#fef3c7] via-[#fbbf24] to-[#ca8a04] text-[#172032] shadow-inner ring-[1.5px] ring-white/35 sm:size-[3rem]">
+                    <Phone className="size-[1.125rem] sm:size-6" aria-hidden />
+                  </span>
+                  <span className="flex flex-col items-start gap-0.5 text-left">
+                    <span className={cn(wmDisplay, "text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-[#fdebbf]/95 sm:text-[0.65rem]")}>
+                      Speak live now
+                    </span>
+                    <span>{SUPPORT_PHONE_DISPLAY}</span>
+                  </span>
+                </a>
+                <button
+                  type="button"
+                  onClick={openRetellWidget}
+                  className={cn(
+                    buttonVariants({ size: "lg", variant: "secondary" }),
+                    wmBody,
+                    "inline-flex min-h-[3.5rem] flex-1 touch-manipulation items-center justify-center gap-2.5 rounded-[1rem] border border-white/18 bg-[#050b12]/55 px-7 text-[0.94rem] font-semibold text-[#fff7ed] shadow-[0_22px_56px_-18px_rgba(0,0,0,0.65)] backdrop-blur-2xl transition-all hover:-translate-y-[3px] hover:border-[#fde68a]/38 hover:bg-[#0a1520]/68 sm:min-h-[3.9rem] sm:px-10 sm:text-[1.02rem]",
+                  )}
+                >
+                  <MessageSquare className="size-[1.15rem] text-[#fde68a] sm:size-5" />
+                  Speak with Ava 24/7
+                </button>
+              </div>
+              <p className="mt-8 max-w-2xl text-sm font-light leading-[1.86] text-slate-300/98 sm:mt-10 sm:text-[0.98rem] lg:max-w-3xl">
+                You&apos;re safe here. We&apos;ve got you. You&apos;re not alone anymore.
+              </p>
             </div>
-            <p className="mt-10 max-w-2xl text-sm font-light leading-[1.88] text-slate-300/98 sm:mt-14 sm:text-[0.98rem] lg:max-w-3xl">
-              No scripts. No ambush. Just steady hands on the wheel while you tell the truth of what happened—
-              <span className="text-white/95">you&apos;re not alone anymore</span>.
-            </p>
+
+            <div className="order-first lg:order-none">
+              <div className="rounded-[1.6rem] border border-[#fde68a]/30 bg-gradient-to-br from-[#fff8e7]/95 via-[#f4d277]/92 to-[#c9962d]/92 p-4 shadow-[0_34px_86px_-26px_rgba(201,162,39,0.6)] ring-1 ring-white/45 sm:p-6 lg:p-7">
+                <div className="rounded-[1.3rem] bg-gradient-to-b from-[#fef5dd] via-[#f4d27f] to-[#d4a43a] p-5 shadow-[inset_0_2px_0_rgba(255,255,255,0.65),0_28px_70px_-24px_rgba(201,162,39,0.52)] sm:p-6 lg:p-8">
+                  <p className={cn(wmDisplay, "text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-[#5f4308]/90")}>
+                    Priority Concierge
+                  </p>
+                  <h3 className={cn(wmDisplay, "mt-3 text-[1.55rem] font-semibold leading-[1.05] tracking-[-0.02em] text-[#1a2234] sm:text-[1.95rem] lg:text-[2.3rem]")}>
+                    Free Case Review
+                  </h3>
+                  <p className="mt-3 text-[0.95rem] font-medium leading-relaxed text-[#2a3548]/90 sm:text-[1.02rem]">
+                    Immediate 60-second matching to top attorneys. Warm, private, no pressure.
+                  </p>
+                  <a
+                    href="#intake"
+                    className={cn(
+                      buttonVariants({ size: "lg" }),
+                      wmBody,
+                      "mt-5 inline-flex w-full min-h-[4.4rem] touch-manipulation items-center justify-center rounded-[1.1rem] bg-gradient-to-b from-[#1e293b] to-[#0a1322] px-8 text-[1.2rem] font-extrabold tracking-[0.01em] text-[#fff9ef] shadow-[0_32px_74px_-24px_rgba(15,23,42,0.62)] ring-2 ring-[#fff1ca]/65 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_40px_82px_-22px_rgba(15,23,42,0.66)] sm:min-h-[5rem] sm:text-[1.38rem] lg:min-h-[5.35rem] lg:text-[1.6rem]",
+                    )}
+                  >
+                    Free Case Review
+                    <ArrowRight className="size-6" />
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1393,6 +1404,9 @@ export default function Home() {
           <p className="max-w-2xl text-[0.7rem] font-light leading-[1.8] text-[#64748b]">
             Paid attorney advertising coordinated by participating counsel. Past verdicts/settlements are never promises of tomorrow.
             Messaging alone does not create an attorney-client relationship—you remain sovereign until you say otherwise.
+          </p>
+          <p className="max-w-2xl text-[0.68rem] font-light leading-[1.7] text-[#64748b]">
+            WreckMatch and MVA Match are DBAs of Tophundred Global Ventures LLC
           </p>
         </div>
       </footer>
