@@ -323,13 +323,13 @@ export default function Home() {
     const onLeave = (e: MouseEvent) => {
       if (sessionStorage.getItem(key)) return;
       if (e.clientY > 28) return;
-      if (scrollDepthRatio() < 0.3) return;
+      if (scrollDepthRatio() < 0.45) return;
 
       cancelLeaveTimer();
       leaveTimer = window.setTimeout(() => {
         leaveTimer = null;
         if (sessionStorage.getItem(key)) return;
-        if (scrollDepthRatio() < 0.3) return;
+        if (scrollDepthRatio() < 0.45) return;
         sessionStorage.setItem(key, "1");
         setExitModalOpen(true);
       }, 800);
@@ -564,7 +564,7 @@ export default function Home() {
                 type="radio"
                 name={name}
                 checked={value === o.id}
-                onChange={() => onChange(o.id)}
+                onChange={() => { captureCalcScroll(); onChange(o.id); }}
                 className="mt-1"
                 onPointerDownCapture={() => captureCalcScroll()}
                 onFocus={(ev) => {
@@ -1115,7 +1115,7 @@ export default function Home() {
           <Card className="overflow-hidden rounded-[2rem] border border-white shadow-[0_44px_100px_-40px_rgba(15,23,42,0.28)] ring-1 ring-[#d4af72]/38">
             <CardHeader className="border-b border-[#eae6df] bg-gradient-to-br from-[#fffdfb] via-[#fcf9f5] to-[#f8f4ed] pb-11 pt-11 sm:pt-12">
               <CardTitle className={cn(wmDisplay, "text-[1.75rem] font-semibold tracking-tight text-[#152238] sm:text-[2.1rem]")}>
-                Trusted intake—not a interrogation room
+                Trusted intake—not an interrogation room
               </CardTitle>
               <CardDescription className="mt-4 text-[0.98rem] font-light leading-[1.7] text-[#475569] sm:text-[1.05rem]">
                 Step {step} of 8 · <span className="font-normal text-[#334155]">you&apos;re safe here</span> · pause whenever your chest tightens—we&apos;ll wait.
@@ -1393,7 +1393,6 @@ export default function Home() {
           <p className="max-w-2xl text-[0.7rem] font-light leading-[1.8] text-[#64748b]">
             Paid attorney advertising coordinated by participating counsel. Past verdicts/settlements are never promises of tomorrow.
             Messaging alone does not create an attorney-client relationship—you remain sovereign until you say otherwise.
-
           </p>
         </div>
       </footer>
@@ -1420,7 +1419,6 @@ export default function Home() {
           </button>
           <p className="hidden max-w-[14rem] text-right text-[0.62rem] font-medium uppercase leading-snug tracking-[0.2em] text-[#475569]/90 sm:block">
             Gentle AI · Complimentary hello · Leaves when you exhale
-
           </p>
         </div>
       ) : null}
