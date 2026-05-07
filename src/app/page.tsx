@@ -61,29 +61,94 @@ const fontSans = Outfit({
 
 declare global {
   interface Window {
-    RetellWidget?: { open?: () => void };
+    RetellWidget?: { open?: () => void; show?: () => void };
   }
 }
 
-function clickRetellWidgetFab(): boolean {
-  if (typeof document === "undefined") return false;
+type RetellPanel = { fab: HTMLElement; chat: HTMLElement; input: HTMLInputElement | null };
 
-  const walk = (root: Document | ShadowRoot): boolean => {
+function findRetellPanel(): RetellPanel | null {
+  if (typeof document === "undefined") return null;
+
+  const walk = (root: Document | ShadowRoot): RetellPanel | null => {
     const fab = root.querySelector("#retell-fab");
     const chat = root.querySelector("#retell-chat");
     if (fab && chat) {
-      (fab as HTMLElement).click();
-      return true;
+      const input = root.querySelector("#retell-input");
+      return {
+        fab: fab as HTMLElement,
+        chat: chat as HTMLElement,
+        input: input instanceof HTMLInputElement ? input : null,
+      };
     }
     for (const el of root.querySelectorAll("*")) {
-      if (el instanceof HTMLElement && el.shadowRoot && walk(el.shadowRoot)) {
-        return true;
+      if (el instanceof HTMLElement && el.shadowRoot) {
+        const found = walk(el.shadowRoot);
+        if (found) return found;
       }
     }
-    return false;
+    return null;
   };
 
   return walk(document);
+}
+
+function retellChatIsOpen(chat: HTMLElement): boolean {
+  const s = getComputedStyle(chat);
+  if (s.display === "none" || s.visibility === "hidden") return false;
+  const rect = chat.getBoundingClientRect();
+  return rect.width > 4 && rect.height > 4;
+}
+
+function forceRetellChatVisible(chat: HTMLElement) {
+  chat.style.setProperty("display", "flex", "important");
+  chat.style.setProperty("flex-direction", "column", "important");
+  chat.style.setProperty("visibility", "visible", "important");
+  chat.style.setProperty("opacity", "1", "important");
+  chat.style.setProperty("pointer-events", "auto", "important");
+}
+
+function activateRetellFab(fab: HTMLElement) {
+  try {
+    fab.dispatchEvent(
+      new PointerEvent("pointerdown", { bubbles: true, cancelable: true, composed: true, view: window }),
+    );
+    fab.dispatchEvent(
+      new PointerEvent("pointerup", { bubbles: true, cancelable: true, composed: true, view: window }),
+    );
+  } catch {
+    /* PointerEvent unsupported */
+  }
+  fab.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, composed: true, view: window }));
+  fab.click();
+}
+
+function scheduleRetellVisibilityNudges(panel: RetellPanel) {
+  const { chat, input } = panel;
+  const nudge = () => {
+    if (!retellChatIsOpen(chat)) {
+      forceRetellChatVisible(chat);
+    }
+    input?.focus({ preventScroll: true });
+  };
+  requestAnimationFrame(() => {
+    nudge();
+    requestAnimationFrame(nudge);
+  });
+  for (const ms of [100, 260, 520, 1100, 2200]) {
+    window.setTimeout(nudge, ms);
+  }
+}
+
+function tryRetellWidgetGlobal(): void {
+  const api = window.RetellWidget;
+  if (typeof api?.open === "function") {
+    api.open();
+    return;
+  }
+  if (typeof api?.show === "function") {
+    api.show();
+  }
 }
 
 const INTRO_STEPS = [
@@ -385,17 +450,26 @@ export default function Home() {
     console.log("Ava button clicked - attempting to open widget");
     if (typeof window === "undefined") return;
 
-    const launch = () => {
-      if (clickRetellWidgetFab()) return true;
-      const open = window.RetellWidget?.open;
-      if (typeof open === "function") {
-        open();
+    const settleOpen = (): boolean => {
+      const panel = findRetellPanel();
+      if (panel && retellChatIsOpen(panel.chat)) {
+        panel.input?.focus({ preventScroll: true });
         return true;
       }
       return false;
     };
 
-    if (launch()) return;
+    tryRetellWidgetGlobal();
+
+    if (settleOpen()) return;
+
+    const panel0 = findRetellPanel();
+    if (panel0 && !retellChatIsOpen(panel0.chat)) {
+      activateRetellFab(panel0.fab);
+      scheduleRetellVisibilityNudges(panel0);
+    }
+
+    if (settleOpen()) return;
 
     if (retellPollRef.current !== null) {
       window.clearInterval(retellPollRef.current);
@@ -403,19 +477,41 @@ export default function Home() {
     }
 
     const started = Date.now();
-    const POLL_MS = 400;
-    const MAX_MS = 3000;
+    const POLL_MS = 450;
+    const MAX_MS = 8000;
+    let fabActivations = 0;
+    const MAX_FAB_ACTIVATIONS = 6;
 
     retellPollRef.current = window.setInterval(() => {
-      if (launch()) {
+      if (settleOpen()) {
         if (retellPollRef.current !== null) window.clearInterval(retellPollRef.current);
         retellPollRef.current = null;
         return;
       }
+
+      const panel = findRetellPanel();
+      if (panel) {
+        if (fabActivations < MAX_FAB_ACTIVATIONS) {
+          fabActivations += 1;
+          activateRetellFab(panel.fab);
+          if (fabActivations === 1) {
+            scheduleRetellVisibilityNudges(panel);
+          }
+        }
+        forceRetellChatVisible(panel.chat);
+        panel.input?.focus({ preventScroll: true });
+      }
+
+      if (settleOpen()) {
+        if (retellPollRef.current !== null) window.clearInterval(retellPollRef.current);
+        retellPollRef.current = null;
+        return;
+      }
+
       if (Date.now() - started >= MAX_MS) {
         if (retellPollRef.current !== null) window.clearInterval(retellPollRef.current);
         retellPollRef.current = null;
-        console.warn("Retell widget not ready within 3s — check embed and network");
+        console.warn("Retell (Ava) not ready within 8s — verify script id, domain allowlist, and agent id");
       }
     }, POLL_MS);
   }, []);
@@ -630,10 +726,13 @@ export default function Home() {
               variant="outline"
               size="sm"
               onClick={openRetellWidget}
-              className="hidden rounded-full border-[#d4af72]/55 bg-[#fffdfb] px-4 text-[#1e293b] shadow-[0_12px_32px_-20px_rgba(15,23,42,0.2)] transition hover:border-[#c9a227] hover:bg-[#fff9ed] hover:shadow-md md:inline-flex md:h-11 md:max-w-[13rem] md:px-4 lg:max-w-none lg:px-5"
+              className="inline-flex h-10 max-w-[min(100%,10.5rem)] shrink-0 rounded-full border-[#d4af72]/55 bg-[#fffdfb] px-3 text-[#1e293b] shadow-[0_12px_32px_-20px_rgba(15,23,42,0.2)] transition hover:border-[#c9a227] hover:bg-[#fff9ed] hover:shadow-md sm:h-11 sm:max-w-[13rem] sm:px-4 lg:max-w-none lg:px-5"
             >
               <MessageSquare className="size-4 shrink-0 text-[#9a6b12]" />
-              <span className="truncate lg:whitespace-normal">Speak with Ava 24/7</span>
+              <span className="ml-1 truncate sm:ml-1.5 lg:whitespace-normal">
+                <span className="sm:hidden">Ava 24/7</span>
+                <span className="hidden sm:inline">Speak with Ava 24/7</span>
+              </span>
             </Button>
             <a
               href={telHref}

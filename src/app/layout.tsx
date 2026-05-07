@@ -38,6 +38,14 @@ export default function RootLayout({
           data-agent-id="conversation_flow_3a31cc3b94b8"
           strategy="afterInteractive"
         />
+        <Script
+          id="ghl-chat-widget-loader"
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="69fd11ce4c428baa5238d70e"
+          data-source="WEB_USER"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
