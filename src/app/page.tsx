@@ -100,12 +100,60 @@ function retellChatIsOpen(chat: HTMLElement): boolean {
   return rect.width > 4 && rect.height > 4;
 }
 
+/** True when the chat shell looks open *and* the composer row or input is interactable. */
+function retellChatInputUsable(panel: RetellPanel | null): boolean {
+  if (!panel || !retellChatIsOpen(panel.chat)) return false;
+  const { chat } = panel;
+  const row = chat.querySelector(".retell-input-row");
+  const rowRect = row instanceof HTMLElement ? row.getBoundingClientRect() : null;
+  const rowOk =
+    row instanceof HTMLElement &&
+    getComputedStyle(row).display !== "none" &&
+    getComputedStyle(row).visibility !== "hidden" &&
+    (rowRect?.height ?? 0) > 8;
+
+  const inp = panel.input ?? chat.querySelector("#retell-input");
+  const inpOk =
+    inp instanceof HTMLInputElement &&
+    getComputedStyle(inp).display !== "none" &&
+    getComputedStyle(inp).visibility !== "hidden";
+
+  return rowOk || inpOk;
+}
+
 function forceRetellChatVisible(chat: HTMLElement) {
   chat.style.setProperty("display", "flex", "important");
   chat.style.setProperty("flex-direction", "column", "important");
   chat.style.setProperty("visibility", "visible", "important");
   chat.style.setProperty("opacity", "1", "important");
   chat.style.setProperty("pointer-events", "auto", "important");
+  chat.style.setProperty("z-index", "999999", "important");
+  chat.style.setProperty("min-height", "min(70vh, 548px)", "important");
+  chat.style.setProperty("max-height", "min(90vh, 548px)", "important");
+}
+
+function revealRetellChatInnerUI(panel: RetellPanel) {
+  const { chat } = panel;
+  const messages = chat.querySelector(".retell-messages");
+  if (messages instanceof HTMLElement) {
+    if (getComputedStyle(messages).display === "none") {
+      messages.style.setProperty("display", "flex", "important");
+      messages.style.setProperty("flex-direction", "column", "important");
+    }
+    messages.style.setProperty("visibility", "visible", "important");
+    messages.style.setProperty("opacity", "1", "important");
+  }
+  const row = chat.querySelector(".retell-input-row");
+  if (row instanceof HTMLElement) {
+    row.style.setProperty("display", "flex", "important");
+    row.style.setProperty("visibility", "visible", "important");
+    row.style.setProperty("opacity", "1", "important");
+  }
+  const form = chat.querySelector("#retell-form");
+  if (form instanceof HTMLElement) {
+    form.style.setProperty("display", "flex", "important");
+    form.style.setProperty("visibility", "visible", "important");
+  }
 }
 
 /** Retell shadow host: above page chrome, below GHL so Lead Connector launcher stays clickable. */
@@ -121,15 +169,67 @@ function elevateRetellShadowHost(chat: HTMLElement) {
   }
 }
 
-/** Show #retell-chat directly (Retell uses display:none until opened). */
-function showRetellChatPanelDirect(panel: RetellPanel) {
+/** Show #retell-chat + inner composer; Retell often leaves display:none until FAB toggles. */
+function showRetellChatPanelDirect(panel: RetellPanel, log: (s: string) => void) {
+  log("showRetellChatPanelDirect: elevate host + #retell-chat styles + inner UI");
   elevateRetellShadowHost(panel.chat);
   forceRetellChatVisible(panel.chat);
-  panel.chat.scrollIntoView({ block: "nearest", behavior: "auto" });
+  revealRetellChatInnerUI(panel);
+  panel.chat.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  window.requestAnimationFrame(() => {
+    const inp = panel.input ?? panel.chat.querySelector("#retell-input");
+    if (inp instanceof HTMLInputElement) {
+      try {
+        inp.focus({ preventScroll: true });
+        inp.click();
+      } catch {
+        inp.focus();
+      }
+      log("showRetellChatPanelDirect: focused + clicked #retell-input");
+    } else {
+      log("showRetellChatPanelDirect: #retell-input not found yet");
+    }
+  });
+}
+
+/** Retell may expose alternate hooks in light DOM or future builds — try every selector. */
+function tryRetellDomFallbackClicks(log: (s: string) => void) {
+  const selectors = [
+    "[data-retell-chat]",
+    "[data-retell-open]",
+    "[data-retell]",
+    "[data-retell-widget]",
+    ".retell-chat-window",
+    "#retell-chat",
+  ];
+
+  const tryClick = (el: Element | null, where: string) => {
+    if (el instanceof HTMLElement) {
+      log(`fallback click ${where} <${el.tagName.toLowerCase()}>`);
+      el.click();
+    }
+  };
+
+  for (const sel of selectors) {
+    tryClick(document.querySelector(sel), `document.querySelector('${sel}')`);
+  }
+
+  const walk = (root: Document | ShadowRoot) => {
+    for (const sel of selectors) {
+      tryClick(root.querySelector(sel), `shadow.querySelector('${sel}')`);
+    }
+    root.querySelectorAll("*").forEach((node) => {
+      if (node instanceof HTMLElement && node.shadowRoot) {
+        walk(node.shadowRoot);
+      }
+    });
+  };
+  walk(document);
 }
 
 /** Force-activate the in-shadow FAB (#retell-fab) — same path as user clicking the robot. */
-function forceClickRetellFab(fab: HTMLElement) {
+function forceClickRetellFab(fab: HTMLElement, log?: (s: string) => void) {
+  log?.("forceClickRetellFab: PointerEvent down/up + MouseEvent click + element.click()");
   try {
     fab.dispatchEvent(
       new PointerEvent("pointerdown", { bubbles: true, cancelable: true, composed: true, view: window }),
@@ -144,19 +244,22 @@ function forceClickRetellFab(fab: HTMLElement) {
   fab.click();
 }
 
-function scheduleRetellVisibilityNudges(panel: RetellPanel) {
-  const { chat, input } = panel;
+function scheduleRetellVisibilityNudges(panel: RetellPanel, log: (s: string) => void) {
   const nudge = () => {
-    if (!retellChatIsOpen(chat)) {
-      showRetellChatPanelDirect(panel);
+    const hydrated: RetellPanel = {
+      ...panel,
+      input: panel.input ?? (panel.chat.querySelector("#retell-input") as HTMLInputElement | null),
+    };
+    if (!retellChatInputUsable(hydrated)) {
+      showRetellChatPanelDirect(hydrated, log);
     }
-    input?.focus({ preventScroll: true });
+    hydrated.input?.focus({ preventScroll: true });
   };
   requestAnimationFrame(() => {
     nudge();
     requestAnimationFrame(nudge);
   });
-  for (const ms of [100, 260, 520, 1100, 2200]) {
+  for (const ms of [80, 200, 400, 800, 1600, 3200]) {
     window.setTimeout(nudge, ms);
   }
 }
@@ -525,41 +628,62 @@ export default function Home() {
   const retellPollRef = useRef<number | null>(null);
 
   const openRetellWidget = useCallback(() => {
-    console.log("%c[AVA] Speak with Ava — opening Retell widget", "color:#b45309;font-weight:bold");
+    const log = (msg: string) => console.log(`[AVA] ${msg}`);
+    log("STEP 0: openRetellWidget() — user clicked Speak with Ava");
+
     if (typeof window === "undefined") return;
 
-    const settleOpen = (): boolean => {
-      const panel = findRetellPanel();
-      if (panel && retellChatIsOpen(panel.chat)) {
-        panel.input?.focus({ preventScroll: true });
-        return true;
+    const hydrate = (p: RetellPanel): RetellPanel => ({
+      ...p,
+      input: p.input ?? (p.chat.querySelector("#retell-input") as HTMLInputElement | null),
+    });
+
+    const panelNow = (): RetellPanel | null => {
+      const raw = findRetellPanel();
+      return raw ? hydrate(raw) : null;
+    };
+
+    const success = (): boolean => {
+      const p = panelNow();
+      if (!retellChatInputUsable(p)) return false;
+      const inp = p!.input;
+      try {
+        inp?.focus({ preventScroll: true });
+        inp?.click();
+      } catch {
+        inp?.focus();
       }
-      return false;
+      log(
+        `STEP OK: chat usable (messages/input visible) — focused input=${Boolean(inp)}`,
+      );
+      return true;
     };
 
-    const runFabThenPanel = (panel: RetellPanel, label: string) => {
-      console.log(`[AVA] ${label}: force #retell-fab click (shadow) + show #retell-chat direct`);
-      forceClickRetellFab(panel.fab);
-      showRetellChatPanelDirect(panel);
-      scheduleRetellVisibilityNudges(panel);
-    };
-
+    log("STEP 1: try window.RetellWidget.open / .show if present");
     tryRetellWidgetGlobal();
 
-    if (settleOpen()) {
-      console.log("[AVA] Chat panel already open — focusing input");
+    log("STEP 2: tryRetellDomFallbackClicks — [data-retell-*], .retell-chat-window, #retell-chat");
+    tryRetellDomFallbackClicks(log);
+
+    if (success()) {
+      log("STEP 3: already usable after globals + fallbacks — exit");
       return;
     }
 
-    const panel0 = findRetellPanel();
-    if (!panel0) {
-      console.warn("[AVA] Retell shadow panel not found yet (#retell-fab / #retell-chat) — will poll");
+    const p0 = panelNow();
+    if (!p0) {
+      log("STEP 4: Retell shadow nodes not found yet (#retell-fab / #retell-chat) — will poll");
     } else {
-      runFabThenPanel(panel0, "immediate");
+      log("STEP 5: forceClickRetellFab (#retell-fab inside shadow)");
+      forceClickRetellFab(p0.fab, log);
+      log("STEP 6: showRetellChatPanelDirect — #retell-chat display:flex !important, z-index, inner rows");
+      showRetellChatPanelDirect(p0, log);
+      log("STEP 7: scheduleRetellVisibilityNudges (delayed re-open attempts)");
+      scheduleRetellVisibilityNudges(p0, log);
     }
 
-    if (settleOpen()) {
-      console.log("%c[AVA] SUCCESS — chat window visible", "color:#15803d;font-weight:bold");
+    if (success()) {
+      log("STEP 8: success immediately after FAB + panel hard-open");
       return;
     }
 
@@ -568,42 +692,51 @@ export default function Home() {
       retellPollRef.current = null;
     }
 
-    const POLL_MS = 300;
-    const MAX_MS = 6000;
+    const POLL_MS = 250;
+    const MAX_MS = 8000;
     const started = Date.now();
     let tick = 0;
     let fabBurst = 0;
-    const MAX_FAB_BURST = 5;
+    const MAX_FAB_BURST = 8;
+
+    log(`STEP 9: start poll every ${POLL_MS}ms up to ${MAX_MS}ms until input row is usable`);
 
     retellPollRef.current = window.setInterval(() => {
       tick += 1;
       const elapsed = Date.now() - started;
-      const panel = findRetellPanel();
-      const open = settleOpen();
+      const panel = panelNow();
+      const usable = retellChatInputUsable(panel);
 
-      console.log(
-        `[AVA] poll #${tick} @ ${elapsed}ms — panel=${panel ? "found" : "missing"}, chatVisible=${open}`,
+      log(
+        `STEP 9 poll #${tick} (+${elapsed}ms): panel=${panel ? "yes" : "no"}, inputUsable=${usable}`,
       );
 
-      if (open) {
-        console.log("%c[AVA] SUCCESS — chat window visible (polled)", "color:#15803d;font-weight:bold");
+      if (success()) {
         if (retellPollRef.current !== null) window.clearInterval(retellPollRef.current);
         retellPollRef.current = null;
         return;
       }
 
+      log("STEP 9a: tryRetellDomFallbackClicks (repeat)");
+      tryRetellDomFallbackClicks(log);
+
       if (panel) {
-        if (fabBurst < MAX_FAB_BURST && (tick === 1 || tick % 4 === 0)) {
+        if (fabBurst < MAX_FAB_BURST && (tick <= 2 || tick % 3 === 0)) {
           fabBurst += 1;
-          forceClickRetellFab(panel.fab);
-          console.log(`[AVA] FAB force-click burst ${fabBurst}/${MAX_FAB_BURST}`);
+          log(`STEP 9b: FAB burst ${fabBurst}/${MAX_FAB_BURST}`);
+          forceClickRetellFab(panel.fab, log);
         }
-        showRetellChatPanelDirect(panel);
+        log("STEP 9c: showRetellChatPanelDirect + input focus/click");
+        showRetellChatPanelDirect(panel, log);
         panel.input?.focus({ preventScroll: true });
+        try {
+          panel.input?.click();
+        } catch {
+          /* ignore */
+        }
       }
 
-      if (settleOpen()) {
-        console.log("%c[AVA] SUCCESS — chat window visible (after nudge)", "color:#15803d;font-weight:bold");
+      if (success()) {
         if (retellPollRef.current !== null) window.clearInterval(retellPollRef.current);
         retellPollRef.current = null;
         return;
@@ -613,7 +746,7 @@ export default function Home() {
         if (retellPollRef.current !== null) window.clearInterval(retellPollRef.current);
         retellPollRef.current = null;
         console.warn(
-          "%c[AVA] FAIL — chat not visible after 6s. Check: id=retell-widget in layout, domain allowlist, agent id, network.",
+          "%c[AVA] FAIL after 8s — launcher may work but composer never became usable. Check Retell public-key domain allowlist, agent id, and network.",
           "color:#b91c1c;font-weight:bold",
         );
       }
