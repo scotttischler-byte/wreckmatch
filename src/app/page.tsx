@@ -108,7 +108,28 @@ function forceRetellChatVisible(chat: HTMLElement) {
   chat.style.setProperty("pointer-events", "auto", "important");
 }
 
-function activateRetellFab(fab: HTMLElement) {
+/** Retell shadow host: above page chrome, below GHL so Lead Connector launcher stays clickable. */
+const WM_RETELL_STACK_Z = "999800";
+const WM_GHL_STACK_Z = "2147483645";
+
+function elevateRetellShadowHost(chat: HTMLElement) {
+  const root = chat.getRootNode();
+  if (root instanceof ShadowRoot && root.host instanceof HTMLElement) {
+    const host = root.host;
+    host.style.setProperty("z-index", WM_RETELL_STACK_Z, "important");
+    host.style.setProperty("pointer-events", "auto", "important");
+  }
+}
+
+/** Show #retell-chat directly (Retell uses display:none until opened). */
+function showRetellChatPanelDirect(panel: RetellPanel) {
+  elevateRetellShadowHost(panel.chat);
+  forceRetellChatVisible(panel.chat);
+  panel.chat.scrollIntoView({ block: "nearest", behavior: "auto" });
+}
+
+/** Force-activate the in-shadow FAB (#retell-fab) — same path as user clicking the robot. */
+function forceClickRetellFab(fab: HTMLElement) {
   try {
     fab.dispatchEvent(
       new PointerEvent("pointerdown", { bubbles: true, cancelable: true, composed: true, view: window }),
@@ -127,7 +148,7 @@ function scheduleRetellVisibilityNudges(panel: RetellPanel) {
   const { chat, input } = panel;
   const nudge = () => {
     if (!retellChatIsOpen(chat)) {
-      forceRetellChatVisible(chat);
+      showRetellChatPanelDirect(panel);
     }
     input?.focus({ preventScroll: true });
   };
@@ -143,10 +164,12 @@ function scheduleRetellVisibilityNudges(panel: RetellPanel) {
 function tryRetellWidgetGlobal(): void {
   const api = window.RetellWidget;
   if (typeof api?.open === "function") {
+    console.log("[AVA] window.RetellWidget.open() available — calling");
     api.open();
     return;
   }
   if (typeof api?.show === "function") {
+    console.log("[AVA] window.RetellWidget.show() available — calling");
     api.show();
   }
 }
@@ -385,6 +408,61 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  /** Retell + GHL both anchor bottom-right; lift Retell and raise GHL so both stay clickable. */
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    let last = 0;
+    const sync = () => {
+      const now = Date.now();
+      if (now - last < 400) return;
+      last = now;
+
+      for (const child of Array.from(document.body.children)) {
+        if (!(child instanceof HTMLElement)) continue;
+        if (child.shadowRoot?.querySelector("#retell-fab")) {
+          child.style.setProperty("z-index", WM_RETELL_STACK_Z, "important");
+          child.style.setProperty(
+            "bottom",
+            "max(5.25rem, calc(84px + env(safe-area-inset-bottom, 0px)))",
+            "important",
+          );
+          child.style.setProperty("right", "max(1rem, env(safe-area-inset-right, 0px))", "important");
+          break;
+        }
+      }
+
+      document.querySelectorAll("iframe").forEach((frame) => {
+        const src = frame.getAttribute("src") || "";
+        if (!/leadconnectorhq|gohighlevel|msgsndr/i.test(src)) return;
+        let el: HTMLElement | null = frame;
+        for (let d = 0; d < 14 && el; d += 1) {
+          const { position } = getComputedStyle(el);
+          if (position === "fixed" || position === "absolute") {
+            el.style.setProperty("z-index", WM_GHL_STACK_Z, "important");
+            break;
+          }
+          el = el.parentElement;
+        }
+      });
+    };
+
+    sync();
+    const t1 = window.setTimeout(sync, 900);
+    const t2 = window.setTimeout(sync, 2800);
+    const t3 = window.setTimeout(sync, 5200);
+    const obs = new MutationObserver(sync);
+    obs.observe(document.body, { childList: true, subtree: false });
+    const slow = window.setInterval(sync, 4000);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      clearInterval(slow);
+      obs.disconnect();
+    };
+  }, []);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
     const key = "wreckmatch_exit_modal_session_v4";
@@ -447,7 +525,7 @@ export default function Home() {
   const retellPollRef = useRef<number | null>(null);
 
   const openRetellWidget = useCallback(() => {
-    console.log("Ava button clicked - attempting to open widget");
+    console.log("%c[AVA] Speak with Ava — opening Retell widget", "color:#b45309;font-weight:bold");
     if (typeof window === "undefined") return;
 
     const settleOpen = (): boolean => {
@@ -459,59 +537,85 @@ export default function Home() {
       return false;
     };
 
+    const runFabThenPanel = (panel: RetellPanel, label: string) => {
+      console.log(`[AVA] ${label}: force #retell-fab click (shadow) + show #retell-chat direct`);
+      forceClickRetellFab(panel.fab);
+      showRetellChatPanelDirect(panel);
+      scheduleRetellVisibilityNudges(panel);
+    };
+
     tryRetellWidgetGlobal();
 
-    if (settleOpen()) return;
-
-    const panel0 = findRetellPanel();
-    if (panel0 && !retellChatIsOpen(panel0.chat)) {
-      activateRetellFab(panel0.fab);
-      scheduleRetellVisibilityNudges(panel0);
+    if (settleOpen()) {
+      console.log("[AVA] Chat panel already open — focusing input");
+      return;
     }
 
-    if (settleOpen()) return;
+    const panel0 = findRetellPanel();
+    if (!panel0) {
+      console.warn("[AVA] Retell shadow panel not found yet (#retell-fab / #retell-chat) — will poll");
+    } else {
+      runFabThenPanel(panel0, "immediate");
+    }
+
+    if (settleOpen()) {
+      console.log("%c[AVA] SUCCESS — chat window visible", "color:#15803d;font-weight:bold");
+      return;
+    }
 
     if (retellPollRef.current !== null) {
       window.clearInterval(retellPollRef.current);
       retellPollRef.current = null;
     }
 
+    const POLL_MS = 300;
+    const MAX_MS = 6000;
     const started = Date.now();
-    const POLL_MS = 450;
-    const MAX_MS = 8000;
-    let fabActivations = 0;
-    const MAX_FAB_ACTIVATIONS = 6;
+    let tick = 0;
+    let fabBurst = 0;
+    const MAX_FAB_BURST = 5;
 
     retellPollRef.current = window.setInterval(() => {
-      if (settleOpen()) {
+      tick += 1;
+      const elapsed = Date.now() - started;
+      const panel = findRetellPanel();
+      const open = settleOpen();
+
+      console.log(
+        `[AVA] poll #${tick} @ ${elapsed}ms — panel=${panel ? "found" : "missing"}, chatVisible=${open}`,
+      );
+
+      if (open) {
+        console.log("%c[AVA] SUCCESS — chat window visible (polled)", "color:#15803d;font-weight:bold");
         if (retellPollRef.current !== null) window.clearInterval(retellPollRef.current);
         retellPollRef.current = null;
         return;
       }
 
-      const panel = findRetellPanel();
       if (panel) {
-        if (fabActivations < MAX_FAB_ACTIVATIONS) {
-          fabActivations += 1;
-          activateRetellFab(panel.fab);
-          if (fabActivations === 1) {
-            scheduleRetellVisibilityNudges(panel);
-          }
+        if (fabBurst < MAX_FAB_BURST && (tick === 1 || tick % 4 === 0)) {
+          fabBurst += 1;
+          forceClickRetellFab(panel.fab);
+          console.log(`[AVA] FAB force-click burst ${fabBurst}/${MAX_FAB_BURST}`);
         }
-        forceRetellChatVisible(panel.chat);
+        showRetellChatPanelDirect(panel);
         panel.input?.focus({ preventScroll: true });
       }
 
       if (settleOpen()) {
+        console.log("%c[AVA] SUCCESS — chat window visible (after nudge)", "color:#15803d;font-weight:bold");
         if (retellPollRef.current !== null) window.clearInterval(retellPollRef.current);
         retellPollRef.current = null;
         return;
       }
 
-      if (Date.now() - started >= MAX_MS) {
+      if (elapsed >= MAX_MS) {
         if (retellPollRef.current !== null) window.clearInterval(retellPollRef.current);
         retellPollRef.current = null;
-        console.warn("Retell (Ava) not ready within 8s — verify script id, domain allowlist, and agent id");
+        console.warn(
+          "%c[AVA] FAIL — chat not visible after 6s. Check: id=retell-widget in layout, domain allowlist, agent id, network.",
+          "color:#b91c1c;font-weight:bold",
+        );
       }
     }, POLL_MS);
   }, []);
@@ -1513,8 +1617,15 @@ export default function Home() {
             Paid attorney advertising coordinated by participating counsel. Past verdicts/settlements are never promises of tomorrow.
             Messaging alone does not create an attorney-client relationship—you remain sovereign until you say otherwise.
           </p>
-          <p className="max-w-2xl text-[0.68rem] font-light leading-[1.7] text-[#64748b]">
-            WreckMatch and MVA Match are DBAs of Tophundred Global Ventures LLC
+          <p
+            role="note"
+            className={cn(
+              wmBody,
+              "max-w-2xl rounded-xl border border-[#94a3b8]/35 bg-white/95 px-5 py-4 text-center text-[0.82rem] font-medium leading-relaxed text-[#334155] shadow-[0_12px_36px_-20px_rgba(15,23,42,0.12)] sm:px-7 sm:text-[0.88rem]",
+            )}
+          >
+            <span className="font-semibold text-[#152238]">DBA:</span> WreckMatch and MVA Match are DBAs of{" "}
+            <span className="whitespace-nowrap sm:whitespace-normal">Tophundred Global Ventures LLC</span>
           </p>
           <p className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[0.72rem] font-medium text-[#64748b]">
             <Link href="/privacy" className="underline decoration-[#c9a227]/50 underline-offset-4 hover:text-[#152238]">
@@ -1531,7 +1642,7 @@ export default function Home() {
       </footer>
 
       {showFloatAva && !exitModalOpen ? (
-        <div className="fixed bottom-0 right-0 z-50 flex max-w-[100vw] flex-col items-end gap-2 pb-[calc(1.25rem+env(safe-area-inset-bottom))] pr-[calc(1.25rem+env(safe-area-inset-right))] sm:gap-2.5 sm:pb-[calc(1.75rem+env(safe-area-inset-bottom))] sm:pr-[calc(1.75rem+env(safe-area-inset-right))]">
+        <div className="fixed bottom-0 right-0 z-[1000010] flex max-w-[100vw] flex-col items-end gap-2 pb-[calc(5.75rem+env(safe-area-inset-bottom))] pr-[calc(1.25rem+env(safe-area-inset-right))] sm:gap-2.5 sm:pb-[calc(6.25rem+env(safe-area-inset-bottom))] sm:pr-[calc(1.75rem+env(safe-area-inset-right))]">
           <button
             type="button"
             aria-label="Speak with Ava 24 hours a day, 7 days a week"
