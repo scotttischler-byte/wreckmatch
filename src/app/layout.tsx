@@ -35,6 +35,9 @@ export default function RootLayout({
           src="https://dashboard.retellai.com/retell-widget.js"
           data-public-key="key_3668132809d7066a44d6b61d3c8a"
           data-agent-id="conversation_flow_3a31cc3b94b8"
+          data-title="WreckMatch · Ava"
+          data-bot-name="Ava"
+          data-show-ai-popup="false"
           strategy="afterInteractive"
         />
       </head>

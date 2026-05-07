@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Cormorant_Garamond, Outfit } from "next/font/google";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   useCallback,
@@ -42,11 +43,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Progress, ProgressLabel } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
-import {
-  RETELL_CHAT_AGENT_ID,
-  RETELL_PUBLIC_KEY,
-  SUPPORT_PHONE_DISPLAY,
-} from "@/lib/constants";
+import { SUPPORT_PHONE_DISPLAY } from "@/lib/constants";
 
 const fontDisplay = Cormorant_Garamond({
   subsets: ["latin"],
@@ -361,32 +358,42 @@ export default function Home() {
     };
   }, [exitModalOpen]);
 
-  useEffect(() => {
-    const id = "retell-widget-script";
-    if (document.getElementById(id)) return;
-    if (!RETELL_PUBLIC_KEY || RETELL_PUBLIC_KEY.includes("replace")) return;
-    if (!RETELL_CHAT_AGENT_ID || RETELL_CHAT_AGENT_ID.includes("replace")) return;
+  const retellPollRef = useRef<number | null>(null);
 
-    const s = document.createElement("script");
-    s.id = id;
-    s.src = "https://dashboard.retellai.com/retell-widget.js";
-    s.async = true;
-    s.setAttribute("data-public-key", RETELL_PUBLIC_KEY);
-    s.setAttribute("data-agent-id", RETELL_CHAT_AGENT_ID);
-    s.setAttribute("data-title", "WreckMatch · Ava");
-    s.setAttribute("data-bot-name", "Ava");
-    s.setAttribute("data-show-ai-popup", "false");
-    document.body.appendChild(s);
+  const openRetellWidget = useCallback(() => {
+    if (typeof window === "undefined") return;
+    const launch = () => window.RetellWidget?.open?.();
+    if (window.RetellWidget?.open) {
+      launch();
+      return;
+    }
+    if (retellPollRef.current) {
+      window.clearInterval(retellPollRef.current);
+      retellPollRef.current = null;
+    }
+    let attempts = 0;
+    retellPollRef.current = window.setInterval(() => {
+      attempts += 1;
+      if (window.RetellWidget?.open) {
+        if (retellPollRef.current) window.clearInterval(retellPollRef.current);
+        retellPollRef.current = null;
+        launch();
+        return;
+      }
+      if (attempts >= 48) {
+        if (retellPollRef.current) window.clearInterval(retellPollRef.current);
+        retellPollRef.current = null;
+        console.warn("Retell widget not loaded yet");
+      }
+    }, 125);
   }, []);
 
-  function openRetellWidget() {
-    if (typeof window === "undefined") return;
-    if (window.RetellWidget) {
-      window.RetellWidget.open?.();
-    } else {
-      console.log("Retell widget not loaded yet");
-    }
-  }
+  useEffect(
+    () => () => {
+      if (retellPollRef.current) window.clearInterval(retellPollRef.current);
+    },
+    [],
+  );
 
   const update = (key: keyof FormState, value: string) => {
     setForm((f) => ({ ...f, [key]: value }));
@@ -591,10 +598,10 @@ export default function Home() {
               variant="outline"
               size="sm"
               onClick={openRetellWidget}
-              className="hidden rounded-full border-[#d4af72]/55 bg-[#fffdfb] px-4 text-[#1e293b] shadow-[0_12px_32px_-20px_rgba(15,23,42,0.2)] transition hover:border-[#c9a227] hover:bg-[#fff9ed] hover:shadow-md md:inline-flex md:h-11 md:px-5"
+              className="hidden rounded-full border-[#d4af72]/55 bg-[#fffdfb] px-4 text-[#1e293b] shadow-[0_12px_32px_-20px_rgba(15,23,42,0.2)] transition hover:border-[#c9a227] hover:bg-[#fff9ed] hover:shadow-md md:inline-flex md:h-11 md:max-w-[13rem] md:px-4 lg:max-w-none lg:px-5"
             >
-              <MessageSquare className="size-4 text-[#9a6b12]" />
-              Ava 24/7
+              <MessageSquare className="size-4 shrink-0 text-[#9a6b12]" />
+              <span className="truncate lg:whitespace-normal">Speak with Ava 24/7</span>
             </Button>
             <a
               href={telHref}
@@ -721,7 +728,7 @@ export default function Home() {
                     className={cn(
                       buttonVariants({ size: "lg" }),
                       wmBody,
-                      "mt-5 inline-flex w-full min-h-[4.4rem] touch-manipulation items-center justify-center rounded-[1.1rem] bg-gradient-to-b from-[#1e293b] to-[#0a1322] px-8 text-[1.2rem] font-extrabold tracking-[0.01em] text-[#fff9ef] shadow-[0_32px_74px_-24px_rgba(15,23,42,0.62)] ring-2 ring-[#fff1ca]/65 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_40px_82px_-22px_rgba(15,23,42,0.66)] sm:min-h-[5rem] sm:text-[1.38rem] lg:min-h-[5.35rem] lg:text-[1.6rem]",
+                      "mt-5 inline-flex w-full min-h-[4.4rem] touch-manipulation items-center justify-center rounded-[1.1rem] bg-gradient-to-b from-[#0f172a] to-[#020617] px-8 text-[1.2rem] font-extrabold tracking-[0.01em] text-[#fff9ef] shadow-[0_32px_74px_-24px_rgba(15,23,42,0.72)] ring-[3px] ring-[#fde68a]/75 ring-offset-2 ring-offset-[#f4d27f] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_40px_82px_-22px_rgba(15,23,42,0.72)] sm:min-h-[5rem] sm:text-[1.38rem] lg:min-h-[5.35rem] lg:text-[1.6rem]",
                     )}
                   >
                     Free Case Review
@@ -933,7 +940,7 @@ export default function Home() {
                       className="min-h-[3.25rem] rounded-[1.05rem] bg-gradient-to-b from-[#152238] to-[#081420] py-3.5 text-[0.9rem] font-semibold text-white shadow-[0_18px_44px_-12px_rgba(15,23,42,0.48)] transition-all hover:-translate-y-0.5 hover:shadow-xl sm:min-h-14 sm:min-w-[10.5rem] sm:px-9 sm:text-[0.95rem]"
                     >
                       <MessageSquare />
-                      Chat with Ava
+                      Speak with Ava 24/7
                     </Button>
                     <a
                       href="#intake"
@@ -1016,7 +1023,7 @@ export default function Home() {
                 "min-h-[3.35rem] min-w-[min(100%,17.5rem)] rounded-[1rem] border-[#e2d5c5] bg-[#fffefb] text-[0.9375rem] font-semibold text-[#152238] shadow-sm transition hover:border-[#d4af72]/55 hover:bg-[#fff9ed] hover:shadow-md",
               )}
             >
-              Start quietly with Ava
+              Speak with Ava 24/7
             </button>
           </div>
         </div>
@@ -1257,7 +1264,7 @@ export default function Home() {
               onClick={openRetellWidget}
               className={cn(wmBody, "font-semibold text-[#8a6914] underline decoration-[#fcd34d]/80 underline-offset-4 hover:text-[#713f12]")}
             >
-              open Ava softly
+              Speak with Ava 24/7
             </button>
             . Whichever honors your nervous system.
           </p>
@@ -1368,7 +1375,7 @@ export default function Home() {
                 "min-h-[3.5rem] flex-1 rounded-[1rem] border-[#cfd8ea] bg-white px-8 text-[0.95rem] font-semibold text-[#152238] shadow-md transition hover:border-[#fde68a]/85 hover:bg-[#fffdfb] hover:shadow-lg sm:flex-initial sm:px-14",
               )}
             >
-              <MessageSquare /> Ask Ava quietly
+              <MessageSquare /> Speak with Ava 24/7
             </button>
           </div>
           <p className="max-w-2xl text-[0.7rem] font-light leading-[1.8] text-[#64748b]">
@@ -1377,6 +1384,17 @@ export default function Home() {
           </p>
           <p className="max-w-2xl text-[0.68rem] font-light leading-[1.7] text-[#64748b]">
             WreckMatch and MVA Match are DBAs of Tophundred Global Ventures LLC
+          </p>
+          <p className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[0.72rem] font-medium text-[#64748b]">
+            <Link href="/privacy" className="underline decoration-[#c9a227]/50 underline-offset-4 hover:text-[#152238]">
+              Privacy Policy
+            </Link>
+            <span className="text-[#cbd5e1]" aria-hidden>
+              ·
+            </span>
+            <Link href="/terms" className="underline decoration-[#c9a227]/50 underline-offset-4 hover:text-[#152238]">
+              Terms of Use
+            </Link>
           </p>
         </div>
       </footer>
@@ -1458,7 +1476,7 @@ export default function Home() {
                 )}
               >
                 <MessageSquare className="size-4" />
-                Lean on Ava gently
+                Speak with Ava 24/7
               </Button>
               <a
                 href={telHref}

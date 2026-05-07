@@ -1,0 +1,208 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+import { SUPPORT_PHONE_DISPLAY } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "Terms of Use | WreckMatch",
+  description: "Terms governing use of WreckMatch services, including SMS/text messaging rules.",
+};
+
+export default function TermsPage() {
+  return (
+    <div className="min-h-screen bg-[#f7f2ea] text-[#152238] antialiased">
+      <header className="border-b border-[#c9a227]/20 bg-[#faf6ef]/95 backdrop-blur">
+        <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-5 sm:px-6">
+          <Link
+            href="/"
+            className="text-sm font-semibold tracking-tight text-[#152238] underline decoration-[#c9a227]/45 underline-offset-4 hover:text-[#0f172a]"
+          >
+            ← Back to WreckMatch
+          </Link>
+        </div>
+      </header>
+
+      <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
+        <h1 className="font-serif text-3xl font-semibold tracking-tight text-[#0f172a] sm:text-4xl">
+          Terms of Use
+        </h1>
+        <p className="mt-3 text-sm text-[#64748b]">Effective date: May 7, 2026 · Last updated: May 7, 2026</p>
+        <p className="mt-2 text-xs text-[#64748b]">
+          WreckMatch and MVA Match are DBAs of Tophundred Global Ventures LLC (&quot;Company,&quot; &quot;we,&quot;
+          &quot;us,&quot; or &quot;our&quot;).
+        </p>
+
+        <div className="mt-10 space-y-10 text-[0.95rem] leading-[1.75] text-[#334155]">
+          <section className="space-y-3">
+            <h2 className="text-lg font-semibold text-[#0f172a]">1. Agreement</h2>
+            <p>
+              These Terms of Use (&quot;Terms&quot;) govern access to and use of our websites, landing pages, intake flows,
+              phone services, SMS/MMS programs, chat tools (including AI features), and related offerings
+              (&quot;Services&quot;). By accessing or using the Services, you agree to these Terms and our{" "}
+              <Link href="/privacy" className="font-semibold text-[#92400e] underline underline-offset-2 hover:text-[#713f12]">
+                Privacy Policy
+              </Link>
+              .
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-lg font-semibold text-[#0f172a]">2. Not legal advice; no attorney-client relationship</h2>
+            <p>
+              Content on the Services is for general information only and is not legal advice. We are not your lawyers.
+              Unsolicited information you send may not be treated as confidential until a licensed attorney agrees to
+              represent you. You should consult qualified counsel about your specific situation.
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-lg font-semibold text-[#0f172a]">3. Eligibility</h2>
+            <p>
+              You represent that you are at least eighteen (18) years old and have authority to provide contact information
+              and consent on behalf of yourself or an entity you represent, as applicable.
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-lg font-semibold text-[#0f172a]">4. SMS / text messaging terms</h2>
+            <div className="rounded-xl border border-[#c9a227]/35 bg-[#fffefb] p-5 shadow-sm">
+              <p className="font-semibold text-[#0f172a]">Program description</p>
+              <p className="mt-2">
+                When you provide your mobile number and agree (including by checkbox, keyword, form submission, or other
+                legally sufficient method), you consent to receive transactional, informational, and—where separately
+                authorized—marketing or promotional text messages from or on behalf of the Company and its service
+                providers.
+              </p>
+              <ul className="mt-3 list-disc space-y-2 pl-5">
+                <li>
+                  <span className="font-medium text-[#1e293b]">Opt-in:</span> Consent must be affirmative, clear, and
+                  captured before marketing texts are sent, consistent with applicable law (including the Telephone Consumer
+                  Protection Act and implementing rules where applicable).
+                </li>
+                <li>
+                  <span className="font-medium text-[#1e293b]">Opt-out:</span> Reply{" "}
+                  <span className="font-mono text-[#0f172a]">STOP</span> to cancel. You may receive a one-time confirmation.
+                  Reply <span className="font-mono text-[#0f172a]">HELP</span> for help.
+                </li>
+                <li>
+                  <span className="font-medium text-[#1e293b]">Frequency &amp; charges:</span> Message frequency varies.
+                  Message and data rates may apply. Carriers are not liable for delayed or undelivered messages.
+                </li>
+                <li>
+                  <span className="font-medium text-[#1e293b]">Supported carriers:</span> Major U.S. carriers typically
+                  support deliverability; availability may vary and can change without notice.
+                </li>
+                <li>
+                  <span className="font-medium text-[#1e293b]">Content:</span> Texts may include case-status updates,
+                  scheduling, links, reminders, educational material, and introductory offers where permitted.
+                </li>
+                <li>
+                  <span className="font-medium text-[#1e293b]">No sharing for value with unaffiliated third-party marketers</span>{" "}
+                  for SMS opt-in lists without proper disclosure and consent, as applicable.
+                </li>
+              </ul>
+              <p className="mt-3 text-sm text-[#475569]">
+                Customer care:{" "}
+                <a href={`tel:${SUPPORT_PHONE_DISPLAY.replace(/\D/g, "")}`} className="font-semibold text-[#92400e] underline">
+                  {SUPPORT_PHONE_DISPLAY}
+                </a>
+                .
+              </p>
+            </div>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-lg font-semibold text-[#0f172a]">5. Communications generally</h2>
+            <p>
+              You agree we may contact you at the email, phone number, or address you provide, including through automated or
+              prerecorded calls or texts where allowed after appropriate consent. You will maintain accurate contact
+              information.
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-lg font-semibold text-[#0f172a]">6. Acceptable use</h2>
+            <p>You will not misuse the Services, including by attempting unauthorized access, scraping in violation of law or
+              our robots rules, transmitting malware, harassing staff or users, or submitting false information.</p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-lg font-semibold text-[#0f172a]">7. Intellectual property</h2>
+            <p>
+              The Services, branding, text, graphics, and other materials are owned by the Company or licensors and are
+              protected by intellectual property laws. You receive a limited, revocable license to access the Services for
+              personal, non-commercial use unless we agree otherwise in writing.
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-lg font-semibold text-[#0f172a]">8. Disclaimers</h2>
+            <p>
+              THE SERVICES ARE PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE.&quot; TO THE MAXIMUM EXTENT PERMITTED BY LAW,
+              WE DISCLAIM ALL WARRANTIES, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING MERCHANTABILITY, FITNESS FOR A
+              PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT WARRANT RESULTS, RECOVERIES, OR OUTCOMES OF ANY LEGAL
+              MATTER.
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-lg font-semibold text-[#0f172a]">9. Limitation of liability</h2>
+            <p>
+              TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL THE COMPANY OR ITS OFFICERS, DIRECTORS, EMPLOYEES, OR
+              AGENTS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF
+              PROFITS, DATA, OR GOODWILL, ARISING FROM YOUR USE OF THE SERVICES, EVEN IF ADVISED OF THE POSSIBILITY. OUR
+              AGGREGATE LIABILITY FOR ANY CLAIM RELATING TO THE SERVICES SHALL NOT EXCEED THE GREATER OF ONE HUNDRED U.S.
+              DOLLARS (US $100) OR THE AMOUNTS YOU PAID US DIRECTLY FOR THE SPECIFIC SERVICE GIVING RISE TO THE CLAIM IN THE
+              SIX (6) MONTHS BEFORE THE CLAIM.
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-lg font-semibold text-[#0f172a]">10. Indemnity</h2>
+            <p>
+              You will defend, indemnify, and hold harmless the Company and its affiliates from claims, damages, losses, and
+              expenses (including reasonable attorneys&apos; fees) arising out of your misuse of the Services, violation of
+              these Terms, or violation of third-party rights.
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-lg font-semibold text-[#0f172a]">11. Disputes; governing law</h2>
+            <p>
+              These Terms are governed by the laws of the State of Delaware, excluding conflict-of-law rules, unless a
+              different jurisdiction is required by applicable consumer protection law. You agree to bring claims in the
+              federal or state courts located in Delaware, unless applicable law requires otherwise, and waive any objection
+              to venue in those courts.
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-lg font-semibold text-[#0f172a]">12. Changes</h2>
+            <p>
+              We may modify these Terms at any time by posting an updated version. Your continued use after changes become
+              effective constitutes acceptance unless applicable law requires additional steps.
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-lg font-semibold text-[#0f172a]">13. Contact</h2>
+            <p>
+              <a href={`tel:${SUPPORT_PHONE_DISPLAY.replace(/\D/g, "")}`} className="font-semibold text-[#92400e] underline">
+                {SUPPORT_PHONE_DISPLAY}
+              </a>
+            </p>
+            <p className="text-sm text-[#64748b]">
+              WreckMatch and MVA Match are DBAs of Tophundred Global Ventures LLC
+            </p>
+          </section>
+        </div>
+
+        <p className="mt-12 text-center text-sm text-[#64748b]">
+          <Link href="/privacy" className="font-medium text-[#92400e] underline underline-offset-4 hover:text-[#713f12]">
+            Privacy Policy
+          </Link>
+        </p>
+      </main>
+    </div>
+  );
+}
