@@ -379,44 +379,14 @@ export default function Home() {
     document.body.appendChild(s);
   }, []);
 
-  const openRetellWidget = useCallback(() => {
-    const tryOpen = () => {
-      if (typeof window === "undefined") return;
-      window.RetellWidget?.open?.();
-      const launcher = Array.from(
-        document.querySelectorAll<HTMLElement>(
-          "[class*='retell'], [class*='Retell'], [data-retell-launcher]",
-        ),
-      ).find((el) => el.offsetParent !== null);
-      launcher?.click();
-    };
-
-    const ensureScript = () => {
-      const id = "retell-widget-script";
-      if (document.getElementById(id)) return;
-      if (!RETELL_PUBLIC_KEY?.length || RETELL_PUBLIC_KEY.includes("replace")) return;
-      if (!RETELL_CHAT_AGENT_ID?.length || RETELL_CHAT_AGENT_ID.includes("replace")) return;
-      const s = document.createElement("script");
-      s.id = id;
-      s.src = "https://dashboard.retellai.com/retell-widget.js";
-      s.async = true;
-      s.setAttribute("data-public-key", RETELL_PUBLIC_KEY);
-      s.setAttribute("data-agent-id", RETELL_CHAT_AGENT_ID);
-      s.setAttribute("data-title", "WreckMatch · Ava");
-      s.setAttribute("data-bot-name", "Ava");
-      s.setAttribute("data-show-ai-popup", "false");
-      document.body.appendChild(s);
-    };
-
-    ensureScript();
-    tryOpen();
-    let i = 0;
-    const t = window.setInterval(() => {
-      i += 1;
-      tryOpen();
-      if (i > 38) window.clearInterval(t);
-    }, 125);
-  }, []);
+  function openRetellWidget() {
+    if (typeof window === "undefined") return;
+    if (window.RetellWidget) {
+      window.RetellWidget.open?.();
+    } else {
+      console.log("Retell widget not loaded yet");
+    }
+  }
 
   const update = (key: keyof FormState, value: string) => {
     setForm((f) => ({ ...f, [key]: value }));

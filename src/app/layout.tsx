@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const sansFont = Inter({
@@ -28,6 +29,15 @@ export default function RootLayout({
       lang="en"
       className={`${sansFont.variable} ${monoFont.variable} h-full antialiased`}
     >
+      <head>
+        <Script
+          id="retell-widget-script"
+          src="https://dashboard.retellai.com/retell-widget.js"
+          data-public-key="key_3668132809d7066a44d6b61d3c8a"
+          data-agent-id="conversation_flow_3a31cc3b94b8"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
