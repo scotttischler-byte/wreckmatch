@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import {
+  RETELL_EMBED_PUBLIC_KEY,
+  RETELL_VOICE_AGENT_ID,
+  RETELL_PHONE_NUMBER,
+  RETELL_WIDGET_TERMS_URL,
+} from "@/lib/constants";
 
 const sansFont = Inter({
   variable: "--font-sans",
@@ -34,9 +40,13 @@ export default function RootLayout({
         <Script
           id="retell-widget"
           src="https://dashboard.retellai.com/retell-widget.js"
-          data-public-key="key_3668132809d7066a44d6b61d3c8a"
-          data-agent-id="conversation_flow_3a31cc3b94b8"
+          data-public-key={RETELL_EMBED_PUBLIC_KEY}
+          data-agent-id={RETELL_VOICE_AGENT_ID}
+          data-widget="callback"
+          data-phone-number={RETELL_PHONE_NUMBER}
+          data-countries="US"
           strategy="afterInteractive"
+          {...(RETELL_WIDGET_TERMS_URL ? { "data-tc": RETELL_WIDGET_TERMS_URL } : {})}
         />
         <Script
           id="ghl-chat-widget-loader"
