@@ -307,9 +307,8 @@ export default function Home() {
                 role="note"
                 className="mt-3 rounded-xl border border-amber-200 bg-amber-50/90 p-4 text-sm leading-relaxed text-neutral-700"
               >
-                By providing your phone number, you consent to receive SMS updates from WreckMatch and MVA Match (DBAs of
-                Tophundred Global Ventures LLC) for case support and scheduling. Message & data rates may apply. Reply STOP
-                to opt-out anytime.
+                By providing your phone number, you consent to receive SMS from WreckMatch (Tophundred Global Ventures LLC) for
+                case updates and support. Message & data rates may apply. Reply STOP to unsubscribe or HELP for help.
               </p>
             </div>
 
