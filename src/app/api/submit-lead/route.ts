@@ -7,6 +7,12 @@ import {
   SUPPORT_PHONE_DISPLAY,
 } from "@/lib/constants";
 
+const DEFAULT_FIELD = "Not specified — web intake";
+
+function str(v: unknown): string {
+  return typeof v === "string" ? v.trim() : "";
+}
+
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as Record<string, unknown>;
@@ -17,25 +23,30 @@ export async function POST(request: Request) {
       );
     }
 
-    const requiredFields = [
-      "accidentTime",
-      "cityState",
-      "accidentType",
-      "injured",
-      "medicalTreatment",
-      "insurance",
-      "hasAttorney",
-      "phone",
-    ] as const;
+    const lead = {
+      accidentTime: str(body.accidentTime) || DEFAULT_FIELD,
+      cityState: str(body.cityState) || DEFAULT_FIELD,
+      accidentType: str(body.accidentType) || DEFAULT_FIELD,
+      injured: str(body.injured) || DEFAULT_FIELD,
+      medicalTreatment: str(body.medicalTreatment) || DEFAULT_FIELD,
+      insurance: str(body.insurance) || DEFAULT_FIELD,
+      hasAttorney: str(body.hasAttorney) || DEFAULT_FIELD,
+      phone: str(body.phone),
+    };
 
-    for (const field of requiredFields) {
-      const value = body[field];
-      if (typeof value !== "string" || value.trim().length === 0) {
-        return NextResponse.json(
-          { success: false, message: `Missing required field: ${field}` },
-          { status: 400 },
-        );
-      }
+    if (!lead.phone) {
+      return NextResponse.json(
+        { success: false, message: "Missing required field: phone" },
+        { status: 400 },
+      );
+    }
+
+    const phoneDigits = lead.phone.replace(/\D/g, "");
+    if (phoneDigits.length < 10) {
+      return NextResponse.json(
+        { success: false, message: "Enter a valid phone number." },
+        { status: 400 },
+      );
     }
 
     const payload = {
@@ -44,7 +55,7 @@ export async function POST(request: Request) {
       docuHubTemplateId: DOCUHUB_TEMPLATE_ID,
       docuHubTemplateLink: DOCUHUB_TEMPLATE_LINK,
       callbackPhone: SUPPORT_PHONE_DISPLAY,
-      lead: body,
+      lead,
     };
 
     console.log("[submit-lead] incoming lead payload:", JSON.stringify(payload, null, 2));
