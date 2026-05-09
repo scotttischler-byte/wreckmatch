@@ -22,7 +22,7 @@ const monoFont = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "WreckMatch | Speak to an Accident Expert 24/7",
   description:
-    "Get immediate help after a crash. Answer 8 quick questions and a WreckMatch expert will call you within 3 minutes.",
+    "Premium personal injury intake: request a voice call-back from Ava, get matched fast, answer 8 quick questions—or use live text chat anytime.",
 };
 
 export default function RootLayout({
@@ -37,6 +37,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {children}
+        {/* Retell: **`callback`** embed = Ava “request a call” voice UX only (never text/chat). */}
         <Script
           id="retell-widget"
           src="https://dashboard.retellai.com/retell-widget.js"
@@ -48,6 +49,7 @@ export default function RootLayout({
           strategy="afterInteractive"
           {...(RETELL_WIDGET_TERMS_URL ? { "data-tc": RETELL_WIDGET_TERMS_URL } : {})}
         />
+        {/* Primary site text messaging = GoHighLevel / Lead Connector (bottom-right). */}
         <Script
           id="ghl-chat-widget-loader"
           src="https://widgets.leadconnectorhq.com/loader.js"

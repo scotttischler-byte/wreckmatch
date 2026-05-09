@@ -466,9 +466,9 @@ export default function Home() {
 
   const retellPollRef = useRef<number | null>(null);
 
-  /** Retell embed is callback / voice-request mode (layout). Opens the phone form so Ava can place a voice call — GHL stays the text chat. */
-  const openRetellWidget = useCallback(() => {
-    console.log("[AVA voice] Step 1/3: Speak with Ava — trigger Retell callback widget (request voice call)");
+  /** Retell is `data-widget="callback"` in layout — Ava CTAs open the voice callback (“request a call”) sheet only; GHL is text chat. */
+  const requestAvaVoiceCallback = useCallback(() => {
+    console.log("[AVA voice] Step 1/3: Ava CTA → Retell voice callback (request a call)");
 
     if (typeof window === "undefined") return;
 
@@ -730,10 +730,12 @@ export default function Home() {
               type="button"
               variant="outline"
               size="sm"
-              onClick={openRetellWidget}
+              onClick={requestAvaVoiceCallback}
+              title="Request a voice call-back from Ava—24/7"
+              aria-label="Request a voice call from Ava anytime, 24 hours a day"
               className="inline-flex h-10 max-w-[min(100%,10.5rem)] shrink-0 rounded-full border-[#d4af72]/55 bg-[#fffdfb] px-3 text-[#1e293b] shadow-[0_12px_32px_-20px_rgba(15,23,42,0.2)] transition hover:border-[#c9a227] hover:bg-[#fff9ed] hover:shadow-md sm:h-11 sm:max-w-[13rem] sm:px-4 lg:max-w-none lg:px-5"
             >
-              <MessageSquare className="size-4 shrink-0 text-[#9a6b12]" />
+              <Phone className="size-4 shrink-0 text-[#9a6b12]" />
               <span className="ml-1 truncate sm:ml-1.5 lg:whitespace-normal">
                 <span className="sm:hidden">Ava 24/7</span>
                 <span className="hidden sm:inline">Speak with Ava 24/7</span>
@@ -798,7 +800,7 @@ export default function Home() {
                     { t: "$1 Billion+ recovered", Icon: Sparkles },
                     { t: "~60s personal match", Icon: Clock },
                     { t: "No Win, No Fee", Icon: Scale },
-                    { t: "Ava 24/7", Icon: MessageSquare },
+                    { t: "Ava 24/7", Icon: Phone },
                   ] as const
                 ).map(({ t, Icon }, i) => (
                   <span
@@ -831,14 +833,16 @@ export default function Home() {
                 </a>
                 <button
                   type="button"
-                  onClick={openRetellWidget}
+                  title="Request a voice call-back from Ava—24/7"
+                  aria-label="Request a voice call from Ava anytime, 24 hours a day"
+                  onClick={requestAvaVoiceCallback}
                   className={cn(
                     buttonVariants({ size: "lg", variant: "secondary" }),
                     wmBody,
                     "inline-flex min-h-[3.5rem] flex-1 touch-manipulation items-center justify-center gap-2.5 rounded-[1rem] border border-white/18 bg-[#050b12]/55 px-7 text-[0.94rem] font-semibold text-[#fff7ed] shadow-[0_22px_56px_-18px_rgba(0,0,0,0.65)] backdrop-blur-2xl transition-all hover:-translate-y-[3px] hover:border-[#fde68a]/38 hover:bg-[#0a1520]/68 sm:min-h-[3.9rem] sm:px-10 sm:text-[1.02rem]",
                   )}
                 >
-                  <MessageSquare className="size-[1.15rem] text-[#fde68a] sm:size-5" />
+                  <Phone className="size-[1.15rem] text-[#fde68a] sm:size-5" />
                   Speak with Ava 24/7
                 </button>
               </div>
@@ -885,7 +889,7 @@ export default function Home() {
                 { headline: "No Win, No Fee", sub: "when counsel accepts your case", Icon: Scale },
                 { headline: "Sacred privacy", sub: "discretion before dashboards", Icon: Shield },
                 { headline: "~60 sec match", sub: "then white-glove follow-up", Icon: Clock },
-                { headline: "Ava 24/7", sub: "a calm voice in the dark", Icon: MessageSquare },
+                { headline: "Ava 24/7", sub: "a calm voice in the dark", Icon: Phone },
               ] as const
             ).map(({ headline, sub, Icon }, idx) => (
               <div
@@ -1068,14 +1072,16 @@ export default function Home() {
                   <div className="mt-9 flex flex-col justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
                     <Button
                       type="button"
+                      title="Request a voice call-back from Ava—24/7"
+                      aria-label="Request a voice call from Ava anytime, 24 hours a day"
                       onClick={(ev) => {
                         ev.preventDefault();
                         ev.stopPropagation();
-                        openRetellWidget();
+                        requestAvaVoiceCallback();
                       }}
                       className="min-h-[3.25rem] rounded-[1.05rem] bg-gradient-to-b from-[#152238] to-[#081420] py-3.5 text-[0.9rem] font-semibold text-white shadow-[0_18px_44px_-12px_rgba(15,23,42,0.48)] transition-all hover:-translate-y-0.5 hover:shadow-xl sm:min-h-14 sm:min-w-[10.5rem] sm:px-9 sm:text-[0.95rem]"
                     >
-                      <MessageSquare />
+                      <Phone className="size-[1.05rem] sm:size-5" aria-hidden />
                       Speak with Ava 24/7
                     </Button>
                     <a
@@ -1152,13 +1158,16 @@ export default function Home() {
             </a>
             <button
               type="button"
-              onClick={openRetellWidget}
+              title="Request a voice call-back from Ava—24/7"
+              aria-label="Request a voice call from Ava anytime, 24 hours a day"
+              onClick={requestAvaVoiceCallback}
               className={cn(
                 buttonVariants({ size: "lg", variant: "outline" }),
                 wmBody,
                 "min-h-[3.35rem] min-w-[min(100%,17.5rem)] rounded-[1rem] border-[#e2d5c5] bg-[#fffefb] text-[0.9375rem] font-semibold text-[#152238] shadow-sm transition hover:border-[#d4af72]/55 hover:bg-[#fff9ed] hover:shadow-md",
               )}
             >
+              <Phone className="size-4 shrink-0 sm:size-[1.1rem]" aria-hidden />
               Speak with Ava 24/7
             </button>
           </div>
@@ -1413,7 +1422,9 @@ export default function Home() {
             — or{" "}
             <button
               type="button"
-              onClick={openRetellWidget}
+              title="Request a voice call-back from Ava—24/7"
+              aria-label="Request a voice call from Ava anytime, 24 hours a day"
+              onClick={requestAvaVoiceCallback}
               className={cn(wmBody, "font-semibold text-[#8a6914] underline decoration-[#fcd34d]/80 underline-offset-4 hover:text-[#713f12]")}
             >
               Speak with Ava 24/7
@@ -1520,14 +1531,16 @@ export default function Home() {
             </a>
             <button
               type="button"
-              onClick={openRetellWidget}
+              title="Request a voice call-back from Ava—24/7"
+              aria-label="Request a voice call from Ava anytime, 24 hours a day"
+              onClick={requestAvaVoiceCallback}
               className={cn(
                 buttonVariants({ size: "lg", variant: "outline" }),
                 wmBody,
-                "min-h-[3.5rem] flex-1 rounded-[1rem] border-[#cfd8ea] bg-white px-8 text-[0.95rem] font-semibold text-[#152238] shadow-md transition hover:border-[#fde68a]/85 hover:bg-[#fffdfb] hover:shadow-lg sm:flex-initial sm:px-14",
+                "inline-flex min-h-[3.5rem] flex-1 items-center justify-center gap-2 rounded-[1rem] border-[#cfd8ea] bg-white px-8 text-[0.95rem] font-semibold text-[#152238] shadow-md transition hover:border-[#fde68a]/85 hover:bg-[#fffdfb] hover:shadow-lg sm:flex-initial sm:px-14",
               )}
             >
-              <MessageSquare /> Speak with Ava 24/7
+              <Phone className="size-[1.05rem] shrink-0" aria-hidden /> Speak with Ava 24/7
             </button>
           </div>
           <p className="max-w-2xl text-[0.7rem] font-light leading-[1.8] text-[#64748b]">
@@ -1563,18 +1576,19 @@ export default function Home() {
 
       {showFloatAva && !exitModalOpen ? (
         <div className="fixed bottom-0 right-0 z-[1000010] flex max-w-[100vw] flex-col items-end gap-2 pb-[calc(5.75rem+env(safe-area-inset-bottom))] pr-[calc(1.25rem+env(safe-area-inset-right))] sm:gap-2.5 sm:pb-[calc(6.25rem+env(safe-area-inset-bottom))] sm:pr-[calc(1.75rem+env(safe-area-inset-right))]">
-          <button
-            type="button"
-            aria-label="Speak with Ava 24 hours a day, 7 days a week"
-            onClick={openRetellWidget}
-            className={cn(
-              wmBody,
-              "wm-ava-soft pointer-events-auto inline-flex max-w-[calc(100vw-2rem)] touch-manipulation items-center gap-2.5 rounded-full border border-[#fde68a]/55 bg-gradient-to-r from-[#132447] via-[#0f1c38] to-[#0c152c] px-4 py-[0.7rem] pl-3 shadow-[0_26px_64px_-14px_rgba(15,23,42,0.62)] ring-[3px] ring-black/10 transition hover:-translate-y-[3px] hover:border-[#fde68a] active:translate-y-0 sm:max-w-none sm:gap-3.5 sm:px-[1.65rem] sm:py-[0.82rem]",
-            )}
-          >
+            <button
+              type="button"
+              title="Request a voice call-back from Ava—24/7"
+              aria-label="Request a voice call from Ava anytime, 24 hours a day"
+              onClick={requestAvaVoiceCallback}
+              className={cn(
+                wmBody,
+                "wm-ava-soft pointer-events-auto inline-flex max-w-[calc(100vw-2rem)] touch-manipulation items-center gap-2.5 rounded-full border border-[#fde68a]/55 bg-gradient-to-r from-[#132447] via-[#0f1c38] to-[#0c152c] px-4 py-[0.7rem] pl-3 shadow-[0_26px_64px_-14px_rgba(15,23,42,0.62)] ring-[3px] ring-black/10 transition hover:-translate-y-[3px] hover:border-[#fde68a] active:translate-y-0 sm:max-w-none sm:gap-3.5 sm:px-[1.65rem] sm:py-[0.82rem]",
+              )}
+            >
             <span className="relative flex size-10 shrink-0 items-center justify-center rounded-full bg-[#fde68a]/18 ring-[1.5px] ring-[#fde68a]/35">
               <span className="absolute inset-2 rounded-full bg-[#fde68a]/12 blur-md" aria-hidden />
-              <MessageSquare className="relative size-[1.15rem] text-[#fef9c3]" aria-hidden />
+              <Phone className="relative size-[1.15rem] text-[#fef9c3]" aria-hidden />
             </span>
             <span className="flex min-w-0 flex-col items-start gap-0.5 pr-0.5 text-left">
               <span className="text-[0.58rem] font-semibold uppercase tracking-[0.28em] text-[#fcd34d]/95">Speak with Ava</span>
@@ -1582,7 +1596,7 @@ export default function Home() {
             </span>
           </button>
           <p className="hidden max-w-[14rem] text-right text-[0.62rem] font-medium uppercase leading-snug tracking-[0.2em] text-[#475569]/90 sm:block">
-            Gentle AI · Complimentary hello · Leaves when you exhale
+            Voice call-back · Complimentary · Separate from text chat
           </p>
         </div>
       ) : null}
@@ -1628,16 +1642,18 @@ export default function Home() {
             <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <Button
                 type="button"
+                title="Request a voice call-back from Ava—24/7"
+                aria-label="Request a voice call from Ava anytime, 24 hours a day"
                 onClick={() => {
                   setExitModalOpen(false);
-                  openRetellWidget();
+                  requestAvaVoiceCallback();
                 }}
                 className={cn(
                   wmBody,
                   "min-h-[3.35rem] flex-1 rounded-[1rem] bg-gradient-to-b from-[#152238] to-[#0d192d] px-5 py-3 text-[0.9325rem] font-semibold text-white shadow-xl transition hover:-translate-y-0.5 hover:shadow-2xl sm:min-w-[11rem]",
                 )}
               >
-                <MessageSquare className="size-4" />
+                <Phone className="size-4" aria-hidden />
                 Speak with Ava 24/7
               </Button>
               <a
