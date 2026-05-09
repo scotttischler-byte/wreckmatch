@@ -1336,16 +1336,32 @@ export default function Home() {
                 </div>
               )}
               {step === 8 && (
-                <div className="space-y-2">
-                  <label className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">Your phone number</label>
+                <div className="space-y-3">
+                  <label htmlFor="wm-intake-phone" className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">
+                    Your phone number
+                  </label>
                   <Input
+                    id="wm-intake-phone"
                     type="tel"
                     autoComplete="tel"
                     placeholder="digits only okay"
                     value={form.phone}
                     onChange={(e) => update("phone", e.target.value)}
+                    aria-describedby="wm-intake-sms-consent"
                     className="h-12 rounded-2xl border-slate-200 shadow-sm transition focus-visible:ring-amber-100 sm:h-14"
                   />
+                  <p
+                    id="wm-intake-sms-consent"
+                    role="note"
+                    className={cn(
+                      wmBody,
+                      "rounded-xl border border-[#c9a227]/40 bg-[#fffdfb] px-4 py-3.5 text-[0.75rem] font-normal leading-relaxed text-[#334155] shadow-[inset_0_1px_0_rgba(255,255,255,0.92)] ring-1 ring-[#fde68a]/25 sm:px-4 sm:py-4 sm:text-[0.8125rem] sm:leading-[1.65]",
+                    )}
+                  >
+                    By providing your phone number, you consent to receive SMS updates from WreckMatch and MVA Match (DBAs of
+                    Tophundred Global Ventures LLC) for case support and scheduling. Message & data rates may apply.
+                    Reply STOP to opt-out anytime.
+                  </p>
                 </div>
               )}
               {stepError && (
@@ -1528,7 +1544,10 @@ export default function Home() {
             <span className="font-semibold text-[#152238]">DBA:</span> WreckMatch and MVA Match are DBAs of{" "}
             <span className="whitespace-nowrap sm:whitespace-normal">Tophundred Global Ventures LLC</span>
           </p>
-          <p className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[0.72rem] font-medium text-[#64748b]">
+          <nav
+            aria-label="Legal policies"
+            className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[0.72rem] font-medium text-[#64748b]"
+          >
             <Link href="/privacy" className="underline decoration-[#c9a227]/50 underline-offset-4 hover:text-[#152238]">
               Privacy Policy
             </Link>
@@ -1538,7 +1557,7 @@ export default function Home() {
             <Link href="/terms" className="underline decoration-[#c9a227]/50 underline-offset-4 hover:text-[#152238]">
               Terms of Use
             </Link>
-          </p>
+          </nav>
         </div>
       </footer>
 
