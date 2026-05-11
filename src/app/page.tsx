@@ -913,6 +913,34 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Survival Guide Download CTA - do not alter surrounding code */}
+      <section className="py-12 bg-gradient-to-r from-[#0A2540] to-[#112C4E] text-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-2xl mb-6">
+            <span className="text-orange-400 text-xl">📄</span>
+            <span className="font-semibold">NEW FREE RESOURCE</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+            Car Accident Survival Checklist
+          </h2>
+          <p className="text-xl text-white/80 max-w-2xl mx-auto mb-8">
+            Step-by-step guide + templates to protect your health, rights & recovery. Instant download.
+          </p>
+          <a
+            href="/car-accident-survival-guide.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-[#FF6B00] hover:bg-orange-500 transition-colors text-white font-semibold text-lg px-10 py-5 rounded-2xl shadow-xl shadow-orange-500/30 group"
+          >
+            <span>📥 Download Free Survival Guide (PDF)</span>
+            <span className="text-2xl group-active:rotate-12 transition-transform">↓</span>
+          </a>
+          <p className="text-sm text-white/60 mt-6">
+            12 pages • Checklists • Photo guide • Insurance scripts • Case value self-assessment
+          </p>
+        </div>
+      </section>
+
       <section
         id="calculator"
         className="relative scroll-mt-24 overflow-hidden border-t border-[#c9a227]/12 bg-gradient-to-b from-[#ebe4d8] via-[#f5efe6] to-[#ede6dc] py-20 sm:scroll-mt-28 sm:py-28 lg:py-36"
