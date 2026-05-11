@@ -235,6 +235,8 @@ type FormState = {
   insurance: string;
   hasAttorney: string;
   phone: string;
+  caseDescription: string;
+  preferredCallbackTime: string;
 };
 
 const initialForm: FormState = {
@@ -249,6 +251,8 @@ const initialForm: FormState = {
   insurance: "",
   hasAttorney: "",
   phone: "",
+  caseDescription: "",
+  preferredCallbackTime: "",
 };
 
 const CALC_SEVERITY = [
@@ -615,6 +619,8 @@ export default function Home() {
           insurance: form.insurance,
           hasAttorney: form.hasAttorney,
           phone: form.phone,
+          caseDescription: form.caseDescription,
+          preferredCallbackTime: form.preferredCallbackTime,
         }),
       });
       const data = (await res.json()) as {
@@ -1466,6 +1472,32 @@ export default function Home() {
                     Tophundred Global Ventures LLC) for case support and scheduling. Message & data rates may apply.
                     Reply STOP to opt-out anytime.
                   </p>
+                  <div className="space-y-2 pt-2">
+                    <label htmlFor="wm-case-description" className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">
+                      Anything else we should know? <span className="font-normal normal-case tracking-normal text-[#64748b]">(optional)</span>
+                    </label>
+                    <textarea
+                      id="wm-case-description"
+                      rows={4}
+                      placeholder="Share any details that could help us care for you well."
+                      value={form.caseDescription}
+                      onChange={(e) => update("caseDescription", e.target.value)}
+                      className="min-h-[7rem] w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-[#152238] shadow-sm transition placeholder:text-[#94a3b8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-100 sm:text-[0.95rem]"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="wm-preferred-callback-time" className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">
+                      Preferred callback time <span className="font-normal normal-case tracking-normal text-[#64748b]">(optional)</span>
+                    </label>
+                    <Input
+                      id="wm-preferred-callback-time"
+                      autoComplete="off"
+                      placeholder="e.g. Today after 5pm, Tomorrow morning"
+                      value={form.preferredCallbackTime}
+                      onChange={(e) => update("preferredCallbackTime", e.target.value)}
+                      className="h-12 rounded-2xl border-slate-200 shadow-sm transition focus-visible:ring-amber-100 sm:h-14"
+                    />
+                  </div>
                 </div>
               )}
               {stepError && (

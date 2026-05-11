@@ -1,10 +1,7 @@
 import { NextResponse } from "next/server";
 import {
-  DOCUHUB_TEMPLATE_ID,
-  DOCUHUB_TEMPLATE_LINK,
   GHL_WEBHOOK_URL,
   LAW_FIRM_NAME,
-  SUPPORT_PHONE_DISPLAY,
 } from "@/lib/constants";
 
 const DEFAULT_FIELD = "Not specified — web intake";
@@ -12,6 +9,23 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function str(v: unknown): string {
   return typeof v === "string" ? v.trim() : "";
+}
+
+function parseCityState(cityState: string) {
+  if (!cityState) return { city: "", state: "" };
+
+  const parts = cityState.split(",");
+  if (parts.length >= 2) {
+    return {
+      city: parts[0]?.trim() ?? "",
+      state: parts.slice(1).join(",").trim(),
+    };
+  }
+
+  return {
+    city: cityState.trim(),
+    state: "",
+  };
 }
 
 export async function POST(request: Request) {
@@ -36,6 +50,8 @@ export async function POST(request: Request) {
       insurance: str(body.insurance) || DEFAULT_FIELD,
       hasAttorney: str(body.hasAttorney) || DEFAULT_FIELD,
       phone: str(body.phone),
+      caseDescription: str(body.caseDescription),
+      preferredCallbackTime: str(body.preferredCallbackTime),
     };
 
     if (!lead.firstName) {
@@ -83,21 +99,29 @@ export async function POST(request: Request) {
     }
 
     const fullName = `${lead.firstName} ${lead.lastName}`.trim();
+    const { city, state } = parseCityState(lead.cityState);
+    const createdAt = new Date().toISOString();
     const payload = {
+      first_name: lead.firstName,
+      last_name: lead.lastName,
+      full_name: fullName,
+      phone: lead.phone,
+      phone_digits: phoneDigits,
+      email: lead.email,
+      accident_date: lead.accidentTime,
+      accident_type: lead.accidentType,
+      injury_status: lead.injured,
+      medical_treatment: lead.medicalTreatment,
+      insurance_status: lead.insurance,
+      has_attorney: lead.hasAttorney,
+      city_state: lead.cityState,
+      city,
+      state,
+      case_description: lead.caseDescription,
+      preferred_callback_time: lead.preferredCallbackTime,
       source: LAW_FIRM_NAME,
-      submittedAt: new Date().toISOString(),
-      docuHubTemplateId: DOCUHUB_TEMPLATE_ID,
-      docuHubTemplateLink: DOCUHUB_TEMPLATE_LINK,
-      callbackPhone: SUPPORT_PHONE_DISPLAY,
-      contact: {
-        firstName: lead.firstName,
-        lastName: lead.lastName,
-        fullName,
-        email: lead.email,
-        phone: lead.phone,
-        phoneDigits,
-      },
-      lead,
+      lead_source: "www.wreckmatch.com",
+      created_at: createdAt,
     };
 
     console.log("[submit-lead] incoming lead payload:", JSON.stringify(payload, null, 2));
