@@ -1807,31 +1807,6 @@ export default function Home() {
         </div>
       )}
 
-      <button
-        onClick={async () => {
-          const url = "https://services.leadconnectorhq.com/hooks/rjrb67xfpyr4MIbZBrFZ/webhook-trigger/836f08ef-db76-455c-aa1e-9012431c8fd5";
-          try {
-            const res = await fetch(url, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                firstName: "Test",
-                lastName: "User",
-                email: "test@example.com",
-                phone: "(555) 555-1234"
-              })
-            });
-            if (res.ok) alert("✅ Test payload sent to GHL");
-            else alert("❌ Failed");
-          } catch (e) {
-            alert("❌ Error");
-            console.error(e);
-          }
-        }}
-        className="fixed bottom-8 right-8 bg-red-600 hover:bg-red-700 text-white text-lg font-bold px-8 py-5 rounded-3xl shadow-2xl z-[99999]"
-      >
-        🔴 SEND TEST PAYLOAD TO GHL NOW
-      </button>
       </div>
     </>
   );
