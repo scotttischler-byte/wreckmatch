@@ -160,14 +160,17 @@ const INTRO_STEPS = [
 ];
 
 const INTAKE_WHISPER: Record<number, string> = {
-  1: "You're safe here. Timing only helps us protect you—we never rush a hurting heart.",
-  2: "No street number required unless you wish. City & state softly route you to advocates who speak your courts.",
-  3: "Tap what feels closest. You're not alone anymore—everything can be clarified in calm daylight.",
-  4: "Your body is yours; every symptom deserves witness. You're not imagining this—we've got you.",
-  5: "ER yesterday or still postponing—that's human. You're still deserving of clarity and dignity.",
-  6: "Insurance riddles confuse brilliant people daily. Untangling together is precisely why we exist.",
-  7: "Exploring counsel is brave, not betrayal. Confidence often begins with a gentle second glance.",
-  8: "Almost home. Warm follow-up—not hustle—often within minutes. You've done the hard part already.",
+  1: "A soft beginning. Your first name helps us greet you like a person, never a case file.",
+  2: "One more gentle detail. We want to know who we're caring for without rushing your nervous system.",
+  3: "Your email gives us a calm backup channel for updates, checklists, and next steps if texting gets noisy.",
+  4: "You're safe here. Timing only helps us protect you—we never rush a hurting heart.",
+  5: "No street number required unless you wish. City & state softly route you to advocates who speak your courts.",
+  6: "Tap what feels closest. You're not alone anymore—everything can be clarified in calm daylight.",
+  7: "Your body is yours; every symptom deserves witness. You're not imagining this—we've got you.",
+  8: "ER yesterday or still postponing—that's human. You're still deserving of clarity and dignity.",
+  9: "Insurance riddles confuse brilliant people daily. Untangling together is precisely why we exist.",
+  10: "Exploring counsel is brave, not betrayal. Confidence often begins with a gentle second glance.",
+  11: "Almost home. Warm follow-up—not hustle—often within minutes. You've done the hard part already.",
 };
 
 const ACCIDENT_TIMES = [
@@ -221,6 +224,9 @@ const ATTORNEY_OPTIONS = [
 ];
 
 type FormState = {
+  firstName: string;
+  lastName: string;
+  email: string;
   accidentTime: string;
   cityState: string;
   accidentType: string;
@@ -232,6 +238,9 @@ type FormState = {
 };
 
 const initialForm: FormState = {
+  firstName: "",
+  lastName: "",
+  email: "",
   accidentTime: "",
   cityState: "",
   accidentType: "",
@@ -277,6 +286,9 @@ const CALC_ONGOING = [
   { id: "no", label: "Released or stabilized", weight: 0.96 },
 ];
 
+const TOTAL_INTAKE_STEPS = 11;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 function formatUsd(n: number) {
   if (n >= 1_000_000)
     return `$${(n / 1_000_000).toFixed(n % 1_000_000 === 0 ? 0 : 1)}M`;
@@ -316,7 +328,7 @@ export default function Home() {
   const [calcResult, setCalcResult] = useState<{ low: number; high: number } | null>(null);
 
   const telHref = `tel:${SUPPORT_PHONE_DISPLAY.replace(/\D/g, "")}`;
-  const progress = Math.round((step / 8) * 100);
+  const progress = Math.round((step / TOTAL_INTAKE_STEPS) * 100);
   const [exitModalOpen, setExitModalOpen] = useState(false);
   const [headerElevated, setHeaderElevated] = useState(false);
   const [showFloatAva, setShowFloatAva] = useState(false);
@@ -536,20 +548,26 @@ export default function Home() {
   const validateStep = () => {
     switch (step) {
       case 1:
-        return form.accidentTime.trim() ? null : "Select when your accident occurred.";
+        return form.firstName.trim() ? null : "Add your first name.";
       case 2:
-        return form.cityState.trim().length > 2 ? null : "Add city and state.";
+        return form.lastName.trim() ? null : "Add your last name.";
       case 3:
-        return form.accidentType ? null : "Choose the closest collision type.";
+        return EMAIL_RE.test(form.email.trim()) ? null : "Enter a valid email address.";
       case 4:
-        return form.injured ? null : "Tell us if you were injured.";
+        return form.accidentTime.trim() ? null : "Select when your accident occurred.";
       case 5:
-        return form.medicalTreatment ? null : "Select medical care.";
+        return form.cityState.trim().length > 2 ? null : "Add city and state.";
       case 6:
-        return form.insurance ? null : "Pick the closest insurance option.";
+        return form.accidentType ? null : "Choose the closest collision type.";
       case 7:
+        return form.injured ? null : "Tell us if you were injured.";
+      case 8:
+        return form.medicalTreatment ? null : "Select medical care.";
+      case 9:
+        return form.insurance ? null : "Pick the closest insurance option.";
+      case 10:
         return form.hasAttorney ? null : "Let us know your attorney status.";
-      case 8: {
+      case 11: {
         const d = form.phone.replace(/\D/g, "");
         return d.length >= 10 ? null : "Enter a valid U.S. phone number.";
       }
@@ -565,7 +583,7 @@ export default function Home() {
       return;
     }
     setStepError(null);
-    if (step < 8) setStep((s) => s + 1);
+    if (step < TOTAL_INTAKE_STEPS) setStep((s) => s + 1);
   };
 
   const goBack = () => {
@@ -586,6 +604,9 @@ export default function Home() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          firstName: form.firstName,
+          lastName: form.lastName,
+          email: form.email,
           accidentTime: form.accidentTime,
           cityState: form.cityState,
           accidentType: form.accidentType,
@@ -1279,7 +1300,7 @@ export default function Home() {
                 Trusted intake—not an interrogation room
               </CardTitle>
               <CardDescription className="mt-4 text-[0.98rem] font-light leading-[1.7] text-[#475569] sm:text-[1.05rem]">
-                Step {step} of 8 · <span className="font-normal text-[#334155]">you&apos;re safe here</span> · pause whenever your chest tightens—we&apos;ll wait.
+                Step {step} of {TOTAL_INTAKE_STEPS} · <span className="font-normal text-[#334155]">you&apos;re safe here</span> · pause whenever your chest tightens—we&apos;ll wait.
 
               </CardDescription>
               <div className="pt-5">
@@ -1297,6 +1318,52 @@ export default function Home() {
               </p>
               {step === 1 && (
                 <div className="space-y-2">
+                  <label htmlFor="wm-intake-first-name" className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">
+                    First name
+                  </label>
+                  <Input
+                    id="wm-intake-first-name"
+                    autoComplete="given-name"
+                    placeholder="e.g. Ava"
+                    value={form.firstName}
+                    onChange={(e) => update("firstName", e.target.value)}
+                    className="h-12 rounded-2xl border-slate-200 shadow-sm transition focus-visible:ring-amber-100 sm:h-14"
+                  />
+                </div>
+              )}
+              {step === 2 && (
+                <div className="space-y-2">
+                  <label htmlFor="wm-intake-last-name" className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">
+                    Last name
+                  </label>
+                  <Input
+                    id="wm-intake-last-name"
+                    autoComplete="family-name"
+                    placeholder="e.g. Williams"
+                    value={form.lastName}
+                    onChange={(e) => update("lastName", e.target.value)}
+                    className="h-12 rounded-2xl border-slate-200 shadow-sm transition focus-visible:ring-amber-100 sm:h-14"
+                  />
+                </div>
+              )}
+              {step === 3 && (
+                <div className="space-y-2">
+                  <label htmlFor="wm-intake-email" className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">
+                    Email address
+                  </label>
+                  <Input
+                    id="wm-intake-email"
+                    type="email"
+                    autoComplete="email"
+                    placeholder="you@example.com"
+                    value={form.email}
+                    onChange={(e) => update("email", e.target.value)}
+                    className="h-12 rounded-2xl border-slate-200 shadow-sm transition focus-visible:ring-amber-100 sm:h-14"
+                  />
+                </div>
+              )}
+              {step === 4 && (
+                <div className="space-y-2">
                   <label className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">When did it happen?</label>
                   <select className={selectClass} value={form.accidentTime} onChange={(e) => update("accidentTime", e.target.value)}>
                     <option value="">Choose…</option>
@@ -1306,7 +1373,7 @@ export default function Home() {
                   </select>
                 </div>
               )}
-              {step === 2 && (
+              {step === 5 && (
                 <div className="space-y-2">
                   <label className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">Where (city & state)?</label>
                   <Input
@@ -1317,7 +1384,7 @@ export default function Home() {
                   />
                 </div>
               )}
-              {step === 3 && (
+              {step === 6 && (
                 <div className="space-y-2">
                   <label className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">Accident shape</label>
                   <select className={selectClass} value={form.accidentType} onChange={(e) => update("accidentType", e.target.value)}>
@@ -1328,7 +1395,7 @@ export default function Home() {
                   </select>
                 </div>
               )}
-              {step === 4 && (
+              {step === 7 && (
                 <div className="space-y-2">
                   <label className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">Injuries?</label>
                   <select className={selectClass} value={form.injured} onChange={(e) => update("injured", e.target.value)}>
@@ -1339,7 +1406,7 @@ export default function Home() {
                   </select>
                 </div>
               )}
-              {step === 5 && (
+              {step === 8 && (
                 <div className="space-y-2">
                   <label className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">Care received?</label>
                   <select className={selectClass} value={form.medicalTreatment} onChange={(e) => update("medicalTreatment", e.target.value)}>
@@ -1350,7 +1417,7 @@ export default function Home() {
                   </select>
                 </div>
               )}
-              {step === 6 && (
+              {step === 9 && (
                 <div className="space-y-2">
                   <label className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">Insurance context</label>
                   <select className={selectClass} value={form.insurance} onChange={(e) => update("insurance", e.target.value)}>
@@ -1361,7 +1428,7 @@ export default function Home() {
                   </select>
                 </div>
               )}
-              {step === 7 && (
+              {step === 10 && (
                 <div className="space-y-2">
                   <label className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">Attorney already?</label>
                   <select className={selectClass} value={form.hasAttorney} onChange={(e) => update("hasAttorney", e.target.value)}>
@@ -1372,7 +1439,7 @@ export default function Home() {
                   </select>
                 </div>
               )}
-              {step === 8 && (
+              {step === 11 && (
                 <div className="space-y-3">
                   <label htmlFor="wm-intake-phone" className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">
                     Your phone number
@@ -1418,7 +1485,7 @@ export default function Home() {
               >
                 Previous
               </Button>
-              {step < 8 ? (
+              {step < TOTAL_INTAKE_STEPS ? (
                 <Button
                   type="button"
                   onClick={goNext}

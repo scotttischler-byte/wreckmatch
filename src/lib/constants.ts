@@ -7,8 +7,7 @@ export const DOCUHUB_TEMPLATE_ID =
   process.env.DOCUHUB_TEMPLATE_ID ?? "docuhub_template_placeholder";
 export const DOCUHUB_TEMPLATE_LINK =
   process.env.DOCUHUB_TEMPLATE_LINK ?? "https://example.com/docuhub-template";
-export const GHL_WEBHOOK_URL =
-  process.env.GHL_WEBHOOK_URL ?? "https://example.com/webhooks/ghl-lead";
+export const GHL_WEBHOOK_URL = process.env.GHL_WEBHOOK_URL ?? "";
 
 /** Retell embed (layout) — voice callback widget + optional legacy references */
 export const RETELL_EMBED_PUBLIC_KEY =
