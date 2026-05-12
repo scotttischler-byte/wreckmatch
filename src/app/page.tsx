@@ -237,6 +237,7 @@ type FormState = {
   phone: string;
   caseDescription: string;
   preferredCallbackTime: string;
+  smsOptIn: string;
 };
 
 const initialForm: FormState = {
@@ -253,6 +254,7 @@ const initialForm: FormState = {
   phone: "",
   caseDescription: "",
   preferredCallbackTime: "",
+  smsOptIn: "",
 };
 
 const CALC_SEVERITY = [
@@ -1497,6 +1499,25 @@ export default function Home() {
                       onChange={(e) => update("preferredCallbackTime", e.target.value)}
                       className="h-12 rounded-2xl border-slate-200 shadow-sm transition focus-visible:ring-amber-100 sm:h-14"
                     />
+                  </div>
+                  <div className="rounded-xl border border-[#d7dce5] bg-white/90 px-4 py-3.5 text-sm leading-relaxed text-[#334155] shadow-sm">
+                    <label htmlFor="wm-sms-opt-in" className="flex cursor-pointer items-start gap-3">
+                      <input
+                        id="wm-sms-opt-in"
+                        type="checkbox"
+                        checked={form.smsOptIn === "yes"}
+                        onChange={(e) => update("smsOptIn", e.target.checked ? "yes" : "")}
+                        className="mt-1 h-4 w-4 rounded border-slate-300 text-[#92400e] focus:ring-amber-200"
+                      />
+                      <span>
+                        I agree to receive SMS messages from WreckMatch. Message frequency varies. Msg & data rates may
+                        apply. Reply STOP to unsubscribe.{" "}
+                        <Link href="/privacy-policy" className="font-medium text-[#92400e] underline underline-offset-4 hover:text-[#713f12]">
+                          View our Privacy Policy
+                        </Link>
+                        .
+                      </span>
+                    </label>
                   </div>
                 </div>
               )}
