@@ -9,7 +9,7 @@ export const DOCUHUB_TEMPLATE_LINK =
   process.env.DOCUHUB_TEMPLATE_LINK ?? "https://example.com/docuhub-template";
 export const GHL_WEBHOOK_URL =
   process.env.GHL_WEBHOOK_URL ??
-  "https://services.leadconnectorhq.com/hooks/rjrb67xfpyr4MIbZBrFZ/webhook-trigger/8da90160-bd9e-40dc-8d60-4235f41c812a";
+  "https://services.leadconnectorhq.com/hooks/rjrb67xfpyr4MIbZBrFZ/webhook-trigger/e9f8fe48-744d-467b-935a-537f6442b6e8";
 
 /** Retell embed (layout) — voice callback widget + optional legacy references */
 export const RETELL_EMBED_PUBLIC_KEY =

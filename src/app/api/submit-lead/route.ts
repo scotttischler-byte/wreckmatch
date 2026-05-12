@@ -6,6 +6,8 @@ import {
 
 const DEFAULT_FIELD = "Not specified — web intake";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const GHL_API_KEY = process.env.GHL_API_KEY ?? "";
+const GHL_LOCATION_ID = "rjrb67xfpyr4MIbZBrFZ";
 
 function str(v: unknown): string {
   return typeof v === "string" ? v.trim() : "";
@@ -145,6 +147,36 @@ export async function POST(request: Request) {
         { success: false, message: "Failed to send lead to automation." },
         { status: 502 },
       );
+    }
+
+    if (!GHL_API_KEY) {
+      console.warn("[submit-lead] GHL_API_KEY missing; skipping direct contact upsert.");
+    } else {
+      const ghlContactResponse = await fetch("https://services.leadconnectorhq.com/contacts/upsert", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${GHL_API_KEY}`,
+          Version: "2021-07-28",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: lead.firstName,
+          lastName: lead.lastName,
+          email: lead.email,
+          phone: lead.phone,
+          tags: ["wreckmatch-lead"],
+          locationId: GHL_LOCATION_ID,
+        }),
+      });
+
+      if (!ghlContactResponse.ok) {
+        const failureBody = await ghlContactResponse.text();
+        console.error("[submit-lead] GHL contact upsert failed:", {
+          status: ghlContactResponse.status,
+          statusText: ghlContactResponse.statusText,
+          body: failureBody,
+        });
+      }
     }
 
     return NextResponse.json({
