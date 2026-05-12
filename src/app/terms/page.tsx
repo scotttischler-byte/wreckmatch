@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { SUPPORT_PHONE_DISPLAY } from "@/lib/constants";
-
 export const metadata: Metadata = {
   title: "Terms of Use | WreckMatch",
   description: "Terms governing use of WreckMatch services, including SMS/text messaging rules.",
@@ -36,9 +34,9 @@ export default function TermsPage() {
           <section className="space-y-3">
             <h2 className="text-lg font-semibold text-[#0f172a]">1. Agreement</h2>
             <p>
-              These Terms of Use (&quot;Terms&quot;) govern access to and use of our websites, landing pages, intake flows,
-              phone services, SMS/MMS programs, chat tools (including AI features), and related offerings
-              (&quot;Services&quot;). By accessing or using the Services, you agree to these Terms and our{" "}
+              These Terms of Use (&quot;Terms&quot;) govern access to and use of our website, chat widget, SMS/MMS programs,
+              and related offerings (&quot;Services&quot;). By accessing or using the Services, you agree to these Terms and
+              our{" "}
               <Link href="/privacy-policy" className="font-semibold text-[#92400e] underline underline-offset-2 hover:text-[#713f12]">
                 Privacy Policy
               </Link>
@@ -68,10 +66,9 @@ export default function TermsPage() {
             <div className="rounded-xl border border-[#c9a227]/35 bg-[#fffefb] p-5 shadow-sm">
               <p className="font-semibold text-[#0f172a]">Program description</p>
               <p className="mt-2">
-                When you provide your mobile number and agree (including by checkbox, keyword, form submission, or other
-                legally sufficient method), you consent to receive transactional, informational, and—where separately
-                authorized—marketing or promotional text messages from or on behalf of the Company and its service
-                providers.
+                When you provide your mobile number and agree through the website chat widget or another legally sufficient
+                method, you consent to receive transactional, informational, and where separately authorized marketing or
+                promotional text messages from or on behalf of the Company and its service providers.
               </p>
               <ul className="mt-3 list-disc space-y-2 pl-5">
                 <li>
@@ -101,13 +98,7 @@ export default function TermsPage() {
                   for SMS opt-in lists without proper disclosure and consent, as applicable.
                 </li>
               </ul>
-              <p className="mt-3 text-sm text-[#475569]">
-                Customer care:{" "}
-                <a href={`tel:${SUPPORT_PHONE_DISPLAY.replace(/\D/g, "")}`} className="font-semibold text-[#92400e] underline">
-                  {SUPPORT_PHONE_DISPLAY}
-                </a>
-                .
-              </p>
+              <p className="mt-3 text-sm text-[#475569]">Customer care: (815) 608-0449.</p>
             </div>
           </section>
 
@@ -186,11 +177,7 @@ export default function TermsPage() {
 
           <section className="space-y-3">
             <h2 className="text-lg font-semibold text-[#0f172a]">13. Contact</h2>
-            <p>
-              <a href={`tel:${SUPPORT_PHONE_DISPLAY.replace(/\D/g, "")}`} className="font-semibold text-[#92400e] underline">
-                {SUPPORT_PHONE_DISPLAY}
-              </a>
-            </p>
+            <p>(815) 608-0449</p>
             <p className="text-sm text-[#64748b]">
               WreckMatch and MVA Match are DBAs of Tophundred Global Ventures LLC
             </p>
@@ -203,12 +190,7 @@ export default function TermsPage() {
             <p>Tophundred Global Ventures LLC</p>
             <p>832 Saint Augustine Road</p>
             <p>Colgate, WI 53017</p>
-            <p>
-              Phone:{" "}
-              <a href="tel:8156080449" className="font-semibold text-[#92400e] underline underline-offset-4">
-                (815) 608-0449
-              </a>
-            </p>
+            <p>Phone: (815) 608-0449</p>
           </div>
         </div>
 

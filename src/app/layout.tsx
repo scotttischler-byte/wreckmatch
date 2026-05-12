@@ -14,9 +14,9 @@ const monoFont = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WreckMatch | Speak to an Accident Expert 24/7",
+  title: "WreckMatch | Secure Chat Support",
   description:
-    "Premium personal injury help: get matched fast, use live text chat anytime, or call now for immediate support.",
+    "WreckMatch secure support page with legal disclosures and a single chat-widget contact path during messaging compliance review.",
 };
 
 export default function RootLayout({

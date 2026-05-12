@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowRight, Phone, Shield, Sparkles } from "lucide-react";
-import { SUPPORT_PHONE_DISPLAY, SUPPORT_PHONE_E164 } from "@/lib/constants";
+import { ArrowRight, Shield, Sparkles } from "lucide-react";
 
 const TOTAL_SECONDS = 180;
 
@@ -63,14 +62,7 @@ export default function ThankYouPage() {
               </p>
             </div>
 
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <a
-                href={`tel:${SUPPORT_PHONE_E164}`}
-                className="inline-flex min-h-[3.4rem] items-center justify-center gap-2 rounded-[1rem] bg-gradient-to-b from-[#e8c056] via-[#d4af72] to-[#c9a227] px-7 text-[0.98rem] font-semibold text-[#171f30] shadow-[0_24px_50px_-22px_rgba(201,162,39,0.48)] transition hover:-translate-y-0.5 hover:shadow-xl"
-              >
-                <Phone className="size-4" aria-hidden />
-                Call {SUPPORT_PHONE_DISPLAY}
-              </a>
+            <div className="mt-8 flex items-center justify-center">
               <Link
                 href="/"
                 className="inline-flex min-h-[3.4rem] items-center justify-center rounded-[1rem] border border-white/16 bg-white/8 px-7 text-[0.98rem] font-semibold text-white transition hover:border-[#fde68a]/40 hover:bg-white/12"

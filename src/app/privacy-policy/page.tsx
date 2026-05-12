@@ -36,7 +36,7 @@ export default function PrivacyPolicyPage() {
             <p>
               We may collect information you provide directly, including your name, email address, phone number, city and
               state, accident details, treatment information, insurance information, preferred callback time, and any other
-              case information you choose to submit through our forms, calls, chats, or messages.
+              case information you choose to submit through our website chat widget or related messages.
             </p>
           </section>
 
@@ -112,12 +112,7 @@ export default function PrivacyPolicyPage() {
             <p>Tophundred Global Ventures LLC</p>
             <p>832 Saint Augustine Road</p>
             <p>Colgate, WI 53017</p>
-            <p>
-              Phone:{" "}
-              <a href="tel:8156080449" className="font-semibold text-[#92400e] underline underline-offset-4">
-                (815) 608-0449
-              </a>
-            </p>
+            <p>Phone: (815) 608-0449</p>
           </div>
         </div>
 
