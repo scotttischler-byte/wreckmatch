@@ -1480,6 +1480,18 @@ export default function Home() {
                       className="h-12 rounded-2xl border-slate-200 shadow-sm transition focus-visible:ring-amber-100 sm:h-14"
                     />
                   </div>
+                </div>
+              )}
+              {stepError && (
+                <p className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{stepError}</p>
+              )}
+              {submitError && (
+                <p className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{submitError}</p>
+              )}
+            </CardContent>
+            <CardFooter className="border-t border-[#eae6df] bg-gradient-to-b from-[#fefdfb] to-[#faf6ef] px-5 pb-9 pt-7 sm:px-10 sm:pb-11 sm:pt-9">
+              <div className="flex flex-col gap-4">
+                {step === TOTAL_INTAKE_STEPS ? (
                   <div className="rounded-xl border border-[#d7dce5] bg-white/90 px-4 py-3.5 text-sm leading-relaxed text-[#334155] shadow-sm">
                     <label htmlFor="wm-sms-opt-in" className="flex cursor-pointer items-start gap-3">
                       <input
@@ -1493,50 +1505,44 @@ export default function Home() {
                         I agree to receive SMS messages from WreckMatch. Message frequency varies. Msg & data rates may
                         apply. Reply STOP to unsubscribe.{" "}
                         <Link href="/privacy-policy" className="font-medium text-[#92400e] underline underline-offset-4 hover:text-[#713f12]">
-                          View our Privacy Policy
+                          Privacy Policy
                         </Link>
                         .
                       </span>
                     </label>
                   </div>
+                ) : null}
+                <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-between sm:gap-4">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={goBack}
+                    disabled={step === 1 || submitting}
+                    className="h-12 rounded-2xl border-slate-200 bg-white text-[0.9rem] font-medium shadow-md transition hover:border-amber-200/70 hover:bg-amber-50/30 sm:h-14 sm:text-sm"
+                  >
+                    Previous
+                  </Button>
+                  {step < TOTAL_INTAKE_STEPS ? (
+                    <Button
+                      type="button"
+                      onClick={goNext}
+                      className="h-12 rounded-2xl bg-gradient-to-b from-amber-600 to-amber-700 px-8 text-[0.9rem] font-semibold text-white shadow-lg shadow-amber-900/25 transition hover:-translate-y-px hover:from-amber-500 hover:to-amber-600 sm:h-14 sm:px-10 sm:text-[0.9375rem]"
+                    >
+                      Continue
+                      <ArrowRight />
+                    </Button>
+                  ) : (
+                    <Button
+                      type="button"
+                      disabled={submitting}
+                      onClick={handleSubmit}
+                      className="h-12 rounded-2xl bg-gradient-to-b from-[#1e293b] to-[#0f172a] px-6 text-[0.9rem] font-semibold text-white shadow-lg transition hover:-translate-y-px hover:from-slate-700 hover:to-slate-900 disabled:translate-y-0 sm:h-14 sm:px-8 sm:text-[0.9375rem]"
+                    >
+                      {submitting ? "Submitting…" : "Secure consult request"}
+                    </Button>
+                  )}
                 </div>
-              )}
-              {stepError && (
-                <p className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{stepError}</p>
-              )}
-              {submitError && (
-                <p className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{submitError}</p>
-              )}
-            </CardContent>
-            <CardFooter className="flex flex-col-reverse gap-3 border-t border-[#eae6df] bg-gradient-to-b from-[#fefdfb] to-[#faf6ef] px-5 pb-9 pt-7 sm:flex-row sm:gap-4 sm:justify-between sm:px-10 sm:pb-11 sm:pt-9">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={goBack}
-                disabled={step === 1 || submitting}
-                className="h-12 rounded-2xl border-slate-200 bg-white text-[0.9rem] font-medium shadow-md transition hover:border-amber-200/70 hover:bg-amber-50/30 sm:h-14 sm:text-sm"
-              >
-                Previous
-              </Button>
-              {step < TOTAL_INTAKE_STEPS ? (
-                <Button
-                  type="button"
-                  onClick={goNext}
-                  className="h-12 rounded-2xl bg-gradient-to-b from-amber-600 to-amber-700 px-8 text-[0.9rem] font-semibold text-white shadow-lg shadow-amber-900/25 transition hover:-translate-y-px hover:from-amber-500 hover:to-amber-600 sm:h-14 sm:px-10 sm:text-[0.9375rem]"
-                >
-                  Continue
-                  <ArrowRight />
-                </Button>
-              ) : (
-                <Button
-                  type="button"
-                  disabled={submitting}
-                  onClick={handleSubmit}
-                  className="h-12 rounded-2xl bg-gradient-to-b from-[#1e293b] to-[#0f172a] px-6 text-[0.9rem] font-semibold text-white shadow-lg transition hover:-translate-y-px hover:from-slate-700 hover:to-slate-900 disabled:translate-y-0 sm:h-14 sm:px-8 sm:text-[0.9375rem]"
-                >
-                  {submitting ? "Submitting…" : "Secure consult request"}
-                </Button>
-              )}
+              </div>
             </CardFooter>
           </Card>
           <p className="mx-auto mt-12 max-w-md text-center text-[0.9rem] font-light leading-[1.8] text-[#64748b]">
@@ -1689,7 +1695,7 @@ export default function Home() {
             aria-label="Legal policies"
             className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[0.72rem] font-medium text-[#64748b]"
           >
-            <Link href="/privacy" className="underline decoration-[#c9a227]/50 underline-offset-4 hover:text-[#152238]">
+            <Link href="/privacy-policy" className="underline decoration-[#c9a227]/50 underline-offset-4 hover:text-[#152238]">
               Privacy Policy
             </Link>
             <span className="text-[#cbd5e1]" aria-hidden>
