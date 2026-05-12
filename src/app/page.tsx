@@ -235,7 +235,6 @@ type FormState = {
   phone: string;
   caseDescription: string;
   preferredCallbackTime: string;
-  smsOptIn: string;
 };
 
 const initialForm: FormState = {
@@ -252,7 +251,6 @@ const initialForm: FormState = {
   phone: "",
   caseDescription: "",
   preferredCallbackTime: "",
-  smsOptIn: "",
 };
 
 const CALC_SEVERITY = [
@@ -1439,20 +1437,8 @@ export default function Home() {
                     placeholder="e.g. (978) 515-6063"
                     value={form.phone}
                     onChange={(e) => update("phone", e.target.value)}
-                    aria-describedby="wm-intake-sms-consent"
                     className="h-12 rounded-2xl border-slate-200 shadow-sm transition focus-visible:ring-amber-100 sm:h-14"
                   />
-                  <p
-                    id="wm-intake-sms-consent"
-                    role="note"
-                    className={cn(
-                      wmBody,
-                      "rounded-xl border border-[#c9a227]/40 bg-[#fffdfb] px-4 py-3.5 text-[0.75rem] font-normal leading-relaxed text-[#334155] shadow-[inset_0_1px_0_rgba(255,255,255,0.92)] ring-1 ring-[#fde68a]/25 sm:px-4 sm:py-4 sm:text-[0.8125rem] sm:leading-[1.65]",
-                    )}
-                  >
-                    By providing your phone number, you consent to receive SMS messages from WreckMatch. Message frequency
-                    varies. Msg &amp; data rates may apply. Reply STOP to unsubscribe.
-                  </p>
                   <div className="space-y-2 pt-2">
                     <label htmlFor="wm-case-description" className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">
                       Anything else we should know? <span className="font-normal normal-case tracking-normal text-[#64748b]">(optional)</span>
@@ -1489,58 +1475,35 @@ export default function Home() {
               )}
             </CardContent>
             <CardFooter className="border-t border-[#eae6df] bg-gradient-to-b from-[#fefdfb] to-[#faf6ef] px-5 pb-9 pt-7 sm:px-10 sm:pb-11 sm:pt-9">
-              <div className="flex flex-col gap-4">
-                {step === TOTAL_INTAKE_STEPS ? (
-                  <div className="rounded-xl border border-[#d7dce5] bg-white/90 px-4 py-3.5 text-sm leading-relaxed text-[#334155] shadow-sm">
-                    <label htmlFor="wm-sms-opt-in" className="flex cursor-pointer items-start gap-3">
-                      <input
-                        id="wm-sms-opt-in"
-                        type="checkbox"
-                        checked={form.smsOptIn === "yes"}
-                        onChange={(e) => update("smsOptIn", e.target.checked ? "yes" : "")}
-                        className="mt-1 h-4 w-4 rounded border-slate-300 text-[#92400e] focus:ring-amber-200"
-                      />
-                      <span>
-                        I agree to receive SMS messages from WreckMatch. Message frequency varies. Msg & data rates may
-                        apply. Reply STOP to unsubscribe.{" "}
-                        <Link href="/privacy-policy" className="font-medium text-[#92400e] underline underline-offset-4 hover:text-[#713f12]">
-                          Privacy Policy
-                        </Link>
-                        .
-                      </span>
-                    </label>
-                  </div>
-                ) : null}
-                <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-between sm:gap-4">
+              <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-between sm:gap-4">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={goBack}
+                  disabled={step === 1 || submitting}
+                  className="h-12 rounded-2xl border-slate-200 bg-white text-[0.9rem] font-medium shadow-md transition hover:border-amber-200/70 hover:bg-amber-50/30 sm:h-14 sm:text-sm"
+                >
+                  Previous
+                </Button>
+                {step < TOTAL_INTAKE_STEPS ? (
                   <Button
                     type="button"
-                    variant="outline"
-                    onClick={goBack}
-                    disabled={step === 1 || submitting}
-                    className="h-12 rounded-2xl border-slate-200 bg-white text-[0.9rem] font-medium shadow-md transition hover:border-amber-200/70 hover:bg-amber-50/30 sm:h-14 sm:text-sm"
+                    onClick={goNext}
+                    className="h-12 rounded-2xl bg-gradient-to-b from-amber-600 to-amber-700 px-8 text-[0.9rem] font-semibold text-white shadow-lg shadow-amber-900/25 transition hover:-translate-y-px hover:from-amber-500 hover:to-amber-600 sm:h-14 sm:px-10 sm:text-[0.9375rem]"
                   >
-                    Previous
+                    Continue
+                    <ArrowRight />
                   </Button>
-                  {step < TOTAL_INTAKE_STEPS ? (
-                    <Button
-                      type="button"
-                      onClick={goNext}
-                      className="h-12 rounded-2xl bg-gradient-to-b from-amber-600 to-amber-700 px-8 text-[0.9rem] font-semibold text-white shadow-lg shadow-amber-900/25 transition hover:-translate-y-px hover:from-amber-500 hover:to-amber-600 sm:h-14 sm:px-10 sm:text-[0.9375rem]"
-                    >
-                      Continue
-                      <ArrowRight />
-                    </Button>
-                  ) : (
-                    <Button
-                      type="button"
-                      disabled={submitting}
-                      onClick={handleSubmit}
-                      className="h-12 rounded-2xl bg-gradient-to-b from-[#1e293b] to-[#0f172a] px-6 text-[0.9rem] font-semibold text-white shadow-lg transition hover:-translate-y-px hover:from-slate-700 hover:to-slate-900 disabled:translate-y-0 sm:h-14 sm:px-8 sm:text-[0.9375rem]"
-                    >
-                      {submitting ? "Submitting…" : "Secure consult request"}
-                    </Button>
-                  )}
-                </div>
+                ) : (
+                  <Button
+                    type="button"
+                    disabled={submitting}
+                    onClick={handleSubmit}
+                    className="h-12 rounded-2xl bg-gradient-to-b from-[#1e293b] to-[#0f172a] px-6 text-[0.9rem] font-semibold text-white shadow-lg transition hover:-translate-y-px hover:from-slate-700 hover:to-slate-900 disabled:translate-y-0 sm:h-14 sm:px-8 sm:text-[0.9375rem]"
+                  >
+                    {submitting ? "Submitting…" : "Secure consult request"}
+                  </Button>
+                )}
               </div>
             </CardFooter>
           </Card>
