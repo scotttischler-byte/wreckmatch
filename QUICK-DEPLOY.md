@@ -62,8 +62,6 @@ git push -u origin main
 - `NEXT_PUBLIC_RETELL_VOICE_AGENT_ID`
 - `NEXT_PUBLIC_RETELL_PHONE_NUMBER`
 - `GHL_WEBHOOK_URL`
-- `DOCUHUB_TEMPLATE_ID`
-- `DOCUHUB_TEMPLATE_LINK`
 - `NEXT_PUBLIC_SITE_URL`
 
 Use the same values from `.env.local`.

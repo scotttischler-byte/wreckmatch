@@ -114,17 +114,7 @@ Open `.env.local` in Cursor and replace placeholder values with real values.
 
 [Screenshot: GHL Workflow -> Webhook step -> URL copy icon]
 
-### 1.6 DocuHub Template Values
-
-1. Get your DocuHub template ID from your DocuHub dashboard/template details.
-2. Get your signing link URL.
-3. Paste into:
-  ```env
-   DOCUHUB_TEMPLATE_ID=YOUR_REAL_TEMPLATE_ID
-   DOCUHUB_TEMPLATE_LINK=https://your-real-docuhub-link
-  ```
-
-### 1.7 Site URL
+### 1.6 Site URL
 
 1. Leave this for now if deploying to Vercel.
 2. After deployment, set it to your real production URL:
@@ -262,8 +252,6 @@ In project setup (or Project -> Settings -> Environment Variables), add each:
 - `NEXT_PUBLIC_RETELL_VOICE_AGENT_ID`
 - `NEXT_PUBLIC_RETELL_PHONE_NUMBER`
 - `GHL_WEBHOOK_URL`
-- `DOCUHUB_TEMPLATE_ID`
-- `DOCUHUB_TEMPLATE_LINK`
 - `NEXT_PUBLIC_SITE_URL`
 
 Set values exactly as in `.env.local`, except production URL should be your real domain URL.
@@ -306,7 +294,7 @@ Run this full checklist on the live URL.
 1. Submit a test lead.
 2. Confirm API request succeeds.
 3. Confirm lead appears in GoHighLevel workflow/logs.
-4. Confirm DocuHub link/template values are present in payload.
+4. Confirm the normalized lead payload fields are present in the webhook and contact upsert flow.
 
 ### 5.5 SEO and domain checks
 

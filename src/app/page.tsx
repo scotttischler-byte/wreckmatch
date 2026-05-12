@@ -106,12 +106,10 @@ function forceClickRetellFab(fab: HTMLElement) {
 function tryRetellWidgetGlobal(): void {
   const api = window.RetellWidget;
   if (typeof api?.open === "function") {
-    console.log("[AVA voice] window.RetellWidget.open()");
     api.open();
     return;
   }
   if (typeof api?.show === "function") {
-    console.log("[AVA voice] window.RetellWidget.show()");
     api.show();
   }
 }
@@ -486,8 +484,6 @@ export default function Home() {
 
   /** Retell is `data-widget="callback"` in layout — Ava CTAs open the voice callback (“request a call”) sheet only; GHL is text chat. */
   const requestAvaVoiceCallback = useCallback(() => {
-    console.log("[AVA voice] Step 1/3: Ava CTA → Retell voice callback (request a call)");
-
     if (typeof window === "undefined") return;
 
     tryRetellWidgetGlobal();
@@ -495,19 +491,13 @@ export default function Home() {
     const tryFab = (): boolean => {
       const fab = findRetellFabInShadow();
       if (fab) {
-        console.log("[AVA voice] Step 2/3: found #retell-fab → synthetic click");
         forceClickRetellFab(fab);
         return true;
       }
       return false;
     };
 
-    if (tryFab()) {
-      console.log("[AVA voice] Step 3/3: done (immediate)");
-      return;
-    }
-
-    console.log("[AVA voice] Step 2/3 deferred: FAB not mounted yet — polling 250ms up to 6s");
+    if (tryFab()) return;
 
     if (retellPollRef.current !== null) {
       window.clearInterval(retellPollRef.current);
@@ -517,24 +507,14 @@ export default function Home() {
     const POLL_MS = 250;
     const MAX_MS = 6000;
     const started = Date.now();
-    let i = 0;
 
     retellPollRef.current = window.setInterval(() => {
-      i += 1;
       const elapsed = Date.now() - started;
       const ok = tryFab();
-      console.log(`[AVA voice] poll #${i} +${elapsed}ms — fabClick=${ok}`);
 
       if (ok || elapsed >= MAX_MS) {
         if (retellPollRef.current !== null) window.clearInterval(retellPollRef.current);
         retellPollRef.current = null;
-        if (ok) {
-          console.log("[AVA voice] Step 3/3: opened after poll");
-        } else {
-          console.warn(
-            "[AVA voice] Step 3/3 failed: FAB missing after 6s — verify Retell widget script, domain allowlist, callback attrs (voice agent + E.164 from-number)",
-          );
-        }
       }
     }, POLL_MS);
   }, []);
@@ -1456,7 +1436,7 @@ export default function Home() {
                     id="wm-intake-phone"
                     type="tel"
                     autoComplete="tel"
-                    placeholder="digits only okay"
+                    placeholder="e.g. (978) 515-6063"
                     value={form.phone}
                     onChange={(e) => update("phone", e.target.value)}
                     aria-describedby="wm-intake-sms-consent"

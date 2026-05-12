@@ -30,6 +30,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const hasRetellVoiceConfig = Boolean(RETELL_EMBED_PUBLIC_KEY && RETELL_VOICE_AGENT_ID);
+
   return (
     <html
       lang="en"
@@ -38,17 +40,19 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {children}
         {/* Retell: **`callback`** embed = Ava “request a call” voice UX only (never text/chat). */}
-        <Script
-          id="retell-widget"
-          src="https://dashboard.retellai.com/retell-widget.js"
-          data-public-key={RETELL_EMBED_PUBLIC_KEY}
-          data-agent-id={RETELL_VOICE_AGENT_ID}
-          data-widget="callback"
-          data-phone-number={RETELL_PHONE_NUMBER}
-          data-countries="US"
-          strategy="afterInteractive"
-          {...(RETELL_WIDGET_TERMS_URL ? { "data-tc": RETELL_WIDGET_TERMS_URL } : {})}
-        />
+        {hasRetellVoiceConfig ? (
+          <Script
+            id="retell-widget"
+            src="https://dashboard.retellai.com/retell-widget.js"
+            data-public-key={RETELL_EMBED_PUBLIC_KEY}
+            data-agent-id={RETELL_VOICE_AGENT_ID}
+            data-widget="callback"
+            data-phone-number={RETELL_PHONE_NUMBER}
+            data-countries="US"
+            strategy="afterInteractive"
+            {...(RETELL_WIDGET_TERMS_URL ? { "data-tc": RETELL_WIDGET_TERMS_URL } : {})}
+          />
+        ) : null}
         {/* Primary site text messaging = GoHighLevel / Lead Connector (bottom-right). */}
         <Script
           id="ghl-chat-widget-loader"
