@@ -1450,9 +1450,8 @@ export default function Home() {
                       "rounded-xl border border-[#c9a227]/40 bg-[#fffdfb] px-4 py-3.5 text-[0.75rem] font-normal leading-relaxed text-[#334155] shadow-[inset_0_1px_0_rgba(255,255,255,0.92)] ring-1 ring-[#fde68a]/25 sm:px-4 sm:py-4 sm:text-[0.8125rem] sm:leading-[1.65]",
                     )}
                   >
-                    By providing your phone number, you consent to receive SMS updates from WreckMatch and MVA Match (DBAs of
-                    Tophundred Global Ventures LLC) for case support and scheduling. Message & data rates may apply.
-                    Reply STOP to opt-out anytime.
+                    By providing your phone number, you consent to receive SMS messages from WreckMatch. Message frequency
+                    varies. Msg &amp; data rates may apply. Reply STOP to unsubscribe.
                   </p>
                   <div className="space-y-2 pt-2">
                     <label htmlFor="wm-case-description" className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">
@@ -1640,60 +1639,32 @@ export default function Home() {
 
       <footer className="relative border-t border-[#c9a227]/22 bg-[#f5efe6] pb-[calc(6rem+env(safe-area-inset-bottom))] pt-20 sm:pb-32 sm:pt-28">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d4af72]/45 to-transparent" />
-        <div className="mx-auto flex max-w-[80rem] flex-col items-center gap-11 px-5 text-center sm:gap-12 sm:px-12 lg:px-20">
-          <div className={cn(wmDisplay, "flex flex-col items-center gap-4 sm:flex-row sm:gap-4")}>
-            <span className="flex size-12 items-center justify-center rounded-[1rem] bg-gradient-to-br from-[#fff7e8] via-white to-[#fde68a]/35 shadow-inner ring-1 ring-[#d4af72]/42">
-              <Shield className="size-7 text-[#92400e]" />
-            </span>
-            <span className="text-[1.85rem] font-semibold tracking-[-0.02em] text-[#142032] sm:text-[2rem]">WreckMatch</span>
-          </div>
-          <p className="max-w-2xl text-[1.08rem] font-light leading-[1.78] text-[#475569]">
-            Souls first, spreadsheets second. We braid you toward counsel fluent in nine-figure arenas who still cradle terrified
-            callers with patience.{" "}
-            <span className="font-normal text-[#334155]">You&apos;re safe here.</span>
-          </p>
-          <div className="flex w-full max-w-md flex-wrap justify-center gap-3 sm:max-w-none sm:gap-4">
-            <a
-              href={telHref}
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                wmBody,
-                "min-h-[3.5rem] flex-1 rounded-[1rem] bg-gradient-to-b from-[#e8c056] via-[#d4af72] to-[#c9a227] px-9 text-[0.95rem] font-semibold text-[#171f30] shadow-[0_22px_48px_-18px_rgba(201,162,39,0.45)] transition hover:-translate-y-0.5 hover:shadow-xl sm:flex-initial sm:px-12",
-              )}
-            >
-              <Phone /> Call {SUPPORT_PHONE_DISPLAY}
-            </a>
-            <button
-              type="button"
-              title="Request a voice call-back from Ava—24/7"
-              aria-label="Request a voice call from Ava anytime, 24 hours a day"
-              onClick={requestAvaVoiceCallback}
-              className={cn(
-                buttonVariants({ size: "lg", variant: "outline" }),
-                wmBody,
-                "inline-flex min-h-[3.5rem] flex-1 items-center justify-center gap-2 rounded-[1rem] border-[#cfd8ea] bg-white px-8 text-[0.95rem] font-semibold text-[#152238] shadow-md transition hover:border-[#fde68a]/85 hover:bg-[#fffdfb] hover:shadow-lg sm:flex-initial sm:px-14",
-              )}
-            >
-              <Phone className="size-[1.05rem] shrink-0" aria-hidden /> Speak with Ava 24/7
-            </button>
-          </div>
-          <p className="max-w-2xl text-[0.7rem] font-light leading-[1.8] text-[#64748b]">
-            Paid attorney advertising coordinated by participating counsel. Past verdicts/settlements are never promises of tomorrow.
-            Messaging alone does not create an attorney-client relationship—you remain sovereign until you say otherwise.
-          </p>
-          <p
-            role="note"
+        <div className="mx-auto flex max-w-[80rem] flex-col items-center gap-6 px-5 text-center sm:gap-7 sm:px-12 lg:px-20">
+          <div
             className={cn(
               wmBody,
-              "max-w-2xl rounded-xl border border-[#94a3b8]/35 bg-white/95 px-5 py-4 text-center text-[0.82rem] font-medium leading-relaxed text-[#334155] shadow-[0_12px_36px_-20px_rgba(15,23,42,0.12)] sm:px-7 sm:text-[0.88rem]",
+              "w-full max-w-3xl rounded-[1.5rem] border border-[#94a3b8]/35 bg-white/95 px-6 py-6 text-center shadow-[0_20px_48px_-24px_rgba(15,23,42,0.14)] sm:px-8 sm:py-7",
             )}
           >
-            <span className="font-semibold text-[#152238]">DBA:</span> WreckMatch and MVA Match are DBAs of{" "}
-            <span className="whitespace-nowrap sm:whitespace-normal">Tophundred Global Ventures LLC</span>
-          </p>
+            <p className={cn(wmDisplay, "text-[1.12rem] font-semibold tracking-[-0.01em] text-[#152238] sm:text-[1.28rem]")}>
+              WreckMatch / Tophundred Global Ventures LLC
+            </p>
+            <p className="mt-3 text-[0.84rem] font-light leading-[1.85] text-[#475569] sm:text-[0.92rem]">
+              832 Saint Augustine Road
+              <br />
+              Colgate, WI 53017
+              <br />
+              <a
+                href="tel:8156080449"
+                className="font-semibold text-[#8a6914] underline decoration-[#c9a227]/55 underline-offset-4 hover:text-[#713f12]"
+              >
+                (815) 608-0449
+              </a>
+            </p>
+          </div>
           <nav
             aria-label="Legal policies"
-            className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[0.72rem] font-medium text-[#64748b]"
+            className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[0.76rem] font-medium text-[#64748b] sm:text-[0.82rem]"
           >
             <Link href="/privacy-policy" className="underline decoration-[#c9a227]/50 underline-offset-4 hover:text-[#152238]">
               Privacy Policy
@@ -1705,6 +1676,11 @@ export default function Home() {
               Terms of Use
             </Link>
           </nav>
+          <div className="max-w-3xl space-y-2 text-[0.72rem] font-light leading-[1.85] text-[#64748b] sm:text-[0.79rem]">
+            <p>&copy; 2026 WreckMatch. All Rights Reserved.</p>
+            <p>Msg &amp; data rates may apply. Reply STOP to unsubscribe.</p>
+            <p>Paid attorney advertising coordinated by participating counsel.</p>
+          </div>
         </div>
       </footer>
 

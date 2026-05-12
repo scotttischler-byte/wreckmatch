@@ -39,7 +39,7 @@ export default function TermsPage() {
               These Terms of Use (&quot;Terms&quot;) govern access to and use of our websites, landing pages, intake flows,
               phone services, SMS/MMS programs, chat tools (including AI features), and related offerings
               (&quot;Services&quot;). By accessing or using the Services, you agree to these Terms and our{" "}
-              <Link href="/privacy" className="font-semibold text-[#92400e] underline underline-offset-2 hover:text-[#713f12]">
+              <Link href="/privacy-policy" className="font-semibold text-[#92400e] underline underline-offset-2 hover:text-[#713f12]">
                 Privacy Policy
               </Link>
               .
@@ -197,8 +197,23 @@ export default function TermsPage() {
           </section>
         </div>
 
+        <div className="mt-12 rounded-2xl border border-[#c9a227]/30 bg-[#fffdfb] p-6 shadow-sm">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#8a6914]">Business Address</p>
+          <div className="mt-3 space-y-1 text-[0.95rem] leading-[1.8] text-[#334155]">
+            <p>Tophundred Global Ventures LLC</p>
+            <p>832 Saint Augustine Road</p>
+            <p>Colgate, WI 53017</p>
+            <p>
+              Phone:{" "}
+              <a href="tel:8156080449" className="font-semibold text-[#92400e] underline underline-offset-4">
+                (815) 608-0449
+              </a>
+            </p>
+          </div>
+        </div>
+
         <p className="mt-12 text-center text-sm text-[#64748b]">
-          <Link href="/privacy" className="font-medium text-[#92400e] underline underline-offset-4 hover:text-[#713f12]">
+          <Link href="/privacy-policy" className="font-medium text-[#92400e] underline underline-offset-4 hover:text-[#713f12]">
             Privacy Policy
           </Link>
         </p>
