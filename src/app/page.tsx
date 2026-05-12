@@ -6,11 +6,7 @@ import Link from "next/link";
 import {
   useCallback,
   useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
   useState,
-  type MouseEvent as ReactMouseEvent,
 } from "react";
 import {
   ArrowRight,
@@ -27,13 +23,6 @@ import {
 } from "lucide-react";
 
 import { Button, buttonVariants } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { SUPPORT_PHONE_DISPLAY } from "@/lib/constants";
 
@@ -71,94 +60,11 @@ const CONNECT_OPTIONS = [
   },
 ];
 
-const CALC_SEVERITY = [
-  { id: "none", label: "Minimal or no lasting injury", weight: 0.62 },
-  { id: "soft", label: "Soft tissue pain that hangs on", weight: 1 },
-  { id: "moderate", label: "Ongoing treatment, clear impact on daily life", weight: 1.52 },
-  { id: "serious", label: "Hospital stay, fractures, procedures, concussion", weight: 2.28 },
-];
-
-const CALC_BILLS = [
-  { id: "b0", label: "$0–$7,500", weight: 0.88 },
-  { id: "b5", label: "$7,500–$40,000", weight: 1.12 },
-  { id: "b25", label: "$40,000+", weight: 1.52 },
-];
-
-const CALC_WORK = [
-  { id: "w0", label: "Almost no missed income", weight: 0.92 },
-  { id: "w1", label: "Several days / shifts lost", weight: 1.06 },
-  { id: "w2", label: "Weeks away from work", weight: 1.28 },
-  { id: "w3", label: "Months or career-level disruption", weight: 1.62 },
-];
-
-const CALC_FAULT = [
-  { id: "clear", label: "Other party chiefly at fault", weight: 1.14 },
-  { id: "shared", label: "Mixed fault / facts still disputed", weight: 0.9 },
-];
-
-const CALC_CRASH = [
-  { id: "high", label: "Hard impact—rear-end, head-on, rollover", weight: 1.12 },
-  { id: "low", label: "Low-speed scrape or gentle sideswipe", weight: 0.94 },
-];
-
-const CALC_ONGOING = [
-  { id: "yes", label: "Still actively treating", weight: 1.08 },
-  { id: "no", label: "Released or stabilized", weight: 0.96 },
-];
-
-function formatUsd(n: number) {
-  if (n >= 1_000_000)
-    return `$${(n / 1_000_000).toFixed(n % 1_000_000 === 0 ? 0 : 1)}M`;
-  return n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
-}
-
-function estimateCaseRange(a: Record<string, string>) {
-  const sev = CALC_SEVERITY.find((x) => x.id === a.severity)?.weight ?? 1;
-  const bills = CALC_BILLS.find((x) => x.id === a.medBills)?.weight ?? 1;
-  const work = CALC_WORK.find((x) => x.id === a.workLoss)?.weight ?? 1;
-  const fault = CALC_FAULT.find((x) => x.id === a.fault)?.weight ?? 1;
-  const crash = CALC_CRASH.find((x) => x.id === a.crashType)?.weight ?? 1;
-  const ongoing = CALC_ONGOING.find((x) => x.id === a.ongoing)?.weight ?? 1;
-  const combined = sev * bills * work * fault * crash * ongoing;
-  const mid = Math.round(36000 + combined * 42500);
-  const low = Math.round(Math.max(11000, mid * 0.34));
-  const high = Math.round(mid * (combined > 1.35 ? 2.82 : 2.32));
-  return { low, high, mid };
-}
-
 export default function Home() {
-  const [calc, setCalc] = useState({
-    severity: "",
-    medBills: "",
-    workLoss: "",
-    fault: "",
-    crashType: "",
-    ongoing: "",
-  });
-  const [calcResult, setCalcResult] = useState<{ low: number; high: number } | null>(null);
-
   const telHref = `tel:${SUPPORT_PHONE_DISPLAY.replace(/\D/g, "")}`;
   const [exitModalOpen, setExitModalOpen] = useState(false);
   const [headerElevated, setHeaderElevated] = useState(false);
   const [showFloatAva, setShowFloatAva] = useState(false);
-  const calcScrollSnapshot = useRef<number | null>(null);
-
-  const captureCalcScroll = useCallback(() => {
-    if (typeof window === "undefined") return;
-    calcScrollSnapshot.current = window.scrollY;
-  }, []);
-
-  useLayoutEffect(() => {
-    const y = calcScrollSnapshot.current;
-    if (y === null) return;
-    calcScrollSnapshot.current = null;
-    const fix = () => window.scrollTo({ top: y, left: 0, behavior: "auto" });
-    fix();
-    requestAnimationFrame(() => {
-      fix();
-      requestAnimationFrame(fix);
-    });
-  }, [calc, calcResult]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -275,80 +181,6 @@ export default function Home() {
     if (typeof window === "undefined") return;
     window.location.href = telHref;
   }, [telHref]);
-
-  const runCalculator = (e?: ReactMouseEvent<HTMLButtonElement>) => {
-    e?.preventDefault();
-    e?.stopPropagation();
-    captureCalcScroll();
-    const keys = ["severity", "medBills", "workLoss", "fault", "crashType", "ongoing"] as const;
-    for (const k of keys) {
-      if (!calc[k]) return;
-    }
-    const { low, high } = estimateCaseRange(calc);
-    setCalcResult({ low, high });
-  };
-
-  const resetCalculator = (e?: ReactMouseEvent<HTMLButtonElement>) => {
-    e?.preventDefault();
-    e?.stopPropagation();
-    captureCalcScroll();
-    setCalc({ severity: "", medBills: "", workLoss: "", fault: "", crashType: "", ongoing: "" });
-    setCalcResult(null);
-  };
-
-  const calcComplete = useMemo(
-    () =>
-      !!(calc.severity && calc.medBills && calc.workLoss && calc.fault && calc.crashType && calc.ongoing),
-    [calc],
-  );
-
-  function OptionGroup({
-    label,
-    options,
-    value,
-    onChange,
-    name,
-  }: {
-    label: string;
-    options: { id: string; label: string }[];
-    value: string;
-    onChange: (v: string) => void;
-    name: string;
-  }) {
-    return (
-      <div className="space-y-3 sm:space-y-5 [overflow-anchor:none]">
-        <p className="text-[0.8rem] font-semibold uppercase tracking-[0.2em] text-[#475569]">{label}</p>
-        <div className="grid gap-3 sm:grid-cols-2 sm:gap-3.5">
-          {options.map((o) => (
-            <label
-              key={o.id}
-              className={cn(
-                "group flex cursor-pointer items-start gap-2.5 rounded-[1.1rem] border px-3.5 py-3.5 text-sm leading-relaxed shadow-[0_12px_40px_-26px_rgba(15,23,42,0.12)] transition-all duration-300 sm:gap-3 sm:rounded-[1.25rem] sm:px-4 sm:py-4",
-                value === o.id
-                  ? "border-[#c9a227]/55 bg-gradient-to-br from-[#fffdfa] via-[#fff9ed] to-white shadow-[0_22px_50px_-20px_rgba(201,162,39,0.25)] ring-[1.5px] ring-[#d4af72]/55"
-                  : "border-[#1e293b]/10 bg-[#fefdfb] hover:-translate-y-0.5 hover:border-[#c9a227]/42 hover:shadow-[0_20px_48px_-22px_rgba(15,23,42,0.14)]",
-              )}
-              onPointerDownCapture={() => captureCalcScroll()}
-            >
-              <input
-                type="radio"
-                name={name}
-                checked={value === o.id}
-                onChange={() => { captureCalcScroll(); onChange(o.id); }}
-                className="mt-1"
-                onPointerDownCapture={() => captureCalcScroll()}
-                onFocus={(ev) => {
-                  captureCalcScroll();
-                  (ev.target as HTMLInputElement).scrollIntoView({ block: "nearest", behavior: "auto" });
-                }}
-              />
-              <span className="text-[#273449]">{o.label}</span>
-            </label>
-          ))}
-        </div>
-      </div>
-    );
-  }
 
   const wmBody = `[font-family:var(--wm-sans)]`;
   const wmDisplay = `[font-family:var(--wm-display)]`;
@@ -607,7 +439,7 @@ export default function Home() {
       >
         <div className="pointer-events-none absolute right-[-18%] top-[-28%] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle_at_center,rgba(201,162,39,0.16),transparent_66%)]" />
         <div className="pointer-events-none absolute bottom-[-20%] left-[-12%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle_at_center,rgba(15,23,42,0.04),transparent_70%)]" />
-        <div className="mx-auto max-w-3xl px-4 sm:max-w-[42rem] sm:px-10 lg:max-w-[44rem] lg:px-12">
+        <div className="mx-auto max-w-5xl px-4 sm:px-10 lg:px-12">
           <div className="text-center">
             <p
               className={cn(
@@ -624,170 +456,79 @@ export default function Home() {
                 "mt-7 text-balance text-[2.05rem] font-semibold tracking-[-0.03em] text-[#142032] sm:mt-9 sm:text-[2.95rem] lg:text-[3.25rem]",
               )}
             >
-              Six quiet questions—not a courtroom
+              What usually shapes case value
             </h2>
-            <p className="mx-auto mt-5 max-w-xl text-pretty text-[1rem] font-light leading-[1.85] text-[#334155] sm:mt-7 sm:max-w-2xl sm:text-[1.125rem] sm:leading-[1.82]">
-              Deep breath—we&apos;ll hold steady while numbers take shape. This is{" "}
-              <span className="font-medium text-[#172032]">an illustrative band, never a promise</span>. Beautifully optional;
-              unfurl at your pace before counsel refines it with you.
+            <p className="mx-auto mt-5 max-w-3xl text-pretty text-[1rem] font-light leading-[1.85] text-[#334155] sm:mt-7 sm:text-[1.125rem] sm:leading-[1.82]">
+              We temporarily removed the interactive estimator during carrier review so the site has a single text-entry path.
+              The biggest drivers below are still helpful if you want a calm sense of what attorneys usually evaluate first.
             </p>
           </div>
 
-          <Card
-            className="relative mt-11 overflow-hidden rounded-[1.5rem] border border-white shadow-[0_40px_100px_-38px_rgba(15,23,42,0.28)] ring-1 ring-[#c9a227]/38 [overflow-anchor:none] sm:mt-16 sm:rounded-[1.95rem]"
-            onPointerDownCapture={captureCalcScroll}
-            onFocusCapture={captureCalcScroll}
-          >
-            <div className="pointer-events-none absolute inset-x-10 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#d4af72]/88 to-transparent" />
-            <div className="pointer-events-none absolute -left-24 top-28 h-64 w-64 rounded-full bg-[#fff9ed]/50 blur-3xl" />
-            <CardHeader className="relative space-y-4 border-b border-[#e2e8f0]/90 bg-gradient-to-br from-[#fffdfb] via-[#fcf8f3] to-[#f8f3eb] px-6 pb-9 pt-10 sm:px-12 sm:pb-11 sm:pt-12">
-              <CardTitle className={cn(wmDisplay, "text-[1.8rem] font-semibold tracking-tight text-[#152238] sm:text-[2rem] lg:text-[2.15rem]")}>
-                Sculpted valuation range
-              </CardTitle>
-              <CardDescription className="text-[1.055rem] font-light leading-[1.78] text-[#475569]">
-                Education—not legal advice. Cases breathe through evidence, place, insurer posture,{" "}
-                <span className="italic text-[#64748b]">and</span> the truth of how you heal. Picture a compass—not a verdict.
-              </CardDescription>
-            </CardHeader>
-            <form noValidate className="contents" onSubmit={(event) => event.preventDefault()}>
-              <CardContent className="relative space-y-10 bg-gradient-to-b from-[#fefdfb] to-[#f3ece2] px-6 pb-12 pt-10 [overflow-anchor:none] sm:space-y-14 sm:px-12 sm:pb-16 sm:pt-14">
-              <OptionGroup
-                name="sev"
-                label="1. Injury description"
-                value={calc.severity}
-                onChange={(v) => setCalc((c) => ({ ...c, severity: v }))}
-                options={CALC_SEVERITY}
-              />
-              <OptionGroup
-                name="bills"
-                label="2. Medical expenses (rough estimate)"
-                value={calc.medBills}
-                onChange={(v) => setCalc((c) => ({ ...c, medBills: v }))}
-                options={CALC_BILLS}
-              />
-              <OptionGroup
-                name="wk"
-                label="3. Lost income"
-                value={calc.workLoss}
-                onChange={(v) => setCalc((c) => ({ ...c, workLoss: v }))}
-                options={CALC_WORK}
-              />
-              <OptionGroup
-                name="flt"
-                label="4. Fault clarity"
-                value={calc.fault}
-                onChange={(v) => setCalc((c) => ({ ...c, fault: v }))}
-                options={CALC_FAULT}
-              />
-              <OptionGroup
-                name="cr"
-                label="5. Severity of collision"
-                value={calc.crashType}
-                onChange={(v) => setCalc((c) => ({ ...c, crashType: v }))}
-                options={CALC_CRASH}
-              />
-              <OptionGroup
-                name="on"
-                label="6. Ongoing treatment"
-                value={calc.ongoing}
-                onChange={(v) => setCalc((c) => ({ ...c, ongoing: v }))}
-                options={CALC_ONGOING}
-              />
-
-              <p className="text-center text-[0.88rem] font-light leading-relaxed text-[#64748b] sm:text-[0.92rem]">
-                You&apos;re safe here in this little room of the internet—take your time. We&apos;ve got you while the math
-                catches up to your reality.
-              </p>
-
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-stretch sm:gap-4">
-                <Button
-                  type="button"
-                  disabled={!calcComplete}
-                  onClick={(ev) => {
-                    ev.preventDefault();
-                    ev.stopPropagation();
-                    runCalculator(ev);
-                  }}
-                  className="min-h-[3.25rem] flex-1 rounded-[1.05rem] bg-gradient-to-b from-[#152238] to-[#0a1628] py-3.5 text-[0.9rem] font-semibold text-[#fdfaf5] shadow-[0_22px_48px_-16px_rgba(15,23,42,0.45)] transition-all duration-300 hover:-translate-y-0.5 hover:from-[#1e354a] hover:to-[#142a3f] hover:shadow-[0_26px_56px_-14px_rgba(15,23,42,0.38)] disabled:pointer-events-none disabled:translate-y-0 disabled:opacity-35 sm:min-h-14 sm:text-[0.95rem]"
-                >
-                  Reveal my range
-                </Button>
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={(ev) => {
-                    ev.preventDefault();
-                    ev.stopPropagation();
-                    resetCalculator(ev);
-                  }}
-                  className="min-h-[3.25rem] shrink-0 rounded-[1.05rem] border-[#cbd5e1] bg-[#fffdfb] px-7 py-3.5 font-semibold text-[#1e293b] shadow-[0_14px_36px_-24px_rgba(15,23,42,0.2)] transition hover:border-[#c9a227]/55 hover:bg-[#fff9ed] hover:shadow-lg sm:min-h-14 sm:px-9"
-                >
-                  Clear
-                </Button>
+          <div className="mt-12 grid gap-5 sm:mt-16 md:grid-cols-3">
+            {[
+              {
+                title: "Medical treatment and recovery arc",
+                copy: "How serious the injuries are, how long treatment lasts, and whether symptoms continue to affect daily life.",
+              },
+              {
+                title: "Liability, evidence, and crash facts",
+                copy: "Police reports, witnesses, photos, video, vehicle damage, and how clear fault is often shape leverage early.",
+              },
+              {
+                title: "Lost income and insurer posture",
+                copy: "Missed work, future disruption, policy limits, and how the carrier handles the claim can all move the range.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-[1.45rem] border border-white/95 bg-gradient-to-b from-[#fffdfb] to-[#f6efe4] p-7 shadow-[0_28px_62px_-36px_rgba(15,23,42,0.2)] ring-1 ring-[#c9a227]/18 sm:p-8"
+              >
+                <p className={cn(wmDisplay, "text-[1.35rem] font-semibold leading-tight tracking-[-0.02em] text-[#152238] sm:text-[1.55rem]")}>
+                  {item.title}
+                </p>
+                <p className="mt-4 text-[0.95rem] font-light leading-[1.8] text-[#475569] sm:text-[1rem]">
+                  {item.copy}
+                </p>
               </div>
+            ))}
+          </div>
 
-              {calcResult ? (
-                <div className="wm-result-rise scroll-mt-6 rounded-[1.4rem] border border-[#d4af72]/45 bg-gradient-to-br from-[#fffdf7] via-white to-[#fef8ef] px-7 py-10 text-center shadow-[inset_0_2px_0_rgba(255,255,255,0.95),0_36px_72px_-32px_rgba(201,162,39,0.28)] sm:rounded-[1.65rem] sm:px-12 sm:py-12">
-                  <p
-                    className={cn(
-                      wmDisplay,
-                      "text-[0.65rem] font-semibold uppercase tracking-[0.34em] text-[#8a6a1b]/75 sm:text-[0.68rem]",
-                    )}
-                  >
-                    Your illustrated span
-                  </p>
-                  <p
-                    className={cn(
-                      wmDisplay,
-                      "mt-7 text-[2.25rem] font-semibold tracking-[-0.02em] text-[#152238] sm:mt-9 sm:text-[2.85rem] lg:text-[3.1rem]",
-                    )}
-                  >
-                    <span className="bg-gradient-to-br from-[#1e293b] to-[#0f172a] bg-clip-text text-transparent">
-                      {formatUsd(calcResult.low)}
-                    </span>
-                    <span className="mx-2.5 align-middle text-[#c9a227]/75 sm:mx-3">—</span>
-                    <span className="bg-gradient-to-br from-[#1e293b] to-[#0f172a] bg-clip-text text-transparent">
-                      {formatUsd(calcResult.high)}
-                    </span>
-                  </p>
-                  <p className="mx-auto mt-6 max-w-lg text-[0.95rem] font-light leading-[1.78] text-[#475569]">
-                    If this stirs something—relief, doubt, hope—that&apos;s human. Our intake team can translate it
-                    into next steps, no fee for a first, full-hearted conversation.
-                  </p>
-                  <p className="mx-auto mt-5 max-w-md text-[0.9rem] italic leading-relaxed text-[#64748b]">
-                    We&apos;ve got you—these brackets are merely a lighthouse, not land itself.
-                  </p>
-                  <div className="mt-9 flex flex-col justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
-                    <Button
-                      type="button"
-                      title="Call WreckMatch now"
-                      aria-label="Call WreckMatch now for immediate support"
-                      onClick={(ev) => {
-                        ev.preventDefault();
-                        ev.stopPropagation();
-                        startLiveCall();
-                      }}
-                      className="min-h-[3.25rem] rounded-[1.05rem] bg-gradient-to-b from-[#152238] to-[#081420] py-3.5 text-[0.9rem] font-semibold text-white shadow-[0_18px_44px_-12px_rgba(15,23,42,0.48)] transition-all hover:-translate-y-0.5 hover:shadow-xl sm:min-h-14 sm:min-w-[10.5rem] sm:px-9 sm:text-[0.95rem]"
-                    >
-                      <Phone className="size-[1.05rem] sm:size-5" aria-hidden />
-                      Speak live now
-                    </Button>
-                    <a
-                      href="#connect-options"
-                      className={cn(
-                        buttonVariants({ variant: "outline" }),
-                        wmBody,
-                        "inline-flex min-h-[3.25rem] items-center justify-center rounded-[1.05rem] border-[#e2e8f0] bg-white px-7 py-3.5 text-[0.9rem] font-semibold text-[#152238] shadow-[0_14px_40px_-22px_rgba(15,23,42,0.15)] transition-all hover:-translate-y-0.5 hover:border-[#c9a227]/45 hover:bg-[#fffefb] sm:min-h-14 sm:px-9 sm:text-[0.95rem]",
-                      )}
-                    >
-                      Open text chat →
-                    </a>
-                  </div>
-                </div>
-              ) : null}
-              </CardContent>
-            </form>
-          </Card>
+          <div className="mx-auto mt-10 max-w-4xl rounded-[1.65rem] border border-[#d4af72]/35 bg-gradient-to-br from-[#fffdf7] via-white to-[#fef8ef] px-7 py-9 text-center shadow-[0_36px_72px_-34px_rgba(201,162,39,0.24)] sm:mt-14 sm:px-10 sm:py-11">
+            <p className={cn(wmDisplay, "text-[0.68rem] font-semibold uppercase tracking-[0.34em] text-[#8a6a1b]/80")}>
+              Compliance review mode
+            </p>
+            <p className="mx-auto mt-5 max-w-2xl text-[0.98rem] font-light leading-[1.82] text-[#475569] sm:text-[1.06rem]">
+              For now, the homepage stays intentionally simple: no extra forms, no estimator inputs, and no secondary text
+              capture flow. Use the official chat bubble for texting, or call for immediate live help.
+            </p>
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
+              <a
+                href="#connect-options"
+                className={cn(
+                  buttonVariants({ size: "lg" }),
+                  wmBody,
+                  "min-h-[3.25rem] rounded-[1.05rem] bg-gradient-to-b from-[#152238] to-[#081420] px-8 text-[0.95rem] font-semibold text-white shadow-[0_18px_44px_-12px_rgba(15,23,42,0.48)] transition-all hover:-translate-y-0.5 hover:shadow-xl",
+                )}
+              >
+                Open text chat path
+                <ArrowRight className="size-4" />
+              </a>
+              <button
+                type="button"
+                title="Call WreckMatch now"
+                aria-label="Call WreckMatch now for immediate support"
+                onClick={startLiveCall}
+                className={cn(
+                  buttonVariants({ size: "lg", variant: "outline" }),
+                  wmBody,
+                  "min-h-[3.25rem] rounded-[1.05rem] border-[#e2d5c5] bg-[#fffefb] px-8 text-[0.95rem] font-semibold text-[#152238] shadow-sm transition hover:border-[#d4af72]/55 hover:bg-[#fff9ed] hover:shadow-md",
+                )}
+              >
+                <Phone className="size-4 shrink-0" aria-hidden />
+                Speak live now
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
