@@ -51,60 +51,7 @@ const fontSans = Outfit({
   display: "swap",
 });
 
-declare global {
-  interface Window {
-    RetellWidget?: { open?: () => void; show?: () => void };
-  }
-}
-
-/** Retell callback widget shadow host sits above normal page UI but below GHL (text chat launcher). */
-const WM_RETELL_STACK_Z = "999800";
 const WM_GHL_STACK_Z = "2147483645";
-
-function findRetellFabInShadow(): HTMLElement | null {
-  if (typeof document === "undefined") return null;
-
-  const walk = (root: Document | ShadowRoot): HTMLElement | null => {
-    const fab = root.querySelector("#retell-fab");
-    if (fab instanceof HTMLElement) return fab;
-    for (const el of root.querySelectorAll("*")) {
-      if (el instanceof HTMLElement && el.shadowRoot) {
-        const hit = walk(el.shadowRoot);
-        if (hit) return hit;
-      }
-    }
-    return null;
-  };
-
-  return walk(document);
-}
-
-/** Programmatic tap on Retell launcher — opens callback (“request a call”) panel same as native click. */
-function forceClickRetellFab(fab: HTMLElement) {
-  try {
-    fab.dispatchEvent(
-      new PointerEvent("pointerdown", { bubbles: true, cancelable: true, composed: true, view: window }),
-    );
-    fab.dispatchEvent(
-      new PointerEvent("pointerup", { bubbles: true, cancelable: true, composed: true, view: window }),
-    );
-  } catch {
-    /* PointerEvent unsupported */
-  }
-  fab.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, composed: true, view: window }));
-  fab.click();
-}
-
-function tryRetellWidgetGlobal(): void {
-  const api = window.RetellWidget;
-  if (typeof api?.open === "function") {
-    api.open();
-    return;
-  }
-  if (typeof api?.show === "function") {
-    api.show();
-  }
-}
 
 const CONNECT_OPTIONS = [
   {
@@ -113,13 +60,13 @@ const CONNECT_OPTIONS = [
     icon: MessageSquare,
   },
   {
-    title: "Request Ava voice callback",
-    hint: "Prefer a voice first? Ava can open a callback flow without relying on the website intake form.",
+    title: "Call for immediate support",
+    hint: "Prefer a live human voice first? Call now and we will help you directly without another widget flow.",
     icon: Phone,
   },
   {
-    title: "Call for immediate support",
-    hint: "If texting feels slow today, call now and we will get you to a calm human voice quickly.",
+    title: "Review legal information anytime",
+    hint: "Privacy Policy and Terms remain publicly available while the site is in widget-only compliance mode.",
     icon: Shield,
   },
 ];
@@ -224,7 +171,7 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /** Retell + GHL both anchor bottom-right; lift Retell and raise GHL so both stay clickable. */
+  /** Keep the GoHighLevel chat launcher pinned above other page elements. */
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -233,20 +180,6 @@ export default function Home() {
       const now = Date.now();
       if (now - last < 400) return;
       last = now;
-
-      for (const child of Array.from(document.body.children)) {
-        if (!(child instanceof HTMLElement)) continue;
-        if (child.shadowRoot?.querySelector("#retell-fab")) {
-          child.style.setProperty("z-index", WM_RETELL_STACK_Z, "important");
-          child.style.setProperty(
-            "bottom",
-            "max(5.25rem, calc(84px + env(safe-area-inset-bottom, 0px)))",
-            "important",
-          );
-          child.style.setProperty("right", "max(1rem, env(safe-area-inset-right, 0px))", "important");
-          break;
-        }
-      }
 
       document.querySelectorAll("iframe").forEach((frame) => {
         const src = frame.getAttribute("src") || "";
@@ -338,51 +271,10 @@ export default function Home() {
     };
   }, [exitModalOpen]);
 
-  const retellPollRef = useRef<number | null>(null);
-
-  /** Retell is `data-widget="callback"` in layout — Ava CTAs open the voice callback (“request a call”) sheet only; GHL is text chat. */
-  const requestAvaVoiceCallback = useCallback(() => {
+  const startLiveCall = useCallback(() => {
     if (typeof window === "undefined") return;
-
-    tryRetellWidgetGlobal();
-
-    const tryFab = (): boolean => {
-      const fab = findRetellFabInShadow();
-      if (fab) {
-        forceClickRetellFab(fab);
-        return true;
-      }
-      return false;
-    };
-
-    if (tryFab()) return;
-
-    if (retellPollRef.current !== null) {
-      window.clearInterval(retellPollRef.current);
-      retellPollRef.current = null;
-    }
-
-    const POLL_MS = 250;
-    const MAX_MS = 6000;
-    const started = Date.now();
-
-    retellPollRef.current = window.setInterval(() => {
-      const elapsed = Date.now() - started;
-      const ok = tryFab();
-
-      if (ok || elapsed >= MAX_MS) {
-        if (retellPollRef.current !== null) window.clearInterval(retellPollRef.current);
-        retellPollRef.current = null;
-      }
-    }, POLL_MS);
-  }, []);
-
-  useEffect(
-    () => () => {
-      if (retellPollRef.current !== null) window.clearInterval(retellPollRef.current);
-    },
-    [],
-  );
+    window.location.href = telHref;
+  }, [telHref]);
 
   const runCalculator = (e?: ReactMouseEvent<HTMLButtonElement>) => {
     e?.preventDefault();
@@ -498,15 +390,15 @@ export default function Home() {
               type="button"
               variant="outline"
               size="sm"
-              onClick={requestAvaVoiceCallback}
-              title="Request a voice call-back from Ava—24/7"
-              aria-label="Request a voice call from Ava anytime, 24 hours a day"
+              onClick={startLiveCall}
+              title="Call WreckMatch now"
+              aria-label="Call WreckMatch now for immediate support"
               className="inline-flex h-10 max-w-[min(100%,10.5rem)] shrink-0 rounded-full border-[#d4af72]/55 bg-[#fffdfb] px-3 text-[#1e293b] shadow-[0_12px_32px_-20px_rgba(15,23,42,0.2)] transition hover:border-[#c9a227] hover:bg-[#fff9ed] hover:shadow-md sm:h-11 sm:max-w-[13rem] sm:px-4 lg:max-w-none lg:px-5"
             >
               <Phone className="size-4 shrink-0 text-[#9a6b12]" />
               <span className="ml-1 truncate sm:ml-1.5 lg:whitespace-normal">
-                <span className="sm:hidden">Ava 24/7</span>
-                <span className="hidden sm:inline">Speak with Ava 24/7</span>
+                <span className="sm:hidden">Call now</span>
+                <span className="hidden sm:inline">Speak live now</span>
               </span>
             </Button>
             <a
@@ -560,7 +452,7 @@ export default function Home() {
                 Counsel in our network has secured <span className="font-semibold text-white">$1 Billion+</span>. Get
                 personally matched in about <span className="font-semibold text-white">60 seconds</span>.{" "}
                 <span className="text-[#fdebbf]">No Win, No Fee</span> when a lawyer steps in, and{" "}
-                <span className="text-[#fdebbf]">Ava is here 24/7</span> so you never carry this alone.
+                <span className="text-[#fdebbf]">support is here 24/7</span> so you never carry this alone.
               </p>
               <div className="mt-8 flex flex-wrap gap-2.5 sm:mt-10">
                 {(
@@ -568,7 +460,7 @@ export default function Home() {
                     { t: "$1 Billion+ recovered", Icon: Sparkles },
                     { t: "~60s personal match", Icon: Clock },
                     { t: "No Win, No Fee", Icon: Scale },
-                    { t: "Ava 24/7", Icon: Phone },
+                    { t: "Live support", Icon: Phone },
                   ] as const
                 ).map(({ t, Icon }, i) => (
                   <span
@@ -601,9 +493,9 @@ export default function Home() {
                 </a>
                 <button
                   type="button"
-                  title="Request a voice call-back from Ava—24/7"
-                  aria-label="Request a voice call from Ava anytime, 24 hours a day"
-                  onClick={requestAvaVoiceCallback}
+                  title="Call WreckMatch now"
+                  aria-label="Call WreckMatch now for immediate support"
+                  onClick={startLiveCall}
                   className={cn(
                     buttonVariants({ size: "lg", variant: "secondary" }),
                     wmBody,
@@ -611,7 +503,7 @@ export default function Home() {
                   )}
                 >
                   <Phone className="size-[1.15rem] text-[#fde68a] sm:size-5" />
-                  Speak with Ava 24/7
+                  Speak live now
                 </button>
               </div>
               <p className="mt-8 max-w-2xl text-sm font-light leading-[1.86] text-slate-300/98 sm:mt-10 sm:text-[0.98rem] lg:max-w-3xl">
@@ -657,7 +549,7 @@ export default function Home() {
                 { headline: "No Win, No Fee", sub: "when counsel accepts your case", Icon: Scale },
                 { headline: "Sacred privacy", sub: "discretion before dashboards", Icon: Shield },
                 { headline: "~60 sec match", sub: "then white-glove follow-up", Icon: Clock },
-                { headline: "Ava 24/7", sub: "a calm voice in the dark", Icon: Phone },
+                { headline: "Live support", sub: "a calm voice in the dark", Icon: Phone },
               ] as const
             ).map(({ headline, sub, Icon }, idx) => (
               <div
@@ -737,7 +629,7 @@ export default function Home() {
             <p className="mx-auto mt-5 max-w-xl text-pretty text-[1rem] font-light leading-[1.85] text-[#334155] sm:mt-7 sm:max-w-2xl sm:text-[1.125rem] sm:leading-[1.82]">
               Deep breath—we&apos;ll hold steady while numbers take shape. This is{" "}
               <span className="font-medium text-[#172032]">an illustrative band, never a promise</span>. Beautifully optional;
-              unfurl at your pace before Ava or counsel refine it with you.
+              unfurl at your pace before counsel refines it with you.
             </p>
           </div>
 
@@ -859,7 +751,7 @@ export default function Home() {
                     </span>
                   </p>
                   <p className="mx-auto mt-6 max-w-lg text-[0.95rem] font-light leading-[1.78] text-[#475569]">
-                    If this stirs something—relief, doubt, hope—that&apos;s human. Ava or our intake team can translate it
+                    If this stirs something—relief, doubt, hope—that&apos;s human. Our intake team can translate it
                     into next steps, no fee for a first, full-hearted conversation.
                   </p>
                   <p className="mx-auto mt-5 max-w-md text-[0.9rem] italic leading-relaxed text-[#64748b]">
@@ -868,17 +760,17 @@ export default function Home() {
                   <div className="mt-9 flex flex-col justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
                     <Button
                       type="button"
-                      title="Request a voice call-back from Ava—24/7"
-                      aria-label="Request a voice call from Ava anytime, 24 hours a day"
+                      title="Call WreckMatch now"
+                      aria-label="Call WreckMatch now for immediate support"
                       onClick={(ev) => {
                         ev.preventDefault();
                         ev.stopPropagation();
-                        requestAvaVoiceCallback();
+                        startLiveCall();
                       }}
                       className="min-h-[3.25rem] rounded-[1.05rem] bg-gradient-to-b from-[#152238] to-[#081420] py-3.5 text-[0.9rem] font-semibold text-white shadow-[0_18px_44px_-12px_rgba(15,23,42,0.48)] transition-all hover:-translate-y-0.5 hover:shadow-xl sm:min-h-14 sm:min-w-[10.5rem] sm:px-9 sm:text-[0.95rem]"
                     >
                       <Phone className="size-[1.05rem] sm:size-5" aria-hidden />
-                      Speak with Ava 24/7
+                      Speak live now
                     </Button>
                     <a
                       href="#connect-options"
@@ -907,7 +799,7 @@ export default function Home() {
             </h2>
             <p className="mx-auto mt-6 max-w-3xl text-pretty text-base font-light leading-[1.82] text-[#475569] sm:mt-10 sm:text-xl sm:leading-[1.78]">
               To keep the website clean for carrier review, we have temporarily paused the homepage intake questionnaire.
-              You can still reach us instantly through the official text chat widget, Ava&apos;s callback flow, or by phone.{" "}
+              You can still reach us instantly through the official text chat widget or by phone.{" "}
               <span className="font-medium text-[#334155]">you&apos;re not alone anymore.</span>
             </p>
           </div>
@@ -954,9 +846,9 @@ export default function Home() {
             </a>
             <button
               type="button"
-              title="Request a voice call-back from Ava—24/7"
-              aria-label="Request a voice call from Ava anytime, 24 hours a day"
-              onClick={requestAvaVoiceCallback}
+              title="Call WreckMatch now"
+              aria-label="Call WreckMatch now for immediate support"
+              onClick={startLiveCall}
               className={cn(
                 buttonVariants({ size: "lg", variant: "outline" }),
                 wmBody,
@@ -964,7 +856,7 @@ export default function Home() {
               )}
             >
               <Phone className="size-4 shrink-0 sm:size-[1.1rem]" aria-hidden />
-              Speak with Ava 24/7
+              Speak live now
             </button>
           </div>
           <p className="mx-auto mt-8 max-w-2xl text-center text-[0.9rem] font-light leading-[1.8] text-[#64748b]">
@@ -1162,9 +1054,9 @@ export default function Home() {
         <div className="fixed bottom-0 right-0 z-[1000010] flex max-w-[100vw] flex-col items-end gap-2 pb-[calc(5.75rem+env(safe-area-inset-bottom))] pr-[calc(1.25rem+env(safe-area-inset-right))] sm:gap-2.5 sm:pb-[calc(6.25rem+env(safe-area-inset-bottom))] sm:pr-[calc(1.75rem+env(safe-area-inset-right))]">
             <button
               type="button"
-              title="Request a voice call-back from Ava—24/7"
-              aria-label="Request a voice call from Ava anytime, 24 hours a day"
-              onClick={requestAvaVoiceCallback}
+              title="Call WreckMatch now"
+              aria-label="Call WreckMatch now for immediate support"
+              onClick={startLiveCall}
               className={cn(
                 wmBody,
                 "wm-ava-soft pointer-events-auto inline-flex max-w-[calc(100vw-2rem)] touch-manipulation items-center gap-2.5 rounded-full border border-[#fde68a]/55 bg-gradient-to-r from-[#132447] via-[#0f1c38] to-[#0c152c] px-4 py-[0.7rem] pl-3 shadow-[0_26px_64px_-14px_rgba(15,23,42,0.62)] ring-[3px] ring-black/10 transition hover:-translate-y-[3px] hover:border-[#fde68a] active:translate-y-0 sm:max-w-none sm:gap-3.5 sm:px-[1.65rem] sm:py-[0.82rem]",
@@ -1175,12 +1067,12 @@ export default function Home() {
               <Phone className="relative size-[1.15rem] text-[#fef9c3]" aria-hidden />
             </span>
             <span className="flex min-w-0 flex-col items-start gap-0.5 pr-0.5 text-left">
-              <span className="text-[0.58rem] font-semibold uppercase tracking-[0.28em] text-[#fcd34d]/95">Speak with Ava</span>
+              <span className="text-[0.58rem] font-semibold uppercase tracking-[0.28em] text-[#fcd34d]/95">Call WreckMatch</span>
               <span className="text-[0.95rem] font-semibold tracking-tight text-[#fdfaf5] sm:text-[1.02rem]">24/7—always welcoming</span>
             </span>
           </button>
           <p className="hidden max-w-[14rem] text-right text-[0.62rem] font-medium uppercase leading-snug tracking-[0.2em] text-[#475569]/90 sm:block">
-            Voice call-back · Complimentary · Separate from text chat
+            Live phone support · Complimentary · Separate from text chat
           </p>
         </div>
       ) : null}
@@ -1220,17 +1112,17 @@ export default function Home() {
               Leaving the tab is alright
             </h2>
             <p className="mt-5 text-[0.96rem] font-light leading-[1.78] text-[#475569]">
-              If overwhelm is bubbling, you never have to mute yourself. Ava—and our human side—stands by for an unrushed whisper of guidance. Zero invoice. Zero performance. Whenever you glide back—we&apos;ll still be softly lit.
+              If overwhelm is bubbling, you never have to mute yourself. Our human side stands by for an unrushed whisper of guidance. Zero invoice. Zero performance. Whenever you glide back—we&apos;ll still be softly lit.
 
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <Button
                 type="button"
-                title="Request a voice call-back from Ava—24/7"
-                aria-label="Request a voice call from Ava anytime, 24 hours a day"
+                title="Call WreckMatch now"
+                aria-label="Call WreckMatch now for immediate support"
                 onClick={() => {
                   setExitModalOpen(false);
-                  requestAvaVoiceCallback();
+                  startLiveCall();
                 }}
                 className={cn(
                   wmBody,
@@ -1238,7 +1130,7 @@ export default function Home() {
                 )}
               >
                 <Phone className="size-4" aria-hidden />
-                Speak with Ava 24/7
+                Speak live now
               </Button>
               <a
                 href={telHref}
