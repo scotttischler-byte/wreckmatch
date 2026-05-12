@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { Cormorant_Garamond, Outfit } from "next/font/google";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import {
   useCallback,
   useEffect,
@@ -16,18 +15,14 @@ import {
 import {
   ArrowRight,
   BadgeCheck,
-  CalendarClock,
   Calculator,
   Clock,
   HeartHandshake,
-  MapPin,
   MessageSquare,
   Phone,
   Scale,
   Shield,
   Sparkles,
-  Stethoscope,
-  UserCheck,
   X,
 } from "lucide-react";
 
@@ -36,12 +31,9 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Progress, ProgressLabel } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 import { SUPPORT_PHONE_DISPLAY } from "@/lib/constants";
 
@@ -114,144 +106,23 @@ function tryRetellWidgetGlobal(): void {
   }
 }
 
-const INTRO_STEPS = [
+const CONNECT_OPTIONS = [
   {
-    title: "When did the accident happen?",
-    hint: "So we can move at the right urgency for you.",
-    icon: CalendarClock,
+    title: "Text us in the chat widget",
+    hint: "Use the LeadConnector chat bubble in the lower right for the official SMS-compliant text path.",
+    icon: MessageSquare,
   },
   {
-    title: "Where did it occur?",
-    hint: "City and state help route you to specialists who know local courts.",
-    icon: MapPin,
-  },
-  {
-    title: "What type of crash was it?",
-    hint: "Rear-end, T-bone, hit and run—we have seen every pattern.",
-    icon: Scale,
-  },
-  {
-    title: "Were you hurt?",
-    hint: "Your health always comes first—we match with that in mind.",
-    icon: HeartHandshake,
-  },
-  {
-    title: "Medical care so far?",
-    hint: "ER, urgent care, therapy—every honest answer is the right one.",
-    icon: Stethoscope,
-  },
-  {
-    title: "Insurance picture?",
-    hint: "We decipher coverage, UM/UIM, and tough adjuster games.",
-    icon: BadgeCheck,
-  },
-  {
-    title: "Already have a lawyer?",
-    hint: "Totally fine either way. No judgment—just clarity.",
-    icon: UserCheck,
-  },
-  {
-    title: "Best phone number?",
-    hint: "Someone kind can follow up fast—often within minutes.",
+    title: "Request Ava voice callback",
+    hint: "Prefer a voice first? Ava can open a callback flow without relying on the website intake form.",
     icon: Phone,
   },
+  {
+    title: "Call for immediate support",
+    hint: "If texting feels slow today, call now and we will get you to a calm human voice quickly.",
+    icon: Shield,
+  },
 ];
-
-const INTAKE_WHISPER: Record<number, string> = {
-  1: "A soft beginning. Your first name helps us greet you like a person, never a case file.",
-  2: "One more gentle detail. We want to know who we're caring for without rushing your nervous system.",
-  3: "Your email gives us a calm backup channel for updates, checklists, and next steps if texting gets noisy.",
-  4: "You're safe here. Timing only helps us protect you—we never rush a hurting heart.",
-  5: "No street number required unless you wish. City & state softly route you to advocates who speak your courts.",
-  6: "Tap what feels closest. You're not alone anymore—everything can be clarified in calm daylight.",
-  7: "Your body is yours; every symptom deserves witness. You're not imagining this—we've got you.",
-  8: "ER yesterday or still postponing—that's human. You're still deserving of clarity and dignity.",
-  9: "Insurance riddles confuse brilliant people daily. Untangling together is precisely why we exist.",
-  10: "Exploring counsel is brave, not betrayal. Confidence often begins with a gentle second glance.",
-  11: "Almost home. Warm follow-up—not hustle—often within minutes. You've done the hard part already.",
-};
-
-const ACCIDENT_TIMES = [
-  "Today",
-  "Yesterday",
-  "2–3 days ago",
-  "4–7 days ago",
-  "1–2 weeks ago",
-  "2–4 weeks ago",
-  "More than a month ago",
-];
-
-const ACCIDENT_TYPES = [
-  "Rear-end collision",
-  "T-bone (side impact)",
-  "Head-on collision",
-  "Sideswipe",
-  "Rollover",
-  "Hit and run",
-  "Multi-vehicle accident",
-  "Other",
-];
-
-const INJURY_OPTIONS = [
-  "Yes — neck or back pain / whiplash",
-  "Yes — broken bones or hospital visit",
-  "Yes — other injuries",
-  "No — I was not injured",
-];
-
-const MEDICAL_OPTIONS = [
-  "Hospital / ER",
-  "Urgent care",
-  "Chiropractor",
-  "Primary care doctor",
-  "None yet",
-  "Other",
-];
-
-const INSURANCE_OPTIONS = [
-  "My own insurance",
-  "Other driver’s insurance",
-  "Both",
-  "Uninsured / not sure",
-];
-
-const ATTORNEY_OPTIONS = [
-  "No — not yet",
-  "Yes — I have counsel now",
-  "Yes — but I want a second opinion",
-];
-
-type FormState = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  accidentTime: string;
-  cityState: string;
-  accidentType: string;
-  injured: string;
-  medicalTreatment: string;
-  insurance: string;
-  hasAttorney: string;
-  phone: string;
-  caseDescription: string;
-  preferredCallbackTime: string;
-};
-
-const initialForm: FormState = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  accidentTime: "",
-  cityState: "",
-  accidentType: "",
-  injured: "",
-  medicalTreatment: "",
-  insurance: "",
-  hasAttorney: "",
-  phone: "",
-  caseDescription: "",
-  preferredCallbackTime: "",
-};
 
 const CALC_SEVERITY = [
   { id: "none", label: "Minimal or no lasting injury", weight: 0.62 },
@@ -288,9 +159,6 @@ const CALC_ONGOING = [
   { id: "no", label: "Released or stabilized", weight: 0.96 },
 ];
 
-const TOTAL_INTAKE_STEPS = 11;
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 function formatUsd(n: number) {
   if (n >= 1_000_000)
     return `$${(n / 1_000_000).toFixed(n % 1_000_000 === 0 ? 0 : 1)}M`;
@@ -312,13 +180,6 @@ function estimateCaseRange(a: Record<string, string>) {
 }
 
 export default function Home() {
-  const router = useRouter();
-  const [step, setStep] = useState(1);
-  const [form, setForm] = useState<FormState>(initialForm);
-  const [submitting, setSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
-  const [stepError, setStepError] = useState<string | null>(null);
-
   const [calc, setCalc] = useState({
     severity: "",
     medBills: "",
@@ -330,7 +191,6 @@ export default function Home() {
   const [calcResult, setCalcResult] = useState<{ low: number; high: number } | null>(null);
 
   const telHref = `tel:${SUPPORT_PHONE_DISPLAY.replace(/\D/g, "")}`;
-  const progress = Math.round((step / TOTAL_INTAKE_STEPS) * 100);
   const [exitModalOpen, setExitModalOpen] = useState(false);
   const [headerElevated, setHeaderElevated] = useState(false);
   const [showFloatAva, setShowFloatAva] = useState(false);
@@ -524,102 +384,6 @@ export default function Home() {
     [],
   );
 
-  const update = (key: keyof FormState, value: string) => {
-    setForm((f) => ({ ...f, [key]: value }));
-    setStepError(null);
-  };
-
-  const validateStep = () => {
-    switch (step) {
-      case 1:
-        return form.firstName.trim() ? null : "Add your first name.";
-      case 2:
-        return form.lastName.trim() ? null : "Add your last name.";
-      case 3:
-        return EMAIL_RE.test(form.email.trim()) ? null : "Enter a valid email address.";
-      case 4:
-        return form.accidentTime.trim() ? null : "Select when your accident occurred.";
-      case 5:
-        return form.cityState.trim().length > 2 ? null : "Add city and state.";
-      case 6:
-        return form.accidentType ? null : "Choose the closest collision type.";
-      case 7:
-        return form.injured ? null : "Tell us if you were injured.";
-      case 8:
-        return form.medicalTreatment ? null : "Select medical care.";
-      case 9:
-        return form.insurance ? null : "Pick the closest insurance option.";
-      case 10:
-        return form.hasAttorney ? null : "Let us know your attorney status.";
-      case 11: {
-        const d = form.phone.replace(/\D/g, "");
-        return d.length >= 10 ? null : "Enter a valid U.S. phone number.";
-      }
-      default:
-        return null;
-    }
-  };
-
-  const goNext = () => {
-    const err = validateStep();
-    if (err) {
-      setStepError(err);
-      return;
-    }
-    setStepError(null);
-    if (step < TOTAL_INTAKE_STEPS) setStep((s) => s + 1);
-  };
-
-  const goBack = () => {
-    setStepError(null);
-    if (step > 1) setStep((s) => s - 1);
-  };
-
-  const handleSubmit = async () => {
-    const err = validateStep();
-    if (err) {
-      setStepError(err);
-      return;
-    }
-    setSubmitting(true);
-    setSubmitError(null);
-    try {
-      const res = await fetch("/api/submit-lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName: form.firstName,
-          lastName: form.lastName,
-          email: form.email,
-          accidentTime: form.accidentTime,
-          cityState: form.cityState,
-          accidentType: form.accidentType,
-          injured: form.injured,
-          medicalTreatment: form.medicalTreatment,
-          insurance: form.insurance,
-          hasAttorney: form.hasAttorney,
-          phone: form.phone,
-          caseDescription: form.caseDescription,
-          preferredCallbackTime: form.preferredCallbackTime,
-        }),
-      });
-      const data = (await res.json()) as {
-        success?: boolean;
-        redirectTo?: string;
-        message?: string;
-      };
-      if (!res.ok || !data.success) {
-        setSubmitError(data.message ?? "Please try again or call—we pick up.");
-        return;
-      }
-      if (data.redirectTo) router.push(data.redirectTo);
-    } catch {
-      setSubmitError("Connection issue. Call us—we are here.");
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
   const runCalculator = (e?: ReactMouseEvent<HTMLButtonElement>) => {
     e?.preventDefault();
     e?.stopPropagation();
@@ -645,9 +409,6 @@ export default function Home() {
       !!(calc.severity && calc.medBills && calc.workLoss && calc.fault && calc.crashType && calc.ongoing),
     [calc],
   );
-
-  const selectClass =
-    "h-12 w-full rounded-2xl border border-[#1e293b]/10 bg-[#fffdfb] px-3.5 text-sm text-[#162032] shadow-[0_10px_30px_-18px_rgba(15,23,42,0.18)] outline-none transition-all duration-200 hover:border-[#c9a227]/45 hover:shadow-[0_14px_36px_-20px_rgba(201,162,39,0.2)] focus:border-[#c9a227]/65 focus:ring-[3px] focus:ring-amber-100/55 sm:h-14 sm:px-4";
 
   function OptionGroup({
     label,
@@ -871,7 +632,7 @@ export default function Home() {
                     Immediate 60-second matching to top attorneys. Warm, private, no pressure.
                   </p>
                   <a
-                    href="#intake"
+                    href="#connect-options"
                     className={cn(
                       buttonVariants({ size: "lg" }),
                       wmBody,
@@ -1120,14 +881,14 @@ export default function Home() {
                       Speak with Ava 24/7
                     </Button>
                     <a
-                      href="#intake"
+                      href="#connect-options"
                       className={cn(
                         buttonVariants({ variant: "outline" }),
                         wmBody,
                         "inline-flex min-h-[3.25rem] items-center justify-center rounded-[1.05rem] border-[#e2e8f0] bg-white px-7 py-3.5 text-[0.9rem] font-semibold text-[#152238] shadow-[0_14px_40px_-22px_rgba(15,23,42,0.15)] transition-all hover:-translate-y-0.5 hover:border-[#c9a227]/45 hover:bg-[#fffefb] sm:min-h-14 sm:px-9 sm:text-[0.95rem]",
                       )}
                     >
-                      Official intake →
+                      Open text chat →
                     </a>
                   </div>
                 </div>
@@ -1138,20 +899,20 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t border-[#c9a227]/14 bg-[#fdfbf7] py-28 sm:py-36 lg:py-40">
+      <section id="connect-options" className="border-t border-[#c9a227]/14 bg-[#fdfbf7] py-28 sm:py-36 lg:py-40">
         <div className="mx-auto max-w-[80rem] px-4 sm:px-12 lg:px-20">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className={cn(wmDisplay, "text-balance text-[2.05rem] font-semibold tracking-[-0.03em] text-[#142032] sm:text-[3rem] lg:text-[3.35rem]")}>
-              Eight questions—with kindness stitched in every line
+              Three immediate ways to connect right now
             </h2>
             <p className="mx-auto mt-6 max-w-3xl text-pretty text-base font-light leading-[1.82] text-[#475569] sm:mt-10 sm:text-xl sm:leading-[1.78]">
-              Grief. Pain forms. Stacks of envelopes. Texts that ping at 3 a.m.—we see it all. Step slowly; breathe between taps.
-              Most finish in a few softened minutes—and remember:{" "}
+              To keep the website clean for carrier review, we have temporarily paused the homepage intake questionnaire.
+              You can still reach us instantly through the official text chat widget, Ava&apos;s callback flow, or by phone.{" "}
               <span className="font-medium text-[#334155]">you&apos;re not alone anymore.</span>
             </p>
           </div>
-          <div className="mt-14 grid gap-5 sm:mt-20 sm:grid-cols-2 sm:gap-7 lg:mt-24 lg:grid-cols-4 lg:gap-8">
-            {INTRO_STEPS.map((item, idx) => {
+          <div className="mt-14 grid gap-5 sm:mt-20 sm:grid-cols-2 sm:gap-7 lg:mt-24 lg:grid-cols-3 lg:gap-8">
+            {CONNECT_OPTIONS.map((item, idx) => {
               const Ico = item.icon;
               return (
                 <article
@@ -1181,14 +942,14 @@ export default function Home() {
           </div>
           <div className="mt-16 flex flex-col items-center justify-center gap-4 sm:mt-20 sm:flex-row sm:gap-5">
             <a
-              href="#intake"
+              href={telHref}
               className={cn(
                 buttonVariants({ size: "lg" }),
                 wmBody,
                 "min-h-[3.35rem] min-w-[min(100%,17.5rem)] rounded-[1rem] bg-gradient-to-b from-[#152238] to-[#0a1628] px-10 text-[0.9375rem] font-semibold text-[#fdfaf5] shadow-[0_20px_50px_-16px_rgba(15,23,42,0.42)] transition hover:-translate-y-0.5 hover:shadow-xl",
               )}
             >
-              Gentle intake →
+              Call now
               <ArrowRight className="size-4" />
             </a>
             <button
@@ -1206,6 +967,10 @@ export default function Home() {
               Speak with Ava 24/7
             </button>
           </div>
+          <p className="mx-auto mt-8 max-w-2xl text-center text-[0.9rem] font-light leading-[1.8] text-[#64748b]">
+            For text messaging, use the chat bubble in the lower right corner. That widget is the only SMS entry point on the
+            website during compliance review.
+          </p>
         </div>
       </section>
 
@@ -1273,260 +1038,6 @@ export default function Home() {
               );
             })}
           </div>
-        </div>
-      </section>
-
-      <section id="intake" className="relative scroll-mt-28 overflow-hidden border-t border-[#c9a227]/10 bg-[#ece5dc]/90 py-28 sm:py-36 lg:py-40">
-        <div className="pointer-events-none absolute left-[-35%] bottom-[-40%] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,251,243,0.94),transparent_65%)]" />
-        <div className="pointer-events-none absolute right-[-20%] top-[-25%] h-[380px] w-[380px] rounded-full bg-[radial-gradient(circle_at_center,rgba(201,162,39,0.08),transparent_68%)]" />
-        <div className="relative mx-auto w-full max-w-lg px-4 sm:max-w-xl sm:px-10 lg:max-w-[30rem]">
-          <Card className="overflow-hidden rounded-[2rem] border border-white shadow-[0_44px_100px_-40px_rgba(15,23,42,0.28)] ring-1 ring-[#d4af72]/38">
-            <CardHeader className="border-b border-[#eae6df] bg-gradient-to-br from-[#fffdfb] via-[#fcf9f5] to-[#f8f4ed] pb-11 pt-11 sm:pt-12">
-              <CardTitle className={cn(wmDisplay, "text-[1.75rem] font-semibold tracking-tight text-[#152238] sm:text-[2.1rem]")}>
-                Trusted intake—not an interrogation room
-              </CardTitle>
-              <CardDescription className="mt-4 text-[0.98rem] font-light leading-[1.7] text-[#475569] sm:text-[1.05rem]">
-                Step {step} of {TOTAL_INTAKE_STEPS} · <span className="font-normal text-[#334155]">you&apos;re safe here</span> · pause whenever your chest tightens—we&apos;ll wait.
-
-              </CardDescription>
-              <div className="pt-5">
-                <Progress value={progress}>
-                  <div className="mb-2 flex justify-between gap-2 text-xs text-stone-500">
-                    <ProgressLabel>Journey</ProgressLabel>
-                    <span className="tabular-nums">{progress}%</span>
-                  </div>
-                </Progress>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-6 bg-[#fdfcfa] px-5 pb-10 pt-9 sm:space-y-8 sm:px-11 sm:pb-12 sm:pt-11">
-              <p className="rounded-[1.05rem] border border-[#fde68a]/45 bg-[#fffdf9] px-4 py-3.5 text-[0.8325rem] font-light italic leading-relaxed text-[#475569] shadow-[inset_0_1px_0_rgba(255,255,255,0.95)]">
-                {INTAKE_WHISPER[step]}
-              </p>
-              {step === 1 && (
-                <div className="space-y-2">
-                  <label htmlFor="wm-intake-first-name" className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">
-                    First name
-                  </label>
-                  <Input
-                    id="wm-intake-first-name"
-                    autoComplete="given-name"
-                    placeholder="e.g. Ava"
-                    value={form.firstName}
-                    onChange={(e) => update("firstName", e.target.value)}
-                    className="h-12 rounded-2xl border-slate-200 shadow-sm transition focus-visible:ring-amber-100 sm:h-14"
-                  />
-                </div>
-              )}
-              {step === 2 && (
-                <div className="space-y-2">
-                  <label htmlFor="wm-intake-last-name" className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">
-                    Last name
-                  </label>
-                  <Input
-                    id="wm-intake-last-name"
-                    autoComplete="family-name"
-                    placeholder="e.g. Williams"
-                    value={form.lastName}
-                    onChange={(e) => update("lastName", e.target.value)}
-                    className="h-12 rounded-2xl border-slate-200 shadow-sm transition focus-visible:ring-amber-100 sm:h-14"
-                  />
-                </div>
-              )}
-              {step === 3 && (
-                <div className="space-y-2">
-                  <label htmlFor="wm-intake-email" className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">
-                    Email address
-                  </label>
-                  <Input
-                    id="wm-intake-email"
-                    type="email"
-                    autoComplete="email"
-                    placeholder="you@example.com"
-                    value={form.email}
-                    onChange={(e) => update("email", e.target.value)}
-                    className="h-12 rounded-2xl border-slate-200 shadow-sm transition focus-visible:ring-amber-100 sm:h-14"
-                  />
-                </div>
-              )}
-              {step === 4 && (
-                <div className="space-y-2">
-                  <label className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">When did it happen?</label>
-                  <select className={selectClass} value={form.accidentTime} onChange={(e) => update("accidentTime", e.target.value)}>
-                    <option value="">Choose…</option>
-                    {ACCIDENT_TIMES.map((t) => (
-                      <option key={t} value={t}>{t}</option>
-                    ))}
-                  </select>
-                </div>
-              )}
-              {step === 5 && (
-                <div className="space-y-2">
-                  <label className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">Where (city & state)?</label>
-                  <Input
-                    className="h-12 rounded-2xl border-slate-200 shadow-sm transition focus-visible:ring-amber-100 sm:h-14"
-                    placeholder="e.g. Knoxville, TN"
-                    value={form.cityState}
-                    onChange={(e) => update("cityState", e.target.value)}
-                  />
-                </div>
-              )}
-              {step === 6 && (
-                <div className="space-y-2">
-                  <label className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">Accident shape</label>
-                  <select className={selectClass} value={form.accidentType} onChange={(e) => update("accidentType", e.target.value)}>
-                    <option value="">Choose…</option>
-                    {ACCIDENT_TYPES.map((t) => (
-                      <option key={t} value={t}>{t}</option>
-                    ))}
-                  </select>
-                </div>
-              )}
-              {step === 7 && (
-                <div className="space-y-2">
-                  <label className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">Injuries?</label>
-                  <select className={selectClass} value={form.injured} onChange={(e) => update("injured", e.target.value)}>
-                    <option value="">Choose…</option>
-                    {INJURY_OPTIONS.map((t) => (
-                      <option key={t} value={t}>{t}</option>
-                    ))}
-                  </select>
-                </div>
-              )}
-              {step === 8 && (
-                <div className="space-y-2">
-                  <label className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">Care received?</label>
-                  <select className={selectClass} value={form.medicalTreatment} onChange={(e) => update("medicalTreatment", e.target.value)}>
-                    <option value="">Choose…</option>
-                    {MEDICAL_OPTIONS.map((t) => (
-                      <option key={t} value={t}>{t}</option>
-                    ))}
-                  </select>
-                </div>
-              )}
-              {step === 9 && (
-                <div className="space-y-2">
-                  <label className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">Insurance context</label>
-                  <select className={selectClass} value={form.insurance} onChange={(e) => update("insurance", e.target.value)}>
-                    <option value="">Choose…</option>
-                    {INSURANCE_OPTIONS.map((t) => (
-                      <option key={t} value={t}>{t}</option>
-                    ))}
-                  </select>
-                </div>
-              )}
-              {step === 10 && (
-                <div className="space-y-2">
-                  <label className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">Attorney already?</label>
-                  <select className={selectClass} value={form.hasAttorney} onChange={(e) => update("hasAttorney", e.target.value)}>
-                    <option value="">Choose…</option>
-                    {ATTORNEY_OPTIONS.map((t) => (
-                      <option key={t} value={t}>{t}</option>
-                    ))}
-                  </select>
-                </div>
-              )}
-              {step === 11 && (
-                <div className="space-y-3">
-                  <label htmlFor="wm-intake-phone" className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">
-                    Your phone number
-                  </label>
-                  <Input
-                    id="wm-intake-phone"
-                    type="tel"
-                    autoComplete="tel"
-                    placeholder="e.g. (978) 515-6063"
-                    value={form.phone}
-                    onChange={(e) => update("phone", e.target.value)}
-                    className="h-12 rounded-2xl border-slate-200 shadow-sm transition focus-visible:ring-amber-100 sm:h-14"
-                  />
-                  <div className="space-y-2 pt-2">
-                    <label htmlFor="wm-case-description" className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">
-                      Anything else we should know? <span className="font-normal normal-case tracking-normal text-[#64748b]">(optional)</span>
-                    </label>
-                    <textarea
-                      id="wm-case-description"
-                      rows={4}
-                      placeholder="Share any details that could help us care for you well."
-                      value={form.caseDescription}
-                      onChange={(e) => update("caseDescription", e.target.value)}
-                      className="min-h-[7rem] w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-[#152238] shadow-sm transition placeholder:text-[#94a3b8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-100 sm:text-[0.95rem]"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="wm-preferred-callback-time" className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-[#475569]">
-                      Preferred callback time <span className="font-normal normal-case tracking-normal text-[#64748b]">(optional)</span>
-                    </label>
-                    <Input
-                      id="wm-preferred-callback-time"
-                      autoComplete="off"
-                      placeholder="e.g. Today after 5pm, Tomorrow morning"
-                      value={form.preferredCallbackTime}
-                      onChange={(e) => update("preferredCallbackTime", e.target.value)}
-                      className="h-12 rounded-2xl border-slate-200 shadow-sm transition focus-visible:ring-amber-100 sm:h-14"
-                    />
-                  </div>
-                </div>
-              )}
-              {stepError && (
-                <p className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{stepError}</p>
-              )}
-              {submitError && (
-                <p className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{submitError}</p>
-              )}
-            </CardContent>
-            <CardFooter className="border-t border-[#eae6df] bg-gradient-to-b from-[#fefdfb] to-[#faf6ef] px-5 pb-9 pt-7 sm:px-10 sm:pb-11 sm:pt-9">
-              <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-between sm:gap-4">
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={goBack}
-                  disabled={step === 1 || submitting}
-                  className="h-12 rounded-2xl border-slate-200 bg-white text-[0.9rem] font-medium shadow-md transition hover:border-amber-200/70 hover:bg-amber-50/30 sm:h-14 sm:text-sm"
-                >
-                  Previous
-                </Button>
-                {step < TOTAL_INTAKE_STEPS ? (
-                  <Button
-                    type="button"
-                    onClick={goNext}
-                    className="h-12 rounded-2xl bg-gradient-to-b from-amber-600 to-amber-700 px-8 text-[0.9rem] font-semibold text-white shadow-lg shadow-amber-900/25 transition hover:-translate-y-px hover:from-amber-500 hover:to-amber-600 sm:h-14 sm:px-10 sm:text-[0.9375rem]"
-                  >
-                    Continue
-                    <ArrowRight />
-                  </Button>
-                ) : (
-                  <Button
-                    type="button"
-                    disabled={submitting}
-                    onClick={handleSubmit}
-                    className="h-12 rounded-2xl bg-gradient-to-b from-[#1e293b] to-[#0f172a] px-6 text-[0.9rem] font-semibold text-white shadow-lg transition hover:-translate-y-px hover:from-slate-700 hover:to-slate-900 disabled:translate-y-0 sm:h-14 sm:px-8 sm:text-[0.9375rem]"
-                  >
-                    {submitting ? "Submitting…" : "Secure consult request"}
-                  </Button>
-                )}
-              </div>
-            </CardFooter>
-          </Card>
-          <p className="mx-auto mt-12 max-w-md text-center text-[0.9rem] font-light leading-[1.8] text-[#64748b]">
-            Craving warmth through your earpiece instead of a keyboard? Reach{" "}
-            <a
-              href={telHref}
-              className={cn(wmBody, "font-semibold text-[#8a6914] underline decoration-[#fcd34d]/80 underline-offset-4 hover:text-[#713f12]")}
-            >
-              {SUPPORT_PHONE_DISPLAY}
-            </a>{" "}
-            — or{" "}
-            <button
-              type="button"
-              title="Request a voice call-back from Ava—24/7"
-              aria-label="Request a voice call from Ava anytime, 24 hours a day"
-              onClick={requestAvaVoiceCallback}
-              className={cn(wmBody, "font-semibold text-[#8a6914] underline decoration-[#fcd34d]/80 underline-offset-4 hover:text-[#713f12]")}
-            >
-              Speak with Ava 24/7
-            </button>
-            . Whichever honors your nervous system.
-          </p>
         </div>
       </section>
 
