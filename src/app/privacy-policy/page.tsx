@@ -61,9 +61,8 @@ export default function PrivacyPolicyPage() {
                   Example customer care message
                 </p>
                 <p className="mt-2 text-[0.95rem] leading-[1.8] text-[#334155]">
-                  &ldquo;Hello from TOPHUNDRED GLOBAL VENTURES LLC Doing Business As Wreck Match. We are following up
-                  regarding your support request. Please let us know if you still need assistance. Reply STOP to
-                  unsubscribe.&rdquo;
+                  &ldquo;Hello from TOPHUNDRED GLOBAL VENTURES LLC DBA WreckMatch. We are following up regarding your
+                  support request. Please let us know if you still need assistance. Reply STOP to unsubscribe.&rdquo;
                 </p>
               </div>
             </div>

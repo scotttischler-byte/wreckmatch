@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Terms of Use | WreckMatch",
-  description: "Terms governing use of WreckMatch services, including SMS/text messaging rules.",
+  description: "Terms governing WreckMatch customer care SMS and website use.",
 };
 
 export default function TermsPage() {
@@ -26,8 +26,8 @@ export default function TermsPage() {
         </h1>
         <p className="mt-3 text-sm text-[#64748b]">Effective date: May 7, 2026 · Last updated: May 7, 2026</p>
         <p className="mt-2 text-xs text-[#64748b]">
-          WreckMatch and MVA Match are DBAs of Tophundred Global Ventures LLC (&quot;Company,&quot; &quot;we,&quot;
-          &quot;us,&quot; or &quot;our&quot;).
+          Tophundred Global Ventures LLC DBA WreckMatch (&quot;Company,&quot; &quot;we,&quot; &quot;us,&quot; or
+          &quot;our&quot;).
         </p>
 
         <div className="mt-10 space-y-10 text-[0.95rem] leading-[1.75] text-[#334155]">
@@ -67,14 +67,14 @@ export default function TermsPage() {
               <p className="font-semibold text-[#0f172a]">Program description</p>
               <p className="mt-2">
                 When you provide your mobile number and agree through the website chat widget or another legally sufficient
-                method, you consent to receive transactional, informational, and where separately authorized marketing or
-                promotional text messages from or on behalf of the Company and its service providers.
+                method, you consent to receive customer care and service-related text messages from or on behalf of the
+                Company regarding your inquiry or existing support request.
               </p>
               <ul className="mt-3 list-disc space-y-2 pl-5">
                 <li>
                   <span className="font-medium text-[#1e293b]">Opt-in:</span> Consent must be affirmative, clear, and
-                  captured before marketing texts are sent, consistent with applicable law (including the Telephone Consumer
-                  Protection Act and implementing rules where applicable).
+                  captured before customer care texts are sent, consistent with applicable law (including the Telephone
+                  Consumer Protection Act and implementing rules where applicable).
                 </li>
                 <li>
                   <span className="font-medium text-[#1e293b]">Opt-out:</span> Reply{" "}
@@ -91,11 +91,12 @@ export default function TermsPage() {
                 </li>
                 <li>
                   <span className="font-medium text-[#1e293b]">Content:</span> Texts may include case-status updates,
-                  scheduling, links, reminders, educational material, and introductory offers where permitted.
+                  support responses, inquiry updates, appointment coordination, and related follow-up communications.
                 </li>
                 <li>
-                  <span className="font-medium text-[#1e293b]">No sharing for value with unaffiliated third-party marketers</span>{" "}
-                  for SMS opt-in lists without proper disclosure and consent, as applicable.
+                  <span className="font-medium text-[#1e293b]">No promotional content:</span> Messaging described on this
+                  site is limited to customer care and service-related communications, not marketing campaigns or
+                  promotional offers.
                 </li>
               </ul>
               <p className="mt-3 text-sm text-[#475569]">Customer care: (815) 608-0449.</p>
@@ -104,9 +105,8 @@ export default function TermsPage() {
                   Example customer care message
                 </p>
                 <p className="mt-2 text-[0.95rem] leading-[1.8] text-[#334155]">
-                  &ldquo;Hello from TOPHUNDRED GLOBAL VENTURES LLC Doing Business As Wreck Match. We are following up
-                  regarding your support request. Please let us know if you still need assistance. Reply STOP to
-                  unsubscribe.&rdquo;
+                  &ldquo;Hello from TOPHUNDRED GLOBAL VENTURES LLC DBA WreckMatch. We are following up regarding your
+                  support request. Please let us know if you still need assistance. Reply STOP to unsubscribe.&rdquo;
                 </p>
               </div>
             </div>
@@ -115,8 +115,8 @@ export default function TermsPage() {
           <section className="space-y-3">
             <h2 className="text-lg font-semibold text-[#0f172a]">5. Communications generally</h2>
             <p>
-              You agree we may contact you at the email, phone number, or address you provide, including through automated or
-              prerecorded calls or texts where allowed after appropriate consent. You will maintain accurate contact
+              You agree we may contact you at the email address or mobile number you provide for customer care and
+              service-related follow-up where allowed after appropriate consent. You will maintain accurate contact
               information.
             </p>
           </section>
@@ -189,7 +189,7 @@ export default function TermsPage() {
             <h2 className="text-lg font-semibold text-[#0f172a]">13. Contact</h2>
             <p>(815) 608-0449</p>
             <p className="text-sm text-[#64748b]">
-              WreckMatch and MVA Match are DBAs of Tophundred Global Ventures LLC
+              Tophundred Global Ventures LLC DBA WreckMatch
             </p>
           </section>
         </div>

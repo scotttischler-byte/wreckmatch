@@ -75,14 +75,12 @@ export default function Home() {
       <footer className="bg-[#f5efe6] py-14">
         <div className="mx-auto max-w-4xl px-6 text-center sm:px-10">
           <p className="font-serif text-[1.35rem] font-semibold tracking-[-0.02em] text-[#152238]">
-            WreckMatch / Tophundred Global Ventures LLC
+            Tophundred Global Ventures LLC DBA WreckMatch
           </p>
           <p className="mt-4 text-[0.95rem] leading-[1.8] text-[#475569]">
             832 Saint Augustine Road
             <br />
             Colgate, WI 53017
-            <br />
-            Phone: (815) 608-0449
           </p>
 
           <nav
