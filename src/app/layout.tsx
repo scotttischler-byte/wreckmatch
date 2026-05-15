@@ -31,6 +31,13 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {children}
+
+        {/* Gomega Optimizer Script */}
+        <Script 
+          src="https://cdn.gomega.ai/scripts/optimizer.min.js" 
+          strategy="afterInteractive" 
+        />
+
         {/* Primary site text messaging = GoHighLevel / Lead Connector (bottom-right). */}
         <Script
           id="ghl-chat-widget-loader"
