@@ -29,14 +29,15 @@ export default function RootLayout({
       lang="en"
       className={`${sansFont.variable} ${monoFont.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        {children}
-
-        {/* Gomega Optimizer Script */}
+      <head>
+        {/* Gomega Optimizer Script placed inside the Head */}
         <Script 
           src="https://cdn.gomega.ai/scripts/optimizer.min.js" 
-          strategy="afterInteractive" 
+          strategy="beforeInteractive" 
         />
+      </head>
+      <body className="min-h-full flex flex-col">
+        {children}
 
         {/* Primary site text messaging = GoHighLevel / Lead Connector (bottom-right). */}
         <Script
