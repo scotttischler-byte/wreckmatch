@@ -12,8 +12,18 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/:path*",
-        destination: "https://injuredhelp.ai/:path*",
+        source: "/privacy",
+        destination: "/privacy-policy",
+        permanent: true,
+      },
+      {
+        source: "/terms-of-service",
+        destination: "/terms",
+        permanent: true,
+      },
+      {
+        source: "/terms-of-use",
+        destination: "/terms",
         permanent: true,
       },
     ];
