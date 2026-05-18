@@ -3,42 +3,59 @@ import { SurvivalGuideDisclaimer } from "@/components/SurvivalGuideDisclaimer";
 import { SurvivalGuideHeader } from "@/components/accidentsurvivalguide/SurvivalGuideHeader";
 import { SurvivalGuideFooter } from "@/components/accidentsurvivalguide/SurvivalGuideFooter";
 import { AsgJsonLd } from "@/components/accidentsurvivalguide/AsgJsonLd";
-import { AsgAnalytics } from "@/components/accidentsurvivalguide/AsgAnalytics";
 import { StickyDownloadBar } from "@/components/accidentsurvivalguide/StickyDownloadBar";
-import { ASG_BASE_URL, ASG_SITE_NAME } from "@/lib/accidentsurvivalguide";
+import { AsgLocaleProvider } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
+import { ASG_BASE_URL } from "@/lib/accidentsurvivalguide";
+import { getMessages } from "@/lib/i18n/get-messages";
+import { localeHtmlLang, localeOpenGraph } from "@/lib/i18n/config";
+import { getAsgLocale } from "@/lib/i18n/server";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(ASG_BASE_URL),
-  title: {
-    default: `${ASG_SITE_NAME} | What To Do After a Car Crash`,
-    template: `%s | ${ASG_SITE_NAME}`,
-  },
-  description:
-    "Free, calm educational guide for what to do after a car accident. Operated by WreckMatch LLC — not a law firm.",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: ASG_BASE_URL,
-    siteName: ASG_SITE_NAME,
-    title: `${ASG_SITE_NAME} | What To Do After a Car Crash`,
-    description:
-      "Step-by-step help for the first 24 hours after a crash. Free Survival Guide PDF from WreckMatch LLC.",
-  },
-  robots: { index: true, follow: true },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = getAsgLocale();
+  const m = getMessages(locale);
+
+  return {
+    metadataBase: new URL(ASG_BASE_URL),
+    title: {
+      default: m.meta.titleDefault,
+      template: m.meta.titleTemplate,
+    },
+    description: m.meta.description,
+    openGraph: {
+      type: "website",
+      locale: localeOpenGraph(locale),
+      url: locale === "es" ? `${ASG_BASE_URL}/es` : ASG_BASE_URL,
+      siteName: m.meta.siteName,
+      title: m.meta.titleDefault,
+      description: m.meta.ogDescription,
+    },
+    robots: { index: true, follow: true },
+    alternates: {
+      canonical: locale === "es" ? `${ASG_BASE_URL}/es` : ASG_BASE_URL,
+      languages: {
+        en: ASG_BASE_URL,
+        es: `${ASG_BASE_URL}/es`,
+      },
+    },
+  };
+}
 
 export default function AccidentSurvivalGuideLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const locale = getAsgLocale();
+  const messages = getMessages(locale);
+
   return (
-    <div className="min-h-screen bg-[#f8fbfd] text-[#1a3a52] antialiased">
-      <AsgAnalytics />
-      <AsgJsonLd includeFaq />
-      <SurvivalGuideDisclaimer />
-      <SurvivalGuideHeader />
-      <main>{children}</main>
-      <StickyDownloadBar />
-      <SurvivalGuideFooter />
-    </div>
+    <AsgLocaleProvider locale={locale} messages={messages}>
+      <div lang={localeHtmlLang(locale)} className="min-h-screen bg-[#f8fbfd] text-[#1a3a52] antialiased">
+        <AsgJsonLd includeFaq siteName={messages.meta.siteName} faqItems={messages.faq} />
+        <SurvivalGuideDisclaimer text={messages.disclaimer} />
+        <SurvivalGuideHeader />
+        <main>{children}</main>
+        <StickyDownloadBar />
+        <SurvivalGuideFooter />
+      </div>
+    </AsgLocaleProvider>
   );
 }

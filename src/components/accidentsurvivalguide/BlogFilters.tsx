@@ -1,11 +1,14 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
+import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
 import { BLOG_TOPIC_SLUGS, BLOG_TOPICS } from "@/lib/blog/topics";
 
 export function BlogFilters() {
   const router = useRouter();
   const params = useSearchParams();
+  const { messages, href } = useAsgLocale();
+  const b = messages.blog;
   const state = params.get("state") ?? "";
   const topic = params.get("topic") ?? "";
   const q = params.get("q") ?? "";
@@ -14,7 +17,7 @@ export function BlogFilters() {
     const next = new URLSearchParams(params.toString());
     if (value) next.set(key, value);
     else next.delete(key);
-    router.push(`/blog?${next.toString()}`);
+    router.push(href(`/blog?${next.toString()}`));
   }
 
   return (
@@ -30,7 +33,7 @@ export function BlogFilters() {
     >
       <label className="block sm:col-span-3">
         <span className="text-xs font-semibold uppercase tracking-wide text-[#5b8fa8]">
-          Search
+          {b.filtersTopic}
         </span>
         <input
           name="q"
@@ -41,7 +44,7 @@ export function BlogFilters() {
       </label>
       <label className="block">
         <span className="text-xs font-semibold uppercase tracking-wide text-[#5b8fa8]">
-          State (abbr)
+          {b.filtersState}
         </span>
         <input
           value={state}
@@ -53,14 +56,14 @@ export function BlogFilters() {
       </label>
       <label className="block sm:col-span-2">
         <span className="text-xs font-semibold uppercase tracking-wide text-[#5b8fa8]">
-          Topic
+          {b.filtersTopic}
         </span>
         <select
           value={topic}
           onChange={(e) => update("topic", e.target.value)}
           className="mt-1 h-10 w-full rounded-lg border border-[#c5dce8] px-3 text-sm"
         >
-          <option value="">All topics</option>
+          <option value="">{b.allTopics}</option>
           {BLOG_TOPIC_SLUGS.map((slug) => (
             <option key={slug} value={slug}>
               {BLOG_TOPICS[slug].label}

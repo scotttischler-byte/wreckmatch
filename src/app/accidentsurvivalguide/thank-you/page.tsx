@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { ThankYouSuccess } from "@/components/accidentsurvivalguide/ThankYouSuccess";
+import { getMessages } from "@/lib/i18n/get-messages";
+import { localizeHref } from "@/lib/i18n/locale-path";
+import { getAsgLocale } from "@/lib/i18n/server";
 
-export const metadata: Metadata = {
-  title: "Thank You – Your Guide is On the Way",
-  description:
-    "Your free Accident Survival Guide PDF has been sent. Explore optional next steps with Sarah or a free attorney match.",
-  robots: { index: false, follow: false },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = getMessages(getAsgLocale()).thankYou;
+  return {
+    title: t.metaTitle,
+    description: t.metaDescription,
+    robots: { index: false, follow: false },
+  };
+}
 
 type PageProps = {
   searchParams: Promise<{
@@ -19,11 +24,12 @@ type PageProps = {
 };
 
 export default async function ThankYouPage({ searchParams }: PageProps) {
+  const locale = getAsgLocale();
   const params = await searchParams;
   const email = params.email?.trim();
 
   if (!email) {
-    redirect("/");
+    redirect(localizeHref("/", locale));
   }
 
   return (

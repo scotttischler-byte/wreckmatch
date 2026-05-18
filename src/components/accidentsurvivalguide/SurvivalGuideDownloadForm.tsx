@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
+import { AsgLink } from "@/components/accidentsurvivalguide/AsgLink";
+import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
 import { SurvivalGuideDisclaimer } from "@/components/SurvivalGuideDisclaimer";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -34,12 +36,7 @@ const INITIAL: FormState = {
   consentSms: true,
 };
 
-const HEADLINES = {
-  default: "Get your free Survival Guide",
-  checklist: "Get My Free Checklist PDF Now",
-} as const;
-
-type HeadlineKey = keyof typeof HEADLINES;
+type HeadlineKey = "default" | "checklist";
 
 function formProgress(form: FormState): number {
   let score = 0;
@@ -62,12 +59,15 @@ export function SurvivalGuideDownloadForm({
   headline?: HeadlineKey;
 }) {
   const router = useRouter();
+  const { locale, messages, href } = useAsgLocale();
+  const f = messages.form;
   const [form, setForm] = useState<FormState>(INITIAL);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [started, setStarted] = useState(false);
 
   const progress = formProgress(form);
+  const headlineText = headline === "checklist" ? f.checklistHeadline : f.defaultHeadline;
 
   useEffect(() => {
     if (started) return;
@@ -90,7 +90,7 @@ export function SurvivalGuideDownloadForm({
     e.preventDefault();
 
     if (!form.consentEmail && !form.consentSms) {
-      setError("Please confirm you agree to receive your guide by email and/or text.");
+      setError(f.consentError);
       return;
     }
 
@@ -111,6 +111,7 @@ export function SurvivalGuideDownloadForm({
           zip: form.zip,
           consentEmail: form.consentEmail,
           consentSms: form.consentSms,
+          preferredLanguage: locale,
         }),
       });
       const data = (await res.json()) as {
@@ -121,15 +122,15 @@ export function SurvivalGuideDownloadForm({
 
       if (!res.ok || !data.success) {
         trackAsgEvent("form_error", { message: data.message ?? "unknown" });
-        setError(data.message ?? "Something went wrong. Please try again.");
+        setError(data.message ?? f.consentError);
         return;
       }
 
       trackAsgEvent("form_submit", { state: form.state || "unspecified" });
-      router.push(data.redirectTo ?? "/thank-you");
+      router.push(data.redirectTo ?? href("/thank-you"));
     } catch {
       trackAsgEvent("form_error", { message: "network" });
-      setError("Unable to submit right now. Please try again in a moment.");
+      setError(f.consentError);
     } finally {
       setLoading(false);
     }
@@ -144,19 +145,14 @@ export function SurvivalGuideDownloadForm({
         className="rounded-2xl border border-[#c5dce8] bg-white p-6 shadow-[0_20px_50px_-30px_rgba(26,58,82,0.25)] sm:p-8"
         noValidate
       >
-        <h2
-          id={`${id}-heading`}
-          className="font-serif text-2xl font-semibold text-[#1a3a52]"
-        >
-          {HEADLINES[headline]}
+        <h2 id={`${id}-heading`} className="font-serif text-2xl font-semibold text-[#1a3a52]">
+          {headlineText}
         </h2>
-        <p className="mt-2 text-sm leading-relaxed text-[#5b6b7f]">
-          2026 edition PDF — we&apos;ll email it to you within minutes. Free, no obligation.
-        </p>
+        <p className="mt-2 text-sm leading-relaxed text-[#5b6b7f]">{f.subtitle}</p>
 
         <div className="mt-4">
           <div className="mb-1 flex justify-between text-xs text-[#7a8a98]">
-            <span>Form progress</span>
+            <span>{f.progress}</span>
             <span>{progress}%</span>
           </div>
           <Progress value={progress} className="h-2" aria-valuenow={progress} />
@@ -165,7 +161,7 @@ export function SurvivalGuideDownloadForm({
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           <label className="block">
             <span className="mb-1.5 block text-sm font-medium text-[#3d5568]">
-              First name <span className="text-[#c45c5c]">*</span>
+              {f.firstName} <span className="text-[#c45c5c]">*</span>
             </span>
             <Input
               required
@@ -178,7 +174,7 @@ export function SurvivalGuideDownloadForm({
 
           <label className="block">
             <span className="mb-1.5 block text-sm font-medium text-[#3d5568]">
-              Last name <span className="text-[#c45c5c]">*</span>
+              {f.lastName} <span className="text-[#c45c5c]">*</span>
             </span>
             <Input
               required
@@ -191,7 +187,7 @@ export function SurvivalGuideDownloadForm({
 
           <label className="block">
             <span className="mb-1.5 block text-sm font-medium text-[#3d5568]">
-              Email <span className="text-[#c45c5c]">*</span>
+              {f.email} <span className="text-[#c45c5c]">*</span>
             </span>
             <Input
               required
@@ -206,7 +202,7 @@ export function SurvivalGuideDownloadForm({
 
           <label className="block">
             <span className="mb-1.5 block text-sm font-medium text-[#3d5568]">
-              Phone <span className="text-[#c45c5c]">*</span>
+              {f.phone} <span className="text-[#c45c5c]">*</span>
             </span>
             <Input
               required
@@ -221,14 +217,14 @@ export function SurvivalGuideDownloadForm({
 
           <label className="block">
             <span className="mb-1.5 block text-sm font-medium text-[#3d5568]">
-              State <span className="text-[#7a8a98]">(recommended)</span>
+              {f.state} <span className="text-[#7a8a98]">{f.stateRecommended}</span>
             </span>
             <select
               value={form.state}
               onChange={(e) => updateField("state", e.target.value)}
               className="h-11 w-full rounded-lg border border-[#c5dce8] bg-[#fafcfd] px-3 text-sm text-[#1a3a52] outline-none focus-visible:border-[#2a7a9b] focus-visible:ring-3 focus-visible:ring-[#2a7a9b]/20"
             >
-              <option value="">Select state</option>
+              <option value="">{f.selectState}</option>
               {US_STATES.map((s) => (
                 <option key={s.value} value={s.value}>
                   {s.label}
@@ -239,7 +235,7 @@ export function SurvivalGuideDownloadForm({
 
           <label className="block">
             <span className="mb-1.5 block text-sm font-medium text-[#3d5568]">
-              City <span className="text-[#7a8a98]">(optional)</span>
+              {f.city} <span className="text-[#7a8a98]">{f.optional}</span>
             </span>
             <Input
               autoComplete="address-level2"
@@ -251,7 +247,7 @@ export function SurvivalGuideDownloadForm({
 
           <label className="block sm:col-span-2">
             <span className="mb-1.5 block text-sm font-medium text-[#3d5568]">
-              ZIP code <span className="text-[#7a8a98]">(optional)</span>
+              {f.zip} <span className="text-[#7a8a98]">{f.optional}</span>
             </span>
             <Input
               autoComplete="postal-code"
@@ -263,7 +259,7 @@ export function SurvivalGuideDownloadForm({
           </label>
 
           <fieldset className="space-y-2 sm:col-span-2">
-            <legend className="text-sm font-medium text-[#3d5568]">How should we send your guide?</legend>
+            <legend className="text-sm font-medium text-[#3d5568]">{f.consentLegend}</legend>
             <label className="flex gap-3">
               <input
                 type="checkbox"
@@ -271,9 +267,7 @@ export function SurvivalGuideDownloadForm({
                 onChange={(e) => updateField("consentEmail", e.target.checked)}
                 className="mt-1 size-4"
               />
-              <span className="text-[0.78rem] leading-relaxed text-[#5b6b7f]">
-                Email me the Survival Guide PDF
-              </span>
+              <span className="text-[0.78rem] leading-relaxed text-[#5b6b7f]">{f.consentEmail}</span>
             </label>
             <label className="flex gap-3">
               <input
@@ -282,9 +276,7 @@ export function SurvivalGuideDownloadForm({
                 onChange={(e) => updateField("consentSms", e.target.checked)}
                 className="mt-1 size-4"
               />
-              <span className="text-[0.78rem] leading-relaxed text-[#5b6b7f]">
-                Text me updates (Msg &amp; data rates may apply. Reply STOP to unsubscribe.)
-              </span>
+              <span className="text-[0.78rem] leading-relaxed text-[#5b6b7f]">{f.consentSms}</span>
             </label>
           </fieldset>
         </div>
@@ -303,18 +295,18 @@ export function SurvivalGuideDownloadForm({
           {loading ? (
             <>
               <Loader2 className="size-4 animate-spin" aria-hidden />
-              Sending your guide…
+              {f.submitting}
             </>
           ) : (
-            "Send Me the Free Survival Guide"
+            f.submit
           )}
         </Button>
 
         <p className="mt-4 text-[0.72rem] leading-relaxed text-[#7a8a98]">
-          WreckMatch LLC is a legal referral service, not a law firm. Not legal advice.{" "}
-          <a href="/privacy-policy" className="underline underline-offset-2">
-            Privacy Policy
-          </a>
+          {f.footerLegal}{" "}
+          <AsgLink href="/privacy-policy" className="underline underline-offset-2">
+            {f.privacy}
+          </AsgLink>
         </p>
       </form>
     </section>

@@ -1,9 +1,13 @@
-import Link from "next/link";
+"use client";
+
 import type { BlogPost } from "@/lib/blog/types";
-import { estimateReadingTime } from "@/lib/blog/posts";
-import { BLOG_TOPICS } from "@/lib/blog/topics";
+import { AsgLink } from "@/components/accidentsurvivalguide/AsgLink";
+import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
 import { SurvivalGuideDisclaimer } from "@/components/SurvivalGuideDisclaimer";
 import { SurvivalGuideDownloadForm } from "@/components/accidentsurvivalguide/SurvivalGuideDownloadForm";
+import { estimateReadingTime } from "@/lib/blog/reading-time";
+import { BLOG_TOPICS } from "@/lib/blog/topics";
+import { formatMessage } from "@/lib/i18n/get-messages";
 import { WRECKMATCH_URL } from "@/lib/accidentsurvivalguide";
 
 type BlogPostViewProps = {
@@ -11,16 +15,19 @@ type BlogPostViewProps = {
 };
 
 export function BlogPostView({ post }: BlogPostViewProps) {
+  const { locale, messages } = useAsgLocale();
+  const b = messages.blog;
   const readMin = post.readingTimeMinutes ?? estimateReadingTime(post);
   const topicLabel = BLOG_TOPICS[post.topic]?.label ?? post.topic;
   const stateLink = post.stateSlug ? `/${post.stateSlug}` : null;
+  const dateLocale = locale === "es" ? "es-US" : "en-US";
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
       <nav aria-label="Breadcrumb" className="text-sm text-[#5b8fa8]">
-        <Link href="/blog" className="underline underline-offset-2 hover:text-[#2a7a9b]">
-          Blog
-        </Link>
+        <AsgLink href="/blog" className="underline underline-offset-2 hover:text-[#2a7a9b]">
+          {b.title}
+        </AsgLink>
         {post.city !== "Nationwide" ? (
           <>
             <span className="mx-2 text-[#c5dce8]">/</span>
@@ -30,6 +37,12 @@ export function BlogPostView({ post }: BlogPostViewProps) {
           </>
         ) : null}
       </nav>
+
+      {locale === "es" ? (
+        <p className="mt-6 rounded-lg border border-[#c5dce8] bg-[#eef6fb] px-4 py-3 text-sm text-[#3d5568]">
+          {b.englishOnly}
+        </p>
+      ) : null}
 
       <SurvivalGuideDisclaimer variant="compact" className="mt-6" />
 
@@ -41,12 +54,12 @@ export function BlogPostView({ post }: BlogPostViewProps) {
           </span>
         ) : null}
         <span className="rounded-full bg-[#f4faf8] px-3 py-1 text-[#5b6b7f]">
-          {readMin} min read
+          {readMin} min
         </span>
       </div>
 
       <time className="mt-4 block text-sm text-[#7a8a98]" dateTime={post.publishedAt}>
-        {new Date(post.publishedAt).toLocaleDateString("en-US", {
+        {new Date(post.publishedAt).toLocaleDateString(dateLocale, {
           year: "numeric",
           month: "long",
           day: "numeric",
@@ -62,9 +75,7 @@ export function BlogPostView({ post }: BlogPostViewProps) {
         {post.sections.map((section) => (
           <section key={section.heading ?? section.paragraphs[0]?.slice(0, 40)}>
             {section.heading ? (
-              <h2 className="font-serif text-2xl font-semibold text-[#1a3a52]">
-                {section.heading}
-              </h2>
+              <h2 className="font-serif text-2xl font-semibold text-[#1a3a52]">{section.heading}</h2>
             ) : null}
             <div className="mt-4 space-y-4 text-[#4a6578] leading-relaxed">
               {section.paragraphs.map((p) => (
@@ -97,16 +108,12 @@ export function BlogPostView({ post }: BlogPostViewProps) {
       ) : null}
 
       <div className="mt-10 space-y-4 rounded-xl border border-[#d4e8dc] bg-[#f4faf8] p-6 text-sm leading-relaxed text-[#5b6b7f]">
-        <p>
-          <strong className="text-[#1a3a52]">Disclaimer:</strong> This article is general education
-          from WreckMatch LLC, a legal referral service—not legal advice. For questions about your
-          specific case, consult a licensed attorney in your state.
-        </p>
+        <p>{b.disclaimer}</p>
         {stateLink ? (
           <p>
-            <Link href={stateLink} className="font-medium text-[#2a7a9b] underline underline-offset-2">
-              {post.state} accident guide →
-            </Link>
+            <AsgLink href={stateLink} className="font-medium text-[#2a7a9b] underline underline-offset-2">
+              {formatMessage(messages.resources.stateGuideTitle, { state: post.state })} →
+            </AsgLink>
           </p>
         ) : null}
         <p>
@@ -115,7 +122,7 @@ export function BlogPostView({ post }: BlogPostViewProps) {
             className="font-medium text-[#2a7a9b] underline underline-offset-2"
             rel="noopener noreferrer"
           >
-            Free attorney match via WreckMatch →
+            {b.wreckmatchCta}
           </a>
         </p>
       </div>

@@ -1,0 +1,290 @@
+export const en = {
+  meta: {
+    siteName: "Accident Survival Guide",
+    titleDefault: "Accident Survival Guide | What To Do After a Car Crash",
+    titleTemplate: "%s | Accident Survival Guide",
+    description:
+      "Free, calm educational guide for what to do after a car accident. Operated by WreckMatch LLC — not a law firm.",
+    ogDescription:
+      "Step-by-step help for the first 24 hours after a crash. Free Survival Guide PDF from WreckMatch LLC.",
+  },
+  disclaimer:
+    "AccidentSurvivalGuide.com is an educational resource operated by WreckMatch LLC, a legal referral service. We are not a law firm and do not provide legal advice. The information here is for general education only.",
+  nav: {
+    ariaMain: "Main navigation",
+    eyebrow: "Free educational guide",
+    first24: "First 24 Hours",
+    resources: "Resources",
+    blog: "Blog",
+    about: "About",
+    getGuide: "Get the guide",
+    freeGuide: "Free guide",
+  },
+  lang: {
+    switch: "Language",
+    en: "English",
+    es: "Español",
+  },
+  home: {
+    heroEyebrow: "Free educational resource",
+    heroTitle: "The Accident Survival Guide – What To Do After a Car Crash",
+    heroSubtitle:
+      "Calm, step-by-step help for the first 24 hours and beyond. Not legal advice—just the checklist I wish I had after my own wreck.",
+    ctaChecklist: "Get My Free Checklist PDF",
+    ctaRead: "Read the checklist",
+    heroImageAlt:
+      "Calm driver reviewing a printed accident checklist beside a vehicle after a minor crash",
+    storyQuote:
+      "When I got in a car wreck, I had no idea what to do. The insurance company was calling, I was in pain, and I felt completely overwhelmed. That's why I created this free Survival Guide — so you don't have to go through it alone.",
+    storyAttribution: "— Scott, founder",
+    insideTitle: "What's inside the guide",
+    first24Title: "What To Do in the First 24 Hours",
+    first24Intro:
+      "General education only. Laws vary by state—consider speaking with a licensed attorney for advice about your situation.",
+    stepLabel: "Step",
+    mistakesTitle: "Common Mistakes to Avoid",
+    rightsTitle: "Your Rights After an Accident",
+    rightsCards: [
+      {
+        title: "Medical care",
+        text: "You generally have the right to seek treatment. Keep records of every visit and bill.",
+      },
+      {
+        title: "Insurance communication",
+        text: "You may report a claim promptly, but you are not required to accept the first offer.",
+      },
+      {
+        title: "Legal representation",
+        text: "You may consult a licensed attorney in your state. WreckMatch can help you explore a free match.",
+      },
+    ],
+    resourcesTitle: "Free resources",
+    resourcesIntro: "Guides, blog articles, and state-specific education pages.",
+    allResources: "All free resources →",
+    blogLink: "Blog ({count}+ articles) →",
+    stateGuideLink: "{state} guide →",
+    latestArticles: "Latest articles",
+    testimonialsTitle: "What readers say",
+    faqTitle: "Frequently asked questions",
+    helpTitle: "Need more help?",
+    helpBody:
+      "Use the chat widget for our AI assistant Sarah (24/7)—educational support, not legal advice—or visit WreckMatch for a free attorney match in your state.",
+    visitWreckmatch: "Visit wreckmatch.com",
+  },
+  benefits: [
+    "A printable checklist for the first 24 hours after a crash",
+    "Plain-language tips for dealing with insurers (without giving legal advice)",
+    "Documentation reminders so you do not lose important evidence",
+    "Guidance on when to consider medical care and follow-up visits",
+    "An overview of common mistakes—and how to avoid them",
+    "Optional connection to licensed attorneys in your state (free, no obligation)",
+  ],
+  first24Steps: [
+    { title: "Ensure safety", body: "Move to a safe location if you can. Turn on hazard lights. Call 911 if anyone may be injured." },
+    { title: "Get medical help", body: "Accept EMS care if offered. Even mild pain can worsen—see a doctor as soon as practical." },
+    { title: "Document the scene", body: "Photograph vehicles, plates, road conditions, and injuries. Collect witness names and numbers." },
+    { title: "Exchange information", body: "Share insurance and contact details. Stick to facts; avoid debating fault at the scene." },
+    { title: "File reports if required", body: "Cooperate with police. Your state may require an additional report—check local rules." },
+    { title: "Notify your insurer", body: "Report the crash promptly. You may wish to consult an attorney before recorded statements." },
+    { title: "Organize records", body: "Keep bills, repair estimates, missed work notes, and all insurer letters in one folder." },
+    { title: "Rest and follow up", body: "Recovery comes first. Attend follow-up appointments and track how you feel each day." },
+  ],
+  commonMistakes: [
+    { title: "Skipping medical care", body: "Adrenaline can mask pain. Delayed treatment may hurt both your health and your documentation." },
+    { title: "Giving a recorded statement too soon", body: "Insurers may ask for recordings early. You are generally not required to provide one immediately." },
+    { title: "Accepting a quick settlement", body: "Early offers may not account for ongoing treatment. Take time to understand your expenses first." },
+    { title: "Posting on social media", body: "Photos and comments about the crash or your activities can be misinterpreted later." },
+    { title: "Throwing away evidence", body: "Keep damaged property, medical bills, and repair invoices until your matter is resolved." },
+    { title: "Going it alone when overwhelmed", body: "It is okay to ask for help—from medical providers, trusted friends, or a licensed attorney." },
+  ],
+  faq: [
+    { question: "Is AccidentSurvivalGuide.com a law firm?", answer: "No. AccidentSurvivalGuide.com is an educational resource operated by WreckMatch LLC, a legal referral service. We do not provide legal advice." },
+    { question: "Is the Survival Guide really free?", answer: "Yes. The PDF guide is free. If you choose, you may also request a free attorney match through WreckMatch with no obligation." },
+    { question: "Will I get legal advice from this site?", answer: "No. Information here is for general education only. For advice about your specific situation, speak with a licensed attorney in your state." },
+    { question: "How does WreckMatch fit in?", answer: "WreckMatch LLC may connect you with independent licensed attorneys in your area. We are paid a marketing fee by participating law firms—not by you for the referral." },
+  ],
+  testimonials: [
+    { quote: "The checklist helped me stay calm. I knew what to photograph and what to save for insurance.", attribution: "Maria R., Texas", verified: "Guide reader, 2026" },
+    { quote: "I did not realize how many deadlines there were. The guide gave me a simple order of operations.", attribution: "James T., Florida", verified: "Guide reader, 2026" },
+    { quote: "Educational and straightforward—no pressure. I downloaded the PDF and read it the same night.", attribution: "Verified reader, California", verified: "PDF download, 2026" },
+  ],
+  form: {
+    defaultHeadline: "Get your free Survival Guide",
+    checklistHeadline: "Get My Free Checklist PDF Now",
+    subtitle: "2026 edition PDF — we'll email it to you within minutes. Free, no obligation.",
+    progress: "Form progress",
+    firstName: "First name",
+    lastName: "Last name",
+    email: "Email",
+    phone: "Phone",
+    state: "State",
+    stateRecommended: "(recommended)",
+    city: "City",
+    optional: "(optional)",
+    zip: "ZIP code",
+    consentLegend: "How should we send your guide?",
+    consentEmail: "Email me the Survival Guide PDF",
+    consentSms: "Text me updates (Msg & data rates may apply. Reply STOP to unsubscribe.)",
+    submit: "Send Me the Free Survival Guide",
+    submitting: "Sending your guide…",
+    selectState: "Select state",
+    consentError: "Please confirm you agree to receive your guide by email and/or text.",
+    footerLegal:
+      "WreckMatch LLC is a legal referral service, not a law firm. Not legal advice.",
+    privacy: "Privacy Policy",
+    errors: {
+      firstName: "Please enter your first name.",
+      lastName: "Please enter your last name.",
+      email: "Enter a valid email address.",
+      phone: "Please enter your phone number.",
+      phoneInvalid: "Enter a valid phone number.",
+      consent: "Please confirm you agree to receive your guide and related updates.",
+      saveFailed:
+        "We couldn't save your request right now. Please try again or call us for help.",
+      serverError: "Unexpected server error.",
+    },
+  },
+  footer: {
+    tagline: "Calm, educational help after a car crash—operated by WreckMatch LLC.",
+    explore: "Explore",
+    freeResources: "Free resources",
+    aboutScott: "About Scott's story",
+    attorneyMatch: "Attorney matching at WreckMatch",
+    privacy: "Privacy Policy",
+    terms: "Terms of Use",
+    feeDisclaimer:
+      "WreckMatch LLC may receive a marketing fee from participating law firms. This does not affect your legal rights. No attorney-client relationship is formed by using this educational site or downloading the guide. Msg & data rates may apply if you opt in to text updates. Reply STOP to unsubscribe.",
+    rights: "All rights reserved.",
+    navAria: "Footer navigation",
+  },
+  sticky: {
+    aria: "Quick download",
+    cta: "Get My Free Checklist PDF",
+  },
+  about: {
+    metaTitle: "About Scott's Story",
+    metaDescription:
+      "Why Scott created the free Accident Survival Guide after his own car wreck — an educational resource from WreckMatch LLC.",
+    eyebrow: "About",
+    title: "Why I built this guide",
+    p1: "When I got in a car wreck, I had no idea what to do. Within hours, the insurance company was calling. I was in pain, trying to figure out medical appointments, and every conversation felt like it had stakes I didn't understand.",
+    p2: "I wasn't looking for a sales pitch—I needed a calm checklist. Something that told me what to do in the first 24 hours, what to document, and what mistakes to avoid while I was still overwhelmed.",
+    p3: "That experience is why I created the Accident Survival Guide. It's free, educational, and written in plain language. It is not legal advice, and it won't replace a licensed attorney when you need one—but it can help you breathe, organize, and take the next right step.",
+    p4Before: "AccidentSurvivalGuide.com is operated by",
+    p4After: ", a legal referral service. If you want help finding a licensed attorney in your state, you can also use",
+    p4End: "at no obligation to you.",
+    signature: "— Scott",
+    back: "← Back to homepage",
+  },
+  resources: {
+    metaTitle: "Free Resources",
+    metaDescription:
+      "Free accident guides, checklists, and state-specific educational resources from Accident Survival Guide.",
+    title: "Free resources",
+    intro: "Download the Survival Guide PDF or explore checklists and state-specific education.",
+    pageIntroEducational:
+      "Educational materials to help after a car crash. Not legal advice—general information only.",
+    pdfTitle: "Accident Survival Guide — 2026 Edition (PDF)",
+    pdfDesc: "Step-by-step checklist for the first 24 hours after a crash.",
+    checklistTitle: "First 24 Hours Checklist",
+    checklistDesc: "On-page guide to immediate safety, documentation, and medical care.",
+    mistakesTitle: "Common Mistakes to Avoid",
+    mistakesDesc: "Learn what many people regret doing too soon after an accident.",
+    rightsTitle: "Your Rights After an Accident",
+    rightsDesc: "General education about insurance, medical care, and legal help.",
+    stateGuideTitle: "{state} accident guide",
+    back: "← Back to homepage",
+  },
+  statePage: {
+    notFound: "State guide not found",
+    note: "Note:",
+    attorneyTitle: "Free attorney match in {state}",
+    attorneyBody:
+      "WreckMatch LLC may connect you with an independent licensed attorney in your area—free, no obligation. We are a referral service, not a law firm.",
+    exploreWreckmatch: "Explore WreckMatch →",
+    back: "← All resources",
+  },
+  thankYou: {
+    metaTitle: "Thank You",
+    metaDescription:
+      "Your free Accident Survival Guide PDF has been sent. Explore optional next steps with Sarah or a free attorney match.",
+    guideSent: "Guide sent successfully",
+    title: "Thank You – Your Accident Survival Guide is On the Way!",
+    emailIntro: "Hi {name}, we've emailed your free {guide} PDF to {email}.",
+    emailOutro: "It should arrive in your inbox within a few minutes (check spam just in case).",
+    guideName: "Accident Survival Guide",
+    smartSteps: "You're taking smart steps to protect yourself after a crash.",
+    downloadAgain: "Download again",
+    nextStepsTitle: "Gentle next steps — only if you want help",
+    sarahTitle: "Talk to Sarah (24/7 Expert)",
+    sarahBody:
+      "Need immediate answers or have questions about the guide? Our friendly AI assistant Sarah is available 24/7/365 and can help explain the checklist or answer general questions—not legal advice.",
+    chatSarah: "Chat with Sarah Now",
+    callSarahPrefix: "Or call Sarah directly at",
+    attorneyCardTitle: "Speak with a Licensed Attorney (No Cost)",
+    attorneyCardBody:
+      "Would you like personalized help with your situation? We can connect you with a qualified attorney in your state for a free, no-obligation consultation.",
+    quickTipsTitle: "Quick tips from the guide",
+    quickTips: [
+      "Photograph the scene, vehicles, and any visible injuries.",
+      "Seek medical care even if pain feels minor at first.",
+      "Keep all bills, repair estimates, and insurer letters in one folder.",
+    ],
+    wreckmatchDisclaimer:
+      "WreckMatch LLC is a legal referral service. No obligation. You are not required to hire anyone. Not legal advice.",
+    wreckmatchLink: "Or visit wreckmatch.com →",
+    backHome: "← Back to homepage",
+    there: "there",
+    matchDone: "Thank you — a specialist should reach out shortly about your free attorney match.",
+    networkError: "Network error. Please try again.",
+    getMatch: "Get Free Attorney Match →",
+    formFirstName: "First name",
+    formLastName: "Last name",
+    formEmail: "Email",
+    formPhone: "Phone",
+    formState: "State",
+    submitting: "Submitting…",
+  },
+  quickMatch: {
+    title: "Quick match request",
+    injured: "Were you injured?",
+    yes: "Yes",
+    no: "No",
+    submit: "Request free match",
+    submitting: "Sending…",
+    error: "Unable to submit. Please try wreckmatch.com directly.",
+  },
+  blog: {
+    metaTitle: "Blog",
+    metaDescription:
+      "Expert educational articles about car accidents by city and topic — Accident Survival Guide by WreckMatch LLC.",
+    title: "Blog",
+    intro: "Educational articles about car accidents, insurance, and recovery—organized by city and topic.",
+    articleCount: "{count} articles",
+    indexIntro:
+      "Calm, city-specific educational articles—not legal advice. Updated regularly to answer real questions after a crash.",
+    englishOnly:
+      "This article is currently available in English. Use the site menu to switch languages for guides and forms.",
+    filtersTopic: "Topic",
+    filtersState: "State",
+    allTopics: "All topics",
+    allStates: "All states",
+    readMore: "Read article →",
+    backToBlog: "← Back to blog",
+    relatedPosts: "Related articles",
+    disclaimer:
+      "Educational information from WreckMatch LLC, a legal referral service—not legal advice. For questions about your specific situation, speak with a licensed attorney.",
+    wreckmatchCta: "Free attorney match via WreckMatch →",
+    noPosts: "No articles match those filters yet.",
+  },
+} as const;
+
+type DeepString<T> = T extends string
+  ? string
+  : T extends readonly (infer U)[]
+    ? readonly DeepString<U>[]
+    : T extends object
+      ? { [K in keyof T]: DeepString<T[K]> }
+      : T;
+
+export type Messages = DeepString<typeof en>;

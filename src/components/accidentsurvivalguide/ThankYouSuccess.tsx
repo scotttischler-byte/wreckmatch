@@ -1,32 +1,21 @@
 "use client";
 
 import { useEffect } from "react";
-import Link from "next/link";
 import { CheckCircle2, Download, MessageCircle, Scale } from "lucide-react";
-import { SurvivalGuideDisclaimer } from "@/components/SurvivalGuideDisclaimer";
+import { AsgLink } from "@/components/accidentsurvivalguide/AsgLink";
+import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
 import { WreckMatchQuickMatchForm } from "@/components/accidentsurvivalguide/WreckMatchQuickMatchForm";
-import {
-  ASG_BASE_URL,
-  SURVIVAL_GUIDE_PDF,
-  WRECKMATCH_URL,
-} from "@/lib/accidentsurvivalguide";
-import {
-  SUPPORT_PHONE_DISPLAY,
-  SUPPORT_PHONE_E164,
-} from "@/lib/constants";
+import { SurvivalGuideDisclaimer } from "@/components/SurvivalGuideDisclaimer";
+import { ASG_BASE_URL, SURVIVAL_GUIDE_PDF, WRECKMATCH_URL } from "@/lib/accidentsurvivalguide";
+import { SUPPORT_PHONE_DISPLAY, SUPPORT_PHONE_E164 } from "@/lib/constants";
 import { openGhlChatWidget } from "@/lib/open-ghl-chat";
+import { formatMessage } from "@/lib/i18n/get-messages";
 import { trackAsgEvent } from "@/lib/analytics";
 
 const SARAH_PHONE_E164 =
   process.env.NEXT_PUBLIC_SARAH_PHONE_E164 ?? SUPPORT_PHONE_E164;
 const SARAH_PHONE_DISPLAY =
   process.env.NEXT_PUBLIC_SARAH_PHONE_DISPLAY ?? SUPPORT_PHONE_DISPLAY;
-
-const QUICK_TIPS = [
-  "Photograph the scene, vehicles, and any visible injuries.",
-  "Seek medical care even if pain feels minor at first.",
-  "Keep all bills, repair estimates, and insurer letters in one folder.",
-];
 
 type ThankYouSuccessProps = {
   email: string;
@@ -36,7 +25,9 @@ type ThankYouSuccessProps = {
 };
 
 export function ThankYouSuccess({ email, firstName, state, phone }: ThankYouSuccessProps) {
-  const greeting = firstName ? firstName : "there";
+  const { messages } = useAsgLocale();
+  const t = messages.thankYou;
+  const greeting = firstName?.trim() || t.there;
   const pdfUrl = `${ASG_BASE_URL}${SURVIVAL_GUIDE_PDF}`;
 
   useEffect(() => {
@@ -50,20 +41,15 @@ export function ThankYouSuccess({ email, firstName, state, phone }: ThankYouSucc
           <CheckCircle2 className="size-9" aria-hidden />
         </div>
         <p className="mt-4 text-sm font-semibold uppercase tracking-[0.16em] text-[#5a9a82]">
-          Guide sent successfully
+          {t.guideSent}
         </p>
         <h1 className="mt-3 font-serif text-3xl font-semibold leading-tight text-[#1a3a52] sm:text-4xl">
-          Thank You – Your Accident Survival Guide is On the Way!
+          {t.title}
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-[#4a6578] leading-relaxed">
-          Hi {greeting}, we&apos;ve emailed your free{" "}
-          <strong className="font-medium text-[#1a3a52]">Accident Survival Guide</strong> PDF to{" "}
-          <strong className="font-medium text-[#1a3a52]">{email}</strong>. It should arrive in
-          your inbox within a few minutes (check spam just in case).
+          {formatMessage(t.emailIntro, { name: greeting, guide: t.guideName, email })}
         </p>
-        <p className="mx-auto mt-4 max-w-xl text-[#5b6b7f] leading-relaxed">
-          You&apos;re taking smart steps to protect yourself after a crash.
-        </p>
+        <p className="mx-auto mt-4 max-w-xl text-[#5b6b7f] leading-relaxed">{t.smartSteps}</p>
         <a
           href={pdfUrl}
           target="_blank"
@@ -72,27 +58,21 @@ export function ThankYouSuccess({ email, firstName, state, phone }: ThankYouSucc
           className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#2a7a9b] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#236884]"
         >
           <Download className="size-4" aria-hidden />
-          Download again
+          {t.downloadAgain}
         </a>
       </div>
 
       <SurvivalGuideDisclaimer variant="compact" className="mt-8" />
 
       <h2 className="mt-12 text-center font-serif text-2xl font-semibold text-[#1a3a52]">
-        Gentle next steps — only if you want help
+        {t.nextStepsTitle}
       </h2>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-2">
         <article className="flex h-full flex-col rounded-2xl border border-[#c5dce8] bg-white p-6 shadow-sm sm:p-8">
           <MessageCircle className="size-8 text-[#2a7a9b]" aria-hidden />
-          <h3 className="mt-4 font-serif text-xl font-semibold text-[#1a3a52]">
-            Talk to Sarah (24/7 Expert)
-          </h3>
-          <p className="mt-3 flex-1 text-sm leading-relaxed text-[#5b6b7f]">
-            Need immediate answers or have questions about the guide? Our friendly AI assistant{" "}
-            <strong className="text-[#1a3a52]">Sarah</strong> is available 24/7/365 and can help
-            explain the checklist or answer general questions—not legal advice.
-          </p>
+          <h3 className="mt-4 font-serif text-xl font-semibold text-[#1a3a52]">{t.sarahTitle}</h3>
+          <p className="mt-3 flex-1 text-sm leading-relaxed text-[#5b6b7f]">{t.sarahBody}</p>
           <button
             type="button"
             onClick={() => {
@@ -101,10 +81,10 @@ export function ThankYouSuccess({ email, firstName, state, phone }: ThankYouSucc
             }}
             className="mt-6 w-full rounded-xl bg-[#2a7a9b] py-3.5 text-sm font-semibold text-white transition hover:bg-[#236884]"
           >
-            Chat with Sarah Now
+            {t.chatSarah}
           </button>
           <p className="mt-4 text-center text-sm text-[#5b6b7f]">
-            Or call Sarah directly at{" "}
+            {t.callSarahPrefix}{" "}
             <a
               href={`tel:${SARAH_PHONE_E164}`}
               onClick={() => trackAsgEvent("sarah_call_click")}
@@ -117,14 +97,8 @@ export function ThankYouSuccess({ email, firstName, state, phone }: ThankYouSucc
 
         <article className="flex h-full flex-col rounded-2xl border border-[#d4e8dc] bg-[#f4faf8] p-6 shadow-sm sm:p-8">
           <Scale className="size-8 text-[#5a9a82]" aria-hidden />
-          <h3 className="mt-4 font-serif text-xl font-semibold text-[#1a3a52]">
-            Speak with a Licensed Attorney (No Cost)
-          </h3>
-          <p className="mt-3 text-sm leading-relaxed text-[#5b6b7f]">
-            Would you like personalized help with your situation? We can connect you with a
-            qualified attorney in your state for a{" "}
-            <strong className="text-[#1a3a52]">free, no-obligation consultation</strong>.
-          </p>
+          <h3 className="mt-4 font-serif text-xl font-semibold text-[#1a3a52]">{t.attorneyCardTitle}</h3>
+          <p className="mt-3 text-sm leading-relaxed text-[#5b6b7f]">{t.attorneyCardBody}</p>
           <WreckMatchQuickMatchForm
             defaultValues={{
               firstName: firstName ?? "",
@@ -133,10 +107,7 @@ export function ThankYouSuccess({ email, firstName, state, phone }: ThankYouSucc
               state: state ?? "",
             }}
           />
-          <p className="mt-4 text-[0.72rem] leading-relaxed text-[#7a8a98]">
-            WreckMatch LLC is a legal referral service. No obligation. You are not required to hire
-            anyone. Not legal advice.
-          </p>
+          <p className="mt-4 text-[0.72rem] leading-relaxed text-[#7a8a98]">{t.wreckmatchDisclaimer}</p>
           <a
             href={WRECKMATCH_URL}
             target="_blank"
@@ -144,15 +115,15 @@ export function ThankYouSuccess({ email, firstName, state, phone }: ThankYouSucc
             onClick={() => trackAsgEvent("wreckmatch_referral", { source: "thank_you_link" })}
             className="mt-4 text-center text-sm font-semibold text-[#2a7a9b] underline underline-offset-2"
           >
-            Or visit wreckmatch.com →
+            {t.wreckmatchLink}
           </a>
         </article>
       </div>
 
       <div className="mt-10 rounded-xl border border-[#c5dce8] bg-white p-6">
-        <h3 className="font-semibold text-[#1a3a52]">Quick tips from the guide</h3>
+        <h3 className="font-semibold text-[#1a3a52]">{t.quickTipsTitle}</h3>
         <ul className="mt-4 space-y-2 text-sm text-[#5b6b7f]">
-          {QUICK_TIPS.map((tip) => (
+          {t.quickTips.map((tip) => (
             <li key={tip} className="flex gap-2">
               <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-[#5a9a82]" aria-hidden />
               <span>{tip}</span>
@@ -162,9 +133,9 @@ export function ThankYouSuccess({ email, firstName, state, phone }: ThankYouSucc
       </div>
 
       <p className="mt-10 text-center">
-        <Link href="/" className="text-sm font-medium text-[#2a7a9b] underline underline-offset-2">
-          ← Back to homepage
-        </Link>
+        <AsgLink href="/" className="text-sm font-medium text-[#2a7a9b] underline underline-offset-2">
+          {t.backHome}
+        </AsgLink>
       </p>
     </section>
   );

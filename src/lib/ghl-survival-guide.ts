@@ -3,7 +3,7 @@
  *
  * 1. Trigger: Inbound Webhook (use GHL_WEBHOOK_URL / ASG_SURVIVAL_GUIDE_WEBHOOK_URL)
  * 2. Create/Update Contact — map incoming JSON fields to contact + custom fields
- * 3. Add Tags: survival-guide-lead, downloaded-guide-yes, state-{abbr} (if present)
+ * 3. Add Tags: wreckmatch-lead, survival-guide-lead, downloaded-guide-yes, state-{abbr} (if present)
  * 4. Send Email — subject: "Your Free Accident Survival Guide is Here"
  *    - Attach PDF or link: {{pdf_download_url}}
  * 5. (Optional) Start nurture sequence / internal notification
@@ -14,10 +14,11 @@
  * - PDF Download URL (text) ← pdf_download_url
  */
 
-import { GHL_WEBHOOK_URL } from "@/lib/constants";
-import { ASG_BASE_URL, SURVIVAL_GUIDE_PDF } from "@/lib/accidentsurvivalguide";
+import { GHL_WEBHOOK_URL, LAW_FIRM_NAME } from "@/lib/constants";
+import { ASG_BASE_URL, ASG_DOMAIN, SURVIVAL_GUIDE_PDF } from "@/lib/accidentsurvivalguide";
 
-export const ASG_LEAD_SOURCE = "AccidentSurvivalGuide";
+/** Attribution in custom fields / webhook — contacts use WreckMatch source + wreckmatch-lead tag. */
+export const ASG_LEAD_SOURCE = `www.${ASG_DOMAIN.replace(/^www\./, "")}`;
 
 const PLACEHOLDER_RE = /example\.com|placeholder|REPLACE_WITH/i;
 
@@ -50,6 +51,7 @@ export type SurvivalGuideLeadInput = {
   zip: string;
   consentSms: boolean;
   consentEmail: boolean;
+  preferredLanguage?: string;
 };
 
 export function buildGhlSurvivalGuidePayload(lead: SurvivalGuideLeadInput) {
@@ -75,8 +77,10 @@ export function buildGhlSurvivalGuidePayload(lead: SurvivalGuideLeadInput) {
     sms_consent: lead.consentSms ? "Yes" : "No",
     email_consent: lead.consentEmail ? "Yes" : "No",
     marketing_consent: lead.consentSms || lead.consentEmail ? "Yes" : "No",
-    source: "WreckMatch",
-    site: "www.accidentsurvivalguide.com",
+    source: LAW_FIRM_NAME,
+    form_type: "survival-guide-download",
+    preferred_language: lead.preferredLanguage || "en",
+    site: ASG_DOMAIN,
     created_at: new Date().toISOString(),
   };
 }

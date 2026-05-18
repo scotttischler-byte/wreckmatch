@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
+import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { US_STATES } from "@/lib/accidentsurvivalguide";
@@ -16,6 +17,8 @@ type DefaultValues = {
 };
 
 export function WreckMatchQuickMatchForm({ defaultValues = {} }: { defaultValues?: DefaultValues }) {
+  const { locale, messages } = useAsgLocale();
+  const q = messages.thankYou;
   const [firstName, setFirstName] = useState(defaultValues.firstName ?? "");
   const [lastName, setLastName] = useState(defaultValues.lastName ?? "");
   const [email, setEmail] = useState(defaultValues.email ?? "");
@@ -41,19 +44,20 @@ export function WreckMatchQuickMatchForm({ defaultValues = {} }: { defaultValues
           phone,
           cityState: state ? `, ${state}` : "Not specified — ASG thank you",
           lead_source: "accidentsurvivalguide-thank-you",
+          preferredLanguage: locale,
         }),
       });
       const data = (await res.json()) as { success?: boolean; message?: string };
 
       if (!res.ok || !data.success) {
-        setError(data.message ?? "Unable to submit. Please try wreckmatch.com directly.");
+        setError(data.message ?? q.networkError);
         return;
       }
 
       trackAsgEvent("wreckmatch_referral", { source: "thank_you_form" });
       setDone(true);
     } catch {
-      setError("Network error. Please try again.");
+      setError(q.networkError);
     } finally {
       setLoading(false);
     }
@@ -62,7 +66,7 @@ export function WreckMatchQuickMatchForm({ defaultValues = {} }: { defaultValues
   if (done) {
     return (
       <p className="mt-6 rounded-lg border border-[#d4e8dc] bg-white p-4 text-sm text-[#5b6b7f]">
-        Thank you — a specialist should reach out shortly about your free attorney match.
+        {q.matchDone}
       </p>
     );
   }
@@ -72,13 +76,13 @@ export function WreckMatchQuickMatchForm({ defaultValues = {} }: { defaultValues
       <div className="grid gap-3 sm:grid-cols-2">
         <Input
           required
-          placeholder="First name"
+          placeholder={q.formFirstName}
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           className="h-10 border-[#c5dce8] bg-white"
         />
         <Input
-          placeholder="Last name"
+          placeholder={q.formLastName}
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
           className="h-10 border-[#c5dce8] bg-white"
@@ -87,7 +91,7 @@ export function WreckMatchQuickMatchForm({ defaultValues = {} }: { defaultValues
       <Input
         required
         type="email"
-        placeholder="Email"
+        placeholder={q.formEmail}
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         className="h-10 border-[#c5dce8] bg-white"
@@ -95,7 +99,7 @@ export function WreckMatchQuickMatchForm({ defaultValues = {} }: { defaultValues
       <Input
         required
         type="tel"
-        placeholder="Phone"
+        placeholder={q.formPhone}
         value={phone}
         onChange={(e) => setPhone(e.target.value)}
         className="h-10 border-[#c5dce8] bg-white"
@@ -104,9 +108,9 @@ export function WreckMatchQuickMatchForm({ defaultValues = {} }: { defaultValues
         value={state}
         onChange={(e) => setState(e.target.value)}
         className="h-10 w-full rounded-lg border border-[#c5dce8] bg-white px-3 text-sm"
-        aria-label="State"
+        aria-label={q.formState}
       >
-        <option value="">State</option>
+        <option value="">{q.formState}</option>
         {US_STATES.map((s) => (
           <option key={s.value} value={s.value}>
             {s.label}
@@ -126,10 +130,10 @@ export function WreckMatchQuickMatchForm({ defaultValues = {} }: { defaultValues
         {loading ? (
           <>
             <Loader2 className="size-4 animate-spin" aria-hidden />
-            Submitting…
+            {q.submitting}
           </>
         ) : (
-          "Get Free Attorney Match →"
+          q.getMatch
         )}
       </Button>
     </form>

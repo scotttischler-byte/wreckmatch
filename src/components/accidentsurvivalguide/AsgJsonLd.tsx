@@ -1,19 +1,21 @@
-import {
-  ASG_BASE_URL,
-  ASG_SITE_NAME,
-  HOMEPAGE_FAQ,
-} from "@/lib/accidentsurvivalguide";
+import { ASG_BASE_URL } from "@/lib/accidentsurvivalguide";
+
+type FaqItem = { question: string; answer: string };
 
 type AsgJsonLdProps = {
   pageTitle?: string;
   pageDescription?: string;
   includeFaq?: boolean;
+  siteName?: string;
+  faqItems?: readonly FaqItem[];
 };
 
 export function AsgJsonLd({
   pageTitle,
   pageDescription,
   includeFaq = false,
+  siteName = "Accident Survival Guide",
+  faqItems = [],
 }: AsgJsonLdProps) {
   const organization = {
     "@context": "https://schema.org",
@@ -29,7 +31,7 @@ export function AsgJsonLd({
   const website = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: ASG_SITE_NAME,
+    name: siteName,
     url: ASG_BASE_URL,
     publisher: { "@type": "Organization", name: "WreckMatch LLC" },
   };
@@ -46,17 +48,18 @@ export function AsgJsonLd({
       }
     : null;
 
-  const faq = includeFaq
-    ? {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: HOMEPAGE_FAQ.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: { "@type": "Answer", text: item.answer },
-        })),
-      }
-    : null;
+  const faq =
+    includeFaq && faqItems.length
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqItems.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: { "@type": "Answer", text: item.answer },
+          })),
+        }
+      : null;
 
   const graphs = [organization, website, article, faq].filter(Boolean);
 

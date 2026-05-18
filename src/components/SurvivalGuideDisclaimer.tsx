@@ -3,19 +3,21 @@ import { cn } from "@/lib/utils";
 type SurvivalGuideDisclaimerProps = {
   className?: string;
   variant?: "banner" | "compact" | "footer";
+  text?: string;
 };
 
-const DISCLAIMER_TEXT =
+const DEFAULT_DISCLAIMER =
   "AccidentSurvivalGuide.com is an educational resource operated by WreckMatch LLC, a legal referral service. We are not a law firm and do not provide legal advice. The information here is for general education only.";
 
 export function SurvivalGuideDisclaimer({
   className,
   variant = "banner",
+  text = DEFAULT_DISCLAIMER,
 }: SurvivalGuideDisclaimerProps) {
   if (variant === "footer") {
     return (
       <p className={cn("text-[0.78rem] leading-[1.75] text-[#5b6b7f]", className)}>
-        {DISCLAIMER_TEXT}
+        {text}
       </p>
     );
   }
@@ -29,7 +31,7 @@ export function SurvivalGuideDisclaimer({
         )}
         role="note"
       >
-        {DISCLAIMER_TEXT}
+        {text}
       </p>
     );
   }
@@ -43,7 +45,7 @@ export function SurvivalGuideDisclaimer({
       role="note"
       aria-label="Educational disclaimer"
     >
-      {DISCLAIMER_TEXT}
+      {text}
     </aside>
   );
 }
