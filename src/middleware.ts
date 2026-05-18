@@ -4,6 +4,14 @@ import { isAsgHostname } from "@/lib/accidentsurvivalguide";
 
 export function middleware(request: NextRequest) {
   const host = request.headers.get("host") ?? "";
+  const hostname = host.split(":")[0]?.toLowerCase() ?? "";
+
+  if (hostname === "accidentsurvivalguide.com") {
+    const url = request.nextUrl.clone();
+    url.host = "www.accidentsurvivalguide.com";
+    url.protocol = "https:";
+    return NextResponse.redirect(url, 308);
+  }
 
   if (!isAsgHostname(host)) {
     return NextResponse.next();
