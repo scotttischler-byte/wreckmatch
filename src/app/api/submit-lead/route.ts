@@ -122,7 +122,7 @@ export async function POST(request: Request) {
       case_description: lead.caseDescription,
       preferred_callback_time: lead.preferredCallbackTime,
       source: LAW_FIRM_NAME,
-      lead_source: "www.wreckmatch.com",
+      lead_source: str(body.lead_source) || "www.wreckmatch.com",
       created_at: createdAt,
     };
 

@@ -11,19 +11,27 @@ import { US_STATES } from "@/lib/accidentsurvivalguide";
 import { trackAsgEvent } from "@/lib/analytics";
 
 type FormState = {
-  fullName: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
   state: string;
-  consent: boolean;
+  city: string;
+  zip: string;
+  consentEmail: boolean;
+  consentSms: boolean;
 };
 
 const INITIAL: FormState = {
-  fullName: "",
+  firstName: "",
+  lastName: "",
   email: "",
   phone: "",
   state: "",
-  consent: false,
+  city: "",
+  zip: "",
+  consentEmail: true,
+  consentSms: true,
 };
 
 const HEADLINES = {
@@ -35,12 +43,15 @@ type HeadlineKey = keyof typeof HEADLINES;
 
 function formProgress(form: FormState): number {
   let score = 0;
-  if (form.fullName.trim()) score += 25;
-  if (form.email.trim()) score += 25;
-  if (form.phone.trim()) score += 25;
+  if (form.firstName.trim()) score += 15;
+  if (form.lastName.trim()) score += 15;
+  if (form.email.trim()) score += 20;
+  if (form.phone.trim()) score += 20;
   if (form.state) score += 15;
-  if (form.consent) score += 10;
-  return score;
+  if (form.city) score += 5;
+  if (form.zip) score += 5;
+  if (form.consentEmail || form.consentSms) score += 5;
+  return Math.min(100, score);
 }
 
 export function SurvivalGuideDownloadForm({
@@ -60,17 +71,14 @@ export function SurvivalGuideDownloadForm({
 
   useEffect(() => {
     if (started) return;
-    const t = setTimeout(() => {
-      if (form.fullName || form.email) {
-        setStarted(true);
-        trackAsgEvent("form_start");
-      }
-    }, 0);
-    return () => clearTimeout(t);
-  }, [form.fullName, form.email, started]);
+    if (form.firstName || form.email) {
+      setStarted(true);
+      trackAsgEvent("form_start");
+    }
+  }, [form.firstName, form.email, started]);
 
   function updateField<K extends keyof FormState>(key: K, value: FormState[K]) {
-    if (!started && (key === "fullName" || key === "email")) {
+    if (!started && (key === "firstName" || key === "email")) {
       setStarted(true);
       trackAsgEvent("form_start");
     }
@@ -81,8 +89,8 @@ export function SurvivalGuideDownloadForm({
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    if (!form.consent) {
-      setError("Please confirm you agree to be contacted about your guide request.");
+    if (!form.consentEmail && !form.consentSms) {
+      setError("Please confirm you agree to receive your guide by email and/or text.");
       return;
     }
 
@@ -94,16 +102,20 @@ export function SurvivalGuideDownloadForm({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          fullName: form.fullName,
+          firstName: form.firstName,
+          lastName: form.lastName,
           email: form.email,
           phone: form.phone,
           state: form.state,
+          city: form.city,
+          zip: form.zip,
+          consentEmail: form.consentEmail,
+          consentSms: form.consentSms,
         }),
       });
       const data = (await res.json()) as {
         success?: boolean;
         message?: string;
-        pdfUrl?: string;
         redirectTo?: string;
       };
 
@@ -114,12 +126,6 @@ export function SurvivalGuideDownloadForm({
       }
 
       trackAsgEvent("form_submit", { state: form.state || "unspecified" });
-
-      if (data.pdfUrl) {
-        trackAsgEvent("pdf_download");
-        window.open(data.pdfUrl, "_blank", "noopener,noreferrer");
-      }
-
       router.push(data.redirectTo ?? "/thank-you");
     } catch {
       trackAsgEvent("form_error", { message: "network" });
@@ -145,7 +151,7 @@ export function SurvivalGuideDownloadForm({
           {HEADLINES[headline]}
         </h2>
         <p className="mt-2 text-sm leading-relaxed text-[#5b6b7f]">
-          2026 edition PDF — free, no obligation. Educational resource only.
+          2026 edition PDF — we&apos;ll email it to you within minutes. Free, no obligation.
         </p>
 
         <div className="mt-4">
@@ -157,18 +163,29 @@ export function SurvivalGuideDownloadForm({
         </div>
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <label className="block sm:col-span-2">
+          <label className="block">
             <span className="mb-1.5 block text-sm font-medium text-[#3d5568]">
-              Full name <span className="text-[#c45c5c]">*</span>
+              First name <span className="text-[#c45c5c]">*</span>
             </span>
             <Input
               required
-              autoComplete="name"
-              aria-required="true"
-              value={form.fullName}
-              onChange={(e) => updateField("fullName", e.target.value)}
+              autoComplete="given-name"
+              value={form.firstName}
+              onChange={(e) => updateField("firstName", e.target.value)}
               className="h-11 border-[#c5dce8] bg-[#fafcfd] px-3"
-              placeholder="Jane Smith"
+            />
+          </label>
+
+          <label className="block">
+            <span className="mb-1.5 block text-sm font-medium text-[#3d5568]">
+              Last name <span className="text-[#c45c5c]">*</span>
+            </span>
+            <Input
+              required
+              autoComplete="family-name"
+              value={form.lastName}
+              onChange={(e) => updateField("lastName", e.target.value)}
+              className="h-11 border-[#c5dce8] bg-[#fafcfd] px-3"
             />
           </label>
 
@@ -181,11 +198,9 @@ export function SurvivalGuideDownloadForm({
               type="email"
               inputMode="email"
               autoComplete="email"
-              aria-required="true"
               value={form.email}
               onChange={(e) => updateField("email", e.target.value)}
               className="h-11 border-[#c5dce8] bg-[#fafcfd] px-3"
-              placeholder="you@email.com"
             />
           </label>
 
@@ -198,25 +213,22 @@ export function SurvivalGuideDownloadForm({
               type="tel"
               inputMode="tel"
               autoComplete="tel"
-              aria-required="true"
               value={form.phone}
               onChange={(e) => updateField("phone", e.target.value)}
               className="h-11 border-[#c5dce8] bg-[#fafcfd] px-3"
-              placeholder="(555) 555-5555"
             />
           </label>
 
-          <label className="block sm:col-span-2">
+          <label className="block">
             <span className="mb-1.5 block text-sm font-medium text-[#3d5568]">
-              State <span className="font-normal text-[#7a8a98]">(optional)</span>
+              State <span className="text-[#7a8a98]">(recommended)</span>
             </span>
             <select
               value={form.state}
               onChange={(e) => updateField("state", e.target.value)}
               className="h-11 w-full rounded-lg border border-[#c5dce8] bg-[#fafcfd] px-3 text-sm text-[#1a3a52] outline-none focus-visible:border-[#2a7a9b] focus-visible:ring-3 focus-visible:ring-[#2a7a9b]/20"
-              aria-label="Select your state"
             >
-              <option value="">Select your state</option>
+              <option value="">Select state</option>
               {US_STATES.map((s) => (
                 <option key={s.value} value={s.value}>
                   {s.label}
@@ -225,19 +237,56 @@ export function SurvivalGuideDownloadForm({
             </select>
           </label>
 
-          <label className="flex gap-3 sm:col-span-2">
-            <input
-              type="checkbox"
-              checked={form.consent}
-              onChange={(e) => updateField("consent", e.target.checked)}
-              className="mt-1 size-4 rounded border-[#c5dce8]"
-              aria-required="true"
-            />
-            <span className="text-[0.78rem] leading-relaxed text-[#5b6b7f]">
-              I agree WreckMatch LLC may contact me about my guide request by phone, email, or text.
-              Msg &amp; data rates may apply. Reply STOP to unsubscribe. Not legal advice.
+          <label className="block">
+            <span className="mb-1.5 block text-sm font-medium text-[#3d5568]">
+              City <span className="text-[#7a8a98]">(optional)</span>
             </span>
+            <Input
+              autoComplete="address-level2"
+              value={form.city}
+              onChange={(e) => updateField("city", e.target.value)}
+              className="h-11 border-[#c5dce8] bg-[#fafcfd] px-3"
+            />
           </label>
+
+          <label className="block sm:col-span-2">
+            <span className="mb-1.5 block text-sm font-medium text-[#3d5568]">
+              ZIP code <span className="text-[#7a8a98]">(optional)</span>
+            </span>
+            <Input
+              autoComplete="postal-code"
+              inputMode="numeric"
+              value={form.zip}
+              onChange={(e) => updateField("zip", e.target.value)}
+              className="h-11 max-w-xs border-[#c5dce8] bg-[#fafcfd] px-3"
+            />
+          </label>
+
+          <fieldset className="space-y-2 sm:col-span-2">
+            <legend className="text-sm font-medium text-[#3d5568]">How should we send your guide?</legend>
+            <label className="flex gap-3">
+              <input
+                type="checkbox"
+                checked={form.consentEmail}
+                onChange={(e) => updateField("consentEmail", e.target.checked)}
+                className="mt-1 size-4"
+              />
+              <span className="text-[0.78rem] leading-relaxed text-[#5b6b7f]">
+                Email me the Survival Guide PDF
+              </span>
+            </label>
+            <label className="flex gap-3">
+              <input
+                type="checkbox"
+                checked={form.consentSms}
+                onChange={(e) => updateField("consentSms", e.target.checked)}
+                className="mt-1 size-4"
+              />
+              <span className="text-[0.78rem] leading-relaxed text-[#5b6b7f]">
+                Text me updates (Msg &amp; data rates may apply. Reply STOP to unsubscribe.)
+              </span>
+            </label>
+          </fieldset>
         </div>
 
         {error ? (
@@ -262,11 +311,10 @@ export function SurvivalGuideDownloadForm({
         </Button>
 
         <p className="mt-4 text-[0.72rem] leading-relaxed text-[#7a8a98]">
-          See our{" "}
+          WreckMatch LLC is a legal referral service, not a law firm. Not legal advice.{" "}
           <a href="/privacy-policy" className="underline underline-offset-2">
             Privacy Policy
           </a>
-          .
         </p>
       </form>
     </section>

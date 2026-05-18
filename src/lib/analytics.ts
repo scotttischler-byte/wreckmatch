@@ -4,7 +4,10 @@ type AsgEvent =
   | "form_error"
   | "pdf_download"
   | "blog_view"
-  | "wreckmatch_referral";
+  | "wreckmatch_referral"
+  | "thank_you_view"
+  | "sarah_chat_click"
+  | "sarah_call_click";
 
 declare global {
   interface Window {
