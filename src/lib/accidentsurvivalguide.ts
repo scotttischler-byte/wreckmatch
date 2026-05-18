@@ -2,7 +2,7 @@ export const ASG_SITE_NAME = "Accident Survival Guide";
 export const ASG_DOMAIN = "www.accidentsurvivalguide.com";
 export const ASG_BASE_URL = `https://${ASG_DOMAIN}`;
 export const WRECKMATCH_URL = "https://www.wreckmatch.com";
-export const SURVIVAL_GUIDE_PDF = "/car-accident-survival-guide.pdf";
+export const SURVIVAL_GUIDE_PDF = "/accident-survival-guide-2026-edition.pdf";
 
 export const ASG_HOSTS = [
   "accidentsurvivalguide.com",
@@ -292,7 +292,7 @@ export function getStateGuide(slug: string): StateGuide | undefined {
 
 export const ASG_RESOURCES = [
   {
-    title: "Car Accident Survival Guide (PDF)",
+    title: "Accident Survival Guide — 2026 Edition (PDF)",
     description: "Step-by-step checklist for the first 24 hours after a crash.",
     href: SURVIVAL_GUIDE_PDF,
     external: true,
