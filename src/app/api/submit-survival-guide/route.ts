@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import {
-  ASG_SURVIVAL_GUIDE_WEBHOOK_URL,
   buildGhlSurvivalGuidePayload,
+  getAsgSurvivalGuideWebhookUrl,
   type SurvivalGuideLeadInput,
 } from "@/lib/ghl-survival-guide";
 import { SURVIVAL_GUIDE_PDF } from "@/lib/accidentsurvivalguide";
@@ -114,8 +114,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, message: parsed.error }, { status: 400 });
     }
 
-    const webhookUrl = ASG_SURVIVAL_GUIDE_WEBHOOK_URL;
-    if (!webhookUrl || /example\.com|placeholder|REPLACE_WITH/i.test(webhookUrl)) {
+    const webhookUrl = getAsgSurvivalGuideWebhookUrl();
+    if (!webhookUrl) {
       console.error("[submit-survival-guide] GHL webhook URL missing.");
       return NextResponse.json(
         { success: false, message: "Lead automation is not configured yet." },

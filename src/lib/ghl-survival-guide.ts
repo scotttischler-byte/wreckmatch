@@ -14,13 +14,27 @@
  * - PDF Download URL (text) ← pdf_download_url
  */
 
+import { GHL_WEBHOOK_URL } from "@/lib/constants";
 import { ASG_BASE_URL, SURVIVAL_GUIDE_PDF } from "@/lib/accidentsurvivalguide";
 
 export const ASG_LEAD_SOURCE = "AccidentSurvivalGuide";
-export const ASG_SURVIVAL_GUIDE_WEBHOOK_URL =
-  process.env.ASG_SURVIVAL_GUIDE_WEBHOOK_URL ??
-  process.env.GHL_WEBHOOK_URL ??
-  "";
+
+const PLACEHOLDER_RE = /example\.com|placeholder|REPLACE_WITH/i;
+
+function cleanWebhookUrl(value: string | undefined): string {
+  const trimmed = value?.trim() ?? "";
+  if (!trimmed || PLACEHOLDER_RE.test(trimmed)) return "";
+  return trimmed;
+}
+
+/** Resolved at request time so Vercel env vars apply correctly. */
+export function getAsgSurvivalGuideWebhookUrl(): string {
+  return (
+    cleanWebhookUrl(process.env.ASG_SURVIVAL_GUIDE_WEBHOOK_URL) ||
+    cleanWebhookUrl(process.env.GHL_WEBHOOK_URL) ||
+    GHL_WEBHOOK_URL
+  );
+}
 
 export function survivalGuidePdfAbsoluteUrl() {
   return `${ASG_BASE_URL}${SURVIVAL_GUIDE_PDF}`;
