@@ -27,7 +27,7 @@ export default function PrivacyPolicyPage() {
         </h1>
         <p className="mt-3 text-sm text-[#64748b]">Effective date: May 12, 2026</p>
         <p className="mt-2 text-xs text-[#64748b]">
-          Tophundred Global Ventures LLC DBA WreckMatch · wreckmatch.com
+          WreckMatch LLC · wreckmatch.com
         </p>
 
         <div className="mt-10 space-y-10 text-[0.95rem] leading-[1.75] text-[#334155]">
@@ -61,7 +61,7 @@ export default function PrivacyPolicyPage() {
                   Example customer care message
                 </p>
                 <p className="mt-2 text-[0.95rem] leading-[1.8] text-[#334155]">
-                  &ldquo;Hello from TOPHUNDRED GLOBAL VENTURES LLC DBA WreckMatch. We are following up regarding your
+                  &ldquo;Hello from WreckMatch LLC. We are following up regarding your
                   support request. Please let us know if you still need assistance. Reply STOP to unsubscribe.&rdquo;
                 </p>
               </div>
@@ -110,7 +110,7 @@ export default function PrivacyPolicyPage() {
               .
             </p>
             <p className="text-sm text-[#64748b]">
-              Tophundred Global Ventures LLC DBA WreckMatch · wreckmatch.com
+              WreckMatch LLC · wreckmatch.com
             </p>
           </section>
         </div>
@@ -118,7 +118,7 @@ export default function PrivacyPolicyPage() {
         <div className="mt-12 rounded-2xl border border-[#c9a227]/30 bg-[#fffdfb] p-6 shadow-sm">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#8a6914]">Business Address</p>
           <div className="mt-3 space-y-1 text-[0.95rem] leading-[1.8] text-[#334155]">
-            <p>Tophundred Global Ventures LLC</p>
+            <p>WreckMatch LLC</p>
             <p>832 Saint Augustine Road</p>
             <p>Colgate, WI 53017</p>
             <p>Phone: (815) 608-0449</p>

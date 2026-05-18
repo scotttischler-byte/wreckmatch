@@ -1,0 +1,5 @@
+# Accident Survival Guide (accidentsurvivalguide.com)
+User-agent: *
+Allow: /
+
+Sitemap: https://www.accidentsurvivalguide.com/sitemap.xml

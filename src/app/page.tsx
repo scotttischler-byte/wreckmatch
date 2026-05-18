@@ -75,7 +75,7 @@ export default function Home() {
       <footer className="bg-[#f5efe6] py-14">
         <div className="mx-auto max-w-4xl px-6 text-center sm:px-10">
           <p className="font-serif text-[1.35rem] font-semibold tracking-[-0.02em] text-[#152238]">
-            Tophundred Global Ventures LLC DBA WreckMatch
+            WreckMatch LLC
           </p>
           <p className="mt-4 text-[0.95rem] leading-[1.8] text-[#475569]">
             832 Saint Augustine Road
