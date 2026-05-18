@@ -1,3 +1,5 @@
+import { GOOGLE_ADS_SIGNUP_CONVERSION } from "@/lib/google-ads";
+
 type AsgEvent =
   | "form_start"
   | "form_submit"
@@ -27,4 +29,27 @@ export function trackAsgEvent(event: AsgEvent, params?: Record<string, string>) 
 
   window.dataLayer = window.dataLayer ?? [];
   window.dataLayer.push(payload);
+}
+
+/** Google Ads "Sign-up" conversion — fire once per thank-you visit (page load). */
+export function trackGoogleAdsSignupConversion(dedupeKey?: string) {
+  if (typeof window === "undefined" || !GOOGLE_ADS_SIGNUP_CONVERSION) return;
+
+  const storageKey = dedupeKey
+    ? `asg_signup_conversion:${dedupeKey}`
+    : "asg_signup_conversion";
+  try {
+    if (sessionStorage.getItem(storageKey)) return;
+    sessionStorage.setItem(storageKey, "1");
+  } catch {
+    /* private browsing */
+  }
+
+  if (typeof window.gtag === "function") {
+    window.gtag("event", "conversion", {
+      send_to: GOOGLE_ADS_SIGNUP_CONVERSION,
+      value: 1.0,
+      currency: "USD",
+    });
+  }
 }

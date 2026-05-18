@@ -1,10 +1,7 @@
 import Script from "next/script";
+import { GOOGLE_ADS_ID } from "@/lib/google-ads";
 
-/** Google Ads gtag (Accident Survival Guide + shared Vercel project). */
-export const GOOGLE_ADS_ID =
-  process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ??
-  process.env.NEXT_PUBLIC_ASG_GA_ID ??
-  "AW-18095478867";
+export { GOOGLE_ADS_ID, GOOGLE_ADS_SIGNUP_CONVERSION } from "@/lib/google-ads";
 
 export function GoogleAdsTag() {
   if (!GOOGLE_ADS_ID) return null;

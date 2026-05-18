@@ -10,7 +10,7 @@ import { ASG_BASE_URL, SURVIVAL_GUIDE_PDF, WRECKMATCH_URL } from "@/lib/accident
 import { SUPPORT_PHONE_DISPLAY, SUPPORT_PHONE_E164 } from "@/lib/constants";
 import { openGhlChatWidget } from "@/lib/open-ghl-chat";
 import { formatMessage } from "@/lib/i18n/get-messages";
-import { trackAsgEvent } from "@/lib/analytics";
+import { trackAsgEvent, trackGoogleAdsSignupConversion } from "@/lib/analytics";
 
 const SARAH_PHONE_E164 =
   process.env.NEXT_PUBLIC_SARAH_PHONE_E164 ?? SUPPORT_PHONE_E164;
@@ -32,7 +32,8 @@ export function ThankYouSuccess({ email, firstName, state, phone }: ThankYouSucc
 
   useEffect(() => {
     trackAsgEvent("thank_you_view");
-  }, []);
+    trackGoogleAdsSignupConversion(email);
+  }, [email]);
 
   return (
     <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-20">
