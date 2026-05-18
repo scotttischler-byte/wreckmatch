@@ -1,0 +1,39 @@
+{
+  "slug": "understanding-your-rights",
+  "title": "Understanding Your Rights After an Accident (General Education)",
+  "metaDescription": "How insurance, medical bills, and attorney referrals typically work after a crash—general education, not legal advice.",
+  "excerpt": "How insurance, medical bills, and attorney referrals typically work—without legal advice.",
+  "city": "Nationwide",
+  "state": "United States",
+  "stateAbbr": "US",
+  "topic": "state-local-laws",
+  "status": "published",
+  "publishedAt": "2026-05-15T10:00:00.000Z",
+  "keywords": ["rights after car accident", "insurance rights", "hire attorney"],
+  "sections": [
+    {
+      "heading": "Medical care",
+      "paragraphs": [
+        "After an accident, you generally have the right to seek medical treatment and keep records of your care."
+      ]
+    },
+    {
+      "heading": "Insurance communication",
+      "paragraphs": [
+        "You may communicate with insurers, but you are not required to accept the first offer or give a recorded statement immediately."
+      ]
+    },
+    {
+      "heading": "Legal representation",
+      "paragraphs": [
+        "You may consult a licensed attorney in your state. WreckMatch LLC can refer you to independent attorneys at no cost to you for the referral."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does AccidentSurvivalGuide.com provide legal advice?",
+      "answer": "No. We provide general education only. WreckMatch LLC is a legal referral service, not a law firm."
+    }
+  ]
+}

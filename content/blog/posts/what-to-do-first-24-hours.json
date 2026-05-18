@@ -1,0 +1,51 @@
+{
+  "slug": "what-to-do-first-24-hours",
+  "title": "What To Do in the First 24 Hours After a Car Accident",
+  "metaDescription": "A calm, step-by-step checklist for safety, medical care, documentation, and talking with insurers after a car crash. Educational only—not legal advice.",
+  "excerpt": "A calm, step-by-step checklist for safety, medical care, documentation, and talking with insurers.",
+  "city": "Nationwide",
+  "state": "United States",
+  "stateAbbr": "US",
+  "topic": "immediate-steps",
+  "status": "published",
+  "publishedAt": "2026-05-01T10:00:00.000Z",
+  "keywords": ["car accident first 24 hours", "what to do after crash", "accident checklist"],
+  "sections": [
+    {
+      "heading": "Start with safety",
+      "paragraphs": [
+        "The first day after a crash often feels chaotic. Your priority is safety, then health, then documentation.",
+        "If anyone may be injured, call 911. Move vehicles only when it is safe and required by local rules."
+      ],
+      "list": [
+        "Turn on hazard lights and set flares if available",
+        "Check yourself and passengers before assessing vehicles",
+        "Stay out of traffic lanes when possible"
+      ]
+    },
+    {
+      "heading": "Document and exchange information",
+      "paragraphs": [
+        "Exchange insurance and contact information. Photograph the scene, vehicles, plates, and any visible injuries.",
+        "Collect witness names and phone numbers. Note weather, lighting, and road conditions."
+      ]
+    },
+    {
+      "heading": "Medical care and insurance",
+      "paragraphs": [
+        "Seek medical care promptly—even mild symptoms can worsen. Keep every bill and visit note.",
+        "Notify your insurer with basic facts. You may wish to speak with a licensed attorney before giving a recorded statement."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Should I admit fault at the scene?",
+      "answer": "Stick to facts when speaking with officers and other drivers. Fault is often determined later with evidence."
+    },
+    {
+      "question": "Do I have to give a recorded statement right away?",
+      "answer": "Requirements vary. Many people consult a licensed attorney before recorded statements. This article is general education only."
+    }
+  ]
+}

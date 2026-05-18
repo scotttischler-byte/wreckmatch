@@ -446,15 +446,18 @@ export const TESTIMONIALS = [
     quote:
       "The checklist helped me stay calm. I knew what to photograph and what to save for insurance.",
     attribution: "Maria R., Texas",
+    verified: "Guide reader, 2026",
   },
   {
     quote:
       "I did not realize how many deadlines there were. The guide gave me a simple order of operations.",
     attribution: "James T., Florida",
+    verified: "Guide reader, 2026",
   },
   {
     quote:
       "Educational and straightforward—no pressure. I downloaded the PDF and read it the same night.",
-    attribution: "Anonymous, California",
+    attribution: "Verified reader, California",
+    verified: "PDF download, 2026",
   },
 ];

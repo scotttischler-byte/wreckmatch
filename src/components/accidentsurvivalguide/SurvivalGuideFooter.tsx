@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SurvivalGuideDisclaimer } from "@/components/SurvivalGuideDisclaimer";
+import { SUPPORT_PHONE_DISPLAY, SUPPORT_PHONE_E164 } from "@/lib/constants";
 import { WRECKMATCH_URL } from "@/lib/accidentsurvivalguide";
 
 export function SurvivalGuideFooter() {
@@ -52,6 +53,14 @@ export function SurvivalGuideFooter() {
               832 Saint Augustine Road
               <br />
               Colgate, WI 53017
+            </p>
+            <p className="mt-2">
+              <a
+                href={`tel:${SUPPORT_PHONE_E164}`}
+                className="font-medium text-[#2a7a9b] hover:underline"
+              >
+                {SUPPORT_PHONE_DISPLAY}
+              </a>
             </p>
             <p className="mt-3">
               <Link href="/privacy-policy" className="underline underline-offset-2 hover:text-[#2a7a9b]">

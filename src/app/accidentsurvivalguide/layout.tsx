@@ -3,6 +3,8 @@ import { SurvivalGuideDisclaimer } from "@/components/SurvivalGuideDisclaimer";
 import { SurvivalGuideHeader } from "@/components/accidentsurvivalguide/SurvivalGuideHeader";
 import { SurvivalGuideFooter } from "@/components/accidentsurvivalguide/SurvivalGuideFooter";
 import { AsgJsonLd } from "@/components/accidentsurvivalguide/AsgJsonLd";
+import { AsgAnalytics } from "@/components/accidentsurvivalguide/AsgAnalytics";
+import { StickyDownloadBar } from "@/components/accidentsurvivalguide/StickyDownloadBar";
 import { ASG_BASE_URL, ASG_SITE_NAME } from "@/lib/accidentsurvivalguide";
 
 export const metadata: Metadata = {
@@ -30,10 +32,12 @@ export default function AccidentSurvivalGuideLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <div className="min-h-screen bg-[#f8fbfd] text-[#1a3a52] antialiased">
+      <AsgAnalytics />
       <AsgJsonLd includeFaq />
       <SurvivalGuideDisclaimer />
       <SurvivalGuideHeader />
       <main>{children}</main>
+      <StickyDownloadBar />
       <SurvivalGuideFooter />
     </div>
   );

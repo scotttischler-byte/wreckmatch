@@ -1,0 +1,402 @@
+[
+  {
+    "city": "New York",
+    "state": "New York",
+    "stateAbbr": "NY",
+    "stateSlug": "new-york",
+    "populationRank": 1,
+    "slug": "new-york-ny"
+  },
+  {
+    "city": "Los Angeles",
+    "state": "California",
+    "stateAbbr": "CA",
+    "stateSlug": "california",
+    "populationRank": 2,
+    "slug": "los-angeles-ca"
+  },
+  {
+    "city": "Chicago",
+    "state": "Illinois",
+    "stateAbbr": "IL",
+    "stateSlug": "illinois",
+    "populationRank": 3,
+    "slug": "chicago-il"
+  },
+  {
+    "city": "Houston",
+    "state": "Texas",
+    "stateAbbr": "TX",
+    "stateSlug": "texas",
+    "populationRank": 4,
+    "slug": "houston-tx"
+  },
+  {
+    "city": "Phoenix",
+    "state": "Arizona",
+    "stateAbbr": "AZ",
+    "stateSlug": "arizona",
+    "populationRank": 5,
+    "slug": "phoenix-az"
+  },
+  {
+    "city": "Philadelphia",
+    "state": "Pennsylvania",
+    "stateAbbr": "PA",
+    "stateSlug": "pennsylvania",
+    "populationRank": 6,
+    "slug": "philadelphia-pa"
+  },
+  {
+    "city": "San Antonio",
+    "state": "Texas",
+    "stateAbbr": "TX",
+    "stateSlug": "texas",
+    "populationRank": 7,
+    "slug": "san-antonio-tx"
+  },
+  {
+    "city": "San Diego",
+    "state": "California",
+    "stateAbbr": "CA",
+    "stateSlug": "california",
+    "populationRank": 8,
+    "slug": "san-diego-ca"
+  },
+  {
+    "city": "Dallas",
+    "state": "Texas",
+    "stateAbbr": "TX",
+    "stateSlug": "texas",
+    "populationRank": 9,
+    "slug": "dallas-tx"
+  },
+  {
+    "city": "San Jose",
+    "state": "California",
+    "stateAbbr": "CA",
+    "stateSlug": "california",
+    "populationRank": 10,
+    "slug": "san-jose-ca"
+  },
+  {
+    "city": "Austin",
+    "state": "Texas",
+    "stateAbbr": "TX",
+    "stateSlug": "texas",
+    "populationRank": 11,
+    "slug": "austin-tx"
+  },
+  {
+    "city": "Jacksonville",
+    "state": "Florida",
+    "stateAbbr": "FL",
+    "stateSlug": "florida",
+    "populationRank": 12,
+    "slug": "jacksonville-fl"
+  },
+  {
+    "city": "Fort Worth",
+    "state": "Texas",
+    "stateAbbr": "TX",
+    "stateSlug": "texas",
+    "populationRank": 13,
+    "slug": "fort-worth-tx"
+  },
+  {
+    "city": "Columbus",
+    "state": "Ohio",
+    "stateAbbr": "OH",
+    "stateSlug": "ohio",
+    "populationRank": 14,
+    "slug": "columbus-oh"
+  },
+  {
+    "city": "Charlotte",
+    "state": "North Carolina",
+    "stateAbbr": "NC",
+    "stateSlug": "north-carolina",
+    "populationRank": 15,
+    "slug": "charlotte-nc"
+  },
+  {
+    "city": "Indianapolis",
+    "state": "Indiana",
+    "stateAbbr": "IN",
+    "stateSlug": "indiana",
+    "populationRank": 16,
+    "slug": "indianapolis-in"
+  },
+  {
+    "city": "San Francisco",
+    "state": "California",
+    "stateAbbr": "CA",
+    "stateSlug": "california",
+    "populationRank": 17,
+    "slug": "san-francisco-ca"
+  },
+  {
+    "city": "Seattle",
+    "state": "Washington",
+    "stateAbbr": "WA",
+    "stateSlug": "washington",
+    "populationRank": 18,
+    "slug": "seattle-wa"
+  },
+  {
+    "city": "Denver",
+    "state": "Colorado",
+    "stateAbbr": "CO",
+    "stateSlug": "colorado",
+    "populationRank": 19,
+    "slug": "denver-co"
+  },
+  {
+    "city": "Washington",
+    "state": "District of Columbia",
+    "stateAbbr": "DC",
+    "stateSlug": "district-of-columbia",
+    "populationRank": 20,
+    "slug": "washington-dc"
+  },
+  {
+    "city": "Nashville",
+    "state": "Tennessee",
+    "stateAbbr": "TN",
+    "stateSlug": "tennessee",
+    "populationRank": 21,
+    "slug": "nashville-tn"
+  },
+  {
+    "city": "Oklahoma City",
+    "state": "Oklahoma",
+    "stateAbbr": "OK",
+    "stateSlug": "oklahoma",
+    "populationRank": 22,
+    "slug": "oklahoma-city-ok"
+  },
+  {
+    "city": "Boston",
+    "state": "Massachusetts",
+    "stateAbbr": "MA",
+    "stateSlug": "massachusetts",
+    "populationRank": 23,
+    "slug": "boston-ma"
+  },
+  {
+    "city": "El Paso",
+    "state": "Texas",
+    "stateAbbr": "TX",
+    "stateSlug": "texas",
+    "populationRank": 24,
+    "slug": "el-paso-tx"
+  },
+  {
+    "city": "Portland",
+    "state": "Oregon",
+    "stateAbbr": "OR",
+    "stateSlug": "oregon",
+    "populationRank": 25,
+    "slug": "portland-or"
+  },
+  {
+    "city": "Las Vegas",
+    "state": "Nevada",
+    "stateAbbr": "NV",
+    "stateSlug": "nevada",
+    "populationRank": 26,
+    "slug": "las-vegas-nv"
+  },
+  {
+    "city": "Detroit",
+    "state": "Michigan",
+    "stateAbbr": "MI",
+    "stateSlug": "michigan",
+    "populationRank": 27,
+    "slug": "detroit-mi"
+  },
+  {
+    "city": "Memphis",
+    "state": "Tennessee",
+    "stateAbbr": "TN",
+    "stateSlug": "tennessee",
+    "populationRank": 28,
+    "slug": "memphis-tn"
+  },
+  {
+    "city": "Louisville",
+    "state": "Kentucky",
+    "stateAbbr": "KY",
+    "stateSlug": "kentucky",
+    "populationRank": 29,
+    "slug": "louisville-ky"
+  },
+  {
+    "city": "Baltimore",
+    "state": "Maryland",
+    "stateAbbr": "MD",
+    "stateSlug": "maryland",
+    "populationRank": 30,
+    "slug": "baltimore-md"
+  },
+  {
+    "city": "Milwaukee",
+    "state": "Wisconsin",
+    "stateAbbr": "WI",
+    "stateSlug": "wisconsin",
+    "populationRank": 31,
+    "slug": "milwaukee-wi"
+  },
+  {
+    "city": "Albuquerque",
+    "state": "New Mexico",
+    "stateAbbr": "NM",
+    "stateSlug": "new-mexico",
+    "populationRank": 32,
+    "slug": "albuquerque-nm"
+  },
+  {
+    "city": "Tucson",
+    "state": "Arizona",
+    "stateAbbr": "AZ",
+    "stateSlug": "arizona",
+    "populationRank": 33,
+    "slug": "tucson-az"
+  },
+  {
+    "city": "Fresno",
+    "state": "California",
+    "stateAbbr": "CA",
+    "stateSlug": "california",
+    "populationRank": 34,
+    "slug": "fresno-ca"
+  },
+  {
+    "city": "Mesa",
+    "state": "Arizona",
+    "stateAbbr": "AZ",
+    "stateSlug": "arizona",
+    "populationRank": 35,
+    "slug": "mesa-az"
+  },
+  {
+    "city": "Sacramento",
+    "state": "California",
+    "stateAbbr": "CA",
+    "stateSlug": "california",
+    "populationRank": 36,
+    "slug": "sacramento-ca"
+  },
+  {
+    "city": "Atlanta",
+    "state": "Georgia",
+    "stateAbbr": "GA",
+    "stateSlug": "georgia",
+    "populationRank": 37,
+    "slug": "atlanta-ga"
+  },
+  {
+    "city": "Kansas City",
+    "state": "Missouri",
+    "stateAbbr": "MO",
+    "stateSlug": "missouri",
+    "populationRank": 38,
+    "slug": "kansas-city-mo"
+  },
+  {
+    "city": "Colorado Springs",
+    "state": "Colorado",
+    "stateAbbr": "CO",
+    "stateSlug": "colorado",
+    "populationRank": 39,
+    "slug": "colorado-springs-co"
+  },
+  {
+    "city": "Miami",
+    "state": "Florida",
+    "stateAbbr": "FL",
+    "stateSlug": "florida",
+    "populationRank": 40,
+    "slug": "miami-fl"
+  },
+  {
+    "city": "Raleigh",
+    "state": "North Carolina",
+    "stateAbbr": "NC",
+    "stateSlug": "north-carolina",
+    "populationRank": 41,
+    "slug": "raleigh-nc"
+  },
+  {
+    "city": "Omaha",
+    "state": "Nebraska",
+    "stateAbbr": "NE",
+    "stateSlug": "nebraska",
+    "populationRank": 42,
+    "slug": "omaha-ne"
+  },
+  {
+    "city": "Long Beach",
+    "state": "California",
+    "stateAbbr": "CA",
+    "stateSlug": "california",
+    "populationRank": 43,
+    "slug": "long-beach-ca"
+  },
+  {
+    "city": "Virginia Beach",
+    "state": "Virginia",
+    "stateAbbr": "VA",
+    "stateSlug": "virginia",
+    "populationRank": 44,
+    "slug": "virginia-beach-va"
+  },
+  {
+    "city": "Oakland",
+    "state": "California",
+    "stateAbbr": "CA",
+    "stateSlug": "california",
+    "populationRank": 45,
+    "slug": "oakland-ca"
+  },
+  {
+    "city": "Minneapolis",
+    "state": "Minnesota",
+    "stateAbbr": "MN",
+    "stateSlug": "minnesota",
+    "populationRank": 46,
+    "slug": "minneapolis-mn"
+  },
+  {
+    "city": "Tampa",
+    "state": "Florida",
+    "stateAbbr": "FL",
+    "stateSlug": "florida",
+    "populationRank": 47,
+    "slug": "tampa-fl"
+  },
+  {
+    "city": "Tulsa",
+    "state": "Oklahoma",
+    "stateAbbr": "OK",
+    "stateSlug": "oklahoma",
+    "populationRank": 48,
+    "slug": "tulsa-ok"
+  },
+  {
+    "city": "Arlington",
+    "state": "Texas",
+    "stateAbbr": "TX",
+    "stateSlug": "texas",
+    "populationRank": 49,
+    "slug": "arlington-tx"
+  },
+  {
+    "city": "New Orleans",
+    "state": "Louisiana",
+    "stateAbbr": "LA",
+    "stateSlug": "louisiana",
+    "populationRank": 50,
+    "slug": "new-orleans-la"
+  }
+]

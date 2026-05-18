@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   AlertCircle,
@@ -11,6 +12,7 @@ import {
   Users,
 } from "lucide-react";
 import { SurvivalGuideDownloadForm } from "@/components/accidentsurvivalguide/SurvivalGuideDownloadForm";
+import { getPublishedBlogPosts } from "@/lib/blog/posts";
 import {
   COMMON_MISTAKES,
   FIRST_24_HOURS_STEPS,
@@ -23,34 +25,48 @@ import {
 } from "@/lib/accidentsurvivalguide";
 
 export default function AccidentSurvivalGuideHomePage() {
+  const recentPosts = getPublishedBlogPosts().slice(0, 6);
+
   return (
     <>
       <section className="relative overflow-hidden border-b border-[#c5dce8]/60 bg-gradient-to-br from-[#e8f4fa] via-[#f4faf8] to-white">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(90,168,130,0.12),transparent_50%)]" />
-        <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#5b8fa8]">
-            Free educational resource
-          </p>
-          <h1 className="mt-4 max-w-3xl font-serif text-4xl font-semibold leading-[1.08] tracking-[-0.03em] text-[#1a3a52] sm:text-5xl">
-            The Accident Survival Guide – What To Do After a Car Crash
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#4a6578]">
-            Calm, step-by-step help for the first 24 hours and beyond. Not legal advice—just the
-            checklist I wish I had after my own wreck.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#download"
-              className="inline-flex items-center rounded-full bg-[#2a7a9b] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#236884]"
-            >
-              Download free guide
-            </a>
-            <a
-              href="#first-24-hours"
-              className="inline-flex items-center rounded-full border border-[#2a7a9b]/40 bg-white px-6 py-3 text-sm font-semibold text-[#2a7a9b] transition hover:bg-[#e8f4fa]"
-            >
-              Read the checklist
-            </a>
+        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-2">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#5b8fa8]">
+              Free educational resource
+            </p>
+            <h1 className="mt-4 font-serif text-4xl font-semibold leading-[1.08] tracking-[-0.03em] text-[#1a3a52] sm:text-5xl">
+              The Accident Survival Guide – What To Do After a Car Crash
+            </h1>
+            <p className="mt-6 text-lg leading-relaxed text-[#4a6578]">
+              Calm, step-by-step help for the first 24 hours and beyond. Not legal advice—just the
+              checklist I wish I had after my own wreck.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="#download"
+                className="inline-flex items-center rounded-full bg-[#2a7a9b] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#236884]"
+              >
+                Get My Free Checklist PDF
+              </a>
+              <a
+                href="#first-24-hours"
+                className="inline-flex items-center rounded-full border border-[#2a7a9b]/40 bg-white px-6 py-3 text-sm font-semibold text-[#2a7a9b] transition hover:bg-[#e8f4fa]"
+              >
+                Read the checklist
+              </a>
+            </div>
+          </div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[#c5dce8] shadow-lg">
+            <Image
+              src="/asg-hero-checklist.png"
+              alt="Calm driver reviewing a printed accident checklist beside a vehicle after a minor crash"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
+            />
           </div>
         </div>
       </section>
@@ -86,7 +102,7 @@ export default function AccidentSurvivalGuideHomePage() {
       <section className="bg-[#eef6fb] py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto max-w-xl">
-            <SurvivalGuideDownloadForm />
+            <SurvivalGuideDownloadForm headline="checklist" />
           </div>
         </div>
       </section>
@@ -178,9 +194,6 @@ export default function AccidentSurvivalGuideHomePage() {
               </article>
             ))}
           </div>
-          <p className="mt-8 text-sm text-[#7a8a98]">
-            This section is general education, not legal advice for your case.
-          </p>
         </div>
       </section>
 
@@ -204,7 +217,9 @@ export default function AccidentSurvivalGuideHomePage() {
                 href="/blog"
                 className="block rounded-xl border border-[#c5dce8] bg-white p-5 transition hover:border-[#2a7a9b]/40"
               >
-                <span className="font-semibold text-[#1a3a52]">Educational blog →</span>
+                <span className="font-semibold text-[#1a3a52]">
+                  Blog ({recentPosts.length}+ articles) →
+                </span>
               </Link>
             </li>
             {STATE_SLUGS.slice(0, 4).map((slug) => (
@@ -220,6 +235,21 @@ export default function AccidentSurvivalGuideHomePage() {
               </li>
             ))}
           </ul>
+          {recentPosts.length > 0 ? (
+            <ul className="mt-8 space-y-3 border-t border-[#c5dce8]/60 pt-8">
+              <li className="text-sm font-semibold text-[#1a3a52]">Latest articles</li>
+              {recentPosts.map((post) => (
+                <li key={post.slug}>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="text-sm text-[#2a7a9b] underline underline-offset-2"
+                  >
+                    {post.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </div>
       </section>
 
@@ -235,8 +265,11 @@ export default function AccidentSurvivalGuideHomePage() {
                 className="rounded-xl border border-[#c5dce8] bg-white p-6"
               >
                 <p className="text-[#4a6578] leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
-                <footer className="mt-4 text-sm font-medium text-[#5b8fa8]">
-                  {t.attribution}
+                <footer className="mt-4">
+                  <p className="text-sm font-medium text-[#5b8fa8]">{t.attribution}</p>
+                  {"verified" in t && t.verified ? (
+                    <p className="mt-1 text-xs text-[#7a8a98]">{t.verified}</p>
+                  ) : null}
                 </footer>
               </blockquote>
             ))}
@@ -265,8 +298,8 @@ export default function AccidentSurvivalGuideHomePage() {
           <MessageCircle className="mx-auto size-8 text-[#8ecae6]" aria-hidden />
           <h2 className="mt-4 font-serif text-2xl font-semibold">Need more help?</h2>
           <p className="mx-auto mt-3 max-w-xl text-[#b8d4e8]">
-            Use the chat widget for our AI assistant Sarah (24/7), or visit WreckMatch for a free
-            attorney match in your state.
+            Use the chat widget for our AI assistant Sarah (24/7)—educational support, not legal
+            advice—or visit WreckMatch for a free attorney match in your state.
           </p>
           <a
             href={WRECKMATCH_URL}

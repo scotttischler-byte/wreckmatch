@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "npm run build && vercel --prod"
+    "deploy": "npm run build && vercel --prod",
+    "blog:generate": "node scripts/generate-blog-batch.mjs",
+    "blog:export-cities": "npx tsx -e \"import { US_CITIES } from './src/lib/blog/cities.ts'; import fs from 'fs'; fs.writeFileSync('content/blog/cities-seed.json', JSON.stringify(US_CITIES, null, 2));\""
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",

@@ -1,0 +1,7 @@
+{
+  "postsPerDay": 5,
+  "publishStaggerMinutes": 90,
+  "requireApproval": true,
+  "lastRunAt": null,
+  "recentCitySlugs": ["houston-tx", "miami-fl"]
+}
