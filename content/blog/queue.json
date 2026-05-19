@@ -2,6 +2,14 @@
   "postsPerDay": 5,
   "publishStaggerMinutes": 90,
   "requireApproval": true,
-  "lastRunAt": null,
-  "recentCitySlugs": ["houston-tx", "miami-fl"]
+  "lastRunAt": "2026-05-19T16:44:44.378Z",
+  "recentCitySlugs": [
+    "new-orleans-la",
+    "detroit-mi",
+    "albuquerque-nm",
+    "louisville-ky",
+    "philadelphia-pa",
+    "houston-tx",
+    "miami-fl"
+  ]
 }
