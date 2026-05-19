@@ -1,0 +1,57 @@
+name: Autopilot daily survival guide post
+
+on:
+  schedule:
+    - cron: "0 15 * * *"
+  workflow_dispatch:
+    inputs:
+      city:
+        description: "Optional city name (requires state)"
+        required: false
+      state:
+        description: "Optional state name"
+        required: false
+      publish_json:
+        description: "Publish to content/blog/posts"
+        type: boolean
+        default: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r scripts/autopilot_requirements.txt
+
+      - name: Generate blog post
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-4o
+          BLOG_AUTO_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.publish_json == false && 'false' || 'true' }}
+          AUTOPILOT_SITE_URL: https://www.accidentsurvivalguide.com
+          AUTOPILOT_PHONE_DISPLAY: "(978) 515-6063"
+        run: |
+          if [ -n "${{ github.event.inputs.city }}" ] && [ -n "${{ github.event.inputs.state }}" ]; then
+            python scripts/accident_survival_guide_autopilot.py \
+              --city "${{ github.event.inputs.city }}" \
+              --state "${{ github.event.inputs.state }}" \
+              --publish-json
+          else
+            python scripts/accident_survival_guide_autopilot.py --next --publish-json
+          fi
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/
+          git diff --staged --quiet || git commit -m "content(autopilot): daily local accident survival guide post"
+          git push

@@ -38,6 +38,10 @@ export type BlogPost = {
   sections: BlogPostSection[];
   faq: BlogPostFaq[];
   readingTimeMinutes?: number;
+  /** Autopilot long-form city guide rendered from content/{st}/{city}/index.md */
+  autopilot?: boolean;
+  contentPath?: string;
+  markdownBody?: string;
 };
 
 export type BlogFilters = {

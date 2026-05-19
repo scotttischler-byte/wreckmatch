@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { getAutopilotMarkdownPosts } from "@/lib/blog/markdown-posts";
 import type { BlogFilters, BlogPost, BlogPostStatus } from "@/lib/blog/types";
 
 const POSTS_DIR = path.join(process.cwd(), "content/blog/posts");
@@ -22,12 +23,32 @@ function readPostsFromDir(dir: string, statusOverride?: BlogPostStatus): BlogPos
   return posts;
 }
 
+function mergePosts(jsonPosts: BlogPost[], markdownPosts: BlogPost[]): BlogPost[] {
+  const bySlug = new Map<string, BlogPost>();
+  for (const post of jsonPosts) bySlug.set(post.slug, post);
+  for (const post of markdownPosts) {
+    const existing = bySlug.get(post.slug);
+    if (existing?.markdownBody) continue;
+    bySlug.set(post.slug, {
+      ...existing,
+      ...post,
+      sections: post.sections.length ? post.sections : (existing?.sections ?? []),
+      faq: post.faq.length ? post.faq : (existing?.faq ?? []),
+      markdownBody: post.markdownBody ?? existing?.markdownBody,
+      contentPath: post.contentPath ?? existing?.contentPath,
+      autopilot: post.autopilot ?? existing?.autopilot,
+    });
+  }
+  return [...bySlug.values()];
+}
+
 export function getAllBlogPosts(includeDrafts = false): BlogPost[] {
   const published = readPostsFromDir(POSTS_DIR);
   const drafts = includeDrafts
     ? readPostsFromDir(DRAFTS_DIR, "draft")
     : [];
-  return [...published, ...drafts].sort(
+  const markdown = getAutopilotMarkdownPosts();
+  return mergePosts([...published, ...drafts], markdown).sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
   );
 }

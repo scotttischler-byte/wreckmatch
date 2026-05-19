@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "last_run_at": null,
+  "completed_city_keys": [],
+  "last_city_key": null,
+  "notes": "Queue tracks generated city_slug|state_abbrev pairs. Use --next to process highest priority ungenerated city."
+}

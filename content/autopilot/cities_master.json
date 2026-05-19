@@ -1,0 +1,2797 @@
+{
+  "version": 1,
+  "generated_at": "2026-05-19",
+  "total_cities": 279,
+  "cities": [
+    {
+      "city": "New York",
+      "state": "New York",
+      "state_abbrev": "NY",
+      "state_slug": "new-york",
+      "city_slug": "new-york-ny",
+      "population_rank": 1,
+      "accident_hotspot_score": 10,
+      "priority_rank": 1
+    },
+    {
+      "city": "Los Angeles",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "los-angeles-ca",
+      "population_rank": 2,
+      "accident_hotspot_score": 10,
+      "priority_rank": 2
+    },
+    {
+      "city": "Houston",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "houston-tx",
+      "population_rank": 4,
+      "accident_hotspot_score": 10,
+      "priority_rank": 3
+    },
+    {
+      "city": "Miami",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "state_slug": "florida",
+      "city_slug": "miami-fl",
+      "population_rank": 40,
+      "accident_hotspot_score": 10,
+      "priority_rank": 4
+    },
+    {
+      "city": "Chicago",
+      "state": "Illinois",
+      "state_abbrev": "IL",
+      "state_slug": "illinois",
+      "city_slug": "chicago-il",
+      "population_rank": 3,
+      "accident_hotspot_score": 9,
+      "priority_rank": 5
+    },
+    {
+      "city": "Phoenix",
+      "state": "Arizona",
+      "state_abbrev": "AZ",
+      "state_slug": "arizona",
+      "city_slug": "phoenix-az",
+      "population_rank": 5,
+      "accident_hotspot_score": 9,
+      "priority_rank": 6
+    },
+    {
+      "city": "Philadelphia",
+      "state": "Pennsylvania",
+      "state_abbrev": "PA",
+      "state_slug": "pennsylvania",
+      "city_slug": "philadelphia-pa",
+      "population_rank": 6,
+      "accident_hotspot_score": 9,
+      "priority_rank": 7
+    },
+    {
+      "city": "Dallas",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "dallas-tx",
+      "population_rank": 9,
+      "accident_hotspot_score": 9,
+      "priority_rank": 8
+    },
+    {
+      "city": "Austin",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "austin-tx",
+      "population_rank": 11,
+      "accident_hotspot_score": 9,
+      "priority_rank": 9
+    },
+    {
+      "city": "Las Vegas",
+      "state": "Nevada",
+      "state_abbrev": "NV",
+      "state_slug": "nevada",
+      "city_slug": "las-vegas-nv",
+      "population_rank": 26,
+      "accident_hotspot_score": 9,
+      "priority_rank": 10
+    },
+    {
+      "city": "Atlanta",
+      "state": "Georgia",
+      "state_abbrev": "GA",
+      "state_slug": "georgia",
+      "city_slug": "atlanta-ga",
+      "population_rank": 37,
+      "accident_hotspot_score": 9,
+      "priority_rank": 11
+    },
+    {
+      "city": "Tampa",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "state_slug": "florida",
+      "city_slug": "tampa-fl",
+      "population_rank": 47,
+      "accident_hotspot_score": 9,
+      "priority_rank": 12
+    },
+    {
+      "city": "Orlando",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "state_slug": "florida",
+      "city_slug": "orlando-fl",
+      "population_rank": 70,
+      "accident_hotspot_score": 9,
+      "priority_rank": 13
+    },
+    {
+      "city": "San Antonio",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "san-antonio-tx",
+      "population_rank": 7,
+      "accident_hotspot_score": 8,
+      "priority_rank": 14
+    },
+    {
+      "city": "San Diego",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "san-diego-ca",
+      "population_rank": 8,
+      "accident_hotspot_score": 8,
+      "priority_rank": 15
+    },
+    {
+      "city": "San Jose",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "san-jose-ca",
+      "population_rank": 10,
+      "accident_hotspot_score": 8,
+      "priority_rank": 16
+    },
+    {
+      "city": "Jacksonville",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "state_slug": "florida",
+      "city_slug": "jacksonville-fl",
+      "population_rank": 12,
+      "accident_hotspot_score": 8,
+      "priority_rank": 17
+    },
+    {
+      "city": "Fort Worth",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "fort-worth-tx",
+      "population_rank": 13,
+      "accident_hotspot_score": 8,
+      "priority_rank": 18
+    },
+    {
+      "city": "Charlotte",
+      "state": "North Carolina",
+      "state_abbrev": "NC",
+      "state_slug": "north-carolina",
+      "city_slug": "charlotte-nc",
+      "population_rank": 15,
+      "accident_hotspot_score": 8,
+      "priority_rank": 19
+    },
+    {
+      "city": "San Francisco",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "san-francisco-ca",
+      "population_rank": 17,
+      "accident_hotspot_score": 8,
+      "priority_rank": 20
+    },
+    {
+      "city": "Washington",
+      "state": "District of Columbia",
+      "state_abbrev": "DC",
+      "state_slug": "district-of-columbia",
+      "city_slug": "washington-dc",
+      "population_rank": 20,
+      "accident_hotspot_score": 8,
+      "priority_rank": 21
+    },
+    {
+      "city": "Nashville",
+      "state": "Tennessee",
+      "state_abbrev": "TN",
+      "state_slug": "tennessee",
+      "city_slug": "nashville-tn",
+      "population_rank": 21,
+      "accident_hotspot_score": 8,
+      "priority_rank": 22
+    },
+    {
+      "city": "Detroit",
+      "state": "Michigan",
+      "state_abbrev": "MI",
+      "state_slug": "michigan",
+      "city_slug": "detroit-mi",
+      "population_rank": 27,
+      "accident_hotspot_score": 8,
+      "priority_rank": 23
+    },
+    {
+      "city": "Memphis",
+      "state": "Tennessee",
+      "state_abbrev": "TN",
+      "state_slug": "tennessee",
+      "city_slug": "memphis-tn",
+      "population_rank": 28,
+      "accident_hotspot_score": 8,
+      "priority_rank": 24
+    },
+    {
+      "city": "Baltimore",
+      "state": "Maryland",
+      "state_abbrev": "MD",
+      "state_slug": "maryland",
+      "city_slug": "baltimore-md",
+      "population_rank": 30,
+      "accident_hotspot_score": 8,
+      "priority_rank": 25
+    },
+    {
+      "city": "New Orleans",
+      "state": "Louisiana",
+      "state_abbrev": "LA",
+      "state_slug": "louisiana",
+      "city_slug": "new-orleans-la",
+      "population_rank": 50,
+      "accident_hotspot_score": 8,
+      "priority_rank": 26
+    },
+    {
+      "city": "Riverside",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "riverside-ca",
+      "population_rank": 58,
+      "accident_hotspot_score": 8,
+      "priority_rank": 27
+    },
+    {
+      "city": "St. Louis",
+      "state": "Missouri",
+      "state_abbrev": "MO",
+      "state_slug": "missouri",
+      "city_slug": "st-louis-mo",
+      "population_rank": 65,
+      "accident_hotspot_score": 8,
+      "priority_rank": 28
+    },
+    {
+      "city": "Newark",
+      "state": "New Jersey",
+      "state_abbrev": "NJ",
+      "state_slug": "new-jersey",
+      "city_slug": "newark-nj",
+      "population_rank": 72,
+      "accident_hotspot_score": 8,
+      "priority_rank": 29
+    },
+    {
+      "city": "Hialeah",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "state_slug": "florida",
+      "city_slug": "hialeah-fl",
+      "population_rank": 95,
+      "accident_hotspot_score": 8,
+      "priority_rank": 30
+    },
+    {
+      "city": "San Bernardino",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "san-bernardino-ca",
+      "population_rank": 101,
+      "accident_hotspot_score": 8,
+      "priority_rank": 31
+    },
+    {
+      "city": "Fort Lauderdale",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "state_slug": "florida",
+      "city_slug": "fort-lauderdale-fl",
+      "population_rank": 140,
+      "accident_hotspot_score": 8,
+      "priority_rank": 32
+    },
+    {
+      "city": "Miami Gardens",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "state_slug": "florida",
+      "city_slug": "miami-gardens-fl",
+      "population_rank": 212,
+      "accident_hotspot_score": 8,
+      "priority_rank": 33
+    },
+    {
+      "city": "West Palm Beach",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "state_slug": "florida",
+      "city_slug": "west-palm-beach-fl",
+      "population_rank": 218,
+      "accident_hotspot_score": 8,
+      "priority_rank": 34
+    },
+    {
+      "city": "Compton",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "compton-ca",
+      "population_rank": 255,
+      "accident_hotspot_score": 8,
+      "priority_rank": 35
+    },
+    {
+      "city": "Columbus",
+      "state": "Ohio",
+      "state_abbrev": "OH",
+      "state_slug": "ohio",
+      "city_slug": "columbus-oh",
+      "population_rank": 14,
+      "accident_hotspot_score": 7,
+      "priority_rank": 36
+    },
+    {
+      "city": "Indianapolis",
+      "state": "Indiana",
+      "state_abbrev": "IN",
+      "state_slug": "indiana",
+      "city_slug": "indianapolis-in",
+      "population_rank": 16,
+      "accident_hotspot_score": 7,
+      "priority_rank": 37
+    },
+    {
+      "city": "Seattle",
+      "state": "Washington",
+      "state_abbrev": "WA",
+      "state_slug": "washington",
+      "city_slug": "seattle-wa",
+      "population_rank": 18,
+      "accident_hotspot_score": 7,
+      "priority_rank": 38
+    },
+    {
+      "city": "Denver",
+      "state": "Colorado",
+      "state_abbrev": "CO",
+      "state_slug": "colorado",
+      "city_slug": "denver-co",
+      "population_rank": 19,
+      "accident_hotspot_score": 7,
+      "priority_rank": 39
+    },
+    {
+      "city": "Oklahoma City",
+      "state": "Oklahoma",
+      "state_abbrev": "OK",
+      "state_slug": "oklahoma",
+      "city_slug": "oklahoma-city-ok",
+      "population_rank": 22,
+      "accident_hotspot_score": 7,
+      "priority_rank": 40
+    },
+    {
+      "city": "Boston",
+      "state": "Massachusetts",
+      "state_abbrev": "MA",
+      "state_slug": "massachusetts",
+      "city_slug": "boston-ma",
+      "population_rank": 23,
+      "accident_hotspot_score": 7,
+      "priority_rank": 41
+    },
+    {
+      "city": "El Paso",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "el-paso-tx",
+      "population_rank": 24,
+      "accident_hotspot_score": 7,
+      "priority_rank": 42
+    },
+    {
+      "city": "Louisville",
+      "state": "Kentucky",
+      "state_abbrev": "KY",
+      "state_slug": "kentucky",
+      "city_slug": "louisville-ky",
+      "population_rank": 29,
+      "accident_hotspot_score": 7,
+      "priority_rank": 43
+    },
+    {
+      "city": "Milwaukee",
+      "state": "Wisconsin",
+      "state_abbrev": "WI",
+      "state_slug": "wisconsin",
+      "city_slug": "milwaukee-wi",
+      "population_rank": 31,
+      "accident_hotspot_score": 7,
+      "priority_rank": 44
+    },
+    {
+      "city": "Albuquerque",
+      "state": "New Mexico",
+      "state_abbrev": "NM",
+      "state_slug": "new-mexico",
+      "city_slug": "albuquerque-nm",
+      "population_rank": 32,
+      "accident_hotspot_score": 7,
+      "priority_rank": 45
+    },
+    {
+      "city": "Tucson",
+      "state": "Arizona",
+      "state_abbrev": "AZ",
+      "state_slug": "arizona",
+      "city_slug": "tucson-az",
+      "population_rank": 33,
+      "accident_hotspot_score": 7,
+      "priority_rank": 46
+    },
+    {
+      "city": "Fresno",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "fresno-ca",
+      "population_rank": 34,
+      "accident_hotspot_score": 7,
+      "priority_rank": 47
+    },
+    {
+      "city": "Mesa",
+      "state": "Arizona",
+      "state_abbrev": "AZ",
+      "state_slug": "arizona",
+      "city_slug": "mesa-az",
+      "population_rank": 35,
+      "accident_hotspot_score": 7,
+      "priority_rank": 48
+    },
+    {
+      "city": "Sacramento",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "sacramento-ca",
+      "population_rank": 36,
+      "accident_hotspot_score": 7,
+      "priority_rank": 49
+    },
+    {
+      "city": "Kansas City",
+      "state": "Missouri",
+      "state_abbrev": "MO",
+      "state_slug": "missouri",
+      "city_slug": "kansas-city-mo",
+      "population_rank": 38,
+      "accident_hotspot_score": 7,
+      "priority_rank": 50
+    },
+    {
+      "city": "Raleigh",
+      "state": "North Carolina",
+      "state_abbrev": "NC",
+      "state_slug": "north-carolina",
+      "city_slug": "raleigh-nc",
+      "population_rank": 41,
+      "accident_hotspot_score": 7,
+      "priority_rank": 51
+    },
+    {
+      "city": "Long Beach",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "long-beach-ca",
+      "population_rank": 43,
+      "accident_hotspot_score": 7,
+      "priority_rank": 52
+    },
+    {
+      "city": "Oakland",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "oakland-ca",
+      "population_rank": 45,
+      "accident_hotspot_score": 7,
+      "priority_rank": 53
+    },
+    {
+      "city": "Minneapolis",
+      "state": "Minnesota",
+      "state_abbrev": "MN",
+      "state_slug": "minnesota",
+      "city_slug": "minneapolis-mn",
+      "population_rank": 46,
+      "accident_hotspot_score": 7,
+      "priority_rank": 54
+    },
+    {
+      "city": "Arlington",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "arlington-tx",
+      "population_rank": 49,
+      "accident_hotspot_score": 7,
+      "priority_rank": 55
+    },
+    {
+      "city": "Cleveland",
+      "state": "Ohio",
+      "state_abbrev": "OH",
+      "state_slug": "ohio",
+      "city_slug": "cleveland-oh",
+      "population_rank": 52,
+      "accident_hotspot_score": 7,
+      "priority_rank": 56
+    },
+    {
+      "city": "Bakersfield",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "bakersfield-ca",
+      "population_rank": 53,
+      "accident_hotspot_score": 7,
+      "priority_rank": 57
+    },
+    {
+      "city": "Anaheim",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "anaheim-ca",
+      "population_rank": 55,
+      "accident_hotspot_score": 7,
+      "priority_rank": 58
+    },
+    {
+      "city": "Santa Ana",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "santa-ana-ca",
+      "population_rank": 57,
+      "accident_hotspot_score": 7,
+      "priority_rank": 59
+    },
+    {
+      "city": "Corpus Christi",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "corpus-christi-tx",
+      "population_rank": 59,
+      "accident_hotspot_score": 7,
+      "priority_rank": 60
+    },
+    {
+      "city": "Henderson",
+      "state": "Nevada",
+      "state_abbrev": "NV",
+      "state_slug": "nevada",
+      "city_slug": "henderson-nv",
+      "population_rank": 61,
+      "accident_hotspot_score": 7,
+      "priority_rank": 61
+    },
+    {
+      "city": "Stockton",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "stockton-ca",
+      "population_rank": 62,
+      "accident_hotspot_score": 7,
+      "priority_rank": 62
+    },
+    {
+      "city": "Cincinnati",
+      "state": "Ohio",
+      "state_abbrev": "OH",
+      "state_slug": "ohio",
+      "city_slug": "cincinnati-oh",
+      "population_rank": 64,
+      "accident_hotspot_score": 7,
+      "priority_rank": 63
+    },
+    {
+      "city": "Pittsburgh",
+      "state": "Pennsylvania",
+      "state_abbrev": "PA",
+      "state_slug": "pennsylvania",
+      "city_slug": "pittsburgh-pa",
+      "population_rank": 66,
+      "accident_hotspot_score": 7,
+      "priority_rank": 64
+    },
+    {
+      "city": "Plano",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "plano-tx",
+      "population_rank": 69,
+      "accident_hotspot_score": 7,
+      "priority_rank": 65
+    },
+    {
+      "city": "Irvine",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "irvine-ca",
+      "population_rank": 71,
+      "accident_hotspot_score": 7,
+      "priority_rank": 66
+    },
+    {
+      "city": "St. Petersburg",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "state_slug": "florida",
+      "city_slug": "st-petersburg-fl",
+      "population_rank": 77,
+      "accident_hotspot_score": 7,
+      "priority_rank": 67
+    },
+    {
+      "city": "Jersey City",
+      "state": "New Jersey",
+      "state_abbrev": "NJ",
+      "state_slug": "new-jersey",
+      "city_slug": "jersey-city-nj",
+      "population_rank": 79,
+      "accident_hotspot_score": 7,
+      "priority_rank": 68
+    },
+    {
+      "city": "Chandler",
+      "state": "Arizona",
+      "state_abbrev": "AZ",
+      "state_slug": "arizona",
+      "city_slug": "chandler-az",
+      "population_rank": 80,
+      "accident_hotspot_score": 7,
+      "priority_rank": 69
+    },
+    {
+      "city": "Reno",
+      "state": "Nevada",
+      "state_abbrev": "NV",
+      "state_slug": "nevada",
+      "city_slug": "reno-nv",
+      "population_rank": 84,
+      "accident_hotspot_score": 7,
+      "priority_rank": 70
+    },
+    {
+      "city": "Buffalo",
+      "state": "New York",
+      "state_abbrev": "NY",
+      "state_slug": "new-york",
+      "city_slug": "buffalo-ny",
+      "population_rank": 85,
+      "accident_hotspot_score": 7,
+      "priority_rank": 71
+    },
+    {
+      "city": "Glendale",
+      "state": "Arizona",
+      "state_abbrev": "AZ",
+      "state_slug": "arizona",
+      "city_slug": "glendale-az",
+      "population_rank": 87,
+      "accident_hotspot_score": 7,
+      "priority_rank": 72
+    },
+    {
+      "city": "North Las Vegas",
+      "state": "Nevada",
+      "state_abbrev": "NV",
+      "state_slug": "nevada",
+      "city_slug": "north-las-vegas-nv",
+      "population_rank": 88,
+      "accident_hotspot_score": 7,
+      "priority_rank": 73
+    },
+    {
+      "city": "Irving",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "irving-tx",
+      "population_rank": 94,
+      "accident_hotspot_score": 7,
+      "priority_rank": 74
+    },
+    {
+      "city": "Richmond",
+      "state": "Virginia",
+      "state_abbrev": "VA",
+      "state_slug": "virginia",
+      "city_slug": "richmond-va",
+      "population_rank": 96,
+      "accident_hotspot_score": 7,
+      "priority_rank": 75
+    },
+    {
+      "city": "Baton Rouge",
+      "state": "Louisiana",
+      "state_abbrev": "LA",
+      "state_slug": "louisiana",
+      "city_slug": "baton-rouge-la",
+      "population_rank": 99,
+      "accident_hotspot_score": 7,
+      "priority_rank": 76
+    },
+    {
+      "city": "Modesto",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "modesto-ca",
+      "population_rank": 102,
+      "accident_hotspot_score": 7,
+      "priority_rank": 77
+    },
+    {
+      "city": "Fontana",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "fontana-ca",
+      "population_rank": 103,
+      "accident_hotspot_score": 7,
+      "priority_rank": 78
+    },
+    {
+      "city": "Moreno Valley",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "moreno-valley-ca",
+      "population_rank": 105,
+      "accident_hotspot_score": 7,
+      "priority_rank": 79
+    },
+    {
+      "city": "Birmingham",
+      "state": "Alabama",
+      "state_abbrev": "AL",
+      "state_slug": "alabama",
+      "city_slug": "birmingham-al",
+      "population_rank": 107,
+      "accident_hotspot_score": 7,
+      "priority_rank": 80
+    },
+    {
+      "city": "Oxnard",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "oxnard-ca",
+      "population_rank": 108,
+      "accident_hotspot_score": 7,
+      "priority_rank": 81
+    },
+    {
+      "city": "Port St. Lucie",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "state_slug": "florida",
+      "city_slug": "port-st-lucie-fl",
+      "population_rank": 110,
+      "accident_hotspot_score": 7,
+      "priority_rank": 82
+    },
+    {
+      "city": "Frisco",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "frisco-tx",
+      "population_rank": 114,
+      "accident_hotspot_score": 7,
+      "priority_rank": 83
+    },
+    {
+      "city": "Yonkers",
+      "state": "New York",
+      "state_abbrev": "NY",
+      "state_slug": "new-york",
+      "city_slug": "yonkers-ny",
+      "population_rank": 115,
+      "accident_hotspot_score": 7,
+      "priority_rank": 84
+    },
+    {
+      "city": "Glendale",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "glendale-ca",
+      "population_rank": 117,
+      "accident_hotspot_score": 7,
+      "priority_rank": 85
+    },
+    {
+      "city": "McKinney",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "mckinney-tx",
+      "population_rank": 119,
+      "accident_hotspot_score": 7,
+      "priority_rank": 86
+    },
+    {
+      "city": "Tempe",
+      "state": "Arizona",
+      "state_abbrev": "AZ",
+      "state_slug": "arizona",
+      "city_slug": "tempe-az",
+      "population_rank": 125,
+      "accident_hotspot_score": 7,
+      "priority_rank": 87
+    },
+    {
+      "city": "Grand Prairie",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "grand-prairie-tx",
+      "population_rank": 128,
+      "accident_hotspot_score": 7,
+      "priority_rank": 88
+    },
+    {
+      "city": "Cape Coral",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "state_slug": "florida",
+      "city_slug": "cape-coral-fl",
+      "population_rank": 130,
+      "accident_hotspot_score": 7,
+      "priority_rank": 89
+    },
+    {
+      "city": "Mobile",
+      "state": "Alabama",
+      "state_abbrev": "AL",
+      "state_slug": "alabama",
+      "city_slug": "mobile-al",
+      "population_rank": 131,
+      "accident_hotspot_score": 7,
+      "priority_rank": 90
+    },
+    {
+      "city": "Ontario",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "ontario-ca",
+      "population_rank": 135,
+      "accident_hotspot_score": 7,
+      "priority_rank": 91
+    },
+    {
+      "city": "Rancho Cucamonga",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "rancho-cucamonga-ca",
+      "population_rank": 143,
+      "accident_hotspot_score": 7,
+      "priority_rank": 92
+    },
+    {
+      "city": "Pembroke Pines",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "state_slug": "florida",
+      "city_slug": "pembroke-pines-fl",
+      "population_rank": 149,
+      "accident_hotspot_score": 7,
+      "priority_rank": 93
+    },
+    {
+      "city": "Corona",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "corona-ca",
+      "population_rank": 152,
+      "accident_hotspot_score": 7,
+      "priority_rank": 94
+    },
+    {
+      "city": "Lancaster",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "lancaster-ca",
+      "population_rank": 159,
+      "accident_hotspot_score": 7,
+      "priority_rank": 95
+    },
+    {
+      "city": "Palmdale",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "palmdale-ca",
+      "population_rank": 161,
+      "accident_hotspot_score": 7,
+      "priority_rank": 96
+    },
+    {
+      "city": "Hollywood",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "state_slug": "florida",
+      "city_slug": "hollywood-fl",
+      "population_rank": 162,
+      "accident_hotspot_score": 7,
+      "priority_rank": 97
+    },
+    {
+      "city": "Paterson",
+      "state": "New Jersey",
+      "state_abbrev": "NJ",
+      "state_slug": "new-jersey",
+      "city_slug": "paterson-nj",
+      "population_rank": 173,
+      "accident_hotspot_score": 7,
+      "priority_rank": 98
+    },
+    {
+      "city": "McAllen",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "mcallen-tx",
+      "population_rank": 178,
+      "accident_hotspot_score": 7,
+      "priority_rank": 99
+    },
+    {
+      "city": "Pasadena",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "pasadena-ca",
+      "population_rank": 179,
+      "accident_hotspot_score": 7,
+      "priority_rank": 100
+    },
+    {
+      "city": "Orange",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "orange-ca",
+      "population_rank": 180,
+      "accident_hotspot_score": 7,
+      "priority_rank": 101
+    },
+    {
+      "city": "Victorville",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "victorville-ca",
+      "population_rank": 190,
+      "accident_hotspot_score": 7,
+      "priority_rank": 102
+    },
+    {
+      "city": "Elizabeth",
+      "state": "New Jersey",
+      "state_abbrev": "NJ",
+      "state_slug": "new-jersey",
+      "city_slug": "elizabeth-nj",
+      "population_rank": 197,
+      "accident_hotspot_score": 7,
+      "priority_rank": 103
+    },
+    {
+      "city": "Clearwater",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "state_slug": "florida",
+      "city_slug": "clearwater-fl",
+      "population_rank": 210,
+      "accident_hotspot_score": 7,
+      "priority_rank": 104
+    },
+    {
+      "city": "Round Rock",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "round-rock-tx",
+      "population_rank": 217,
+      "accident_hotspot_score": 7,
+      "priority_rank": 105
+    },
+    {
+      "city": "Lakeland",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "state_slug": "florida",
+      "city_slug": "lakeland-fl",
+      "population_rank": 241,
+      "accident_hotspot_score": 7,
+      "priority_rank": 106
+    },
+    {
+      "city": "Flint",
+      "state": "Michigan",
+      "state_abbrev": "MI",
+      "state_slug": "michigan",
+      "city_slug": "flint-mi",
+      "population_rank": 251,
+      "accident_hotspot_score": 7,
+      "priority_rank": 107
+    },
+    {
+      "city": "Beaumont",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "beaumont-tx",
+      "population_rank": 262,
+      "accident_hotspot_score": 7,
+      "priority_rank": 108
+    },
+    {
+      "city": "Arlington",
+      "state": "Virginia",
+      "state_abbrev": "VA",
+      "state_slug": "virginia",
+      "city_slug": "arlington-va",
+      "population_rank": 274,
+      "accident_hotspot_score": 7,
+      "priority_rank": 109
+    },
+    {
+      "city": "Portland",
+      "state": "Oregon",
+      "state_abbrev": "OR",
+      "state_slug": "oregon",
+      "city_slug": "portland-or",
+      "population_rank": 25,
+      "accident_hotspot_score": 6,
+      "priority_rank": 110
+    },
+    {
+      "city": "Colorado Springs",
+      "state": "Colorado",
+      "state_abbrev": "CO",
+      "state_slug": "colorado",
+      "city_slug": "colorado-springs-co",
+      "population_rank": 39,
+      "accident_hotspot_score": 6,
+      "priority_rank": 111
+    },
+    {
+      "city": "Omaha",
+      "state": "Nebraska",
+      "state_abbrev": "NE",
+      "state_slug": "nebraska",
+      "city_slug": "omaha-ne",
+      "population_rank": 42,
+      "accident_hotspot_score": 6,
+      "priority_rank": 112
+    },
+    {
+      "city": "Virginia Beach",
+      "state": "Virginia",
+      "state_abbrev": "VA",
+      "state_slug": "virginia",
+      "city_slug": "virginia-beach-va",
+      "population_rank": 44,
+      "accident_hotspot_score": 6,
+      "priority_rank": 113
+    },
+    {
+      "city": "Tulsa",
+      "state": "Oklahoma",
+      "state_abbrev": "OK",
+      "state_slug": "oklahoma",
+      "city_slug": "tulsa-ok",
+      "population_rank": 48,
+      "accident_hotspot_score": 6,
+      "priority_rank": 114
+    },
+    {
+      "city": "Wichita",
+      "state": "Kansas",
+      "state_abbrev": "KS",
+      "state_slug": "kansas",
+      "city_slug": "wichita-ks",
+      "population_rank": 51,
+      "accident_hotspot_score": 6,
+      "priority_rank": 115
+    },
+    {
+      "city": "Aurora",
+      "state": "Colorado",
+      "state_abbrev": "CO",
+      "state_slug": "colorado",
+      "city_slug": "aurora-co",
+      "population_rank": 54,
+      "accident_hotspot_score": 6,
+      "priority_rank": 116
+    },
+    {
+      "city": "Honolulu",
+      "state": "Hawaii",
+      "state_abbrev": "HI",
+      "state_slug": "hawaii",
+      "city_slug": "honolulu-hi",
+      "population_rank": 56,
+      "accident_hotspot_score": 6,
+      "priority_rank": 117
+    },
+    {
+      "city": "Lexington",
+      "state": "Kentucky",
+      "state_abbrev": "KY",
+      "state_slug": "kentucky",
+      "city_slug": "lexington-ky",
+      "population_rank": 60,
+      "accident_hotspot_score": 6,
+      "priority_rank": 118
+    },
+    {
+      "city": "Saint Paul",
+      "state": "Minnesota",
+      "state_abbrev": "MN",
+      "state_slug": "minnesota",
+      "city_slug": "saint-paul-mn",
+      "population_rank": 63,
+      "accident_hotspot_score": 6,
+      "priority_rank": 119
+    },
+    {
+      "city": "Greensboro",
+      "state": "North Carolina",
+      "state_abbrev": "NC",
+      "state_slug": "north-carolina",
+      "city_slug": "greensboro-nc",
+      "population_rank": 67,
+      "accident_hotspot_score": 6,
+      "priority_rank": 120
+    },
+    {
+      "city": "Durham",
+      "state": "North Carolina",
+      "state_abbrev": "NC",
+      "state_slug": "north-carolina",
+      "city_slug": "durham-nc",
+      "population_rank": 73,
+      "accident_hotspot_score": 6,
+      "priority_rank": 121
+    },
+    {
+      "city": "Chula Vista",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "chula-vista-ca",
+      "population_rank": 74,
+      "accident_hotspot_score": 6,
+      "priority_rank": 122
+    },
+    {
+      "city": "Toledo",
+      "state": "Ohio",
+      "state_abbrev": "OH",
+      "state_slug": "ohio",
+      "city_slug": "toledo-oh",
+      "population_rank": 75,
+      "accident_hotspot_score": 6,
+      "priority_rank": 123
+    },
+    {
+      "city": "Fort Wayne",
+      "state": "Indiana",
+      "state_abbrev": "IN",
+      "state_slug": "indiana",
+      "city_slug": "fort-wayne-in",
+      "population_rank": 76,
+      "accident_hotspot_score": 6,
+      "priority_rank": 124
+    },
+    {
+      "city": "Laredo",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "laredo-tx",
+      "population_rank": 78,
+      "accident_hotspot_score": 6,
+      "priority_rank": 125
+    },
+    {
+      "city": "Lubbock",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "lubbock-tx",
+      "population_rank": 82,
+      "accident_hotspot_score": 6,
+      "priority_rank": 126
+    },
+    {
+      "city": "Scottsdale",
+      "state": "Arizona",
+      "state_abbrev": "AZ",
+      "state_slug": "arizona",
+      "city_slug": "scottsdale-az",
+      "population_rank": 83,
+      "accident_hotspot_score": 6,
+      "priority_rank": 127
+    },
+    {
+      "city": "Gilbert",
+      "state": "Arizona",
+      "state_abbrev": "AZ",
+      "state_slug": "arizona",
+      "city_slug": "gilbert-az",
+      "population_rank": 86,
+      "accident_hotspot_score": 6,
+      "priority_rank": 128
+    },
+    {
+      "city": "Winston-Salem",
+      "state": "North Carolina",
+      "state_abbrev": "NC",
+      "state_slug": "north-carolina",
+      "city_slug": "winston-salem-nc",
+      "population_rank": 89,
+      "accident_hotspot_score": 6,
+      "priority_rank": 129
+    },
+    {
+      "city": "Chesapeake",
+      "state": "Virginia",
+      "state_abbrev": "VA",
+      "state_slug": "virginia",
+      "city_slug": "chesapeake-va",
+      "population_rank": 90,
+      "accident_hotspot_score": 6,
+      "priority_rank": 130
+    },
+    {
+      "city": "Norfolk",
+      "state": "Virginia",
+      "state_abbrev": "VA",
+      "state_slug": "virginia",
+      "city_slug": "norfolk-va",
+      "population_rank": 91,
+      "accident_hotspot_score": 6,
+      "priority_rank": 131
+    },
+    {
+      "city": "Fremont",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "fremont-ca",
+      "population_rank": 92,
+      "accident_hotspot_score": 6,
+      "priority_rank": 132
+    },
+    {
+      "city": "Garland",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "garland-tx",
+      "population_rank": 93,
+      "accident_hotspot_score": 6,
+      "priority_rank": 133
+    },
+    {
+      "city": "Spokane",
+      "state": "Washington",
+      "state_abbrev": "WA",
+      "state_slug": "washington",
+      "city_slug": "spokane-wa",
+      "population_rank": 98,
+      "accident_hotspot_score": 6,
+      "priority_rank": 134
+    },
+    {
+      "city": "Tacoma",
+      "state": "Washington",
+      "state_abbrev": "WA",
+      "state_slug": "washington",
+      "city_slug": "tacoma-wa",
+      "population_rank": 100,
+      "accident_hotspot_score": 6,
+      "priority_rank": 135
+    },
+    {
+      "city": "Fayetteville",
+      "state": "North Carolina",
+      "state_abbrev": "NC",
+      "state_slug": "north-carolina",
+      "city_slug": "fayetteville-nc",
+      "population_rank": 106,
+      "accident_hotspot_score": 6,
+      "priority_rank": 136
+    },
+    {
+      "city": "Rochester",
+      "state": "New York",
+      "state_abbrev": "NY",
+      "state_slug": "new-york",
+      "city_slug": "rochester-ny",
+      "population_rank": 109,
+      "accident_hotspot_score": 6,
+      "priority_rank": 137
+    },
+    {
+      "city": "Grand Rapids",
+      "state": "Michigan",
+      "state_abbrev": "MI",
+      "state_slug": "michigan",
+      "city_slug": "grand-rapids-mi",
+      "population_rank": 111,
+      "accident_hotspot_score": 6,
+      "priority_rank": 138
+    },
+    {
+      "city": "Huntsville",
+      "state": "Alabama",
+      "state_abbrev": "AL",
+      "state_slug": "alabama",
+      "city_slug": "huntsville-al",
+      "population_rank": 112,
+      "accident_hotspot_score": 6,
+      "priority_rank": 139
+    },
+    {
+      "city": "Salt Lake City",
+      "state": "Utah",
+      "state_abbrev": "UT",
+      "state_slug": "utah",
+      "city_slug": "salt-lake-city-ut",
+      "population_rank": 113,
+      "accident_hotspot_score": 6,
+      "priority_rank": 140
+    },
+    {
+      "city": "Amarillo",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "amarillo-tx",
+      "population_rank": 116,
+      "accident_hotspot_score": 6,
+      "priority_rank": 141
+    },
+    {
+      "city": "Huntington Beach",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "huntington-beach-ca",
+      "population_rank": 118,
+      "accident_hotspot_score": 6,
+      "priority_rank": 142
+    },
+    {
+      "city": "Montgomery",
+      "state": "Alabama",
+      "state_abbrev": "AL",
+      "state_slug": "alabama",
+      "city_slug": "montgomery-al",
+      "population_rank": 120,
+      "accident_hotspot_score": 6,
+      "priority_rank": 143
+    },
+    {
+      "city": "Augusta",
+      "state": "Georgia",
+      "state_abbrev": "GA",
+      "state_slug": "georgia",
+      "city_slug": "augusta-ga",
+      "population_rank": 121,
+      "accident_hotspot_score": 6,
+      "priority_rank": 144
+    },
+    {
+      "city": "Aurora",
+      "state": "Illinois",
+      "state_abbrev": "IL",
+      "state_slug": "illinois",
+      "city_slug": "aurora-il",
+      "population_rank": 122,
+      "accident_hotspot_score": 6,
+      "priority_rank": 145
+    },
+    {
+      "city": "Akron",
+      "state": "Ohio",
+      "state_abbrev": "OH",
+      "state_slug": "ohio",
+      "city_slug": "akron-oh",
+      "population_rank": 123,
+      "accident_hotspot_score": 6,
+      "priority_rank": 146
+    },
+    {
+      "city": "Little Rock",
+      "state": "Arkansas",
+      "state_abbrev": "AR",
+      "state_slug": "arkansas",
+      "city_slug": "little-rock-ar",
+      "population_rank": 124,
+      "accident_hotspot_score": 6,
+      "priority_rank": 147
+    },
+    {
+      "city": "Overland Park",
+      "state": "Kansas",
+      "state_abbrev": "KS",
+      "state_slug": "kansas",
+      "city_slug": "overland-park-ks",
+      "population_rank": 127,
+      "accident_hotspot_score": 6,
+      "priority_rank": 148
+    },
+    {
+      "city": "Tallahassee",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "state_slug": "florida",
+      "city_slug": "tallahassee-fl",
+      "population_rank": 129,
+      "accident_hotspot_score": 6,
+      "priority_rank": 149
+    },
+    {
+      "city": "Knoxville",
+      "state": "Tennessee",
+      "state_abbrev": "TN",
+      "state_slug": "tennessee",
+      "city_slug": "knoxville-tn",
+      "population_rank": 132,
+      "accident_hotspot_score": 6,
+      "priority_rank": 150
+    },
+    {
+      "city": "Shreveport",
+      "state": "Louisiana",
+      "state_abbrev": "LA",
+      "state_slug": "louisiana",
+      "city_slug": "shreveport-la",
+      "population_rank": 133,
+      "accident_hotspot_score": 6,
+      "priority_rank": 151
+    },
+    {
+      "city": "Worcester",
+      "state": "Massachusetts",
+      "state_abbrev": "MA",
+      "state_slug": "massachusetts",
+      "city_slug": "worcester-ma",
+      "population_rank": 134,
+      "accident_hotspot_score": 6,
+      "priority_rank": 152
+    },
+    {
+      "city": "Vancouver",
+      "state": "Washington",
+      "state_abbrev": "WA",
+      "state_slug": "washington",
+      "city_slug": "vancouver-wa",
+      "population_rank": 136,
+      "accident_hotspot_score": 6,
+      "priority_rank": 153
+    },
+    {
+      "city": "Chattanooga",
+      "state": "Tennessee",
+      "state_abbrev": "TN",
+      "state_slug": "tennessee",
+      "city_slug": "chattanooga-tn",
+      "population_rank": 138,
+      "accident_hotspot_score": 6,
+      "priority_rank": 154
+    },
+    {
+      "city": "Brownsville",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "brownsville-tx",
+      "population_rank": 139,
+      "accident_hotspot_score": 6,
+      "priority_rank": 155
+    },
+    {
+      "city": "Providence",
+      "state": "Rhode Island",
+      "state_abbrev": "RI",
+      "state_slug": "rhode-island",
+      "city_slug": "providence-ri",
+      "population_rank": 141,
+      "accident_hotspot_score": 6,
+      "priority_rank": 156
+    },
+    {
+      "city": "Santa Clarita",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "santa-clarita-ca",
+      "population_rank": 144,
+      "accident_hotspot_score": 6,
+      "priority_rank": 157
+    },
+    {
+      "city": "Oceanside",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "oceanside-ca",
+      "population_rank": 145,
+      "accident_hotspot_score": 6,
+      "priority_rank": 158
+    },
+    {
+      "city": "Elk Grove",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "elk-grove-ca",
+      "population_rank": 147,
+      "accident_hotspot_score": 6,
+      "priority_rank": 159
+    },
+    {
+      "city": "Garden Grove",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "garden-grove-ca",
+      "population_rank": 148,
+      "accident_hotspot_score": 6,
+      "priority_rank": 160
+    },
+    {
+      "city": "Peoria",
+      "state": "Arizona",
+      "state_abbrev": "AZ",
+      "state_slug": "arizona",
+      "city_slug": "peoria-az",
+      "population_rank": 150,
+      "accident_hotspot_score": 6,
+      "priority_rank": 161
+    },
+    {
+      "city": "Cary",
+      "state": "North Carolina",
+      "state_abbrev": "NC",
+      "state_slug": "north-carolina",
+      "city_slug": "cary-nc",
+      "population_rank": 153,
+      "accident_hotspot_score": 6,
+      "priority_rank": 162
+    },
+    {
+      "city": "Jackson",
+      "state": "Mississippi",
+      "state_abbrev": "MS",
+      "state_slug": "mississippi",
+      "city_slug": "jackson-ms",
+      "population_rank": 156,
+      "accident_hotspot_score": 6,
+      "priority_rank": 163
+    },
+    {
+      "city": "Alexandria",
+      "state": "Virginia",
+      "state_abbrev": "VA",
+      "state_slug": "virginia",
+      "city_slug": "alexandria-va",
+      "population_rank": 157,
+      "accident_hotspot_score": 6,
+      "priority_rank": 164
+    },
+    {
+      "city": "Hayward",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "hayward-ca",
+      "population_rank": 158,
+      "accident_hotspot_score": 6,
+      "priority_rank": 165
+    },
+    {
+      "city": "Salinas",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "salinas-ca",
+      "population_rank": 160,
+      "accident_hotspot_score": 6,
+      "priority_rank": 166
+    },
+    {
+      "city": "Pasadena",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "pasadena-tx",
+      "population_rank": 163,
+      "accident_hotspot_score": 6,
+      "priority_rank": 167
+    },
+    {
+      "city": "Sunnyvale",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "sunnyvale-ca",
+      "population_rank": 164,
+      "accident_hotspot_score": 6,
+      "priority_rank": 168
+    },
+    {
+      "city": "Macon",
+      "state": "Georgia",
+      "state_abbrev": "GA",
+      "state_slug": "georgia",
+      "city_slug": "macon-ga",
+      "population_rank": 165,
+      "accident_hotspot_score": 6,
+      "priority_rank": 169
+    },
+    {
+      "city": "Pomona",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "pomona-ca",
+      "population_rank": 166,
+      "accident_hotspot_score": 6,
+      "priority_rank": 170
+    },
+    {
+      "city": "Escondido",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "escondido-ca",
+      "population_rank": 167,
+      "accident_hotspot_score": 6,
+      "priority_rank": 171
+    },
+    {
+      "city": "Killeen",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "killeen-tx",
+      "population_rank": 168,
+      "accident_hotspot_score": 6,
+      "priority_rank": 172
+    },
+    {
+      "city": "Naperville",
+      "state": "Illinois",
+      "state_abbrev": "IL",
+      "state_slug": "illinois",
+      "city_slug": "naperville-il",
+      "population_rank": 169,
+      "accident_hotspot_score": 6,
+      "priority_rank": 173
+    },
+    {
+      "city": "Joliet",
+      "state": "Illinois",
+      "state_abbrev": "IL",
+      "state_slug": "illinois",
+      "city_slug": "joliet-il",
+      "population_rank": 170,
+      "accident_hotspot_score": 6,
+      "priority_rank": 174
+    },
+    {
+      "city": "Bellevue",
+      "state": "Washington",
+      "state_abbrev": "WA",
+      "state_slug": "washington",
+      "city_slug": "bellevue-wa",
+      "population_rank": 171,
+      "accident_hotspot_score": 6,
+      "priority_rank": 175
+    },
+    {
+      "city": "Savannah",
+      "state": "Georgia",
+      "state_abbrev": "GA",
+      "state_slug": "georgia",
+      "city_slug": "savannah-ga",
+      "population_rank": 172,
+      "accident_hotspot_score": 6,
+      "priority_rank": 176
+    },
+    {
+      "city": "Torrance",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "torrance-ca",
+      "population_rank": 174,
+      "accident_hotspot_score": 6,
+      "priority_rank": 177
+    },
+    {
+      "city": "Bridgeport",
+      "state": "Connecticut",
+      "state_abbrev": "CT",
+      "state_slug": "connecticut",
+      "city_slug": "bridgeport-ct",
+      "population_rank": 175,
+      "accident_hotspot_score": 6,
+      "priority_rank": 178
+    },
+    {
+      "city": "Mesquite",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "mesquite-tx",
+      "population_rank": 176,
+      "accident_hotspot_score": 6,
+      "priority_rank": 179
+    },
+    {
+      "city": "Syracuse",
+      "state": "New York",
+      "state_abbrev": "NY",
+      "state_slug": "new-york",
+      "city_slug": "syracuse-ny",
+      "population_rank": 177,
+      "accident_hotspot_score": 6,
+      "priority_rank": 180
+    },
+    {
+      "city": "Fullerton",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "fullerton-ca",
+      "population_rank": 181,
+      "accident_hotspot_score": 6,
+      "priority_rank": 181
+    },
+    {
+      "city": "Gainesville",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "state_slug": "florida",
+      "city_slug": "gainesville-fl",
+      "population_rank": 182,
+      "accident_hotspot_score": 6,
+      "priority_rank": 182
+    },
+    {
+      "city": "Hartford",
+      "state": "Connecticut",
+      "state_abbrev": "CT",
+      "state_slug": "connecticut",
+      "city_slug": "hartford-ct",
+      "population_rank": 183,
+      "accident_hotspot_score": 6,
+      "priority_rank": 183
+    },
+    {
+      "city": "Columbia",
+      "state": "South Carolina",
+      "state_abbrev": "SC",
+      "state_slug": "south-carolina",
+      "city_slug": "columbia-sc",
+      "population_rank": 184,
+      "accident_hotspot_score": 6,
+      "priority_rank": 184
+    },
+    {
+      "city": "Midland",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "midland-tx",
+      "population_rank": 185,
+      "accident_hotspot_score": 6,
+      "priority_rank": 185
+    },
+    {
+      "city": "Visalia",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "visalia-ca",
+      "population_rank": 186,
+      "accident_hotspot_score": 6,
+      "priority_rank": 186
+    },
+    {
+      "city": "Waco",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "waco-tx",
+      "population_rank": 187,
+      "accident_hotspot_score": 6,
+      "priority_rank": 187
+    },
+    {
+      "city": "New Haven",
+      "state": "Connecticut",
+      "state_abbrev": "CT",
+      "state_slug": "connecticut",
+      "city_slug": "new-haven-ct",
+      "population_rank": 192,
+      "accident_hotspot_score": 6,
+      "priority_rank": 188
+    },
+    {
+      "city": "Stamford",
+      "state": "Connecticut",
+      "state_abbrev": "CT",
+      "state_slug": "connecticut",
+      "city_slug": "stamford-ct",
+      "population_rank": 193,
+      "accident_hotspot_score": 6,
+      "priority_rank": 189
+    },
+    {
+      "city": "Concord",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "concord-ca",
+      "population_rank": 194,
+      "accident_hotspot_score": 6,
+      "priority_rank": 190
+    },
+    {
+      "city": "Kent",
+      "state": "Washington",
+      "state_abbrev": "WA",
+      "state_slug": "washington",
+      "city_slug": "kent-wa",
+      "population_rank": 195,
+      "accident_hotspot_score": 6,
+      "priority_rank": 191
+    },
+    {
+      "city": "Santa Rosa",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "santa-rosa-ca",
+      "population_rank": 196,
+      "accident_hotspot_score": 6,
+      "priority_rank": 192
+    },
+    {
+      "city": "Lafayette",
+      "state": "Louisiana",
+      "state_abbrev": "LA",
+      "state_slug": "louisiana",
+      "city_slug": "lafayette-la",
+      "population_rank": 198,
+      "accident_hotspot_score": 6,
+      "priority_rank": 193
+    },
+    {
+      "city": "Wilmington",
+      "state": "North Carolina",
+      "state_abbrev": "NC",
+      "state_slug": "north-carolina",
+      "city_slug": "wilmington-nc",
+      "population_rank": 202,
+      "accident_hotspot_score": 6,
+      "priority_rank": 194
+    },
+    {
+      "city": "Berkeley",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "berkeley-ca",
+      "population_rank": 204,
+      "accident_hotspot_score": 6,
+      "priority_rank": 195
+    },
+    {
+      "city": "Richardson",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "richardson-tx",
+      "population_rank": 209,
+      "accident_hotspot_score": 6,
+      "priority_rank": 196
+    },
+    {
+      "city": "Fairfield",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "fairfield-ca",
+      "population_rank": 213,
+      "accident_hotspot_score": 6,
+      "priority_rank": 197
+    },
+    {
+      "city": "Murrieta",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "murrieta-ca",
+      "population_rank": 215,
+      "accident_hotspot_score": 6,
+      "priority_rank": 198
+    },
+    {
+      "city": "Norwalk",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "norwalk-ca",
+      "population_rank": 220,
+      "accident_hotspot_score": 6,
+      "priority_rank": 199
+    },
+    {
+      "city": "Palm Bay",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "state_slug": "florida",
+      "city_slug": "palm-bay-fl",
+      "population_rank": 222,
+      "accident_hotspot_score": 6,
+      "priority_rank": 200
+    },
+    {
+      "city": "El Monte",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "el-monte-ca",
+      "population_rank": 223,
+      "accident_hotspot_score": 6,
+      "priority_rank": 201
+    },
+    {
+      "city": "Lansing",
+      "state": "Michigan",
+      "state_abbrev": "MI",
+      "state_slug": "michigan",
+      "city_slug": "lansing-mi",
+      "population_rank": 224,
+      "accident_hotspot_score": 6,
+      "priority_rank": 202
+    },
+    {
+      "city": "Odessa",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "odessa-tx",
+      "population_rank": 225,
+      "accident_hotspot_score": 6,
+      "priority_rank": 203
+    },
+    {
+      "city": "Antioch",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "antioch-ca",
+      "population_rank": 227,
+      "accident_hotspot_score": 6,
+      "priority_rank": 204
+    },
+    {
+      "city": "Temecula",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "temecula-ca",
+      "population_rank": 228,
+      "accident_hotspot_score": 6,
+      "priority_rank": 205
+    },
+    {
+      "city": "Rialto",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "rialto-ca",
+      "population_rank": 232,
+      "accident_hotspot_score": 6,
+      "priority_rank": 206
+    },
+    {
+      "city": "Daly City",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "daly-city-ca",
+      "population_rank": 233,
+      "accident_hotspot_score": 6,
+      "priority_rank": 207
+    },
+    {
+      "city": "Burbank",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "burbank-ca",
+      "population_rank": 234,
+      "accident_hotspot_score": 6,
+      "priority_rank": 208
+    },
+    {
+      "city": "Allen",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "allen-tx",
+      "population_rank": 235,
+      "accident_hotspot_score": 6,
+      "priority_rank": 209
+    },
+    {
+      "city": "South Bend",
+      "state": "Indiana",
+      "state_abbrev": "IN",
+      "state_slug": "indiana",
+      "city_slug": "south-bend-in",
+      "population_rank": 236,
+      "accident_hotspot_score": 6,
+      "priority_rank": 210
+    },
+    {
+      "city": "West Covina",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "west-covina-ca",
+      "population_rank": 238,
+      "accident_hotspot_score": 6,
+      "priority_rank": 211
+    },
+    {
+      "city": "Ventura",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "ventura-ca",
+      "population_rank": 239,
+      "accident_hotspot_score": 6,
+      "priority_rank": 212
+    },
+    {
+      "city": "Denton",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "denton-tx",
+      "population_rank": 242,
+      "accident_hotspot_score": 6,
+      "priority_rank": 213
+    },
+    {
+      "city": "Everett",
+      "state": "Washington",
+      "state_abbrev": "WA",
+      "state_slug": "washington",
+      "city_slug": "everett-wa",
+      "population_rank": 243,
+      "accident_hotspot_score": 6,
+      "priority_rank": 214
+    },
+    {
+      "city": "Tyler",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "tyler-tx",
+      "population_rank": 245,
+      "accident_hotspot_score": 6,
+      "priority_rank": 215
+    },
+    {
+      "city": "Pearland",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "pearland-tx",
+      "population_rank": 246,
+      "accident_hotspot_score": 6,
+      "priority_rank": 216
+    },
+    {
+      "city": "Sandy Springs",
+      "state": "Georgia",
+      "state_abbrev": "GA",
+      "state_slug": "georgia",
+      "city_slug": "sandy-springs-ga",
+      "population_rank": 249,
+      "accident_hotspot_score": 6,
+      "priority_rank": 217
+    },
+    {
+      "city": "Clovis",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "clovis-ca",
+      "population_rank": 250,
+      "accident_hotspot_score": 6,
+      "priority_rank": 218
+    },
+    {
+      "city": "Jurupa Valley",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "jurupa-valley-ca",
+      "population_rank": 254,
+      "accident_hotspot_score": 6,
+      "priority_rank": 219
+    },
+    {
+      "city": "San Mateo",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "san-mateo-ca",
+      "population_rank": 256,
+      "accident_hotspot_score": 6,
+      "priority_rank": 220
+    },
+    {
+      "city": "Vista",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "vista-ca",
+      "population_rank": 257,
+      "accident_hotspot_score": 6,
+      "priority_rank": 221
+    },
+    {
+      "city": "Davie",
+      "state": "Florida",
+      "state_abbrev": "FL",
+      "state_slug": "florida",
+      "city_slug": "davie-fl",
+      "population_rank": 258,
+      "accident_hotspot_score": 6,
+      "priority_rank": 222
+    },
+    {
+      "city": "Allentown",
+      "state": "Pennsylvania",
+      "state_abbrev": "PA",
+      "state_slug": "pennsylvania",
+      "city_slug": "allentown-pa",
+      "population_rank": 267,
+      "accident_hotspot_score": 6,
+      "priority_rank": 223
+    },
+    {
+      "city": "Surprise",
+      "state": "Arizona",
+      "state_abbrev": "AZ",
+      "state_slug": "arizona",
+      "city_slug": "surprise-az",
+      "population_rank": 268,
+      "accident_hotspot_score": 6,
+      "priority_rank": 224
+    },
+    {
+      "city": "Charleston",
+      "state": "South Carolina",
+      "state_abbrev": "SC",
+      "state_slug": "south-carolina",
+      "city_slug": "charleston-sc",
+      "population_rank": 277,
+      "accident_hotspot_score": 6,
+      "priority_rank": 225
+    },
+    {
+      "city": "Lincoln",
+      "state": "Nebraska",
+      "state_abbrev": "NE",
+      "state_slug": "nebraska",
+      "city_slug": "lincoln-ne",
+      "population_rank": 68,
+      "accident_hotspot_score": 5,
+      "priority_rank": 226
+    },
+    {
+      "city": "Madison",
+      "state": "Wisconsin",
+      "state_abbrev": "WI",
+      "state_slug": "wisconsin",
+      "city_slug": "madison-wi",
+      "population_rank": 81,
+      "accident_hotspot_score": 5,
+      "priority_rank": 227
+    },
+    {
+      "city": "Boise",
+      "state": "Idaho",
+      "state_abbrev": "ID",
+      "state_slug": "idaho",
+      "city_slug": "boise-id",
+      "population_rank": 97,
+      "accident_hotspot_score": 5,
+      "priority_rank": 228
+    },
+    {
+      "city": "Des Moines",
+      "state": "Iowa",
+      "state_abbrev": "IA",
+      "state_slug": "iowa",
+      "city_slug": "des-moines-ia",
+      "population_rank": 104,
+      "accident_hotspot_score": 5,
+      "priority_rank": 229
+    },
+    {
+      "city": "Columbus",
+      "state": "Georgia",
+      "state_abbrev": "GA",
+      "state_slug": "georgia",
+      "city_slug": "columbus-ga",
+      "population_rank": 126,
+      "accident_hotspot_score": 5,
+      "priority_rank": 230
+    },
+    {
+      "city": "Newport News",
+      "state": "Virginia",
+      "state_abbrev": "VA",
+      "state_slug": "virginia",
+      "city_slug": "newport-news-va",
+      "population_rank": 142,
+      "accident_hotspot_score": 5,
+      "priority_rank": 231
+    },
+    {
+      "city": "Salem",
+      "state": "Oregon",
+      "state_abbrev": "OR",
+      "state_slug": "oregon",
+      "city_slug": "salem-or",
+      "population_rank": 146,
+      "accident_hotspot_score": 5,
+      "priority_rank": 232
+    },
+    {
+      "city": "Eugene",
+      "state": "Oregon",
+      "state_abbrev": "OR",
+      "state_slug": "oregon",
+      "city_slug": "eugene-or",
+      "population_rank": 151,
+      "accident_hotspot_score": 5,
+      "priority_rank": 233
+    },
+    {
+      "city": "Springfield",
+      "state": "Missouri",
+      "state_abbrev": "MO",
+      "state_slug": "missouri",
+      "city_slug": "springfield-mo",
+      "population_rank": 154,
+      "accident_hotspot_score": 5,
+      "priority_rank": 234
+    },
+    {
+      "city": "Fort Collins",
+      "state": "Colorado",
+      "state_abbrev": "CO",
+      "state_slug": "colorado",
+      "city_slug": "fort-collins-co",
+      "population_rank": 155,
+      "accident_hotspot_score": 5,
+      "priority_rank": 235
+    },
+    {
+      "city": "Rockford",
+      "state": "Illinois",
+      "state_abbrev": "IL",
+      "state_slug": "illinois",
+      "city_slug": "rockford-il",
+      "population_rank": 171,
+      "accident_hotspot_score": 5,
+      "priority_rank": 236
+    },
+    {
+      "city": "Sterling Heights",
+      "state": "Michigan",
+      "state_abbrev": "MI",
+      "state_slug": "michigan",
+      "city_slug": "sterling-heights-mi",
+      "population_rank": 188,
+      "accident_hotspot_score": 5,
+      "priority_rank": 237
+    },
+    {
+      "city": "Thornton",
+      "state": "Colorado",
+      "state_abbrev": "CO",
+      "state_slug": "colorado",
+      "city_slug": "thornton-co",
+      "population_rank": 189,
+      "accident_hotspot_score": 5,
+      "priority_rank": 238
+    },
+    {
+      "city": "Cedar Rapids",
+      "state": "Iowa",
+      "state_abbrev": "IA",
+      "state_slug": "iowa",
+      "city_slug": "cedar-rapids-ia",
+      "population_rank": 191,
+      "accident_hotspot_score": 5,
+      "priority_rank": 239
+    },
+    {
+      "city": "Athens",
+      "state": "Georgia",
+      "state_abbrev": "GA",
+      "state_slug": "georgia",
+      "city_slug": "athens-ga",
+      "population_rank": 199,
+      "accident_hotspot_score": 5,
+      "priority_rank": 240
+    },
+    {
+      "city": "Ann Arbor",
+      "state": "Michigan",
+      "state_abbrev": "MI",
+      "state_slug": "michigan",
+      "city_slug": "ann-arbor-mi",
+      "population_rank": 200,
+      "accident_hotspot_score": 5,
+      "priority_rank": 241
+    },
+    {
+      "city": "Abilene",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "abilene-tx",
+      "population_rank": 201,
+      "accident_hotspot_score": 5,
+      "priority_rank": 242
+    },
+    {
+      "city": "Arvada",
+      "state": "Colorado",
+      "state_abbrev": "CO",
+      "state_slug": "colorado",
+      "city_slug": "arvada-co",
+      "population_rank": 203,
+      "accident_hotspot_score": 5,
+      "priority_rank": 243
+    },
+    {
+      "city": "Provo",
+      "state": "Utah",
+      "state_abbrev": "UT",
+      "state_slug": "utah",
+      "city_slug": "provo-ut",
+      "population_rank": 205,
+      "accident_hotspot_score": 5,
+      "priority_rank": 244
+    },
+    {
+      "city": "Independence",
+      "state": "Missouri",
+      "state_abbrev": "MO",
+      "state_slug": "missouri",
+      "city_slug": "independence-mo",
+      "population_rank": 206,
+      "accident_hotspot_score": 5,
+      "priority_rank": 245
+    },
+    {
+      "city": "West Valley City",
+      "state": "Utah",
+      "state_abbrev": "UT",
+      "state_slug": "utah",
+      "city_slug": "west-valley-city-ut",
+      "population_rank": 208,
+      "accident_hotspot_score": 5,
+      "priority_rank": 246
+    },
+    {
+      "city": "Carlsbad",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "carlsbad-ca",
+      "population_rank": 211,
+      "accident_hotspot_score": 5,
+      "priority_rank": 247
+    },
+    {
+      "city": "West Jordan",
+      "state": "Utah",
+      "state_abbrev": "UT",
+      "state_slug": "utah",
+      "city_slug": "west-jordan-ut",
+      "population_rank": 214,
+      "accident_hotspot_score": 5,
+      "priority_rank": 248
+    },
+    {
+      "city": "High Point",
+      "state": "North Carolina",
+      "state_abbrev": "NC",
+      "state_slug": "north-carolina",
+      "city_slug": "high-point-nc",
+      "population_rank": 216,
+      "accident_hotspot_score": 5,
+      "priority_rank": 249
+    },
+    {
+      "city": "Cambridge",
+      "state": "Massachusetts",
+      "state_abbrev": "MA",
+      "state_slug": "massachusetts",
+      "city_slug": "cambridge-ma",
+      "population_rank": 219,
+      "accident_hotspot_score": 5,
+      "priority_rank": 250
+    },
+    {
+      "city": "Columbia",
+      "state": "Missouri",
+      "state_abbrev": "MO",
+      "state_slug": "missouri",
+      "city_slug": "columbia-mo",
+      "population_rank": 221,
+      "accident_hotspot_score": 5,
+      "priority_rank": 251
+    },
+    {
+      "city": "Erie",
+      "state": "Pennsylvania",
+      "state_abbrev": "PA",
+      "state_slug": "pennsylvania",
+      "city_slug": "erie-pa",
+      "population_rank": 229,
+      "accident_hotspot_score": 5,
+      "priority_rank": 252
+    },
+    {
+      "city": "Green Bay",
+      "state": "Wisconsin",
+      "state_abbrev": "WI",
+      "state_slug": "wisconsin",
+      "city_slug": "green-bay-wi",
+      "population_rank": 230,
+      "accident_hotspot_score": 5,
+      "priority_rank": 253
+    },
+    {
+      "city": "Boulder",
+      "state": "Colorado",
+      "state_abbrev": "CO",
+      "state_slug": "colorado",
+      "city_slug": "boulder-co",
+      "population_rank": 231,
+      "accident_hotspot_score": 5,
+      "priority_rank": 254
+    },
+    {
+      "city": "Waterbury",
+      "state": "Connecticut",
+      "state_abbrev": "CT",
+      "state_slug": "connecticut",
+      "city_slug": "waterbury-ct",
+      "population_rank": 237,
+      "accident_hotspot_score": 5,
+      "priority_rank": 255
+    },
+    {
+      "city": "Greeley",
+      "state": "Colorado",
+      "state_abbrev": "CO",
+      "state_slug": "colorado",
+      "city_slug": "greeley-co",
+      "population_rank": 240,
+      "accident_hotspot_score": 5,
+      "priority_rank": 256
+    },
+    {
+      "city": "Pueblo",
+      "state": "Colorado",
+      "state_abbrev": "CO",
+      "state_slug": "colorado",
+      "city_slug": "pueblo-co",
+      "population_rank": 244,
+      "accident_hotspot_score": 5,
+      "priority_rank": 257
+    },
+    {
+      "city": "College Station",
+      "state": "Texas",
+      "state_abbrev": "TX",
+      "state_slug": "texas",
+      "city_slug": "college-station-tx",
+      "population_rank": 247,
+      "accident_hotspot_score": 5,
+      "priority_rank": 258
+    },
+    {
+      "city": "Kenosha",
+      "state": "Wisconsin",
+      "state_abbrev": "WI",
+      "state_slug": "wisconsin",
+      "city_slug": "kenosha-wi",
+      "population_rank": 248,
+      "accident_hotspot_score": 5,
+      "priority_rank": 259
+    },
+    {
+      "city": "Roanoke",
+      "state": "Virginia",
+      "state_abbrev": "VA",
+      "state_slug": "virginia",
+      "city_slug": "roanoke-va",
+      "population_rank": 252,
+      "accident_hotspot_score": 5,
+      "priority_rank": 260
+    },
+    {
+      "city": "Albany",
+      "state": "New York",
+      "state_abbrev": "NY",
+      "state_slug": "new-york",
+      "city_slug": "albany-ny",
+      "population_rank": 253,
+      "accident_hotspot_score": 5,
+      "priority_rank": 261
+    },
+    {
+      "city": "Spartanburg",
+      "state": "South Carolina",
+      "state_abbrev": "SC",
+      "state_slug": "south-carolina",
+      "city_slug": "spartanburg-sc",
+      "population_rank": 259,
+      "accident_hotspot_score": 5,
+      "priority_rank": 262
+    },
+    {
+      "city": "Evansville",
+      "state": "Indiana",
+      "state_abbrev": "IN",
+      "state_slug": "indiana",
+      "city_slug": "evansville-in",
+      "population_rank": 260,
+      "accident_hotspot_score": 5,
+      "priority_rank": 263
+    },
+    {
+      "city": "Topeka",
+      "state": "Kansas",
+      "state_abbrev": "KS",
+      "state_slug": "kansas",
+      "city_slug": "topeka-ks",
+      "population_rank": 261,
+      "accident_hotspot_score": 5,
+      "priority_rank": 264
+    },
+    {
+      "city": "Independence",
+      "state": "Kentucky",
+      "state_abbrev": "KY",
+      "state_slug": "kentucky",
+      "city_slug": "independence-ky",
+      "population_rank": 263,
+      "accident_hotspot_score": 5,
+      "priority_rank": 265
+    },
+    {
+      "city": "Norman",
+      "state": "Oklahoma",
+      "state_abbrev": "OK",
+      "state_slug": "oklahoma",
+      "city_slug": "norman-ok",
+      "population_rank": 269,
+      "accident_hotspot_score": 5,
+      "priority_rank": 266
+    },
+    {
+      "city": "Columbia",
+      "state": "Maryland",
+      "state_abbrev": "MD",
+      "state_slug": "maryland",
+      "city_slug": "columbia-md",
+      "population_rank": 270,
+      "accident_hotspot_score": 5,
+      "priority_rank": 267
+    },
+    {
+      "city": "Athens-Clarke County",
+      "state": "Georgia",
+      "state_abbrev": "GA",
+      "state_slug": "georgia",
+      "city_slug": "athens-clarke-county-ga",
+      "population_rank": 271,
+      "accident_hotspot_score": 5,
+      "priority_rank": 268
+    },
+    {
+      "city": "Wilmington",
+      "state": "Delaware",
+      "state_abbrev": "DE",
+      "state_slug": "delaware",
+      "city_slug": "wilmington-de",
+      "population_rank": 273,
+      "accident_hotspot_score": 5,
+      "priority_rank": 269
+    },
+    {
+      "city": "Santa Barbara",
+      "state": "California",
+      "state_abbrev": "CA",
+      "state_slug": "california",
+      "city_slug": "santa-barbara-ca",
+      "population_rank": 276,
+      "accident_hotspot_score": 5,
+      "priority_rank": 270
+    },
+    {
+      "city": "Springfield",
+      "state": "Massachusetts",
+      "state_abbrev": "MA",
+      "state_slug": "massachusetts",
+      "city_slug": "springfield-ma",
+      "population_rank": 280,
+      "accident_hotspot_score": 5,
+      "priority_rank": 271
+    },
+    {
+      "city": "Anchorage",
+      "state": "Alaska",
+      "state_abbrev": "AK",
+      "state_slug": "alaska",
+      "city_slug": "anchorage-ak",
+      "population_rank": 282,
+      "accident_hotspot_score": 5,
+      "priority_rank": 272
+    },
+    {
+      "city": "Madison",
+      "state": "Alabama",
+      "state_abbrev": "AL",
+      "state_slug": "alabama",
+      "city_slug": "madison-al",
+      "population_rank": 286,
+      "accident_hotspot_score": 5,
+      "priority_rank": 273
+    },
+    {
+      "city": "Sioux Falls",
+      "state": "South Dakota",
+      "state_abbrev": "SD",
+      "state_slug": "south-dakota",
+      "city_slug": "sioux-falls-sd",
+      "population_rank": 137,
+      "accident_hotspot_score": 4,
+      "priority_rank": 274
+    },
+    {
+      "city": "Billings",
+      "state": "Montana",
+      "state_abbrev": "MT",
+      "state_slug": "montana",
+      "city_slug": "billings-mt",
+      "population_rank": 207,
+      "accident_hotspot_score": 4,
+      "priority_rank": 275
+    },
+    {
+      "city": "Manchester",
+      "state": "New Hampshire",
+      "state_abbrev": "NH",
+      "state_slug": "new-hampshire",
+      "city_slug": "manchester-nh",
+      "population_rank": 226,
+      "accident_hotspot_score": 4,
+      "priority_rank": 276
+    },
+    {
+      "city": "Fargo",
+      "state": "North Dakota",
+      "state_abbrev": "ND",
+      "state_slug": "north-dakota",
+      "city_slug": "fargo-nd",
+      "population_rank": 272,
+      "accident_hotspot_score": 4,
+      "priority_rank": 277
+    },
+    {
+      "city": "Lafayette",
+      "state": "Indiana",
+      "state_abbrev": "IN",
+      "state_slug": "indiana",
+      "city_slug": "lafayette-in",
+      "population_rank": 278,
+      "accident_hotspot_score": 4,
+      "priority_rank": 278
+    },
+    {
+      "city": "Plano",
+      "state": "Illinois",
+      "state_abbrev": "IL",
+      "state_slug": "illinois",
+      "city_slug": "plano-il",
+      "population_rank": 283,
+      "accident_hotspot_score": 4,
+      "priority_rank": 279
+    }
+  ]
+}

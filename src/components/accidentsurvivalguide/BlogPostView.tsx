@@ -9,6 +9,10 @@ import { estimateReadingTime } from "@/lib/blog/reading-time";
 import { BLOG_TOPICS } from "@/lib/blog/topics";
 import { formatMessage } from "@/lib/i18n/get-messages";
 import { WRECKMATCH_URL } from "@/lib/accidentsurvivalguide";
+import {
+  AutopilotMarkdownBody,
+  extractJsonLdScripts,
+} from "@/components/accidentsurvivalguide/AutopilotMarkdownBody";
 
 type BlogPostViewProps = {
   post: BlogPost;
@@ -21,9 +25,12 @@ export function BlogPostView({ post }: BlogPostViewProps) {
   const topicLabel = BLOG_TOPICS[post.topic]?.label ?? post.topic;
   const stateLink = post.stateSlug ? `/${post.stateSlug}` : null;
   const dateLocale = locale === "es" ? "es-US" : "en-US";
+  const jsonLdScripts = post.markdownBody ? extractJsonLdScripts(post.markdownBody) : [];
 
   return (
-    <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
+    <article
+      className={`mx-auto px-4 py-16 sm:px-6 sm:py-20 ${post.markdownBody ? "max-w-4xl" : "max-w-3xl"}`}
+    >
       <nav aria-label="Breadcrumb" className="text-sm text-[#5b8fa8]">
         <AsgLink href="/blog" className="underline underline-offset-2 hover:text-[#2a7a9b]">
           {b.title}
@@ -71,27 +78,39 @@ export function BlogPostView({ post }: BlogPostViewProps) {
       </h1>
       <p className="mt-4 text-lg leading-relaxed text-[#5b6b7f]">{post.excerpt}</p>
 
-      <div className="mt-10 space-y-10">
-        {post.sections.map((section) => (
-          <section key={section.heading ?? section.paragraphs[0]?.slice(0, 40)}>
-            {section.heading ? (
-              <h2 className="font-serif text-2xl font-semibold text-[#1a3a52]">{section.heading}</h2>
-            ) : null}
-            <div className="mt-4 space-y-4 text-[#4a6578] leading-relaxed">
-              {section.paragraphs.map((p) => (
-                <p key={p.slice(0, 48)}>{p}</p>
-              ))}
-            </div>
-            {section.list?.length ? (
-              <ol className="mt-4 list-decimal space-y-2 pl-6 text-[#4a6578]">
-                {section.list.map((item) => (
-                  <li key={item}>{item}</li>
+      {jsonLdScripts.map((json) => (
+        <script
+          key={json.slice(0, 40)}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: json }}
+        />
+      ))}
+
+      {post.markdownBody ? (
+        <AutopilotMarkdownBody markdown={post.markdownBody} />
+      ) : (
+        <div className="mt-10 space-y-10">
+          {post.sections.map((section) => (
+            <section key={section.heading ?? section.paragraphs[0]?.slice(0, 40)}>
+              {section.heading ? (
+                <h2 className="font-serif text-2xl font-semibold text-[#1a3a52]">{section.heading}</h2>
+              ) : null}
+              <div className="mt-4 space-y-4 text-[#4a6578] leading-relaxed">
+                {section.paragraphs.map((p) => (
+                  <p key={p.slice(0, 48)}>{p}</p>
                 ))}
-              </ol>
-            ) : null}
-          </section>
-        ))}
-      </div>
+              </div>
+              {section.list?.length ? (
+                <ol className="mt-4 list-decimal space-y-2 pl-6 text-[#4a6578]">
+                  {section.list.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ol>
+              ) : null}
+            </section>
+          ))}
+        </div>
+      )}
 
       {post.faq.length > 0 ? (
         <section className="mt-12 rounded-xl border border-[#c5dce8] bg-[#f8fbfd] p-6">
