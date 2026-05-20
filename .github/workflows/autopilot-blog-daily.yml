@@ -45,7 +45,12 @@ jobs:
               --state "${{ github.event.inputs.state }}" \
               --publish-json
           else
-            python scripts/accident_survival_guide_autopilot.py --next --publish-json
+            python scripts/accident_survival_guide_autopilot.py --sync-queue
+            python scripts/accident_survival_guide_autopilot.py \
+              --batch 5 \
+              --publish-json \
+              --continue-on-error \
+              --delay 8
           fi
 
       - name: Commit and push

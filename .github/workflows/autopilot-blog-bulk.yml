@@ -1,0 +1,101 @@
+name: Autopilot bulk city guides
+
+on:
+  schedule:
+    # 3 runs per day until queue is empty (requires OPENAI_API_KEY secret)
+    - cron: "0 3,11,19 * * *"
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: "Cities to generate this run (max 40; re-run until queue empty)"
+        required: true
+        default: "20"
+        type: string
+      publish_json:
+        description: "Also write content/blog/posts/*.json"
+        type: boolean
+        default: true
+      retrigger:
+        description: "Auto-start another run if cities remain"
+        type: boolean
+        default: true
+
+concurrency:
+  group: autopilot-bulk
+  cancel-in-progress: false
+
+jobs:
+  generate-batch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r scripts/autopilot_requirements.txt
+
+      - name: Sync queue and generate batch
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-4o
+          BLOG_AUTO_PUBLISH: "true"
+          AUTOPILOT_SITE_URL: https://www.accidentsurvivalguide.com
+          AUTOPILOT_PHONE_DISPLAY: "(978) 515-6063"
+        run: |
+          BATCH="${{ github.event.inputs.batch_size || '20' }}"
+          python scripts/accident_survival_guide_autopilot.py --sync-queue
+          python scripts/accident_survival_guide_autopilot.py \
+            --batch "$BATCH" \
+            --publish-json \
+            --continue-on-error \
+            --delay 8
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/
+          git diff --staged --quiet || git commit -m "content(autopilot): bulk local accident survival guides"
+          git push
+
+      - name: Retrigger if more cities pending
+        if: >-
+          github.event_name == 'schedule' ||
+          (github.event_name == 'workflow_dispatch' && github.event.inputs.retrigger == 'true')
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require("fs");
+            const cities = JSON.parse(
+              fs.readFileSync("content/autopilot/cities_master.json", "utf8")
+            ).cities;
+            const queue = JSON.parse(
+              fs.readFileSync("content/autopilot/queue.json", "utf8")
+            );
+            const done = new Set(queue.completed_city_keys || []);
+            const remaining = cities.filter(
+              (c) => !done.has(`${c.city_slug}|${c.state_abbrev}`)
+            ).length;
+            core.info(`Remaining cities: ${remaining}`);
+            if (remaining > 0) {
+              await new Promise((r) => setTimeout(r, 90_000));
+              await github.rest.actions.createWorkflowDispatch({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                workflow_id: "autopilot-blog-bulk.yml",
+                ref: context.ref.replace("refs/heads/", "") || "main",
+                inputs: {
+                  batch_size: "${{ github.event.inputs.batch_size || '20' }}",
+                  publish_json: "true",
+                  retrigger: "true",
+                },
+              });
+              core.info("Queued next bulk batch.");
+            }

@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "last_run_at": null,
-  "completed_city_keys": [],
-  "last_city_key": null,
-  "notes": "Queue tracks generated city_slug|state_abbrev pairs. Use --next to process highest priority ungenerated city."
+  "last_run_at": "2026-05-19T18:00:00+00:00",
+  "completed_city_keys": ["austin-tx|TX"],
+  "last_city_key": "austin-tx|TX",
+  "notes": "Queue tracks generated city_slug|state_abbrev pairs. Use --next or --all to process highest priority ungenerated city."
 }
