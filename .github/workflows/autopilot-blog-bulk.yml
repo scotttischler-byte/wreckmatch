@@ -1,6 +1,10 @@
 name: Autopilot bulk city guides
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "content/autopilot/.start-bulk-generation"
   schedule:
     # 3 runs per day until queue is empty (requires OPENAI_API_KEY secret)
     - cron: "0 3,11,19 * * *"
@@ -68,6 +72,7 @@ jobs:
       - name: Retrigger if more cities pending
         if: >-
           github.event_name == 'schedule' ||
+          github.event_name == 'push' ||
           (github.event_name == 'workflow_dispatch' && github.event.inputs.retrigger == 'true')
         uses: actions/github-script@v7
         with:

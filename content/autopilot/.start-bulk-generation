@@ -1,0 +1,3 @@
+# Touch this file and push to main to start bulk city guide generation.
+# Uses repository secret OPENAI_API_KEY.
+started_at=2026-05-20T19:35:00Z

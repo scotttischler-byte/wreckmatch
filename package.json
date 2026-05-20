@@ -11,6 +11,10 @@
     "blog:generate": "node scripts/generate-blog-batch.mjs",
     "autopilot:build-cities": "python3 scripts/build_cities_master.py",
     "autopilot:next": "python3 scripts/accident_survival_guide_autopilot.py --next --publish-json",
+    "autopilot:batch": "python3 scripts/accident_survival_guide_autopilot.py --batch 20 --publish-json --continue-on-error",
+    "autopilot:all": "bash scripts/run_autopilot_all.sh",
+    "autopilot:sync": "python3 scripts/accident_survival_guide_autopilot.py --sync-queue",
+    "autopilot:trigger": "bash scripts/trigger-bulk-workflow.sh",
     "autopilot:city": "python3 scripts/accident_survival_guide_autopilot.py --city Austin --state Texas --publish-json",
     "blog:export-cities": "npx tsx -e \"import { US_CITIES } from './src/lib/blog/cities.ts'; import fs from 'fs'; fs.writeFileSync('content/blog/cities-seed.json', JSON.stringify(US_CITIES, null, 2));\""
   },
