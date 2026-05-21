@@ -1,5 +1,26 @@
-# Accident Survival Guide (accidentsurvivalguide.com)
+# robots.txt for https://www.accidentsurvivalguide.com/
+# Accident Survival Guide — educational content by WreckMatch LLC
+
 User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /thank-you
+Disallow: /api/
+
+# AI / LLM crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://www.accidentsurvivalguide.com/sitemap.xml

@@ -58,6 +58,23 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // Root crawler files — must not rewrite to /accidentsurvivalguide/[state]
+  if (pathname === "/robots.txt") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/robots-accidentsurvivalguide.txt";
+    return NextResponse.rewrite(url);
+  }
+  if (pathname === "/sitemap.xml") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/accidentsurvivalguide/sitemap.xml";
+    return NextResponse.rewrite(url);
+  }
+  if (pathname === "/feed.xml") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/accidentsurvivalguide/feed.xml";
+    return NextResponse.rewrite(url);
+  }
+
   if (
     pathname.startsWith("/accidentsurvivalguide") ||
     pathname.startsWith("/api") ||
