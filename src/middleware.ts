@@ -64,6 +64,11 @@ export function middleware(request: NextRequest) {
     url.pathname = "/robots-accidentsurvivalguide.txt";
     return NextResponse.rewrite(url);
   }
+  if (pathname === "/llms.txt") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/llms-accidentsurvivalguide.txt";
+    return NextResponse.rewrite(url);
+  }
   if (pathname === "/sitemap.xml") {
     const url = request.nextUrl.clone();
     url.pathname = "/accidentsurvivalguide/sitemap.xml";

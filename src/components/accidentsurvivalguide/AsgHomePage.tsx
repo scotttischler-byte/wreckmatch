@@ -192,7 +192,7 @@ export function AsgHomePage({ messages: m }: { messages: Messages }) {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20">
+      <section id="testimonials" className="scroll-mt-24 py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <h2 className="font-serif text-3xl font-semibold text-[#1a3a52]">{h.testimonialsTitle}</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -209,7 +209,7 @@ export function AsgHomePage({ messages: m }: { messages: Messages }) {
         </div>
       </section>
 
-      <section className="border-t border-[#c5dce8]/60 bg-white py-16">
+      <section id="faq" className="scroll-mt-24 border-t border-[#c5dce8]/60 bg-white py-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <h2 className="font-serif text-2xl font-semibold text-[#1a3a52]">{h.faqTitle}</h2>
           <dl className="mt-8 space-y-6">

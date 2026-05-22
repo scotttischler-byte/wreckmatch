@@ -24,3 +24,6 @@ User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://www.accidentsurvivalguide.com/sitemap.xml
+
+# LLM site guide
+# https://www.accidentsurvivalguide.com/llms.txt
