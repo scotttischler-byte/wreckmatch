@@ -1,0 +1,13 @@
+.wreckmatch-app {
+  --wm-primary: #006d77;
+  --wm-secondary: #ff8c42;
+  --wm-background: #f8f5f2;
+  --wm-accent: #2a9d8f;
+  --wm-text: #2b2b2b;
+  --wm-text-muted: #5c5c5c;
+}
+
+.wreckmatch-app {
+  background-color: var(--wm-background);
+  color: var(--wm-text);
+}

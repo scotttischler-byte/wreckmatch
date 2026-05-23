@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "wreckmatch:check": "node scripts/check-wreckmatch-setup.mjs",
     "deploy": "npm run build && vercel --prod",
     "blog:generate": "node scripts/generate-blog-batch.mjs",
     "autopilot:build-cities": "python3 scripts/build_cities_master.py",
@@ -19,6 +20,8 @@
     "blog:export-cities": "npx tsx -e \"import { US_CITIES } from './src/lib/blog/cities.ts'; import fs from 'fs'; fs.writeFileSync('content/blog/cities-seed.json', JSON.stringify(US_CITIES, null, 2));\""
   },
   "dependencies": {
+    "@supabase/ssr": "^0.6.1",
+    "@supabase/supabase-js": "^2.49.8",
     "@base-ui/react": "^1.4.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
