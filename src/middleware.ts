@@ -11,6 +11,8 @@ import {
 import { parseLocaleFromPathname, toInternalPath } from "@/lib/i18n/locale-path";
 import { BLOG_PATH_REDIRECTS } from "@/lib/seo/redirected-blog";
 
+const INDEXNOW_KEY_PATH = "/wreckmatch-indexnow-key.txt";
+
 function resolveLocale(request: NextRequest, pathname: string): Locale {
   const fromPath = parseLocaleFromPathname(pathname).locale;
   if (fromPath === "es") return "es";
@@ -62,6 +64,10 @@ export async function middleware(request: NextRequest) {
   const blogRedirect = BLOG_PATH_REDIRECTS[pathname];
   if (blogRedirect) {
     return NextResponse.redirect(new URL(blogRedirect, request.url), 301);
+  }
+
+  if (pathname === INDEXNOW_KEY_PATH) {
+    return NextResponse.next();
   }
 
   if (isInjuredHelpHostname(host)) {
