@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import type { BlogPost } from "@/lib/blog/types";
-import { estimateReadingTime } from "@/lib/blog/reading-time";
+import { estimateReadingTime, shouldShowReadTime } from "@/lib/blog/reading-time";
 import { BLOG_TOPICS } from "@/lib/blog/topics";
 import { SeoShell } from "@/components/seo/SeoShell";
 import { SeoBreadcrumbs } from "@/components/seo/SeoBreadcrumbs";
@@ -15,6 +15,8 @@ import { blogPostJsonLd } from "@/lib/seo/schema";
 import { getCityByName } from "@/lib/seo/cities";
 import { trackWreckmatchEvent } from "@/lib/analytics";
 import { BlogCoverImage } from "@/components/seo/BlogCoverImage";
+import { BlogTableOfContents, CityHelpPageLink } from "@/components/seo/BlogTableOfContents";
+import { cityPagePath } from "@/lib/seo/site";
 
 type WmBlogPostViewProps = {
   post: BlogPost;
@@ -47,7 +49,11 @@ export function WmBlogPostView({ post }: WmBlogPostViewProps) {
               {post.city}, {post.stateAbbr}
             </span>
           ) : null}
-          <span className="rounded-full bg-[#f1f5f9] px-3 py-1 text-[#64748b]">{readMin} min read</span>
+          {shouldShowReadTime(post) ? (
+            <span className="rounded-full bg-[#f1f5f9] px-3 py-1 text-[#64748b]">
+              {readMin} min read
+            </span>
+          ) : null}
         </div>
 
         <time className="mt-4 block text-sm text-[#64748b]" dateTime={post.publishedAt}>
@@ -67,9 +73,23 @@ export function WmBlogPostView({ post }: WmBlogPostViewProps) {
             </h1>
             <p className="mt-4 text-lg leading-relaxed text-[#475569]">{post.excerpt}</p>
 
+            <BlogTableOfContents post={post} />
+
+            {cityRecord ? (
+              <CityHelpPageLink
+                cityName={cityRecord.city}
+                stateAbbr={cityRecord.state_abbr}
+                href={cityPagePath(cityRecord.slug)}
+              />
+            ) : null}
+
             <div className="mt-10 space-y-10">
-              {post.sections.map((section, i) => (
-                <section key={i}>
+              {post.sections.map((section, i) => {
+                const sectionId = section.heading
+                  ? section.heading.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
+                  : undefined;
+                return (
+                <section key={i} id={sectionId}>
                   {section.heading ? (
                     <h2 className="font-serif text-2xl font-semibold text-[#152238]">
                       {section.heading}
@@ -88,7 +108,8 @@ export function WmBlogPostView({ post }: WmBlogPostViewProps) {
                     </ul>
                   ) : null}
                 </section>
-              ))}
+              );
+              })}
             </div>
 
             {post.faq.length ? (

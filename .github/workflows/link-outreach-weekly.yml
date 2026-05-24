@@ -1,0 +1,37 @@
+name: Weekly Link Outreach (drafts only)
+
+# Finds prospects + writes email drafts. NEVER sends mail — Scott reviews & sends manually.
+on:
+  schedule:
+    - cron: "0 15 * * 1" # Mondays 15:00 UTC
+  workflow_dispatch:
+
+jobs:
+  link-pilot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install link-builder deps
+        run: pip install -r wreckmatch-link-builder/requirements.txt
+
+      - name: Run weekly pilot (prospects + drafts)
+        env:
+          GOOGLE_CSE_API_KEY: ${{ secrets.GOOGLE_CSE_API_KEY }}
+          GOOGLE_CSE_CX: ${{ secrets.GOOGLE_CSE_CX }}
+          OUTREACH_SENDER_NAME: Scott
+          OUTREACH_SENDER_EMAIL: scott@wreckmatch.com
+        working-directory: wreckmatch-link-builder
+        run: python pilot.py --skip-resource-analysis
+
+      - name: Commit tracker + drafts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add wreckmatch-link-builder/data/
+          git diff --staged --quiet || git commit -m "chore(links): weekly outreach pilot — review drafts before sending"
+          git push

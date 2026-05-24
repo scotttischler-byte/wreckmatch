@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import type { CityRecord } from "../../../data/types";
+import { sanitizeCityMarkdown } from "./sanitize-markdown";
 
 const ROOT = process.cwd();
 const CITY_MD_DIR = path.join(ROOT, "ai-visibility-accelerator/output/content/city-posts");
@@ -58,4 +59,16 @@ export function listCityMarkdownSlugs(): string[] {
     .readdirSync(CITY_MD_DIR)
     .filter((f) => f.endsWith(".md"))
     .map((f) => f.replace(/^car-accident-help-/, "").replace(/\.md$/, ""));
+}
+
+export function getCityMarkdownBody(city: CityRecord): string | null {
+  const parsed = getCityMarkdown(city);
+  if (!parsed) return null;
+  return sanitizeCityMarkdown(parsed.body);
+}
+
+export function getStateMarkdownBody(stateSlug: string): string | null {
+  const parsed = getStateMarkdown(stateSlug);
+  if (!parsed) return null;
+  return sanitizeCityMarkdown(parsed.body);
 }

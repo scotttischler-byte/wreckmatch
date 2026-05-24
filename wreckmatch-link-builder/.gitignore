@@ -1,0 +1,31 @@
+# Environment
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Data and secrets — allow tracker + drafts for CI commits
+data/*
+!data/.gitkeep
+!data/prospects.csv
+!data/drafts/
+!data/drafts/**
+logs/
+credentials/
+*.json
+!credentials/.gitkeep
+
+# Exports
+*_export_*.csv
+
+# IDE
+.idea/
+.vscode/
+.DS_Store
+
+# Streamlit
+.streamlit/secrets.toml

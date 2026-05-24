@@ -12,10 +12,9 @@ import {
   cityBreadcrumbs,
   nearbyCityLinks,
   relatedBlogLinks,
-  stateCityLinks,
 } from "@/lib/seo/internal-links";
 import { cityPageJsonLd } from "@/lib/seo/schema";
-import { cityPagePath } from "@/lib/seo/site";
+import { EeatCredibilityBlock } from "@/components/seo/EeatCredibilityBlock";
 
 type CityLandingPageProps = {
   city: CityRecord;
@@ -36,6 +35,7 @@ export function CityLandingPage({ city, state, markdown }: CityLandingPageProps)
         <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_340px]">
           <div>
             <SeoMarkdownBody markdown={markdown} />
+            <EeatCredibilityBlock state={state} />
             <RelatedGuides
               title={`More ${city.city} guides`}
               links={relatedBlogLinks(city, "").map((l) => ({ label: l.label, href: l.href }))}
@@ -53,13 +53,8 @@ export function CityLandingPage({ city, state, markdown }: CityLandingPageProps)
         </div>
 
         <NearbyCities
-          title={`Other ${state.name} cities`}
-          links={[
-            ...nearbyCityLinks(city.slug, 5),
-            ...stateCityLinks(city.state_slug, 8).filter(
-              (l) => l.href !== cityPagePath(city.slug),
-            ),
-          ].slice(0, 10)}
+          title={`Nearby ${state.name} cities`}
+          links={nearbyCityLinks(city.slug, 5)}
         />
       </article>
       <StickyLeadCta label={`Free ${city.city} attorney match`} />

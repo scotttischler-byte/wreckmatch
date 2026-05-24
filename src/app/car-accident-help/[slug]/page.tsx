@@ -7,12 +7,13 @@ import {
   getCitiesByState,
   getStateForCity,
 } from "@/lib/seo/cities";
-import { getCityMarkdown, getStateMarkdown } from "@/lib/seo/markdown-content";
+import { getCityMarkdownBody, getStateMarkdownBody } from "@/lib/seo/markdown-content";
 import { buildCityMarkdown } from "@/lib/seo/build-city-page";
 import { buildStateMarkdown } from "@/lib/seo/build-state-page";
 import { cityMetaDescription, stateMetaDescription } from "@/lib/seo/meta";
 import { CityLandingPage } from "@/components/seo/CityLandingPage";
 import { StateHubPage } from "@/components/seo/StateHubPage";
+import { getSeoPageCoverImage, getSeoPageCoverAlt } from "@/lib/seo/covers";
 import { cityPagePath, absoluteUrl } from "@/lib/seo/site";
 import { STATES } from "@/lib/seo/cities";
 
@@ -34,11 +35,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const st = getStateForCity(city)!;
     const title = `Car Accident Help in ${city.city}, ${st.name} (${new Date().getFullYear()})`;
     const description = cityMetaDescription(city);
+    const coverUrl = absoluteUrl(getSeoPageCoverImage(slug));
     return {
       title,
       description,
       alternates: { canonical: absoluteUrl(cityPagePath(slug)) },
-      openGraph: { title, description, type: "article" },
+      openGraph: {
+        title,
+        description,
+        type: "article",
+        images: [{ url: coverUrl, width: 1200, height: 630, alt: getSeoPageCoverAlt(`${city.city}, ${st.abbr}`) }],
+      },
+      twitter: { card: "summary_large_image", title, description, images: [coverUrl] },
     };
   }
 
@@ -46,11 +54,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const cities = getCitiesByState(slug);
     const title = `Car Accident Help in ${state.name} — State Guide (${new Date().getFullYear()})`;
     const description = stateMetaDescription(state, cities.length);
+    const coverUrl = absoluteUrl(getSeoPageCoverImage(slug));
     return {
       title,
       description,
       alternates: { canonical: absoluteUrl(cityPagePath(slug)) },
-      openGraph: { title, description, type: "article" },
+      openGraph: {
+        title,
+        description,
+        type: "article",
+        images: [{ url: coverUrl, width: 1200, height: 630, alt: getSeoPageCoverAlt(state.name) }],
+      },
+      twitter: { card: "summary_large_image", title, description, images: [coverUrl] },
     };
   }
 
@@ -65,15 +80,13 @@ export default async function CarAccidentHelpPage({ params }: PageProps) {
   if (city) {
     const state = getStateForCity(city);
     if (!state) notFound();
-    const md = getCityMarkdown(city);
-    const markdown = md?.body ?? buildCityMarkdown(city, state);
+    const markdown = getCityMarkdownBody(city) ?? buildCityMarkdown(city, state);
     return <CityLandingPage city={city} state={state} markdown={markdown} />;
   }
 
   if (stateHub) {
     const cities = getCitiesByState(slug);
-    const md = getStateMarkdown(slug);
-    const markdown = md?.body ?? buildStateMarkdown(stateHub, cities);
+    const markdown = getStateMarkdownBody(slug) ?? buildStateMarkdown(stateHub, cities);
     return <StateHubPage state={stateHub} markdown={markdown} cityCount={cities.length} />;
   }
 

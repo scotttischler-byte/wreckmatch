@@ -2,6 +2,7 @@ import type { CityRecord } from "../../../data/types";
 import type { StateRecord } from "../../../data/types";
 import type { BlogPost } from "@/lib/blog/types";
 import type { BreadcrumbItem } from "./internal-links";
+import { SARAH_PHONE_E164 } from "@/lib/constants";
 import { getBlogCoverImage } from "@/lib/blog/covers";
 import { absoluteUrl, blogPostPath, cityPagePath } from "./site";
 
@@ -29,6 +30,21 @@ export function cityPageJsonLd(city: CityRecord, state: StateRecord, breadcrumbs
       url: absoluteUrl(cityPagePath(city.slug)),
       inLanguage: "en-US",
       isPartOf: { "@type": "WebSite", name: "WreckMatch", url: absoluteUrl("/") },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      name: "WreckMatch LLC",
+      description: "Legal referral service connecting car accident victims with licensed attorneys. Not a law firm.",
+      url: absoluteUrl("/"),
+      telephone: SARAH_PHONE_E164,
+      serviceType: "Legal Referral Service",
+      areaServed: {
+        "@type": "City",
+        name: city.city,
+        containedInPlace: { "@type": "State", name: state.name },
+      },
+      audience: { "@type": "PeopleAudience", audienceType: "Car accident victims" },
     },
     {
       "@context": "https://schema.org",
@@ -65,6 +81,39 @@ export function statePageJsonLd(state: StateRecord, breadcrumbs: BreadcrumbItem[
       description: `${state.name} car accident guide — ${state.statute_limitations_years}-year SOL, ${state.min_liability_insurance} insurance minimums, and city resources.`,
       url: absoluteUrl(cityPagePath(state.slug)),
       inLanguage: "en-US",
+      isPartOf: { "@type": "WebSite", name: "WreckMatch", url: absoluteUrl("/") },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      name: "WreckMatch LLC",
+      description: "Legal referral service connecting car accident victims with licensed attorneys. Not a law firm.",
+      url: absoluteUrl("/"),
+      telephone: SARAH_PHONE_E164,
+      serviceType: "Legal Referral Service",
+      areaServed: { "@type": "State", name: state.name },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: `How long do I have to file a car accident claim in ${state.name}?`,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: `Most ${state.name} personal injury claims have a ${state.statute_limitations_years}-year statute of limitations. Verify your specific deadline with a licensed attorney.`,
+          },
+        },
+        {
+          "@type": "Question",
+          name: `Is WreckMatch a law firm?`,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. WreckMatch LLC is a legal referral service that connects accident victims with independent attorneys. We do not provide legal advice.",
+          },
+        },
+      ],
     },
   ];
 }

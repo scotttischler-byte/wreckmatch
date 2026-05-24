@@ -26,6 +26,16 @@ const nextConfig = {
         destination: "/terms",
         permanent: true,
       },
+      {
+        source: "/blog/what-to-do-after-car-accident-houston-tx",
+        destination: "/car-accident-help-houston",
+        permanent: true,
+      },
+      {
+        source: "/blog/car-accident-miami-fl-insurance-pitfalls",
+        destination: "/car-accident-help-miami",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {

@@ -1,10 +1,14 @@
 import type { StateRecord } from "../../../data/types";
 import type { CityRecord } from "../../../data/types";
+import { getCitationsForState } from "../../../data/citations";
 import { cityPagePath } from "./site";
 
 export function buildStateMarkdown(state: StateRecord, cities: CityRecord[]): string {
   const crashes = state.annual_crashes_state?.toLocaleString() ?? "many";
   const fatals = state.fatal_crashes_annual_state?.toLocaleString() ?? "hundreds of";
+  const legalCitations = getCitationsForState(state.slug, state)
+    .map((c, i) => `${i + 1}. [${c.label}](${c.url}) (${c.retrieved})`)
+    .join("\n");
   const cityList = cities
     .slice(0, 15)
     .map((c) => `- [${c.city}](${cityPagePath(c.slug)}) — ~${c.annual_crashes?.toLocaleString() ?? "N/A"} crashes/yr (est.)`)
@@ -80,6 +84,12 @@ Most car accident injury claims must be filed within **${state.statute_limitatio
 
 ### Is WreckMatch a law firm?
 No. WreckMatch LLC connects accident victims with independent attorneys — we do not provide legal advice.
+
+---
+
+## Sources & citations
+
+${legalCitations}
 
 ---
 

@@ -8,6 +8,7 @@ import { ProgressiveLeadForm } from "@/components/seo/ProgressiveLeadForm";
 import { StickyLeadCta } from "@/components/seo/StickyLeadCta";
 import { stateBreadcrumbs, stateCityLinks } from "@/lib/seo/internal-links";
 import { statePageJsonLd } from "@/lib/seo/schema";
+import { EeatCredibilityBlock } from "@/components/seo/EeatCredibilityBlock";
 
 type StateHubPageProps = {
   state: StateRecord;
@@ -28,6 +29,7 @@ export function StateHubPage({ state, markdown, cityCount }: StateHubPageProps) 
         <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_340px]">
           <div>
             <SeoMarkdownBody markdown={markdown} />
+            <EeatCredibilityBlock state={state} />
           </div>
           <aside className="lg:sticky lg:top-8 lg:self-start">
             <ProgressiveLeadForm

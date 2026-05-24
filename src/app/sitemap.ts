@@ -3,6 +3,8 @@ import { getPublishedBlogPosts } from "@/lib/blog/posts";
 import { CITIES, STATES } from "@/lib/seo/cities";
 import { WRECKMATCH_SEO_BASE, cityPagePath, blogPostPath } from "@/lib/seo/site";
 
+import { REDIRECTED_BLOG_SLUGS } from "@/lib/seo/redirected-blog";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = WRECKMATCH_SEO_BASE;
   const now = new Date();
@@ -28,7 +30,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  const blogRoutes = getPublishedBlogPosts().map((post) => ({
+  const blogRoutes = getPublishedBlogPosts()
+    .filter((post) => !REDIRECTED_BLOG_SLUGS.has(post.slug))
+    .map((post) => ({
     url: `${base}${blogPostPath(post.slug)}`,
     lastModified: new Date(post.updatedAt ?? post.publishedAt),
     changeFrequency: "monthly" as const,

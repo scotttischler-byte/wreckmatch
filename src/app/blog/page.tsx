@@ -7,7 +7,7 @@ import { BLOG_TOPICS } from "@/lib/blog/topics";
 import { absoluteUrl } from "@/lib/seo/site";
 
 export const metadata: Metadata = {
-  title: "Car Accident Blog | WreckMatch",
+  title: "Car Accident Blog",
   description:
     "Educational car accident guides by city and state — immediate steps, insurance pitfalls, statutes of limitations, and injury recovery. Not legal advice.",
   alternates: { canonical: absoluteUrl("/blog") },
@@ -19,8 +19,10 @@ export const metadata: Metadata = {
   },
 };
 
+import { REDIRECTED_BLOG_SLUGS } from "@/lib/seo/redirected-blog";
+
 export default function BlogIndexPage() {
-  const posts = getPublishedBlogPosts();
+  const posts = getPublishedBlogPosts().filter((p) => !REDIRECTED_BLOG_SLUGS.has(p.slug));
 
   return (
     <SeoShell>

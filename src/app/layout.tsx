@@ -15,7 +15,10 @@ const monoFont = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WreckMatch | Secure Chat Support",
+  title: {
+    default: "WreckMatch | Secure Chat Support",
+    template: "%s | WreckMatch",
+  },
   description:
     "WreckMatch secure support page with legal disclosures and a single chat-widget contact path during messaging compliance review.",
 };

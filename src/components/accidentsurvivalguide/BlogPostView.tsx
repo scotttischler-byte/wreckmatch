@@ -5,7 +5,7 @@ import { AsgLink } from "@/components/accidentsurvivalguide/AsgLink";
 import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
 import { SurvivalGuideDisclaimer } from "@/components/SurvivalGuideDisclaimer";
 import { SurvivalGuideDownloadForm } from "@/components/accidentsurvivalguide/SurvivalGuideDownloadForm";
-import { estimateReadingTime } from "@/lib/blog/reading-time";
+import { estimateReadingTime, shouldShowReadTime } from "@/lib/blog/reading-time";
 import { BLOG_TOPICS } from "@/lib/blog/topics";
 import { formatMessage } from "@/lib/i18n/get-messages";
 import { WRECKMATCH_URL } from "@/lib/accidentsurvivalguide";
@@ -60,9 +60,11 @@ export function BlogPostView({ post }: BlogPostViewProps) {
             {post.city}, {post.stateAbbr}
           </span>
         ) : null}
+        {shouldShowReadTime(post) ? (
         <span className="rounded-full bg-[#f4faf8] px-3 py-1 text-[#5b6b7f]">
           {readMin} min
         </span>
+        ) : null}
       </div>
 
       <time className="mt-4 block text-sm text-[#7a8a98]" dateTime={post.publishedAt}>

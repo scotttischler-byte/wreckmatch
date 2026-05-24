@@ -1,5 +1,6 @@
 import type { CityRecord } from "../../../data/types";
 import type { StateRecord } from "../../../data/types";
+import { getCitationsForState } from "../../../data/citations";
 import { cityPagePath } from "./site";
 
 export function buildCityMarkdown(city: CityRecord, state: StateRecord): string {
@@ -19,6 +20,10 @@ export function buildCityMarkdown(city: CityRecord, state: StateRecord): string 
   const noFaultNote = state.no_fault_state
     ? `${state.name} is a no-fault insurance state — PIP/MedPay rules may limit when you can sue. Verify current thresholds with counsel.`
     : `${state.name} uses a fault-based system with ${state.comparative_negligence_rule} comparative negligence rules.`;
+
+  const legalCitations = getCitationsForState(state.slug, state)
+    .map((c, i) => `${i + 1}. [${c.label}](${c.url}) (${c.retrieved})`)
+    .join("\n");
 
   return `# Car Accident Help in ${city.city}, ${state.name} (${new Date().getFullYear()} Guide)
 
@@ -166,6 +171,12 @@ ${state.name} minimum limits are ${state.min_liability_insurance}. Uninsured/und
 
 - [${state.name} state accident guide](${cityPagePath(state.slug)})
 - [${state.bar_association}](https://www.google.com/search?q=${encodeURIComponent(state.bar_association)})
+
+---
+
+## Sources & citations
+
+${legalCitations}
 
 ---
 
