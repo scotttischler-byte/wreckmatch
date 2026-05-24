@@ -9,6 +9,7 @@ import {
   type Locale,
 } from "@/lib/i18n/config";
 import { parseLocaleFromPathname, toInternalPath } from "@/lib/i18n/locale-path";
+import { BLOG_PATH_REDIRECTS } from "@/lib/seo/redirected-blog";
 
 function resolveLocale(request: NextRequest, pathname: string): Locale {
   const fromPath = parseLocaleFromPathname(pathname).locale;
@@ -50,6 +51,11 @@ export async function middleware(request: NextRequest) {
   }
 
   const locale = resolveLocale(request, pathname);
+
+  const blogRedirect = BLOG_PATH_REDIRECTS[pathname];
+  if (blogRedirect) {
+    return NextResponse.redirect(new URL(blogRedirect, request.url), 301);
+  }
 
   if (isInjuredHelpHostname(host)) {
     const sharedPaths = ["/privacy-policy", "/terms", "/privacy", "/blog", "/car-accident-help"];
@@ -111,6 +117,12 @@ export async function middleware(request: NextRequest) {
   const sharedLegalPaths = ["/privacy-policy", "/terms", "/privacy"];
   if (sharedLegalPaths.includes(pathname)) {
     return NextResponse.next();
+  }
+
+  if (pathname === "/robots.txt" || pathname === "/llms.txt") {
+    const response = NextResponse.next(withLocaleHeaders(request, locale));
+    response.cookies.set(ASG_LOCALE_COOKIE, locale, { path: "/", maxAge: 60 * 60 * 24 * 365 });
+    return response;
   }
 
   if (pathname === "/sitemap.xml") {

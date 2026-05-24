@@ -27,6 +27,9 @@ jobs:
       - name: Publish from queue
         run: node scripts/publish-from-queue.mjs
 
+      - name: Enrich and publish quality drafts
+        run: npx tsx scripts/enrich-blog-drafts.ts --publish
+
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"

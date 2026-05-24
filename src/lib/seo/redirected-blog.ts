@@ -11,6 +11,14 @@ const BLOG_CITY_REDIRECTS: Record<string, string> = {
   "car-accident-miami-fl-insurance-pitfalls": "miami",
 };
 
+/** `/blog/{slug}` → city help path — for middleware edge redirects. */
+export const BLOG_PATH_REDIRECTS: Record<string, string> = Object.fromEntries(
+  Object.entries(BLOG_CITY_REDIRECTS).map(([slug, city]) => [
+    `/blog/${slug}`,
+    cityPagePath(city),
+  ]),
+);
+
 export function getCityRedirectForBlogSlug(slug: string): string | null {
   const citySlug = BLOG_CITY_REDIRECTS[slug];
   if (!citySlug) return null;

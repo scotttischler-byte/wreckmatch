@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { US_STATES } from "@/lib/accidentsurvivalguide";
 import { trackWreckmatchEvent } from "@/lib/analytics";
 
 type DefaultValues = {
@@ -20,6 +21,8 @@ export function ProgressiveLeadForm({
   compact?: boolean;
 }) {
   const [step, setStep] = useState<1 | 2>(1);
+  const [stateAbbr, setStateAbbr] = useState(defaultValues.state ?? "");
+  const [phone, setPhone] = useState("");
   const [accidentType, setAccidentType] = useState("");
   const [injured, setInjured] = useState("");
   const [cityState, setCityState] = useState(
@@ -30,7 +33,6 @@ export function ProgressiveLeadForm({
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState("");
@@ -46,6 +48,14 @@ export function ProgressiveLeadForm({
     setLoading(true);
     setError("");
 
+    const stateLabel =
+      US_STATES.find((s) => s.value === stateAbbr)?.label ?? stateAbbr;
+    const location =
+      cityState ||
+      (defaultValues.city && stateLabel
+        ? `${defaultValues.city}, ${stateLabel}`
+        : stateLabel || "Not specified — SEO page");
+
     try {
       const res = await fetch("/api/submit-lead", {
         method: "POST",
@@ -55,7 +65,7 @@ export function ProgressiveLeadForm({
           lastName: lastName || ".",
           email,
           phone,
-          cityState: cityState || "Not specified — SEO page",
+          cityState: location,
           accidentType: accidentType || "Not specified",
           injured: injured || "Not specified",
           lead_source: defaultValues.leadSource ?? "wreckmatch-seo",
@@ -99,14 +109,49 @@ export function ProgressiveLeadForm({
         Free attorney matching
       </p>
       <h2 className="mt-2 font-serif text-2xl font-semibold text-[#fffaf0]">
-        {step === 1 ? "Tell us about your accident" : "How can we reach you?"}
+        {step === 1 ? "Where did it happen?" : "A few more details"}
       </h2>
       <p className="mt-2 text-sm text-[#dbe7f6]">
-        WreckMatch LLC is a referral service — not a law firm. No obligation.
+        Step {step} of 2 — WreckMatch LLC is a referral service, not a law firm.
       </p>
 
       {step === 1 ? (
         <form onSubmit={goStep2} className="mt-6 space-y-4">
+          <select
+            required
+            value={stateAbbr}
+            onChange={(e) => setStateAbbr(e.target.value)}
+            className="h-11 w-full rounded-lg border border-white/20 bg-white/10 px-3 text-sm text-white"
+            aria-label="State"
+          >
+            <option value="" className="text-[#152238]">
+              State where accident happened
+            </option>
+            {US_STATES.map((s) => (
+              <option key={s.value} value={s.value} className="text-[#152238]">
+                {s.label}
+              </option>
+            ))}
+          </select>
+          <Input
+            required
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            placeholder="Mobile phone (best number to reach you)"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            className="h-11 border-white/20 bg-white/10 text-white placeholder:text-[#94a3b8]"
+          />
+          <Button
+            type="submit"
+            className="h-11 w-full rounded-xl bg-[#c9a227] text-sm font-semibold text-[#152238] hover:bg-[#fde68a]"
+          >
+            Continue
+          </Button>
+        </form>
+      ) : (
+        <form onSubmit={submit} className="mt-6 space-y-3">
           <select
             required
             value={accidentType}
@@ -151,21 +196,11 @@ export function ProgressiveLeadForm({
             </option>
           </select>
           <Input
-            required
-            placeholder="City, State (e.g. Houston, TX)"
+            placeholder="City (optional)"
             value={cityState}
             onChange={(e) => setCityState(e.target.value)}
             className="h-11 border-white/20 bg-white/10 text-white placeholder:text-[#94a3b8]"
           />
-          <Button
-            type="submit"
-            className="h-11 w-full rounded-xl bg-[#c9a227] text-sm font-semibold text-[#152238] hover:bg-[#fde68a]"
-          >
-            Continue
-          </Button>
-        </form>
-      ) : (
-        <form onSubmit={submit} className="mt-6 space-y-3">
           <div className="grid gap-3 sm:grid-cols-2">
             <Input
               required
@@ -187,14 +222,6 @@ export function ProgressiveLeadForm({
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="h-11 border-white/20 bg-white/10 text-white placeholder:text-[#94a3b8]"
-          />
-          <Input
-            required
-            type="tel"
-            placeholder="Phone"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
             className="h-11 border-white/20 bg-white/10 text-white placeholder:text-[#94a3b8]"
           />
           {error ? (
