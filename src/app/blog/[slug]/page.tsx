@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { resolveBlogPost } from "@/lib/seo/blog-resolver";
 import { getAllBlogSlugsForSitemap } from "@/lib/seo/blog-resolver";
+import { getCityRedirectForBlogSlug, REDIRECTED_BLOG_SLUGS } from "@/lib/seo/redirected-blog";
 import { WmBlogPostView } from "@/components/seo/WmBlogPostView";
 import { getBlogCoverImage } from "@/lib/blog/covers";
 import { absoluteUrl, blogPostPath } from "@/lib/seo/site";
@@ -9,11 +10,15 @@ import { absoluteUrl, blogPostPath } from "@/lib/seo/site";
 type PageProps = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
-  return getAllBlogSlugsForSitemap().map((slug) => ({ slug }));
+  return getAllBlogSlugsForSitemap()
+    .filter((slug) => !REDIRECTED_BLOG_SLUGS.has(slug))
+    .map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
+  const redirectPath = getCityRedirectForBlogSlug(slug);
+  if (redirectPath) return { title: "Redirecting…" };
   const post = resolveBlogPost(slug);
   if (!post) return { title: "Article not found" };
   const coverUrl = absoluteUrl(getBlogCoverImage(post));
@@ -40,6 +45,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
+  const redirectPath = getCityRedirectForBlogSlug(slug);
+  if (redirectPath) permanentRedirect(redirectPath);
   const post = resolveBlogPost(slug);
   if (!post) notFound();
   return <WmBlogPostView post={post} />;
