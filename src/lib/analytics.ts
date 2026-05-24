@@ -6,7 +6,8 @@ type WreckmatchEvent =
   | "form_error"
   | "blog_view"
   | "city_page_view"
-  | "state_page_view";
+  | "state_page_view"
+  | "phone_click";
 
 type AsgEvent =
   | "form_start"

@@ -1,11 +1,14 @@
 export const LAW_FIRM_NAME = "WreckMatch";
 export const DEFAULT_ATTORNEY_PITCH = "Bobby Garcia Law";
 
-/** Sarah — WreckMatch support line (855-8-WRECKMATCH). */
+/** Sarah — vanity 855-8-WRECKMATCH (855-897-3262), forwarded to Sarah's line. */
 export const SARAH_PHONE_DISPLAY =
   process.env.NEXT_PUBLIC_SARAH_PHONE_DISPLAY ?? "855-8-WRECKMATCH";
+export const SARAH_PHONE_DIALABLE =
+  process.env.NEXT_PUBLIC_SARAH_PHONE_DIALABLE ?? "855-897-3262";
 export const SARAH_PHONE_E164 =
-  process.env.NEXT_PUBLIC_SARAH_PHONE_E164 ?? "+18558973622";
+  process.env.NEXT_PUBLIC_SARAH_PHONE_E164 ?? "+18558973262";
+export const SARAH_PHONE_TEL = `tel:${SARAH_PHONE_E164}`;
 
 /** @deprecated Use SARAH_PHONE_* — kept for legacy references during migration */
 export const SUPPORT_PHONE_DISPLAY = SARAH_PHONE_DISPLAY;

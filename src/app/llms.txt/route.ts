@@ -1,3 +1,4 @@
+import { SARAH_PHONE_DISPLAY, SARAH_PHONE_DIALABLE } from "@/lib/constants";
 import { WRECKMATCH_SEO_BASE, cityPagePath, blogPostPath } from "@/lib/seo/site";
 import { CITIES, STATES } from "@/lib/seo/cities";
 import { getPublishedBlogPosts } from "@/lib/blog/posts";
@@ -27,6 +28,7 @@ ${topCities.map((c) => `- ${WRECKMATCH_SEO_BASE}${cityPagePath(c.slug)} — ${c.
 ${posts.map((p) => `- ${WRECKMATCH_SEO_BASE}${blogPostPath(p.slug)} — ${p.title}`).join("\n")}
 
 ## Contact
+- Phone: ${SARAH_PHONE_DISPLAY} (${SARAH_PHONE_DIALABLE}) — routes to Sarah support
 - Homepage chat widget: ${WRECKMATCH_SEO_BASE}/
 - Privacy: ${WRECKMATCH_SEO_BASE}/privacy-policy
 
