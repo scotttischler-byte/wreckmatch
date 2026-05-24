@@ -8,13 +8,17 @@ import fs from "fs";
 import path from "path";
 import { CITIES, getStateForCity } from "../src/lib/seo/cities";
 import { buildCityMarkdown } from "../src/lib/seo/build-city-page";
-import { listCityMarkdownSlugs } from "../src/lib/seo/markdown-content";
 import { WRECKMATCH_SEO_BASE, cityPagePath } from "../src/lib/seo/site";
 
 const OUT_DIR = path.join(process.cwd(), "ai-visibility-accelerator/output/content/city-posts");
-const limit = Number(process.argv.find((a) => a.startsWith("--limit="))?.split("=")[1] ?? 12);
 
-const existing = new Set(listCityMarkdownSlugs());
+function parseLimit(): number {
+  const eq = process.argv.find((a) => a.startsWith("--limit="));
+  if (eq) return Number(eq.split("=")[1]) || 12;
+  const i = process.argv.indexOf("--limit");
+  if (i !== -1 && process.argv[i + 1]) return Number(process.argv[i + 1]) || 12;
+  return 12;
+}
 
 function slugFromFilename(name: string) {
   return name.replace(/^car-accident-help-/, "").replace(/\.md$/, "");
@@ -39,6 +43,7 @@ function existingCitySlugs(): Set<string> {
   );
 }
 
+const limit = parseLimit();
 const have = existingCitySlugs();
 const targets = [...CITIES]
   .sort((a, b) => b.population - a.population)

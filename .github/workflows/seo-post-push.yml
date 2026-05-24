@@ -1,0 +1,38 @@
+name: SEO post-push (IndexNow + verify)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/**"
+      - "ai-visibility-accelerator/output/content/**"
+      - "src/app/**"
+      - "src/lib/**"
+      - "data/**"
+  workflow_dispatch:
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Submit IndexNow (all domains)
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: node scripts/submit-indexnow.mjs all --fallback || true
+
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Production SEO health check
+        run: node scripts/verify-seo-live.mjs || true
+
+      - name: Validate sitemap URL counts
+        run: node scripts/validate-sitemaps.mjs || true

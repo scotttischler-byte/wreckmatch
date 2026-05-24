@@ -4,16 +4,35 @@ on:
   schedule:
     - cron: "0 14 * * *"
   workflow_dispatch:
+    inputs:
+      enrich_limit:
+        description: "City markdown files to enrich (0 = skip)"
+        default: "3"
+      run_indexnow:
+        description: "Submit IndexNow after publish"
+        type: boolean
+        default: true
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+
+      - name: Daily SEO automation (enrich + reports)
+        run: |
+          ENRICH="${{ github.event.inputs.enrich_limit || '3' }}"
+          if [ "$ENRICH" = "0" ]; then
+            node scripts/seo-daily.mjs --skip-enrich
+          else
+            node scripts/seo-daily.mjs --enrich "$ENRICH"
+          fi
 
       - name: Generate city data
         run: node scripts/generate-city-data.mjs
@@ -30,16 +49,20 @@ jobs:
       - name: Enrich and publish quality drafts
         run: npx tsx scripts/enrich-blog-drafts.ts --publish
 
-      - name: Cannibalization report
-        run: node scripts/find-cannibalization.mjs
-
-      - name: Quality gate
+      - name: Quality gate (drafts)
         run: node scripts/quality-gate.mjs
 
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add content/blog/posts content/blog/drafts data/publish-queue.json data/cities.generated.json
-          git diff --staged --quiet || git commit -m "chore(seo): daily publish queue run"
+          git add content/ ai-visibility-accelerator/output/content/city-posts/ data/publish-queue.json data/cities.generated.json
+          git diff --staged --quiet || git commit -m "chore(seo): daily publish + enrichment run"
           git push
+
+      - name: Submit IndexNow
+        if: github.event.inputs.run_indexnow != 'false'
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: |
+          node scripts/submit-indexnow.mjs all --fallback || true
