@@ -41,7 +41,18 @@ const STEPS = [
     command: "node scripts/submit-indexnow.mjs all",
   },
   {
-    title: "6. GitHub secrets (optional automation)",
+    title: "7. 24/7 SEO agents (GitHub — already active after push)",
+    items: [
+      "seo-agent-hourly.yml — every hour: rotate report/health/indexnow/enrich",
+      "seo-agent-6h.yml — every 6h: full sweep + autopilot (needs OPENAI_API_KEY)",
+      "publish-seo.yml — daily 14:00 UTC content + IndexNow",
+      "autopilot-blog-bulk.yml — 3x/day city content when OPENAI_API_KEY set",
+      "Local loop (laptop must stay on): npm run seo:agent:loop",
+      "Check agent log: npm run seo:agent:status",
+    ],
+  },
+  {
+    title: "8. GitHub secrets (optional automation)",
     items: [
       "OPENAI_API_KEY — autopilot 279-city queue",
       "GOOGLE_CSE_API_KEY + GOOGLE_CSE_CX — link outreach",

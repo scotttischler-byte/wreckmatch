@@ -1,0 +1,46 @@
+name: SEO Agent (hourly 24/7)
+
+# Rotates: report → health → indexnow → … every hour UTC.
+# True 24/7 cloud automation — no laptop required.
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+    inputs:
+      task:
+        description: "Agent task (rotate|report|health|indexnow|enrich|full)"
+        default: "rotate"
+        type: choice
+        options:
+          - rotate
+          - report
+          - health
+          - indexnow
+          - enrich
+          - full
+
+jobs:
+  agent:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run SEO agent
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: node scripts/seo-agent.mjs "${{ github.event.inputs.task || 'rotate' }}"
+
+      - name: Commit agent log + enrichment
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/agents/ content/cannibalization-report.csv content/seo-daily-last-run.json ai-visibility-accelerator/output/content/city-posts/ 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "chore(seo-agent): hourly agent run ($(date -u +%Y-%m-%dT%H:%MZ))"
+          git push || true
