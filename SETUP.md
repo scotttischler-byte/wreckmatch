@@ -2,6 +2,14 @@
 
 This guide shows exactly where to find each value you need for `.env.local`.
 
+## Retell AI (Sarah chatbot) — [dashboard.retellai.com](https://dashboard.retellai.com)
+
+Sarah’s chat runs on **Retell**. The site loads the official widget from `dashboard.retellai.com`.
+
+**Live check:** open [wreckmatch.com/splash](https://www.wreckmatch.com/splash) — you should see a **Chat with Sarah** bubble (bottom-right) within ~10 seconds.
+
+**To edit Sarah’s responses:** Dashboard → **Agents** → your chat agent → update prompt → **Publish**.
+
 ## 1) Retell Public Key
 
 1. Go to [Retell Dashboard](https://dashboard.retellai.com/).

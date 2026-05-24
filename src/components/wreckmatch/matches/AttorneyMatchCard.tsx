@@ -22,9 +22,9 @@ export function AttorneyMatchCard({ match }: { match: AttorneyMatch }) {
       </div>
       <Link
         href={`/matches/attorney/${match.id}`}
-        className="mt-4 inline-flex text-sm font-medium text-[#006D77] hover:underline"
+        className="wm-press mt-4 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-[#006D77] px-4 text-sm font-semibold text-white transition hover:bg-[#005a62] active:bg-[#004950]"
       >
-        View profile
+        Request intro
       </Link>
     </WmCard>
   );

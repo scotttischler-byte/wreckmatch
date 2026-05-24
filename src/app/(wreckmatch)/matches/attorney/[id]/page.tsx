@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { AttorneyIntroForm } from "@/components/wreckmatch/attorney/AttorneyIntroForm";
 import { LegalDisclaimerBanner } from "@/components/wreckmatch/LegalDisclaimerBanner";
-import { WmButton, WmCard } from "@/components/wreckmatch/ui/WmPrimitives";
+import { WmCard } from "@/components/wreckmatch/ui/WmPrimitives";
+import { getProfile } from "@/lib/wreckmatch/actions/profile";
 import { getAttorneyById } from "@/lib/wreckmatch/data/sample-attorneys";
 import { wm } from "@/lib/wreckmatch/theme";
 
@@ -9,9 +11,11 @@ type AttorneyDetailPageProps = {
   params: { id: string };
 };
 
-export default function AttorneyDetailPage({ params }: AttorneyDetailPageProps) {
+export default async function AttorneyDetailPage({ params }: AttorneyDetailPageProps) {
   const attorney = getAttorneyById(params.id);
   if (!attorney) notFound();
+
+  const profile = await getProfile();
 
   return (
     <>
@@ -39,17 +43,14 @@ export default function AttorneyDetailPage({ params }: AttorneyDetailPageProps) 
           </div>
         </WmCard>
 
-        <LegalDisclaimerBanner variant="compact" className="mt-6" />
-
-        <div className="mt-6 space-y-3">
-          <WmButton type="button" className="w-full" disabled>
-            Request intro (coming soon)
-          </WmButton>
-          <p className="text-center text-xs leading-relaxed text-[#5C5C5C]">
-            This is informational only. WreckMatch does not guarantee outcomes or endorse
-            any specific attorney.
-          </p>
-        </div>
+        <section className="mt-8">
+          <h2 className="text-lg font-semibold text-[#2B2B2B]">Request a confidential intro</h2>
+          <AttorneyIntroForm
+            attorneyId={attorney.id}
+            attorneyName={attorney.name}
+            profile={profile}
+          />
+        </section>
       </main>
     </>
   );

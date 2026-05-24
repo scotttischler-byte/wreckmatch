@@ -1,0 +1,137 @@
+import type { WmMessages } from "@/lib/wreckmatch/i18n/messages/en";
+
+export const es: WmMessages = {
+  lang: {
+    switch: "Idioma",
+    en: "English",
+    es: "Español",
+    choose: "Elige tu idioma",
+  },
+  splash: {
+    subtitle: "Un espacio tranquilo para apoyo, conexión y ayuda después de un accidente.",
+    createProfile: "Crea tu perfil de apoyo",
+    exploreApp: "Explorar la app",
+    hasAccount: "Ya tengo una cuenta",
+  },
+  sarah: {
+    hereForYou: "Sarah está aquí para ti",
+    callOrChat247: "Llama o chatea 24/7",
+    call: "Llamar",
+    chat: "Chat",
+    supportGuide: "Tu guía de apoyo",
+    talkToSarah: "Habla con Sarah",
+    heroDescription:
+      "Disponible 24/7 por llamada o chat. Sin presión — solo alguien que escucha y te ayuda con los siguientes pasos.",
+    callOrText: "Llama o envía mensaje",
+    chatWithSarah: "Chatear con Sarah",
+  },
+  form: {
+    requestFreeHelp: "Solicitar ayuda gratis",
+    tapToFill: "Toca para completar un formulario breve",
+    getMatchedTitle: "Conéctate con ayuda",
+    getMatchedDescription: "Gratis y confidencial. Comparte solo lo que te resulte cómodo.",
+    firstName: "Nombre",
+    lastName: "Apellido",
+    phone: "Teléfono",
+    phonePlaceholder: "Tu mejor número",
+    email: "Correo electrónico",
+    state: "Estado",
+    selectState: "Selecciona tu estado",
+    messageLabel: "¿Algo que quieras que sepamos?",
+    optional: "(opcional)",
+    messagePlaceholder: "Comparte solo lo que te resulte cómodo...",
+    consent:
+      "Acepto ser contactado/a sobre apoyo y recursos legales opcionales. Entiendo que esto no es asesoría legal.",
+    sending: "Enviando...",
+    submit: "Solicitar ayuda gratis",
+    successTitle: "Recibimos tu mensaje",
+    successBody:
+      "Sarah o alguien de nuestro equipo se comunicará contigo con calma — solo cuando estés listo/a. No hay obligación.",
+    errorGeneric: "No pudimos enviar tu solicitud. Intenta llamar a Sarah.",
+    errorNetwork:
+      "Algo salió mal. Llama al 855-8-WRECKMATCH — Sarah está aquí para ti.",
+  },
+  nav: {
+    main: "Navegación principal",
+    home: "Inicio",
+    community: "Comunidad",
+    matches: "Conexiones",
+    help: "Ayuda",
+    profile: "Perfil",
+  },
+  home: {
+    greetingMorning: "Buenos días",
+    greetingAfternoon: "Buenas tardes",
+    greetingEvening: "Buenas noches",
+    friend: "amigo/a",
+    headerSubtitle: "Como sea que se sienta hoy, no tienes que cargar con esto solo/a.",
+    peopleLikeYou: "Personas como tú",
+    peopleLikeYouDescription:
+      "Sobrevivientes con experiencias similares que pueden entender tu camino.",
+    survivorStories: "Historias de sobrevivientes",
+    survivorStoriesDescription: "Momentos reales de personas en el mismo camino.",
+  },
+  quick: {
+    struggling: "Hoy me siento mal",
+    strugglingDescription: "Habla con Sarah o encuentra apoyo tranquilo",
+    shareWin: "Comparte un logro",
+    shareWinDescription: "Celebra el progreso, grande o pequeño",
+  },
+  help: {
+    supportNow: "Apoyo ahora",
+    title: "No estás solo/a en este momento",
+    subtitle:
+      "Tómate tu tiempo. No hay una elección incorrecta — solo lo que se sienta seguro para ti ahora.",
+    requestHelp: "Solicitar ayuda",
+    requestHelpDescription: "Nos comunicaremos contigo con calma cuando estés listo/a.",
+    emergencyResources: "Recursos de emergencia",
+    emergencyDescription: "Si estás en crisis o en peligro inmediato.",
+    crisis988: "Línea de crisis 988",
+    crisis988Description: "Apoyo gratuito y confidencial 24/7. Llama o envía mensaje al {phone}.",
+    medicalEmergency: "Emergencia médica o peligro inmediato",
+    medicalEmergencyDescription: "Llama al 911 para emergencias.",
+    calmBody: "Calma tu cuerpo",
+    connectOthers: "Conéctate con otros",
+    connectOthersDescription: "Sobrevivientes que entienden lo que estás pasando.",
+    communityFeed: "Feed de la comunidad",
+    communityFeedDescription: "Lee y comparte con otros",
+    shareHowYouFeel: "Comparte cómo te sientes",
+    shareHowYouFeelDescription: "Publica desde tu pantalla de inicio",
+    moreResources: "Más recursos y guías →",
+  },
+  grounding: {
+    title: "Ejercicio de grounding",
+    description: "Tres respiraciones lentas. Sin prisa. Puedes parar cuando quieras.",
+    breatheIn: "Inhala",
+    hold: "Mantén",
+    breatheOut: "Exhala",
+    rest: "Descansa",
+    ready: "Listo/a cuando tú lo estés",
+    breathOf: "Respiración {current} de {total}",
+    stop: "Detener",
+    start: "Empezar a respirar",
+  },
+  crisis: {
+    supportNow: "Apoyo ahora",
+    ariaLabel: "Apoyo ahora — ayuda en crisis y recursos",
+  },
+  demo: {
+    label: "Modo demo",
+    body: "— navegando con datos de ejemplo. Agrega claves de Supabase en",
+    setupGuide: "Guía de configuración",
+  },
+  legal: {
+    disclaimer:
+      "WreckMatch es una comunidad de apoyo entre pares, no un bufete de abogados. No brindamos asesoría legal y no se forma relación abogado-cliente a través de esta app. Consulta siempre a un abogado con licencia en tu estado.",
+    medical:
+      "La información en WreckMatch es solo para apoyo general y no es consejo médico. Si tienes dolor o inquietudes sobre tu salud, contacta a un profesional de salud con licencia.",
+    auth: "WreckMatch ofrece apoyo emocional y conexión comunitaria. Si estás en peligro inmediato o emergencia médica, llama al 911. Para apoyo emocional en crisis, llama o envía mensaje al 988.",
+  },
+  retell: {
+    fabText: "Chatear con Sarah",
+    title: "Habla con Sarah",
+    popup:
+      "Hola — soy Sarah de WreckMatch. Estoy aquí si necesitas apoyo después de tu accidente.",
+  },
+  tagline: "No estás solo/a después del accidente.",
+};

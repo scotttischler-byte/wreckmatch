@@ -35,6 +35,12 @@ export default function ResourcesPage() {
         <p className={`mt-2 ${wm.subheading}`}>
           Helpful links when you need information or immediate support.
         </p>
+        <Link
+          href="/help"
+          className="mt-4 inline-flex text-sm font-medium text-[#006D77] hover:underline"
+        >
+          Need support right now? Go to Support Now →
+        </Link>
       </header>
 
       <div className="mt-6 space-y-4">

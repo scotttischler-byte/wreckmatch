@@ -4,11 +4,12 @@ import { useState } from "react";
 import { LegalDisclaimerBanner } from "@/components/wreckmatch/LegalDisclaimerBanner";
 import { AttorneyMatchCard } from "@/components/wreckmatch/matches/AttorneyMatchCard";
 import { PeerMatchCard } from "@/components/wreckmatch/matches/PeerMatchCard";
-import {
-  sampleAttorneyMatches,
-} from "@/lib/wreckmatch/data/sample-attorneys";
+import { GetMatchedForm } from "@/components/wreckmatch/support/GetMatchedForm";
+import { WmCard } from "@/components/wreckmatch/ui/WmPrimitives";
+import { sampleAttorneyMatches } from "@/lib/wreckmatch/data/sample-attorneys";
 import { samplePeerMatches } from "@/lib/wreckmatch/data/sample-matches";
 import { wm } from "@/lib/wreckmatch/theme";
+import { cn } from "@/lib/utils";
 
 const tabs = [
   { id: "peer", label: "Peer Support" },
@@ -27,17 +28,24 @@ export function MatchesPageContent() {
         </p>
       </header>
 
-      <div className="mt-6 grid grid-cols-2 gap-2 rounded-2xl bg-white p-1 shadow-sm ring-1 ring-[#006D77]/10">
+      <div
+        className="mt-6 grid grid-cols-2 gap-1.5 rounded-2xl bg-[#006D77]/6 p-1.5"
+        role="tablist"
+        aria-label="Match type"
+      >
         {tabs.map((item) => (
           <button
             key={item.id}
             type="button"
+            role="tab"
+            aria-selected={tab === item.id}
             onClick={() => setTab(item.id)}
-            className={`rounded-xl px-3 py-2.5 text-sm font-medium transition ${
+            className={cn(
+              "wm-press min-h-12 rounded-xl px-3 text-sm font-semibold transition",
               tab === item.id
-                ? "bg-[#006D77] text-white"
-                : "text-[#5C5C5C] hover:text-[#006D77]"
-            }`}
+                ? "bg-white text-[#006D77] shadow-sm"
+                : "text-[#5C5C5C] hover:text-[#006D77]",
+            )}
           >
             {item.label}
           </button>
@@ -45,9 +53,9 @@ export function MatchesPageContent() {
       </div>
 
       {tab === "peer" ? (
-        <section className="mt-6 space-y-4">
+        <section className="mt-6 space-y-3">
           {samplePeerMatches.map((match) => (
-            <PeerMatchCard key={match.id} match={match} />
+            <PeerMatchCard key={match.id} match={match} layout="stack" />
           ))}
         </section>
       ) : (
@@ -60,6 +68,10 @@ export function MatchesPageContent() {
           {sampleAttorneyMatches.map((match) => (
             <AttorneyMatchCard key={match.id} match={match} />
           ))}
+
+          <WmCard>
+            <GetMatchedForm source="wreckmatch-matches" />
+          </WmCard>
         </section>
       )}
     </main>
