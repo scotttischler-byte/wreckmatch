@@ -1,5 +1,13 @@
 import { GOOGLE_ADS_SIGNUP_CONVERSION } from "@/lib/google-ads";
 
+type WreckmatchEvent =
+  | "form_start"
+  | "form_submit"
+  | "form_error"
+  | "blog_view"
+  | "city_page_view"
+  | "state_page_view";
+
 type AsgEvent =
   | "form_start"
   | "form_submit"
@@ -16,6 +24,19 @@ declare global {
     gtag?: (...args: unknown[]) => void;
     dataLayer?: Record<string, unknown>[];
   }
+}
+
+export function trackWreckmatchEvent(event: WreckmatchEvent, params?: Record<string, string>) {
+  if (typeof window === "undefined") return;
+
+  const payload = { event, site: "wreckmatch", ...params };
+
+  if (typeof window.gtag === "function") {
+    window.gtag("event", event, payload);
+  }
+
+  window.dataLayer = window.dataLayer ?? [];
+  window.dataLayer.push(payload);
 }
 
 export function trackAsgEvent(event: AsgEvent, params?: Record<string, string>) {

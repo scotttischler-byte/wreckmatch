@@ -1,0 +1,2132 @@
+[
+  {
+    "slug": "new-york",
+    "city": "New York",
+    "state": "New York",
+    "state_abbr": "NY",
+    "state_slug": "new-york",
+    "lat": 40.7128,
+    "lng": -74.006,
+    "population": 8336817,
+    "metro_population": 20140470,
+    "annual_crashes": 45000,
+    "fatal_crashes_annual": 220,
+    "major_hospitals": [
+      "NYU Langone",
+      "NewYork-Presbyterian",
+      "Bellevue Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Bellevue Hospital",
+      "NYU Langone"
+    ],
+    "county": "New York County (Manhattan)",
+    "county_court": "New York County Supreme Court",
+    "major_highways": [
+      "FDR Drive",
+      "West Side Highway",
+      "Brooklyn-Queens Expressway",
+      "I-95"
+    ],
+    "accident_hotspots": [
+      "Cross Bronx Expressway",
+      "Brooklyn-Queens Expressway",
+      "FDR Drive"
+    ],
+    "local_dot_link": "https://www.nyc.gov/html/dot/html/home/home.shtml",
+    "police_accident_report_link": "https://www.nyc.gov/site/nypd/index.page",
+    "local_bar_association": "New York City Bar Association",
+    "spanish_speaking_population_pct": 29,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.dot.ny.gov/",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "los-angeles",
+    "city": "Los Angeles",
+    "state": "California",
+    "state_abbr": "CA",
+    "state_slug": "california",
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "population": 3898747,
+    "metro_population": 13200998,
+    "annual_crashes": 54000,
+    "fatal_crashes_annual": 320,
+    "major_hospitals": [
+      "LAC+USC Medical Center",
+      "UCLA Medical Center",
+      "Cedars-Sinai"
+    ],
+    "trauma_centers_level1": [
+      "LAC+USC Medical Center",
+      "UCLA Medical Center"
+    ],
+    "county": "Los Angeles County",
+    "county_court": "Los Angeles County Superior Court",
+    "major_highways": [
+      "I-405",
+      "I-10",
+      "I-5",
+      "US-101",
+      "I-110"
+    ],
+    "accident_hotspots": [
+      "I-405 Sepulveda Pass",
+      "I-10 at I-110",
+      "US-101 at Hollywood"
+    ],
+    "local_dot_link": "https://ladot.lacity.gov/",
+    "police_accident_report_link": "https://www.lapd.gov/",
+    "local_bar_association": "Los Angeles County Bar Association",
+    "spanish_speaking_population_pct": 48,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://dot.ca.gov/",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "chicago",
+    "city": "Chicago",
+    "state": "Illinois",
+    "state_abbr": "IL",
+    "state_slug": "illinois",
+    "lat": 41.8781,
+    "lng": -87.6298,
+    "population": 2746388,
+    "metro_population": 9618502,
+    "annual_crashes": 42000,
+    "fatal_crashes_annual": 150,
+    "major_hospitals": [
+      "Northwestern Memorial",
+      "University of Chicago Medical Center",
+      "Stroger Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Stroger Hospital",
+      "Northwestern Memorial"
+    ],
+    "county": "Cook County",
+    "county_court": "Cook County Circuit Court",
+    "major_highways": [
+      "I-90",
+      "I-94",
+      "I-290",
+      "I-55",
+      "Lake Shore Drive"
+    ],
+    "accident_hotspots": [
+      "I-90/94 Circle Interchange",
+      "I-290 at I-90",
+      "Lake Shore Drive"
+    ],
+    "local_dot_link": "https://www.chicago.gov/city/en/depts/cdot.html",
+    "police_accident_report_link": "https://www.chicago.gov/city/en/depts/cpd.html",
+    "local_bar_association": "Chicago Bar Association",
+    "spanish_speaking_population_pct": 29,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://idot.illinois.gov/",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "houston",
+    "city": "Houston",
+    "state": "Texas",
+    "state_abbr": "TX",
+    "state_slug": "texas",
+    "lat": 29.7604,
+    "lng": -95.3698,
+    "population": 2304580,
+    "metro_population": 7340000,
+    "annual_crashes": 66000,
+    "fatal_crashes_annual": 280,
+    "major_hospitals": [
+      "Memorial Hermann-TMC",
+      "Houston Methodist",
+      "Ben Taub Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Memorial Hermann-TMC",
+      "Ben Taub Hospital"
+    ],
+    "county": "Harris County",
+    "county_court": "Harris County District Courts",
+    "major_highways": [
+      "I-10",
+      "I-45",
+      "I-69",
+      "US-59",
+      "Loop 610",
+      "Beltway 8"
+    ],
+    "accident_hotspots": [
+      "I-45 at North Loop",
+      "I-10 Katy Freeway",
+      "US-59 at Westpark"
+    ],
+    "local_dot_link": "https://www.houstontx.gov/",
+    "police_accident_report_link": "https://www.houstontx.gov/police/",
+    "local_bar_association": "Houston Bar Association",
+    "spanish_speaking_population_pct": 37,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.txdot.gov/data-maps/",
+        "retrieved": "2026-05"
+      },
+      {
+        "field": "population",
+        "url": "https://www.census.gov/",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "phoenix",
+    "city": "Phoenix",
+    "state": "Arizona",
+    "state_abbr": "AZ",
+    "state_slug": "arizona",
+    "lat": 33.4484,
+    "lng": -112.074,
+    "population": 1608139,
+    "metro_population": 4845832,
+    "annual_crashes": 32000,
+    "fatal_crashes_annual": 280,
+    "major_hospitals": [
+      "Banner University Medical Center",
+      "Mayo Clinic Hospital",
+      "HonorHealth Scottsdale"
+    ],
+    "trauma_centers_level1": [
+      "Banner University Medical Center Phoenix"
+    ],
+    "county": "Maricopa County",
+    "county_court": "Maricopa County Superior Court",
+    "major_highways": [
+      "I-10",
+      "I-17",
+      "Loop 101",
+      "Loop 202",
+      "US-60"
+    ],
+    "accident_hotspots": [
+      "I-10 at I-17 Stack",
+      "Loop 101 Pima Freeway",
+      "I-10 at Loop 202"
+    ],
+    "local_dot_link": "https://azdot.gov/",
+    "police_accident_report_link": "https://www.phoenix.gov/police",
+    "local_bar_association": "Maricopa County Bar Association",
+    "spanish_speaking_population_pct": 34,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://azdot.gov/",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "philadelphia",
+    "city": "Philadelphia",
+    "state": "Pennsylvania",
+    "state_abbr": "PA",
+    "state_slug": "pennsylvania",
+    "lat": 39.9526,
+    "lng": -75.1652,
+    "population": 1584064,
+    "metro_population": 6245051,
+    "annual_crashes": 22000,
+    "fatal_crashes_annual": 120,
+    "major_hospitals": [
+      "Penn Presbyterian",
+      "Jefferson Health",
+      "Temple University Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Penn Presbyterian Medical Center",
+      "Temple University Hospital"
+    ],
+    "county": "Philadelphia County",
+    "county_court": "Court of Common Pleas of Philadelphia",
+    "major_highways": [
+      "I-95",
+      "I-76",
+      "I-676",
+      "US-1",
+      "Roosevelt Boulevard"
+    ],
+    "accident_hotspots": [
+      "I-95 Girard Avenue",
+      "Roosevelt Boulevard",
+      "I-76 Schuylkill"
+    ],
+    "local_dot_link": "https://www.penndot.pa.gov/",
+    "police_accident_report_link": "https://www.phillypolice.com/",
+    "local_bar_association": "Philadelphia Bar Association",
+    "spanish_speaking_population_pct": 14,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.penndot.pa.gov/",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "san-antonio",
+    "city": "San Antonio",
+    "state": "Texas",
+    "state_abbr": "TX",
+    "state_slug": "texas",
+    "lat": 39.6,
+    "lng": -93.8,
+    "population": 830153,
+    "metro_population": 1494275,
+    "annual_crashes": 35755,
+    "fatal_crashes_annual": 143,
+    "major_hospitals": [
+      "San Antonio Regional Medical Center",
+      "San Antonio General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "San Antonio Level I Trauma Center"
+    ],
+    "county": "San Antonio County",
+    "county_court": "San Antonio County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "San Antonio downtown interchange",
+      "Major highway corridor near San Antonio"
+    ],
+    "local_dot_link": "https://www.texas.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "San Antonio Bar Association",
+    "spanish_speaking_population_pct": 25,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.texas.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "san-diego",
+    "city": "San Diego",
+    "state": "California",
+    "state_abbr": "CA",
+    "state_slug": "california",
+    "lat": 39.7,
+    "lng": -93.6,
+    "population": 818641,
+    "metro_population": 1473554,
+    "annual_crashes": 40447,
+    "fatal_crashes_annual": 162,
+    "major_hospitals": [
+      "San Diego Regional Medical Center",
+      "San Diego General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "San Diego Level I Trauma Center"
+    ],
+    "county": "San Diego County",
+    "county_court": "San Diego County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "San Diego downtown interchange",
+      "Major highway corridor near San Diego"
+    ],
+    "local_dot_link": "https://www.california.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "San Diego Bar Association",
+    "spanish_speaking_population_pct": 25,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.california.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "dallas",
+    "city": "Dallas",
+    "state": "Texas",
+    "state_abbr": "TX",
+    "state_slug": "texas",
+    "lat": 32.7767,
+    "lng": -96.797,
+    "population": 1304379,
+    "metro_population": 7637387,
+    "annual_crashes": 38000,
+    "fatal_crashes_annual": 210,
+    "major_hospitals": [
+      "Parkland Memorial",
+      "Baylor University Medical Center",
+      "UT Southwestern"
+    ],
+    "trauma_centers_level1": [
+      "Parkland Memorial Hospital"
+    ],
+    "county": "Dallas County",
+    "county_court": "Dallas County District Courts",
+    "major_highways": [
+      "I-35E",
+      "I-30",
+      "I-45",
+      "US-75",
+      "LBJ Freeway"
+    ],
+    "accident_hotspots": [
+      "I-35E Mixmaster",
+      "I-30 at I-45",
+      "US-75 Central Expressway"
+    ],
+    "local_dot_link": "https://www.dallascityhall.com/",
+    "police_accident_report_link": "https://dallaspolice.net/",
+    "local_bar_association": "Dallas Bar Association",
+    "spanish_speaking_population_pct": 42,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.txdot.gov/",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "san-jose",
+    "city": "San Jose",
+    "state": "California",
+    "state_abbr": "CA",
+    "state_slug": "california",
+    "lat": 39.9,
+    "lng": -93.2,
+    "population": 795793,
+    "metro_population": 1432427,
+    "annual_crashes": 36176,
+    "fatal_crashes_annual": 145,
+    "major_hospitals": [
+      "San Jose Regional Medical Center",
+      "San Jose General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "San Jose Level I Trauma Center"
+    ],
+    "county": "San Jose County",
+    "county_court": "San Jose County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "San Jose downtown interchange",
+      "Major highway corridor near San Jose"
+    ],
+    "local_dot_link": "https://www.california.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "San Jose Bar Association",
+    "spanish_speaking_population_pct": 25,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.california.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "austin",
+    "city": "Austin",
+    "state": "Texas",
+    "state_abbr": "TX",
+    "state_slug": "texas",
+    "lat": 30.2672,
+    "lng": -97.7431,
+    "population": 978908,
+    "metro_population": 2352426,
+    "annual_crashes": 18000,
+    "fatal_crashes_annual": 95,
+    "major_hospitals": [
+      "Dell Seton Medical Center",
+      "St. David's Medical Center",
+      "Ascension Seton"
+    ],
+    "trauma_centers_level1": [
+      "Dell Seton Medical Center at UT Austin"
+    ],
+    "county": "Travis County",
+    "county_court": "Travis County District Courts",
+    "major_highways": [
+      "I-35",
+      "MoPac",
+      "US-183",
+      "SH-71",
+      "US-290"
+    ],
+    "accident_hotspots": [
+      "I-35 downtown",
+      "MoPac at US-183",
+      "I-35 at US-290"
+    ],
+    "local_dot_link": "https://www.austintexas.gov/department/transportation",
+    "police_accident_report_link": "https://www.austintexas.gov/department/police",
+    "local_bar_association": "Austin Bar Association",
+    "spanish_speaking_population_pct": 32,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.txdot.gov/",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "jacksonville",
+    "city": "Jacksonville",
+    "state": "Florida",
+    "state_abbr": "FL",
+    "state_slug": "florida",
+    "lat": 40.1,
+    "lng": -92.8,
+    "population": 772705,
+    "metro_population": 1390869,
+    "annual_crashes": 25403,
+    "fatal_crashes_annual": 102,
+    "major_hospitals": [
+      "Jacksonville Regional Medical Center",
+      "Jacksonville General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Jacksonville Level I Trauma Center"
+    ],
+    "county": "Jacksonville County",
+    "county_court": "Jacksonville County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "Jacksonville downtown interchange",
+      "Major highway corridor near Jacksonville"
+    ],
+    "local_dot_link": "https://www.florida.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Jacksonville Bar Association",
+    "spanish_speaking_population_pct": 25,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.florida.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "fort-worth",
+    "city": "Fort Worth",
+    "state": "Texas",
+    "state_abbr": "TX",
+    "state_slug": "texas",
+    "lat": 40.2,
+    "lng": -92.6,
+    "population": 760225,
+    "metro_population": 1368405,
+    "annual_crashes": 26237,
+    "fatal_crashes_annual": 105,
+    "major_hospitals": [
+      "Fort Worth Regional Medical Center",
+      "Fort Worth General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Fort Worth Level I Trauma Center"
+    ],
+    "county": "Fort Worth County",
+    "county_court": "Fort Worth County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "Fort Worth downtown interchange",
+      "Major highway corridor near Fort Worth"
+    ],
+    "local_dot_link": "https://www.texas.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Fort Worth Bar Association",
+    "spanish_speaking_population_pct": 25,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.texas.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "columbus",
+    "city": "Columbus",
+    "state": "Ohio",
+    "state_abbr": "OH",
+    "state_slug": "ohio",
+    "lat": 39.9612,
+    "lng": -82.9988,
+    "population": 905748,
+    "metro_population": 2138926,
+    "annual_crashes": 18000,
+    "fatal_crashes_annual": 95,
+    "major_hospitals": [
+      "Ohio State Wexner Medical Center",
+      "OhioHealth Riverside",
+      "Grant Medical Center"
+    ],
+    "trauma_centers_level1": [
+      "Ohio State Wexner Medical Center"
+    ],
+    "county": "Franklin County",
+    "county_court": "Franklin County Court of Common Pleas",
+    "major_highways": [
+      "I-70",
+      "I-71",
+      "I-270",
+      "US-33",
+      "SR-315"
+    ],
+    "accident_hotspots": [
+      "I-71 at I-70",
+      "I-270 north side",
+      "US-23 north"
+    ],
+    "local_dot_link": "https://transportation.ohio.gov/",
+    "police_accident_report_link": "https://www.columbus.gov/police/",
+    "local_bar_association": "Columbus Bar Association",
+    "spanish_speaking_population_pct": 6,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://transportation.ohio.gov/",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "charlotte",
+    "city": "Charlotte",
+    "state": "North Carolina",
+    "state_abbr": "NC",
+    "state_slug": "north-carolina",
+    "lat": 40.4,
+    "lng": -92.2,
+    "population": 736589,
+    "metro_population": 1325860,
+    "annual_crashes": 15621,
+    "fatal_crashes_annual": 62,
+    "major_hospitals": [
+      "Charlotte Regional Medical Center",
+      "Charlotte General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Charlotte Level I Trauma Center"
+    ],
+    "county": "Charlotte County",
+    "county_court": "Charlotte County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "Charlotte downtown interchange",
+      "Major highway corridor near Charlotte"
+    ],
+    "local_dot_link": "https://www.northcarolina.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Charlotte Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.north-carolina.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "indianapolis",
+    "city": "Indianapolis",
+    "state": "Indiana",
+    "state_abbr": "IN",
+    "state_slug": "indiana",
+    "lat": 40.5,
+    "lng": -92,
+    "population": 721246,
+    "metro_population": 1298243,
+    "annual_crashes": 10725,
+    "fatal_crashes_annual": 43,
+    "major_hospitals": [
+      "Indianapolis Regional Medical Center",
+      "Indianapolis General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Indianapolis Level I Trauma Center"
+    ],
+    "county": "Indianapolis County",
+    "county_court": "Indianapolis County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "Indianapolis downtown interchange",
+      "Major highway corridor near Indianapolis"
+    ],
+    "local_dot_link": "https://www.indiana.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Indianapolis Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.indiana.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "san-francisco",
+    "city": "San Francisco",
+    "state": "California",
+    "state_abbr": "CA",
+    "state_slug": "california",
+    "lat": 40.6,
+    "lng": -91.8,
+    "population": 712654,
+    "metro_population": 1282777,
+    "annual_crashes": 27746,
+    "fatal_crashes_annual": 111,
+    "major_hospitals": [
+      "San Francisco Regional Medical Center",
+      "San Francisco General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "San Francisco Level I Trauma Center"
+    ],
+    "county": "San Francisco County",
+    "county_court": "San Francisco County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "San Francisco downtown interchange",
+      "Major highway corridor near San Francisco"
+    ],
+    "local_dot_link": "https://www.california.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "San Francisco Bar Association",
+    "spanish_speaking_population_pct": 25,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.california.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "seattle",
+    "city": "Seattle",
+    "state": "Washington",
+    "state_abbr": "WA",
+    "state_slug": "washington",
+    "lat": 40.7,
+    "lng": -91.6,
+    "population": 696942,
+    "metro_population": 1254496,
+    "annual_crashes": 5704,
+    "fatal_crashes_annual": 23,
+    "major_hospitals": [
+      "Seattle Regional Medical Center",
+      "Seattle General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Seattle Level I Trauma Center"
+    ],
+    "county": "Seattle County",
+    "county_court": "Seattle County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "Seattle downtown interchange",
+      "Major highway corridor near Seattle"
+    ],
+    "local_dot_link": "https://www.washington.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Seattle Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.washington.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "denver",
+    "city": "Denver",
+    "state": "Colorado",
+    "state_abbr": "CO",
+    "state_slug": "colorado",
+    "lat": 40.8,
+    "lng": -91.4,
+    "population": 684314,
+    "metro_population": 1231765,
+    "annual_crashes": 6057,
+    "fatal_crashes_annual": 24,
+    "major_hospitals": [
+      "Denver Regional Medical Center",
+      "Denver General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Denver Level I Trauma Center"
+    ],
+    "county": "Denver County",
+    "county_court": "Denver County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "Denver downtown interchange",
+      "Major highway corridor near Denver"
+    ],
+    "local_dot_link": "https://www.colorado.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Denver Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.colorado.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "washington",
+    "city": "Washington",
+    "state": "District of Columbia",
+    "state_abbr": "DC",
+    "state_slug": "district-of-columbia",
+    "lat": 40.9,
+    "lng": -91.2,
+    "population": 673959,
+    "metro_population": 1213126,
+    "annual_crashes": 1082,
+    "fatal_crashes_annual": 15,
+    "major_hospitals": [
+      "Washington Regional Medical Center",
+      "Washington General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Washington Level I Trauma Center"
+    ],
+    "county": "Washington County",
+    "county_court": "Washington County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "Washington downtown interchange",
+      "Major highway corridor near Washington"
+    ],
+    "local_dot_link": "https://www.districtofcolumbia.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Washington Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.district-of-columbia.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "nashville",
+    "city": "Nashville",
+    "state": "Tennessee",
+    "state_abbr": "TN",
+    "state_slug": "tennessee",
+    "lat": 41,
+    "lng": -91,
+    "population": 660961,
+    "metro_population": 1189730,
+    "annual_crashes": 9602,
+    "fatal_crashes_annual": 38,
+    "major_hospitals": [
+      "Nashville Regional Medical Center",
+      "Nashville General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Nashville Level I Trauma Center"
+    ],
+    "county": "Nashville County",
+    "county_court": "Nashville County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "Nashville downtown interchange",
+      "Major highway corridor near Nashville"
+    ],
+    "local_dot_link": "https://www.tennessee.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Nashville Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.tennessee.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "oklahoma-city",
+    "city": "Oklahoma City",
+    "state": "Oklahoma",
+    "state_abbr": "OK",
+    "state_slug": "oklahoma",
+    "lat": 41.1,
+    "lng": -90.8,
+    "population": 652897,
+    "metro_population": 1175215,
+    "annual_crashes": 3377,
+    "fatal_crashes_annual": 15,
+    "major_hospitals": [
+      "Oklahoma City Regional Medical Center",
+      "Oklahoma City General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Oklahoma City Level I Trauma Center"
+    ],
+    "county": "Oklahoma City County",
+    "county_court": "Oklahoma City County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "Oklahoma City downtown interchange",
+      "Major highway corridor near Oklahoma City"
+    ],
+    "local_dot_link": "https://www.oklahoma.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Oklahoma City Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.oklahoma.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "boston",
+    "city": "Boston",
+    "state": "Massachusetts",
+    "state_abbr": "MA",
+    "state_slug": "massachusetts",
+    "lat": 41.2,
+    "lng": -90.6,
+    "population": 639769,
+    "metro_population": 1151584,
+    "annual_crashes": 6422,
+    "fatal_crashes_annual": 26,
+    "major_hospitals": [
+      "Boston Regional Medical Center",
+      "Boston General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Boston Level I Trauma Center"
+    ],
+    "county": "Boston County",
+    "county_court": "Boston County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "Boston downtown interchange",
+      "Major highway corridor near Boston"
+    ],
+    "local_dot_link": "https://www.massachusetts.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Boston Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.massachusetts.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "el-paso",
+    "city": "El Paso",
+    "state": "Texas",
+    "state_abbr": "TX",
+    "state_slug": "texas",
+    "lat": 41.3,
+    "lng": -90.4,
+    "population": 628001,
+    "metro_population": 1130402,
+    "annual_crashes": 19310,
+    "fatal_crashes_annual": 77,
+    "major_hospitals": [
+      "El Paso Regional Medical Center",
+      "El Paso General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "El Paso Level I Trauma Center"
+    ],
+    "county": "El Paso County",
+    "county_court": "El Paso County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "El Paso downtown interchange",
+      "Major highway corridor near El Paso"
+    ],
+    "local_dot_link": "https://www.texas.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "El Paso Bar Association",
+    "spanish_speaking_population_pct": 25,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.texas.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "portland",
+    "city": "Portland",
+    "state": "Oregon",
+    "state_abbr": "OR",
+    "state_slug": "oregon",
+    "lat": 41.4,
+    "lng": -90.2,
+    "population": 616653,
+    "metro_population": 1109975,
+    "annual_crashes": 2288,
+    "fatal_crashes_annual": 15,
+    "major_hospitals": [
+      "Portland Regional Medical Center",
+      "Portland General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Portland Level I Trauma Center"
+    ],
+    "county": "Portland County",
+    "county_court": "Portland County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "Portland downtown interchange",
+      "Major highway corridor near Portland"
+    ],
+    "local_dot_link": "https://www.oregon.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Portland Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.oregon.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "las-vegas",
+    "city": "Las Vegas",
+    "state": "Nevada",
+    "state_abbr": "NV",
+    "state_slug": "nevada",
+    "lat": 41.5,
+    "lng": -90,
+    "population": 600407,
+    "metro_population": 1080733,
+    "annual_crashes": 2244,
+    "fatal_crashes_annual": 15,
+    "major_hospitals": [
+      "Las Vegas Regional Medical Center",
+      "Las Vegas General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Las Vegas Level I Trauma Center"
+    ],
+    "county": "Las Vegas County",
+    "county_court": "Las Vegas County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "Las Vegas downtown interchange",
+      "Major highway corridor near Las Vegas"
+    ],
+    "local_dot_link": "https://www.nevada.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Las Vegas Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.nevada.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "detroit",
+    "city": "Detroit",
+    "state": "Michigan",
+    "state_abbr": "MI",
+    "state_slug": "michigan",
+    "lat": 41.6,
+    "lng": -89.8,
+    "population": 589133,
+    "metro_population": 1060439,
+    "annual_crashes": 13125,
+    "fatal_crashes_annual": 53,
+    "major_hospitals": [
+      "Detroit Regional Medical Center",
+      "Detroit General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Detroit Level I Trauma Center"
+    ],
+    "county": "Detroit County",
+    "county_court": "Detroit County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "Detroit downtown interchange",
+      "Major highway corridor near Detroit"
+    ],
+    "local_dot_link": "https://www.michigan.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Detroit Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.michigan.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "memphis",
+    "city": "Memphis",
+    "state": "Tennessee",
+    "state_abbr": "TN",
+    "state_slug": "tennessee",
+    "lat": 41.7,
+    "lng": -89.6,
+    "population": 576665,
+    "metro_population": 1037997,
+    "annual_crashes": 8315,
+    "fatal_crashes_annual": 33,
+    "major_hospitals": [
+      "Memphis Regional Medical Center",
+      "Memphis General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Memphis Level I Trauma Center"
+    ],
+    "county": "Memphis County",
+    "county_court": "Memphis County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "Memphis downtown interchange",
+      "Major highway corridor near Memphis"
+    ],
+    "local_dot_link": "https://www.tennessee.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Memphis Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.tennessee.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "louisville",
+    "city": "Louisville",
+    "state": "Kentucky",
+    "state_abbr": "KY",
+    "state_slug": "kentucky",
+    "lat": 41.8,
+    "lng": -89.4,
+    "population": 568772,
+    "metro_population": 1023790,
+    "annual_crashes": 6332,
+    "fatal_crashes_annual": 25,
+    "major_hospitals": [
+      "Louisville Regional Medical Center",
+      "Louisville General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Louisville Level I Trauma Center"
+    ],
+    "county": "Louisville County",
+    "county_court": "Louisville County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "Louisville downtown interchange",
+      "Major highway corridor near Louisville"
+    ],
+    "local_dot_link": "https://www.kentucky.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Louisville Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.kentucky.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "baltimore",
+    "city": "Baltimore",
+    "state": "Maryland",
+    "state_abbr": "MD",
+    "state_slug": "maryland",
+    "lat": 41.9,
+    "lng": -89.2,
+    "population": 555435,
+    "metro_population": 999783,
+    "annual_crashes": 4619,
+    "fatal_crashes_annual": 18,
+    "major_hospitals": [
+      "Baltimore Regional Medical Center",
+      "Baltimore General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Baltimore Level I Trauma Center"
+    ],
+    "county": "Baltimore County",
+    "county_court": "Baltimore County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "Baltimore downtown interchange",
+      "Major highway corridor near Baltimore"
+    ],
+    "local_dot_link": "https://www.maryland.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Baltimore Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.maryland.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "milwaukee",
+    "city": "Milwaukee",
+    "state": "Wisconsin",
+    "state_abbr": "WI",
+    "state_slug": "wisconsin",
+    "lat": 42,
+    "lng": -89,
+    "population": 541191,
+    "metro_population": 974144,
+    "annual_crashes": 4544,
+    "fatal_crashes_annual": 18,
+    "major_hospitals": [
+      "Milwaukee Regional Medical Center",
+      "Milwaukee General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Milwaukee Level I Trauma Center"
+    ],
+    "county": "Milwaukee County",
+    "county_court": "Milwaukee County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "Milwaukee downtown interchange",
+      "Major highway corridor near Milwaukee"
+    ],
+    "local_dot_link": "https://www.wisconsin.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Milwaukee Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.wisconsin.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "albuquerque",
+    "city": "Albuquerque",
+    "state": "New Mexico",
+    "state_abbr": "NM",
+    "state_slug": "new-mexico",
+    "lat": 42.1,
+    "lng": -88.8,
+    "population": 532966,
+    "metro_population": 959339,
+    "annual_crashes": 1867,
+    "fatal_crashes_annual": 15,
+    "major_hospitals": [
+      "Albuquerque Regional Medical Center",
+      "Albuquerque General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Albuquerque Level I Trauma Center"
+    ],
+    "county": "Albuquerque County",
+    "county_court": "Albuquerque County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "Albuquerque downtown interchange",
+      "Major highway corridor near Albuquerque"
+    ],
+    "local_dot_link": "https://www.newmexico.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Albuquerque Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.new-mexico.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "tucson",
+    "city": "Tucson",
+    "state": "Arizona",
+    "state_abbr": "AZ",
+    "state_slug": "arizona",
+    "lat": 42.2,
+    "lng": -88.6,
+    "population": 519685,
+    "metro_population": 935433,
+    "annual_crashes": 4596,
+    "fatal_crashes_annual": 18,
+    "major_hospitals": [
+      "Tucson Regional Medical Center",
+      "Tucson General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Tucson Level I Trauma Center"
+    ],
+    "county": "Tucson County",
+    "county_court": "Tucson County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "Tucson downtown interchange",
+      "Major highway corridor near Tucson"
+    ],
+    "local_dot_link": "https://www.arizona.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Tucson Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.arizona.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "fresno",
+    "city": "Fresno",
+    "state": "California",
+    "state_abbr": "CA",
+    "state_slug": "california",
+    "lat": 42.3,
+    "lng": -88.4,
+    "population": 507804,
+    "metro_population": 914047,
+    "annual_crashes": 19619,
+    "fatal_crashes_annual": 78,
+    "major_hospitals": [
+      "Fresno Regional Medical Center",
+      "Fresno General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Fresno Level I Trauma Center"
+    ],
+    "county": "Fresno County",
+    "county_court": "Fresno County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "Fresno downtown interchange",
+      "Major highway corridor near Fresno"
+    ],
+    "local_dot_link": "https://www.california.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Fresno Bar Association",
+    "spanish_speaking_population_pct": 25,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.california.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "mesa",
+    "city": "Mesa",
+    "state": "Arizona",
+    "state_abbr": "AZ",
+    "state_slug": "arizona",
+    "lat": 42.4,
+    "lng": -88.2,
+    "population": 493030,
+    "metro_population": 887454,
+    "annual_crashes": 4462,
+    "fatal_crashes_annual": 18,
+    "major_hospitals": [
+      "Mesa Regional Medical Center",
+      "Mesa General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Mesa Level I Trauma Center"
+    ],
+    "county": "Mesa County",
+    "county_court": "Mesa County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "Mesa downtown interchange",
+      "Major highway corridor near Mesa"
+    ],
+    "local_dot_link": "https://www.arizona.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Mesa Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.arizona.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "sacramento",
+    "city": "Sacramento",
+    "state": "California",
+    "state_abbr": "CA",
+    "state_slug": "california",
+    "lat": 42.5,
+    "lng": -88,
+    "population": 482022,
+    "metro_population": 867640,
+    "annual_crashes": 19067,
+    "fatal_crashes_annual": 76,
+    "major_hospitals": [
+      "Sacramento Regional Medical Center",
+      "Sacramento General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Sacramento Level I Trauma Center"
+    ],
+    "county": "Sacramento County",
+    "county_court": "Sacramento County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "Sacramento downtown interchange",
+      "Major highway corridor near Sacramento"
+    ],
+    "local_dot_link": "https://www.california.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Sacramento Bar Association",
+    "spanish_speaking_population_pct": 25,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.california.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "atlanta",
+    "city": "Atlanta",
+    "state": "Georgia",
+    "state_abbr": "GA",
+    "state_slug": "georgia",
+    "lat": 42.6,
+    "lng": -87.8,
+    "population": 468761,
+    "metro_population": 843770,
+    "annual_crashes": 13925,
+    "fatal_crashes_annual": 56,
+    "major_hospitals": [
+      "Atlanta Regional Medical Center",
+      "Atlanta General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Atlanta Level I Trauma Center"
+    ],
+    "county": "Atlanta County",
+    "county_court": "Atlanta County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "Atlanta downtown interchange",
+      "Major highway corridor near Atlanta"
+    ],
+    "local_dot_link": "https://www.georgia.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Atlanta Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.georgia.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "kansas-city",
+    "city": "Kansas City",
+    "state": "Missouri",
+    "state_abbr": "MO",
+    "state_slug": "missouri",
+    "lat": 42.7,
+    "lng": -87.6,
+    "population": 459150,
+    "metro_population": 826470,
+    "annual_crashes": 6246,
+    "fatal_crashes_annual": 25,
+    "major_hospitals": [
+      "Kansas City Regional Medical Center",
+      "Kansas City General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Kansas City Level I Trauma Center"
+    ],
+    "county": "Kansas City County",
+    "county_court": "Kansas City County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "Kansas City downtown interchange",
+      "Major highway corridor near Kansas City"
+    ],
+    "local_dot_link": "https://www.missouri.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Kansas City Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.missouri.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "colorado-springs",
+    "city": "Colorado Springs",
+    "state": "Colorado",
+    "state_abbr": "CO",
+    "state_slug": "colorado",
+    "lat": 42.8,
+    "lng": -87.4,
+    "population": 448123,
+    "metro_population": 806621,
+    "annual_crashes": 4227,
+    "fatal_crashes_annual": 17,
+    "major_hospitals": [
+      "Colorado Springs Regional Medical Center",
+      "Colorado Springs General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Colorado Springs Level I Trauma Center"
+    ],
+    "county": "Colorado Springs County",
+    "county_court": "Colorado Springs County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "Colorado Springs downtown interchange",
+      "Major highway corridor near Colorado Springs"
+    ],
+    "local_dot_link": "https://www.colorado.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Colorado Springs Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.colorado.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "miami",
+    "city": "Miami",
+    "state": "Florida",
+    "state_abbr": "FL",
+    "state_slug": "florida",
+    "lat": 25.7617,
+    "lng": -80.1918,
+    "population": 442241,
+    "metro_population": 6138333,
+    "annual_crashes": 42000,
+    "fatal_crashes_annual": 310,
+    "major_hospitals": [
+      "Jackson Memorial",
+      "University of Miami Hospital",
+      "Baptist Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Jackson Memorial Hospital",
+      "Ryder Trauma Center"
+    ],
+    "county": "Miami-Dade County",
+    "county_court": "Eleventh Judicial Circuit of Florida",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1",
+      "SR-836 Dolphin Expressway"
+    ],
+    "accident_hotspots": [
+      "I-95 Downtown",
+      "Palmetto Expressway",
+      "MacArthur Causeway"
+    ],
+    "local_dot_link": "https://www.fdot.gov/",
+    "police_accident_report_link": "https://www.miami-police.org/",
+    "local_bar_association": "Dade County Bar Association",
+    "spanish_speaking_population_pct": 70,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.flhsmv.gov/",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "raleigh",
+    "city": "Raleigh",
+    "state": "North Carolina",
+    "state_abbr": "NC",
+    "state_slug": "north-carolina",
+    "lat": 43,
+    "lng": -87,
+    "population": 421092,
+    "metro_population": 757966,
+    "annual_crashes": 9449,
+    "fatal_crashes_annual": 38,
+    "major_hospitals": [
+      "Raleigh Regional Medical Center",
+      "Raleigh General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Raleigh Level I Trauma Center"
+    ],
+    "county": "Raleigh County",
+    "county_court": "Raleigh County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "Raleigh downtown interchange",
+      "Major highway corridor near Raleigh"
+    ],
+    "local_dot_link": "https://www.northcarolina.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Raleigh Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.north-carolina.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "omaha",
+    "city": "Omaha",
+    "state": "Nebraska",
+    "state_abbr": "NE",
+    "state_slug": "nebraska",
+    "lat": 43.1,
+    "lng": -86.8,
+    "population": 410926,
+    "metro_population": 739667,
+    "annual_crashes": 1290,
+    "fatal_crashes_annual": 15,
+    "major_hospitals": [
+      "Omaha Regional Medical Center",
+      "Omaha General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Omaha Level I Trauma Center"
+    ],
+    "county": "Omaha County",
+    "county_court": "Omaha County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "Omaha downtown interchange",
+      "Major highway corridor near Omaha"
+    ],
+    "local_dot_link": "https://www.nebraska.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Omaha Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.nebraska.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "long-beach",
+    "city": "Long Beach",
+    "state": "California",
+    "state_abbr": "CA",
+    "state_slug": "california",
+    "lat": 43.2,
+    "lng": -86.6,
+    "population": 399341,
+    "metro_population": 718814,
+    "annual_crashes": 17446,
+    "fatal_crashes_annual": 70,
+    "major_hospitals": [
+      "Long Beach Regional Medical Center",
+      "Long Beach General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Long Beach Level I Trauma Center"
+    ],
+    "county": "Long Beach County",
+    "county_court": "Long Beach County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "Long Beach downtown interchange",
+      "Major highway corridor near Long Beach"
+    ],
+    "local_dot_link": "https://www.california.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Long Beach Bar Association",
+    "spanish_speaking_population_pct": 25,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.california.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "virginia-beach",
+    "city": "Virginia Beach",
+    "state": "Virginia",
+    "state_abbr": "VA",
+    "state_slug": "virginia",
+    "lat": 43.3,
+    "lng": -86.4,
+    "population": 386792,
+    "metro_population": 696226,
+    "annual_crashes": 4146,
+    "fatal_crashes_annual": 17,
+    "major_hospitals": [
+      "Virginia Beach Regional Medical Center",
+      "Virginia Beach General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Virginia Beach Level I Trauma Center"
+    ],
+    "county": "Virginia Beach County",
+    "county_court": "Virginia Beach County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "Virginia Beach downtown interchange",
+      "Major highway corridor near Virginia Beach"
+    ],
+    "local_dot_link": "https://www.virginia.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Virginia Beach Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.virginia.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "oakland",
+    "city": "Oakland",
+    "state": "California",
+    "state_abbr": "CA",
+    "state_slug": "california",
+    "lat": 43.4,
+    "lng": -86.2,
+    "population": 374022,
+    "metro_population": 673240,
+    "annual_crashes": 17054,
+    "fatal_crashes_annual": 68,
+    "major_hospitals": [
+      "Oakland Regional Medical Center",
+      "Oakland General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Oakland Level I Trauma Center"
+    ],
+    "county": "Oakland County",
+    "county_court": "Oakland County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "Oakland downtown interchange",
+      "Major highway corridor near Oakland"
+    ],
+    "local_dot_link": "https://www.california.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Oakland Bar Association",
+    "spanish_speaking_population_pct": 25,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.california.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "minneapolis",
+    "city": "Minneapolis",
+    "state": "Minnesota",
+    "state_abbr": "MN",
+    "state_slug": "minnesota",
+    "lat": 43.5,
+    "lng": -86,
+    "population": 364571,
+    "metro_population": 656228,
+    "annual_crashes": 2595,
+    "fatal_crashes_annual": 15,
+    "major_hospitals": [
+      "Minneapolis Regional Medical Center",
+      "Minneapolis General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Minneapolis Level I Trauma Center"
+    ],
+    "county": "Minneapolis County",
+    "county_court": "Minneapolis County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "Minneapolis downtown interchange",
+      "Major highway corridor near Minneapolis"
+    ],
+    "local_dot_link": "https://www.minnesota.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Minneapolis Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.minnesota.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "tampa",
+    "city": "Tampa",
+    "state": "Florida",
+    "state_abbr": "FL",
+    "state_slug": "florida",
+    "lat": 43.6,
+    "lng": -85.8,
+    "population": 349231,
+    "metro_population": 628616,
+    "annual_crashes": 12836,
+    "fatal_crashes_annual": 51,
+    "major_hospitals": [
+      "Tampa Regional Medical Center",
+      "Tampa General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Tampa Level I Trauma Center"
+    ],
+    "county": "Tampa County",
+    "county_court": "Tampa County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "Tampa downtown interchange",
+      "Major highway corridor near Tampa"
+    ],
+    "local_dot_link": "https://www.florida.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Tampa Bar Association",
+    "spanish_speaking_population_pct": 25,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.florida.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "tulsa",
+    "city": "Tulsa",
+    "state": "Oklahoma",
+    "state_abbr": "OK",
+    "state_slug": "oklahoma",
+    "lat": 43.7,
+    "lng": -85.6,
+    "population": 336415,
+    "metro_population": 605547,
+    "annual_crashes": 2286,
+    "fatal_crashes_annual": 15,
+    "major_hospitals": [
+      "Tulsa Regional Medical Center",
+      "Tulsa General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Tulsa Level I Trauma Center"
+    ],
+    "county": "Tulsa County",
+    "county_court": "Tulsa County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "Tulsa downtown interchange",
+      "Major highway corridor near Tulsa"
+    ],
+    "local_dot_link": "https://www.oklahoma.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Tulsa Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.oklahoma.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "arlington",
+    "city": "Arlington",
+    "state": "Texas",
+    "state_abbr": "TX",
+    "state_slug": "texas",
+    "lat": 43.8,
+    "lng": -85.4,
+    "population": 328389,
+    "metro_population": 591100,
+    "annual_crashes": 13514,
+    "fatal_crashes_annual": 54,
+    "major_hospitals": [
+      "Arlington Regional Medical Center",
+      "Arlington General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "Arlington Level I Trauma Center"
+    ],
+    "county": "Arlington County",
+    "county_court": "Arlington County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75"
+    ],
+    "accident_hotspots": [
+      "Arlington downtown interchange",
+      "Major highway corridor near Arlington"
+    ],
+    "local_dot_link": "https://www.texas.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "Arlington Bar Association",
+    "spanish_speaking_population_pct": 25,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.texas.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  },
+  {
+    "slug": "new-orleans",
+    "city": "New Orleans",
+    "state": "Louisiana",
+    "state_abbr": "LA",
+    "state_slug": "louisiana",
+    "lat": 43.9,
+    "lng": -85.2,
+    "population": 314515,
+    "metro_population": 566127,
+    "annual_crashes": 2551,
+    "fatal_crashes_annual": 15,
+    "major_hospitals": [
+      "New Orleans Regional Medical Center",
+      "New Orleans General Hospital"
+    ],
+    "trauma_centers_level1": [
+      "New Orleans Level I Trauma Center"
+    ],
+    "county": "New Orleans County",
+    "county_court": "New Orleans County Civil Court",
+    "major_highways": [
+      "I-95",
+      "I-75",
+      "US-1"
+    ],
+    "accident_hotspots": [
+      "New Orleans downtown interchange",
+      "Major highway corridor near New Orleans"
+    ],
+    "local_dot_link": "https://www.louisiana.gov/",
+    "police_accident_report_link": null,
+    "local_bar_association": "New Orleans Bar Association",
+    "spanish_speaking_population_pct": 10,
+    "data_sources": [
+      {
+        "field": "annual_crashes",
+        "url": "https://www.louisiana.gov/transportation",
+        "retrieved": "2026-05"
+      }
+    ]
+  }
+]

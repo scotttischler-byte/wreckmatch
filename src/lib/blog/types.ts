@@ -42,6 +42,8 @@ export type BlogPost = {
   autopilot?: boolean;
   contentPath?: string;
   markdownBody?: string;
+  /** Public path under /blog/covers/ or absolute URL */
+  coverImage?: string;
 };
 
 export type BlogFilters = {

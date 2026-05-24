@@ -1,0 +1,24 @@
+{
+  "dailyLimits": {
+    "cityPages": 5,
+    "statePages": 2,
+    "blogPosts": 5
+  },
+  "qualityGate": {
+    "minWords": 800,
+    "minDataPoints": 5,
+    "requireDisclaimer": true
+  },
+  "published": {
+    "cities": [],
+    "states": [],
+    "blogSlugs": []
+  },
+  "queue": {
+    "cities": ["houston", "dallas", "austin", "san-antonio", "fort-worth", "phoenix", "los-angeles", "chicago", "miami", "atlanta"],
+    "states": ["texas", "california", "florida", "new-york"],
+    "blog": []
+  },
+  "lastPublishAt": null,
+  "notes": "Conservative start: 5 city pages + 5 blog posts per day max. Run scripts/publish-from-queue.mjs manually or via GitHub Action."
+}

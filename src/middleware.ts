@@ -9,10 +9,6 @@ import {
   type Locale,
 } from "@/lib/i18n/config";
 import { parseLocaleFromPathname, toInternalPath } from "@/lib/i18n/locale-path";
-import {
-  shouldHandleWreckmatchAuth,
-  updateWreckmatchSession,
-} from "@/lib/wreckmatch/supabase/middleware";
 
 function resolveLocale(request: NextRequest, pathname: string): Locale {
   const fromPath = parseLocaleFromPathname(pathname).locale;
@@ -53,10 +49,6 @@ export async function middleware(request: NextRequest) {
       const response = NextResponse.next(withLocaleHeaders(request, locale));
       response.cookies.set(ASG_LOCALE_COOKIE, locale, { path: "/", maxAge: 60 * 60 * 24 * 365 });
       return response;
-    }
-
-    if (shouldHandleWreckmatchAuth(pathname)) {
-      return updateWreckmatchSession(request);
     }
 
     return NextResponse.next();

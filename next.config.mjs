@@ -28,6 +28,14 @@ const nextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: "/car-accident-help-:slug",
+        destination: "/car-accident-help/:slug",
+      },
+    ];
+  },
 };
 
 export default nextConfig;

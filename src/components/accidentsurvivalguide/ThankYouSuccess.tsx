@@ -8,7 +8,7 @@ import { WreckMatchQuickMatchForm } from "@/components/accidentsurvivalguide/Wre
 import { SurvivalGuideDisclaimer } from "@/components/SurvivalGuideDisclaimer";
 import { ASG_BASE_URL, SURVIVAL_GUIDE_PDF, WRECKMATCH_URL } from "@/lib/accidentsurvivalguide";
 import { SUPPORT_PHONE_DISPLAY, SUPPORT_PHONE_E164 } from "@/lib/constants";
-import { openSarahChat } from "@/lib/open-sarah-chat";
+import { openGhlChatWidget } from "@/lib/open-ghl-chat";
 import { formatMessage } from "@/lib/i18n/get-messages";
 import { trackAsgEvent, trackGoogleAdsSignupConversion } from "@/lib/analytics";
 
@@ -78,7 +78,7 @@ export function ThankYouSuccess({ email, firstName, state, phone }: ThankYouSucc
             type="button"
             onClick={() => {
               trackAsgEvent("sarah_chat_click");
-              openSarahChat();
+              openGhlChatWidget();
             }}
             className="mt-6 w-full rounded-xl bg-[#2a7a9b] py-3.5 text-sm font-semibold text-white transition hover:bg-[#236884]"
           >
