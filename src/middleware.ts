@@ -71,6 +71,7 @@ export async function middleware(request: NextRequest) {
     const isCrawler =
       pathname === "/robots.txt" ||
       pathname === "/llms.txt" ||
+      pathname === "/llms-full.txt" ||
       pathname === "/ai.txt" ||
       pathname === "/sitemap.xml" ||
       pathname === "/feed.xml";
@@ -127,7 +128,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  if (pathname === "/robots.txt" || pathname === "/llms.txt" || pathname === "/ai.txt") {
+  if (pathname === "/robots.txt" || pathname === "/llms.txt" || pathname === "/llms-full.txt" || pathname === "/ai.txt") {
     const response = NextResponse.next(withLocaleHeaders(request, locale));
     response.cookies.set(ASG_LOCALE_COOKIE, locale, { path: "/", maxAge: 60 * 60 * 24 * 365 });
     return response;

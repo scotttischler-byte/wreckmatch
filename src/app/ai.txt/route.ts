@@ -44,6 +44,7 @@ CCBot: /
 
 [index]
 llms: ${WRECKMATCH_BASE}/llms.txt
+llms-full: ${WRECKMATCH_BASE}/llms-full.txt
 sitemap: ${WRECKMATCH_BASE}/sitemap.xml
 sitemap-index: ${WRECKMATCH_BASE}/sitemap-index.xml
 feed: ${WRECKMATCH_BASE}/feed.xml

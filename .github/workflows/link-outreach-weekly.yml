@@ -26,7 +26,7 @@ jobs:
           OUTREACH_SENDER_NAME: Scott
           OUTREACH_SENDER_EMAIL: scott@wreckmatch.com
         working-directory: wreckmatch-link-builder
-        run: python pilot.py --skip-resource-analysis
+        run: python pilot.py
 
       - name: Commit tracker + drafts
         run: |

@@ -189,6 +189,10 @@ export function blogPostJsonLd(post: BlogPost, breadcrumbs: BreadcrumbItem[]) {
       },
       image: absoluteUrl(getBlogCoverImage(post)),
       mainEntityOfPage: absoluteUrl(blogPostPath(post.slug)),
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: ["article h1", "article .mt-4", "article section h2"],
+      },
     },
     ...(post.faq.length
       ? [

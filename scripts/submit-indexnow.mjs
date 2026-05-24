@@ -1,20 +1,17 @@
 #!/usr/bin/env node
 /**
  * Submit sitemap URLs to IndexNow (Bing/Yandex instant indexing).
- * Usage: node scripts/submit-indexnow.mjs [wreckmatch|asg|injuredhelp|all]
+ * Usage: node scripts/submit-indexnow.mjs [wreckmatch|asg|injuredhelp|all] [--fallback]
  */
-
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT = path.join(__dirname, "..");
 
 const HOSTS = {
   wreckmatch: "www.wreckmatch.com",
   asg: "www.accidentsurvivalguide.com",
   injuredhelp: "www.injuredhelp.ai",
+};
+
+const FALLBACK_SITEMAPS = {
+  wreckmatch: "https://wreckmatch.vercel.app/sitemap.xml",
 };
 
 const SITEMAP_URLS = {
@@ -36,7 +33,23 @@ async function fetchSitemapUrls(sitemapUrl) {
   return parseSitemapXml(xml);
 }
 
+async function verifyKey(host) {
+  const url = `https://${host}/${KEY}.txt`;
+  const res = await fetch(url);
+  if (!res.ok) {
+    console.warn(`  Key not reachable at ${url} (${res.status}) — IndexNow may return 403`);
+    return false;
+  }
+  const text = (await res.text()).trim();
+  if (text !== KEY) {
+    console.warn(`  Key mismatch at ${url}`);
+    return false;
+  }
+  return true;
+}
+
 async function submitIndexNow(host, urlList) {
+  await verifyKey(host);
   const payload = {
     host,
     key: KEY,
@@ -50,12 +63,15 @@ async function submitIndexNow(host, urlList) {
     body: JSON.stringify(payload),
   });
 
-  console.log(`IndexNow ${host}: ${res.status} (${urlList.length} URLs)`);
-  return res.ok;
+  const ok = res.status >= 200 && res.status < 300;
+  console.log(`IndexNow ${host}: ${res.status} (${urlList.length} URLs)${ok ? "" : " — check key at /" + KEY + ".txt"}`);
+  return ok;
 }
 
 async function main() {
-  const target = process.argv[2] ?? "all";
+  const args = process.argv.slice(2);
+  const useFallback = args.includes("--fallback");
+  const target = args.find((a) => !a.startsWith("--")) ?? "all";
   const keys = target === "all" ? Object.keys(HOSTS) : [target];
 
   for (const key of keys) {
@@ -66,7 +82,17 @@ async function main() {
       process.exit(1);
     }
     try {
-      const urls = await fetchSitemapUrls(sitemapUrl);
+      let urls;
+      try {
+        urls = await fetchSitemapUrls(sitemapUrl);
+      } catch (e) {
+        if (useFallback && FALLBACK_SITEMAPS[key]) {
+          console.warn(`[${key}] ${e.message} — using fallback sitemap`);
+          urls = await fetchSitemapUrls(FALLBACK_SITEMAPS[key]);
+        } else {
+          throw e;
+        }
+      }
       await submitIndexNow(host, urls);
     } catch (e) {
       console.error(`[${key}]`, e.message);

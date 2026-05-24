@@ -10,7 +10,9 @@ import { SeoJsonLd } from "@/components/seo/SeoJsonLd";
 import { RelatedGuides } from "@/components/seo/RelatedGuides";
 import { ProgressiveLeadForm } from "@/components/seo/ProgressiveLeadForm";
 import { StickyLeadCta } from "@/components/seo/StickyLeadCta";
-import { blogBreadcrumbs, relatedBlogLinks } from "@/lib/seo/internal-links";
+import { blogBreadcrumbs } from "@/lib/seo/internal-links";
+import { cityInternalLinks } from "@/lib/seo/city-internal-links";
+import { getStateForCity } from "@/lib/seo/cities";
 import { blogPostJsonLd } from "@/lib/seo/schema";
 import { getCityByName } from "@/lib/seo/cities";
 import { trackWreckmatchEvent } from "@/lib/analytics";
@@ -128,10 +130,16 @@ export function WmBlogPostView({ post }: WmBlogPostViewProps) {
 
             {cityRecord ? (
               <RelatedGuides
-                links={relatedBlogLinks(cityRecord, post.slug).map((l) => ({
-                  label: l.label,
-                  href: l.href,
-                }))}
+                title={`More ${cityRecord.city} resources`}
+                links={(() => {
+                  const state = getStateForCity(cityRecord);
+                  const hub = {
+                    label: `${cityRecord.city} car accident help hub`,
+                    href: cityPagePath(cityRecord.slug),
+                  };
+                  if (!state) return [hub];
+                  return [hub, ...cityInternalLinks(cityRecord, state)].slice(0, 8);
+                })()}
               />
             ) : null}
           </div>

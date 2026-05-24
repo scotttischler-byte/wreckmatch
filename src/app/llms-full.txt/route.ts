@@ -9,11 +9,12 @@ import {
   wreckmatchLlmsBody,
 } from "@/lib/seo/llms-builders";
 
+/** Uncapped LLM crawler index — full URL lists for AI discovery. */
 export async function GET() {
   const host = headers().get("host") ?? "";
-  let body = wreckmatchLlmsBody();
-  if (isAsgHostname(host)) body = asgLlmsBody();
-  if (isInjuredHelpHostname(host)) body = injuredhelpLlmsBody();
+  let body = wreckmatchLlmsBody({ full: true });
+  if (isAsgHostname(host)) body = asgLlmsBody({ full: true });
+  if (isInjuredHelpHostname(host)) body = injuredhelpLlmsBody({ full: true });
 
   return new Response(body, {
     headers: {

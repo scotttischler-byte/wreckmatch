@@ -508,11 +508,24 @@ class BrokenLinkFinder:
     def _suggest_replacement(self, anchor_text: str) -> str:
         """Map anchor context to the best WreckMatch URL."""
         text = anchor_text.lower()
+        base = self.brand.website.rstrip("/")
+        if any(kw in text for kw in ("llm", "ai ", "gpt", "chatbot")):
+            return f"{base}/llms.txt"
+        if any(kw in text for kw in ("checklist", "survival", "first 24", "pdf")):
+            return "https://www.accidentsurvivalguide.com/resources"
+        if any(kw in text for kw in ("houston", "dallas", "miami", "chicago", "los angeles", "phoenix")):
+            for city in ("houston", "dallas", "miami", "chicago", "los-angeles", "phoenix"):
+                if city.replace("-", " ") in text or city in text:
+                    return f"{base}/car-accident-help-{city.replace(' ', '-')}"
+        if any(kw in text for kw in ("texas", "florida", "california", "new york")):
+            for state in ("texas", "florida", "california", "new-york"):
+                if state.replace("-", " ") in text or state in text:
+                    return f"{base}/car-accident-help-{state}"
         if any(kw in text for kw in ("lawyer", "attorney", "legal", "injury", "accident")):
-            return self.brand.website
-        if "resource" in text or "help" in text:
-            return f"{self.brand.website}/resources"
-        return self.brand.website
+            return f"{base}/resources"
+        if "resource" in text or "help" in text or "guide" in text:
+            return f"{base}/resources"
+        return base
 
     def close(self) -> None:
         if self._owns_client:

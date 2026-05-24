@@ -3,7 +3,7 @@ import type { BlogTemplateId } from "../../../data/types";
 import type { CityRecord } from "../../../data/types";
 import type { StateRecord } from "../../../data/types";
 import { blogSlugFor, templateTitle } from "./internal-links";
-import { blogMetaDescription } from "./meta";
+import { programmaticBlogMetaDescription } from "./meta";
 
 function section(
   heading: string,
@@ -212,7 +212,7 @@ export function buildProgrammaticBlogPost(
   return {
     slug,
     title,
-    metaDescription: blogMetaDescription(city, title),
+    metaDescription: programmaticBlogMetaDescription(city, template),
     excerpt: `Educational ${city.city}, ${city.state_abbr} guide — ${state.statute_limitations_years}-year SOL, local hospitals, and insurer tactics. Not legal advice.`,
     city: city.city,
     state: city.state,
