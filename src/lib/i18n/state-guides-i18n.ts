@@ -1,6 +1,6 @@
 import type { Locale } from "@/lib/i18n/config";
 import type { StateGuide, StateSlug } from "@/lib/accidentsurvivalguide";
-import { STATE_GUIDES } from "@/lib/accidentsurvivalguide";
+import { getStateGuideBySlug } from "@/lib/asg/state-guides";
 
 type LocalizedStateGuide = Pick<StateGuide, "headline" | "intro" | "tips" | "statuteNote">;
 
@@ -158,7 +158,7 @@ const ES_STATE_GUIDES: Partial<Record<StateSlug, LocalizedStateGuide>> = {
 };
 
 export function getLocalizedStateGuide(slug: string, locale: Locale): StateGuide | undefined {
-  const base = STATE_GUIDES[slug as StateSlug];
+  const base = getStateGuideBySlug(slug);
   if (!base) return undefined;
   if (locale === "en") return base;
 

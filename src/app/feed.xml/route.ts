@@ -1,4 +1,4 @@
-import { ASG_BASE_URL, ASG_SITE_NAME } from "@/lib/accidentsurvivalguide";
+import { WRECKMATCH_SEO_BASE } from "@/lib/seo/site";
 import { getPublishedBlogPosts } from "@/lib/blog/posts";
 import { REDIRECTED_BLOG_SLUGS } from "@/lib/seo/redirected-blog";
 
@@ -6,13 +6,14 @@ export async function GET() {
   const posts = getPublishedBlogPosts()
     .filter((p) => !REDIRECTED_BLOG_SLUGS.has(p.slug))
     .slice(0, 50);
+
   const items = posts
     .map(
       (post) => `
     <item>
       <title><![CDATA[${post.title}]]></title>
-      <link>${ASG_BASE_URL}/blog/${post.slug}</link>
-      <guid isPermaLink="true">${ASG_BASE_URL}/blog/${post.slug}</guid>
+      <link>${WRECKMATCH_SEO_BASE}/blog/${post.slug}</link>
+      <guid isPermaLink="true">${WRECKMATCH_SEO_BASE}/blog/${post.slug}</guid>
       <pubDate>${new Date(post.publishedAt).toUTCString()}</pubDate>
       <description><![CDATA[${post.excerpt}]]></description>
     </item>`,
@@ -20,12 +21,13 @@ export async function GET() {
     .join("");
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>${ASG_SITE_NAME}</title>
-    <link>${ASG_BASE_URL}</link>
-    <description>Educational car accident guides by city and topic.</description>
+    <title>WreckMatch Blog — Car Accident Help</title>
+    <link>${WRECKMATCH_SEO_BASE}/blog</link>
+    <description>Educational car accident guides, state law overviews, and injury help articles.</description>
     <language>en-us</language>
+    <atom:link href="${WRECKMATCH_SEO_BASE}/feed.xml" rel="self" type="application/rss+xml"/>
     ${items}
   </channel>
 </rss>`;
@@ -33,6 +35,7 @@ export async function GET() {
   return new Response(xml, {
     headers: {
       "Content-Type": "application/rss+xml; charset=utf-8",
+      "Cache-Control": "public, max-age=3600",
     },
   });
 }

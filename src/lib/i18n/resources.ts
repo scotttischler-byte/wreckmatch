@@ -1,11 +1,9 @@
 import type { Locale } from "@/lib/i18n/config";
 import { formatMessage, getMessages } from "@/lib/i18n/get-messages";
 import {
-  STATE_GUIDES,
-  STATE_SLUGS,
   SURVIVAL_GUIDE_PDF,
-  type StateSlug,
 } from "@/lib/accidentsurvivalguide";
+import { ALL_STATE_SLUGS, getStateGuideBySlug } from "@/lib/asg/state-guides";
 
 export function getLocalizedResources(locale: Locale) {
   const m = getMessages(locale).resources;
@@ -35,11 +33,14 @@ export function getLocalizedResources(locale: Locale) {
       href: "/#your-rights",
       external: false,
     },
-    ...STATE_SLUGS.map((slug) => ({
-      title: formatMessage(m.stateGuideTitle, { state: STATE_GUIDES[slug as StateSlug].name }),
-      description: STATE_GUIDES[slug as StateSlug].headline,
-      href: `/${slug}`,
-      external: false,
-    })),
+    ...ALL_STATE_SLUGS.map((slug) => {
+      const guide = getStateGuideBySlug(slug)!;
+      return {
+        title: formatMessage(m.stateGuideTitle, { state: guide.name }),
+        description: guide.headline,
+        href: `/${slug}`,
+        external: false,
+      };
+    }),
   ];
 }

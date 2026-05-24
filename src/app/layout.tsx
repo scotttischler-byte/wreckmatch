@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import { GoogleAdsTag } from "@/components/GoogleAdsTag";
+import { SiteJsonLd } from "@/components/seo/SiteJsonLd";
+import { WRECKMATCH_BASE } from "@/lib/domains";
 import "./globals.css";
 
 const sansFont = Inter({
@@ -15,12 +17,23 @@ const monoFont = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(WRECKMATCH_BASE),
   title: {
     default: "WreckMatch | Secure Chat Support",
     template: "%s | WreckMatch",
   },
   description:
     "WreckMatch secure support page with legal disclosures and a single chat-widget contact path during messaging compliance review.",
+  openGraph: {
+    siteName: "WreckMatch",
+    type: "website",
+    locale: "en_US",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
 };
 
 export default function RootLayout({
@@ -39,7 +52,8 @@ export default function RootLayout({
           strategy="beforeInteractive"
         />
       </head>
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex-col flex">
+        <SiteJsonLd />
         <GoogleAdsTag />
         {children}
 

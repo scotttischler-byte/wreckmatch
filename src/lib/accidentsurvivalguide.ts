@@ -81,7 +81,7 @@ export type StateSlug =
   | "arizona";
 
 export type StateGuide = {
-  slug: StateSlug;
+  slug: string;
   name: string;
   abbr: string;
   headline: string;

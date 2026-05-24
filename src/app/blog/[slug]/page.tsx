@@ -5,7 +5,8 @@ import { getAllBlogSlugsForSitemap } from "@/lib/seo/blog-resolver";
 import { getCityRedirectForBlogSlug, REDIRECTED_BLOG_SLUGS } from "@/lib/seo/redirected-blog";
 import { WmBlogPostView } from "@/components/seo/WmBlogPostView";
 import { getBlogCoverImage } from "@/lib/blog/covers";
-import { absoluteUrl, blogPostPath } from "@/lib/seo/site";
+import { blogCrossDomainAlternates } from "@/lib/seo/blog-alternates";
+import { absoluteUrl } from "@/lib/seo/site";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: post.title,
     description: post.metaDescription,
     keywords: post.keywords,
-    alternates: { canonical: absoluteUrl(blogPostPath(slug)) },
+    alternates: blogCrossDomainAlternates(slug),
     openGraph: {
       title: post.title,
       description: post.metaDescription,

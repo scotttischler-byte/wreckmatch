@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { AsgLink } from "@/components/accidentsurvivalguide/AsgLink";
-import { STATE_SLUGS, WRECKMATCH_URL } from "@/lib/accidentsurvivalguide";
+import { ALL_STATE_SLUGS } from "@/lib/asg/state-guides";
+import { WRECKMATCH_URL } from "@/lib/accidentsurvivalguide";
 import { SurvivalGuideDownloadForm } from "@/components/accidentsurvivalguide/SurvivalGuideDownloadForm";
 import { AsgJsonLd } from "@/components/accidentsurvivalguide/AsgJsonLd";
 import { getMessages, formatMessage } from "@/lib/i18n/get-messages";
@@ -11,7 +12,7 @@ import { getAsgLocale } from "@/lib/i18n/server";
 type PageProps = { params: Promise<{ state: string }> };
 
 export async function generateStaticParams() {
-  return STATE_SLUGS.map((state) => ({ state }));
+  return ALL_STATE_SLUGS.map((state) => ({ state }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

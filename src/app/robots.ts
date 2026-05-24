@@ -1,8 +1,22 @@
 import type { MetadataRoute } from "next";
 import { headers } from "next/headers";
-import { ASG_BASE_URL, isAsgHostname } from "@/lib/accidentsurvivalguide";
+import {
+  AI_CRAWLER_AGENTS,
+  ASG_BASE_URL,
+  INJUREDHELP_BASE,
+  WRECKMATCH_BASE,
+  isAsgHostname,
+  isInjuredHelpHostname,
+} from "@/lib/domains";
 
-/** Host-aware robots.txt (wreckmatch.com vs accidentsurvivalguide.com). */
+function aiBotRules() {
+  return AI_CRAWLER_AGENTS.map((userAgent) => ({
+    userAgent,
+    allow: "/" as const,
+  }));
+}
+
+/** Host-aware robots.txt for wreckmatch.com, accidentsurvivalguide.com, and injuredhelp.ai. */
 export default function robots(): MetadataRoute.Robots {
   const host = headers().get("host") ?? "";
 
@@ -14,13 +28,25 @@ export default function robots(): MetadataRoute.Robots {
           allow: "/",
           disallow: ["/admin/", "/thank-you", "/api/"],
         },
-        { userAgent: "GPTBot", allow: "/" },
-        { userAgent: "ClaudeBot", allow: "/" },
-        { userAgent: "anthropic-ai", allow: "/" },
-        { userAgent: "PerplexityBot", allow: "/" },
-        { userAgent: "Google-Extended", allow: "/" },
+        ...aiBotRules(),
       ],
       sitemap: `${ASG_BASE_URL}/sitemap.xml`,
+      host: ASG_BASE_URL.replace("https://", ""),
+    };
+  }
+
+  if (isInjuredHelpHostname(host)) {
+    return {
+      rules: [
+        {
+          userAgent: "*",
+          allow: "/",
+          disallow: ["/api/"],
+        },
+        ...aiBotRules(),
+      ],
+      sitemap: `${INJUREDHELP_BASE}/sitemap.xml`,
+      host: INJUREDHELP_BASE.replace("https://", ""),
     };
   }
 
@@ -31,12 +57,12 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/", "/accidentsurvivalguide/admin/"],
       },
-      { userAgent: "GPTBot", allow: "/" },
-      { userAgent: "ClaudeBot", allow: "/" },
-      { userAgent: "anthropic-ai", allow: "/" },
-      { userAgent: "PerplexityBot", allow: "/" },
-      { userAgent: "Google-Extended", allow: "/" },
+      ...aiBotRules(),
     ],
-    sitemap: "https://www.wreckmatch.com/sitemap.xml",
+    sitemap: [
+      `${WRECKMATCH_BASE}/sitemap.xml`,
+      `${WRECKMATCH_BASE}/sitemap-index.xml`,
+    ],
+    host: WRECKMATCH_BASE.replace("https://", ""),
   };
 }

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { isAsgHostname } from "@/lib/accidentsurvivalguide";
+import { isAsgHostname, isInjuredHelpHostname } from "@/lib/domains";
 import {
   ASG_LOCALE_COOKIE,
   ASG_LOCALE_HEADER,
@@ -33,6 +33,7 @@ function withLocaleHeaders(
 export async function middleware(request: NextRequest) {
   const host = request.headers.get("host") ?? "";
   const hostname = host.split(":")[0]?.toLowerCase() ?? "";
+  const { pathname } = request.nextUrl;
 
   if (hostname === "accidentsurvivalguide.com") {
     const url = request.nextUrl.clone();
@@ -41,8 +42,61 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 308);
   }
 
-  const { pathname } = request.nextUrl;
+  if (hostname === "injuredhelp.ai") {
+    const url = request.nextUrl.clone();
+    url.host = "www.injuredhelp.ai";
+    url.protocol = "https:";
+    return NextResponse.redirect(url, 308);
+  }
+
   const locale = resolveLocale(request, pathname);
+
+  if (isInjuredHelpHostname(host)) {
+    const sharedPaths = ["/privacy-policy", "/terms", "/privacy", "/blog", "/car-accident-help"];
+    const isCarHelp = pathname.startsWith("/car-accident-help");
+    const isBlog = pathname.startsWith("/blog");
+    const isCrawler =
+      pathname === "/robots.txt" ||
+      pathname === "/llms.txt" ||
+      pathname === "/sitemap.xml" ||
+      pathname === "/feed.xml";
+
+    if (isCrawler) {
+      if (pathname === "/sitemap.xml") {
+        const url = request.nextUrl.clone();
+        url.pathname = "/injuredhelp/sitemap.xml";
+        return NextResponse.rewrite(url);
+      }
+      if (pathname === "/feed.xml") {
+        const url = request.nextUrl.clone();
+        url.pathname = "/injuredhelp/feed.xml";
+        return NextResponse.rewrite(url);
+      }
+      return NextResponse.next();
+    }
+
+    if (pathname === "/" || pathname === "") {
+      const url = request.nextUrl.clone();
+      url.pathname = "/injuredhelp";
+      return NextResponse.rewrite(url);
+    }
+
+    if (
+      isBlog ||
+      isCarHelp ||
+      sharedPaths.some((p) => pathname === p || pathname.startsWith(`${p}/`))
+    ) {
+      return NextResponse.next();
+    }
+
+    if (pathname.startsWith("/injuredhelp") || pathname.startsWith("/api") || pathname.startsWith("/_next")) {
+      return NextResponse.next();
+    }
+
+    const url = request.nextUrl.clone();
+    url.pathname = `/injuredhelp${pathname}`;
+    return NextResponse.rewrite(url);
+  }
 
   if (!isAsgHostname(host)) {
     if (pathname.startsWith("/accidentsurvivalguide")) {
@@ -59,17 +113,6 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Root crawler files — must not rewrite to /accidentsurvivalguide/[state]
-  if (pathname === "/robots.txt") {
-    const url = request.nextUrl.clone();
-    url.pathname = "/robots-accidentsurvivalguide.txt";
-    return NextResponse.rewrite(url);
-  }
-  if (pathname === "/llms.txt") {
-    const url = request.nextUrl.clone();
-    url.pathname = "/llms-accidentsurvivalguide.txt";
-    return NextResponse.rewrite(url);
-  }
   if (pathname === "/sitemap.xml") {
     const url = request.nextUrl.clone();
     url.pathname = "/accidentsurvivalguide/sitemap.xml";

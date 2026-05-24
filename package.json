@@ -15,7 +15,7 @@
     "blog:generate": "node scripts/generate-blog-batch.mjs",
     "seo:cannibalization": "node scripts/find-cannibalization.mjs",
     "seo:quality-gate": "node scripts/quality-gate.mjs",
-    "links:pilot": "cd wreckmatch-link-builder && python pilot.py",
+    "seo:submit-indexnow": "node scripts/submit-indexnow.mjs all",
     "autopilot:build-cities": "python3 scripts/build_cities_master.py",
     "autopilot:next": "python3 scripts/accident_survival_guide_autopilot.py --next --publish-json",
     "autopilot:batch": "python3 scripts/accident_survival_guide_autopilot.py --batch 20 --publish-json --continue-on-error",
