@@ -20,6 +20,7 @@ export function breadcrumbJsonLd(items: BreadcrumbItem[]) {
 }
 
 export function cityPageJsonLd(city: CityRecord, state: StateRecord, breadcrumbs: BreadcrumbItem[]) {
+  const pageUrl = absoluteUrl(cityPagePath(city.slug));
   return [
     breadcrumbJsonLd(breadcrumbs),
     {
@@ -27,9 +28,13 @@ export function cityPageJsonLd(city: CityRecord, state: StateRecord, breadcrumbs
       "@type": "WebPage",
       name: `Car Accident Help in ${city.city}, ${state.name}`,
       description: `Educational guide for ${city.city} car accident victims — ${state.name} SOL, insurance, hospitals, and next steps.`,
-      url: absoluteUrl(cityPagePath(city.slug)),
+      url: pageUrl,
       inLanguage: "en-US",
       isPartOf: { "@type": "WebSite", name: "WreckMatch", url: absoluteUrl("/") },
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: ["article .seo-markdown h1", "article .seo-markdown p"],
+      },
     },
     {
       "@context": "https://schema.org",
@@ -66,12 +71,29 @@ export function cityPageJsonLd(city: CityRecord, state: StateRecord, breadcrumbs
             text: "No. WreckMatch LLC is a legal referral service that connects accident victims with independent attorneys. We do not provide legal advice.",
           },
         },
+        {
+          "@type": "Question",
+          name: `What is the minimum auto insurance in ${state.name}?`,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: `${state.name} requires at least ${state.min_liability_insurance} in liability coverage for most drivers. Verify current limits with your insurer or state DMV.`,
+          },
+        },
+        {
+          "@type": "Question",
+          name: `What should I do right after a car accident in ${city.city}?`,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: `Move to safety, call 911 if anyone is hurt, exchange driver and insurance information, document the scene with photos, seek medical care, and notify your insurer. Consider speaking with a licensed ${state.name} attorney before giving a recorded statement.`,
+          },
+        },
       ],
     },
   ];
 }
 
 export function statePageJsonLd(state: StateRecord, breadcrumbs: BreadcrumbItem[]) {
+  const pageUrl = absoluteUrl(cityPagePath(state.slug));
   return [
     breadcrumbJsonLd(breadcrumbs),
     {
@@ -79,9 +101,13 @@ export function statePageJsonLd(state: StateRecord, breadcrumbs: BreadcrumbItem[
       "@type": "WebPage",
       name: `Car Accident Help in ${state.name}`,
       description: `${state.name} car accident guide — ${state.statute_limitations_years}-year SOL, ${state.min_liability_insurance} insurance minimums, and city resources.`,
-      url: absoluteUrl(cityPagePath(state.slug)),
+      url: pageUrl,
       inLanguage: "en-US",
       isPartOf: { "@type": "WebSite", name: "WreckMatch", url: absoluteUrl("/") },
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: ["article .seo-markdown h1", "article .seo-markdown p"],
+      },
     },
     {
       "@context": "https://schema.org",
@@ -111,6 +137,14 @@ export function statePageJsonLd(state: StateRecord, breadcrumbs: BreadcrumbItem[
           acceptedAnswer: {
             "@type": "Answer",
             text: "No. WreckMatch LLC is a legal referral service that connects accident victims with independent attorneys. We do not provide legal advice.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: `What is the minimum auto insurance in ${state.name}?`,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: `${state.name} requires at least ${state.min_liability_insurance} in liability coverage for most drivers. Verify current limits with your insurer or state DMV.`,
           },
         },
       ],

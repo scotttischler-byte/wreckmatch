@@ -63,6 +63,9 @@ export function SeoShell({ children }: SeoShellProps) {
             WreckMatch
           </Link>
           <nav className="flex items-center gap-4 text-sm font-medium text-[#475569]">
+            <Link href="/resources" className="hover:text-[#8a6914]">
+              Resources
+            </Link>
             <Link href="/blog" className="hover:text-[#8a6914]">
               Blog
             </Link>

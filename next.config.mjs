@@ -36,6 +36,15 @@ const nextConfig = {
         destination: "/car-accident-help-miami",
         permanent: true,
       },
+      // Legacy Gomega / old-site paths → current SEO routes
+      { source: "/states", destination: "/blog", permanent: true },
+      { source: "/states/:path*", destination: "/blog", permanent: true },
+      { source: "/ai-visibility-accelerator", destination: "/blog", permanent: true },
+      { source: "/ai-visibility-accelerator/:path*", destination: "/blog", permanent: true },
+      { source: "/ai-accident-help", destination: "/blog", permanent: true },
+      { source: "/ai-accident-help/:path*", destination: "/blog", permanent: true },
+      { source: "/truck-accident-help", destination: "/blog", permanent: true },
+      { source: "/truck-accident-help/:path*", destination: "/blog", permanent: true },
     ];
   },
   async rewrites() {

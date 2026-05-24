@@ -1,9 +1,20 @@
 import type { MetadataRoute } from "next";
 import { getPublishedBlogPosts } from "@/lib/blog/posts";
 import { CITIES, STATES } from "@/lib/seo/cities";
-import { WRECKMATCH_SEO_BASE, cityPagePath, blogPostPath } from "@/lib/seo/site";
-
+import { WRECKMATCH_SEO_BASE, blogPostPath, cityPagePath } from "@/lib/seo/site";
 import { REDIRECTED_BLOG_SLUGS } from "@/lib/seo/redirected-blog";
+import { blogSlugFor } from "@/lib/seo/internal-links";
+import type { BlogTemplateId } from "../../data/types";
+import { topCitiesByPopulation } from "@/lib/seo/internal-links";
+
+/** Non-cannibalizing programmatic templates only (not immediate-steps). */
+const SITEMAP_TEMPLATES: BlogTemplateId[] = [
+  "statute-limitations",
+  "uninsured-driver",
+  "costly-mistakes",
+  "hire-lawyer",
+  "insurance-denied",
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = WRECKMATCH_SEO_BASE;
@@ -12,7 +23,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: base, lastModified: now, changeFrequency: "weekly", priority: 1 },
     { url: `${base}/blog`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
+    { url: `${base}/resources`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
     { url: `${base}/llms.txt`, lastModified: now, changeFrequency: "weekly", priority: 0.5 },
+    { url: `${base}/ai.txt`, lastModified: now, changeFrequency: "weekly", priority: 0.5 },
     { url: `${base}/feed.xml`, lastModified: now, changeFrequency: "daily", priority: 0.5 },
     { url: `${base}/privacy-policy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${base}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
@@ -35,11 +48,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogRoutes = getPublishedBlogPosts()
     .filter((post) => !REDIRECTED_BLOG_SLUGS.has(post.slug))
     .map((post) => ({
-    url: `${base}${blogPostPath(post.slug)}`,
-    lastModified: new Date(post.updatedAt ?? post.publishedAt),
-    changeFrequency: "monthly" as const,
-    priority: 0.65,
-  }));
+      url: `${base}${blogPostPath(post.slug)}`,
+      lastModified: new Date(post.updatedAt ?? post.publishedAt),
+      changeFrequency: "monthly" as const,
+      priority: 0.65,
+    }));
 
-  return [...staticRoutes, ...stateRoutes, ...cityRoutes, ...blogRoutes];
+  const topCities = topCitiesByPopulation(20);
+  const programmaticRoutes = topCities.flatMap((city) =>
+    SITEMAP_TEMPLATES.map((template) => ({
+      url: `${base}${blogPostPath(blogSlugFor(city, template))}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.55,
+    })),
+  );
+
+  return [...staticRoutes, ...stateRoutes, ...cityRoutes, ...blogRoutes, ...programmaticRoutes];
 }

@@ -4,9 +4,11 @@ import { SeoBreadcrumbs } from "@/components/seo/SeoBreadcrumbs";
 import { SeoMarkdownBody } from "@/components/seo/SeoMarkdownBody";
 import { SeoJsonLd } from "@/components/seo/SeoJsonLd";
 import { NearbyCities } from "@/components/seo/NearbyCities";
+import { RelatedGuides } from "@/components/seo/RelatedGuides";
 import { ProgressiveLeadForm } from "@/components/seo/ProgressiveLeadForm";
 import { StickyLeadCta } from "@/components/seo/StickyLeadCta";
 import { stateBreadcrumbs, stateCityLinks } from "@/lib/seo/internal-links";
+import { stateInternalLinks } from "@/lib/seo/city-internal-links";
 import { statePageJsonLd } from "@/lib/seo/schema";
 import { EeatCredibilityBlock } from "@/components/seo/EeatCredibilityBlock";
 
@@ -30,6 +32,10 @@ export function StateHubPage({ state, markdown, cityCount }: StateHubPageProps) 
           <div>
             <SeoMarkdownBody markdown={markdown} />
             <EeatCredibilityBlock state={state} />
+            <RelatedGuides
+              title={`More ${state.name} resources`}
+              links={stateInternalLinks(state).map((l) => ({ label: l.label, href: l.href }))}
+            />
           </div>
           <aside className="lg:sticky lg:top-8 lg:self-start">
             <ProgressiveLeadForm

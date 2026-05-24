@@ -8,10 +8,10 @@ import { NearbyCities } from "@/components/seo/NearbyCities";
 import { RelatedGuides } from "@/components/seo/RelatedGuides";
 import { ProgressiveLeadForm } from "@/components/seo/ProgressiveLeadForm";
 import { StickyLeadCta } from "@/components/seo/StickyLeadCta";
+import { cityInternalLinks } from "@/lib/seo/city-internal-links";
 import {
   cityBreadcrumbs,
   nearbyCityLinks,
-  relatedBlogLinks,
 } from "@/lib/seo/internal-links";
 import { cityPageJsonLd } from "@/lib/seo/schema";
 import { EeatCredibilityBlock } from "@/components/seo/EeatCredibilityBlock";
@@ -38,7 +38,7 @@ export function CityLandingPage({ city, state, markdown }: CityLandingPageProps)
             <EeatCredibilityBlock state={state} />
             <RelatedGuides
               title={`More ${city.city} guides`}
-              links={relatedBlogLinks(city, "").map((l) => ({ label: l.label, href: l.href }))}
+              links={cityInternalLinks(city, state).map((l) => ({ label: l.label, href: l.href }))}
             />
           </div>
           <aside className="lg:sticky lg:top-8 lg:self-start">
