@@ -96,15 +96,30 @@ function appendLocalSections(
       heading: `Settlement timeline expectations in ${city.city}`,
       paragraphs: [
         `Minor property-damage claims in ${city.city} may resolve in weeks, but injury claims involving treatment, lost wages, or disputed fault often take months. Insurers may request recorded statements, independent medical exams, and broad medical authorizations — review each request carefully.`,
-        `${state.name} uses ${state.comparative_negligence_rule} comparative negligence rules with a ${state.statute_limitations_years}-year statute of limitations for most injury cases. Calendar your deadline from the date of injury and confirm exceptions with counsel.`,
-        `If you were transported from ${city.major_highways[0] ?? "a local corridor"} to ${city.major_hospitals[0] ?? "a hospital"}, keep ambulance, ER, and follow-up bills organized. UM/UIM, MedPay, and PIP endorsements on your policy may apply even when the other driver is underinsured.`,
+        `${state.name} uses ${state.comparative_negligence_rule} comparative negligence with a ${state.statute_limitations_years}-year statute of limitations for most injury cases. Calendar your deadline from the date of injury.`,
+        `If you were transported from ${city.major_highways[0] ?? "a local corridor"} to ${city.major_hospitals[0] ?? "a hospital"}, keep ambulance, ER, and follow-up bills organized. UM/UIM and MedPay endorsements may apply when the other driver is underinsured.`,
       ],
       list: [
         "Do not accept the first settlement check if treatment is ongoing",
         "Avoid discussing fault on social media",
-        "Request the adjuster's denial or reservation of rights in writing",
+        "Request adjuster denials or reservations of rights in writing",
         "Compare repair estimates with your insurer's appraisal",
         "Consult a licensed attorney before signing general releases",
+      ],
+    },
+    {
+      heading: `Document checklist for ${city.city} claims`,
+      paragraphs: [
+        `Organize a folder (physical or digital) for every document tied to your ${city.city} crash: police report number, insurance claim numbers, tow and storage receipts, and rental car agreements.`,
+        `Request itemized medical bills from ${city.major_hospitals[0] ?? "each provider"} rather than summary statements — itemized bills help catch billing errors and support future negotiations.`,
+      ],
+      list: [
+        "Photos of all vehicles and the scene from multiple angles",
+        "Witness names and phone numbers",
+        "Employer note for any missed work shifts",
+        "Insurance adjuster name, phone, and claim number",
+        "Repair estimates from at least two body shops",
+        "Mileage log for medical appointments",
       ],
     },
   ];
@@ -133,6 +148,10 @@ function enrichDraft(draft: BlogPost): BlogPost | null {
     {
       question: `Does WreckMatch provide legal advice in ${city.city}?`,
       answer: `No. WreckMatch LLC is a referral service that connects accident victims with independent ${state.name} attorneys. We are not a law firm and do not provide legal advice.`,
+    },
+    {
+      question: `Is there a fee to get matched through WreckMatch?`,
+      answer: `WreckMatch LLC is a free referral service for accident victims. Matched attorneys typically work on contingency — you pay no upfront attorney fee for the referral itself. Always confirm fee terms directly with any attorney you hire.`,
     },
   ];
 

@@ -8,8 +8,8 @@
   "stateAbbr": "KY",
   "stateSlug": "kentucky",
   "topic": "state-local-laws",
-  "status": "draft",
-  "publishedAt": "2026-05-19T16:44:44.377Z",
+  "status": "published",
+  "publishedAt": "2026-05-24T17:13:58.282Z",
   "keywords": [
     "statute-limitations Louisville",
     "KY car accident",
@@ -98,15 +98,30 @@
       "heading": "Settlement timeline expectations in Louisville",
       "paragraphs": [
         "Minor property-damage claims in Louisville may resolve in weeks, but injury claims involving treatment, lost wages, or disputed fault often take months. Insurers may request recorded statements, independent medical exams, and broad medical authorizations — review each request carefully.",
-        "Kentucky uses Pure comparative comparative negligence rules with a 2-year statute of limitations for most injury cases. Calendar your deadline from the date of injury and confirm exceptions with counsel.",
-        "If you were transported from I-95 to Louisville Regional Medical Center, keep ambulance, ER, and follow-up bills organized. UM/UIM, MedPay, and PIP endorsements on your policy may apply even when the other driver is underinsured."
+        "Kentucky uses Pure comparative comparative negligence with a 2-year statute of limitations for most injury cases. Calendar your deadline from the date of injury.",
+        "If you were transported from I-95 to Louisville Regional Medical Center, keep ambulance, ER, and follow-up bills organized. UM/UIM and MedPay endorsements may apply when the other driver is underinsured."
       ],
       "list": [
         "Do not accept the first settlement check if treatment is ongoing",
         "Avoid discussing fault on social media",
-        "Request the adjuster's denial or reservation of rights in writing",
+        "Request adjuster denials or reservations of rights in writing",
         "Compare repair estimates with your insurer's appraisal",
         "Consult a licensed attorney before signing general releases"
+      ]
+    },
+    {
+      "heading": "Document checklist for Louisville claims",
+      "paragraphs": [
+        "Organize a folder (physical or digital) for every document tied to your Louisville crash: police report number, insurance claim numbers, tow and storage receipts, and rental car agreements.",
+        "Request itemized medical bills from Louisville Regional Medical Center rather than summary statements — itemized bills help catch billing errors and support future negotiations."
+      ],
+      "list": [
+        "Photos of all vehicles and the scene from multiple angles",
+        "Witness names and phone numbers",
+        "Employer note for any missed work shifts",
+        "Insurance adjuster name, phone, and claim number",
+        "Repair estimates from at least two body shops",
+        "Mileage log for medical appointments"
       ]
     }
   ],
