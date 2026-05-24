@@ -57,6 +57,7 @@ function taskReport() {
 function taskHealth() {
   run("verify-seo-live", "node", ["scripts/verify-seo-live.mjs"], { allowFail: true });
   run("validate-sitemaps", "node", ["scripts/validate-sitemaps.mjs"], { allowFail: true });
+  run("ping-feeds", "node", ["scripts/ping-feeds.mjs"], { allowFail: true });
 }
 
 function taskIndexNow() {

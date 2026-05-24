@@ -102,6 +102,10 @@ export function SeoShell({ children }: SeoShellProps) {
               llms.txt
             </Link>
             {" · "}
+            <Link href="/llms-full.txt" className="underline underline-offset-2 hover:text-[#8a6914]">
+              llms-full
+            </Link>
+            {" · "}
             <Link href="/ai.txt" className="underline underline-offset-2 hover:text-[#8a6914]">
               ai.txt
             </Link>
