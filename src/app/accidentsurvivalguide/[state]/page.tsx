@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { AsgLink } from "@/components/accidentsurvivalguide/AsgLink";
 import { ALL_STATE_SLUGS } from "@/lib/asg/state-guides";
-import { WRECKMATCH_URL } from "@/lib/accidentsurvivalguide";
+import { WRECKMATCH_URL, ASG_BASE_URL } from "@/lib/accidentsurvivalguide";
 import { SurvivalGuideDownloadForm } from "@/components/accidentsurvivalguide/SurvivalGuideDownloadForm";
 import { AsgJsonLd } from "@/components/accidentsurvivalguide/AsgJsonLd";
 import { getMessages, formatMessage } from "@/lib/i18n/get-messages";
@@ -21,7 +21,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const guide = getLocalizedStateGuide(state, locale);
   const sp = getMessages(locale).statePage;
   if (!guide) return { title: sp.notFound };
-  return { title: guide.headline, description: guide.intro };
+  const canonical = `${ASG_BASE_URL}/${locale === "es" ? "es/" : ""}${state}`;
+  return {
+    title: guide.headline,
+    description: guide.intro,
+    alternates: { canonical },
+  };
 }
 
 export default async function StateGuidePage({ params }: PageProps) {
