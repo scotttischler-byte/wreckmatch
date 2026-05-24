@@ -50,6 +50,13 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 308);
   }
 
+  if (hostname === "wreckmatch.com") {
+    const url = request.nextUrl.clone();
+    url.host = "www.wreckmatch.com";
+    url.protocol = "https:";
+    return NextResponse.redirect(url, 308);
+  }
+
   const locale = resolveLocale(request, pathname);
 
   const blogRedirect = BLOG_PATH_REDIRECTS[pathname];

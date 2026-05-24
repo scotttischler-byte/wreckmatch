@@ -28,6 +28,10 @@ jobs:
         with:
           python-version: "3.11"
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
       - name: Install dependencies
         run: pip install -r scripts/autopilot_requirements.txt
 
@@ -46,12 +50,11 @@ jobs:
               --publish-json
           else
             python scripts/accident_survival_guide_autopilot.py --sync-queue
-            python scripts/accident_survival_guide_autopilot.py \
-              --batch 5 \
-              --publish-json \
-              --continue-on-error \
-              --delay 8
+            python scripts/accident_survival_guide_autopilot.py --next --publish-json
           fi
+
+      - name: Quality gate new posts
+        run: node scripts/quality-gate.mjs
 
       - name: Commit and push
         run: |
@@ -60,3 +63,10 @@ jobs:
           git add content/
           git diff --staged --quiet || git commit -m "content(autopilot): daily local accident survival guide post"
           git push
+
+      - name: Submit IndexNow
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: |
+          node scripts/submit-indexnow.mjs asg || true
+          node scripts/submit-indexnow.mjs wreckmatch || true

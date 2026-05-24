@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { CITIES, STATES } from "@/lib/seo/cities";
 import { INJUREDHELP_BASE, INJUREDHELP_TAGLINE, PARTNER_SITES } from "@/lib/injuredhelp";
 import { WRECKMATCH_BASE, ASG_BASE_URL } from "@/lib/domains";
 import { cityPagePath, blogPostPath } from "@/lib/seo/site";
 import { getPublishedBlogPosts } from "@/lib/blog/posts";
 import { REDIRECTED_BLOG_SLUGS } from "@/lib/seo/redirected-blog";
+import { InjuredHelpJsonLd } from "@/components/injuredhelp/InjuredHelpJsonLd";
 
 export const metadata: Metadata = {
   title: "InjuredHelp.ai — AI-Friendly Car Accident Help",
@@ -27,6 +27,7 @@ export default function InjuredHelpHomePage() {
 
   return (
     <main className="min-h-screen bg-[#0a1628] text-[#e8eef6] antialiased">
+      <InjuredHelpJsonLd />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(56,189,248,0.12),transparent_50%)]" />
 
       <div className="relative mx-auto max-w-5xl px-6 py-16 sm:py-24">
@@ -37,36 +38,51 @@ export default function InjuredHelpHomePage() {
           InjuredHelp.ai
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#94a3b8]">{INJUREDHELP_TAGLINE}</p>
+        <p className="mt-4 text-sm text-[#64748b]">
+          Canonical guides live on{" "}
+          <a href={WRECKMATCH_BASE} className="text-[#38bdf8] hover:underline">
+            WreckMatch.com
+          </a>
+          . See{" "}
+          <a href={`${INJUREDHELP_BASE}/llms.txt`} className="text-[#38bdf8] hover:underline">
+            llms.txt
+          </a>{" "}
+          and{" "}
+          <a href={`${INJUREDHELP_BASE}/ai.txt`} className="text-[#38bdf8] hover:underline">
+            ai.txt
+          </a>{" "}
+          for AI crawlers.
+        </p>
 
         <div className="mt-10 flex flex-wrap gap-3">
-          <Link
-            href="/blog"
+          <a
+            href={`${WRECKMATCH_BASE}/resources`}
             className="rounded-full bg-[#38bdf8] px-5 py-2.5 text-sm font-semibold text-[#0a1628] transition hover:bg-[#7dd3fc]"
           >
-            Browse articles
-          </Link>
+            Browse resources
+          </a>
           <a
             href={`${WRECKMATCH_BASE}/blog`}
             className="rounded-full border border-[#334155] px-5 py-2.5 text-sm font-semibold text-[#e2e8f0] transition hover:border-[#38bdf8]"
           >
-            WreckMatch guides →
+            WreckMatch articles →
           </a>
         </div>
 
         <section className="mt-16">
           <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#64748b]">
-            Top city guides
+            Top city guides (canonical)
           </h2>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {topCities.map((c) => (
               <li key={c.slug}>
-                <Link
-                  href={cityPagePath(c.slug)}
+                <a
+                  href={`${WRECKMATCH_BASE}${cityPagePath(c.slug)}`}
                   className="block rounded-xl border border-[#1e293b] bg-[#111827]/80 px-4 py-3 text-sm transition hover:border-[#38bdf8]/50"
                 >
                   <span className="font-medium text-white">{c.city}</span>
                   <span className="text-[#64748b]"> · {c.state_abbr}</span>
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
@@ -74,7 +90,7 @@ export default function InjuredHelpHomePage() {
 
         <section className="mt-14">
           <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#64748b]">
-            All {STATES.length} state guides
+            All {STATES.length} state guides (canonical)
           </h2>
           <p className="mt-3 text-sm text-[#64748b]">
             Statute of limitations, insurance minimums, and next steps — educational only.
@@ -82,9 +98,12 @@ export default function InjuredHelpHomePage() {
           <ul className="mt-4 columns-2 gap-x-8 text-sm sm:columns-3">
             {STATES.map((s) => (
               <li key={s.slug} className="mb-1.5 break-inside-avoid">
-                <Link href={cityPagePath(s.slug)} className="text-[#7dd3fc] hover:underline">
+                <a
+                  href={`${WRECKMATCH_BASE}${cityPagePath(s.slug)}`}
+                  className="text-[#7dd3fc] hover:underline"
+                >
                   {s.name}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
@@ -93,17 +112,17 @@ export default function InjuredHelpHomePage() {
         {posts.length > 0 && (
           <section className="mt-14">
             <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#64748b]">
-              Latest articles
+              Latest articles (canonical)
             </h2>
             <ul className="mt-6 space-y-3">
               {posts.map((p) => (
                 <li key={p.slug}>
-                  <Link
-                    href={blogPostPath(p.slug)}
+                  <a
+                    href={`${WRECKMATCH_BASE}${blogPostPath(p.slug)}`}
                     className="text-[#e2e8f0] underline-offset-2 hover:text-[#38bdf8] hover:underline"
                   >
                     {p.title}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>

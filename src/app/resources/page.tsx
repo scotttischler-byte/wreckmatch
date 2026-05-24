@@ -14,11 +14,30 @@ export const metadata: Metadata = {
   alternates: { canonical: absoluteUrl("/resources") },
 };
 
-export default function ResourcesPage() {
-  const posts = getPublishedBlogPosts()
-    .filter((p) => !REDIRECTED_BLOG_SLUGS.has(p.slug))
-    .slice(0, 12);
-  const topCities = [...CITIES].sort((a, b) => b.population - a.population).slice(0, 20);
+type PageProps = {
+  searchParams: Promise<{ q?: string }>;
+};
+
+function matchesQuery(text: string, q: string) {
+  return text.toLowerCase().includes(q.toLowerCase());
+}
+
+export default async function ResourcesPage({ searchParams }: PageProps) {
+  const { q: rawQ } = await searchParams;
+  const q = rawQ?.trim() ?? "";
+
+  const allPosts = getPublishedBlogPosts().filter((p) => !REDIRECTED_BLOG_SLUGS.has(p.slug));
+  const posts = q
+    ? allPosts.filter((p) => matchesQuery(`${p.title} ${p.city} ${p.stateAbbr}`, q)).slice(0, 24)
+    : allPosts.slice(0, 12);
+
+  const states = q ? STATES.filter((s) => matchesQuery(s.name, q)) : STATES;
+  const cities = q
+    ? [...CITIES]
+        .filter((c) => matchesQuery(`${c.city} ${c.state} ${c.state_abbr}`, q))
+        .sort((a, b) => b.population - a.population)
+        .slice(0, 30)
+    : [...CITIES].sort((a, b) => b.population - a.population).slice(0, 20);
 
   return (
     <SeoShell>
@@ -39,49 +58,103 @@ export default function ResourcesPage() {
           .
         </p>
 
+        <form action="/resources" method="get" className="mt-8 max-w-md">
+          <label htmlFor="q" className="sr-only">
+            Search states, cities, and articles
+          </label>
+          <div className="flex gap-2">
+            <input
+              id="q"
+              name="q"
+              type="search"
+              defaultValue={q}
+              placeholder="Search Houston, Texas, statute…"
+              className="w-full rounded-lg border border-[#e7dccb] bg-white px-4 py-2.5 text-sm text-[#152238] placeholder:text-[#94a3b8] focus:border-[#c9a227] focus:outline-none focus:ring-2 focus:ring-[#c9a227]/30"
+            />
+            <button
+              type="submit"
+              className="rounded-lg bg-[#152238] px-4 py-2.5 text-sm font-medium text-white hover:bg-[#1e3a5f]"
+            >
+              Search
+            </button>
+          </div>
+        </form>
+
+        {q && (
+          <p className="mt-4 text-sm text-[#64748b]">
+            {states.length + cities.length + posts.length} result(s) for &ldquo;{q}&rdquo;{" "}
+            <Link href="/resources" className="text-[#8a6914] underline">
+              Clear
+            </Link>
+          </p>
+        )}
+
         <section className="mt-12">
-          <h2 className="font-serif text-xl font-semibold text-[#152238]">All 50 states</h2>
-          <ul className="mt-4 columns-2 gap-x-8 text-sm sm:columns-3">
-            {STATES.map((s) => (
-              <li key={s.slug} className="mb-1.5 break-inside-avoid">
-                <Link href={cityPagePath(s.slug)} className="text-[#475569] hover:text-[#8a6914]">
-                  {s.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <h2 className="font-serif text-xl font-semibold text-[#152238]">
+            {q ? "Matching states" : "All 50 states"}
+          </h2>
+          {states.length === 0 ? (
+            <p className="mt-4 text-sm text-[#64748b]">No states match your search.</p>
+          ) : (
+            <ul className="mt-4 columns-2 gap-x-8 text-sm sm:columns-3">
+              {states.map((s) => (
+                <li key={s.slug} className="mb-1.5 break-inside-avoid">
+                  <Link href={cityPagePath(s.slug)} className="text-[#475569] hover:text-[#8a6914]">
+                    {s.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
         </section>
 
         <section className="mt-12">
-          <h2 className="font-serif text-xl font-semibold text-[#152238]">Major cities</h2>
-          <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-            {topCities.map((c) => (
-              <li key={c.slug}>
-                <Link
-                  href={cityPagePath(c.slug)}
-                  className="text-sm text-[#475569] hover:text-[#8a6914]"
-                >
-                  {c.city}, {c.state_abbr}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <h2 className="font-serif text-xl font-semibold text-[#152238]">
+            {q ? "Matching cities" : "Major cities"}
+          </h2>
+          {cities.length === 0 ? (
+            <p className="mt-4 text-sm text-[#64748b]">No cities match your search.</p>
+          ) : (
+            <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {cities.map((c) => (
+                <li key={c.slug}>
+                  <Link
+                    href={cityPagePath(c.slug)}
+                    className="text-sm text-[#475569] hover:text-[#8a6914]"
+                  >
+                    {c.city}, {c.state_abbr}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
         </section>
 
         <section className="mt-12">
-          <h2 className="font-serif text-xl font-semibold text-[#152238]">Latest articles</h2>
-          <ul className="mt-4 space-y-2">
-            {posts.map((p) => (
-              <li key={p.slug}>
-                <Link href={blogPostPath(p.slug)} className="text-sm text-[#475569] hover:text-[#8a6914]">
-                  {p.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <Link href="/blog" className="mt-4 inline-block text-sm font-medium text-[#8a6914] underline">
-            View all blog posts →
-          </Link>
+          <h2 className="font-serif text-xl font-semibold text-[#152238]">
+            {q ? "Matching articles" : "Latest articles"}
+          </h2>
+          {posts.length === 0 ? (
+            <p className="mt-4 text-sm text-[#64748b]">No articles match your search.</p>
+          ) : (
+            <ul className="mt-4 space-y-2">
+              {posts.map((p) => (
+                <li key={p.slug}>
+                  <Link
+                    href={blogPostPath(p.slug)}
+                    className="text-sm text-[#475569] hover:text-[#8a6914]"
+                  >
+                    {p.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+          {!q && (
+            <Link href="/blog" className="mt-4 inline-block text-sm font-medium text-[#8a6914] underline">
+              View all blog posts →
+            </Link>
+          )}
         </section>
 
         <section className="mt-12 rounded-[1.25rem] border border-[#e7dccb] bg-white p-6">

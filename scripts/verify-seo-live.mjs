@@ -2,10 +2,9 @@
 /**
  * Post-deploy SEO health check — run after domain alias changes.
  * Usage: node scripts/verify-seo-live.mjs
- *
- * When www.wreckmatch.com still points at mva-funnel/injuredhelp-ai, this script
- * also validates wreckmatch.vercel.app and prints a domain-routing warning.
  */
+
+const INDEXNOW_KEY = process.env.INDEXNOW_KEY ?? "wreckmatch-indexnow-key";
 
 const WWW_CHECKS = [
   { url: "https://www.wreckmatch.com/", expectTitle: "Secure Chat Support" },
@@ -15,10 +14,16 @@ const WWW_CHECKS = [
   { url: "https://www.wreckmatch.com/llms.txt", expectStatus: 200, expectBody: "WreckMatch" },
   { url: "https://www.wreckmatch.com/ai.txt", expectStatus: 200, expectBody: "ai.txt" },
   { url: "https://www.wreckmatch.com/resources", expectStatus: 200, expectBody: "Car Accident Help Resources" },
+  { url: `https://www.wreckmatch.com/${INDEXNOW_KEY}.txt`, expectStatus: 200, expectBody: INDEXNOW_KEY },
   { url: "https://www.accidentsurvivalguide.com/sitemap.xml", expectStatus: 200 },
   { url: "https://www.accidentsurvivalguide.com/llms.txt", expectStatus: 200 },
+  { url: "https://www.accidentsurvivalguide.com/ai.txt", expectStatus: 200, expectBody: "ai.txt" },
+  { url: "https://www.accidentsurvivalguide.com/feed.xml", expectStatus: 200, expectBody: "rss" },
   { url: "https://www.injuredhelp.ai/", expectStatus: 200, expectTitle: "AI-Friendly" },
   { url: "https://www.injuredhelp.ai/sitemap.xml", expectStatus: 200 },
+  { url: "https://www.injuredhelp.ai/ai.txt", expectStatus: 200, expectBody: "ai.txt" },
+  { url: "https://www.injuredhelp.ai/feed.xml", expectStatus: 200, expectBody: "rss" },
+  { url: "https://www.injuredhelp.ai/llms.txt", expectStatus: 200, expectBody: "InjuredHelp" },
 ];
 
 const VERCEL_FALLBACK = [
@@ -26,6 +31,7 @@ const VERCEL_FALLBACK = [
   { url: "https://wreckmatch.vercel.app/sitemap-index.xml", expectStatus: 200 },
   { url: "https://wreckmatch.vercel.app/ai.txt", expectStatus: 200, expectBody: "ai.txt" },
   { url: "https://wreckmatch.vercel.app/resources", expectStatus: 200, expectBody: "Resources" },
+  { url: "https://wreckmatch.vercel.app/resources?q=houston", expectStatus: 200, expectBody: "Houston" },
 ];
 
 async function check({ url, expectStatus = 200, expectTitle, expectBody }) {
@@ -61,16 +67,21 @@ async function main() {
   if (wwwFailed > 0) {
     vercelFailed = await runSuite("wreckmatch.vercel.app fallback (latest deploy)", VERCEL_FALLBACK);
     console.log(`
-⚠️  DOMAIN ROUTING: www.wreckmatch.com is not on the wreckmatch Vercel project.
-   Remove www.wreckmatch.com from mva-funnel and wreckmatch.com from injuredhelp-ai,
-   then add both to wreckmatch: https://vercel.com/scott-tischlers-projects/wreckmatch/settings/domains
-   Reply "domains moved" after fixing so GSC sitemap-index can be resubmitted safely.
+⚠️  DOMAIN ROUTING: Custom domains are not fully on the wreckmatch Vercel project.
+   1. Remove www.wreckmatch.com from mva-funnel
+   2. Remove wreckmatch.com from injuredhelp-ai
+   3. Add wreckmatch.com, www.wreckmatch.com, injuredhelp.ai, www.injuredhelp.ai to wreckmatch
+   Dashboard: https://vercel.com/scott-tischlers-projects/wreckmatch/settings/domains
+   Reply "domains moved" after fixing.
 `);
   }
 
-  const totalFailed = wwwFailed + (wwwFailed > 0 ? vercelFailed : 0);
-  console.log(`\n${totalFailed ? `${wwwFailed} production check(s) failed` : "All production checks passed"}.`);
-  process.exit(wwwFailed > 0 && vercelFailed > 0 ? 1 : wwwFailed > 0 ? 1 : 0);
+  const exitCode = wwwFailed > 0 ? 1 : 0;
+  console.log(`\n${wwwFailed ? `${wwwFailed} production check(s) failed` : "All production checks passed"}.`);
+  if (wwwFailed > 0 && vercelFailed === 0) {
+    console.log("Latest code is healthy on wreckmatch.vercel.app — domain alias is the remaining fix.");
+  }
+  process.exit(exitCode);
 }
 
 main();

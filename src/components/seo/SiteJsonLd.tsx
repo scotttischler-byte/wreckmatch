@@ -27,7 +27,7 @@ export function SiteJsonLd() {
         publisher: { "@id": `${WRECKMATCH_BASE}/#organization` },
         potentialAction: {
           "@type": "SearchAction",
-          target: `${WRECKMATCH_BASE}/blog?q={search_term_string}`,
+          target: `${WRECKMATCH_BASE}/resources?q={search_term_string}`,
           "query-input": "required name=search_term_string",
         },
       },

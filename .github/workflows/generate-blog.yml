@@ -1,8 +1,7 @@
 name: Generate daily blog posts
 
+# Disabled — duplicates publish-seo.yml at 14:00 UTC. Use publish-seo.yml or workflow_dispatch here.
 on:
-  schedule:
-    - cron: "0 14 * * *"
   workflow_dispatch:
 
 jobs:

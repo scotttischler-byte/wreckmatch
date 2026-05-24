@@ -10,19 +10,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: base, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    { url: `${base}/es`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
     { url: `${base}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/resources`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/blog`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
     { url: `${base}/llms.txt`, lastModified: now, changeFrequency: "weekly", priority: 0.5 },
+    { url: `${base}/ai.txt`, lastModified: now, changeFrequency: "weekly", priority: 0.5 },
     { url: `${base}/feed.xml`, lastModified: now, changeFrequency: "daily", priority: 0.5 },
   ];
 
-  const stateRoutes = ALL_STATE_SLUGS.map((slug) => ({
-    url: `${base}/${slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+  const stateRoutes = ALL_STATE_SLUGS.flatMap((slug) => [
+    {
+      url: `${base}/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${base}/es/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.65,
+    },
+  ]);
 
   const blogRoutes = getPublishedBlogPosts()
     .filter((post) => !REDIRECTED_BLOG_SLUGS.has(post.slug))

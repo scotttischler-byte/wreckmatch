@@ -2,7 +2,10 @@ name: Submit IndexNow after publish
 
 on:
   workflow_run:
-    workflows: ["Publish SEO Content"]
+    workflows:
+      - "Publish SEO Content"
+      - "Autopilot daily survival guide post"
+      - "Autopilot bulk survival guide posts"
     types: [completed]
   workflow_dispatch:
 

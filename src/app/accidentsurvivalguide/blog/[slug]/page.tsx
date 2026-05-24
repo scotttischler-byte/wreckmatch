@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getBlogPostBySlug, getPublishedBlogPosts } from "@/lib/blog/posts";
 import { BlogPostView } from "@/components/accidentsurvivalguide/BlogPostView";
 import { BlogPostSchema } from "@/components/accidentsurvivalguide/BlogPostSchema";
+import { blogCrossDomainAlternates } from "@/lib/seo/blog-alternates";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -18,6 +19,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: post.title,
     description: post.metaDescription,
     keywords: post.keywords,
+    alternates: blogCrossDomainAlternates(slug),
     openGraph: {
       title: post.title,
       description: post.metaDescription,

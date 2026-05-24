@@ -30,6 +30,12 @@ jobs:
       - name: Enrich and publish quality drafts
         run: npx tsx scripts/enrich-blog-drafts.ts --publish
 
+      - name: Cannibalization report
+        run: node scripts/find-cannibalization.mjs
+
+      - name: Quality gate
+        run: node scripts/quality-gate.mjs
+
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
