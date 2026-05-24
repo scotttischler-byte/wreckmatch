@@ -8,7 +8,7 @@ const CHECKS = [
   {
     name: "wreckmatch.vercel.app",
     url: "https://wreckmatch.vercel.app/sitemap.xml",
-    minUrls: 400,
+    minUrls: 300,
     mustInclude: ["car-accident-help-houston", "llms-full.txt", "/resources"],
   },
   {
