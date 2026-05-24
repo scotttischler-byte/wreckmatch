@@ -1,6 +1,7 @@
 import { getBlogPostBySlug, getPublishedBlogPosts } from "@/lib/blog/posts";
 import { CITIES, getStateForCity } from "./cities";
 import { buildProgrammaticBlogPost, parseProgrammaticBlogSlug } from "./build-blog-post";
+import { programmaticBlogSlugsForSitemap } from "./programmatic-sitemap";
 import type { BlogPost } from "@/lib/blog/types";
 
 export function resolveBlogPost(slug: string): BlogPost | undefined {
@@ -17,5 +18,7 @@ export function resolveBlogPost(slug: string): BlogPost | undefined {
 }
 
 export function getAllBlogSlugsForSitemap(): string[] {
-  return getPublishedBlogPosts().map((p) => p.slug);
+  const published = getPublishedBlogPosts().map((p) => p.slug);
+  const programmatic = programmaticBlogSlugsForSitemap();
+  return [...new Set([...published, ...programmatic])];
 }

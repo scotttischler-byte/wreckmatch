@@ -1,6 +1,9 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { SurvivalGuideDisclaimer } from "@/components/SurvivalGuideDisclaimer";
+import { SeoJsonLd } from "@/components/seo/SeoJsonLd";
+import { websiteJsonLd } from "@/lib/seo/schema";
+import { ASG_BASE_URL, INJUREDHELP_BASE } from "@/lib/domains";
 
 const WRECKMATCH_DISCLAIMER =
   "WreckMatch.com is an educational resource operated by WreckMatch LLC, a legal referral service. We are not a law firm and do not provide legal advice. The information here is for general education only.";
@@ -57,6 +60,7 @@ function FooterLinks() {
 export function SeoShell({ children }: SeoShellProps) {
   return (
     <div className="min-h-screen bg-[#fcfaf6] text-[#152238]">
+      <SeoJsonLd data={websiteJsonLd()} />
       <header className="border-b border-[#e7dccb] bg-white">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
           <Link href="/" className="font-serif text-xl font-semibold tracking-[-0.02em] text-[#152238]">
@@ -86,6 +90,23 @@ export function SeoShell({ children }: SeoShellProps) {
           <SurvivalGuideDisclaimer variant="footer" text={WRECKMATCH_DISCLAIMER} className="mx-auto mt-4 max-w-2xl" />
           <FooterLinks />
           <p className="mt-6 text-xs text-[#64748b]">
+            <a href={ASG_BASE_URL} className="underline underline-offset-2 hover:text-[#8a6914]">
+              Accident Survival Guide
+            </a>
+            {" · "}
+            <a href={INJUREDHELP_BASE} className="underline underline-offset-2 hover:text-[#8a6914]">
+              InjuredHelp.ai
+            </a>
+            {" · "}
+            <Link href="/llms.txt" className="underline underline-offset-2 hover:text-[#8a6914]">
+              llms.txt
+            </Link>
+            {" · "}
+            <Link href="/ai.txt" className="underline underline-offset-2 hover:text-[#8a6914]">
+              ai.txt
+            </Link>
+          </p>
+          <p className="mt-4 text-xs text-[#64748b]">
             <a href={SARAH_PHONE_TEL} className="font-medium text-[#8a6914]">
               {SARAH_PHONE_DISPLAY}
             </a>

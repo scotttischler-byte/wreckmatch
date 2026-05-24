@@ -5,6 +5,30 @@ import type { BreadcrumbItem } from "./internal-links";
 import { SARAH_PHONE_E164 } from "@/lib/constants";
 import { getBlogCoverImage } from "@/lib/blog/covers";
 import { absoluteUrl, blogPostPath, cityPagePath } from "./site";
+import { WRECKMATCH_BASE, ASG_BASE_URL, INJUREDHELP_BASE } from "@/lib/domains";
+
+export function websiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "WreckMatch",
+    url: absoluteUrl("/"),
+    description:
+      "Legal referral service connecting car accident victims with licensed attorneys. Educational content only — not a law firm.",
+    publisher: {
+      "@type": "Organization",
+      name: "WreckMatch LLC",
+      url: absoluteUrl("/"),
+      telephone: SARAH_PHONE_E164,
+      sameAs: [ASG_BASE_URL, INJUREDHELP_BASE],
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${WRECKMATCH_BASE}/resources?q={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  };
+}
 
 export function breadcrumbJsonLd(items: BreadcrumbItem[]) {
   return {

@@ -4,17 +4,11 @@ import { CITIES, STATES } from "@/lib/seo/cities";
 import { WRECKMATCH_SEO_BASE, blogPostPath, cityPagePath } from "@/lib/seo/site";
 import { REDIRECTED_BLOG_SLUGS } from "@/lib/seo/redirected-blog";
 import { blogSlugFor } from "@/lib/seo/internal-links";
-import type { BlogTemplateId } from "../../data/types";
+import {
+  PROGRAMMATIC_SITEMAP_TEMPLATES,
+  PROGRAMMATIC_SITEMAP_CITY_COUNT,
+} from "@/lib/seo/programmatic-sitemap";
 import { topCitiesByPopulation } from "@/lib/seo/internal-links";
-
-/** Non-cannibalizing programmatic templates only (not immediate-steps). */
-const SITEMAP_TEMPLATES: BlogTemplateId[] = [
-  "statute-limitations",
-  "uninsured-driver",
-  "costly-mistakes",
-  "hire-lawyer",
-  "insurance-denied",
-];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = WRECKMATCH_SEO_BASE;
@@ -54,9 +48,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.65,
     }));
 
-  const topCities = topCitiesByPopulation(20);
+  const topCities = topCitiesByPopulation(PROGRAMMATIC_SITEMAP_CITY_COUNT);
   const programmaticRoutes = topCities.flatMap((city) =>
-    SITEMAP_TEMPLATES.map((template) => ({
+    PROGRAMMATIC_SITEMAP_TEMPLATES.map((template) => ({
       url: `${base}${blogPostPath(blogSlugFor(city, template))}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
