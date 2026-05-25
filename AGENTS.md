@@ -19,4 +19,4 @@ Local loop (machine must stay on): `npm run seo:agent:loop` or Cursor `/loop 30m
 
 Status: `npm run seo:agent:status` — log at `content/agents/seo-agent-log.jsonl`
 
-Do not modify homepage `/` (GHL compliance). Do not bulk-publish thin content.
+Do not bulk-publish thin content.

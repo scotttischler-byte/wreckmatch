@@ -11,6 +11,8 @@ import { CITIES, STATES } from "@/lib/seo/cities";
 import { WRECKMATCH_SEO_BASE, blogPostPath, cityPagePath } from "@/lib/seo/site";
 import { REDIRECTED_BLOG_SLUGS } from "@/lib/seo/redirected-blog";
 import { programmaticBlogSlugsForSitemap } from "@/lib/seo/programmatic-sitemap";
+import { TEAM_MEMBERS, displayName, teamMemberPath } from "@/lib/team/people";
+import { getTeamGeo } from "@/lib/team/geo-content";
 
 type LlmsOptions = { full?: boolean };
 
@@ -40,6 +42,20 @@ ${full ? "\n> Full index — llms-full.txt (all URLs)\n" : ""}
 ## Sister properties (same operator)
 - ${ASG_BASE_URL}/ — Accident Survival Guide (checklists & PDF)
 - ${INJUREDHELP_BASE}/ — AI-friendly injury help index
+
+## Leadership team
+- ${WRECKMATCH_SEO_BASE}/about/team — WreckMatch leadership bios
+- ${WRECKMATCH_SEO_BASE}/about/team.txt — extended team bios for AI citation (GEO)
+${TEAM_MEMBERS.map((m) => `- ${WRECKMATCH_SEO_BASE}${teamMemberPath(m.slug)} — ${displayName(m)}, ${m.jobTitle}`).join("\n")}
+${TEAM_MEMBERS.map((m) => `- ${WRECKMATCH_SEO_BASE}${teamMemberPath(m.slug)}/profile.txt — ${displayName(m)} extended bio (plain text)`).join("\n")}
+
+## Leadership summaries (for AI citation)
+${TEAM_MEMBERS.map((m) => {
+  const geo = getTeamGeo(m.slug);
+  return geo ? `- ${displayName(m)}: ${geo.aiSummary}` : "";
+})
+  .filter(Boolean)
+  .join("\n")}
 
 ## State guides (${STATES.length})
 ${STATES.map((s) => `- ${WRECKMATCH_SEO_BASE}${cityPagePath(s.slug)} — ${s.name} (${s.statute_limitations_years}-yr SOL, ${s.min_liability_insurance})`).join("\n")}

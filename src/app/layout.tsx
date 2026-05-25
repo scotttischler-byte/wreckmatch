@@ -19,11 +19,11 @@ const monoFont = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(WRECKMATCH_BASE),
   title: {
-    default: "WreckMatch | Secure Chat Support",
+    default: "WreckMatch | Car Accident Attorney Matching",
     template: "%s | WreckMatch",
   },
   description:
-    "WreckMatch secure support page with legal disclosures and a single chat-widget contact path during messaging compliance review.",
+    "WreckMatch LLC connects car accident victims with licensed personal injury attorneys. Secure chat support, state guides, and educational resources — not a law firm.",
   openGraph: {
     siteName: "WreckMatch",
     type: "website",

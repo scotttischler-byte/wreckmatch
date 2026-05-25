@@ -73,14 +73,15 @@ export function SeoShell({ children }: SeoShellProps) {
             <Link href="/blog" className="hover:text-[#8a6914]">
               Blog
             </Link>
+            <Link href="/about/team" className="hover:text-[#8a6914]">
+              Team
+            </Link>
             <Link href="/privacy-policy" className="hover:text-[#8a6914]">
               Privacy
             </Link>
           </nav>
         </div>
       </header>
-
-      <SurvivalGuideDisclaimer variant="compact" text={WRECKMATCH_DISCLAIMER} className="mx-auto max-w-5xl px-4 pt-6 sm:px-6" />
 
       <main>{children}</main>
 

@@ -42,7 +42,12 @@ export function AsgJsonLd({
         "@type": "Article",
         headline: pageTitle,
         description: pageDescription,
-        author: { "@type": "Person", name: "Scott" },
+        author: {
+          "@type": "Person",
+          name: "Scott Tischler",
+          jobTitle: "Co-Founder & SVP Marketing",
+          url: "https://www.wreckmatch.com/about/scott-tischler",
+        },
         publisher: { "@type": "Organization", name: "WreckMatch LLC" },
         mainEntityOfPage: ASG_BASE_URL,
       }

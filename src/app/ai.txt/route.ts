@@ -13,6 +13,8 @@ import { STATES } from "@/lib/seo/cities";
 import { blogPostPath, cityPagePath } from "@/lib/seo/site";
 import { REDIRECTED_BLOG_SLUGS } from "@/lib/seo/redirected-blog";
 import { topCitiesByPopulation } from "@/lib/seo/internal-links";
+import { TEAM_MEMBERS, displayName, teamMemberPath } from "@/lib/team/people";
+import { getTeamGeo } from "@/lib/team/geo-content";
 
 /** Machine-readable AI policy + content index (GEO). Spec: https://ai.txt */
 function wreckmatchAiTxt(): string {
@@ -49,6 +51,23 @@ sitemap: ${WRECKMATCH_BASE}/sitemap.xml
 sitemap-index: ${WRECKMATCH_BASE}/sitemap-index.xml
 feed: ${WRECKMATCH_BASE}/feed.xml
 blog: ${WRECKMATCH_BASE}/blog
+team: ${WRECKMATCH_BASE}/about/team
+team-extended: ${WRECKMATCH_BASE}/about/team.txt
+
+[leadership]
+${TEAM_MEMBERS.map((m) => `${WRECKMATCH_BASE}${teamMemberPath(m.slug)} — ${displayName(m)}, ${m.jobTitle}`).join("\n")}
+
+[leadership-extended-txt]
+${TEAM_MEMBERS.map((m) => `${WRECKMATCH_BASE}${teamMemberPath(m.slug)}/profile.txt — ${displayName(m)}`).join("\n")}
+${WRECKMATCH_BASE}/about/team.txt — full team extended bios
+
+[leadership-ai-summaries]
+${TEAM_MEMBERS.map((m) => {
+  const geo = getTeamGeo(m.slug);
+  return geo ? `${displayName(m)}: ${geo.aiSummary}` : "";
+})
+  .filter(Boolean)
+  .join("\n")}
 
 [top-intents]
 - What to do after a car accident in {city}, {state}

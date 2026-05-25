@@ -1,5 +1,7 @@
 import { WRECKMATCH_BASE } from "@/lib/domains";
 import { SARAH_PHONE_E164 } from "@/lib/constants";
+import { TEAM_MEMBERS } from "@/lib/team/people";
+import { personJsonLd } from "@/lib/team/schema";
 
 export function SiteJsonLd() {
   const data = {
@@ -31,6 +33,7 @@ export function SiteJsonLd() {
           "query-input": "required name=search_term_string",
         },
       },
+      ...TEAM_MEMBERS.map((member) => personJsonLd(member)),
     ],
   };
 

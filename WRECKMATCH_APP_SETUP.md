@@ -8,7 +8,7 @@ It must be deployed as its **own Vercel project** with its **own domain** (e.g. 
 
 ## Main site (this repo root)
 
-- **www.wreckmatch.com** — compliance/marketing homepage + GHL chat only
+- **www.wreckmatch.com** — marketing site with GHL chat, resources, blog, and team pages
 - Do **not** add support app routes back under `/` or `/app`
 
 See `wreckmatch-support/README.md` for deploy steps.
