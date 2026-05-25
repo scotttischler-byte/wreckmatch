@@ -23,6 +23,7 @@
     "seo:agent": "node scripts/seo-agent.mjs rotate",
     "seo:agent:loop": "bash scripts/run-seo-agent-loop.sh",
     "seo:agent:status": "node scripts/agent-status.mjs",
+    "seo:ping-feeds": "node scripts/ping-feeds.mjs",
     "seo:validate-sitemaps": "node scripts/validate-sitemaps.mjs",
     "seo:generate-cities": "npx tsx scripts/generate-enriched-city-markdown.ts",
     "seo:indexnow": "node scripts/submit-indexnow.mjs all --fallback",
