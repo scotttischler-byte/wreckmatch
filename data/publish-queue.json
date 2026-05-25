@@ -10,15 +10,33 @@
     "requireDisclaimer": true
   },
   "published": {
-    "cities": [],
-    "states": [],
+    "cities": [
+      "houston",
+      "dallas",
+      "austin",
+      "san-antonio",
+      "fort-worth"
+    ],
+    "states": [
+      "texas",
+      "california"
+    ],
     "blogSlugs": []
   },
   "queue": {
-    "cities": ["houston", "dallas", "austin", "san-antonio", "fort-worth", "phoenix", "los-angeles", "chicago", "miami", "atlanta"],
-    "states": ["texas", "california", "florida", "new-york"],
+    "cities": [
+      "phoenix",
+      "los-angeles",
+      "chicago",
+      "miami",
+      "atlanta"
+    ],
+    "states": [
+      "florida",
+      "new-york"
+    ],
     "blog": []
   },
-  "lastPublishAt": null,
+  "lastPublishAt": "2026-05-25T16:26:13.013Z",
   "notes": "Conservative start: 5 city pages + 5 blog posts per day max. Run scripts/publish-from-queue.mjs manually or via GitHub Action."
 }
