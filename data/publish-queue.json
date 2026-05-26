@@ -15,16 +15,7 @@
       "dallas",
       "austin",
       "san-antonio",
-      "fort-worth"
-    ],
-    "states": [
-      "texas",
-      "california"
-    ],
-    "blogSlugs": []
-  },
-  "queue": {
-    "cities": [
+      "fort-worth",
       "phoenix",
       "los-angeles",
       "chicago",
@@ -32,11 +23,18 @@
       "atlanta"
     ],
     "states": [
+      "texas",
+      "california",
       "florida",
       "new-york"
     ],
+    "blogSlugs": []
+  },
+  "queue": {
+    "cities": [],
+    "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-05-25T16:26:13.013Z",
+  "lastPublishAt": "2026-05-26T17:29:45.430Z",
   "notes": "Conservative start: 5 city pages + 5 blog posts per day max. Run scripts/publish-from-queue.mjs manually or via GitHub Action."
 }
