@@ -58,3 +58,6 @@
 {"ts":"2026-05-26T04:58:14.980Z","task":"validate-sitemaps","ok":true,"exitCode":0,"durationMs":441,"outputTail":"OK  wreckmatch.vercel.app (337 URLs)\nOK  accidentsurvivalguide.com (594 URLs)\nOK  injuredhelp.ai (6 URLs)\n"}
 {"ts":"2026-05-26T04:58:15.227Z","task":"ping-feeds","ok":true,"exitCode":1,"durationMs":247,"outputTail":"Feed health check:\n\nFAIL  https://www.wreckmatch.com/feed.xml (404)\nFAIL  https://www.accidentsurvivalguide.com/feed.xml (404)\nOK  https://wreckmatch.vercel.app/feed.xml (200)\n"}
 {"ts":"2026-05-26T04:58:15.227Z","event":"complete","task":"health"}
+{"ts":"2026-05-26T08:33:17.600Z","event":"start","task":"indexnow","argv":["rotate"]}
+{"ts":"2026-05-26T08:33:18.615Z","task":"indexnow-all","ok":true,"exitCode":0,"durationMs":1014,"outputTail":"IndexNow www.wreckmatch.com: 400 (661 URLs) — check key at /.txt\nIndexNow www.accidentsurvivalguide.com: 400 (155 URLs) — check key at /.txt\nIndexNow www.injuredhelp.ai: 400 (6 URLs) — check key at /.txt\n  Key not reachable at https://www.wreckmatch.com/.txt (404) — IndexNow may return 403\n  Key not reachable at https://www.accidentsurvivalguide.com/.txt (404) — IndexNow may return 403\n  Key not reachable at https://www.injuredhelp.ai/.txt (404) — IndexNow may return 403\n"}
+{"ts":"2026-05-26T08:33:18.615Z","event":"complete","task":"indexnow"}
