@@ -2,8 +2,13 @@
   "postsPerDay": 5,
   "publishStaggerMinutes": 90,
   "requireApproval": true,
-  "lastRunAt": "2026-05-27T17:22:08.438Z",
+  "lastRunAt": "2026-05-28T17:37:16.331Z",
   "recentCitySlugs": [
+    "denver",
+    "las-vegas",
+    "tulsa",
+    "fort-worth",
+    "seattle",
     "austin",
     "charlotte",
     "jacksonville",
@@ -48,8 +53,6 @@
     "detroit-mi",
     "albuquerque-nm",
     "louisville-ky",
-    "philadelphia-pa",
-    "houston-tx",
-    "miami-fl"
+    "philadelphia-pa"
   ]
 }
