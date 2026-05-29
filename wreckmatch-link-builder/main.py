@@ -19,7 +19,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from config import AppConfig
+from config import PILOT_MAX_EMAILS, PILOT_TARGET_MAX, PILOT_TARGET_MIN, AppConfig
 from logger_setup import log_safety_reminder, setup_logger
 from outreach_generator import OutreachGenerator
 from prospector import Prospector, SearchQueryGenerator
@@ -54,8 +54,10 @@ def cmd_prospect(args: argparse.Namespace) -> int:
         logger.warning("No prospects found.")
         return 1
 
+    from link_targets import enrich_prospect_row
+
     tracker = ProspectTracker(config)
-    rows = [p.to_dict() for p in prospects]
+    rows = [enrich_prospect_row(p.to_dict()) for p in prospects]
     added = tracker.add_prospects(rows)
 
     print(f"\nFound {len(prospects)} prospects ({added} new).")
@@ -194,6 +196,32 @@ def cmd_dashboard(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_firm(args: argparse.Namespace) -> int:
+    from firm_outreach import generate_drafts
+
+    try:
+        out = generate_drafts(limit=args.limit)
+        print(f"Firm drafts: {out}")
+        return 0
+    except FileNotFoundError as exc:
+        logger.error("%s", exc)
+        return 1
+
+
+def cmd_weekend(args: argparse.Namespace) -> int:
+    from syndication_reader import format_weekend_queue, load_all
+
+    posts = load_all(6)
+    if not posts:
+        print("No syndication posts found. Set SYNDICATION_DIR.")
+        return 1
+    config = AppConfig.from_env()
+    path = config.data_dir / "weekend_social.md"
+    path.write_text(format_weekend_queue(posts), encoding="utf-8")
+    print(f"Weekend queue: {path}")
+    return 0
+
+
 def cmd_queries(args: argparse.Namespace) -> int:
     """Print search query templates."""
     generator = SearchQueryGenerator()
@@ -258,10 +286,10 @@ def build_parser() -> argparse.ArgumentParser:
     p_export.add_argument("-o", "--output", help="Output file path")
 
     # pilot
-    p_pilot = sub.add_parser("pilot", help="Run safe first-pilot (10–20 prospects + drafts)")
-    p_pilot.add_argument("--min-target", type=int, default=10)
-    p_pilot.add_argument("--max-target", type=int, default=20)
-    p_pilot.add_argument("--max-emails", type=int, default=10)
+    p_pilot = sub.add_parser("pilot", help="Run weekly pilot (20–30 prospects + drafts)")
+    p_pilot.add_argument("--min-target", type=int, default=PILOT_TARGET_MIN)
+    p_pilot.add_argument("--max-target", type=int, default=PILOT_TARGET_MAX)
+    p_pilot.add_argument("--max-emails", type=int, default=PILOT_MAX_EMAILS)
     p_pilot.add_argument("--no-emails", action="store_true")
     p_pilot.add_argument("--skip-resource-analysis", action="store_true")
 
@@ -271,6 +299,13 @@ def build_parser() -> argparse.ArgumentParser:
 
     # queries
     sub.add_parser("queries", help="Print search query templates")
+
+    # firm
+    p_firm = sub.add_parser("firm", help="Generate firm partner backlink drafts")
+    p_firm.add_argument("--limit", type=int, default=25)
+
+    # weekend
+    sub.add_parser("weekend", help="Export weekend social posting markdown")
 
     return parser
 
@@ -287,6 +322,8 @@ def main() -> int:
         "pilot": cmd_pilot,
         "dashboard": cmd_dashboard,
         "queries": cmd_queries,
+        "firm": cmd_firm,
+        "weekend": cmd_weekend,
     }
 
     try:

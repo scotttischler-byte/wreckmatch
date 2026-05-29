@@ -13,6 +13,7 @@ from datetime import datetime, timezone
 from typing import Literal
 
 from config import BRAND, AppConfig, WreckMatchBrand
+from link_targets import pick_link_target
 from logger_setup import log_safety_reminder, setup_logger
 
 logger = setup_logger(__name__)
@@ -161,13 +162,19 @@ class OutreachGenerator:
             template_type = template_map.get(ptype, "resource_addition")
 
         site_name = _site_name_from_url(prospect.get("url", ""))
+        deep = pick_link_target(prospect)
+        suggested = (
+            prospect.get("suggested_link")
+            or prospect.get("suggested_replacement")
+            or deep.url
+        )
         context = OutreachContext(
             contact_name=prospect.get("contact_name") or f"{site_name} Team",
             site_name=site_name,
             page_url=prospect.get("url", ""),
             broken_url=prospect.get("broken_url", ""),
             anchor_text=prospect.get("title", ""),
-            suggested_url=prospect.get("suggested_replacement") or self.brand.website,
+            suggested_url=suggested,
             mention_context=prospect.get("notes", ""),
             topic_idea=_default_guest_topic(site_name),
             personal_note="",
@@ -233,7 +240,11 @@ We're not asking for anything in exchange for this heads-up. I simply believe it
 
 I've spent time with the resources you've curated at {ctx.page_url}, and it's clear your team is committed to helping people after a car accident — a moment when reliable information matters enormously.
 
-I'd like to suggest WreckMatch ({self.brand.website}) as a potential addition to your list. We exist for one reason: to help car accident victims connect with experienced personal injury attorneys at no upfront cost. {self.brand.mission}.
+I'd like to suggest our free guide as a potential addition to your list:
+
+  • **Resource:** {ctx.suggested_url}
+
+WreckMatch ({self.brand.website}) helps car accident victims connect with experienced personal injury attorneys at no upfront cost. {self.brand.mission}.
 
 Why your readers may find it valuable:
   • **Free attorney matching** — accident victims pay nothing to use our service

@@ -43,9 +43,10 @@ python pilot.py
 ```
 
 This will:
-1. Search for **10–20 prospects** in the `"car accident lawyer" + "resources"` niche
+1. Search for **20–30 prospects** in the `"car accident lawyer" + "resources"` niche
 2. Classify resource pages where possible
-3. Generate **up to 10 personalized email drafts**
+3. Pick a **city/state platinum blog URL** per prospect (not just homepage)
+4. Generate **up to 25 personalized email drafts**
 4. Save everything to the tracker (`data/prospects.csv`)
 5. Write drafts to `data/drafts/pilot_YYYYMMDD_HHMMSS/`
 6. Write a JSON report to `data/pilot_report_*.json`
@@ -135,6 +136,8 @@ Open http://localhost:8501 — use tabs: **Dashboard → Prospecting → Email G
 | **Prospecting** | Run pilot, one-click modes, advanced search |
 | **Email Generator** | Single + batch draft generation |
 | **Tracker** | View/edit all prospects with filters |
+| **Social Posts** | Copy-paste LinkedIn / X / Reddit from blog syndication |
+| **Firm Partners** | Mail-merge footer link asks for participating firms |
 | **Settings** | Export, config status, query templates |
 
 ## CLI Reference
@@ -147,8 +150,12 @@ python main.py email --id abc12345 --save
 python main.py tracker --stats
 python main.py export -o backup.csv
 python main.py dashboard
+python main.py firm --limit 25
+python main.py weekend
 python main.py queries
 ```
+
+See **`ops/LINK_BUILDING_OPS.md`** for weekly targets and weekend checklist.
 
 ## Google Sheets (Optional)
 

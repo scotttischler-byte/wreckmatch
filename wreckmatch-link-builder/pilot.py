@@ -19,7 +19,8 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 
-from config import PILOT_TARGET_MAX, PILOT_TARGET_MIN, AppConfig
+from config import PILOT_MAX_EMAILS, PILOT_TARGET_MAX, PILOT_TARGET_MIN, AppConfig
+from link_targets import enrich_prospect_row
 from logger_setup import log_operation, log_safety_reminder, setup_logger
 from outreach_generator import OutreachEmail, OutreachGenerator
 from prospector import Prospector, ProspectorError, Prospect
@@ -58,7 +59,7 @@ def run_pilot(
     min_target: int = PILOT_TARGET_MIN,
     max_target: int = PILOT_TARGET_MAX,
     generate_emails: bool = True,
-    max_emails: int = 10,
+    max_emails: int = PILOT_MAX_EMAILS,
     skip_resource_analysis: bool = False,
 ) -> PilotResult:
     """
@@ -113,7 +114,7 @@ def run_pilot(
             "Pilot found zero prospects. Verify Google CSE credentials and try again."
         )
 
-    rows = [p.to_dict() for p in prospects]
+    rows = [enrich_prospect_row(p.to_dict()) for p in prospects]
     added = tracker.add_prospects(rows)
     prospect_ids = [p.id for p in prospects]
 
@@ -230,8 +231,8 @@ def main() -> int:
     parser.add_argument(
         "--max-emails",
         type=int,
-        default=10,
-        help="Max email drafts to generate (default 10)",
+        default=PILOT_MAX_EMAILS,
+        help=f"Max email drafts to generate (default {PILOT_MAX_EMAILS})",
     )
     parser.add_argument(
         "--no-emails",

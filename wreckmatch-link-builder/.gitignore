@@ -12,6 +12,7 @@ build/
 data/*
 !data/.gitkeep
 !data/prospects.csv
+!data/firm_partners.template.csv
 !data/drafts/
 !data/drafts/**
 logs/

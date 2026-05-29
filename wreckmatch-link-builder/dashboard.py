@@ -482,7 +482,17 @@ def main() -> None:
 
     st.markdown('<p class="main-header">WreckMatch Link Builder</p>', unsafe_allow_html=True)
 
-    tab_labels = ["Dashboard", "Prospecting", "Email Generator", "Tracker", "Settings"]
+    from dashboard_syndication import render_firm_tab, render_syndication_tab
+
+    tab_labels = [
+        "Dashboard",
+        "Prospecting",
+        "Email Generator",
+        "Social Posts",
+        "Firm Partners",
+        "Tracker",
+        "Settings",
+    ]
     tabs = st.tabs(tab_labels)
 
     with tabs[0]:
@@ -492,8 +502,12 @@ def main() -> None:
     with tabs[2]:
         _tab_email_generator(config)
     with tabs[3]:
-        _tab_tracker(config)
+        render_syndication_tab()
     with tabs[4]:
+        render_firm_tab(config)
+    with tabs[5]:
+        _tab_tracker(config)
+    with tabs[6]:
         _tab_settings(config)
 
 

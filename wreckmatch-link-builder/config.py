@@ -131,6 +131,8 @@ TRACKER_COLUMNS: list[str] = [
     "notes",
     "broken_url",
     "suggested_replacement",
+    "suggested_link",
+    "suggested_link_reason",
 ]
 
 PROSPECT_TYPES = (
@@ -164,5 +166,12 @@ PILOT_SEARCH_QUERIES: list[str] = [
     '"motor vehicle accident" "helpful links"',
 ]
 
-PILOT_TARGET_MIN = 10
-PILOT_TARGET_MAX = 20
+PILOT_TARGET_MIN = 20
+PILOT_TARGET_MAX = 30
+PILOT_MAX_EMAILS = 25
+
+# Syndication + firm outreach paths (override in .env)
+SYNDICATION_DIR_DEFAULT = (
+    Path(__file__).resolve().parent.parent.parent / "injuredhelp.ai" / "content" / "syndication"
+)
+FIRM_PARTNERS_CSV = "firm_partners.csv"

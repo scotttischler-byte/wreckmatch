@@ -19,14 +19,18 @@ jobs:
       - name: Install link-builder deps
         run: pip install -r wreckmatch-link-builder/requirements.txt
 
-      - name: Run weekly pilot (prospects + drafts)
+      - name: Run weekly pilot (30 prospects + 25 drafts)
         env:
           GOOGLE_CSE_API_KEY: ${{ secrets.GOOGLE_CSE_API_KEY }}
           GOOGLE_CSE_CX: ${{ secrets.GOOGLE_CSE_CX }}
           OUTREACH_SENDER_NAME: Scott
           OUTREACH_SENDER_EMAIL: scott@wreckmatch.com
         working-directory: wreckmatch-link-builder
-        run: python pilot.py
+        run: python pilot.py --min-target 20 --max-target 30 --max-emails 25
+
+      - name: Generate firm partner drafts
+        working-directory: wreckmatch-link-builder
+        run: python firm_outreach.py --limit 25 || true
 
       - name: Commit tracker + drafts
         run: |
