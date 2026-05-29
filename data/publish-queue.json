@@ -28,13 +28,15 @@
       "florida",
       "new-york"
     ],
-    "blogSlugs": []
+    "blogSlugs": [
+      "insurance-pitfalls-in-portland-oregon-what-you-need-to-know"
+    ]
   },
   "queue": {
     "cities": [],
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-05-28T17:37:16.533Z",
+  "lastPublishAt": "2026-05-29T17:37:43.620Z",
   "notes": "Conservative start: 5 city pages + 5 blog posts per day max. Run scripts/publish-from-queue.mjs manually or via GitHub Action."
 }

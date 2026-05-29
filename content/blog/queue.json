@@ -2,8 +2,13 @@
   "postsPerDay": 5,
   "publishStaggerMinutes": 90,
   "requireApproval": true,
-  "lastRunAt": "2026-05-28T17:37:16.331Z",
+  "lastRunAt": "2026-05-29T17:37:43.448Z",
   "recentCitySlugs": [
+    "chicago",
+    "portland",
+    "kansas-city",
+    "long-beach",
+    "baltimore",
     "denver",
     "las-vegas",
     "tulsa",
@@ -48,11 +53,6 @@
     "long-beach-ca",
     "el-paso-tx",
     "milwaukee-wi",
-    "san-diego-ca",
-    "new-orleans-la",
-    "detroit-mi",
-    "albuquerque-nm",
-    "louisville-ky",
-    "philadelphia-pa"
+    "san-diego-ca"
   ]
 }
