@@ -2,8 +2,13 @@
   "postsPerDay": 5,
   "publishStaggerMinutes": 90,
   "requireApproval": true,
-  "lastRunAt": "2026-05-29T17:37:43.448Z",
+  "lastRunAt": "2026-05-30T15:12:57.039Z",
   "recentCitySlugs": [
+    "miami",
+    "virginia-beach",
+    "memphis",
+    "san-jose",
+    "dallas",
     "chicago",
     "portland",
     "kansas-city",
@@ -48,11 +53,6 @@
     "dallas-tx",
     "virginia-beach-va",
     "columbus-oh",
-    "oklahoma-city-ok",
-    "fort-worth-tx",
-    "long-beach-ca",
-    "el-paso-tx",
-    "milwaukee-wi",
-    "san-diego-ca"
+    "oklahoma-city-ok"
   ]
 }
