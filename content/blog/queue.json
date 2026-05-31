@@ -2,8 +2,13 @@
   "postsPerDay": 5,
   "publishStaggerMinutes": 90,
   "requireApproval": true,
-  "lastRunAt": "2026-05-30T15:12:57.039Z",
+  "lastRunAt": "2026-05-31T15:20:25.137Z",
   "recentCitySlugs": [
+    "boston",
+    "oklahoma-city",
+    "san-francisco",
+    "washington",
+    "louisville",
     "miami",
     "virginia-beach",
     "memphis",
@@ -48,11 +53,6 @@
     "boston-ma",
     "kansas-city-mo",
     "colorado-springs-co",
-    "raleigh-nc",
-    "las-vegas-nv",
-    "dallas-tx",
-    "virginia-beach-va",
-    "columbus-oh",
-    "oklahoma-city-ok"
+    "raleigh-nc"
   ]
 }
