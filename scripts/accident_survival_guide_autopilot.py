@@ -31,6 +31,7 @@ import os
 import re
 import sys
 import textwrap
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -639,6 +640,8 @@ def main() -> int:
     parser.add_argument("--sync-queue", action="store_true", help="Reconcile queue with content already on disk and exit")
     parser.add_argument("--publish-json", action="store_true", help="Also write content/blog/posts/*.json")
     parser.add_argument("--dry-run", action="store_true", help="Log only, no API calls")
+    parser.add_argument("--continue-on-error", action="store_true", help="Keep going if a single city fails")
+    parser.add_argument("--delay", type=float, default=0.0, help="Seconds to wait between cities")
     args = parser.parse_args()
 
     if args.sync_queue:
@@ -670,13 +673,20 @@ def main() -> int:
         return 1
 
     publish = args.publish_json or os.getenv("BLOG_AUTO_PUBLISH", "").lower() == "true"
-    for city in targets:
+    failures = 0
+    for idx, city in enumerate(targets):
         try:
             run_generation(city, publish_json=publish, dry_run=args.dry_run)
         except Exception as e:
             log(f"ERROR {city['city']}, {city['state']}: {e}")
-            raise
+            if not args.continue_on_error:
+                raise
+            failures += 1
+        if args.delay and idx < len(targets) - 1:
+            time.sleep(args.delay)
 
+    if failures:
+        log(f"Batch finished with {failures} failure(s) of {len(targets)} (continue-on-error).")
     return 0
 
 
