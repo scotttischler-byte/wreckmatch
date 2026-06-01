@@ -587,6 +587,44 @@ def run_generation(city: dict, publish_json: bool = False, dry_run: bool = False
 
 
 # ---------------------------------------------------------------------------
+# Queue maintenance
+# ---------------------------------------------------------------------------
+
+def sync_queue() -> int:
+    """Reconcile the queue with content already on disk so --next never
+    regenerates a city that already has a post. Scans published blog JSON and
+    generated markdown directories and marks matching cities completed."""
+    cities = load_cities()
+    queue = load_queue()
+    done = set(queue.get("completed_city_keys", []))
+    before = len(done)
+
+    # 1) Published blog JSON posts (content/blog/posts/*.json)
+    if BLOG_POSTS_DIR.exists():
+        for jf in BLOG_POSTS_DIR.glob("*.json"):
+            try:
+                post = json.loads(jf.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            c = find_city(cities, post.get("city", ""),
+                          post.get("stateAbbr") or post.get("state", ""))
+            if c:
+                done.add(city_key(c))
+
+    # 2) Generated markdown (content/<state_abbrev>/<city_slug>/index.md)
+    for c in cities:
+        md = CONTENT_ROOT / c["state_abbrev"].lower() / c["city_slug"] / "index.md"
+        if md.exists():
+            done.add(city_key(c))
+
+    queue["completed_city_keys"] = sorted(done)
+    save_queue(queue)
+    log(f"sync-queue: {len(done)} cities marked complete "
+        f"({len(done) - before} newly reconciled).")
+    return 0
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -598,9 +636,13 @@ def main() -> int:
     parser.add_argument("--next", action="store_true", help="Generate next city in priority queue")
     parser.add_argument("--batch", type=int, default=1, help="Number of cities to generate")
     parser.add_argument("--list-next", type=int, help="List next N pending cities and exit")
+    parser.add_argument("--sync-queue", action="store_true", help="Reconcile queue with content already on disk and exit")
     parser.add_argument("--publish-json", action="store_true", help="Also write content/blog/posts/*.json")
     parser.add_argument("--dry-run", action="store_true", help="Log only, no API calls")
     args = parser.parse_args()
+
+    if args.sync_queue:
+        return sync_queue()
 
     cities = load_cities()
     queue = load_queue()
