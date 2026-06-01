@@ -21,3 +21,14 @@
 [2026-06-01T05:18:45.971740+00:00] Saved blog JSON /home/runner/work/wreckmatch/wreckmatch/content/blog/posts/ultimate-riverside-california-accident-survival-guide-2026.json
 [2026-06-01T05:18:45.972642+00:00] Next city in queue: St. Louis, Missouri
 [2026-06-01T05:18:45.972704+00:00] Done: Riverside, California
+[2026-06-01T12:10:56.265348+00:00] sync-queue: 46 cities marked complete (0 newly reconciled).
+[2026-06-01T12:10:56.893246+00:00] Generating outline + local facts for St. Louis, Missouri (MO)...
+[2026-06-01T12:11:07.934644+00:00] Generating main sections 1-4 for St. Louis, Missouri (MO)...
+[2026-06-01T12:11:33.269775+00:00] Generating sections 5-7, FAQ, quiz for St. Louis, Missouri (MO)...
+[2026-06-01T12:11:55.610083+00:00] Generating image prompts for St. Louis, Missouri (MO)...
+[2026-06-01T12:12:03.558588+00:00] Draft word count: 3409
+[2026-06-01T12:12:03.559903+00:00] Saved /home/runner/work/wreckmatch/wreckmatch/content/mo/st-louis-mo/index.md
+[2026-06-01T12:12:03.559958+00:00] Saved /home/runner/work/wreckmatch/wreckmatch/content/mo/st-louis-mo/images.md
+[2026-06-01T12:12:03.561185+00:00] Saved blog JSON /home/runner/work/wreckmatch/wreckmatch/content/blog/posts/ultimate-st-louis-missouri-accident-survival-guide-2026.json
+[2026-06-01T12:12:03.562088+00:00] Next city in queue: Newark, New Jersey
+[2026-06-01T12:12:03.562150+00:00] Done: St. Louis, Missouri
