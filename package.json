@@ -27,6 +27,8 @@
     "seo:validate-sitemaps": "node scripts/validate-sitemaps.mjs",
     "seo:generate-cities": "npx tsx scripts/generate-enriched-city-markdown.ts",
     "seo:indexnow": "node scripts/submit-indexnow.mjs all --fallback",
+    "geo:run": "python3 scripts/geo_automation.py --notify-all-prod",
+    "geo:audit": "node scripts/geo-audit-url.mjs",
     "blog:enrich-drafts": "npx tsx scripts/enrich-blog-drafts.ts",
     "blog:enrich-publish": "npx tsx scripts/enrich-blog-drafts.ts --publish",
     "autopilot:build-cities": "python3 scripts/build_cities_master.py",

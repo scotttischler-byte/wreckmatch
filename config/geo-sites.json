@@ -1,0 +1,33 @@
+{
+  "sites": [
+    {
+      "id": "wreckmatch",
+      "origin": "https://www.wreckmatch.com",
+      "brand": "wreckmatch",
+      "indexNow": true,
+      "pendingPath": "content/autopilot/indexnow_pending.json"
+    },
+    {
+      "id": "asg",
+      "origin": "https://www.accidentsurvivalguide.com",
+      "brand": "accidentsurvivalguide",
+      "indexNow": true,
+      "pendingPath": "content/autopilot/indexnow_pending.json"
+    },
+    {
+      "id": "bobbygarcia",
+      "origin": "https://www.bobbygarcia.com",
+      "brand": "bobbygarcia",
+      "indexNow": true,
+      "pendingPath": "content/autopilot/indexnow_pending.json"
+    },
+    {
+      "id": "injuredhelp",
+      "origin": "https://injuredhelp.ai",
+      "brand": "injuredhelp",
+      "indexNow": true,
+      "pendingPath": "content/autopilot/indexnow_pending.json",
+      "note": "Also served from injuredhelp.ai monorepo; index via sitemap here."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "at": "2026-06-01T00:37:18.429099+00:00",
+  "mode": "geo-automation",
+  "opsChecklist": [
+    "Google Business Profile: add 10 keyword Q&As (same-day local AIO)",
+    "Wikidata: create brand entity (P856 website, P1448 label)",
+    "Competitor audit: screenshot ChatGPT + Perplexity for 10 target keywords before new articles",
+    "Perplexity-Bing bridge: publish + IndexNow \u2192 expect Bing in 2-6h"
+  ],
+  "indexnow": [
+    {
+      "ok": true,
+      "siteId": "all-sitemaps",
+      "via": "submit-indexnow.mjs"
+    }
+  ],
+  "audits": [
+    {
+      "origin": "https://www.wreckmatch.com",
+      "robotsStatus": null,
+      "allowsAiCrawlers": false,
+      "llmsTxt": false,
+      "aiTxt": false,
+      "blogIndexStatus": null,
+      "blogSignals": {
+        "tableOnIndex": false,
+        "faqOnIndex": false
+      }
+    },
+    {
+      "origin": "https://www.accidentsurvivalguide.com",
+      "robotsStatus": null,
+      "allowsAiCrawlers": false,
+      "llmsTxt": false,
+      "aiTxt": false,
+      "blogIndexStatus": null,
+      "blogSignals": {
+        "tableOnIndex": false,
+        "faqOnIndex": false
+      }
+    },
+    {
+      "origin": "https://www.bobbygarcia.com",
+      "robotsStatus": null,
+      "allowsAiCrawlers": false,
+      "llmsTxt": false,
+      "aiTxt": false,
+      "blogIndexStatus": null,
+      "blogSignals": {
+        "tableOnIndex": false,
+        "faqOnIndex": false
+      }
+    },
+    {
+      "origin": "https://injuredhelp.ai",
+      "robotsStatus": null,
+      "allowsAiCrawlers": false,
+      "llmsTxt": false,
+      "aiTxt": false,
+      "blogIndexStatus": null,
+      "blogSignals": {
+        "tableOnIndex": false,
+        "faqOnIndex": false
+      }
+    }
+  ],
+  "productionCrons": [
+    {
+      "url": "https://www.wreckmatch.com/api/geo/cron",
+      "ok": false,
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>"
+    },
+    {
+      "url": "https://www.wreckmatch.com/api/exposure/cron",
+      "ok": false,
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>"
+    },
+    {
+      "url": "https://www.wreckmatch.com/api/indexing/cron",
+      "ok": false,
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>"
+    },
+    {
+      "url": "https://www.accidentsurvivalguide.com/api/geo/cron",
+      "ok": false,
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>"
+    },
+    {
+      "url": "https://www.accidentsurvivalguide.com/api/exposure/cron",
+      "ok": false,
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>"
+    },
+    {
+      "url": "https://www.accidentsurvivalguide.com/api/indexing/cron",
+      "ok": false,
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>"
+    },
+    {
+      "url": "https://www.bobbygarcia.com/api/geo/cron",
+      "ok": false,
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>"
+    },
+    {
+      "url": "https://www.bobbygarcia.com/api/exposure/cron",
+      "ok": false,
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>"
+    },
+    {
+      "url": "https://www.bobbygarcia.com/api/indexing/cron",
+      "ok": false,
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>"
+    },
+    {
+      "url": "https://injuredhelp.ai/api/geo/cron",
+      "ok": false,
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>"
+    },
+    {
+      "url": "https://injuredhelp.ai/api/exposure/cron",
+      "ok": false,
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>"
+    },
+    {
+      "url": "https://injuredhelp.ai/api/indexing/cron",
+      "ok": false,
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>"
+    }
+  ]
+}

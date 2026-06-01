@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { isBgHostname } from "@/lib/bobbygarcia/site";
 import { isAsgHostname, isInjuredHelpHostname } from "@/lib/domains";
 import {
   ASG_LOCALE_COOKIE,
@@ -26,11 +27,19 @@ function resolveLocale(request: NextRequest, pathname: string): Locale {
 function withLocaleHeaders(
   request: NextRequest,
   locale: Locale,
+  pathname: string,
   init?: { request?: { headers: Headers } },
 ) {
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set(ASG_LOCALE_HEADER, locale);
+  requestHeaders.set("x-pathname", pathname);
   return { request: { headers: requestHeaders }, ...init };
+}
+
+function withPathHeader(request: NextRequest, pathname: string) {
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-pathname", pathname);
+  return NextResponse.next({ request: { headers: requestHeaders } });
 }
 
 export async function middleware(request: NextRequest) {
@@ -57,6 +66,32 @@ export async function middleware(request: NextRequest) {
     url.host = "www.wreckmatch.com";
     url.protocol = "https:";
     return NextResponse.redirect(url, 308);
+  }
+
+  if (hostname === "bobbygarcia.com") {
+    const url = request.nextUrl.clone();
+    url.host = "www.bobbygarcia.com";
+    url.protocol = "https:";
+    return NextResponse.redirect(url, 308);
+  }
+
+  if (isBgHostname(host)) {
+    if (
+      pathname.startsWith("/bobbygarcia") ||
+      pathname.startsWith("/api") ||
+      pathname.startsWith("/_next") ||
+      pathname === "/robots.txt" ||
+      pathname === "/llms.txt" ||
+      pathname === "/ai.txt" ||
+      pathname === "/sitemap.xml"
+    ) {
+      return withPathHeader(request, pathname);
+    }
+    const url = request.nextUrl.clone();
+    url.pathname = pathname === "/" || pathname === "" ? "/bobbygarcia" : `/bobbygarcia${pathname}`;
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set("x-pathname", url.pathname);
+    return NextResponse.rewrite(url, { request: { headers: requestHeaders } });
   }
 
   const locale = resolveLocale(request, pathname);
@@ -93,7 +128,7 @@ export async function middleware(request: NextRequest) {
         url.pathname = "/injuredhelp/feed.xml";
         return NextResponse.rewrite(url);
       }
-      return NextResponse.next();
+      return withPathHeader(request, pathname);
     }
 
     if (pathname === "/" || pathname === "") {
@@ -107,11 +142,11 @@ export async function middleware(request: NextRequest) {
       isCarHelp ||
       sharedPaths.some((p) => pathname === p || pathname.startsWith(`${p}/`))
     ) {
-      return NextResponse.next();
+      return withPathHeader(request, pathname);
     }
 
     if (pathname.startsWith("/injuredhelp") || pathname.startsWith("/api") || pathname.startsWith("/_next")) {
-      return NextResponse.next();
+      return withPathHeader(request, pathname);
     }
 
     const url = request.nextUrl.clone();
@@ -121,21 +156,21 @@ export async function middleware(request: NextRequest) {
 
   if (!isAsgHostname(host)) {
     if (pathname.startsWith("/accidentsurvivalguide")) {
-      const response = NextResponse.next(withLocaleHeaders(request, locale));
+      const response = NextResponse.next(withLocaleHeaders(request, locale, pathname));
       response.cookies.set(ASG_LOCALE_COOKIE, locale, { path: "/", maxAge: 60 * 60 * 24 * 365 });
       return response;
     }
 
-    return NextResponse.next();
+    return withPathHeader(request, pathname);
   }
 
   const sharedLegalPaths = ["/privacy-policy", "/terms", "/privacy"];
   if (sharedLegalPaths.includes(pathname)) {
-    return NextResponse.next();
+    return withPathHeader(request, pathname);
   }
 
   if (pathname === "/robots.txt" || pathname === "/llms.txt" || pathname === "/llms-full.txt" || pathname === "/ai.txt") {
-    const response = NextResponse.next(withLocaleHeaders(request, locale));
+    const response = NextResponse.next(withLocaleHeaders(request, locale, pathname));
     response.cookies.set(ASG_LOCALE_COOKIE, locale, { path: "/", maxAge: 60 * 60 * 24 * 365 });
     return response;
   }
@@ -156,7 +191,7 @@ export async function middleware(request: NextRequest) {
     pathname.startsWith("/api") ||
     pathname.startsWith("/_next")
   ) {
-    const response = NextResponse.next(withLocaleHeaders(request, locale));
+    const response = NextResponse.next(withLocaleHeaders(request, locale, pathname));
     response.cookies.set(ASG_LOCALE_COOKIE, locale, { path: "/", maxAge: 60 * 60 * 24 * 365 });
     return response;
   }
@@ -168,12 +203,12 @@ export async function middleware(request: NextRequest) {
   if (pathname.startsWith("/accidentsurvivalguide/es")) {
     const urlStrip = request.nextUrl.clone();
     urlStrip.pathname = toInternalPath(publicPath);
-    const response = NextResponse.rewrite(urlStrip, withLocaleHeaders(request, "es"));
+    const response = NextResponse.rewrite(urlStrip, withLocaleHeaders(request, "es", pathname));
     response.cookies.set(ASG_LOCALE_COOKIE, "es", { path: "/", maxAge: 60 * 60 * 24 * 365 });
     return response;
   }
 
-  const response = NextResponse.rewrite(url, withLocaleHeaders(request, locale));
+  const response = NextResponse.rewrite(url, withLocaleHeaders(request, locale, pathname));
   response.cookies.set(ASG_LOCALE_COOKIE, locale, { path: "/", maxAge: 60 * 60 * 24 * 365 });
   return response;
 }

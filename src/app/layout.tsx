@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import { GoogleAdsTag } from "@/components/GoogleAdsTag";
+import { GeoAutoFaqInjector } from "@/components/seo/GeoAutoFaqInjector";
 import { SiteJsonLd } from "@/components/seo/SiteJsonLd";
 import { WRECKMATCH_BASE } from "@/lib/domains";
 import "./globals.css";
@@ -56,6 +57,7 @@ export default function RootLayout({
         <SiteJsonLd />
         <GoogleAdsTag />
         {children}
+        <GeoAutoFaqInjector />
 
         <Script
           id="ghl-chat-widget-loader"

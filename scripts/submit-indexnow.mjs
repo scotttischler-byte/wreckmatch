@@ -1,13 +1,28 @@
 #!/usr/bin/env node
 /**
  * Submit sitemap URLs to IndexNow (Bing/Yandex instant indexing).
- * Usage: node scripts/submit-indexnow.mjs [wreckmatch|asg|injuredhelp|all] [--fallback]
+ * Usage: node scripts/submit-indexnow.mjs [wreckmatch|asg|injuredhelp|bobbygarcia|all] [--fallback]
  */
+import fs from "fs";
+import path from "path";
+
+const secretsPath = path.join(process.cwd(), ".secrets-setup");
+if (fs.existsSync(secretsPath)) {
+  for (const line of fs.readFileSync(secretsPath, "utf8").split("\n")) {
+    const t = line.trim();
+    if (!t || t.startsWith("#") || !t.includes("=")) continue;
+    const i = t.indexOf("=");
+    const k = t.slice(0, i).trim();
+    const v = t.slice(i + 1).trim();
+    if (k && v && !process.env[k]) process.env[k] = v;
+  }
+}
 
 const HOSTS = {
   wreckmatch: "www.wreckmatch.com",
   asg: "www.accidentsurvivalguide.com",
   injuredhelp: "www.injuredhelp.ai",
+  bobbygarcia: "www.bobbygarcia.com",
 };
 
 const FALLBACK_SITEMAPS = {
@@ -18,6 +33,7 @@ const SITEMAP_URLS = {
   wreckmatch: "https://www.wreckmatch.com/sitemap.xml",
   asg: "https://www.accidentsurvivalguide.com/sitemap.xml",
   injuredhelp: "https://www.injuredhelp.ai/sitemap.xml",
+  bobbygarcia: "https://www.bobbygarcia.com/sitemap.xml",
 };
 
 const KEY = process.env.INDEXNOW_KEY ?? "wreckmatch-indexnow-key";
