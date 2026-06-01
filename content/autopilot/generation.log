@@ -244,3 +244,5 @@
 [2026-06-01T16:53:15.836Z] programmatic-seo-geo: Fargo, North Dakota: GEO ai-visibility-accelerator/output/content/city-posts/car-accident-help-fargo.md | ASG content/nd/fargo-nd | blogs: 3
 [2026-06-01T16:53:15.837Z] programmatic-seo-geo: Lafayette, Indiana: GEO ai-visibility-accelerator/output/content/city-posts/car-accident-help-lafayette.md | ASG content/in/lafayette-in | blogs: 3
 [2026-06-01T16:53:15.838Z] programmatic-seo-geo: Plano, Illinois: GEO ai-visibility-accelerator/output/content/city-posts/car-accident-help-plano.md | ASG content/il/plano-il | blogs: 3
+[2026-06-01T17:35:22.660022+00:00] sync-queue: 279 cities marked complete (0 newly reconciled).
+[2026-06-01T17:35:22.717628+00:00] Queue complete — all cities generated.
