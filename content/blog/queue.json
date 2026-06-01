@@ -2,8 +2,13 @@
   "postsPerDay": 5,
   "publishStaggerMinutes": 90,
   "requireApproval": true,
-  "lastRunAt": "2026-05-31T15:20:25.137Z",
+  "lastRunAt": "2026-06-01T19:23:10.880Z",
   "recentCitySlugs": [
+    "sacramento",
+    "houston",
+    "oakland",
+    "indianapolis",
+    "omaha",
     "boston",
     "oklahoma-city",
     "san-francisco",
@@ -48,11 +53,6 @@
     "new-york-ny",
     "tulsa-ok",
     "austin-tx",
-    "indianapolis-in",
-    "charlotte-nc",
-    "boston-ma",
-    "kansas-city-mo",
-    "colorado-springs-co",
-    "raleigh-nc"
+    "indianapolis-in"
   ]
 }
