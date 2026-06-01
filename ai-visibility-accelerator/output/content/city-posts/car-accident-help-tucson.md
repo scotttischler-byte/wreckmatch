@@ -1,20 +1,19 @@
 ---
 title: "Car Accident Help in Tucson, Arizona (2026 Guide)"
-description: "Tucson car accident guide — 2-year SOL, local hospitals, insurance minimums, and next steps. Educational only."
+description: "Tucson car accident guide — 2-year SOL, local resources, insurance minimums, and next steps. Educational only."
 canonical: "https://www.wreckmatch.com/car-accident-help-tucson"
-og_title: "Car Accident Help in Tucson, Arizona (2026 Guide) | WreckMatch"
-og_description: "Tucson car accident guide — 2-year SOL, local hospitals, insurance minimums, and next steps. Educational only."
 city: "Tucson"
 state: "Arizona"
 state_abbr: "AZ"
-generated_at: "2026-05-24"
+generated_at: "2026-06-01"
+programmatic: true
 ---
 
 # Car Accident Help in Tucson, Arizona (2026 Guide)
 
 **Educational only — not legal advice.** WreckMatch LLC is a legal referral service connecting accident victims with licensed attorneys — **not a law firm**.
 
-**Last updated:** May 24, 2026
+**Last updated:** June 1, 2026
 
 **Quick answer:** After a crash in Tucson, call 911 if anyone is hurt, document the scene, seek medical care, notify your insurer without giving a recorded statement, and consider free attorney matching before accepting a settlement.
 
@@ -24,8 +23,8 @@ generated_at: "2026-05-24"
 
 | Metric | Detail |
 |--------|--------|
-| City population | ~519,685 |
-| Metro population | ~935,433 |
+| City population | ~518,758 |
+| Metro population | ~933,764 |
 | Annual reported crashes (est.) | ~4,596 |
 | Fatal crashes (est.) | ~18 |
 | County | Tucson County |

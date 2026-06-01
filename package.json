@@ -13,6 +13,11 @@
     "wreckmatch:check": "node scripts/check-wreckmatch-setup.mjs",
     "deploy": "npm run build && vercel --prod",
     "blog:generate": "node scripts/generate-blog-batch.mjs",
+    "bobbygarcia:blog:generate": "node scripts/generate-bobbygarcia-bulk.mjs",
+    "bobbygarcia:blog:generate:force": "node scripts/generate-bobbygarcia-bulk.mjs --clean --force",
+    "bobbygarcia:pptx": "node scripts/generate-bobbygarcia-pptx.mjs",
+    "bobbygarcia:images": "node scripts/download-bobbygarcia-images.mjs",
+    "bobbygarcia:images": "node scripts/download-bobbygarcia-images.mjs",
     "seo:cannibalization": "node scripts/find-cannibalization.mjs",
     "seo:quality-gate": "node scripts/quality-gate.mjs",
     "seo:verify": "node scripts/verify-seo-live.mjs",
@@ -26,6 +31,7 @@
     "seo:ping-feeds": "node scripts/ping-feeds.mjs",
     "seo:validate-sitemaps": "node scripts/validate-sitemaps.mjs",
     "seo:generate-cities": "npx tsx scripts/generate-enriched-city-markdown.ts",
+    "seo:generate-programmatic": "npx tsx scripts/generate-programmatic-seo-geo.ts",
     "seo:indexnow": "node scripts/submit-indexnow.mjs all --fallback",
     "geo:run": "python3 scripts/geo_automation.py --notify-all-prod",
     "geo:audit": "node scripts/geo-audit-url.mjs",
@@ -41,9 +47,9 @@
     "blog:export-cities": "npx tsx -e \"import { US_CITIES } from './src/lib/blog/cities.ts'; import fs from 'fs'; fs.writeFileSync('content/blog/cities-seed.json', JSON.stringify(US_CITIES, null, 2));\""
   },
   "dependencies": {
+    "@base-ui/react": "^1.4.1",
     "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.49.8",
-    "@base-ui/react": "^1.4.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.14.0",
@@ -63,6 +69,7 @@
     "@types/react-dom": "^19",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.33",
+    "pptxgenjs": "^4.0.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

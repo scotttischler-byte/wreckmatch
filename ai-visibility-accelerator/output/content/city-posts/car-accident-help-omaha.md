@@ -1,20 +1,19 @@
 ---
 title: "Car Accident Help in Omaha, Nebraska (2026 Guide)"
-description: "Omaha car accident guide — 4-year SOL, local hospitals, insurance minimums, and next steps. Educational only."
+description: "Omaha car accident guide — 4-year SOL, local resources, insurance minimums, and next steps. Educational only."
 canonical: "https://www.wreckmatch.com/car-accident-help-omaha"
-og_title: "Car Accident Help in Omaha, Nebraska (2026 Guide) | WreckMatch"
-og_description: "Omaha car accident guide — 4-year SOL, local hospitals, insurance minimums, and next steps. Educational only."
 city: "Omaha"
 state: "Nebraska"
 state_abbr: "NE"
-generated_at: "2026-05-24"
+generated_at: "2026-06-01"
+programmatic: true
 ---
 
 # Car Accident Help in Omaha, Nebraska (2026 Guide)
 
 **Educational only — not legal advice.** WreckMatch LLC is a legal referral service connecting accident victims with licensed attorneys — **not a law firm**.
 
-**Last updated:** May 24, 2026
+**Last updated:** June 1, 2026
 
 **Quick answer:** After a crash in Omaha, call 911 if anyone is hurt, document the scene, seek medical care, notify your insurer without giving a recorded statement, and consider free attorney matching before accepting a settlement.
 
@@ -24,8 +23,8 @@ generated_at: "2026-05-24"
 
 | Metric | Detail |
 |--------|--------|
-| City population | ~410,926 |
-| Metro population | ~739,667 |
+| City population | ~408,701 |
+| Metro population | ~735,662 |
 | Annual reported crashes (est.) | ~1,290 |
 | Fatal crashes (est.) | ~15 |
 | County | Omaha County |

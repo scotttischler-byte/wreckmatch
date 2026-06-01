@@ -1,29 +1,125 @@
 {
-  "count": 11,
+  "count": 266,
   "cities": [
     {
-      "slug": "houston",
-      "city": "Houston",
-      "file": "car-accident-help-houston.md",
-      "url": "https://www.wreckmatch.com/car-accident-help-houston"
+      "slug": "abilene",
+      "city": "Abilene",
+      "file": "car-accident-help-abilene.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-abilene"
     },
     {
-      "slug": "san-antonio",
-      "city": "San Antonio",
-      "file": "car-accident-help-san-antonio.md",
-      "url": "https://www.wreckmatch.com/car-accident-help-san-antonio"
+      "slug": "akron",
+      "city": "Akron",
+      "file": "car-accident-help-akron.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-akron"
     },
     {
-      "slug": "dallas",
-      "city": "Dallas",
-      "file": "car-accident-help-dallas.md",
-      "url": "https://www.wreckmatch.com/car-accident-help-dallas"
+      "slug": "albany",
+      "city": "Albany",
+      "file": "car-accident-help-albany.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-albany"
     },
     {
-      "slug": "fort-worth",
-      "city": "Fort Worth",
-      "file": "car-accident-help-fort-worth.md",
-      "url": "https://www.wreckmatch.com/car-accident-help-fort-worth"
+      "slug": "albuquerque",
+      "city": "Albuquerque",
+      "file": "car-accident-help-albuquerque.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-albuquerque"
+    },
+    {
+      "slug": "alexandria",
+      "city": "Alexandria",
+      "file": "car-accident-help-alexandria.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-alexandria"
+    },
+    {
+      "slug": "allen",
+      "city": "Allen",
+      "file": "car-accident-help-allen.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-allen"
+    },
+    {
+      "slug": "allentown",
+      "city": "Allentown",
+      "file": "car-accident-help-allentown.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-allentown"
+    },
+    {
+      "slug": "amarillo",
+      "city": "Amarillo",
+      "file": "car-accident-help-amarillo.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-amarillo"
+    },
+    {
+      "slug": "anaheim",
+      "city": "Anaheim",
+      "file": "car-accident-help-anaheim.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-anaheim"
+    },
+    {
+      "slug": "anchorage",
+      "city": "Anchorage",
+      "file": "car-accident-help-anchorage.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-anchorage"
+    },
+    {
+      "slug": "ann-arbor",
+      "city": "Ann Arbor",
+      "file": "car-accident-help-ann-arbor.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-ann-arbor"
+    },
+    {
+      "slug": "antioch",
+      "city": "Antioch",
+      "file": "car-accident-help-antioch.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-antioch"
+    },
+    {
+      "slug": "arlington-texas",
+      "city": "Arlington Texas",
+      "file": "car-accident-help-arlington-texas.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-arlington-texas"
+    },
+    {
+      "slug": "arlington",
+      "city": "Arlington",
+      "file": "car-accident-help-arlington.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-arlington"
+    },
+    {
+      "slug": "arvada",
+      "city": "Arvada",
+      "file": "car-accident-help-arvada.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-arvada"
+    },
+    {
+      "slug": "athens-clarke-county",
+      "city": "Athens Clarke County",
+      "file": "car-accident-help-athens-clarke-county.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-athens-clarke-county"
+    },
+    {
+      "slug": "athens",
+      "city": "Athens",
+      "file": "car-accident-help-athens.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-athens"
+    },
+    {
+      "slug": "atlanta",
+      "city": "Atlanta",
+      "file": "car-accident-help-atlanta.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-atlanta"
+    },
+    {
+      "slug": "augusta",
+      "city": "Augusta",
+      "file": "car-accident-help-augusta.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-augusta"
+    },
+    {
+      "slug": "aurora",
+      "city": "Aurora",
+      "file": "car-accident-help-aurora.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-aurora"
     },
     {
       "slug": "austin",
@@ -32,10 +128,232 @@
       "url": "https://www.wreckmatch.com/car-accident-help-austin"
     },
     {
-      "slug": "el-paso",
-      "city": "El Paso",
-      "file": "car-accident-help-el-paso.md",
-      "url": "https://www.wreckmatch.com/car-accident-help-el-paso"
+      "slug": "bakersfield",
+      "city": "Bakersfield",
+      "file": "car-accident-help-bakersfield.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-bakersfield"
+    },
+    {
+      "slug": "baltimore",
+      "city": "Baltimore",
+      "file": "car-accident-help-baltimore.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-baltimore"
+    },
+    {
+      "slug": "baton-rouge",
+      "city": "Baton Rouge",
+      "file": "car-accident-help-baton-rouge.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-baton-rouge"
+    },
+    {
+      "slug": "beaumont",
+      "city": "Beaumont",
+      "file": "car-accident-help-beaumont.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-beaumont"
+    },
+    {
+      "slug": "bellevue",
+      "city": "Bellevue",
+      "file": "car-accident-help-bellevue.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-bellevue"
+    },
+    {
+      "slug": "berkeley",
+      "city": "Berkeley",
+      "file": "car-accident-help-berkeley.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-berkeley"
+    },
+    {
+      "slug": "billings",
+      "city": "Billings",
+      "file": "car-accident-help-billings.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-billings"
+    },
+    {
+      "slug": "birmingham",
+      "city": "Birmingham",
+      "file": "car-accident-help-birmingham.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-birmingham"
+    },
+    {
+      "slug": "boise",
+      "city": "Boise",
+      "file": "car-accident-help-boise.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-boise"
+    },
+    {
+      "slug": "boston",
+      "city": "Boston",
+      "file": "car-accident-help-boston.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-boston"
+    },
+    {
+      "slug": "boulder",
+      "city": "Boulder",
+      "file": "car-accident-help-boulder.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-boulder"
+    },
+    {
+      "slug": "bridgeport",
+      "city": "Bridgeport",
+      "file": "car-accident-help-bridgeport.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-bridgeport"
+    },
+    {
+      "slug": "brownsville",
+      "city": "Brownsville",
+      "file": "car-accident-help-brownsville.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-brownsville"
+    },
+    {
+      "slug": "buffalo",
+      "city": "Buffalo",
+      "file": "car-accident-help-buffalo.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-buffalo"
+    },
+    {
+      "slug": "burbank",
+      "city": "Burbank",
+      "file": "car-accident-help-burbank.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-burbank"
+    },
+    {
+      "slug": "cambridge",
+      "city": "Cambridge",
+      "file": "car-accident-help-cambridge.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-cambridge"
+    },
+    {
+      "slug": "cape-coral",
+      "city": "Cape Coral",
+      "file": "car-accident-help-cape-coral.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-cape-coral"
+    },
+    {
+      "slug": "carlsbad",
+      "city": "Carlsbad",
+      "file": "car-accident-help-carlsbad.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-carlsbad"
+    },
+    {
+      "slug": "cary",
+      "city": "Cary",
+      "file": "car-accident-help-cary.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-cary"
+    },
+    {
+      "slug": "cedar-rapids",
+      "city": "Cedar Rapids",
+      "file": "car-accident-help-cedar-rapids.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-cedar-rapids"
+    },
+    {
+      "slug": "chandler",
+      "city": "Chandler",
+      "file": "car-accident-help-chandler.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-chandler"
+    },
+    {
+      "slug": "charleston",
+      "city": "Charleston",
+      "file": "car-accident-help-charleston.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-charleston"
+    },
+    {
+      "slug": "charlotte",
+      "city": "Charlotte",
+      "file": "car-accident-help-charlotte.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-charlotte"
+    },
+    {
+      "slug": "chattanooga",
+      "city": "Chattanooga",
+      "file": "car-accident-help-chattanooga.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-chattanooga"
+    },
+    {
+      "slug": "chesapeake",
+      "city": "Chesapeake",
+      "file": "car-accident-help-chesapeake.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-chesapeake"
+    },
+    {
+      "slug": "chicago",
+      "city": "Chicago",
+      "file": "car-accident-help-chicago.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-chicago"
+    },
+    {
+      "slug": "chula-vista",
+      "city": "Chula Vista",
+      "file": "car-accident-help-chula-vista.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-chula-vista"
+    },
+    {
+      "slug": "cincinnati",
+      "city": "Cincinnati",
+      "file": "car-accident-help-cincinnati.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-cincinnati"
+    },
+    {
+      "slug": "clearwater",
+      "city": "Clearwater",
+      "file": "car-accident-help-clearwater.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-clearwater"
+    },
+    {
+      "slug": "cleveland",
+      "city": "Cleveland",
+      "file": "car-accident-help-cleveland.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-cleveland"
+    },
+    {
+      "slug": "clovis",
+      "city": "Clovis",
+      "file": "car-accident-help-clovis.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-clovis"
+    },
+    {
+      "slug": "college-station",
+      "city": "College Station",
+      "file": "car-accident-help-college-station.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-college-station"
+    },
+    {
+      "slug": "colorado-springs",
+      "city": "Colorado Springs",
+      "file": "car-accident-help-colorado-springs.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-colorado-springs"
+    },
+    {
+      "slug": "columbia",
+      "city": "Columbia",
+      "file": "car-accident-help-columbia.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-columbia"
+    },
+    {
+      "slug": "columbus",
+      "city": "Columbus",
+      "file": "car-accident-help-columbus.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-columbus"
+    },
+    {
+      "slug": "compton",
+      "city": "Compton",
+      "file": "car-accident-help-compton.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-compton"
+    },
+    {
+      "slug": "concord",
+      "city": "Concord",
+      "file": "car-accident-help-concord.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-concord"
+    },
+    {
+      "slug": "corona",
+      "city": "Corona",
+      "file": "car-accident-help-corona.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-corona"
     },
     {
       "slug": "corpus-christi",
@@ -44,10 +362,460 @@
       "url": "https://www.wreckmatch.com/car-accident-help-corpus-christi"
     },
     {
-      "slug": "plano",
-      "city": "Plano",
-      "file": "car-accident-help-plano.md",
-      "url": "https://www.wreckmatch.com/car-accident-help-plano"
+      "slug": "dallas",
+      "city": "Dallas",
+      "file": "car-accident-help-dallas.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-dallas"
+    },
+    {
+      "slug": "daly-city",
+      "city": "Daly City",
+      "file": "car-accident-help-daly-city.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-daly-city"
+    },
+    {
+      "slug": "davie",
+      "city": "Davie",
+      "file": "car-accident-help-davie.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-davie"
+    },
+    {
+      "slug": "denton",
+      "city": "Denton",
+      "file": "car-accident-help-denton.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-denton"
+    },
+    {
+      "slug": "denver",
+      "city": "Denver",
+      "file": "car-accident-help-denver.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-denver"
+    },
+    {
+      "slug": "des-moines",
+      "city": "Des Moines",
+      "file": "car-accident-help-des-moines.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-des-moines"
+    },
+    {
+      "slug": "detroit",
+      "city": "Detroit",
+      "file": "car-accident-help-detroit.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-detroit"
+    },
+    {
+      "slug": "durham",
+      "city": "Durham",
+      "file": "car-accident-help-durham.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-durham"
+    },
+    {
+      "slug": "el-monte",
+      "city": "El Monte",
+      "file": "car-accident-help-el-monte.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-el-monte"
+    },
+    {
+      "slug": "el-paso",
+      "city": "El Paso",
+      "file": "car-accident-help-el-paso.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-el-paso"
+    },
+    {
+      "slug": "elizabeth",
+      "city": "Elizabeth",
+      "file": "car-accident-help-elizabeth.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-elizabeth"
+    },
+    {
+      "slug": "elk-grove",
+      "city": "Elk Grove",
+      "file": "car-accident-help-elk-grove.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-elk-grove"
+    },
+    {
+      "slug": "erie",
+      "city": "Erie",
+      "file": "car-accident-help-erie.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-erie"
+    },
+    {
+      "slug": "escondido",
+      "city": "Escondido",
+      "file": "car-accident-help-escondido.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-escondido"
+    },
+    {
+      "slug": "eugene",
+      "city": "Eugene",
+      "file": "car-accident-help-eugene.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-eugene"
+    },
+    {
+      "slug": "evansville",
+      "city": "Evansville",
+      "file": "car-accident-help-evansville.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-evansville"
+    },
+    {
+      "slug": "everett",
+      "city": "Everett",
+      "file": "car-accident-help-everett.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-everett"
+    },
+    {
+      "slug": "fairfield",
+      "city": "Fairfield",
+      "file": "car-accident-help-fairfield.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-fairfield"
+    },
+    {
+      "slug": "fargo",
+      "city": "Fargo",
+      "file": "car-accident-help-fargo.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-fargo"
+    },
+    {
+      "slug": "fayetteville",
+      "city": "Fayetteville",
+      "file": "car-accident-help-fayetteville.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-fayetteville"
+    },
+    {
+      "slug": "flint",
+      "city": "Flint",
+      "file": "car-accident-help-flint.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-flint"
+    },
+    {
+      "slug": "fontana",
+      "city": "Fontana",
+      "file": "car-accident-help-fontana.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-fontana"
+    },
+    {
+      "slug": "fort-collins",
+      "city": "Fort Collins",
+      "file": "car-accident-help-fort-collins.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-fort-collins"
+    },
+    {
+      "slug": "fort-lauderdale",
+      "city": "Fort Lauderdale",
+      "file": "car-accident-help-fort-lauderdale.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-fort-lauderdale"
+    },
+    {
+      "slug": "fort-wayne",
+      "city": "Fort Wayne",
+      "file": "car-accident-help-fort-wayne.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-fort-wayne"
+    },
+    {
+      "slug": "fort-worth",
+      "city": "Fort Worth",
+      "file": "car-accident-help-fort-worth.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-fort-worth"
+    },
+    {
+      "slug": "fremont",
+      "city": "Fremont",
+      "file": "car-accident-help-fremont.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-fremont"
+    },
+    {
+      "slug": "fresno",
+      "city": "Fresno",
+      "file": "car-accident-help-fresno.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-fresno"
+    },
+    {
+      "slug": "frisco",
+      "city": "Frisco",
+      "file": "car-accident-help-frisco.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-frisco"
+    },
+    {
+      "slug": "fullerton",
+      "city": "Fullerton",
+      "file": "car-accident-help-fullerton.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-fullerton"
+    },
+    {
+      "slug": "gainesville",
+      "city": "Gainesville",
+      "file": "car-accident-help-gainesville.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-gainesville"
+    },
+    {
+      "slug": "garden-grove",
+      "city": "Garden Grove",
+      "file": "car-accident-help-garden-grove.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-garden-grove"
+    },
+    {
+      "slug": "garland",
+      "city": "Garland",
+      "file": "car-accident-help-garland.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-garland"
+    },
+    {
+      "slug": "gilbert",
+      "city": "Gilbert",
+      "file": "car-accident-help-gilbert.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-gilbert"
+    },
+    {
+      "slug": "glendale",
+      "city": "Glendale",
+      "file": "car-accident-help-glendale.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-glendale"
+    },
+    {
+      "slug": "grand-prairie",
+      "city": "Grand Prairie",
+      "file": "car-accident-help-grand-prairie.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-grand-prairie"
+    },
+    {
+      "slug": "grand-rapids",
+      "city": "Grand Rapids",
+      "file": "car-accident-help-grand-rapids.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-grand-rapids"
+    },
+    {
+      "slug": "greeley",
+      "city": "Greeley",
+      "file": "car-accident-help-greeley.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-greeley"
+    },
+    {
+      "slug": "green-bay",
+      "city": "Green Bay",
+      "file": "car-accident-help-green-bay.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-green-bay"
+    },
+    {
+      "slug": "greensboro",
+      "city": "Greensboro",
+      "file": "car-accident-help-greensboro.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-greensboro"
+    },
+    {
+      "slug": "hartford",
+      "city": "Hartford",
+      "file": "car-accident-help-hartford.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-hartford"
+    },
+    {
+      "slug": "hayward",
+      "city": "Hayward",
+      "file": "car-accident-help-hayward.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-hayward"
+    },
+    {
+      "slug": "henderson",
+      "city": "Henderson",
+      "file": "car-accident-help-henderson.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-henderson"
+    },
+    {
+      "slug": "hialeah",
+      "city": "Hialeah",
+      "file": "car-accident-help-hialeah.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-hialeah"
+    },
+    {
+      "slug": "high-point",
+      "city": "High Point",
+      "file": "car-accident-help-high-point.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-high-point"
+    },
+    {
+      "slug": "hollywood",
+      "city": "Hollywood",
+      "file": "car-accident-help-hollywood.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-hollywood"
+    },
+    {
+      "slug": "honolulu",
+      "city": "Honolulu",
+      "file": "car-accident-help-honolulu.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-honolulu"
+    },
+    {
+      "slug": "houston",
+      "city": "Houston",
+      "file": "car-accident-help-houston.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-houston"
+    },
+    {
+      "slug": "huntington-beach",
+      "city": "Huntington Beach",
+      "file": "car-accident-help-huntington-beach.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-huntington-beach"
+    },
+    {
+      "slug": "huntsville",
+      "city": "Huntsville",
+      "file": "car-accident-help-huntsville.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-huntsville"
+    },
+    {
+      "slug": "independence",
+      "city": "Independence",
+      "file": "car-accident-help-independence.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-independence"
+    },
+    {
+      "slug": "indianapolis",
+      "city": "Indianapolis",
+      "file": "car-accident-help-indianapolis.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-indianapolis"
+    },
+    {
+      "slug": "irvine",
+      "city": "Irvine",
+      "file": "car-accident-help-irvine.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-irvine"
+    },
+    {
+      "slug": "irving",
+      "city": "Irving",
+      "file": "car-accident-help-irving.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-irving"
+    },
+    {
+      "slug": "jackson",
+      "city": "Jackson",
+      "file": "car-accident-help-jackson.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-jackson"
+    },
+    {
+      "slug": "jacksonville",
+      "city": "Jacksonville",
+      "file": "car-accident-help-jacksonville.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-jacksonville"
+    },
+    {
+      "slug": "jersey-city",
+      "city": "Jersey City",
+      "file": "car-accident-help-jersey-city.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-jersey-city"
+    },
+    {
+      "slug": "joliet",
+      "city": "Joliet",
+      "file": "car-accident-help-joliet.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-joliet"
+    },
+    {
+      "slug": "jurupa-valley",
+      "city": "Jurupa Valley",
+      "file": "car-accident-help-jurupa-valley.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-jurupa-valley"
+    },
+    {
+      "slug": "kansas-city",
+      "city": "Kansas City",
+      "file": "car-accident-help-kansas-city.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-kansas-city"
+    },
+    {
+      "slug": "kenosha",
+      "city": "Kenosha",
+      "file": "car-accident-help-kenosha.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-kenosha"
+    },
+    {
+      "slug": "kent",
+      "city": "Kent",
+      "file": "car-accident-help-kent.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-kent"
+    },
+    {
+      "slug": "killeen",
+      "city": "Killeen",
+      "file": "car-accident-help-killeen.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-killeen"
+    },
+    {
+      "slug": "knoxville",
+      "city": "Knoxville",
+      "file": "car-accident-help-knoxville.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-knoxville"
+    },
+    {
+      "slug": "lafayette",
+      "city": "Lafayette",
+      "file": "car-accident-help-lafayette.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-lafayette"
+    },
+    {
+      "slug": "lakeland",
+      "city": "Lakeland",
+      "file": "car-accident-help-lakeland.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-lakeland"
+    },
+    {
+      "slug": "lancaster",
+      "city": "Lancaster",
+      "file": "car-accident-help-lancaster.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-lancaster"
+    },
+    {
+      "slug": "lansing",
+      "city": "Lansing",
+      "file": "car-accident-help-lansing.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-lansing"
+    },
+    {
+      "slug": "laredo",
+      "city": "Laredo",
+      "file": "car-accident-help-laredo.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-laredo"
+    },
+    {
+      "slug": "las-vegas",
+      "city": "Las Vegas",
+      "file": "car-accident-help-las-vegas.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-las-vegas"
+    },
+    {
+      "slug": "lexington",
+      "city": "Lexington",
+      "file": "car-accident-help-lexington.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-lexington"
+    },
+    {
+      "slug": "lincoln",
+      "city": "Lincoln",
+      "file": "car-accident-help-lincoln.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-lincoln"
+    },
+    {
+      "slug": "little-rock",
+      "city": "Little Rock",
+      "file": "car-accident-help-little-rock.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-little-rock"
+    },
+    {
+      "slug": "long-beach",
+      "city": "Long Beach",
+      "file": "car-accident-help-long-beach.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-long-beach"
+    },
+    {
+      "slug": "los-angeles",
+      "city": "Los Angeles",
+      "file": "car-accident-help-los-angeles.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-los-angeles"
+    },
+    {
+      "slug": "louisville",
+      "city": "Louisville",
+      "file": "car-accident-help-louisville.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-louisville"
     },
     {
       "slug": "lubbock",
@@ -56,16 +824,778 @@
       "url": "https://www.wreckmatch.com/car-accident-help-lubbock"
     },
     {
-      "slug": "arlington-texas",
-      "city": "Arlington",
-      "file": "car-accident-help-arlington-texas.md",
-      "url": "https://www.wreckmatch.com/car-accident-help-arlington-texas"
+      "slug": "macon",
+      "city": "Macon",
+      "file": "car-accident-help-macon.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-macon"
     },
     {
-      "slug": "irving",
-      "city": "Irving",
-      "file": "car-accident-help-irving.md",
-      "url": "https://www.wreckmatch.com/car-accident-help-irving"
+      "slug": "madison",
+      "city": "Madison",
+      "file": "car-accident-help-madison.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-madison"
+    },
+    {
+      "slug": "manchester",
+      "city": "Manchester",
+      "file": "car-accident-help-manchester.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-manchester"
+    },
+    {
+      "slug": "mcallen",
+      "city": "Mcallen",
+      "file": "car-accident-help-mcallen.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-mcallen"
+    },
+    {
+      "slug": "mckinney",
+      "city": "Mckinney",
+      "file": "car-accident-help-mckinney.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-mckinney"
+    },
+    {
+      "slug": "memphis",
+      "city": "Memphis",
+      "file": "car-accident-help-memphis.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-memphis"
+    },
+    {
+      "slug": "mesa",
+      "city": "Mesa",
+      "file": "car-accident-help-mesa.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-mesa"
+    },
+    {
+      "slug": "mesquite",
+      "city": "Mesquite",
+      "file": "car-accident-help-mesquite.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-mesquite"
+    },
+    {
+      "slug": "miami-gardens",
+      "city": "Miami Gardens",
+      "file": "car-accident-help-miami-gardens.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-miami-gardens"
+    },
+    {
+      "slug": "miami",
+      "city": "Miami",
+      "file": "car-accident-help-miami.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-miami"
+    },
+    {
+      "slug": "midland",
+      "city": "Midland",
+      "file": "car-accident-help-midland.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-midland"
+    },
+    {
+      "slug": "milwaukee",
+      "city": "Milwaukee",
+      "file": "car-accident-help-milwaukee.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-milwaukee"
+    },
+    {
+      "slug": "minneapolis",
+      "city": "Minneapolis",
+      "file": "car-accident-help-minneapolis.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-minneapolis"
+    },
+    {
+      "slug": "mobile",
+      "city": "Mobile",
+      "file": "car-accident-help-mobile.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-mobile"
+    },
+    {
+      "slug": "modesto",
+      "city": "Modesto",
+      "file": "car-accident-help-modesto.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-modesto"
+    },
+    {
+      "slug": "montgomery",
+      "city": "Montgomery",
+      "file": "car-accident-help-montgomery.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-montgomery"
+    },
+    {
+      "slug": "moreno-valley",
+      "city": "Moreno Valley",
+      "file": "car-accident-help-moreno-valley.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-moreno-valley"
+    },
+    {
+      "slug": "murrieta",
+      "city": "Murrieta",
+      "file": "car-accident-help-murrieta.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-murrieta"
+    },
+    {
+      "slug": "naperville",
+      "city": "Naperville",
+      "file": "car-accident-help-naperville.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-naperville"
+    },
+    {
+      "slug": "nashville",
+      "city": "Nashville",
+      "file": "car-accident-help-nashville.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-nashville"
+    },
+    {
+      "slug": "new-haven",
+      "city": "New Haven",
+      "file": "car-accident-help-new-haven.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-new-haven"
+    },
+    {
+      "slug": "new-orleans",
+      "city": "New Orleans",
+      "file": "car-accident-help-new-orleans.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-new-orleans"
+    },
+    {
+      "slug": "new-york",
+      "city": "New York",
+      "file": "car-accident-help-new-york.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-new-york"
+    },
+    {
+      "slug": "newark",
+      "city": "Newark",
+      "file": "car-accident-help-newark.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-newark"
+    },
+    {
+      "slug": "newport-news",
+      "city": "Newport News",
+      "file": "car-accident-help-newport-news.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-newport-news"
+    },
+    {
+      "slug": "norfolk",
+      "city": "Norfolk",
+      "file": "car-accident-help-norfolk.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-norfolk"
+    },
+    {
+      "slug": "norman",
+      "city": "Norman",
+      "file": "car-accident-help-norman.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-norman"
+    },
+    {
+      "slug": "north-las-vegas",
+      "city": "North Las Vegas",
+      "file": "car-accident-help-north-las-vegas.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-north-las-vegas"
+    },
+    {
+      "slug": "norwalk",
+      "city": "Norwalk",
+      "file": "car-accident-help-norwalk.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-norwalk"
+    },
+    {
+      "slug": "oakland",
+      "city": "Oakland",
+      "file": "car-accident-help-oakland.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-oakland"
+    },
+    {
+      "slug": "oceanside",
+      "city": "Oceanside",
+      "file": "car-accident-help-oceanside.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-oceanside"
+    },
+    {
+      "slug": "odessa",
+      "city": "Odessa",
+      "file": "car-accident-help-odessa.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-odessa"
+    },
+    {
+      "slug": "oklahoma-city",
+      "city": "Oklahoma City",
+      "file": "car-accident-help-oklahoma-city.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-oklahoma-city"
+    },
+    {
+      "slug": "omaha",
+      "city": "Omaha",
+      "file": "car-accident-help-omaha.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-omaha"
+    },
+    {
+      "slug": "ontario",
+      "city": "Ontario",
+      "file": "car-accident-help-ontario.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-ontario"
+    },
+    {
+      "slug": "orange",
+      "city": "Orange",
+      "file": "car-accident-help-orange.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-orange"
+    },
+    {
+      "slug": "overland-park",
+      "city": "Overland Park",
+      "file": "car-accident-help-overland-park.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-overland-park"
+    },
+    {
+      "slug": "oxnard",
+      "city": "Oxnard",
+      "file": "car-accident-help-oxnard.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-oxnard"
+    },
+    {
+      "slug": "palm-bay",
+      "city": "Palm Bay",
+      "file": "car-accident-help-palm-bay.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-palm-bay"
+    },
+    {
+      "slug": "palmdale",
+      "city": "Palmdale",
+      "file": "car-accident-help-palmdale.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-palmdale"
+    },
+    {
+      "slug": "pasadena",
+      "city": "Pasadena",
+      "file": "car-accident-help-pasadena.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-pasadena"
+    },
+    {
+      "slug": "paterson",
+      "city": "Paterson",
+      "file": "car-accident-help-paterson.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-paterson"
+    },
+    {
+      "slug": "pearland",
+      "city": "Pearland",
+      "file": "car-accident-help-pearland.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-pearland"
+    },
+    {
+      "slug": "pembroke-pines",
+      "city": "Pembroke Pines",
+      "file": "car-accident-help-pembroke-pines.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-pembroke-pines"
+    },
+    {
+      "slug": "peoria",
+      "city": "Peoria",
+      "file": "car-accident-help-peoria.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-peoria"
+    },
+    {
+      "slug": "philadelphia",
+      "city": "Philadelphia",
+      "file": "car-accident-help-philadelphia.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-philadelphia"
+    },
+    {
+      "slug": "phoenix",
+      "city": "Phoenix",
+      "file": "car-accident-help-phoenix.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-phoenix"
+    },
+    {
+      "slug": "pittsburgh",
+      "city": "Pittsburgh",
+      "file": "car-accident-help-pittsburgh.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-pittsburgh"
+    },
+    {
+      "slug": "plano",
+      "city": "Plano",
+      "file": "car-accident-help-plano.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-plano"
+    },
+    {
+      "slug": "pomona",
+      "city": "Pomona",
+      "file": "car-accident-help-pomona.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-pomona"
+    },
+    {
+      "slug": "port-st-lucie",
+      "city": "Port St Lucie",
+      "file": "car-accident-help-port-st-lucie.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-port-st-lucie"
+    },
+    {
+      "slug": "portland",
+      "city": "Portland",
+      "file": "car-accident-help-portland.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-portland"
+    },
+    {
+      "slug": "providence",
+      "city": "Providence",
+      "file": "car-accident-help-providence.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-providence"
+    },
+    {
+      "slug": "provo",
+      "city": "Provo",
+      "file": "car-accident-help-provo.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-provo"
+    },
+    {
+      "slug": "pueblo",
+      "city": "Pueblo",
+      "file": "car-accident-help-pueblo.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-pueblo"
+    },
+    {
+      "slug": "raleigh",
+      "city": "Raleigh",
+      "file": "car-accident-help-raleigh.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-raleigh"
+    },
+    {
+      "slug": "rancho-cucamonga",
+      "city": "Rancho Cucamonga",
+      "file": "car-accident-help-rancho-cucamonga.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-rancho-cucamonga"
+    },
+    {
+      "slug": "reno",
+      "city": "Reno",
+      "file": "car-accident-help-reno.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-reno"
+    },
+    {
+      "slug": "rialto",
+      "city": "Rialto",
+      "file": "car-accident-help-rialto.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-rialto"
+    },
+    {
+      "slug": "richardson",
+      "city": "Richardson",
+      "file": "car-accident-help-richardson.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-richardson"
+    },
+    {
+      "slug": "richmond",
+      "city": "Richmond",
+      "file": "car-accident-help-richmond.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-richmond"
+    },
+    {
+      "slug": "riverside",
+      "city": "Riverside",
+      "file": "car-accident-help-riverside.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-riverside"
+    },
+    {
+      "slug": "roanoke",
+      "city": "Roanoke",
+      "file": "car-accident-help-roanoke.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-roanoke"
+    },
+    {
+      "slug": "rochester",
+      "city": "Rochester",
+      "file": "car-accident-help-rochester.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-rochester"
+    },
+    {
+      "slug": "rockford",
+      "city": "Rockford",
+      "file": "car-accident-help-rockford.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-rockford"
+    },
+    {
+      "slug": "round-rock",
+      "city": "Round Rock",
+      "file": "car-accident-help-round-rock.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-round-rock"
+    },
+    {
+      "slug": "sacramento",
+      "city": "Sacramento",
+      "file": "car-accident-help-sacramento.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-sacramento"
+    },
+    {
+      "slug": "saint-paul",
+      "city": "Saint Paul",
+      "file": "car-accident-help-saint-paul.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-saint-paul"
+    },
+    {
+      "slug": "salem",
+      "city": "Salem",
+      "file": "car-accident-help-salem.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-salem"
+    },
+    {
+      "slug": "salinas",
+      "city": "Salinas",
+      "file": "car-accident-help-salinas.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-salinas"
+    },
+    {
+      "slug": "salt-lake-city",
+      "city": "Salt Lake City",
+      "file": "car-accident-help-salt-lake-city.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-salt-lake-city"
+    },
+    {
+      "slug": "san-antonio",
+      "city": "San Antonio",
+      "file": "car-accident-help-san-antonio.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-san-antonio"
+    },
+    {
+      "slug": "san-bernardino",
+      "city": "San Bernardino",
+      "file": "car-accident-help-san-bernardino.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-san-bernardino"
+    },
+    {
+      "slug": "san-diego",
+      "city": "San Diego",
+      "file": "car-accident-help-san-diego.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-san-diego"
+    },
+    {
+      "slug": "san-francisco",
+      "city": "San Francisco",
+      "file": "car-accident-help-san-francisco.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-san-francisco"
+    },
+    {
+      "slug": "san-jose",
+      "city": "San Jose",
+      "file": "car-accident-help-san-jose.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-san-jose"
+    },
+    {
+      "slug": "san-mateo",
+      "city": "San Mateo",
+      "file": "car-accident-help-san-mateo.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-san-mateo"
+    },
+    {
+      "slug": "sandy-springs",
+      "city": "Sandy Springs",
+      "file": "car-accident-help-sandy-springs.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-sandy-springs"
+    },
+    {
+      "slug": "santa-ana",
+      "city": "Santa Ana",
+      "file": "car-accident-help-santa-ana.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-santa-ana"
+    },
+    {
+      "slug": "santa-barbara",
+      "city": "Santa Barbara",
+      "file": "car-accident-help-santa-barbara.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-santa-barbara"
+    },
+    {
+      "slug": "santa-clarita",
+      "city": "Santa Clarita",
+      "file": "car-accident-help-santa-clarita.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-santa-clarita"
+    },
+    {
+      "slug": "santa-rosa",
+      "city": "Santa Rosa",
+      "file": "car-accident-help-santa-rosa.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-santa-rosa"
+    },
+    {
+      "slug": "savannah",
+      "city": "Savannah",
+      "file": "car-accident-help-savannah.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-savannah"
+    },
+    {
+      "slug": "scottsdale",
+      "city": "Scottsdale",
+      "file": "car-accident-help-scottsdale.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-scottsdale"
+    },
+    {
+      "slug": "seattle",
+      "city": "Seattle",
+      "file": "car-accident-help-seattle.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-seattle"
+    },
+    {
+      "slug": "shreveport",
+      "city": "Shreveport",
+      "file": "car-accident-help-shreveport.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-shreveport"
+    },
+    {
+      "slug": "sioux-falls",
+      "city": "Sioux Falls",
+      "file": "car-accident-help-sioux-falls.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-sioux-falls"
+    },
+    {
+      "slug": "south-bend",
+      "city": "South Bend",
+      "file": "car-accident-help-south-bend.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-south-bend"
+    },
+    {
+      "slug": "spartanburg",
+      "city": "Spartanburg",
+      "file": "car-accident-help-spartanburg.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-spartanburg"
+    },
+    {
+      "slug": "spokane",
+      "city": "Spokane",
+      "file": "car-accident-help-spokane.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-spokane"
+    },
+    {
+      "slug": "springfield",
+      "city": "Springfield",
+      "file": "car-accident-help-springfield.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-springfield"
+    },
+    {
+      "slug": "st-louis",
+      "city": "St Louis",
+      "file": "car-accident-help-st-louis.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-st-louis"
+    },
+    {
+      "slug": "st-petersburg",
+      "city": "St Petersburg",
+      "file": "car-accident-help-st-petersburg.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-st-petersburg"
+    },
+    {
+      "slug": "stamford",
+      "city": "Stamford",
+      "file": "car-accident-help-stamford.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-stamford"
+    },
+    {
+      "slug": "sterling-heights",
+      "city": "Sterling Heights",
+      "file": "car-accident-help-sterling-heights.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-sterling-heights"
+    },
+    {
+      "slug": "stockton",
+      "city": "Stockton",
+      "file": "car-accident-help-stockton.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-stockton"
+    },
+    {
+      "slug": "sunnyvale",
+      "city": "Sunnyvale",
+      "file": "car-accident-help-sunnyvale.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-sunnyvale"
+    },
+    {
+      "slug": "surprise",
+      "city": "Surprise",
+      "file": "car-accident-help-surprise.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-surprise"
+    },
+    {
+      "slug": "syracuse",
+      "city": "Syracuse",
+      "file": "car-accident-help-syracuse.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-syracuse"
+    },
+    {
+      "slug": "tacoma",
+      "city": "Tacoma",
+      "file": "car-accident-help-tacoma.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-tacoma"
+    },
+    {
+      "slug": "tallahassee",
+      "city": "Tallahassee",
+      "file": "car-accident-help-tallahassee.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-tallahassee"
+    },
+    {
+      "slug": "tampa",
+      "city": "Tampa",
+      "file": "car-accident-help-tampa.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-tampa"
+    },
+    {
+      "slug": "temecula",
+      "city": "Temecula",
+      "file": "car-accident-help-temecula.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-temecula"
+    },
+    {
+      "slug": "tempe",
+      "city": "Tempe",
+      "file": "car-accident-help-tempe.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-tempe"
+    },
+    {
+      "slug": "thornton",
+      "city": "Thornton",
+      "file": "car-accident-help-thornton.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-thornton"
+    },
+    {
+      "slug": "toledo",
+      "city": "Toledo",
+      "file": "car-accident-help-toledo.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-toledo"
+    },
+    {
+      "slug": "topeka",
+      "city": "Topeka",
+      "file": "car-accident-help-topeka.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-topeka"
+    },
+    {
+      "slug": "torrance",
+      "city": "Torrance",
+      "file": "car-accident-help-torrance.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-torrance"
+    },
+    {
+      "slug": "tucson",
+      "city": "Tucson",
+      "file": "car-accident-help-tucson.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-tucson"
+    },
+    {
+      "slug": "tulsa",
+      "city": "Tulsa",
+      "file": "car-accident-help-tulsa.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-tulsa"
+    },
+    {
+      "slug": "tyler",
+      "city": "Tyler",
+      "file": "car-accident-help-tyler.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-tyler"
+    },
+    {
+      "slug": "vancouver",
+      "city": "Vancouver",
+      "file": "car-accident-help-vancouver.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-vancouver"
+    },
+    {
+      "slug": "ventura",
+      "city": "Ventura",
+      "file": "car-accident-help-ventura.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-ventura"
+    },
+    {
+      "slug": "victorville",
+      "city": "Victorville",
+      "file": "car-accident-help-victorville.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-victorville"
+    },
+    {
+      "slug": "virginia-beach",
+      "city": "Virginia Beach",
+      "file": "car-accident-help-virginia-beach.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-virginia-beach"
+    },
+    {
+      "slug": "visalia",
+      "city": "Visalia",
+      "file": "car-accident-help-visalia.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-visalia"
+    },
+    {
+      "slug": "vista",
+      "city": "Vista",
+      "file": "car-accident-help-vista.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-vista"
+    },
+    {
+      "slug": "waco",
+      "city": "Waco",
+      "file": "car-accident-help-waco.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-waco"
+    },
+    {
+      "slug": "washington",
+      "city": "Washington",
+      "file": "car-accident-help-washington.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-washington"
+    },
+    {
+      "slug": "waterbury",
+      "city": "Waterbury",
+      "file": "car-accident-help-waterbury.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-waterbury"
+    },
+    {
+      "slug": "west-covina",
+      "city": "West Covina",
+      "file": "car-accident-help-west-covina.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-west-covina"
+    },
+    {
+      "slug": "west-jordan",
+      "city": "West Jordan",
+      "file": "car-accident-help-west-jordan.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-west-jordan"
+    },
+    {
+      "slug": "west-palm-beach",
+      "city": "West Palm Beach",
+      "file": "car-accident-help-west-palm-beach.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-west-palm-beach"
+    },
+    {
+      "slug": "west-valley-city",
+      "city": "West Valley City",
+      "file": "car-accident-help-west-valley-city.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-west-valley-city"
+    },
+    {
+      "slug": "wichita",
+      "city": "Wichita",
+      "file": "car-accident-help-wichita.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-wichita"
+    },
+    {
+      "slug": "wilmington",
+      "city": "Wilmington",
+      "file": "car-accident-help-wilmington.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-wilmington"
+    },
+    {
+      "slug": "winston-salem",
+      "city": "Winston Salem",
+      "file": "car-accident-help-winston-salem.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-winston-salem"
+    },
+    {
+      "slug": "worcester",
+      "city": "Worcester",
+      "file": "car-accident-help-worcester.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-worcester"
+    },
+    {
+      "slug": "yonkers",
+      "city": "Yonkers",
+      "file": "car-accident-help-yonkers.md",
+      "url": "https://www.wreckmatch.com/car-accident-help-yonkers"
     }
   ]
 }

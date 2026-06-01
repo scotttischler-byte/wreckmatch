@@ -1,20 +1,19 @@
 ---
 title: "Car Accident Help in Fresno, California (2026 Guide)"
-description: "Fresno car accident guide — 2-year SOL, local hospitals, insurance minimums, and next steps. Educational only."
+description: "Fresno car accident guide — 2-year SOL, local resources, insurance minimums, and next steps. Educational only."
 canonical: "https://www.wreckmatch.com/car-accident-help-fresno"
-og_title: "Car Accident Help in Fresno, California (2026 Guide) | WreckMatch"
-og_description: "Fresno car accident guide — 2-year SOL, local hospitals, insurance minimums, and next steps. Educational only."
 city: "Fresno"
 state: "California"
 state_abbr: "CA"
-generated_at: "2026-05-24"
+generated_at: "2026-06-01"
+programmatic: true
 ---
 
 # Car Accident Help in Fresno, California (2026 Guide)
 
 **Educational only — not legal advice.** WreckMatch LLC is a legal referral service connecting accident victims with licensed attorneys — **not a law firm**.
 
-**Last updated:** May 24, 2026
+**Last updated:** June 1, 2026
 
 **Quick answer:** After a crash in Fresno, call 911 if anyone is hurt, document the scene, seek medical care, notify your insurer without giving a recorded statement, and consider free attorney matching before accepting a settlement.
 
@@ -24,8 +23,8 @@ generated_at: "2026-05-24"
 
 | Metric | Detail |
 |--------|--------|
-| City population | ~507,804 |
-| Metro population | ~914,047 |
+| City population | ~506,155 |
+| Metro population | ~911,079 |
 | Annual reported crashes (est.) | ~19,619 |
 | Fatal crashes (est.) | ~78 |
 | County | Fresno County |

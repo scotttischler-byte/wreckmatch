@@ -1,20 +1,19 @@
 ---
 title: "Car Accident Help in Minneapolis, Minnesota (2026 Guide)"
-description: "Minneapolis car accident guide — 6-year SOL, local hospitals, insurance minimums, and next steps. Educational only."
+description: "Minneapolis car accident guide — 6-year SOL, local resources, insurance minimums, and next steps. Educational only."
 canonical: "https://www.wreckmatch.com/car-accident-help-minneapolis"
-og_title: "Car Accident Help in Minneapolis, Minnesota (2026 Guide) | WreckMatch"
-og_description: "Minneapolis car accident guide — 6-year SOL, local hospitals, insurance minimums, and next steps. Educational only."
 city: "Minneapolis"
 state: "Minnesota"
 state_abbr: "MN"
-generated_at: "2026-05-24"
+generated_at: "2026-06-01"
+programmatic: true
 ---
 
 # Car Accident Help in Minneapolis, Minnesota (2026 Guide)
 
 **Educational only — not legal advice.** WreckMatch LLC is a legal referral service connecting accident victims with licensed attorneys — **not a law firm**.
 
-**Last updated:** May 24, 2026
+**Last updated:** June 1, 2026
 
 **Quick answer:** After a crash in Minneapolis, call 911 if anyone is hurt, document the scene, seek medical care, notify your insurer without giving a recorded statement, and consider free attorney matching before accepting a settlement.
 
@@ -24,8 +23,8 @@ generated_at: "2026-05-24"
 
 | Metric | Detail |
 |--------|--------|
-| City population | ~364,571 |
-| Metro population | ~656,228 |
+| City population | ~363,204 |
+| Metro population | ~653,767 |
 | Annual reported crashes (est.) | ~2,595 |
 | Fatal crashes (est.) | ~15 |
 | County | Minneapolis County |
