@@ -404,7 +404,8 @@ def build_markdown(data: dict) -> str:
     # Section 5 - lawyer + quiz
     s5 = s57.get("section_5", {})
     if isinstance(s5, dict):
-        lines.append(f"## 5. {s5.get('title', f'When You Need a Car Accident Lawyer in {city['city']}, {city['state']}')}\n")
+        s5_default = f"When You Need a Car Accident Lawyer in {city['city']}, {city['state']}"
+        lines.append(f"## 5. {s5.get('title', s5_default)}\n")
         for p in s5.get("paragraphs", []):
             lines.append(f"{p}\n")
         quiz = s57.get("quiz", {})
@@ -413,7 +414,8 @@ def build_markdown(data: dict) -> str:
     # Section 6
     s6 = s57.get("section_6", {})
     if isinstance(s6, dict):
-        lines.append(f"## 6. {s6.get('title', f'Local Resources in {city['city']}, {city['state']}')}\n")
+        s6_default = f"Local Resources in {city['city']}, {city['state']}"
+        lines.append(f"## 6. {s6.get('title', s6_default)}\n")
         for p in s6.get("paragraphs", []):
             lines.append(f"{p}\n")
         for item in s6.get("list", []):
