@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_run_at": "2026-06-01T02:06:35.113275+00:00",
+  "last_run_at": "2026-06-01T02:10:27.527909+00:00",
   "completed_city_keys": [
     "albuquerque-nm|NM",
     "arlington-tx|TX",
@@ -45,8 +45,9 @@
     "tampa-fl|FL",
     "tulsa-ok|OK",
     "virginia-beach-va|VA",
-    "washington-dc|DC"
+    "washington-dc|DC",
+    "orlando-fl|FL"
   ],
-  "last_city_key": "austin-tx|TX",
+  "last_city_key": "orlando-fl|FL",
   "notes": "Queue tracks generated city_slug|state_abbrev pairs. Use --next or --all to process highest priority ungenerated city."
 }
