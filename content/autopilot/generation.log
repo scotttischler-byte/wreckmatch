@@ -10,3 +10,14 @@
 [2026-06-01T02:10:27.527798+00:00] Saved blog JSON /home/runner/work/wreckmatch/wreckmatch/content/blog/posts/ultimate-orlando-florida-accident-survival-guide-2026.json
 [2026-06-01T02:10:27.528735+00:00] Next city in queue: Riverside, California
 [2026-06-01T02:10:27.528797+00:00] Done: Orlando, Florida
+[2026-06-01T05:17:54.967082+00:00] sync-queue: 45 cities marked complete (0 newly reconciled).
+[2026-06-01T05:17:55.631514+00:00] Generating outline + local facts for Riverside, California (CA)...
+[2026-06-01T05:18:05.798916+00:00] Generating main sections 1-4 for Riverside, California (CA)...
+[2026-06-01T05:18:26.943397+00:00] Generating sections 5-7, FAQ, quiz for Riverside, California (CA)...
+[2026-06-01T05:18:38.526736+00:00] Generating image prompts for Riverside, California (CA)...
+[2026-06-01T05:18:45.969156+00:00] Draft word count: 3343
+[2026-06-01T05:18:45.970464+00:00] Saved /home/runner/work/wreckmatch/wreckmatch/content/ca/riverside-ca/index.md
+[2026-06-01T05:18:45.970517+00:00] Saved /home/runner/work/wreckmatch/wreckmatch/content/ca/riverside-ca/images.md
+[2026-06-01T05:18:45.971740+00:00] Saved blog JSON /home/runner/work/wreckmatch/wreckmatch/content/blog/posts/ultimate-riverside-california-accident-survival-guide-2026.json
+[2026-06-01T05:18:45.972642+00:00] Next city in queue: St. Louis, Missouri
+[2026-06-01T05:18:45.972704+00:00] Done: Riverside, California
