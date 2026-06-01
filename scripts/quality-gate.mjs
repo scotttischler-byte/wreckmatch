@@ -62,12 +62,13 @@ function checkMarkdown(md) {
 
 function main() {
   const args = process.argv.slice(2);
+  const draftsDir = path.join(ROOT, "content/blog/drafts");
   const files =
     args.length > 0
       ? args
-      : [
-          ...fs.readdirSync(path.join(ROOT, "content/blog/drafts")).filter((f) => f.endsWith(".json")).map((f) => path.join(ROOT, "content/blog/drafts", f)),
-        ];
+      : fs.existsSync(draftsDir)
+        ? fs.readdirSync(draftsDir).filter((f) => f.endsWith(".json")).map((f) => path.join(draftsDir, f))
+        : [];
 
   let failed = 0;
   for (const file of files) {
