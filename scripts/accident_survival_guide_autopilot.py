@@ -635,7 +635,7 @@ def main() -> int:
     parser.add_argument("--city", help='City name e.g. "Austin"')
     parser.add_argument("--state", help='State name e.g. "Texas"')
     parser.add_argument("--next", action="store_true", help="Generate next city in priority queue")
-    parser.add_argument("--batch", type=int, default=1, help="Number of cities to generate")
+    parser.add_argument("--batch", type=int, default=None, help="Number of cities to generate")
     parser.add_argument("--list-next", type=int, help="List next N pending cities and exit")
     parser.add_argument("--sync-queue", action="store_true", help="Reconcile queue with content already on disk and exit")
     parser.add_argument("--publish-json", action="store_true", help="Also write content/blog/posts/*.json")
@@ -663,8 +663,8 @@ def main() -> int:
             log(f"City not found: {args.city}, {args.state}")
             return 1
         targets = [found]
-    elif args.next or args.batch > 1:
-        targets = next_cities(cities, queue, args.batch)
+    elif args.next or args.batch:
+        targets = next_cities(cities, queue, args.batch or 1)
         if not targets:
             log("Queue complete — all cities generated.")
             return 0
