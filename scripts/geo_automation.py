@@ -337,8 +337,8 @@ def run_index_via_sitemap_script() -> list[dict]:
 def run_index_all(site_filter: str | None, recent: int) -> list[dict]:
     key = os.getenv("INDEXNOW_KEY", "").strip()
     if not key:
-        log("INDEXNOW_KEY not set — skip IndexNow")
-        return [{"ok": False, "error": "INDEXNOW_KEY missing"}]
+        log("INDEXNOW_KEY not set — skip IndexNow (optional)")
+        return [{"ok": True, "skipped": True, "reason": "INDEXNOW_KEY missing"}]
 
     if (ROOT / "scripts/submit-indexnow.mjs").exists() and not site_filter:
         return run_index_via_sitemap_script()
