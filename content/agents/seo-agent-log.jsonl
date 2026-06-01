@@ -325,3 +325,6 @@
 {"ts":"2026-06-01T21:24:50.869Z","task":"autopilot-status","ok":true,"exitCode":0,"durationMs":34,"outputTail":"Autopilot queue: 279/279 cities complete (100%)\n  Last run: 2026-06-01T19:57:15.008408+00:00\n  Last city: plano-il|IL\n\nQueue empty — all cities processed.\n"}
 {"ts":"2026-06-01T21:24:50.971Z","task":"cannibalization","ok":true,"exitCode":0,"durationMs":102,"outputTail":"1_redirect_to_city: what-to-do-after-a-car-accident-omaha-ne → /car-accident-help-omaha\n  301_redirect_to_city: what-to-do-after-a-car-accident-sacramento-ca → /car-accident-help-sacramento\n  301_redirect_to_city: what-to-do-after-a-car-accident-tucson-az → /car-accident-help-tucson\n  301_redirect_to_city: what-to-do-after-car-accident-houston-tx → /car-accident-help-houston\n  differentiate_angle: what-to-do-immediately-after-a-car-accident-in-san-diego-california → /car-accident-help-san-diego\n"}
 {"ts":"2026-06-01T21:24:50.971Z","event":"complete","task":"report"}
+{"ts":"2026-06-01T23:23:17.533Z","event":"start","task":"enrich","argv":["rotate"]}
+{"ts":"2026-06-01T23:23:19.269Z","task":"enrich-cities","ok":true,"exitCode":0,"durationMs":1736,"outputTail":"All top cities already have enriched markdown.\nnpm warn exec The following package was not found and will be installed: tsx@4.22.4\n"}
+{"ts":"2026-06-01T23:23:19.270Z","event":"complete","task":"enrich"}
