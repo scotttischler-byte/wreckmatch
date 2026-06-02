@@ -18,7 +18,11 @@ type AsgEvent =
   | "wreckmatch_referral"
   | "thank_you_view"
   | "sarah_chat_click"
-  | "sarah_call_click";
+  | "sarah_call_click"
+  | "calculator_complete"
+  | "calculator_case_review"
+  | "calculator_open_chat"
+  | "calculator_download_results";
 
 declare global {
   interface Window {
