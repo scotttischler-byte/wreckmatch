@@ -1,13 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, Calculator, Loader2 } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { US_STATES } from "@/lib/accidentsurvivalguide";
 import { saveCalculatorLead } from "@/lib/asg-lead-storage";
 import { trackAsgEvent } from "@/lib/analytics";
+
+const fieldClass =
+  "h-12 w-full min-h-[48px] rounded-xl border-0 bg-white text-base text-[#1a3a52] shadow-sm placeholder:text-[#94a8b8] focus-visible:ring-2 focus-visible:ring-white/80";
 
 export function CalculatorLeadForm() {
   const { locale, messages, href } = useAsgLocale();
@@ -73,60 +76,64 @@ export function CalculatorLeadForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-1 flex-col" noValidate>
-      <div className="flex items-start gap-3">
-        <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-white/20">
-          <Calculator className="size-6 text-white" aria-hidden />
-        </span>
-        <div>
-          <h2 className="font-serif text-2xl font-bold leading-tight sm:text-3xl">
-            {h.calculatorCardTitle}
-          </h2>
-          <p className="mt-2 text-sm leading-relaxed text-[#d4e8f4]">{h.calculatorCardSubtitle}</p>
-        </div>
+      <div>
+        <h2 className="font-serif text-xl font-bold leading-tight text-white sm:text-2xl">
+          {h.calculatorCardTitle}
+        </h2>
+        <p className="mt-1.5 text-[0.8rem] leading-relaxed text-[#d4e8f4] sm:text-sm">
+          {h.calculatorCardSubtitle}
+        </p>
       </div>
 
       <p
         role="note"
-        className="mt-4 rounded-lg border border-amber-300/50 bg-amber-950/40 px-3 py-2.5 text-xs leading-relaxed text-amber-100"
+        className="mt-3 rounded-lg bg-black/20 px-3 py-2 text-[0.65rem] leading-relaxed text-amber-100 sm:text-xs"
       >
         {h.calculatorCardDisclaimer}
       </p>
 
-      <div className="mt-5 grid flex-1 gap-3 sm:grid-cols-2">
+      <div className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3">
         <Input
           required
+          autoComplete="given-name"
           placeholder={f.firstName}
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
-          className="h-11 border-white/30 bg-white/95 text-[#1a3a52] placeholder:text-[#7a8a98]"
+          className={fieldClass}
         />
         <Input
           required
+          autoComplete="family-name"
           placeholder={f.lastName}
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
-          className="h-11 border-white/30 bg-white/95 text-[#1a3a52] placeholder:text-[#7a8a98]"
+          className={fieldClass}
         />
         <Input
           required
           type="email"
+          inputMode="email"
+          autoComplete="email"
           placeholder={f.email}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="h-11 border-white/30 bg-white/95 text-[#1a3a52] placeholder:text-[#7a8a98]"
+          className={fieldClass}
         />
         <Input
           required
           type="tel"
+          inputMode="tel"
+          autoComplete="tel"
           placeholder={f.phone}
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          className="h-11 border-white/30 bg-white/95 text-[#1a3a52] placeholder:text-[#7a8a98]"
+          className={fieldClass}
         />
         <select
           value={state}
           onChange={(e) => setState(e.target.value)}
-          className="h-11 rounded-lg border border-white/30 bg-white/95 px-3 text-sm text-[#1a3a52] sm:col-span-2"
+          aria-label={f.state}
+          className={`${fieldClass} sm:col-span-2`}
         >
           <option value="">{f.selectState}</option>
           {US_STATES.map((s) => (
@@ -137,19 +144,19 @@ export function CalculatorLeadForm() {
         </select>
       </div>
 
-      <label className="mt-4 flex gap-2 text-xs leading-relaxed text-[#d4e8f4]">
+      <label className="mt-3 flex gap-2.5 rounded-lg bg-black/15 p-3 text-[0.65rem] leading-relaxed text-[#e8f4fa] sm:text-xs">
         <input
           type="checkbox"
           checked={consent}
           onChange={(e) => setConsent(e.target.checked)}
-          className="mt-0.5 size-4 shrink-0"
+          className="mt-0.5 size-[1.125rem] shrink-0 accent-white"
           required
         />
-        {h.calculatorLeadConsent}
+        <span>{h.calculatorLeadConsent}</span>
       </label>
 
       {error ? (
-        <p className="mt-2 text-sm text-amber-200" role="alert">
+        <p className="mt-2 rounded-lg bg-red-950/40 px-3 py-2 text-sm text-red-100" role="alert">
           {error}
         </p>
       ) : null}
@@ -157,22 +164,24 @@ export function CalculatorLeadForm() {
       <Button
         type="submit"
         disabled={loading}
-        className="mt-5 h-14 w-full rounded-2xl bg-white text-base font-bold text-[#1a3a52] shadow-lg hover:bg-[#f4faf8] disabled:opacity-70"
+        className="mt-4 min-h-[52px] w-full rounded-xl bg-white py-3.5 text-base font-bold text-[#1a3a52] shadow-lg transition active:scale-[0.98] hover:bg-[#f4faf8] disabled:opacity-70"
       >
         {loading ? (
-          <>
+          <span className="inline-flex items-center gap-2">
             <Loader2 className="size-5 animate-spin" aria-hidden />
             {f.submitting}
-          </>
+          </span>
         ) : (
-          <>
+          <span className="inline-flex items-center justify-center gap-2">
             {h.calculatorCardCta}
-            <ArrowRight className="ml-2 size-5" aria-hidden />
-          </>
+            <ArrowRight className="size-5" aria-hidden />
+          </span>
         )}
       </Button>
 
-      <p className="mt-3 text-center text-xs text-[#a8c5d8]">{h.calculatorPromoBadges}</p>
+      <p className="mt-2.5 text-center text-[0.65rem] text-[#a8c5d8] sm:text-xs">
+        {h.calculatorPromoBadges}
+      </p>
     </form>
   );
 }

@@ -23,58 +23,43 @@ export function AsgHomePage({ messages: m }: { messages: Messages }) {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-[#c5dce8]/60 bg-gradient-to-br from-[#e8f4fa] via-[#f4faf8] to-white">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(90,168,130,0.12),transparent_50%)]" />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-2">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#5b8fa8]">
-              {h.heroEyebrow}
+      <HomeLeadMagnets />
+
+      <section className="border-b border-[#c5dce8]/40 bg-white py-10 sm:py-14">
+        <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-12">
+          <blockquote className="order-2 rounded-2xl border border-[#c5dce8] bg-[#f8fbfd] p-6 sm:order-1 sm:p-8">
+            <Heart className="size-7 text-[#5a9a82] sm:size-8" aria-hidden />
+            <p className="mt-4 text-base leading-relaxed text-[#3d5568] sm:mt-6 sm:text-lg">
+              &ldquo;{h.storyQuote}&rdquo;
             </p>
-            <h1 className="mt-4 font-serif text-4xl font-semibold leading-[1.08] tracking-[-0.03em] text-[#1a3a52] sm:text-5xl">
-              {h.heroTitle}
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-[#4a6578]">{h.heroSubtitle}</p>
-            <a
-              href="#get-help"
-              className="mt-8 inline-flex rounded-full bg-[#2a7a9b] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#236884]"
-            >
-              {h.leadMagnetsJump} ↓
-            </a>
-          </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[#c5dce8] shadow-lg">
+            <footer className="mt-4 text-sm font-medium text-[#5b8fa8]">{h.storyAttribution}</footer>
+          </blockquote>
+          <div className="relative order-1 aspect-[4/3] overflow-hidden rounded-2xl border border-[#c5dce8] shadow-md sm:order-2">
             <Image
               src="/asg-hero-checklist.png"
               alt={h.heroImageAlt}
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
-              priority
+              loading="lazy"
             />
           </div>
         </div>
       </section>
 
-      <HomeLeadMagnets />
-
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-          <blockquote className="rounded-2xl border border-[#c5dce8] bg-white p-8 shadow-sm">
-            <Heart className="size-8 text-[#5a9a82]" aria-hidden />
-            <p className="mt-6 text-lg leading-relaxed text-[#3d5568]">&ldquo;{h.storyQuote}&rdquo;</p>
-            <footer className="mt-6 text-sm font-medium text-[#5b8fa8]">{h.storyAttribution}</footer>
-          </blockquote>
-          <div>
-            <h2 className="font-serif text-2xl font-semibold text-[#1a3a52]">{h.insideTitle}</h2>
-            <ul className="mt-6 space-y-3">
-              {m.benefits.map((benefit) => (
-                <li key={benefit} className="flex gap-3 text-[#4a6578]">
-                  <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-[#5a9a82]" aria-hidden />
-                  <span className="leading-relaxed">{benefit}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+        <h2 className="font-serif text-2xl font-semibold text-[#1a3a52] sm:text-3xl">{h.insideTitle}</h2>
+        <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {m.benefits.map((benefit) => (
+            <li
+              key={benefit}
+              className="flex gap-3 rounded-xl border border-[#c5dce8]/80 bg-white p-4 text-[#4a6578] shadow-sm"
+            >
+              <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-[#5a9a82]" aria-hidden />
+              <span className="text-sm leading-relaxed sm:text-base">{benefit}</span>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section id="first-24-hours" className="scroll-mt-24 py-16 sm:py-20">

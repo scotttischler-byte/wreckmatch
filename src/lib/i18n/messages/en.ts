@@ -44,9 +44,16 @@ export const en = {
     calculatorPromoDisclaimer: "Estimate only. Consult a licensed attorney for advice about your case.",
     leadMagnetsJump: "See free calculator & guide",
     leadMagnetsEyebrow: "Free help after a crash",
+    leadMagnetsHeroLine:
+      "Get a rough compensation estimate or your free Accident Survival Guide—side by side, free, and ready in minutes.",
     leadMagnetsTitle: "Two free tools — side by side",
     leadMagnetsSubtitle:
       "Estimate a possible compensation range or get the Accident Survival Guide emailed to you. Both are free educational resources—not legal advice.",
+    trustFree: "100% free",
+    trustFast: "~5 minutes",
+    trustNoObligation: "No obligation",
+    calculatorBadge: "Compensation estimate",
+    guideBadge: "Free guide",
     leadMagnetsDisclaimerTitle: "Important — read before you continue",
     leadMagnetsDisclaimerExtra:
       "Submitting either form may connect you with WreckMatch LLC, a legal referral service. We are not a law firm. Msg & data rates may apply for text opt-in. Reply STOP to unsubscribe.",
@@ -194,7 +201,7 @@ export const en = {
   },
   sticky: {
     aria: "Quick download",
-    cta: "Get Accident Survival Guide",
+    cta: "Free calculator & guide",
   },
   about: {
     metaTitle: "About Scott's Story",

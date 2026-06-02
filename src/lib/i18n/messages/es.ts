@@ -46,7 +46,14 @@ export const es: Messages = {
     calculatorPromoDisclaimer: "Solo estimación. Consulte a un abogado licenciado sobre su caso.",
     leadMagnetsJump: "Ver calculadora y guía gratis",
     leadMagnetsEyebrow: "Ayuda gratuita después de un choque",
+    leadMagnetsHeroLine:
+      "Obtenga una estimación de compensación o su Guía de Supervivencia gratis—lado a lado, en minutos.",
     leadMagnetsTitle: "Dos herramientas gratis — lado a lado",
+    trustFree: "100% gratis",
+    trustFast: "~5 minutos",
+    trustNoObligation: "Sin obligación",
+    calculatorBadge: "Estimación",
+    guideBadge: "Guía gratis",
     leadMagnetsSubtitle:
       "Estime un rango de compensación posible o reciba la Guía de Supervivencia por correo. Ambos son recursos educativos gratuitos—no es asesoría legal.",
     leadMagnetsDisclaimerTitle: "Importante — lea antes de continuar",
@@ -195,7 +202,7 @@ export const es: Messages = {
   },
   sticky: {
     aria: "Descarga rápida",
-    cta: "Obtener Guía de Supervivencia",
+    cta: "Calculadora y guía gratis",
   },
   about: {
     metaTitle: "La Historia de Scott",

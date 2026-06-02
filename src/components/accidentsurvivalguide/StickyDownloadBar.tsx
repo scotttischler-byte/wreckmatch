@@ -9,7 +9,7 @@ export function StickyDownloadBar() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 480);
+    const onScroll = () => setVisible(window.scrollY > 720);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -28,7 +28,7 @@ export function StickyDownloadBar() {
         className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#2a7a9b] py-3 text-sm font-semibold text-white"
       >
         <Download className="size-4" aria-hidden />
-        {messages.home.leadMagnetsJump}
+        {messages.sticky.cta}
       </a>
     </div>
   );
