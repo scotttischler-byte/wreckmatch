@@ -2,8 +2,13 @@
   "postsPerDay": 5,
   "publishStaggerMinutes": 90,
   "requireApproval": true,
-  "lastRunAt": "2026-06-01T19:23:10.880Z",
+  "lastRunAt": "2026-06-02T18:08:32.786Z",
   "recentCitySlugs": [
+    "tucson",
+    "fresno",
+    "columbus",
+    "san-antonio",
+    "minneapolis",
     "sacramento",
     "houston",
     "oakland",
@@ -48,11 +53,6 @@
     "new-york",
     "tampa",
     "los-angeles",
-    "new-orleans",
-    "san-antonio-tx",
-    "new-york-ny",
-    "tulsa-ok",
-    "austin-tx",
-    "indianapolis-in"
+    "new-orleans"
   ]
 }
