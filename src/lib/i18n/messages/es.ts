@@ -35,6 +35,15 @@ export const es: Messages = {
       "Ayuda tranquila y paso a paso para las primeras 24 horas y más allá. No es asesoría legal—es la lista que desearía haber tenido después de mi propio accidente.",
     ctaChecklist: "Obtener Guía de Supervivencia",
     ctaRead: "Leer la lista",
+    ctaCalculator: "Calculadora de compensación gratis",
+    ctaCalculatorShort: "Iniciar calculadora →",
+    calculatorPromoEyebrow: "Herramienta gratuita 2026",
+    calculatorPromoTitle: "¿Cuánto podría valer su reclamo por accidente?",
+    calculatorPromoSubtitle:
+      "Responda unas preguntas y obtenga una estimación educativa baja–media–alta en unos 5 minutos. No es asesoría legal ni garantía de acuerdo.",
+    calculatorPromoCta: "Iniciar calculadora de compensación gratis",
+    calculatorPromoBadges: "Gratis · ~5 minutos · Sin obligación",
+    calculatorPromoDisclaimer: "Solo estimación. Consulte a un abogado licenciado sobre su caso.",
     heroImageAlt:
       "Conductor tranquilo revisando una lista de accidente junto a un vehículo después de un choque menor",
     storyQuote:

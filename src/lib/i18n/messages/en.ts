@@ -33,6 +33,15 @@ export const en = {
       "Calm, step-by-step help for the first 24 hours and beyond. Not legal advice—just the checklist I wish I had after my own wreck.",
     ctaChecklist: "Get Accident Survival Guide",
     ctaRead: "Read the checklist",
+    ctaCalculator: "Free Compensation Calculator",
+    ctaCalculatorShort: "Start Calculator →",
+    calculatorPromoEyebrow: "Free 2026 tool",
+    calculatorPromoTitle: "How much could your accident claim be worth?",
+    calculatorPromoSubtitle:
+      "Answer a few questions and get a rough low–medium–high estimate in about 5 minutes. Educational only—not legal advice or a guaranteed settlement.",
+    calculatorPromoCta: "Start Free Compensation Calculator",
+    calculatorPromoBadges: "Free · ~5 minutes · No obligation",
+    calculatorPromoDisclaimer: "Estimate only. Consult a licensed attorney for advice about your case.",
     heroImageAlt:
       "Calm driver reviewing a printed accident checklist beside a vehicle after a minor crash",
     storyQuote:
