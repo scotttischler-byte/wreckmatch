@@ -1,8 +1,6 @@
 import Image from "next/image";
 import {
   AlertCircle,
-  ArrowRight,
-  Calculator,
   CheckCircle2,
   Clock,
   FileText,
@@ -10,11 +8,10 @@ import {
   MessageCircle,
   Scale,
   Shield,
-  Sparkles,
   Users,
 } from "lucide-react";
 import { AsgLink } from "@/components/accidentsurvivalguide/AsgLink";
-import { SurvivalGuideDownloadForm } from "@/components/accidentsurvivalguide/SurvivalGuideDownloadForm";
+import { HomeLeadMagnets } from "@/components/accidentsurvivalguide/HomeLeadMagnets";
 import { getPublishedBlogPosts } from "@/lib/blog/posts";
 import { STATE_SLUGS, STATE_GUIDES, WRECKMATCH_URL } from "@/lib/accidentsurvivalguide";
 import type { Messages } from "@/lib/i18n/get-messages";
@@ -37,28 +34,12 @@ export function AsgHomePage({ messages: m }: { messages: Messages }) {
               {h.heroTitle}
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-[#4a6578]">{h.heroSubtitle}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-              <AsgLink
-                href="/calculator"
-                className="inline-flex w-full items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-[#1a3a52] via-[#2a7a9b] to-[#5a9a82] px-8 py-4 text-base font-bold text-white shadow-lg shadow-[#2a7a9b]/30 ring-2 ring-[#5a9a82]/40 transition hover:scale-[1.02] hover:shadow-xl sm:w-auto sm:min-w-[280px]"
-              >
-                <Calculator className="size-5 shrink-0" aria-hidden />
-                {h.ctaCalculator}
-                <ArrowRight className="size-5 shrink-0" aria-hidden />
-              </AsgLink>
-              <a
-                href="#download"
-                className="inline-flex w-full items-center justify-center rounded-full border-2 border-[#2a7a9b] bg-white px-6 py-3 text-sm font-semibold text-[#2a7a9b] transition hover:bg-[#e8f4fa] sm:w-auto"
-              >
-                {h.ctaChecklist}
-              </a>
-              <a
-                href="#first-24-hours"
-                className="inline-flex w-full items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-[#5b8fa8] underline-offset-2 transition hover:text-[#2a7a9b] hover:underline sm:w-auto"
-              >
-                {h.ctaRead}
-              </a>
-            </div>
+            <a
+              href="#get-help"
+              className="mt-8 inline-flex rounded-full bg-[#2a7a9b] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#236884]"
+            >
+              {h.leadMagnetsJump} ↓
+            </a>
           </div>
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[#c5dce8] shadow-lg">
             <Image
@@ -73,49 +54,7 @@ export function AsgHomePage({ messages: m }: { messages: Messages }) {
         </div>
       </section>
 
-      <section
-        className="relative border-b border-[#c5dce8]/60 bg-gradient-to-r from-[#1a3a52] via-[#234d66] to-[#2a7a9b] py-10 sm:py-12"
-        aria-labelledby="calculator-promo-heading"
-      >
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_left,rgba(90,154,130,0.25),transparent_55%)]" />
-        <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-2xl text-white">
-              <p className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#b8e6d4]">
-                <Sparkles className="size-3.5" aria-hidden />
-                {h.calculatorPromoEyebrow}
-              </p>
-              <h2
-                id="calculator-promo-heading"
-                className="mt-4 font-serif text-3xl font-semibold leading-tight sm:text-4xl"
-              >
-                {h.calculatorPromoTitle}
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-[#d4e8f4] sm:text-lg">
-                {h.calculatorPromoSubtitle}
-              </p>
-              <p className="mt-3 text-sm font-medium text-[#8ecae6]">{h.calculatorPromoBadges}</p>
-              <p className="mt-2 text-xs text-[#a8c5d8]">{h.calculatorPromoDisclaimer}</p>
-            </div>
-            <div className="flex shrink-0 flex-col items-stretch gap-3 sm:items-center lg:min-w-[300px]">
-              <AsgLink
-                href="/calculator"
-                className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-8 py-5 text-lg font-bold text-[#1a3a52] shadow-xl transition hover:bg-[#f4faf8] hover:shadow-2xl"
-              >
-                <Calculator className="size-6 text-[#2a7a9b]" aria-hidden />
-                {h.calculatorPromoCta}
-                <ArrowRight className="size-5 text-[#5a9a82]" aria-hidden />
-              </AsgLink>
-              <AsgLink
-                href="/calculator"
-                className="text-center text-sm font-semibold text-[#b8e6d4] underline underline-offset-2 hover:text-white"
-              >
-                {h.ctaCalculatorShort}
-              </AsgLink>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeLeadMagnets />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
@@ -134,14 +73,6 @@ export function AsgHomePage({ messages: m }: { messages: Messages }) {
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#eef6fb] py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="mx-auto max-w-xl">
-            <SurvivalGuideDownloadForm headline="checklist" />
           </div>
         </div>
       </section>

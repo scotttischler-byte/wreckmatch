@@ -24,11 +24,11 @@ export function StickyDownloadBar() {
       aria-label={messages.sticky.aria}
     >
       <a
-        href="#download"
+        href="#get-help"
         className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#2a7a9b] py-3 text-sm font-semibold text-white"
       >
         <Download className="size-4" aria-hidden />
-        {messages.sticky.cta}
+        {messages.home.leadMagnetsJump}
       </a>
     </div>
   );

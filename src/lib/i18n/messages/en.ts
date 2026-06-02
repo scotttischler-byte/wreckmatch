@@ -42,6 +42,31 @@ export const en = {
     calculatorPromoCta: "Start Free Compensation Calculator",
     calculatorPromoBadges: "Free · ~5 minutes · No obligation",
     calculatorPromoDisclaimer: "Estimate only. Consult a licensed attorney for advice about your case.",
+    leadMagnetsJump: "See free calculator & guide",
+    leadMagnetsEyebrow: "Free help after a crash",
+    leadMagnetsTitle: "Two free tools — side by side",
+    leadMagnetsSubtitle:
+      "Estimate a possible compensation range or get the Accident Survival Guide emailed to you. Both are free educational resources—not legal advice.",
+    leadMagnetsDisclaimerTitle: "Important — read before you continue",
+    leadMagnetsDisclaimerExtra:
+      "Submitting either form may connect you with WreckMatch LLC, a legal referral service. We are not a law firm. Msg & data rates may apply for text opt-in. Reply STOP to unsubscribe.",
+    leadMagnetsFooterLegal:
+      "No attorney-client relationship is created by using these tools. Past results do not guarantee future outcomes. For advice about your specific case, consult a licensed attorney in your state.",
+    calculatorCardTitle: "Compensation Calculator",
+    calculatorCardSubtitle:
+      "Rough low–medium–high estimate in ~5 minutes. Enter your info to start — we'll save your results for a free case review.",
+    calculatorCardDisclaimer:
+      "Educational estimate only — NOT legal advice, NOT a guaranteed settlement. Results vary widely by facts, state law, insurance, and injury severity.",
+    calculatorCardCta: "Get My Free Estimate",
+    calculatorLeadConsent:
+      "I agree to be contacted about my situation and understand this is educational information only, not legal advice. I consent to calls/texts from WreckMatch LLC at the number provided.",
+    calculatorLeadConsentRequired: "Please confirm the consent checkbox to continue.",
+    calculatorLeadError: "Unable to submit. Please try again.",
+    guideCardTitle: "Accident Survival Guide",
+    guideCardSubtitle:
+      "Free 2026 checklist for the first 24 hours — emailed in minutes. Enter your info below.",
+    guideCardDisclaimer:
+      "Educational checklist only — not legal advice. WreckMatch LLC is a referral service, not a law firm.",
     heroImageAlt:
       "Calm driver reviewing a printed accident checklist beside a vehicle after a minor crash",
     storyQuote:

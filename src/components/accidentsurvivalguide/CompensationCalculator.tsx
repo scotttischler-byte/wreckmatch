@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   AlertTriangle,
   Calculator,
@@ -24,6 +24,7 @@ import {
   type LostWagesBand,
   type MedicalBillsBand,
 } from "@/lib/compensation-calculator";
+import { loadCalculatorLead } from "@/lib/asg-lead-storage";
 import { trackAsgEvent } from "@/lib/analytics";
 import { formatMessage } from "@/lib/i18n/get-messages";
 
@@ -174,10 +175,21 @@ export function CompensationCalculator() {
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [consent, setConsent] = useState(false);
+  const [consent, setConsent] = useState(true);
   const [reviewLoading, setReviewLoading] = useState(false);
   const [reviewDone, setReviewDone] = useState(false);
   const [reviewError, setReviewError] = useState("");
+
+  useEffect(() => {
+    const lead = loadCalculatorLead();
+    if (!lead) return;
+    setFirstName(lead.firstName);
+    setEmail(lead.email);
+    setPhone(lead.phone);
+    if (lead.state) {
+      setInput((p) => ({ ...p, state: lead.state }));
+    }
+  }, []);
 
   const estimate = useMemo(
     () => (step === 5 ? estimateCompensation(input) : null),

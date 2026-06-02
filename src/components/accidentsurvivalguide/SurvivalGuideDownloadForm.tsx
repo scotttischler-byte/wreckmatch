@@ -54,9 +54,12 @@ function formProgress(form: FormState): number {
 export function SurvivalGuideDownloadForm({
   id = "download",
   headline = "default",
+  embedded = false,
 }: {
   id?: string;
   headline?: HeadlineKey;
+  /** Side-by-side lead magnet card — no outer section shell */
+  embedded?: boolean;
 }) {
   const router = useRouter();
   const { locale, messages, href } = useAsgLocale();
@@ -136,19 +139,24 @@ export function SurvivalGuideDownloadForm({
     }
   }
 
-  return (
-    <section id={id} className="scroll-mt-24" aria-labelledby={`${id}-heading`}>
-      <SurvivalGuideDisclaimer variant="compact" className="mb-5" />
-
+  const formEl = (
       <form
         onSubmit={handleSubmit}
-        className="rounded-2xl border border-[#c5dce8] bg-white p-6 shadow-[0_20px_50px_-30px_rgba(26,58,82,0.25)] sm:p-8"
+        className={
+          embedded
+            ? "flex flex-1 flex-col p-5 sm:p-6"
+            : "rounded-2xl border border-[#c5dce8] bg-white p-6 shadow-[0_20px_50px_-30px_rgba(26,58,82,0.25)] sm:p-8"
+        }
         noValidate
       >
-        <h2 id={`${id}-heading`} className="font-serif text-2xl font-semibold text-[#1a3a52]">
-          {headlineText}
-        </h2>
-        <p className="mt-2 text-sm leading-relaxed text-[#5b6b7f]">{f.subtitle}</p>
+        {!embedded ? (
+          <>
+            <h2 id={`${id}-heading`} className="font-serif text-2xl font-semibold text-[#1a3a52]">
+              {headlineText}
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-[#5b6b7f]">{f.subtitle}</p>
+          </>
+        ) : null}
 
         <div className="mt-4">
           <div className="mb-1 flex justify-between text-xs text-[#7a8a98]">
@@ -309,6 +317,16 @@ export function SurvivalGuideDownloadForm({
           </AsgLink>
         </p>
       </form>
+  );
+
+  if (embedded) {
+    return formEl;
+  }
+
+  return (
+    <section id={id} className="scroll-mt-24" aria-labelledby={`${id}-heading`}>
+      <SurvivalGuideDisclaimer variant="compact" className="mb-5" />
+      {formEl}
     </section>
   );
 }

@@ -44,6 +44,30 @@ export const es: Messages = {
     calculatorPromoCta: "Iniciar calculadora de compensación gratis",
     calculatorPromoBadges: "Gratis · ~5 minutos · Sin obligación",
     calculatorPromoDisclaimer: "Solo estimación. Consulte a un abogado licenciado sobre su caso.",
+    leadMagnetsJump: "Ver calculadora y guía gratis",
+    leadMagnetsEyebrow: "Ayuda gratuita después de un choque",
+    leadMagnetsTitle: "Dos herramientas gratis — lado a lado",
+    leadMagnetsSubtitle:
+      "Estime un rango de compensación posible o reciba la Guía de Supervivencia por correo. Ambos son recursos educativos gratuitos—no es asesoría legal.",
+    leadMagnetsDisclaimerTitle: "Importante — lea antes de continuar",
+    leadMagnetsDisclaimerExtra:
+      "Enviar cualquier formulario puede conectarlo con WreckMatch LLC, un servicio de referencia legal. No somos un bufete. Pueden aplicar tarifas de mensajes si opta por texto. Responda STOP para cancelar.",
+    leadMagnetsFooterLegal:
+      "No se crea relación abogado-cliente al usar estas herramientas. Los resultados pasados no garantizan resultados futuros. Para su caso, consulte a un abogado licenciado en su estado.",
+    calculatorCardTitle: "Calculadora de compensación",
+    calculatorCardSubtitle:
+      "Estimación educativa baja–media–alta en ~5 minutos. Ingrese sus datos para comenzar.",
+    calculatorCardDisclaimer:
+      "Solo estimación educativa — NO es asesoría legal ni garantía de acuerdo. Los resultados varían según hechos, ley estatal, seguro y lesiones.",
+    calculatorCardCta: "Obtener mi estimación gratis",
+    calculatorLeadConsent:
+      "Acepto ser contactado y entiendo que esto es solo información educativa, no asesoría legal. Consiento llamadas/textos de WreckMatch LLC al número indicado.",
+    calculatorLeadConsentRequired: "Confirme el consentimiento para continuar.",
+    calculatorLeadError: "No se pudo enviar. Intente de nuevo.",
+    guideCardTitle: "Guía de Supervivencia en Accidentes",
+    guideCardSubtitle: "Lista gratuita 2026 para las primeras 24 horas — por correo en minutos.",
+    guideCardDisclaimer:
+      "Solo lista educativa — no es asesoría legal. WreckMatch LLC es un servicio de referencia, no un bufete.",
     heroImageAlt:
       "Conductor tranquilo revisando una lista de accidente junto a un vehículo después de un choque menor",
     storyQuote:

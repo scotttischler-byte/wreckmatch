@@ -45,7 +45,7 @@ export function SurvivalGuideHeader() {
           ))}
           <LanguageSwitcher />
           <AsgLink
-            href="/#download"
+            href="/#get-help"
             className="rounded-full bg-[#2a7a9b] px-4 py-2 text-white transition hover:bg-[#236884]"
           >
             {nav.getGuide}
@@ -55,7 +55,7 @@ export function SurvivalGuideHeader() {
         <div className="flex items-center gap-2 lg:hidden">
           <LanguageSwitcher />
           <AsgLink
-            href="/#download"
+            href="/#get-help"
             className="rounded-full bg-[#2a7a9b] px-3.5 py-2 text-sm font-semibold text-white transition hover:bg-[#236884]"
           >
             {nav.freeGuide}
