@@ -73,8 +73,13 @@ const TEMPLATE_SLUG_PREFIX: Record<BlogTemplateId, string> = {
   "hire-lawyer": "should-you-hire-a-lawyer",
 };
 
+function citySlugWithState(city: CityRecord): string {
+  const suffix = `-${city.state_abbr.toLowerCase()}`;
+  return city.slug.endsWith(suffix) ? city.slug : `${city.slug}${suffix}`;
+}
+
 export function blogSlugFor(city: CityRecord, template: BlogTemplateId): string {
-  return `${TEMPLATE_SLUG_PREFIX[template]}-${city.slug}-${city.state_abbr.toLowerCase()}`;
+  return `${TEMPLATE_SLUG_PREFIX[template]}-${citySlugWithState(city)}`;
 }
 
 export function relatedBlogLinks(city: CityRecord, currentSlug: string, limit = 5) {

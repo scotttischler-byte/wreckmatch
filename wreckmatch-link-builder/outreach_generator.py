@@ -186,8 +186,15 @@ class OutreachGenerator:
             to_email=prospect.get("contact_email", ""),
         )
 
+    def _bio_block(self) -> str:
+        bio = (self.config.outreach_sender_bio or "").strip()
+        if not bio:
+            return ""
+        return f"A bit about me: {bio}\n"
+
     def _signature(self) -> str:
         return (
+            f"{self._bio_block()}"
             f"Best regards,\n"
             f"{self.config.outreach_sender_name}\n"
             f"{self.config.outreach_sender_title}\n"

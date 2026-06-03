@@ -107,6 +107,14 @@ async function submitIndexNow(host, urlList) {
   });
 
   const ok = res.status >= 200 && res.status < 300;
+  if (!ok && res.status === 403) {
+    const body = await res.text().catch(() => "");
+    if (body.includes("UserForbiddedToAccessSite")) {
+      console.warn(
+        `  Add ${host} to Bing Webmaster Tools and verify via https://${host}/${KEY}.txt`,
+      );
+    }
+  }
   console.log(`IndexNow ${host}: ${res.status} (${urlList.length} URLs)${ok ? "" : " — check key at /" + KEY + ".txt"}`);
   return ok;
 }

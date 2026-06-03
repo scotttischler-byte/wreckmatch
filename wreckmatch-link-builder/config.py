@@ -51,6 +51,7 @@ class AppConfig:
     outreach_sender_name: str
     outreach_sender_email: str
     outreach_sender_title: str
+    outreach_sender_bio: str
     min_delay_seconds: float
     max_delay_seconds: float
     max_requests_per_minute: int
@@ -70,9 +71,16 @@ class AppConfig:
             google_cse_cx=os.getenv("GOOGLE_CSE_CX", ""),
             google_sheets_credentials_path=Path(creds),
             google_sheets_spreadsheet_id=os.getenv("GOOGLE_SHEETS_SPREADSHEET_ID", ""),
-            outreach_sender_name=os.getenv("OUTREACH_SENDER_NAME", "Scott"),
+            outreach_sender_name=os.getenv("OUTREACH_SENDER_NAME", "Scott Tischler"),
             outreach_sender_email=os.getenv("OUTREACH_SENDER_EMAIL", "scott@wreckmatch.com"),
-            outreach_sender_title=os.getenv("OUTREACH_SENDER_TITLE", "Outreach Coordinator"),
+            outreach_sender_title=os.getenv("OUTREACH_SENDER_TITLE", "Founder, WreckMatch"),
+            outreach_sender_bio=os.getenv(
+                "OUTREACH_SENDER_BIO",
+                "Scott Tischler founded WreckMatch to help car accident victims find "
+                "experienced personal injury attorneys at no upfront cost. He leads outreach "
+                "and partnerships with legal aid organizations, hospitals, and community "
+                "resource sites that serve people after a crash.",
+            ),
             min_delay_seconds=float(os.getenv("MIN_DELAY_SECONDS", "8")),
             max_delay_seconds=float(os.getenv("MAX_DELAY_SECONDS", "25")),
             max_requests_per_minute=int(os.getenv("MAX_REQUESTS_PER_MINUTE", "6")),

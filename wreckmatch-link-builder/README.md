@@ -31,6 +31,8 @@ GOOGLE_CSE_CX=your_search_engine_id_here
 
 OUTREACH_SENDER_NAME=Scott
 OUTREACH_SENDER_EMAIL=scott@wreckmatch.com
+OUTREACH_SENDER_TITLE=Founder, WreckMatch
+OUTREACH_SENDER_BIO=Short paragraph about you — shown in email signatures (editable per campaign).
 ```
 
 **Get CSE keys:** [Google Custom Search API](https://developers.google.com/custom-search/v1/overview) + [Programmable Search Engine](https://programmablesearchengine.google.com/) (search the entire web).

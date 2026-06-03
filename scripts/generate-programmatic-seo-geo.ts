@@ -101,7 +101,8 @@ function findCityRecord(master: MasterCity): CityRecord | undefined {
 
 /** Minimal city record when full enrichment data is not in cities.generated.json */
 function stubCityRecord(master: MasterCity): CityRecord {
-  const slug = master.city_slug.replace(/-[a-z]{2}$/i, "") || master.city_slug;
+  // Use full master slug (e.g. madison-al) so blogs/GEO stay unique across duplicate city names.
+  const slug = master.city_slug;
   return {
     slug,
     city: master.city,
@@ -132,9 +133,14 @@ function resolveCity(master: MasterCity): CityRecord {
   return findCityRecord(master) ?? stubCityRecord(master);
 }
 
-function writeGeoPage(city: CityRecord, state: NonNullable<ReturnType<typeof getStateForCity>>) {
+function writeGeoPage(
+  city: CityRecord,
+  state: NonNullable<ReturnType<typeof getStateForCity>>,
+  master: MasterCity,
+) {
   fs.mkdirSync(GEO_DIR, { recursive: true });
-  const canonical = `${WRECKMATCH_SEO_BASE}${cityPagePath(city.slug)}`;
+  const geoSlug = master.city_slug;
+  const canonical = `${WRECKMATCH_SEO_BASE}${cityPagePath(geoSlug)}`;
   const title = `Car Accident Help in ${city.city}, ${state.name} (${new Date().getFullYear()} Guide)`;
   const description = `${city.city} car accident guide — ${state.statute_limitations_years}-year SOL, local resources, insurance minimums, and next steps. Educational only.`;
   const frontmatter = `---
@@ -149,7 +155,7 @@ programmatic: true
 ---
 
 `;
-  const file = path.join(GEO_DIR, `car-accident-help-${city.slug}.md`);
+  const file = path.join(GEO_DIR, `car-accident-help-${geoSlug}.md`);
   fs.writeFileSync(file, frontmatter + buildCityMarkdown(city, state));
   return file;
 }
@@ -247,7 +253,7 @@ function main() {
     }
 
     if (!blogsOnly) {
-      writeGeoPage(city, state);
+      writeGeoPage(city, state, mc);
       geoCount += 1;
       writeAsgIndex(city, state, mc);
       asgCount += 1;
