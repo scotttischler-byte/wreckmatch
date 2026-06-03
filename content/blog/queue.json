@@ -2,8 +2,13 @@
   "postsPerDay": 5,
   "publishStaggerMinutes": 90,
   "requireApproval": true,
-  "lastRunAt": "2026-06-02T18:08:32.786Z",
+  "lastRunAt": "2026-06-03T18:26:03.423Z",
   "recentCitySlugs": [
+    "jacksonville",
+    "san-diego",
+    "seattle",
+    "san-jose",
+    "philadelphia",
     "tucson",
     "fresno",
     "columbus",
@@ -48,11 +53,6 @@
     "phoenix",
     "nashville",
     "mesa",
-    "philadelphia",
-    "raleigh",
-    "new-york",
-    "tampa",
-    "los-angeles",
-    "new-orleans"
+    "philadelphia"
   ]
 }
