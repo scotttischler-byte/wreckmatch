@@ -4,6 +4,7 @@ export type FaqItem = { question: string; answer: string };
 
 export const GEO_FAQ_SKIP_PREFIXES = [
   "/blog",
+  "/bobbygarcia/blog",
   "/accidentsurvivalguide/blog",
   "/accidentsurvivalguide/es",
   "/admin",

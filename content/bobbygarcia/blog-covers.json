@@ -1,0 +1,727 @@
+{
+  "downloadedAt": "2026-06-02T21:27:37.706Z",
+  "count": 103,
+  "covers": [
+    {
+      "slug": "18-wheeler-accident-lawyer-texas",
+      "publicPath": "/bobbygarcia/blog-covers/18-wheeler-accident-lawyer-texas.jpg",
+      "picsumId": "0",
+      "sourceUrl": "https://picsum.photos/id/0/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "car-accident-lawyer-texas",
+      "publicPath": "/bobbygarcia/blog-covers/car-accident-lawyer-texas.jpg",
+      "picsumId": "1",
+      "sourceUrl": "https://picsum.photos/id/1/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-abilene-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-abilene-tx.jpg",
+      "picsumId": "2",
+      "sourceUrl": "https://picsum.photos/id/2/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-allen-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-allen-tx.jpg",
+      "picsumId": "3",
+      "sourceUrl": "https://picsum.photos/id/3/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-amarillo-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-amarillo-tx.jpg",
+      "picsumId": "4",
+      "sourceUrl": "https://picsum.photos/id/4/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-beaumont-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-beaumont-tx.jpg",
+      "picsumId": "5",
+      "sourceUrl": "https://picsum.photos/id/5/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-brownsville-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-brownsville-tx.jpg",
+      "picsumId": "6",
+      "sourceUrl": "https://picsum.photos/id/6/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-college-station-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-college-station-tx.jpg",
+      "picsumId": "7",
+      "sourceUrl": "https://picsum.photos/id/7/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-corpus-christi-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-corpus-christi-tx.jpg",
+      "picsumId": "8",
+      "sourceUrl": "https://picsum.photos/id/8/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-denton-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-denton-tx.jpg",
+      "picsumId": "9",
+      "sourceUrl": "https://picsum.photos/id/9/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-frisco-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-frisco-tx.jpg",
+      "picsumId": "10",
+      "sourceUrl": "https://picsum.photos/id/10/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-garland-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-garland-tx.jpg",
+      "picsumId": "11",
+      "sourceUrl": "https://picsum.photos/id/11/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-grand-prairie-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-grand-prairie-tx.jpg",
+      "picsumId": "12",
+      "sourceUrl": "https://picsum.photos/id/12/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-irving-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-irving-tx.jpg",
+      "picsumId": "13",
+      "sourceUrl": "https://picsum.photos/id/13/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-killeen-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-killeen-tx.jpg",
+      "picsumId": "14",
+      "sourceUrl": "https://picsum.photos/id/14/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-laredo-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-laredo-tx.jpg",
+      "picsumId": "15",
+      "sourceUrl": "https://picsum.photos/id/15/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-lubbock-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-lubbock-tx.jpg",
+      "picsumId": "16",
+      "sourceUrl": "https://picsum.photos/id/16/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-mcallen-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-mcallen-tx.jpg",
+      "picsumId": "17",
+      "sourceUrl": "https://picsum.photos/id/17/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-mckinney-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-mckinney-tx.jpg",
+      "picsumId": "18",
+      "sourceUrl": "https://picsum.photos/id/18/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-mesquite-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-mesquite-tx.jpg",
+      "picsumId": "19",
+      "sourceUrl": "https://picsum.photos/id/19/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-midland-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-midland-tx.jpg",
+      "picsumId": "20",
+      "sourceUrl": "https://picsum.photos/id/20/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-odessa-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-odessa-tx.jpg",
+      "picsumId": "21",
+      "sourceUrl": "https://picsum.photos/id/21/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-pasadena-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-pasadena-tx.jpg",
+      "picsumId": "22",
+      "sourceUrl": "https://picsum.photos/id/22/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-pearland-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-pearland-tx.jpg",
+      "picsumId": "23",
+      "sourceUrl": "https://picsum.photos/id/23/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-plano-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-plano-tx.jpg",
+      "picsumId": "24",
+      "sourceUrl": "https://picsum.photos/id/24/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-richardson-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-richardson-tx.jpg",
+      "picsumId": "25",
+      "sourceUrl": "https://picsum.photos/id/25/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-round-rock-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-round-rock-tx.jpg",
+      "picsumId": "26",
+      "sourceUrl": "https://picsum.photos/id/26/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-tyler-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-tyler-tx.jpg",
+      "picsumId": "27",
+      "sourceUrl": "https://picsum.photos/id/27/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "costly-mistakes-after-crash-waco-tx",
+      "publicPath": "/bobbygarcia/blog-covers/costly-mistakes-after-crash-waco-tx.jpg",
+      "picsumId": "28",
+      "sourceUrl": "https://picsum.photos/id/28/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "dallas-texas-insurance-pitfalls-what-you-need-to-know-after-an-accident",
+      "publicPath": "/bobbygarcia/blog-covers/dallas-texas-insurance-pitfalls-what-you-need-to-know-after-an-accident.jpg",
+      "picsumId": "29",
+      "sourceUrl": "https://picsum.photos/id/29/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "fort-worth-texas-car-accident-laws-what-you-need-to-know",
+      "publicPath": "/bobbygarcia/blog-covers/fort-worth-texas-car-accident-laws-what-you-need-to-know.jpg",
+      "picsumId": "30",
+      "sourceUrl": "https://picsum.photos/id/30/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "immediate-steps-to-take-after-a-car-accident-in-austin-texas",
+      "publicPath": "/bobbygarcia/blog-covers/immediate-steps-to-take-after-a-car-accident-in-austin-texas.jpg",
+      "picsumId": "31",
+      "sourceUrl": "https://picsum.photos/id/31/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "immediate-steps-to-take-after-a-car-accident-in-san-antonio-texas",
+      "publicPath": "/bobbygarcia/blog-covers/immediate-steps-to-take-after-a-car-accident-in-san-antonio-texas.jpg",
+      "picsumId": "32",
+      "sourceUrl": "https://picsum.photos/id/32/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "insurance-pitfalls-in-arlington-texas-what-you-need-to-know",
+      "publicPath": "/bobbygarcia/blog-covers/insurance-pitfalls-in-arlington-texas-what-you-need-to-know.jpg",
+      "picsumId": "33",
+      "sourceUrl": "https://picsum.photos/id/33/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "insurance-pitfalls-in-houston-texas-what-you-need-to-know",
+      "publicPath": "/bobbygarcia/blog-covers/insurance-pitfalls-in-houston-texas-what-you-need-to-know.jpg",
+      "picsumId": "34",
+      "sourceUrl": "https://picsum.photos/id/34/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "mass-tort-lawyer-texas",
+      "publicPath": "/bobbygarcia/blog-covers/mass-tort-lawyer-texas.jpg",
+      "picsumId": "35",
+      "sourceUrl": "https://picsum.photos/id/35/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "personal-injury-law-firm-edinburg-tx",
+      "publicPath": "/bobbygarcia/blog-covers/personal-injury-law-firm-edinburg-tx.jpg",
+      "picsumId": "36",
+      "sourceUrl": "https://picsum.photos/id/36/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "personal-injury-lawyer-harlingen-tx",
+      "publicPath": "/bobbygarcia/blog-covers/personal-injury-lawyer-harlingen-tx.jpg",
+      "picsumId": "37",
+      "sourceUrl": "https://picsum.photos/id/37/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "personal-injury-lawyer-mcallen-tx",
+      "publicPath": "/bobbygarcia/blog-covers/personal-injury-lawyer-mcallen-tx.jpg",
+      "picsumId": "38",
+      "sourceUrl": "https://picsum.photos/id/38/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "personal-injury-lawyer-mission-tx",
+      "publicPath": "/bobbygarcia/blog-covers/personal-injury-lawyer-mission-tx.jpg",
+      "picsumId": "39",
+      "sourceUrl": "https://picsum.photos/id/39/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "rio-grande-valley-car-accident-lawyer",
+      "publicPath": "/bobbygarcia/blog-covers/rio-grande-valley-car-accident-lawyer.jpg",
+      "picsumId": "40",
+      "sourceUrl": "https://picsum.photos/id/40/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "slip-and-fall-lawyer-texas",
+      "publicPath": "/bobbygarcia/blog-covers/slip-and-fall-lawyer-texas.jpg",
+      "picsumId": "41",
+      "sourceUrl": "https://picsum.photos/id/41/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-abilene-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-abilene-tx.jpg",
+      "picsumId": "42",
+      "sourceUrl": "https://picsum.photos/id/42/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-allen-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-allen-tx.jpg",
+      "picsumId": "43",
+      "sourceUrl": "https://picsum.photos/id/43/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-amarillo-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-amarillo-tx.jpg",
+      "picsumId": "44",
+      "sourceUrl": "https://picsum.photos/id/44/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-beaumont-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-beaumont-tx.jpg",
+      "picsumId": "45",
+      "sourceUrl": "https://picsum.photos/id/45/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-brownsville-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-brownsville-tx.jpg",
+      "picsumId": "46",
+      "sourceUrl": "https://picsum.photos/id/46/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-college-station-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-college-station-tx.jpg",
+      "picsumId": "47",
+      "sourceUrl": "https://picsum.photos/id/47/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-corpus-christi-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-corpus-christi-tx.jpg",
+      "picsumId": "48",
+      "sourceUrl": "https://picsum.photos/id/48/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-denton-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-denton-tx.jpg",
+      "picsumId": "49",
+      "sourceUrl": "https://picsum.photos/id/49/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-frisco-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-frisco-tx.jpg",
+      "picsumId": "50",
+      "sourceUrl": "https://picsum.photos/id/50/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-garland-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-garland-tx.jpg",
+      "picsumId": "51",
+      "sourceUrl": "https://picsum.photos/id/51/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-grand-prairie-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-grand-prairie-tx.jpg",
+      "picsumId": "52",
+      "sourceUrl": "https://picsum.photos/id/52/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-irving-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-irving-tx.jpg",
+      "picsumId": "53",
+      "sourceUrl": "https://picsum.photos/id/53/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-killeen-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-killeen-tx.jpg",
+      "picsumId": "54",
+      "sourceUrl": "https://picsum.photos/id/54/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-laredo-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-laredo-tx.jpg",
+      "picsumId": "55",
+      "sourceUrl": "https://picsum.photos/id/55/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-lubbock-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-lubbock-tx.jpg",
+      "picsumId": "56",
+      "sourceUrl": "https://picsum.photos/id/56/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-mcallen-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-mcallen-tx.jpg",
+      "picsumId": "57",
+      "sourceUrl": "https://picsum.photos/id/57/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-mckinney-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-mckinney-tx.jpg",
+      "picsumId": "58",
+      "sourceUrl": "https://picsum.photos/id/58/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-mesquite-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-mesquite-tx.jpg",
+      "picsumId": "59",
+      "sourceUrl": "https://picsum.photos/id/59/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-midland-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-midland-tx.jpg",
+      "picsumId": "60",
+      "sourceUrl": "https://picsum.photos/id/60/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-odessa-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-odessa-tx.jpg",
+      "picsumId": "61",
+      "sourceUrl": "https://picsum.photos/id/61/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-pasadena-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-pasadena-tx.jpg",
+      "picsumId": "62",
+      "sourceUrl": "https://picsum.photos/id/62/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-pearland-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-pearland-tx.jpg",
+      "picsumId": "63",
+      "sourceUrl": "https://picsum.photos/id/63/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-plano-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-plano-tx.jpg",
+      "picsumId": "64",
+      "sourceUrl": "https://picsum.photos/id/64/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-richardson-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-richardson-tx.jpg",
+      "picsumId": "65",
+      "sourceUrl": "https://picsum.photos/id/65/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-round-rock-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-round-rock-tx.jpg",
+      "picsumId": "66",
+      "sourceUrl": "https://picsum.photos/id/66/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-tyler-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-tyler-tx.jpg",
+      "picsumId": "67",
+      "sourceUrl": "https://picsum.photos/id/67/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "statute-of-limitations-waco-tx",
+      "publicPath": "/bobbygarcia/blog-covers/statute-of-limitations-waco-tx.jpg",
+      "picsumId": "68",
+      "sourceUrl": "https://picsum.photos/id/68/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "understanding-car-accident-laws-in-austin-texas-what-you-need-to-know",
+      "publicPath": "/bobbygarcia/blog-covers/understanding-car-accident-laws-in-austin-texas-what-you-need-to-know.jpg",
+      "picsumId": "69",
+      "sourceUrl": "https://picsum.photos/id/69/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "understanding-claims-adjusters-in-dallas-texas-a-comprehensive-guide",
+      "publicPath": "/bobbygarcia/blog-covers/understanding-claims-adjusters-in-dallas-texas-a-comprehensive-guide.jpg",
+      "picsumId": "70",
+      "sourceUrl": "https://picsum.photos/id/70/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "understanding-claims-adjusters-in-el-paso-texas",
+      "publicPath": "/bobbygarcia/blog-covers/understanding-claims-adjusters-in-el-paso-texas.jpg",
+      "picsumId": "71",
+      "sourceUrl": "https://picsum.photos/id/71/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-abilene-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-abilene-tx.jpg",
+      "picsumId": "72",
+      "sourceUrl": "https://picsum.photos/id/72/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-allen-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-allen-tx.jpg",
+      "picsumId": "73",
+      "sourceUrl": "https://picsum.photos/id/73/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-amarillo-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-amarillo-tx.jpg",
+      "picsumId": "74",
+      "sourceUrl": "https://picsum.photos/id/74/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-beaumont-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-beaumont-tx.jpg",
+      "picsumId": "75",
+      "sourceUrl": "https://picsum.photos/id/75/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-brownsville-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-brownsville-tx.jpg",
+      "picsumId": "76",
+      "sourceUrl": "https://picsum.photos/id/76/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-college-station-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-college-station-tx.jpg",
+      "picsumId": "77",
+      "sourceUrl": "https://picsum.photos/id/77/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-corpus-christi-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-corpus-christi-tx.jpg",
+      "picsumId": "78",
+      "sourceUrl": "https://picsum.photos/id/78/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-denton-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-denton-tx.jpg",
+      "picsumId": "79",
+      "sourceUrl": "https://picsum.photos/id/79/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-frisco-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-frisco-tx.jpg",
+      "picsumId": "80",
+      "sourceUrl": "https://picsum.photos/id/80/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-garland-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-garland-tx.jpg",
+      "picsumId": "81",
+      "sourceUrl": "https://picsum.photos/id/81/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-grand-prairie-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-grand-prairie-tx.jpg",
+      "picsumId": "82",
+      "sourceUrl": "https://picsum.photos/id/82/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-in-el-paso-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-in-el-paso-tx.jpg",
+      "picsumId": "83",
+      "sourceUrl": "https://picsum.photos/id/83/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-in-fort-worth-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-in-fort-worth-tx.jpg",
+      "picsumId": "84",
+      "sourceUrl": "https://picsum.photos/id/84/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-irving-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-irving-tx.jpg",
+      "picsumId": "85",
+      "sourceUrl": "https://picsum.photos/id/85/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-killeen-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-killeen-tx.jpg",
+      "picsumId": "87",
+      "sourceUrl": "https://picsum.photos/id/87/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-laredo-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-laredo-tx.jpg",
+      "picsumId": "88",
+      "sourceUrl": "https://picsum.photos/id/88/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-lubbock-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-lubbock-tx.jpg",
+      "picsumId": "89",
+      "sourceUrl": "https://picsum.photos/id/89/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-mcallen-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-mcallen-tx.jpg",
+      "picsumId": "90",
+      "sourceUrl": "https://picsum.photos/id/90/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-mckinney-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-mckinney-tx.jpg",
+      "picsumId": "91",
+      "sourceUrl": "https://picsum.photos/id/91/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-mesquite-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-mesquite-tx.jpg",
+      "picsumId": "92",
+      "sourceUrl": "https://picsum.photos/id/92/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-midland-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-midland-tx.jpg",
+      "picsumId": "93",
+      "sourceUrl": "https://picsum.photos/id/93/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-odessa-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-odessa-tx.jpg",
+      "picsumId": "94",
+      "sourceUrl": "https://picsum.photos/id/94/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-pasadena-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-pasadena-tx.jpg",
+      "picsumId": "95",
+      "sourceUrl": "https://picsum.photos/id/95/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-pearland-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-pearland-tx.jpg",
+      "picsumId": "96",
+      "sourceUrl": "https://picsum.photos/id/96/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-plano-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-plano-tx.jpg",
+      "picsumId": "98",
+      "sourceUrl": "https://picsum.photos/id/98/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-richardson-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-richardson-tx.jpg",
+      "picsumId": "99",
+      "sourceUrl": "https://picsum.photos/id/99/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-round-rock-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-round-rock-tx.jpg",
+      "picsumId": "100",
+      "sourceUrl": "https://picsum.photos/id/100/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-tyler-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-tyler-tx.jpg",
+      "picsumId": "101",
+      "sourceUrl": "https://picsum.photos/id/101/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-a-car-accident-waco-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-a-car-accident-waco-tx.jpg",
+      "picsumId": "102",
+      "sourceUrl": "https://picsum.photos/id/102/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "what-to-do-after-car-accident-houston-tx",
+      "publicPath": "/bobbygarcia/blog-covers/what-to-do-after-car-accident-houston-tx.jpg",
+      "picsumId": "103",
+      "sourceUrl": "https://picsum.photos/id/103/1200/630",
+      "status": "ok"
+    },
+    {
+      "slug": "workplace-injury-lawyer-texas",
+      "publicPath": "/bobbygarcia/blog-covers/workplace-injury-lawyer-texas.jpg",
+      "picsumId": "104",
+      "sourceUrl": "https://picsum.photos/id/104/1200/630",
+      "status": "ok"
+    }
+  ]
+}

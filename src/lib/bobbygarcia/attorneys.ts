@@ -8,9 +8,9 @@ export type AttorneyRecord = {
 };
 
 export const ATTORNEYS: AttorneyRecord[] = [
-  { slug: "bobby-garcia", featured: true, initials: "BG" },
-  { slug: "arturo-garcia", initials: "AG" },
-  { slug: "roxana-lopez", initials: "RL" },
+  { slug: "bobby-garcia", featured: true, initials: "BG", image: "/bobbygarcia/team/bobby-garcia.png" },
+  { slug: "arturo-garcia", initials: "AG", image: "/bobbygarcia/team/arturo-garcia.png" },
+  { slug: "roxana-lopez", initials: "RL", image: "/bobbygarcia/team/roxana-lopez.png" },
 ];
 
 export const FEATURED_ATTORNEY = ATTORNEYS.find((a) => a.featured)!;

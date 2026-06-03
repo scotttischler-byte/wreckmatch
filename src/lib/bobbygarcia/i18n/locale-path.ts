@@ -1,17 +1,21 @@
 import type { BgLocale } from "@/lib/bobbygarcia/i18n/config";
 import { BG_DEFAULT_LOCALE } from "@/lib/bobbygarcia/i18n/config";
 
+export const BG_MOUNT_PREFIX = "/bobbygarcia";
+
 export type ParsedBgLocalePath = {
   locale: BgLocale;
   publicPath: string;
 };
 
+/** Strip internal mount prefix and preserve /es locale segment for parsing. */
 export function toBgPublicPath(pathname: string): string {
-  if (pathname.startsWith("/bobbygarcia/es")) {
-    return pathname.slice("/bobbygarcia/es".length) || "/";
+  if (pathname.startsWith(`${BG_MOUNT_PREFIX}/es`)) {
+    const rest = pathname.slice(`${BG_MOUNT_PREFIX}/es`.length) || "/";
+    return rest === "/" ? "/es" : `/es${rest.startsWith("/") ? rest : `/${rest}`}`;
   }
-  if (pathname.startsWith("/bobbygarcia")) {
-    return pathname.slice("/bobbygarcia".length) || "/";
+  if (pathname.startsWith(BG_MOUNT_PREFIX)) {
+    return pathname.slice(BG_MOUNT_PREFIX.length) || "/";
   }
   return pathname || "/";
 }
@@ -44,7 +48,41 @@ export function localizeBgHref(href: string, locale: BgLocale): string {
   return hash ? `${base}#${hash}` : base;
 }
 
+/** When previewing under /bobbygarcia on wreckmatch, prefix localized hrefs. */
+export function getBgMountPrefix(pathname: string): string {
+  if (pathname === BG_MOUNT_PREFIX || pathname.startsWith(`${BG_MOUNT_PREFIX}/`)) {
+    return BG_MOUNT_PREFIX;
+  }
+  return "";
+}
+
+export function withBgMountPrefix(href: string, mountPrefix: string): string {
+  if (
+    !mountPrefix ||
+    href.startsWith("http") ||
+    href.startsWith("mailto:") ||
+    href.startsWith("tel:") ||
+    href.startsWith("#") ||
+    href.startsWith("/api")
+  ) {
+    return href;
+  }
+  if (href === "/") return mountPrefix;
+  if (href === "/es") return `${mountPrefix}/es`;
+  return `${mountPrefix}${href.startsWith("/") ? href : `/${href}`}`;
+}
+
+export function resolveBgHref(pathname: string, href: string, locale: BgLocale): string {
+  const mountPrefix = getBgMountPrefix(pathname);
+  return withBgMountPrefix(localizeBgHref(href, locale), mountPrefix);
+}
+
+export function resolveBgLocaleSwitchHref(pathname: string, targetLocale: BgLocale): string {
+  const { publicPath } = parseBgLocaleFromPathname(pathname);
+  return resolveBgHref(pathname, publicPath, targetLocale);
+}
+
 export function toBgInternalPath(publicPath: string): string {
   const normalized = publicPath === "/" ? "" : publicPath;
-  return `/bobbygarcia${normalized}`;
+  return `${BG_MOUNT_PREFIX}${normalized}`;
 }

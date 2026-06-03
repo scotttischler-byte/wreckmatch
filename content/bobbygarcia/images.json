@@ -1,0 +1,149 @@
+{
+  "downloadedAt": "2026-06-02T20:42:26.592Z",
+  "assets": [
+    {
+      "file": "brand/logo.png",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2024/08/LOBG-Logo-2023-300dpi.png",
+      "publicPath": "/bobbygarcia/brand/logo.png",
+      "status": "ok"
+    },
+    {
+      "file": "brand/logo-white.png",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2024/06/bgfulllogo-white.png",
+      "publicPath": "/bobbygarcia/brand/logo-white.png",
+      "status": "ok"
+    },
+    {
+      "file": "team/bobby-garcia.png",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2026/02/AA-Web-Employee-Photo-Bobby.png",
+      "publicPath": "/bobbygarcia/team/bobby-garcia.png",
+      "status": "ok"
+    },
+    {
+      "file": "team/arturo-garcia.png",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2026/02/AA-Web-Employee-Photo-AJ-Garcia.png",
+      "publicPath": "/bobbygarcia/team/arturo-garcia.png",
+      "status": "ok"
+    },
+    {
+      "file": "team/roxana-lopez.png",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2026/02/AA-Web-Employee-Photo-Roxana.png",
+      "publicPath": "/bobbygarcia/team/roxana-lopez.png",
+      "status": "ok"
+    },
+    {
+      "file": "team/gloria-salinas.png",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2026/02/AA-Web-Employee-Photo-Gloria.png",
+      "publicPath": "/bobbygarcia/team/gloria-salinas.png",
+      "status": "ok"
+    },
+    {
+      "file": "team/krissy-fernandez.png",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2025/08/AA-Web-Employee-Photo-Krissy-2.png",
+      "publicPath": "/bobbygarcia/team/krissy-fernandez.png",
+      "status": "ok"
+    },
+    {
+      "file": "team/haley-quiroz.png",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2026/02/AA-Web-Employee-Photo-Haley.png",
+      "publicPath": "/bobbygarcia/team/haley-quiroz.png",
+      "status": "ok"
+    },
+    {
+      "file": "team/tamara-rodriguez.png",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2026/05/AA-Web-Employee-Photo-Tamara.png",
+      "publicPath": "/bobbygarcia/team/tamara-rodriguez.png",
+      "status": "ok"
+    },
+    {
+      "file": "team/norma-champion.png",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2026/02/AA-Web-Employee-Photo-Norma.png",
+      "publicPath": "/bobbygarcia/team/norma-champion.png",
+      "status": "ok"
+    },
+    {
+      "file": "team/hilda-caldwell.png",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2026/03/AA-Web-Employee-Photo-Hilda.png",
+      "publicPath": "/bobbygarcia/team/hilda-caldwell.png",
+      "status": "ok"
+    },
+    {
+      "file": "team/marty-hernandez.png",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2026/02/AA-Web-Employee-Photo-Marty.png",
+      "publicPath": "/bobbygarcia/team/marty-hernandez.png",
+      "status": "ok"
+    },
+    {
+      "file": "practice/car-accident.webp",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2024/07/car-accident-whiplash.jpeg",
+      "publicPath": "/bobbygarcia/practice/car-accident.webp",
+      "status": "ok"
+    },
+    {
+      "file": "practice/18-wheeler.webp",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2024/07/18-wheeler-accident.webp",
+      "publicPath": "/bobbygarcia/practice/18-wheeler.webp",
+      "status": "ok"
+    },
+    {
+      "file": "practice/slip-and-fall.png",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2024/07/Slip-and-Fall-Accident-Lawyer.png",
+      "publicPath": "/bobbygarcia/practice/slip-and-fall.png",
+      "status": "ok"
+    },
+    {
+      "file": "practice/workplace.png",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2024/08/Workplace-injury-lawyer.png",
+      "publicPath": "/bobbygarcia/practice/workplace.png",
+      "status": "ok"
+    },
+    {
+      "file": "practice/mass-tort.webp",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2024/06/DALL·E-2024-06-14-15.16.50-A-minimalistic-illustration-of-a-mass-tort-case-in-black-red-and-white.-The-background-is-pure-white-with-a-detailed-black-outline-of-a-large-group.webp",
+      "publicPath": "/bobbygarcia/practice/mass-tort.webp",
+      "status": "ok"
+    },
+    {
+      "file": "locations/edinburg.webp",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2024/06/edinburg-bobbygarcia-com.webp",
+      "publicPath": "/bobbygarcia/locations/edinburg.webp",
+      "status": "ok"
+    },
+    {
+      "file": "locations/rio-grande-valley.jpg",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2024/08/rio-grande-valley.jpg",
+      "publicPath": "/bobbygarcia/locations/rio-grande-valley.jpg",
+      "status": "ok"
+    },
+    {
+      "file": "locations/harlingen.png",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2024/08/Personal-Injury-Lawyer-Harlingen.png",
+      "publicPath": "/bobbygarcia/locations/harlingen.png",
+      "status": "ok"
+    },
+    {
+      "file": "locations/mission.png",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2024/08/Personal-Injury-Lawyer-Mission.png",
+      "publicPath": "/bobbygarcia/locations/mission.png",
+      "status": "ok"
+    },
+    {
+      "file": "locations/edinburg-office.jpeg",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2024/07/Car-accident-attorney-Edinburg-TX.jpeg",
+      "publicPath": "/bobbygarcia/locations/edinburg-office.jpeg",
+      "status": "ok"
+    },
+    {
+      "file": "hero/bobby-portrait.jpg",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2024/06/bobby-Garcoa0549-1.jpg",
+      "publicPath": "/bobbygarcia/hero/bobby-portrait.jpg",
+      "status": "ok"
+    },
+    {
+      "file": "hero/bobby-action.jpg",
+      "url": "https://bobbygarcia.com/wp-content/uploads/2024/08/bobby-Garcoa0534.jpg",
+      "publicPath": "/bobbygarcia/hero/bobby-action.jpg",
+      "status": "ok"
+    }
+  ]
+}

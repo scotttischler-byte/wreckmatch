@@ -1,9 +1,10 @@
 "use client";
 
 import { createContext, useContext, useMemo } from "react";
+import { usePathname } from "next/navigation";
 import type { BgLocale } from "@/lib/bobbygarcia/i18n/config";
 import type { BgMessages } from "@/lib/bobbygarcia/i18n/get-messages";
-import { localizeBgHref } from "@/lib/bobbygarcia/i18n/locale-path";
+import { parseBgLocaleFromPathname, resolveBgHref } from "@/lib/bobbygarcia/i18n/locale-path";
 
 type BgLocaleContextValue = {
   locale: BgLocale;
@@ -14,7 +15,7 @@ type BgLocaleContextValue = {
 const BgLocaleContext = createContext<BgLocaleContextValue | null>(null);
 
 export function BgLocaleProvider({
-  locale,
+  locale: serverLocale,
   messages,
   children,
 }: {
@@ -22,13 +23,17 @@ export function BgLocaleProvider({
   messages: BgMessages;
   children: React.ReactNode;
 }) {
+  const pathname = usePathname() ?? "/";
+  const pathLocale = parseBgLocaleFromPathname(pathname).locale;
+  const locale = pathLocale ?? serverLocale;
+
   const value = useMemo(
     () => ({
       locale,
       messages,
-      href: (path: string) => localizeBgHref(path, locale),
+      href: (path: string) => resolveBgHref(pathname, path, locale),
     }),
-    [locale, messages],
+    [locale, messages, pathname],
   );
 
   return <BgLocaleContext.Provider value={value}>{children}</BgLocaleContext.Provider>;

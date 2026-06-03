@@ -1,6 +1,17 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { isBgHostname } from "@/lib/bobbygarcia/site";
+import {
+  BG_DEFAULT_LOCALE,
+  BG_LOCALE_COOKIE,
+  BG_LOCALE_HEADER,
+  isBgLocale,
+  type BgLocale,
+} from "@/lib/bobbygarcia/i18n/config";
+import {
+  parseBgLocaleFromPathname,
+  toBgInternalPath,
+} from "@/lib/bobbygarcia/i18n/locale-path";
 import { isAsgHostname, isInjuredHelpHostname } from "@/lib/domains";
 import {
   ASG_LOCALE_COOKIE,
@@ -42,6 +53,28 @@ function withPathHeader(request: NextRequest, pathname: string) {
   return NextResponse.next({ request: { headers: requestHeaders } });
 }
 
+function resolveBgLocale(request: NextRequest, pathname: string): BgLocale {
+  const { locale, publicPath } = parseBgLocaleFromPathname(pathname);
+  if (locale === "es") return "es";
+  if (publicPath !== "/") return BG_DEFAULT_LOCALE;
+
+  const cookie = request.cookies.get(BG_LOCALE_COOKIE)?.value;
+  if (isBgLocale(cookie) && cookie === "es") return "es";
+  return BG_DEFAULT_LOCALE;
+}
+
+function withBgLocaleHeaders(
+  request: NextRequest,
+  locale: BgLocale,
+  pathname: string,
+  init?: { request?: { headers: Headers } },
+) {
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set(BG_LOCALE_HEADER, locale);
+  requestHeaders.set("x-pathname", pathname);
+  return { request: { headers: requestHeaders }, ...init };
+}
+
 export async function middleware(request: NextRequest) {
   const host = request.headers.get("host") ?? "";
   const hostname = host.split(":")[0]?.toLowerCase() ?? "";
@@ -76,22 +109,56 @@ export async function middleware(request: NextRequest) {
   }
 
   if (isBgHostname(host)) {
+    const locale = resolveBgLocale(request, pathname);
+
+    if (pathname === "/sitemap.xml") {
+      const url = request.nextUrl.clone();
+      url.pathname = "/bobbygarcia/sitemap.xml";
+      return NextResponse.rewrite(url, withBgLocaleHeaders(request, locale, url.pathname));
+    }
+
     if (
       pathname.startsWith("/bobbygarcia") ||
       pathname.startsWith("/api") ||
       pathname.startsWith("/_next") ||
       pathname === "/robots.txt" ||
       pathname === "/llms.txt" ||
-      pathname === "/ai.txt" ||
-      pathname === "/sitemap.xml"
+      pathname === "/ai.txt"
     ) {
-      return withPathHeader(request, pathname);
+      if (pathname.startsWith("/bobbygarcia/es")) {
+        const { publicPath } = parseBgLocaleFromPathname(pathname);
+        const url = request.nextUrl.clone();
+        url.pathname = toBgInternalPath(publicPath);
+        const response = NextResponse.rewrite(url, withBgLocaleHeaders(request, "es", url.pathname));
+        response.cookies.set(BG_LOCALE_COOKIE, "es", { path: "/", maxAge: 60 * 60 * 24 * 365 });
+        return response;
+      }
+      const response = NextResponse.next(withBgLocaleHeaders(request, locale, pathname));
+      response.cookies.set(BG_LOCALE_COOKIE, locale, { path: "/", maxAge: 60 * 60 * 24 * 365 });
+      return response;
     }
+
+    const { publicPath } = parseBgLocaleFromPathname(pathname);
     const url = request.nextUrl.clone();
-    url.pathname = pathname === "/" || pathname === "" ? "/bobbygarcia" : `/bobbygarcia${pathname}`;
-    const requestHeaders = new Headers(request.headers);
-    requestHeaders.set("x-pathname", url.pathname);
-    return NextResponse.rewrite(url, { request: { headers: requestHeaders } });
+    url.pathname = toBgInternalPath(publicPath);
+    const response = NextResponse.rewrite(url, withBgLocaleHeaders(request, locale, url.pathname));
+    response.cookies.set(BG_LOCALE_COOKIE, locale, { path: "/", maxAge: 60 * 60 * 24 * 365 });
+    return response;
+  }
+
+  if (pathname.startsWith("/bobbygarcia")) {
+    const locale = resolveBgLocale(request, pathname);
+    if (pathname.startsWith("/bobbygarcia/es")) {
+      const { publicPath } = parseBgLocaleFromPathname(pathname);
+      const url = request.nextUrl.clone();
+      url.pathname = toBgInternalPath(publicPath);
+      const response = NextResponse.rewrite(url, withBgLocaleHeaders(request, "es", url.pathname));
+      response.cookies.set(BG_LOCALE_COOKIE, "es", { path: "/", maxAge: 60 * 60 * 24 * 365 });
+      return response;
+    }
+    const response = NextResponse.next(withBgLocaleHeaders(request, locale, pathname));
+    response.cookies.set(BG_LOCALE_COOKIE, locale, { path: "/", maxAge: 60 * 60 * 24 * 365 });
+    return response;
   }
 
   const locale = resolveLocale(request, pathname);

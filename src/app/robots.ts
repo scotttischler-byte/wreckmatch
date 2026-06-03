@@ -8,6 +8,8 @@ import {
   isAsgHostname,
   isInjuredHelpHostname,
 } from "@/lib/domains";
+import { isBgHostname } from "@/lib/bobbygarcia/site";
+import { BG_BASE_URL } from "@/lib/bobbygarcia/site";
 
 function aiBotRules() {
   return AI_CRAWLER_AGENTS.map((userAgent) => ({
@@ -47,6 +49,21 @@ export default function robots(): MetadataRoute.Robots {
       ],
       sitemap: `${INJUREDHELP_BASE}/sitemap.xml`,
       host: INJUREDHELP_BASE.replace("https://", ""),
+    };
+  }
+
+  if (isBgHostname(host)) {
+    return {
+      rules: [
+        {
+          userAgent: "*",
+          allow: "/",
+          disallow: ["/api/"],
+        },
+        ...aiBotRules(),
+      ],
+      sitemap: `${BG_BASE_URL}/sitemap.xml`,
+      host: BG_BASE_URL.replace("https://", ""),
     };
   }
 

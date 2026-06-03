@@ -17,10 +17,56 @@ export type BgMessages = {
   nav: {
     ariaMain: string;
     home: string;
+    practice: string;
     attorneys: string;
+    blog: string;
     about: string;
     contact: string;
     callNow: string;
+  };
+  home: {
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    heroTitle: string;
+    heroImageAlt: string;
+    heroSubtitle: string;
+    motto: string;
+    ctaCall: string;
+    ctaFree: string;
+    trustLine: string;
+    practiceEyebrow: string;
+    practiceTitle: string;
+    insightsEyebrow: string;
+    insightsTitle: string;
+    insightsCount: string;
+    viewAllGuides: string;
+    finalCtaTitle: string;
+    finalCtaBody: string;
+  };
+  practicePage: {
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    title: string;
+    intro: string;
+  };
+  aboutPage: {
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    title: string;
+    paragraphs: string[];
+    meetTeam: string;
+  };
+  contactPage: {
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    title: string;
+    intro: string;
+    phoneLabel: string;
+    available: string;
   };
   footer: {
     tagline: string;
@@ -47,6 +93,22 @@ export type BgMessages = {
     ofCounsel: string;
   };
   attorneys: Record<AttorneySlug, BgAttorneyMessages>;
+  blog: {
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    title: string;
+    intro: string;
+    countLabel: string;
+    readGuide: string;
+    allGuides: string;
+    faq: string;
+    ctaTitle: string;
+    ctaBody: string;
+    meetAttorneys: string;
+    callNow: string;
+    downloadPptx: string;
+  };
 };
 
 export const en: BgMessages = {
@@ -62,10 +124,66 @@ export const en: BgMessages = {
   nav: {
     ariaMain: "Main navigation",
     home: "Home",
+    practice: "Practice Areas",
     attorneys: "Our Attorneys",
+    blog: "Legal Guides",
     about: "About Bobby",
     contact: "Contact",
     callNow: "Call 24/7",
+  },
+  home: {
+    metaTitle: "Texas Personal Injury Lawyers | Bobby Garcia Law",
+    metaDescription:
+      "Trial lawyers serving South Texas and Houston. Car accidents, 18-wheelers, slip and fall — free 24/7 consultations. Justice Made Simple.",
+    eyebrow: "Law Office of Bobby Garcia",
+    heroTitle: "Texas trial lawyers who fight for you",
+    heroImageAlt: "Attorney Bobby Garcia in the courtroom",
+    heroSubtitle:
+      "When a serious injury turns your life upside down, you need a team—not just a lawyer. We stand with families across the Rio Grande Valley, Houston, and statewide.",
+    motto: "Justice Made Simple",
+    ctaCall: "Call 24/7",
+    ctaFree: "Free consultation",
+    trustLine: "No win, no fee · Bilingual English & Spanish · Two Texas offices",
+    practiceEyebrow: "What we do",
+    practiceTitle: "Practice areas",
+    insightsEyebrow: "Resources",
+    insightsTitle: "Legal guides & insights",
+    insightsCount: "{count} in-depth guides in English and Spanish",
+    viewAllGuides: "View all guides",
+    finalCtaTitle: "Injured? We're here 24/7.",
+    finalCtaBody: "Free confidential consultation. No win, no fee. Bobby está contigo.",
+  },
+  practicePage: {
+    metaTitle: "Practice Areas",
+    metaDescription:
+      "Personal injury practice areas at Bobby Garcia Law — car accidents, 18-wheelers, slip and fall, workplace injuries, mass tort, and more.",
+    eyebrow: "Our expertise",
+    title: "Practice areas",
+    intro:
+      "From catastrophic trucking crashes to everyday slip-and-fall cases, our trial team handles the full spectrum of personal injury claims across Texas.",
+  },
+  aboutPage: {
+    metaTitle: "About Bobby Garcia",
+    metaDescription:
+      "Meet Bobby Garcia — founding partner and trial lawyer with 35+ years fighting for injured Texans. Justice Made Simple.",
+    eyebrow: "Our story",
+    title: "About Bobby Garcia",
+    paragraphs: [
+      "For over 35 years, Bobby Garcia has been a trial lawyer who treats every client like family. Based in the Rio Grande Valley with a Houston office, his firm has built a reputation for taking on tough cases and winning.",
+      "Bobby founded the firm on a simple promise: Justice Made Simple. That means clear communication, aggressive advocacy, and a full team behind every case—not just one attorney juggling hundreds of files.",
+      "Today, Bobby Garcia Law includes trial attorneys, legal analysts, medical specialists, and paralegals dedicated to one goal: the best possible outcome for you and your family.",
+    ],
+    meetTeam: "Meet our full team",
+  },
+  contactPage: {
+    metaTitle: "Contact Us",
+    metaDescription:
+      "Contact Bobby Garcia Law 24/7 for a free personal injury consultation. Edinburg, McAllen, Houston — English and Spanish.",
+    eyebrow: "Get in touch",
+    title: "Contact us",
+    intro: "Free confidential consultation. Available 24 hours a day, 7 days a week. No win, no fee.",
+    phoneLabel: "Call now",
+    available: "Available 24/7 · English & Español",
   },
   footer: {
     tagline: "Bobby está contigo — Justice Made Simple",
@@ -117,5 +235,23 @@ export const en: BgMessages = {
         "When someone trusts us with their case, we treat that trust as sacred. Our job is to protect your rights, explain every step clearly, and fight until justice is done.",
       meetLabel: "Meet Roxana",
     },
+  },
+  blog: {
+    metaTitle: "Personal Injury Legal Guides",
+    metaDescription:
+      "Texas personal injury guides by city and practice area from Bobby Garcia Law — car accidents, 18-wheelers, slip and fall, and more. English and Spanish.",
+    eyebrow: "Resources",
+    title: "Legal Guides & Blog",
+    intro:
+      "Educational articles for South Texas and Houston — what to do after a crash, insurance pitfalls, statutes of limitations, and practice-area overviews from Bobby Garcia Law.",
+    countLabel: "{count} in-depth guides in English and Spanish",
+    readGuide: "Read guide →",
+    allGuides: "← All guides",
+    faq: "FAQ",
+    ctaTitle: "Free consultation 24/7",
+    ctaBody: "Bobby Garcia Law — Justice Made Simple",
+    meetAttorneys: "Meet our attorneys",
+    callNow: "Call",
+    downloadPptx: "Download PowerPoint",
   },
 };
