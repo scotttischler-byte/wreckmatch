@@ -711,3 +711,16 @@
 [2026-06-03T22:29:15.199926+00:00] Saved blog JSON /home/runner/work/wreckmatch/wreckmatch/content/blog/posts/ultimate-virginia-beach-virginia-accident-survival-guide-2026.json
 [2026-06-03T22:29:15.203748+00:00] Next city in queue: Tulsa, Oklahoma
 [2026-06-03T22:29:15.203806+00:00] Done: Virginia Beach, Virginia
+[2026-06-03T22:31:06.219049+00:00] sync-queue: 278 cities with index.md (0 delta).
+[2026-06-03T22:31:06.219110+00:00] sync-queue: 1 cities still need platinum markdown regeneration.
+[2026-06-03T22:31:06.284396+00:00] unmark-missing: 1 cities queued for regeneration.
+[2026-06-03T22:31:06.287641+00:00] Run with --batch 1 --publish-json to regenerate.
+[2026-06-03T22:31:06.881220+00:00] Generating outline + local facts for Tulsa, Oklahoma (OK)...
+[2026-06-03T22:31:17.463799+00:00] Generating main sections 1-4 for Tulsa, Oklahoma (OK)...
+[2026-06-03T22:31:34.753761+00:00] Generating sections 5-7, FAQ, quiz for Tulsa, Oklahoma (OK)...
+[2026-06-03T22:31:51.234796+00:00] Generating image prompts for Tulsa, Oklahoma (OK)...
+[2026-06-03T22:31:58.931091+00:00] Draft word count: 3210
+[2026-06-03T22:31:58.932224+00:00] Saved /home/runner/work/wreckmatch/wreckmatch/content/ok/tulsa-ok/index.md
+[2026-06-03T22:31:58.932280+00:00] Saved /home/runner/work/wreckmatch/wreckmatch/content/ok/tulsa-ok/images.md
+[2026-06-03T22:31:58.933439+00:00] Saved blog JSON /home/runner/work/wreckmatch/wreckmatch/content/blog/posts/ultimate-tulsa-oklahoma-accident-survival-guide-2026.json
+[2026-06-03T22:31:58.937399+00:00] Done: Tulsa, Oklahoma
