@@ -121,6 +121,8 @@ export function SurvivalGuideDownloadForm({
         success?: boolean;
         message?: string;
         redirectTo?: string;
+        sarahCallStarted?: boolean;
+        emailAutomationTriggered?: boolean;
       };
 
       if (!res.ok || !data.success) {
@@ -129,7 +131,11 @@ export function SurvivalGuideDownloadForm({
         return;
       }
 
-      trackAsgEvent("form_submit", { state: form.state || "unspecified" });
+      trackAsgEvent("form_submit", {
+        state: form.state || "unspecified",
+        sarah: data.sarahCallStarted ? "yes" : "no",
+        email: data.emailAutomationTriggered ? "yes" : "no",
+      });
       router.push(data.redirectTo ?? href("/thank-you"));
     } catch {
       trackAsgEvent("form_error", { message: "network" });
