@@ -290,3 +290,15 @@
 [2026-06-03T18:53:08.893510+00:00] Saved blog JSON /home/runner/work/wreckmatch/wreckmatch/content/blog/posts/ultimate-new-york-new-york-accident-survival-guide-2026.json
 [2026-06-03T18:53:08.896992+00:00] Next city in queue: Los Angeles, California
 [2026-06-03T18:53:08.897048+00:00] Done: New York, New York
+[2026-06-03T21:31:13.927624+00:00] sync-queue: 237 cities with index.md (0 delta).
+[2026-06-03T21:31:13.927697+00:00] sync-queue: 42 cities still need platinum markdown regeneration.
+[2026-06-03T21:31:14.452735+00:00] Generating outline + local facts for Los Angeles, California (CA)...
+[2026-06-03T21:31:30.377593+00:00] Generating main sections 1-4 for Los Angeles, California (CA)...
+[2026-06-03T21:32:10.426023+00:00] Generating sections 5-7, FAQ, quiz for Los Angeles, California (CA)...
+[2026-06-03T21:32:38.760387+00:00] Generating image prompts for Los Angeles, California (CA)...
+[2026-06-03T21:32:53.254157+00:00] Draft word count: 3561
+[2026-06-03T21:32:53.255441+00:00] Saved /home/runner/work/wreckmatch/wreckmatch/content/ca/los-angeles-ca/index.md
+[2026-06-03T21:32:53.255492+00:00] Saved /home/runner/work/wreckmatch/wreckmatch/content/ca/los-angeles-ca/images.md
+[2026-06-03T21:32:53.256714+00:00] Saved blog JSON /home/runner/work/wreckmatch/wreckmatch/content/blog/posts/ultimate-los-angeles-california-accident-survival-guide-2026.json
+[2026-06-03T21:32:53.260289+00:00] Next city in queue: Houston, Texas
+[2026-06-03T21:32:53.260348+00:00] Done: Los Angeles, California

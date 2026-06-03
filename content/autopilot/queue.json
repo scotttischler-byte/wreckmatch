@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_run_at": "2026-06-03T18:53:08.893633+00:00",
+  "last_run_at": "2026-06-03T21:32:53.256832+00:00",
   "completed_city_keys": [
     "abilene-tx|TX",
     "akron-oh|OH",
@@ -141,6 +141,7 @@
     "murrieta-ca|CA",
     "naperville-il|IL",
     "new-haven-ct|CT",
+    "new-york-ny|NY",
     "newark-nj|NJ",
     "newport-news-va|VA",
     "norfolk-va|VA",
@@ -238,8 +239,8 @@
     "winston-salem-nc|NC",
     "worcester-ma|MA",
     "yonkers-ny|NY",
-    "new-york-ny|NY"
+    "los-angeles-ca|CA"
   ],
-  "last_city_key": "new-york-ny|NY",
+  "last_city_key": "los-angeles-ca|CA",
   "notes": "Queue tracks generated city_slug|state_abbrev pairs. Use --next or --all to process highest priority ungenerated city."
 }
