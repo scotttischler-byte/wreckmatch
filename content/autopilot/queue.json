@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_run_at": "2026-06-03T21:32:53.256832+00:00",
+  "last_run_at": "2026-06-03T22:03:49.242564+00:00",
   "completed_city_keys": [
     "abilene-tx|TX",
     "akron-oh|OH",
@@ -123,6 +123,7 @@
     "lexington-ky|KY",
     "lincoln-ne|NE",
     "little-rock-ar|AR",
+    "los-angeles-ca|CA",
     "lubbock-tx|TX",
     "macon-ga|GA",
     "madison-al|AL",
@@ -239,8 +240,27 @@
     "winston-salem-nc|NC",
     "worcester-ma|MA",
     "yonkers-ny|NY",
-    "los-angeles-ca|CA"
+    "houston-tx|TX",
+    "miami-fl|FL",
+    "chicago-il|IL",
+    "phoenix-az|AZ",
+    "philadelphia-pa|PA",
+    "dallas-tx|TX",
+    "las-vegas-nv|NV",
+    "atlanta-ga|GA",
+    "tampa-fl|FL",
+    "san-antonio-tx|TX",
+    "san-diego-ca|CA",
+    "san-jose-ca|CA",
+    "jacksonville-fl|FL",
+    "fort-worth-tx|TX",
+    "charlotte-nc|NC",
+    "san-francisco-ca|CA",
+    "washington-dc|DC",
+    "nashville-tn|TN",
+    "detroit-mi|MI",
+    "memphis-tn|TN"
   ],
-  "last_city_key": "los-angeles-ca|CA",
+  "last_city_key": "memphis-tn|TN",
   "notes": "Queue tracks generated city_slug|state_abbrev pairs. Use --next or --all to process highest priority ungenerated city."
 }
