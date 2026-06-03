@@ -278,3 +278,15 @@
 [2026-06-03T15:23:53.577952+00:00] Queue complete — all cities generated.
 [2026-06-03T17:19:06.761232+00:00] sync-queue: 279 cities marked complete (0 newly reconciled).
 [2026-06-03T17:19:06.816600+00:00] Queue complete — all cities generated.
+[2026-06-03T18:52:04.584611+00:00] sync-queue: 236 cities with index.md (0 delta).
+[2026-06-03T18:52:04.584680+00:00] sync-queue: 43 cities still need platinum markdown regeneration.
+[2026-06-03T18:52:05.088148+00:00] Generating outline + local facts for New York, New York (NY)...
+[2026-06-03T18:52:17.108869+00:00] Generating main sections 1-4 for New York, New York (NY)...
+[2026-06-03T18:52:45.046363+00:00] Generating sections 5-7, FAQ, quiz for New York, New York (NY)...
+[2026-06-03T18:52:59.520022+00:00] Generating image prompts for New York, New York (NY)...
+[2026-06-03T18:53:08.890903+00:00] Draft word count: 3676
+[2026-06-03T18:53:08.892194+00:00] Saved /home/runner/work/wreckmatch/wreckmatch/content/ny/new-york-ny/index.md
+[2026-06-03T18:53:08.892245+00:00] Saved /home/runner/work/wreckmatch/wreckmatch/content/ny/new-york-ny/images.md
+[2026-06-03T18:53:08.893510+00:00] Saved blog JSON /home/runner/work/wreckmatch/wreckmatch/content/blog/posts/ultimate-new-york-new-york-accident-survival-guide-2026.json
+[2026-06-03T18:53:08.896992+00:00] Next city in queue: Los Angeles, California
+[2026-06-03T18:53:08.897048+00:00] Done: New York, New York

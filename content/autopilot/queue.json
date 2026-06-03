@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_run_at": "2026-06-03T17:43:40.732665+00:00",
+  "last_run_at": "2026-06-03T18:53:08.893633+00:00",
   "completed_city_keys": [
     "abilene-tx|TX",
     "akron-oh|OH",
@@ -237,8 +237,9 @@
     "wilmington-nc|NC",
     "winston-salem-nc|NC",
     "worcester-ma|MA",
-    "yonkers-ny|NY"
+    "yonkers-ny|NY",
+    "new-york-ny|NY"
   ],
-  "last_city_key": "plano-il|IL",
+  "last_city_key": "new-york-ny|NY",
   "notes": "Queue tracks generated city_slug|state_abbrev pairs. Use --next or --all to process highest priority ungenerated city."
 }
