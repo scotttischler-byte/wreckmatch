@@ -1,19 +1,13 @@
 import { NextResponse } from "next/server";
-import {
-  buildGhlSurvivalGuidePayload,
-  getAsgSurvivalGuideWebhookUrl,
-  type SurvivalGuideLeadInput,
-} from "@/lib/ghl-survival-guide";
-import { upsertGhlContact } from "@/lib/ghl";
+import type { SurvivalGuideLeadInput } from "@/lib/ghl-survival-guide";
 import { ASG_LEAD_SOURCE } from "@/lib/ghl-survival-guide";
 import { SURVIVAL_GUIDE_PDF } from "@/lib/accidentsurvivalguide";
-import { LAW_FIRM_NAME } from "@/lib/constants";
 import { DEFAULT_LOCALE, isLocale, type Locale } from "@/lib/i18n/config";
 import { getMessages } from "@/lib/i18n/get-messages";
 import { localizeHref } from "@/lib/i18n/locale-path";
+import { processAsgLead } from "@/lib/asg-lead-pipeline";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const GHL_API_KEY = process.env.GHL_API_KEY ?? "";
 
 function str(v: unknown): string {
   return typeof v === "string" ? v.trim() : "";
@@ -76,85 +70,26 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, message: parsed.error }, { status: 400 });
     }
 
-    const webhookUrl = getAsgSurvivalGuideWebhookUrl();
-    if (!webhookUrl && !GHL_API_KEY) {
-      console.error("[submit-survival-guide] GHL webhook URL and API key both missing.");
+    const result = await processAsgLead({
+      firstName: parsed.firstName,
+      lastName: parsed.lastName,
+      email: parsed.email,
+      phone: parsed.phone,
+      state: parsed.state,
+      city: parsed.city,
+      postalCode: parsed.zip,
+      magnetType: "survival-guide-download",
+      leadSource: ASG_LEAD_SOURCE,
+      consentEmail: parsed.consentEmail,
+      consentSms: parsed.consentSms,
+      preferredLanguage: locale,
+    });
+
+    if (!result.ok) {
       return NextResponse.json(
-        { success: false, message: "Lead automation is not configured yet." },
-        { status: 500 },
+        { success: false, message: formErrors.saveFailed },
+        { status: 502 },
       );
-    }
-
-    const tags = ["wreckmatch-lead", "survival-guide-lead", "downloaded-guide-yes"];
-    if (parsed.state) tags.push(`state-${parsed.state.toLowerCase()}`);
-
-    let contactId: string | undefined;
-
-    if (GHL_API_KEY) {
-      const upsert = await upsertGhlContact(GHL_API_KEY, {
-        firstName: parsed.firstName,
-        lastName: parsed.lastName,
-        email: parsed.email,
-        phone: parsed.phone,
-        state: parsed.state || undefined,
-        city: parsed.city || undefined,
-        postalCode: parsed.zip || undefined,
-        tags,
-        source: LAW_FIRM_NAME,
-        customFields: [
-          { key: "lead_source", field_value: ASG_LEAD_SOURCE },
-          { key: "downloaded_guide", field_value: "Yes" },
-        ],
-      });
-
-      if (!upsert.ok) {
-        console.error("[submit-survival-guide] GHL upsert failed:", upsert.status, upsert.body);
-        return NextResponse.json(
-          { success: false, message: formErrors.saveFailed },
-          { status: 502 },
-        );
-      }
-
-      contactId = upsert.contactId;
-      console.log("[submit-survival-guide] GHL contact upserted:", {
-        contactId: upsert.contactId,
-        isNew: upsert.isNew,
-        email: parsed.email,
-      });
-    } else {
-      console.warn("[submit-survival-guide] GHL_API_KEY missing; webhook-only mode.");
-    }
-
-    if (webhookUrl) {
-      const payload = buildGhlSurvivalGuidePayload(parsed);
-      if (contactId) {
-        (payload as Record<string, unknown>).ghl_contact_id = contactId;
-      }
-
-      const ghlResponse = await fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!ghlResponse.ok) {
-        const failureBody = await ghlResponse.text();
-        console.error("[submit-survival-guide] GHL webhook failed:", {
-          status: ghlResponse.status,
-          body: failureBody,
-          contactId,
-        });
-        if (!contactId) {
-          return NextResponse.json(
-            {
-              success: false,
-              message:
-                "We couldn't complete your request right now. Please try again or call us for help.",
-            },
-            { status: 502 },
-          );
-        }
-      }
     }
 
     const thankYouParams = new URLSearchParams({
@@ -168,8 +103,9 @@ export async function POST(request: Request) {
       success: true,
       pdfUrl: SURVIVAL_GUIDE_PDF,
       redirectTo: `${localizeHref("/thank-you", locale)}?${thankYouParams.toString()}`,
-      emailSentViaGhl: Boolean(webhookUrl),
-      ghlContactId: contactId,
+      ghlContactId: result.contactId,
+      sarahCallStarted: result.sarahCallStarted,
+      emailAutomationTriggered: result.webhookSent,
     });
   } catch (error) {
     console.error("[submit-survival-guide] unexpected error:", error);

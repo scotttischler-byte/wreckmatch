@@ -3,7 +3,9 @@ import {
   GHL_WEBHOOK_URL,
   LAW_FIRM_NAME,
 } from "@/lib/constants";
+import { processAsgLead, type AsgLeadMagnetType } from "@/lib/asg-lead-pipeline";
 import { upsertGhlContact } from "@/lib/ghl";
+import { DEFAULT_LOCALE, isLocale, type Locale } from "@/lib/i18n/config";
 
 const DEFAULT_FIELD = "Not specified — web intake";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -15,7 +17,6 @@ function str(v: unknown): string {
 
 function parseCityState(cityState: string) {
   if (!cityState) return { city: "", state: "" };
-
   const parts = cityState.split(",");
   if (parts.length >= 2) {
     return {
@@ -23,11 +24,110 @@ function parseCityState(cityState: string) {
       state: parts.slice(1).join(",").trim(),
     };
   }
+  return { city: cityState.trim(), state: "" };
+}
 
-  return {
-    city: cityState.trim(),
-    state: "",
+function resolveMagnetType(body: Record<string, unknown>): AsgLeadMagnetType {
+  const explicit = str(body.magnet_type) as AsgLeadMagnetType;
+  if (
+    explicit === "survival-guide-download" ||
+    explicit === "calculator-lead-magnet" ||
+    explicit === "calculator-case-review"
+  ) {
+    return explicit;
+  }
+
+  const src = str(body.lead_source);
+  if (src.includes("calculator-lead-magnet")) return "calculator-lead-magnet";
+  if (src.includes("compensation-calculator")) return "calculator-case-review";
+  return "calculator-case-review";
+}
+
+function isAsgLead(body: Record<string, unknown>): boolean {
+  const src = str(body.lead_source);
+  const magnet = str(body.magnet_type);
+  return (
+    magnet.length > 0 ||
+    src.includes("accidentsurvivalguide") ||
+    src.includes("accident-survival-guide")
+  );
+}
+
+/** Legacy wreckmatch.com / SEO intake — webhook only. */
+async function submitLegacyLead(body: Record<string, unknown>) {
+  const lead = {
+    firstName: str(body.firstName),
+    lastName: str(body.lastName),
+    email: str(body.email).toLowerCase(),
+    accidentTime: str(body.accidentTime) || DEFAULT_FIELD,
+    cityState: str(body.cityState) || DEFAULT_FIELD,
+    accidentType: str(body.accidentType) || DEFAULT_FIELD,
+    injured: str(body.injured) || DEFAULT_FIELD,
+    medicalTreatment: str(body.medicalTreatment) || DEFAULT_FIELD,
+    insurance: str(body.insurance) || DEFAULT_FIELD,
+    hasAttorney: str(body.hasAttorney) || DEFAULT_FIELD,
+    phone: str(body.phone),
+    caseDescription: str(body.caseDescription),
+    preferredCallbackTime: str(body.preferredCallbackTime),
   };
+
+  if (!GHL_WEBHOOK_URL || /example\.com|placeholder|REPLACE_WITH/i.test(GHL_WEBHOOK_URL)) {
+    return NextResponse.json(
+      { success: false, message: "Lead automation is not configured yet." },
+      { status: 500 },
+    );
+  }
+
+  const fullName = `${lead.firstName} ${lead.lastName}`.trim();
+  const { city, state } = parseCityState(lead.cityState);
+  const payload = {
+    first_name: lead.firstName,
+    last_name: lead.lastName,
+    full_name: fullName,
+    phone: lead.phone,
+    phone_digits: lead.phone.replace(/\D/g, ""),
+    email: lead.email,
+    accident_date: lead.accidentTime,
+    accident_type: lead.accidentType,
+    injury_status: lead.injured,
+    medical_treatment: lead.medicalTreatment,
+    insurance_status: lead.insurance,
+    has_attorney: lead.hasAttorney,
+    city_state: lead.cityState,
+    city,
+    state,
+    case_description: lead.caseDescription,
+    preferred_callback_time: lead.preferredCallbackTime,
+    source: LAW_FIRM_NAME,
+    lead_source: str(body.lead_source) || "www.wreckmatch.com",
+    created_at: new Date().toISOString(),
+  };
+
+  const ghlResponse = await fetch(GHL_WEBHOOK_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+
+  if (!ghlResponse.ok) {
+    return NextResponse.json(
+      { success: false, message: "Failed to send lead to automation." },
+      { status: 502 },
+    );
+  }
+
+  if (GHL_API_KEY) {
+    await upsertGhlContact(GHL_API_KEY, {
+      firstName: lead.firstName,
+      lastName: lead.lastName,
+      email: lead.email,
+      phone: lead.phone,
+      tags: ["wreckmatch-lead"],
+      source: LAW_FIRM_NAME,
+    });
+  }
+
+  return NextResponse.json({ success: true, redirectTo: "/thank-you" });
 }
 
 export async function POST(request: Request) {
@@ -40,136 +140,75 @@ export async function POST(request: Request) {
       );
     }
 
-    const lead = {
-      firstName: str(body.firstName),
-      lastName: str(body.lastName),
-      email: str(body.email).toLowerCase(),
-      accidentTime: str(body.accidentTime) || DEFAULT_FIELD,
-      cityState: str(body.cityState) || DEFAULT_FIELD,
-      accidentType: str(body.accidentType) || DEFAULT_FIELD,
-      injured: str(body.injured) || DEFAULT_FIELD,
-      medicalTreatment: str(body.medicalTreatment) || DEFAULT_FIELD,
-      insurance: str(body.insurance) || DEFAULT_FIELD,
-      hasAttorney: str(body.hasAttorney) || DEFAULT_FIELD,
-      phone: str(body.phone),
-      caseDescription: str(body.caseDescription),
-      preferredCallbackTime: str(body.preferredCallbackTime),
-    };
+    const firstName = str(body.firstName);
+    const lastName = str(body.lastName) || ".";
+    const email = str(body.email).toLowerCase();
+    const phone = str(body.phone);
 
-    if (!lead.firstName) {
+    if (!firstName) {
       return NextResponse.json(
         { success: false, message: "Missing required field: firstName" },
         { status: 400 },
       );
     }
 
-    if (!lead.lastName) {
-      return NextResponse.json(
-        { success: false, message: "Missing required field: lastName" },
-        { status: 400 },
-      );
-    }
-
-    if (!EMAIL_RE.test(lead.email)) {
+    if (!EMAIL_RE.test(email)) {
       return NextResponse.json(
         { success: false, message: "Enter a valid email address." },
         { status: 400 },
       );
     }
 
-    if (!lead.phone) {
-      return NextResponse.json(
-        { success: false, message: "Missing required field: phone" },
-        { status: 400 },
-      );
-    }
-
-    const phoneDigits = lead.phone.replace(/\D/g, "");
-    if (phoneDigits.length < 10) {
+    if (!phone || phone.replace(/\D/g, "").length < 10) {
       return NextResponse.json(
         { success: false, message: "Enter a valid phone number." },
         { status: 400 },
       );
     }
 
-    if (!GHL_WEBHOOK_URL || /example\.com|placeholder|REPLACE_WITH/i.test(GHL_WEBHOOK_URL)) {
-      console.error("[submit-lead] GHL webhook URL is missing or still placeholder.");
-      return NextResponse.json(
-        { success: false, message: "Lead automation is not configured yet." },
-        { status: 500 },
-      );
+    if (!isAsgLead(body)) {
+      if (!lastName || lastName === ".") {
+        return NextResponse.json(
+          { success: false, message: "Missing required field: lastName" },
+          { status: 400 },
+        );
+      }
+      return submitLegacyLead(body);
     }
 
-    const fullName = `${lead.firstName} ${lead.lastName}`.trim();
-    const { city, state } = parseCityState(lead.cityState);
-    const createdAt = new Date().toISOString();
-    const payload = {
-      first_name: lead.firstName,
-      last_name: lead.lastName,
-      full_name: fullName,
-      phone: lead.phone,
-      phone_digits: phoneDigits,
-      email: lead.email,
-      accident_date: lead.accidentTime,
-      accident_type: lead.accidentType,
-      injury_status: lead.injured,
-      medical_treatment: lead.medicalTreatment,
-      insurance_status: lead.insurance,
-      has_attorney: lead.hasAttorney,
-      city_state: lead.cityState,
-      city,
-      state,
-      case_description: lead.caseDescription,
-      preferred_callback_time: lead.preferredCallbackTime,
-      source: LAW_FIRM_NAME,
-      lead_source: str(body.lead_source) || "www.wreckmatch.com",
-      created_at: createdAt,
-    };
+    const { state: parsedState } = parseCityState(str(body.cityState));
+    const stateField = str(body.state) || parsedState;
+    const lang = str(body.preferredLanguage);
+    const locale: Locale = isLocale(lang) ? lang : DEFAULT_LOCALE;
 
-    console.log("[submit-lead] incoming lead payload:", JSON.stringify(payload, null, 2));
-
-    const ghlResponse = await fetch(GHL_WEBHOOK_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
+    const result = await processAsgLead({
+      firstName,
+      lastName,
+      email,
+      phone,
+      state: stateField,
+      city: str(body.city),
+      magnetType: resolveMagnetType(body),
+      leadSource: str(body.lead_source) || "www.accidentsurvivalguide.com",
+      consentEmail: body.consentEmail !== false,
+      consentSms: body.consentSms === true || body.consentSms === "true",
+      preferredLanguage: locale,
+      caseDescription: str(body.caseDescription),
+      calculatorSummary: str(body.calculator_summary),
     });
 
-    if (!ghlResponse.ok) {
-      const failureBody = await ghlResponse.text();
-      console.error("[submit-lead] GHL webhook failed:", {
-        status: ghlResponse.status,
-        statusText: ghlResponse.statusText,
-        body: failureBody,
-      });
+    if (!result.ok) {
       return NextResponse.json(
-        { success: false, message: "Failed to send lead to automation." },
+        { success: false, message: result.message ?? "Failed to save lead." },
         { status: 502 },
       );
     }
 
-    if (!GHL_API_KEY) {
-      console.warn("[submit-lead] GHL_API_KEY missing; skipping direct contact upsert.");
-    } else {
-      const upsert = await upsertGhlContact(GHL_API_KEY, {
-        firstName: lead.firstName,
-        lastName: lead.lastName,
-        email: lead.email,
-        phone: lead.phone,
-        tags: ["wreckmatch-lead"],
-        source: LAW_FIRM_NAME,
-      });
-
-      if (!upsert.ok) {
-        console.error("[submit-lead] GHL contact upsert failed:", upsert.status, upsert.body);
-      } else {
-        console.log("[submit-lead] GHL contact upserted:", upsert.contactId);
-      }
-    }
-
     return NextResponse.json({
       success: true,
+      ghlContactId: result.contactId,
+      sarahCallStarted: result.sarahCallStarted,
+      emailAutomationTriggered: result.webhookSent,
       redirectTo: "/thank-you",
     });
   } catch (error) {

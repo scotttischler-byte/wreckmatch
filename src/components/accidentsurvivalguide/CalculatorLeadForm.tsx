@@ -50,14 +50,20 @@ export function CalculatorLeadForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...lead,
+          magnet_type: "calculator-lead-magnet",
           cityState: state ? `, ${state}` : "Not specified — calculator lead magnet",
-          accidentType: "Calculator interest",
-          injured: "Unspecified",
+          state,
+          consentEmail: true,
           lead_source: "accidentsurvivalguide-calculator-lead-magnet",
           preferredLanguage: locale,
         }),
       });
-      const data = (await res.json()) as { success?: boolean; message?: string };
+      const data = (await res.json()) as {
+        success?: boolean;
+        message?: string;
+        sarahCallStarted?: boolean;
+        emailAutomationTriggered?: boolean;
+      };
 
       if (!res.ok || !data.success) {
         setError(data.message ?? h.calculatorLeadError);
@@ -65,7 +71,11 @@ export function CalculatorLeadForm() {
       }
 
       saveCalculatorLead(lead);
-      trackAsgEvent("calculator_lead_magnet_submit", { state: state || "unspecified" });
+      trackAsgEvent("calculator_lead_magnet_submit", {
+        state: state || "unspecified",
+        sarah: data.sarahCallStarted ? "yes" : "no",
+        email: data.emailAutomationTriggered ? "yes" : "no",
+      });
       window.location.href = href("/calculator");
     } catch {
       setError(h.calculatorLeadError);

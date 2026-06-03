@@ -116,9 +116,26 @@ def find_city(cities: list[dict], city_name: str, state_name: str) -> dict | Non
     return None
 
 
+def markdown_path(city: dict) -> Path:
+    return CONTENT_ROOT / city["state_abbrev"].lower() / city["city_slug"] / "index.md"
+
+
+def has_markdown(city: dict) -> bool:
+    return markdown_path(city).exists()
+
+
+def cities_missing_markdown(cities: list[dict]) -> list[dict]:
+    missing = [c for c in cities if not has_markdown(c)]
+    missing.sort(key=lambda c: c.get("priority_rank", 9999))
+    return missing
+
+
 def next_cities(cities: list[dict], queue: dict, count: int = 1) -> list[dict]:
     done = set(queue.get("completed_city_keys", []))
-    pending = [c for c in cities if city_key(c) not in done]
+    pending = [
+        c for c in cities
+        if city_key(c) not in done or not has_markdown(c)
+    ]
     pending.sort(key=lambda c: c.get("priority_rank", 9999))
     return pending[:count]
 
@@ -592,37 +609,43 @@ def run_generation(city: dict, publish_json: bool = False, dry_run: bool = False
 # ---------------------------------------------------------------------------
 
 def sync_queue() -> int:
-    """Reconcile the queue with content already on disk so --next never
-    regenerates a city that already has a post. Scans published blog JSON and
-    generated markdown directories and marks matching cities completed."""
+    """Reconcile the queue with on-disk platinum markdown (index.md only).
+
+    JSON posts alone do not count — city landing pages require index.md.
+    Cities marked complete without markdown are removed from the done set.
+    """
     cities = load_cities()
     queue = load_queue()
     done = set(queue.get("completed_city_keys", []))
     before = len(done)
 
-    # 1) Published blog JSON posts (content/blog/posts/*.json)
-    if BLOG_POSTS_DIR.exists():
-        for jf in BLOG_POSTS_DIR.glob("*.json"):
-            try:
-                post = json.loads(jf.read_text(encoding="utf-8"))
-            except Exception:
-                continue
-            c = find_city(cities, post.get("city", ""),
-                          post.get("stateAbbr") or post.get("state", ""))
-            if c:
-                done.add(city_key(c))
-
-    # 2) Generated markdown (content/<state_abbrev>/<city_slug>/index.md)
     for c in cities:
-        md = CONTENT_ROOT / c["state_abbrev"].lower() / c["city_slug"] / "index.md"
-        if md.exists():
+        if has_markdown(c):
             done.add(city_key(c))
+        else:
+            done.discard(city_key(c))
 
     queue["completed_city_keys"] = sorted(done)
     save_queue(queue)
-    log(f"sync-queue: {len(done)} cities marked complete "
-        f"({len(done) - before} newly reconciled).")
+    missing = cities_missing_markdown(cities)
+    log(f"sync-queue: {len(done)} cities with index.md ({len(done) - before} delta).")
+    if missing:
+        log(f"sync-queue: {len(missing)} cities still need platinum markdown regeneration.")
     return 0
+
+
+def unmark_missing_markdown() -> int:
+    """Drop queue completion for any city without index.md."""
+    cities = load_cities()
+    queue = load_queue()
+    done = set(queue.get("completed_city_keys", []))
+    missing = cities_missing_markdown(cities)
+    for c in missing:
+        done.discard(city_key(c))
+    queue["completed_city_keys"] = sorted(done)
+    save_queue(queue)
+    log(f"unmark-missing: {len(missing)} cities queued for regeneration.")
+    return len(missing)
 
 
 # ---------------------------------------------------------------------------
@@ -637,7 +660,12 @@ def main() -> int:
     parser.add_argument("--next", action="store_true", help="Generate next city in priority queue")
     parser.add_argument("--batch", type=int, default=None, help="Number of cities to generate")
     parser.add_argument("--list-next", type=int, help="List next N pending cities and exit")
-    parser.add_argument("--sync-queue", action="store_true", help="Reconcile queue with content already on disk and exit")
+    parser.add_argument("--sync-queue", action="store_true", help="Reconcile queue with index.md on disk and exit")
+    parser.add_argument(
+        "--regenerate-missing",
+        action="store_true",
+        help="Unmark cities without index.md, then generate them (use with --batch)",
+    )
     parser.add_argument("--publish-json", action="store_true", help="Also write content/blog/posts/*.json")
     parser.add_argument("--dry-run", action="store_true", help="Log only, no API calls")
     parser.add_argument("--continue-on-error", action="store_true", help="Keep going if a single city fails")
@@ -646,6 +674,13 @@ def main() -> int:
 
     if args.sync_queue:
         return sync_queue()
+
+    if args.regenerate_missing:
+        unmark_missing_markdown()
+        if not args.batch and not args.next:
+            missing = cities_missing_markdown(load_cities())
+            log(f"Run with --batch {min(len(missing), 43)} --publish-json to regenerate.")
+            return 0
 
     cities = load_cities()
     queue = load_queue()

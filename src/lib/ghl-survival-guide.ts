@@ -1,17 +1,17 @@
 /**
- * GHL Inbound Webhook workflow (configure in GoHighLevel):
+ * GHL Inbound Webhook workflows (configure in GoHighLevel).
+ * All ASG forms POST via `processAsgLead()` in `src/lib/asg-lead-pipeline.ts`.
  *
- * 1. Trigger: Inbound Webhook (use GHL_WEBHOOK_URL / ASG_SURVIVAL_GUIDE_WEBHOOK_URL)
- * 2. Create/Update Contact — map incoming JSON fields to contact + custom fields
- * 3. Add Tags: wreckmatch-lead, survival-guide-lead, downloaded-guide-yes, state-{abbr} (if present)
- * 4. Send Email — subject: "Your Free Accident Survival Guide is Here"
- *    - Attach PDF or link: {{pdf_download_url}}
- * 5. (Optional) Start nurture sequence / internal notification
+ * Branch on `automation_trigger` (or `form_type`):
  *
- * Custom fields to create in GHL:
- * - Lead Source (text) ← lead_source
- * - Downloaded Guide (text) ← downloaded_guide
- * - PDF Download URL (text) ← pdf_download_url
+ * | automation_trigger           | form_type                 | Email action                          |
+ * |------------------------------|---------------------------|---------------------------------------|
+ * | email_survival_guide_pdf     | survival-guide-download   | Send guide PDF link (pdf_download_url)|
+ * | email_calculator_access      | calculator-lead-magnet    | Send calculator_url                   |
+ * | email_calculator_case_review | calculator-case-review    | Send calculator_url + case summary    |
+ *
+ * Sarah outbound calls are started from the app (Retell), not GHL.
+ * See `content/autopilot/GHL_ASG_LEAD_AUTOMATION.md` for full setup.
  */
 
 import { GHL_WEBHOOK_URL, LAW_FIRM_NAME } from "@/lib/constants";

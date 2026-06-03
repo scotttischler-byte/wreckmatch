@@ -55,6 +55,7 @@ jobs:
         run: |
           BATCH="${{ github.event.inputs.batch_size || '20' }}"
           python scripts/accident_survival_guide_autopilot.py --sync-queue
+          python scripts/accident_survival_guide_autopilot.py --regenerate-missing
           python scripts/accident_survival_guide_autopilot.py \
             --batch "$BATCH" \
             --publish-json \
