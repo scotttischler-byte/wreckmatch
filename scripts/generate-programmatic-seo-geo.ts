@@ -5,10 +5,12 @@
  *
  * Usage:
  *   npx tsx scripts/generate-programmatic-seo-geo.ts [--limit 20] [--dry-run]
+ *   npx tsx scripts/generate-programmatic-seo-geo.ts --blogs-only --all-cities
  */
 
 import fs from "fs";
 import path from "path";
+import { spawnSync } from "child_process";
 import type { BlogTemplateId } from "../data/types";
 import type { CityRecord } from "../data/types";
 import { STATE_BY_SLUG } from "../data/states";
@@ -25,13 +27,21 @@ const MASTER_PATH = path.join(ROOT, "content/autopilot/cities_master.json");
 const QUEUE_PATH = path.join(ROOT, "content/autopilot/queue.json");
 const LOG_PATH = path.join(ROOT, "content/autopilot/generation.log");
 const POSTS_DIR = path.join(ROOT, "content/blog/posts");
+const PENDING_INDEXNOW = path.join(ROOT, "content/autopilot/indexnow_pending.json");
 const GEO_DIR = path.join(ROOT, "ai-visibility-accelerator/output/content/city-posts");
 const CONTENT_ROOT = path.join(ROOT, "content");
 
 const TEMPLATES: BlogTemplateId[] = [
   "immediate-steps",
   "statute-limitations",
+  "uninsured-driver",
+  "truck-accident",
+  "rideshare-accident",
+  "whiplash-claims",
+  "settlement-timeline",
+  "insurance-denied",
   "costly-mistakes",
+  "hire-lawyer",
 ];
 
 type MasterCity = {
@@ -44,12 +54,15 @@ type MasterCity = {
 
 function parseArgs() {
   const dryRun = process.argv.includes("--dry-run");
+  const blogsOnly = process.argv.includes("--blogs-only");
+  const allCities = process.argv.includes("--all-cities");
+  const runIndexNow = process.argv.includes("--indexnow");
   const eq = process.argv.find((a) => a.startsWith("--limit="));
-  let limit = 20;
+  let limit = allCities ? 9999 : 20;
   if (eq) limit = Number(eq.split("=")[1]) || 20;
   const i = process.argv.indexOf("--limit");
   if (i !== -1 && process.argv[i + 1]) limit = Number(process.argv[i + 1]) || 20;
-  return { limit, dryRun };
+  return { limit, dryRun, blogsOnly, allCities, runIndexNow };
 }
 
 function log(msg: string) {
@@ -154,40 +167,71 @@ function writeAsgIndex(city: CityRecord, state: NonNullable<ReturnType<typeof ge
   return dir;
 }
 
+function queueIndexNowSlugs(slugs: string[]) {
+  if (!slugs.length) return;
+  let data: { slugs: string[]; updatedAt: string } = { slugs: [], updatedAt: "" };
+  if (fs.existsSync(PENDING_INDEXNOW)) {
+    try {
+      data = JSON.parse(fs.readFileSync(PENDING_INDEXNOW, "utf8"));
+    } catch {
+      /* fresh queue */
+    }
+  }
+  data.slugs = [...new Set([...(data.slugs ?? []), ...slugs])];
+  data.updatedAt = new Date().toISOString();
+  fs.mkdirSync(path.dirname(PENDING_INDEXNOW), { recursive: true });
+  fs.writeFileSync(PENDING_INDEXNOW, JSON.stringify(data, null, 2) + "\n");
+  log(`Queued ${slugs.length} slug(s) for IndexNow (${data.slugs.length} total pending)`);
+}
+
+function runIndexNowSubmit(waitDeploy: boolean) {
+  const args = ["scripts/indexnow-after-content.mjs"];
+  if (waitDeploy) args.push("--wait-deploy");
+  log("Submitting IndexNow…");
+  const result = spawnSync("node", args, { cwd: ROOT, stdio: "inherit" });
+  if (result.status !== 0) {
+    log("IndexNow submit returned non-zero — pending slugs kept for retry");
+  }
+}
+
 function writeBlogPosts(city: CityRecord, state: NonNullable<ReturnType<typeof getStateForCity>>) {
   fs.mkdirSync(POSTS_DIR, { recursive: true });
   const written: string[] = [];
+  const newSlugs: string[] = [];
   for (const template of TEMPLATES) {
     const post = buildProgrammaticBlogPost(city, state, template);
     const out = path.join(POSTS_DIR, `${post.slug}.json`);
     if (fs.existsSync(out)) continue;
     fs.writeFileSync(out, JSON.stringify(post, null, 2) + "\n");
     written.push(`${post.slug}.json (${countBlogWords(post)} words)`);
+    newSlugs.push(post.slug);
   }
-  return written;
+  return { written, newSlugs };
 }
 
 function main() {
-  const { limit, dryRun } = parseArgs();
+  const { limit, dryRun, blogsOnly, allCities, runIndexNow } = parseArgs();
   const master = JSON.parse(fs.readFileSync(MASTER_PATH, "utf8")) as {
     cities: MasterCity[];
   };
   const queue = loadQueue();
   const done = new Set(queue.completed_city_keys ?? []);
 
-  const pending = master.cities.filter((c) => !done.has(cityKey(c)));
-  const batch = pending.slice(0, limit);
+  const source = allCities ? master.cities : master.cities.filter((c) => !done.has(cityKey(c)));
+  const batch = source.slice(0, limit);
 
   if (batch.length === 0) {
-    console.log("No pending cities — queue is complete.");
+    console.log("No cities to process.");
     process.exit(0);
   }
 
-  console.log(`Generating programmatic SEO+GEO for ${batch.length} cities (dry-run=${dryRun})…`);
+  const mode = blogsOnly ? "blogs only" : "SEO+GEO+blogs";
+  console.log(`Generating ${mode} for ${batch.length} cities (dry-run=${dryRun})…`);
 
   let geoCount = 0;
   let blogCount = 0;
   let asgCount = 0;
+  const allNewSlugs: string[] = [];
 
   for (const mc of batch) {
     const city = resolveCity(mc);
@@ -202,35 +246,51 @@ function main() {
       continue;
     }
 
-    const geoFile = writeGeoPage(city, state);
-    geoCount += 1;
+    if (!blogsOnly) {
+      writeGeoPage(city, state);
+      geoCount += 1;
+      writeAsgIndex(city, state, mc);
+      asgCount += 1;
+    }
 
-    const asgDir = writeAsgIndex(city, state, mc);
-    asgCount += 1;
-
-    const blogs = writeBlogPosts(city, state);
+    const { written: blogs, newSlugs } = writeBlogPosts(city, state);
     blogCount += blogs.length;
+    allNewSlugs.push(...newSlugs);
 
-    if (!done.has(cityKey(mc))) {
+    if (!blogsOnly && !done.has(cityKey(mc))) {
       queue.completed_city_keys = [...(queue.completed_city_keys ?? []), cityKey(mc)];
     }
-    queue.last_city_key = cityKey(mc);
+    if (!blogsOnly) {
+      queue.last_city_key = cityKey(mc);
+    }
 
-    log(
-      `${mc.city}, ${mc.state}: GEO ${path.relative(ROOT, geoFile)} | ASG ${path.relative(ROOT, asgDir)} | blogs: ${blogs.length}`,
-    );
+    if (blogs.length > 0) {
+      log(`${mc.city}, ${mc.state}: +${blogs.length} blog(s)`);
+    }
   }
 
-  if (!dryRun) {
+  if (!dryRun && !blogsOnly) {
     saveQueue(queue);
+  }
+
+  if (!dryRun && allNewSlugs.length > 0) {
+    queueIndexNowSlugs(allNewSlugs);
+  }
+
+  if (!dryRun && runIndexNow) {
+    runIndexNowSubmit(true);
   }
 
   console.log("\n--- Summary ---");
   console.log(`Cities processed:  ${batch.length}`);
-  console.log(`GEO pages written: ${geoCount}`);
-  console.log(`ASG index dirs:    ${asgCount}`);
+  if (!blogsOnly) {
+    console.log(`GEO pages written: ${geoCount}`);
+    console.log(`ASG index dirs:    ${asgCount}`);
+  }
   console.log(`Blog posts new:    ${blogCount}`);
-  console.log(`Queue complete:    ${queue.completed_city_keys?.length ?? 0}/279`);
+  if (!blogsOnly) {
+    console.log(`Queue complete:    ${queue.completed_city_keys?.length ?? 0}/279`);
+  }
 }
 
 main();

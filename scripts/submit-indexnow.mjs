@@ -37,6 +37,33 @@ const SITEMAP_URLS = {
 };
 
 const KEY = process.env.INDEXNOW_KEY ?? "wreckmatch-indexnow-key";
+const PENDING_PATH = path.join(process.cwd(), "content/autopilot/indexnow_pending.json");
+const WRECKMATCH_BASE = "https://www.wreckmatch.com";
+
+function loadPendingSlugs() {
+  if (!fs.existsSync(PENDING_PATH)) return [];
+  try {
+    const data = JSON.parse(fs.readFileSync(PENDING_PATH, "utf8"));
+    return data.slugs ?? [];
+  } catch {
+    return [];
+  }
+}
+
+function slugToBlogUrl(slug) {
+  return `${WRECKMATCH_BASE}/blog/${slug}`;
+}
+
+function mergeUrls(sitemapUrls, pendingSlugs, host) {
+  const set = new Set(sitemapUrls);
+  if (host === HOSTS.wreckmatch && pendingSlugs.length) {
+    for (const slug of pendingSlugs) {
+      set.add(slugToBlogUrl(slug));
+    }
+    console.log(`  + ${pendingSlugs.length} pending blog slug URL(s) merged`);
+  }
+  return [...set];
+}
 
 function parseSitemapXml(xml) {
   return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
@@ -109,6 +136,8 @@ async function main() {
           throw e;
         }
       }
+      const pending = key === "wreckmatch" ? loadPendingSlugs() : [];
+      urls = mergeUrls(urls, pending, host);
       await submitIndexNow(host, urls);
     } catch (e) {
       console.error(`[${key}]`, e.message);

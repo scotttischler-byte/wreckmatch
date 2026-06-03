@@ -19,10 +19,24 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: "20"
+      - name: Wait for Vercel deploy (sitemap URL count)
+        env:
+          INDEXNOW_MIN_SITEMAP_URLS: "2500"
+        run: |
+          for i in $(seq 1 20); do
+            count=$(curl -sf "https://www.wreckmatch.com/sitemap.xml" | grep -o '<loc>' | wc -l | tr -d ' ')
+            echo "Attempt $i: $count URLs in production sitemap"
+            if [ "${count:-0}" -ge "${INDEXNOW_MIN_SITEMAP_URLS}" ]; then
+              exit 0
+            fi
+            sleep 30
+          done
+          echo "Timed out waiting for full sitemap — submitting anyway"
       - name: Submit IndexNow (all domains)
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
-        run: node scripts/submit-indexnow.mjs all --fallback || true
+          INDEXNOW_MIN_SITEMAP_URLS: "2500"
+        run: node scripts/indexnow-after-content.mjs --recent || node scripts/submit-indexnow.mjs all --fallback || true
 
   verify:
     runs-on: ubuntu-latest
