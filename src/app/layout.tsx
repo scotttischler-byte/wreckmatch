@@ -48,10 +48,7 @@ export default function RootLayout({
       className={`${sansFont.variable} ${monoFont.variable} h-full antialiased`}
     >
       <head>
-        <Script
-          src="https://cdn.gomega.ai/scripts/optimizer.min.js"
-          strategy="beforeInteractive"
-        />
+        <script src="https://cdn.gomega.ai/scripts/optimizer.min.js" async />
       </head>
       <body className="min-h-full flex-col flex">
         <SiteJsonLd />
