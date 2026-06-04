@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_run_at": "2026-06-03T22:31:58.933560+00:00",
+  "last_run_at": "2026-06-04T05:09:30.766853+00:00",
   "completed_city_keys": [
     "abilene-tx|TX",
     "akron-oh|OH",
@@ -260,6 +260,7 @@
     "topeka-ks|KS",
     "torrance-ca|CA",
     "tucson-az|AZ",
+    "tulsa-ok|OK",
     "tyler-tx|TX",
     "vancouver-wa|WA",
     "ventura-ca|CA",
@@ -279,8 +280,7 @@
     "wilmington-nc|NC",
     "winston-salem-nc|NC",
     "worcester-ma|MA",
-    "yonkers-ny|NY",
-    "tulsa-ok|OK"
+    "yonkers-ny|NY"
   ],
   "last_city_key": "tulsa-ok|OK",
   "notes": "Queue tracks generated city_slug|state_abbrev pairs. Use --next or --all to process highest priority ungenerated city."

@@ -724,3 +724,5 @@
 [2026-06-03T22:31:58.932280+00:00] Saved /home/runner/work/wreckmatch/wreckmatch/content/ok/tulsa-ok/images.md
 [2026-06-03T22:31:58.933439+00:00] Saved blog JSON /home/runner/work/wreckmatch/wreckmatch/content/blog/posts/ultimate-tulsa-oklahoma-accident-survival-guide-2026.json
 [2026-06-03T22:31:58.937399+00:00] Done: Tulsa, Oklahoma
+[2026-06-04T05:09:30.769817+00:00] sync-queue: 279 cities with index.md (0 delta).
+[2026-06-04T05:09:30.825235+00:00] Queue complete — all cities generated.
