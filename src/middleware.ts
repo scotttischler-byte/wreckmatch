@@ -228,6 +228,14 @@ export async function middleware(request: NextRequest) {
       return response;
     }
 
+    if (pathname === "/sitemap.xml" || pathname === "/feed.xml") {
+      return withPathHeader(request, pathname);
+    }
+
+    if (pathname.startsWith("/blog") || pathname.startsWith("/car-accident-help")) {
+      return withPathHeader(request, pathname);
+    }
+
     return withPathHeader(request, pathname);
   }
 
