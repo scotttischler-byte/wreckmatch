@@ -730,3 +730,5 @@
 [2026-06-04T07:12:58.762202+00:00] unmark-missing: 0 cities queued for regeneration.
 [2026-06-04T07:12:58.765546+00:00] Run with --batch 0 --publish-json to regenerate.
 [2026-06-04T07:12:58.823379+00:00] Queue complete — all cities generated.
+[2026-06-04T10:13:26.882734+00:00] sync-queue: 279 cities with index.md (0 delta).
+[2026-06-04T10:13:26.941299+00:00] Queue complete — all cities generated.
