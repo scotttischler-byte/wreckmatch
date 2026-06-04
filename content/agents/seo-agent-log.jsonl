@@ -489,3 +489,6 @@
 {"ts":"2026-06-04T15:46:16.460Z","task":"ping-feeds","ok":true,"exitCode":0,"durationMs":453,"outputTail":"Feed health check:\n\nOK  https://www.wreckmatch.com/feed.xml (200)\nOK  https://www.accidentsurvivalguide.com/feed.xml (200)\nOK  https://wreckmatch.vercel.app/feed.xml (200)\n"}
 {"ts":"2026-06-04T15:46:18.444Z","task":"indexnow-all","ok":true,"exitCode":0,"durationMs":1984,"outputTail":"key at /.txt\nIndexNow www.injuredhelp.ai: 400 (6 URLs) — check key at /.txt\nIndexNow www.bobbygarcia.com: 400 (2 URLs) — check key at /.txt\n  Key not reachable at https://www.wreckmatch.com/.txt (404) — IndexNow may return 403\n  Key not reachable at https://www.accidentsurvivalguide.com/.txt (404) — IndexNow may return 403\n  Key not reachable at https://www.injuredhelp.ai/.txt (404) — IndexNow may return 403\n  Key not reachable at https://www.bobbygarcia.com/.txt (403) — IndexNow may return 403\n"}
 {"ts":"2026-06-04T15:46:18.444Z","event":"complete","task":"full"}
+{"ts":"2026-06-04T17:40:22.252Z","event":"start","task":"enrich","argv":["rotate"]}
+{"ts":"2026-06-04T17:40:24.442Z","task":"enrich-cities","ok":true,"exitCode":0,"durationMs":2189,"outputTail":"All top cities already have enriched markdown.\nnpm warn exec The following package was not found and will be installed: tsx@4.22.4\n"}
+{"ts":"2026-06-04T17:40:24.442Z","event":"complete","task":"enrich"}
