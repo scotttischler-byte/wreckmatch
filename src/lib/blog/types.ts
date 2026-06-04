@@ -44,6 +44,8 @@ export type BlogPost = {
   markdownBody?: string;
   /** Public path under /blog/covers/ or absolute URL */
   coverImage?: string;
+  /** Approved HTML body for manually imported long-form SEO articles. */
+  bodyHtml?: string;
 };
 
 export type BlogFilters = {
