@@ -19,6 +19,7 @@ import { trackWreckmatchEvent } from "@/lib/analytics";
 import { BlogCoverImage } from "@/components/seo/BlogCoverImage";
 import { BlogTableOfContents, CityHelpPageLink } from "@/components/seo/BlogTableOfContents";
 import { cityPagePath } from "@/lib/seo/site";
+import { SeoMarkdownBody } from "@/components/seo/SeoMarkdownBody";
 
 type WmBlogPostViewProps = {
   post: BlogPost;
@@ -77,56 +78,67 @@ export function WmBlogPostView({ post }: WmBlogPostViewProps) {
 
             <BlogTableOfContents post={post} />
 
-            {cityRecord ? (
-              <CityHelpPageLink
-                cityName={cityRecord.city}
-                stateAbbr={cityRecord.state_abbr}
-                href={cityPagePath(cityRecord.slug)}
+            {post.bodyHtml ? (
+              <div
+                className="seo-markdown mt-10 space-y-4 text-[#475569] leading-relaxed [&_a]:text-[#8a6914] [&_a]:underline [&_a]:underline-offset-2 [&_blockquote]:border-l-4 [&_blockquote]:border-[#c9a227] [&_blockquote]:bg-[#fcfaf6] [&_blockquote]:py-2 [&_blockquote]:pl-4 [&_blockquote]:pr-2 [&_blockquote]:text-[#334155] [&_h2]:mt-12 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-[#152238] [&_h3]:mt-8 [&_h3]:font-serif [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-[#152238] [&_hr]:my-10 [&_hr]:border-[#e7dccb] [&_img]:my-8 [&_img]:rounded-[1.25rem] [&_img]:border [&_img]:border-[#e7dccb] [&_img]:shadow-sm [&_li]:mt-1 [&_ol]:mt-4 [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-6 [&_p]:mt-4 [&_strong]:text-[#152238] [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-6"
+                dangerouslySetInnerHTML={{ __html: post.bodyHtml }}
               />
-            ) : null}
+            ) : post.markdownBody ? (
+              <SeoMarkdownBody markdown={post.markdownBody} />
+            ) : (
+              <>
+                {cityRecord ? (
+                  <CityHelpPageLink
+                    cityName={cityRecord.city}
+                    stateAbbr={cityRecord.state_abbr}
+                    href={cityPagePath(cityRecord.slug)}
+                  />
+                ) : null}
 
-            <div className="mt-10 space-y-10">
-              {post.sections.map((section, i) => {
-                const sectionId = section.heading
-                  ? section.heading.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
-                  : undefined;
-                return (
-                <section key={i} id={sectionId}>
-                  {section.heading ? (
-                    <h2 className="font-serif text-2xl font-semibold text-[#152238]">
-                      {section.heading}
-                    </h2>
-                  ) : null}
-                  {section.paragraphs.map((p, j) => (
-                    <p key={j} className="mt-4 leading-relaxed text-[#475569]">
-                      {p}
-                    </p>
-                  ))}
-                  {section.list?.length ? (
-                    <ul className="mt-4 list-disc space-y-2 pl-6 text-[#475569]">
-                      {section.list.map((item, k) => (
-                        <li key={k}>{item}</li>
+                <div className="mt-10 space-y-10">
+                  {post.sections.map((section, i) => {
+                    const sectionId = section.heading
+                      ? section.heading.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
+                      : undefined;
+                    return (
+                    <section key={i} id={sectionId}>
+                      {section.heading ? (
+                        <h2 className="font-serif text-2xl font-semibold text-[#152238]">
+                          {section.heading}
+                        </h2>
+                      ) : null}
+                      {section.paragraphs.map((p, j) => (
+                        <p key={j} className="mt-4 leading-relaxed text-[#475569]">
+                          {p}
+                        </p>
                       ))}
-                    </ul>
-                  ) : null}
-                </section>
-              );
-              })}
-            </div>
+                      {section.list?.length ? (
+                        <ul className="mt-4 list-disc space-y-2 pl-6 text-[#475569]">
+                          {section.list.map((item, k) => (
+                            <li key={k}>{item}</li>
+                          ))}
+                        </ul>
+                      ) : null}
+                    </section>
+                  );
+                  })}
+                </div>
 
-            {post.faq.length ? (
-              <section className="mt-12">
-                <h2 className="font-serif text-2xl font-semibold text-[#152238]">FAQ</h2>
-                <dl className="mt-6 space-y-6">
-                  {post.faq.map((item, i) => (
-                    <div key={i}>
-                      <dt className="font-semibold text-[#152238]">{item.question}</dt>
-                      <dd className="mt-2 text-[#475569]">{item.answer}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </section>
-            ) : null}
+                {post.faq.length ? (
+                  <section className="mt-12">
+                    <h2 className="font-serif text-2xl font-semibold text-[#152238]">FAQ</h2>
+                    <dl className="mt-6 space-y-6">
+                      {post.faq.map((item, i) => (
+                        <div key={i}>
+                          <dt className="font-semibold text-[#152238]">{item.question}</dt>
+                          <dd className="mt-2 text-[#475569]">{item.answer}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </section>
+                ) : null}
+              </>
+            )}
 
             {cityRecord ? (
               <RelatedGuides
