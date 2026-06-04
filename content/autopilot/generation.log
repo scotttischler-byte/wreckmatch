@@ -726,3 +726,7 @@
 [2026-06-03T22:31:58.937399+00:00] Done: Tulsa, Oklahoma
 [2026-06-04T05:09:30.769817+00:00] sync-queue: 279 cities with index.md (0 delta).
 [2026-06-04T05:09:30.825235+00:00] Queue complete — all cities generated.
+[2026-06-04T07:12:58.704259+00:00] sync-queue: 279 cities with index.md (0 delta).
+[2026-06-04T07:12:58.762202+00:00] unmark-missing: 0 cities queued for regeneration.
+[2026-06-04T07:12:58.765546+00:00] Run with --batch 0 --publish-json to regenerate.
+[2026-06-04T07:12:58.823379+00:00] Queue complete — all cities generated.
