@@ -2,8 +2,13 @@
   "postsPerDay": 5,
   "publishStaggerMinutes": 90,
   "requireApproval": true,
-  "lastRunAt": "2026-06-04T16:57:07.956Z",
+  "lastRunAt": "2026-06-05T16:32:36.554Z",
   "recentCitySlugs": [
+    "raleigh",
+    "memphis",
+    "new-orleans",
+    "tucson",
+    "las-vegas",
     "new-york",
     "los-angeles",
     "raleigh",
@@ -48,11 +53,6 @@
     "charlotte",
     "jacksonville",
     "colorado-springs",
-    "el-paso",
-    "san-diego",
-    "arlington",
-    "atlanta",
-    "detroit",
-    "milwaukee"
+    "el-paso"
   ]
 }
