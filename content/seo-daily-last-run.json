@@ -1,6 +1,6 @@
 {
-  "ranAt": "2026-06-05T16:30:42.564Z",
-  "enrichLimit": 3,
+  "ranAt": "2026-06-05T20:14:30.122Z",
+  "enrichLimit": 0,
   "cityMarkdownFiles": 291,
-  "indexnow": false
+  "indexnow": true
 }
