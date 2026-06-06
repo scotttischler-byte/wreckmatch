@@ -1,104 +1,85 @@
 export interface AsgPressOutlet {
   id: string;
   name: string;
-  logoSrc: string;
-  logoWidth: number;
-  logoHeight: number;
-  /** Tailwind arbitrary font stack approximating the outlet wordmark */
-  fontClass: string;
-  nameColor: string;
+  /** Full wordmark SVG — outlet name styled in brand typography */
+  wordmarkSrc: string;
+  wordmarkWidth: number;
+  wordmarkHeight: number;
 }
 
-/** Top 10 syndicated placements shown in the homepage press strip. */
+/**
+ * Top 10 most recognizable placements from the syndication list —
+ * major newspapers, TV, and national outlets (not PR-wire distributors).
+ */
 export const ASG_TOP_PRESS_OUTLETS: AsgPressOutlet[] = [
-  {
-    id: "brandfeatured",
-    name: "BrandFeatured",
-    logoSrc: "/press/brandfeatured.svg",
-    logoWidth: 44,
-    logoHeight: 44,
-    fontClass: "font-sans font-extrabold tracking-tight",
-    nameColor: "#0f766e",
-  },
-  {
-    id: "openpr",
-    name: "OpenPR",
-    logoSrc: "/press/openpr.svg",
-    logoWidth: 44,
-    logoHeight: 44,
-    fontClass: "font-sans font-bold tracking-wide",
-    nameColor: "#1d4ed8",
-  },
   {
     id: "boston-herald",
     name: "Boston Herald",
-    logoSrc: "/press/boston-herald.svg",
-    logoWidth: 44,
-    logoHeight: 44,
-    fontClass: "font-serif font-bold tracking-tight",
-    nameColor: "#0c2340",
+    wordmarkSrc: "/press/wordmarks/boston-herald.svg",
+    wordmarkWidth: 168,
+    wordmarkHeight: 40,
   },
   {
     id: "star-tribune",
     name: "Star Tribune",
-    logoSrc: "/press/star-tribune.svg",
-    logoWidth: 44,
-    logoHeight: 44,
-    fontClass: "font-serif font-semibold",
-    nameColor: "#111827",
+    wordmarkSrc: "/press/wordmarks/star-tribune.svg",
+    wordmarkWidth: 156,
+    wordmarkHeight: 40,
   },
   {
-    id: "streetinsider",
-    name: "StreetInsider",
-    logoSrc: "/press/streetinsider.svg",
-    logoWidth: 44,
-    logoHeight: 44,
-    fontClass: "font-sans font-bold uppercase tracking-[0.12em]",
-    nameColor: "#14532d",
+    id: "pittsburgh-post-gazette",
+    name: "Pittsburgh Post-Gazette",
+    wordmarkSrc: "/press/wordmarks/pittsburgh-post-gazette.svg",
+    wordmarkWidth: 220,
+    wordmarkHeight: 40,
   },
   {
     id: "wral",
     name: "WRAL",
-    logoSrc: "/press/wral.svg",
-    logoWidth: 44,
-    logoHeight: 44,
-    fontClass: "font-sans font-black tracking-widest",
-    nameColor: "#b91c1c",
-  },
-  {
-    id: "newsok",
-    name: "NewsOK",
-    logoSrc: "/press/newsok.svg",
-    logoWidth: 44,
-    logoHeight: 44,
-    fontClass: "font-sans font-bold",
-    nameColor: "#1e3a8a",
+    wordmarkSrc: "/press/wordmarks/wral.svg",
+    wordmarkWidth: 108,
+    wordmarkHeight: 40,
   },
   {
     id: "townhall",
     name: "Townhall",
-    logoSrc: "/press/townhall.svg",
-    logoWidth: 44,
-    logoHeight: 44,
-    fontClass: "font-serif font-bold",
-    nameColor: "#991b1b",
+    wordmarkSrc: "/press/wordmarks/townhall.svg",
+    wordmarkWidth: 148,
+    wordmarkHeight: 40,
+  },
+  {
+    id: "ibtimes",
+    name: "IBTimes",
+    wordmarkSrc: "/press/wordmarks/ibtimes.svg",
+    wordmarkWidth: 132,
+    wordmarkHeight: 40,
   },
   {
     id: "business-insurance",
     name: "Business Insurance",
-    logoSrc: "/press/business-insurance.svg",
-    logoWidth: 44,
-    logoHeight: 44,
-    fontClass: "font-sans font-semibold",
-    nameColor: "#0f4c81",
+    wordmarkSrc: "/press/wordmarks/business-insurance.svg",
+    wordmarkWidth: 196,
+    wordmarkHeight: 40,
   },
   {
     id: "press-telegram",
     name: "Press-Telegram",
-    logoSrc: "/press/press-telegram.svg",
-    logoWidth: 44,
-    logoHeight: 44,
-    fontClass: "font-serif font-bold italic",
-    nameColor: "#1f2937",
+    wordmarkSrc: "/press/wordmarks/press-telegram.svg",
+    wordmarkWidth: 176,
+    wordmarkHeight: 40,
+  },
+  {
+    id: "newsok",
+    name: "NewsOK",
+    wordmarkSrc: "/press/wordmarks/newsok.svg",
+    wordmarkWidth: 128,
+    wordmarkHeight: 40,
+  },
+  {
+    id: "sun-chronicle",
+    name: "Sun Chronicle",
+    wordmarkSrc: "/press/wordmarks/sun-chronicle.svg",
+    wordmarkWidth: 168,
+    wordmarkHeight: 40,
   },
 ];
