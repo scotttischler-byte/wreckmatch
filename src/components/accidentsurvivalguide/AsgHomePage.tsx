@@ -1,8 +1,9 @@
 import { ArrowRight, CheckCircle2, Clock, Heart } from "lucide-react";
+import { AsgFunnelLink } from "@/components/accidentsurvivalguide/AsgFunnelLink";
+import { AsgFunnelPromo } from "@/components/accidentsurvivalguide/AsgFunnelPromo";
 import { AsgLink } from "@/components/accidentsurvivalguide/AsgLink";
 import { HomeLeadMagnets } from "@/components/accidentsurvivalguide/HomeLeadMagnets";
 import { asg, asgCn } from "@/components/accidentsurvivalguide/asg-ui";
-import { WRECKMATCH_URL } from "@/lib/accidentsurvivalguide";
 import type { Messages } from "@/lib/i18n/get-messages";
 
 export function AsgHomePage({ messages: m }: { messages: Messages }) {
@@ -100,6 +101,8 @@ export function AsgHomePage({ messages: m }: { messages: Messages }) {
         </div>
       </section>
 
+      <AsgFunnelPromo />
+
       <section id="faq" className={asgCn(asg.section, "scroll-mt-20 border-t border-asg-border/60 bg-asg-surface")}>
         <div className={asg.containerNarrow}>
           <h2 className={asg.h2}>{h.faqTitle}</h2>
@@ -118,13 +121,22 @@ export function AsgHomePage({ messages: m }: { messages: Messages }) {
         <div className={asgCn(asg.containerNarrow, "text-center")}>
           <h2 className="font-serif text-2xl font-semibold sm:text-3xl">{h.helpTitle}</h2>
           <p className="mx-auto mt-3 max-w-lg text-base leading-relaxed text-asg-sky">{h.helpBody}</p>
-          <a
-            href={WRECKMATCH_URL}
-            className="mt-6 inline-flex min-h-[48px] items-center rounded-lg bg-asg-sage px-6 text-sm font-semibold text-white transition hover:bg-asg-sage/90"
-            rel="noopener noreferrer"
-          >
-            {h.visitWreckmatch}
-          </a>
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <AsgFunnelLink
+              funnel="masterclass"
+              utmMedium="home_cta"
+              className="inline-flex min-h-[48px] items-center rounded-lg bg-asg-sage px-6 text-sm font-semibold text-white transition hover:bg-asg-sage/90"
+            >
+              {h.visitWreckmatch}
+            </AsgFunnelLink>
+            <AsgFunnelLink
+              funnel="bookCall"
+              utmMedium="home_cta"
+              className="inline-flex min-h-[48px] items-center rounded-lg border border-white/30 px-6 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
+              {h.bookCallCta}
+            </AsgFunnelLink>
+          </div>
         </div>
       </section>
     </>

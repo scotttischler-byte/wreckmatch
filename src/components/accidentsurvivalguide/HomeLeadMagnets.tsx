@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { BookOpen, Calculator, Headphones, ShieldCheck } from "lucide-react";
+import { AsgHeroWebinarBar } from "@/components/accidentsurvivalguide/AsgHeroWebinarBar";
 import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
 import { CalculatorLeadForm } from "@/components/accidentsurvivalguide/CalculatorLeadForm";
 import { ExpertIntakeBanner } from "@/components/accidentsurvivalguide/ExpertIntakeForm";
@@ -44,6 +45,8 @@ export function HomeLeadMagnets() {
             ))}
           </ul>
         </header>
+
+        <AsgHeroWebinarBar />
 
         <p className={asgCn(asg.legal, "mx-auto mt-6 max-w-2xl text-center")}>
           {messages.disclaimer}

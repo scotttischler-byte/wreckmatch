@@ -1,6 +1,7 @@
 "use client";
 
 import { SurvivalGuideDisclaimer } from "@/components/SurvivalGuideDisclaimer";
+import { AsgFunnelLink } from "@/components/accidentsurvivalguide/AsgFunnelLink";
 import { AsgLink } from "@/components/accidentsurvivalguide/AsgLink";
 import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
 import { asg, asgCn } from "@/components/accidentsurvivalguide/asg-ui";
@@ -37,6 +38,16 @@ export function SurvivalGuideFooter() {
                 <AsgLink href="/about" className="hover:text-asg-teal">
                   {f.aboutScott}
                 </AsgLink>
+              </li>
+              <li>
+                <AsgFunnelLink funnel="masterclass" utmMedium="footer" className="hover:text-asg-teal">
+                  {f.freeMasterclass}
+                </AsgFunnelLink>
+              </li>
+              <li>
+                <AsgFunnelLink funnel="bookCall" utmMedium="footer" className="hover:text-asg-teal">
+                  {f.bookStrategyCall}
+                </AsgFunnelLink>
               </li>
               <li>
                 <a href={WRECKMATCH_URL} className="hover:text-asg-teal" rel="noopener noreferrer">

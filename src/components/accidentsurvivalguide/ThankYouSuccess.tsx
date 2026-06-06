@@ -2,11 +2,13 @@
 
 import { useEffect } from "react";
 import { CheckCircle2, Download, MessageCircle, Scale } from "lucide-react";
+import { AsgFunnelLink } from "@/components/accidentsurvivalguide/AsgFunnelLink";
+import { AsgFunnelPromo } from "@/components/accidentsurvivalguide/AsgFunnelPromo";
 import { AsgLink } from "@/components/accidentsurvivalguide/AsgLink";
 import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
 import { WreckMatchQuickMatchForm } from "@/components/accidentsurvivalguide/WreckMatchQuickMatchForm";
 import { SurvivalGuideDisclaimer } from "@/components/SurvivalGuideDisclaimer";
-import { ASG_BASE_URL, SURVIVAL_GUIDE_PDF, WRECKMATCH_URL } from "@/lib/accidentsurvivalguide";
+import { ASG_BASE_URL, SURVIVAL_GUIDE_PDF } from "@/lib/accidentsurvivalguide";
 import { SUPPORT_PHONE_DISPLAY, SUPPORT_PHONE_E164 } from "@/lib/constants";
 import { openGhlChatWidget } from "@/lib/open-ghl-chat";
 import { formatMessage } from "@/lib/i18n/get-messages";
@@ -111,16 +113,22 @@ export function ThankYouSuccess({ email, firstName, state, phone, city }: ThankY
             }}
           />
           <p className="mt-4 text-[0.72rem] leading-relaxed text-[#7a8a98]">{t.wreckmatchDisclaimer}</p>
-          <a
-            href={WRECKMATCH_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackAsgEvent("wreckmatch_referral", { source: "thank_you_link" })}
-            className="mt-4 text-center text-sm font-semibold text-[#2a7a9b] underline underline-offset-2"
+          <AsgFunnelLink
+            funnel="bookCall"
+            utmMedium="thank_you_link"
+            className="mt-4 block text-center text-sm font-semibold text-[#2a7a9b] underline underline-offset-2"
           >
             {t.wreckmatchLink}
-          </a>
+          </AsgFunnelLink>
         </article>
+      </div>
+
+      <div className="mt-12 text-center">
+        <h2 className="font-serif text-2xl font-semibold text-[#1a3a52]">{t.funnelTitle}</h2>
+        <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-[#5b6b7f]">{t.funnelSubtitle}</p>
+        <div className="mt-6">
+          <AsgFunnelPromo variant="compact" />
+        </div>
       </div>
 
       <div className="mt-10 rounded-xl border border-[#c5dce8] bg-white p-6">

@@ -20,8 +20,31 @@ export const en = {
     getGuide: "Accident Survival Guide",
     freeGuide: "Survival Guide",
     calculator: "Compensation Calculator",
+    masterclass: "Free Masterclass",
+    bookCall: "Book a Call",
     menuOpen: "Open menu",
     menuClose: "Close menu",
+  },
+  funnel: {
+    eyebrow: "WreckMatch live training",
+    title: "Free masterclass & strategy call",
+    subtitle:
+      "Join our live training on what to do after a crash, or book a free call with our team. Both are educational—not legal advice.",
+    masterclassTitle: "Free Live Masterclass",
+    masterclassBody:
+      "Learn the steps insurers hope you miss, how to document your case, and when to get professional help—live with Q&A.",
+    masterclassSchedule: "LIVE Wednesday at 7PM ET · Free · ~60–90 minutes",
+    masterclassCta: "Reserve My Free Seat",
+    heroWebinarTitle: "Free Live Masterclass: What To Do After a Car Accident",
+    heroWebinarSchedule: "LIVE Wednesday at 7PM ET · Free registration · No cost to attend",
+    heroWebinarAlreadyRegistered: "Already registered?",
+    bookCallTitle: "Book a Free Strategy Call",
+    bookCallBody:
+      "Talk one-on-one with our team about your accident, your options, and whether an attorney match makes sense—no pressure.",
+    bookCallNote: "Pick a time that works for you",
+    bookCallCta: "Book My Free Call",
+    alreadyRegistered: "Already registered? View confirmation →",
+    alreadyBooked: "Already booked? View your appointment →",
   },
   lang: {
     switch: "Language",
@@ -64,16 +87,19 @@ export const en = {
       "Submitting either form may connect you with WreckMatch LLC, a legal referral service. We are not a law firm. Msg & data rates may apply for text opt-in. Reply STOP to unsubscribe.",
     leadMagnetsFooterLegal:
       "No attorney-client relationship is created by using these tools. Past results do not guarantee future outcomes. For advice about your specific case, consult a licensed attorney in your state.",
-    expertIntakeEyebrow: "Priority help",
+    expertIntakeEyebrow: "Priority help — 100% free",
     expertIntakeTitle: "Need to talk to someone now?",
     expertIntakeSubtitle:
       "Skip the wait — our expert intake team will review your case details and call you back ASAP (often within minutes during business hours).",
+    expertIntakeBadgeNoCost: "No cost",
+    expertIntakeBadgeConfidential: "Confidential",
+    expertIntakeBadgeFree: "100% free",
     expertIntakeDisclaimer:
-      "Educational intake only — not legal advice. By submitting, you agree to be contacted by phone/text about your accident.",
+      "Free, confidential intake only — not legal advice. By submitting, you agree to be contacted by phone/text about your accident.",
     expertIntakeConsent:
-      "I want the expert intake team to contact me ASAP about my accident. I understand this is not legal advice.",
+      "I want the expert intake team to contact me ASAP about my accident at no cost. I understand this is confidential and not legal advice.",
     expertIntakeConsentRequired: "Please confirm you want our intake team to contact you.",
-    expertIntakeCta: "Talk to Expert Intake — Call Me ASAP",
+    expertIntakeCta: "Call Me Back — Free, No Cost",
     expertIntakeSubmitting: "Connecting you with intake…",
     expertIntakeSuccess: "You're in the queue — our intake team will contact you shortly.",
     expertIntakeError: "Unable to submit. Please call us or try again.",
@@ -129,8 +155,9 @@ export const en = {
     faqTitle: "Frequently asked questions",
     helpTitle: "Need more help?",
     helpBody:
-      "Use the chat widget for our AI assistant Sarah (24/7)—educational support, not legal advice—or visit WreckMatch for a free attorney match in your state.",
-    visitWreckmatch: "Visit wreckmatch.com",
+      "Join our free live masterclass, book a strategy call with our team, or use Sarah in the chat for 24/7 educational support—not legal advice.",
+    visitWreckmatch: "Reserve free masterclass seat",
+    bookCallCta: "Book a free call",
   },
   benefits: [
     "A printable checklist for the first 24 hours after a crash",
@@ -268,6 +295,8 @@ export const en = {
     freeResources: "Free resources",
     aboutScott: "About Scott's story",
     attorneyMatch: "Attorney matching at WreckMatch",
+    freeMasterclass: "Free live masterclass",
+    bookStrategyCall: "Book a free strategy call",
     privacy: "Privacy Policy",
     terms: "Terms of Use",
     feeDisclaimer:
@@ -350,7 +379,9 @@ export const en = {
     ],
     wreckmatchDisclaimer:
       "WreckMatch LLC is a legal referral service. No obligation. You are not required to hire anyone. Not legal advice.",
-    wreckmatchLink: "Or visit wreckmatch.com →",
+    wreckmatchLink: "Or book a free strategy call →",
+    funnelTitle: "Want to go deeper?",
+    funnelSubtitle: "Join our live masterclass or book a free call with our team—optional next steps after your guide.",
     backHome: "← Back to homepage",
     there: "there",
     matchDone: "Thank you — a specialist should reach out shortly about your free attorney match.",

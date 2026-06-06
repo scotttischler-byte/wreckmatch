@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Headphones, Loader2, PhoneCall } from "lucide-react";
+import { Headphones, Loader2, Lock, PhoneCall, ShieldCheck } from "lucide-react";
 import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
 import { AsgAccidentIntakeFields } from "@/components/accidentsurvivalguide/AsgAccidentIntakeFields";
 import { AsgConsentRow, AsgFormError, AsgFormField } from "@/components/accidentsurvivalguide/AsgFormField";
@@ -216,6 +216,23 @@ export function ExpertIntakeBanner() {
               {h.expertIntakeTitle}
             </h2>
             <p className={asgCn(asg.bodySm, "mt-1")}>{h.expertIntakeSubtitle}</p>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {[h.expertIntakeBadgeFree, h.expertIntakeBadgeNoCost, h.expertIntakeBadgeConfidential].map(
+                (badge, index) => (
+                  <li
+                    key={badge}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-asg-teal/30 bg-asg-teal/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-asg-teal"
+                  >
+                    {index === 2 ? (
+                      <Lock className="size-3.5" aria-hidden />
+                    ) : (
+                      <ShieldCheck className="size-3.5" aria-hidden />
+                    )}
+                    {badge}
+                  </li>
+                ),
+              )}
+            </ul>
           </div>
         </div>
       </div>

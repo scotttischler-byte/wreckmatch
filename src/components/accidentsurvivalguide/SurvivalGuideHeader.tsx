@@ -15,6 +15,7 @@ export function SurvivalGuideHeader() {
   const NAV_LINKS = [
     { href: "/#first-24-hours", label: nav.first24 },
     { href: "/calculator", label: nav.calculator },
+    { href: "/masterclass", label: nav.masterclass },
     { href: "/resources", label: nav.resources },
     { href: "/blog", label: nav.blog },
     { href: "/about", label: nav.about },

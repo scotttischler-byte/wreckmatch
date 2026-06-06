@@ -24,7 +24,8 @@ type AsgEvent =
   | "calculator_open_chat"
   | "calculator_download_results"
   | "calculator_lead_magnet_submit"
-  | "expert_intake_asap_submit";
+  | "expert_intake_asap_submit"
+  | "wreckmatch_funnel_click";
 
 declare global {
   interface Window {

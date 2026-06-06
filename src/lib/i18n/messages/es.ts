@@ -22,8 +22,31 @@ export const es: Messages = {
     getGuide: "Guía de Supervivencia",
     freeGuide: "Guía",
     calculator: "Calculadora de compensación",
+    masterclass: "Masterclass Gratis",
+    bookCall: "Agendar Llamada",
     menuOpen: "Abrir menú",
     menuClose: "Cerrar menú",
+  },
+  funnel: {
+    eyebrow: "Capacitación en vivo de WreckMatch",
+    title: "Masterclass gratis y llamada estratégica",
+    subtitle:
+      "Únase a nuestra capacitación en vivo sobre qué hacer después de un choque, o agende una llamada gratis con nuestro equipo. Ambos son educativos—no es asesoría legal.",
+    masterclassTitle: "Masterclass en Vivo Gratis",
+    masterclassBody:
+      "Aprenda los pasos que las aseguradoras esperan que omita, cómo documentar su caso y cuándo buscar ayuda profesional—en vivo con preguntas y respuestas.",
+    masterclassSchedule: "EN VIVO miércoles 7PM ET · Gratis · ~60–90 minutos",
+    masterclassCta: "Reservar Mi Lugar Gratis",
+    heroWebinarTitle: "Masterclass en Vivo Gratis: Qué Hacer Después de un Accidente",
+    heroWebinarSchedule: "EN VIVO miércoles 7PM ET · Registro gratis · Sin costo",
+    heroWebinarAlreadyRegistered: "¿Ya se registró?",
+    bookCallTitle: "Agendar Llamada Estratégica Gratis",
+    bookCallBody:
+      "Hable uno a uno con nuestro equipo sobre su accidente, sus opciones y si una referencia de abogado tiene sentido—sin presión.",
+    bookCallNote: "Elija la hora que le convenga",
+    bookCallCta: "Agendar Mi Llamada Gratis",
+    alreadyRegistered: "¿Ya se registró? Ver confirmación →",
+    alreadyBooked: "¿Ya agendó? Ver su cita →",
   },
   lang: {
     switch: "Idioma",
@@ -66,16 +89,19 @@ export const es: Messages = {
       "Enviar cualquier formulario puede conectarlo con WreckMatch LLC, un servicio de referencia legal. No somos un bufete. Pueden aplicar tarifas de mensajes si opta por texto. Responda STOP para cancelar.",
     leadMagnetsFooterLegal:
       "No se crea relación abogado-cliente al usar estas herramientas. Los resultados pasados no garantizan resultados futuros. Para su caso, consulte a un abogado licenciado en su estado.",
-    expertIntakeEyebrow: "Ayuda prioritaria",
+    expertIntakeEyebrow: "Ayuda prioritaria — 100% gratis",
     expertIntakeTitle: "¿Necesita hablar con alguien ahora?",
     expertIntakeSubtitle:
       "Sin espera — nuestro equipo de admisión revisará su caso y le llamará lo antes posible (a menudo en minutos en horario laboral).",
+    expertIntakeBadgeNoCost: "Sin costo",
+    expertIntakeBadgeConfidential: "Confidencial",
+    expertIntakeBadgeFree: "100% gratis",
     expertIntakeDisclaimer:
-      "Solo admisión educativa — no es asesoría legal. Al enviar, acepta ser contactado por teléfono/mensaje sobre su accidente.",
+      "Admisión gratuita y confidencial — no es asesoría legal. Al enviar, acepta ser contactado por teléfono/mensaje sobre su accidente.",
     expertIntakeConsent:
-      "Quiero que el equipo de admisión me contacte lo antes posible sobre mi accidente. Entiendo que esto no es asesoría legal.",
+      "Quiero que el equipo de admisión me contacte lo antes posible sobre mi accidente sin costo. Entiendo que esto es confidencial y no es asesoría legal.",
     expertIntakeConsentRequired: "Confirme que desea que nuestro equipo de admisión le contacte.",
-    expertIntakeCta: "Hablar con admisión experta — llámenme YA",
+    expertIntakeCta: "Llámenme — gratis, sin costo",
     expertIntakeSubmitting: "Conectando con admisión…",
     expertIntakeSuccess: "Está en la cola — nuestro equipo de admisión le contactará pronto.",
     expertIntakeError: "No se pudo enviar. Llámenos o intente de nuevo.",
@@ -130,8 +156,9 @@ export const es: Messages = {
     faqTitle: "Preguntas frecuentes",
     helpTitle: "¿Necesita más ayuda?",
     helpBody:
-      "Use el chat con nuestra asistente Sarah (24/7)—apoyo educativo, no asesoría legal—o visite WreckMatch para una referencia gratuita de abogado en su estado.",
-    visitWreckmatch: "Visitar wreckmatch.com",
+      "Únase a nuestra masterclass en vivo gratis, agende una llamada estratégica con nuestro equipo, o use Sarah en el chat para apoyo educativo 24/7—no es asesoría legal.",
+    visitWreckmatch: "Reservar lugar en masterclass gratis",
+    bookCallCta: "Agendar llamada gratis",
   },
   benefits: [
     "Una lista imprimible para las primeras 24 horas después de un choque",
@@ -269,6 +296,8 @@ export const es: Messages = {
     freeResources: "Recursos gratuitos",
     aboutScott: "La historia de Scott",
     attorneyMatch: "Referencia de abogados en WreckMatch",
+    freeMasterclass: "Masterclass en vivo gratis",
+    bookStrategyCall: "Agendar llamada estratégica gratis",
     privacy: "Política de Privacidad",
     terms: "Términos de Uso",
     feeDisclaimer:
@@ -351,7 +380,10 @@ export const es: Messages = {
     ],
     wreckmatchDisclaimer:
       "WreckMatch LLC es un servicio de referencia legal. Sin obligación. No está obligado a contratar a nadie. No es asesoría legal.",
-    wreckmatchLink: "O visite wreckmatch.com →",
+    wreckmatchLink: "O agende una llamada estratégica gratis →",
+    funnelTitle: "¿Quiere profundizar más?",
+    funnelSubtitle:
+      "Únase a nuestra masterclass en vivo o agende una llamada gratis con nuestro equipo—pasos opcionales después de su guía.",
     backHome: "← Volver al inicio",
     there: "amigo/a",
     matchDone:
