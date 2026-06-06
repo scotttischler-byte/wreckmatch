@@ -15,7 +15,10 @@ export const asg = {
   container: "mx-auto max-w-6xl px-4 sm:px-6",
   containerNarrow: "mx-auto max-w-3xl px-4 sm:px-6",
   card: "rounded-xl border border-asg-border/80 bg-asg-surface shadow-sm",
-  cardPad: "rounded-xl border border-asg-border/80 bg-asg-surface p-6 shadow-sm",
+  cardPad: "rounded-2xl border border-asg-border/70 bg-asg-surface p-6 shadow-sm shadow-asg-navy/[0.04]",
+  cardElevated:
+    "rounded-2xl border border-asg-border/60 bg-asg-surface p-6 shadow-lg shadow-asg-navy/[0.06]",
+  cardSoft: "rounded-2xl border border-asg-border/50 bg-asg-elevated/80 p-6",
   pill: "inline-flex items-center gap-1.5 rounded-full border border-asg-border bg-asg-surface px-3 py-1.5 text-xs font-medium text-asg-navy/80 shadow-sm",
   btnPrimary:
     "inline-flex min-h-[48px] items-center justify-center rounded-lg bg-asg-teal px-5 text-sm font-semibold text-white transition hover:bg-asg-teal-hover active:scale-[0.98] disabled:opacity-60",

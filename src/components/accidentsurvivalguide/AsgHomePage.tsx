@@ -1,7 +1,8 @@
-import { ArrowRight, CheckCircle2, Clock, Heart } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock } from "lucide-react";
+import { AsgFounderCard } from "@/components/accidentsurvivalguide/AsgFounderCard";
 import { AsgFunnelLink } from "@/components/accidentsurvivalguide/AsgFunnelLink";
-import { AsgFunnelPromo } from "@/components/accidentsurvivalguide/AsgFunnelPromo";
 import { AsgLink } from "@/components/accidentsurvivalguide/AsgLink";
+import { AsgTrustStrip } from "@/components/accidentsurvivalguide/AsgTrustStrip";
 import { HomeLeadMagnets } from "@/components/accidentsurvivalguide/HomeLeadMagnets";
 import { asg, asgCn } from "@/components/accidentsurvivalguide/asg-ui";
 import type { Messages } from "@/lib/i18n/get-messages";
@@ -13,13 +14,11 @@ export function AsgHomePage({ messages: m }: { messages: Messages }) {
     <>
       <HomeLeadMagnets />
 
-      <section className={asgCn(asg.sectionTight, "border-b border-asg-border/40 bg-asg-surface")}>
+      <section className={asgCn(asg.sectionTight, "border-b border-asg-border/40 bg-asg-surface/80")}>
         <div className={asgCn(asg.container, "grid items-center gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-12")}>
-          <blockquote className={asg.cardPad}>
-            <Heart className="size-6 text-asg-sage" aria-hidden />
-            <p className={asgCn(asg.body, "mt-4 text-lg")}>&ldquo;{h.storyQuote}&rdquo;</p>
-            <footer className="mt-4 text-sm font-medium text-asg-teal">{h.storyAttribution}</footer>
-          </blockquote>
+          <div className={asg.cardElevated}>
+            <AsgFounderCard variant="story" />
+          </div>
           <div>
             <h2 className={asg.h2}>{h.insideTitle}</h2>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -101,8 +100,6 @@ export function AsgHomePage({ messages: m }: { messages: Messages }) {
         </div>
       </section>
 
-      <AsgFunnelPromo />
-
       <section id="faq" className={asgCn(asg.section, "scroll-mt-20 border-t border-asg-border/60 bg-asg-surface")}>
         <div className={asg.containerNarrow}>
           <h2 className={asg.h2}>{h.faqTitle}</h2>
@@ -117,10 +114,13 @@ export function AsgHomePage({ messages: m }: { messages: Messages }) {
         </div>
       </section>
 
-      <section className="bg-asg-navy py-14 text-white sm:py-16">
+      <section className="bg-gradient-to-b from-asg-navy to-asg-navy-deep py-14 text-white sm:py-16">
         <div className={asgCn(asg.containerNarrow, "text-center")}>
           <h2 className="font-serif text-2xl font-semibold sm:text-3xl">{h.helpTitle}</h2>
           <p className="mx-auto mt-3 max-w-lg text-base leading-relaxed text-asg-sky">{h.helpBody}</p>
+          <div className="mx-auto mt-6 max-w-xl">
+            <AsgTrustStrip variant="dark" />
+          </div>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <AsgLink
               href="/webinar"

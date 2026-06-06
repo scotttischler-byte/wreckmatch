@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { BookOpen, Calculator, Headphones, ShieldCheck } from "lucide-react";
+import { BookOpen, Calculator, Headphones } from "lucide-react";
 import { AsgHeroWebinarBar } from "@/components/accidentsurvivalguide/AsgHeroWebinarBar";
+import { AsgTrustStrip } from "@/components/accidentsurvivalguide/AsgTrustStrip";
 import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
 import { CalculatorLeadForm } from "@/components/accidentsurvivalguide/CalculatorLeadForm";
 import { ExpertIntakeBanner } from "@/components/accidentsurvivalguide/ExpertIntakeForm";
@@ -26,7 +27,7 @@ export function HomeLeadMagnets() {
   return (
     <section
       id="get-help"
-      className="relative scroll-mt-20 border-b border-asg-border/50 bg-gradient-to-b from-asg-elevated to-asg-page"
+      className="relative scroll-mt-20 border-b border-asg-border/40"
       aria-labelledby="home-hero-heading"
     >
       <div className={asgCn(asg.container, "relative pb-12 pt-8 sm:pb-16 sm:pt-12")}>
@@ -36,25 +37,23 @@ export function HomeLeadMagnets() {
             {h.heroTitle}
           </h1>
           <p className={asgCn(asg.body, "mt-4 text-lg sm:mt-5")}>{h.leadMagnetsHeroLine}</p>
-          <ul className="mt-5 flex flex-wrap items-center justify-center gap-2">
-            {[h.trustFree, h.trustFast, h.trustNoObligation].map((badge) => (
-              <li key={badge} className={asg.pill}>
-                <ShieldCheck className="size-3.5 text-asg-sage" aria-hidden />
-                {badge}
-              </li>
-            ))}
-          </ul>
+          <div className="mt-5">
+            <AsgTrustStrip variant="inline" />
+          </div>
         </header>
 
         <AsgHeroWebinarBar />
 
-        <p className={asgCn(asg.legal, "mx-auto mt-6 max-w-2xl text-center")}>
+        <p className={asgCn(asg.legal, "mx-auto mt-6 max-w-2xl text-center text-asg-subtle/90")}>
           {messages.disclaimer}
         </p>
 
         <div id="asg-hero-end" className="h-px w-full" aria-hidden />
 
-        <div role="tablist" aria-label={h.leadMagnetsTitle} className="mt-8 flex gap-2 lg:hidden">
+        <p className={asgCn(asg.eyebrow, "mt-10 text-center")}>{h.leadMagnetsEyebrow}</p>
+        <h2 className={asgCn(asg.h2, "mt-2 text-center")}>{h.leadMagnetsTitle}</h2>
+
+        <div role="tablist" aria-label={h.leadMagnetsTitle} className="mt-6 flex gap-2 lg:hidden">
           {mobileTabs.map(({ id, label, icon: Icon }) => {
             const selected = mobileTab === id;
             return (
@@ -86,7 +85,7 @@ export function HomeLeadMagnets() {
             role="tabpanel"
             aria-labelledby="tab-calculator"
             className={cn(
-              "overflow-hidden rounded-2xl border border-asg-border bg-asg-surface shadow-md",
+              "overflow-hidden rounded-2xl border border-asg-border/70 bg-asg-surface shadow-md shadow-asg-navy/[0.04]",
               mobileTab !== "calculator" && "hidden lg:block",
             )}
           >
@@ -106,7 +105,7 @@ export function HomeLeadMagnets() {
             role="tabpanel"
             aria-labelledby="tab-guide"
             className={cn(
-              "scroll-mt-24 overflow-hidden rounded-2xl border border-asg-border bg-asg-surface shadow-md",
+              "scroll-mt-24 overflow-hidden rounded-2xl border border-asg-border/70 bg-asg-surface shadow-md shadow-asg-navy/[0.04]",
               mobileTab !== "guide" && "hidden lg:block",
             )}
           >

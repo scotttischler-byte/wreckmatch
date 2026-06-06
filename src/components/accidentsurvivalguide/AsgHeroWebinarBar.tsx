@@ -1,35 +1,48 @@
 "use client";
 
 import { GraduationCap, Phone } from "lucide-react";
+import { AsgFounderCard } from "@/components/accidentsurvivalguide/AsgFounderCard";
 import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
 import { AsgFunnelLink } from "@/components/accidentsurvivalguide/AsgFunnelLink";
 import { AsgLink } from "@/components/accidentsurvivalguide/AsgLink";
+import { AsgTrustStrip } from "@/components/accidentsurvivalguide/AsgTrustStrip";
 import { WebinarSignupForm } from "@/components/accidentsurvivalguide/WebinarSignupForm";
 
-/** Above-the-fold webinar signup + book-call promo on the homepage hero. */
+/** Above-the-fold webinar signup with Scott as host — homepage hero. */
 export function AsgHeroWebinarBar() {
   const { messages, href } = useAsgLocale();
   const f = messages.funnel;
+  const founder = messages.founder;
 
   return (
-    <div className="mx-auto mt-8 max-w-4xl overflow-hidden rounded-2xl border-2 border-asg-teal/40 bg-gradient-to-br from-asg-navy via-asg-navy to-asg-teal shadow-lg">
-      <div className="grid gap-6 p-5 sm:p-6 lg:grid-cols-[1fr_1.05fr] lg:items-start">
-        <div className="min-w-0">
-          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-asg-sky">
+    <div className="mx-auto mt-8 max-w-5xl overflow-hidden rounded-3xl border border-asg-teal/25 bg-gradient-to-br from-asg-navy-deep via-asg-navy to-[#1e5f7a] shadow-xl shadow-asg-navy/20">
+      <div className="grid gap-0 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
+        <div className="border-b border-white/10 p-5 sm:p-6 lg:border-b-0 lg:border-r">
+          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-asg-sage">
             <GraduationCap className="size-4 shrink-0" aria-hidden />
             {f.eyebrow}
           </p>
-          <p className="mt-2 font-serif text-lg font-semibold leading-snug text-white sm:text-xl">
+
+          <div className="mt-5">
+            <AsgFounderCard variant="dark" showQuote={false} />
+          </div>
+
+          <p className="mt-4 text-sm leading-relaxed text-white/90">{founder.webinarIntro}</p>
+          <p className="mt-3 font-serif text-lg font-semibold leading-snug text-white sm:text-xl">
             {f.heroWebinarTitle}
           </p>
           <p className="mt-2 text-sm font-medium text-asg-sky">{f.heroWebinarSchedule}</p>
-          <p className="mt-2 text-sm leading-relaxed text-white/85">{f.masterclassBody}</p>
-          <p className="mt-4 text-sm font-semibold text-asg-sage">{messages.webinarForm.noCostNote}</p>
-          <div className="mt-4 flex flex-wrap gap-3">
+          <p className="mt-3 text-sm font-semibold text-asg-sage">{messages.webinarForm.noCostNote}</p>
+
+          <div className="mt-5">
+            <AsgTrustStrip variant="dark" />
+          </div>
+
+          <div className="mt-5 flex flex-wrap gap-4">
             <AsgFunnelLink
               funnel="bookCall"
               utmMedium="hero_webinar_bar"
-              className="inline-flex min-h-[40px] items-center gap-2 text-sm font-semibold text-white underline underline-offset-2 hover:text-asg-sky"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-white underline underline-offset-2 hover:text-asg-sky"
             >
               <Phone className="size-4" aria-hidden />
               {f.bookCallCta}
@@ -43,8 +56,9 @@ export function AsgHeroWebinarBar() {
           </div>
         </div>
 
-        <div className="rounded-xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm sm:p-5">
-          <p className="mb-3 text-sm font-semibold text-white">{messages.webinarForm.heroFormTitle}</p>
+        <div className="bg-white/[0.07] p-5 backdrop-blur-sm sm:p-6">
+          <p className="mb-1 text-sm font-semibold text-white">{messages.webinarForm.heroFormTitle}</p>
+          <p className="mb-4 text-xs text-asg-sky">{messages.webinarForm.formSubtitle}</p>
           <WebinarSignupForm variant="hero" formName="asg-webinar-hero" />
         </div>
       </div>

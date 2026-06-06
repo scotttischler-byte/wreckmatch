@@ -202,7 +202,7 @@ export function ExpertIntakeBanner() {
   return (
     <section
       id="expert-intake"
-      className="scroll-mt-24 overflow-hidden rounded-2xl border border-asg-border bg-asg-surface shadow-md"
+      className="scroll-mt-24 overflow-hidden rounded-2xl border border-asg-border/70 bg-asg-surface shadow-md shadow-asg-navy/[0.04]"
       aria-labelledby="expert-intake-heading"
     >
       <div className="border-b border-asg-border bg-asg-elevated px-5 py-4">

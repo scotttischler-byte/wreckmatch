@@ -3,6 +3,7 @@ export const ASG_DOMAIN = "www.accidentsurvivalguide.com";
 export const ASG_BASE_URL = `https://${ASG_DOMAIN}`;
 export const WRECKMATCH_URL = "https://www.wreckmatch.com";
 export const SURVIVAL_GUIDE_PDF = "/accident-survival-guide-2026-edition.pdf";
+export const SCOTT_FOUNDER_IMAGE = "/team/scott-tischler.jpg";
 
 export const ASG_HOSTS = [
   "accidentsurvivalguide.com",

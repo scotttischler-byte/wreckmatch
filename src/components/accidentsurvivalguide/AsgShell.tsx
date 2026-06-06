@@ -21,7 +21,7 @@ export function AsgShell({
       lang={lang}
       className={cn(
         asgSerif.variable,
-        "min-h-screen bg-asg-page font-sans text-asg-navy antialiased",
+        "asg-page-texture min-h-screen font-sans text-asg-navy antialiased",
         className,
       )}
     >

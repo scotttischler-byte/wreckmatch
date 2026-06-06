@@ -80,6 +80,26 @@ export const en = {
     backHome: "← Back to homepage",
     there: "there",
   },
+  founder: {
+    name: "Scott Tischler",
+    title: "Co-Founder, WreckMatch LLC",
+    hostLabel: "Your host",
+    imageAlt: "Scott Tischler, co-founder of WreckMatch and host of the free masterclass",
+    credentials: "Survived 2 car accidents · Law & insurance background · Built WreckMatch to help everyday drivers",
+    quote:
+      "When I got in a car wreck, I had no idea what to do. The insurance company was calling, I was in pain, and I felt completely overwhelmed. That's why I created this — so you don't have to go through it alone.",
+    webinarIntro:
+      "Join me live for a calm, plain-English walkthrough of what to do after a crash — and what insurers hope you never learn.",
+  },
+  trust: {
+    stripAria: "Safety and trust",
+    items: [
+      "100% free — no cost",
+      "Confidential signup",
+      "No obligation",
+      "Educational only — not a law firm",
+    ],
+  },
   lang: {
     switch: "Language",
     en: "English",

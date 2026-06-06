@@ -1,10 +1,10 @@
 "use client";
 
 import { Calendar, GraduationCap, Phone } from "lucide-react";
+import { AsgFounderCard } from "@/components/accidentsurvivalguide/AsgFounderCard";
 import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
 import { AsgFunnelLink } from "@/components/accidentsurvivalguide/AsgFunnelLink";
 import { AsgLink } from "@/components/accidentsurvivalguide/AsgLink";
-import { WebinarSignupForm } from "@/components/accidentsurvivalguide/WebinarSignupForm";
 import { asg, asgCn } from "@/components/accidentsurvivalguide/asg-ui";
 
 type Variant = "full" | "compact";
@@ -33,7 +33,7 @@ export function AsgFunnelPromo({ variant = "full" }: { variant?: Variant }) {
   }
 
   return (
-    <section className={asgCn(asg.sectionTight, "border-y border-asg-border/50 bg-asg-elevated")}>
+    <section className={asgCn(asg.sectionTight, "border-y border-asg-border/50 bg-asg-elevated/60")}>
       <div className={asg.container}>
         <div className="mx-auto max-w-2xl text-center">
           <p className={asg.eyebrow}>{f.eyebrow}</p>
@@ -42,14 +42,15 @@ export function AsgFunnelPromo({ variant = "full" }: { variant?: Variant }) {
         </div>
 
         <div className="mt-8 grid gap-4 md:grid-cols-2">
-          <article className={asgCn(asg.cardPad, "flex flex-col")}>
-            <GraduationCap className="size-8 text-asg-teal" aria-hidden />
-            <h3 className={asgCn(asg.h3, "mt-4")}>{f.masterclassTitle}</h3>
+          <article className={asgCn(asg.cardElevated, "flex flex-col")}>
+            <AsgFounderCard variant="compact" showQuote={false} hostLabel={messages.founder.hostLabel} />
+            <h3 className={asgCn(asg.h3, "mt-5")}>{f.masterclassTitle}</h3>
             <p className={asgCn(asg.bodySm, "mt-2 flex-1")}>{f.masterclassBody}</p>
             <p className={asgCn(asg.legal, "mt-3")}>{f.masterclassSchedule}</p>
-            <div className="mt-5">
-              <WebinarSignupForm variant="card" formName="asg-webinar-promo-card" />
-            </div>
+            <AsgLink href={href("/webinar")} className={asgCn(asg.btnPrimary, "mt-5 w-full gap-2")}>
+              <GraduationCap className="size-4" aria-hidden />
+              {f.masterclassCta}
+            </AsgLink>
             <AsgFunnelLink
               funnel="webinarConfirmed"
               utmMedium="promo_card_registered"
@@ -59,7 +60,7 @@ export function AsgFunnelPromo({ variant = "full" }: { variant?: Variant }) {
             </AsgFunnelLink>
           </article>
 
-          <article className={asgCn(asg.cardPad, "flex flex-col")}>
+          <article className={asgCn(asg.cardElevated, "flex flex-col")}>
             <Phone className="size-8 text-asg-sage" aria-hidden />
             <h3 className={asgCn(asg.h3, "mt-4")}>{f.bookCallTitle}</h3>
             <p className={asgCn(asg.bodySm, "mt-2 flex-1")}>{f.bookCallBody}</p>

@@ -2,8 +2,10 @@
 
 import { useEffect } from "react";
 import { Calendar, CheckCircle2 } from "lucide-react";
+import { AsgFounderCard } from "@/components/accidentsurvivalguide/AsgFounderCard";
 import { AsgFunnelLink } from "@/components/accidentsurvivalguide/AsgFunnelLink";
 import { AsgLink } from "@/components/accidentsurvivalguide/AsgLink";
+import { AsgTrustStrip } from "@/components/accidentsurvivalguide/AsgTrustStrip";
 import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
 import { asg, asgCn } from "@/components/accidentsurvivalguide/asg-ui";
 import { formatMessage } from "@/lib/i18n/get-messages";
@@ -25,7 +27,7 @@ export function WebinarThankYou({ email, firstName }: Props) {
 
   return (
     <section className={asgCn(asg.containerNarrow, "py-12 sm:py-20")}>
-      <div className={asgCn(asg.cardPad, "text-center")}>
+      <div className={asgCn(asg.cardElevated, "text-center")}>
         <div className="mx-auto flex size-16 items-center justify-center rounded-full bg-asg-elevated text-asg-teal">
           <CheckCircle2 className="size-9" aria-hidden />
         </div>
@@ -39,9 +41,15 @@ export function WebinarThankYou({ email, firstName }: Props) {
           <Calendar className="size-4 shrink-0 text-asg-teal" aria-hidden />
           {messages.funnel.masterclassSchedule}
         </p>
+        <div className="mx-auto mt-6 max-w-md">
+          <AsgFounderCard variant="compact" showQuote={false} hostLabel={messages.founder.hostLabel} />
+        </div>
+        <div className="mx-auto mt-6 max-w-lg">
+          <AsgTrustStrip variant="inline" />
+        </div>
       </div>
 
-      <div className={asgCn(asg.cardPad, "mt-8 text-center")}>
+      <div className={asgCn(asg.cardElevated, "mt-8 text-center")}>
         <h2 className={asg.h3}>{w.thankYouNextTitle}</h2>
         <p className={asgCn(asg.bodySm, "mt-2")}>{w.thankYouNextBody}</p>
         <AsgFunnelLink

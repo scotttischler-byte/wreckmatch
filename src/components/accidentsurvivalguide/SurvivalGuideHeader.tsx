@@ -33,7 +33,7 @@ export function SurvivalGuideHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-asg-border/70 bg-asg-surface/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-asg-border/60 bg-asg-surface/95 shadow-sm shadow-asg-navy/[0.04] backdrop-blur-md">
       <div className={asgCn(asg.container, "flex items-center justify-between gap-2 py-3 sm:py-4")}>
         <AsgLink
           href="/"

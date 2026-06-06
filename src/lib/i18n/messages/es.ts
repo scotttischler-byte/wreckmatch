@@ -84,6 +84,26 @@ export const es: Messages = {
     backHome: "← Volver al inicio",
     there: "amigo/a",
   },
+  founder: {
+    name: "Scott Tischler",
+    title: "Co-Fundador, WreckMatch LLC",
+    hostLabel: "Su anfitrión",
+    imageAlt: "Scott Tischler, co-fundador de WreckMatch y anfitrión de la masterclass gratuita",
+    credentials: "Sobrevivió 2 accidentes · Experiencia en ley y seguros · Creó WreckMatch para ayudar a conductores",
+    quote:
+      "Cuando tuve un accidente, no tenía idea de qué hacer. La aseguradora llamaba, tenía dolor y me sentía completamente abrumado. Por eso creé esto — para que no pase por esto solo.",
+    webinarIntro:
+      "Únase en vivo para una guía tranquila y en lenguaje sencillo sobre qué hacer después de un choque — y lo que las aseguradoras esperan que no sepa.",
+  },
+  trust: {
+    stripAria: "Seguridad y confianza",
+    items: [
+      "100% gratis — sin costo",
+      "Registro confidencial",
+      "Sin obligación",
+      "Solo educativo — no somos bufete",
+    ],
+  },
   lang: {
     switch: "Idioma",
     en: "English",
