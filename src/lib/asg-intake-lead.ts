@@ -1,6 +1,7 @@
 import type { AsgLeadInput } from "@/lib/asg-lead-pipeline";
 import {
   buildAccidentIntakeSummary,
+  intakeFieldLabels,
   intakeValueLabels,
   isAccidentIntakeComplete,
   parseAccidentIntakeFromBody,
@@ -9,10 +10,7 @@ import {
 import type { Locale } from "@/lib/i18n/config";
 import { getMessages } from "@/lib/i18n/get-messages";
 
-export function accidentIntakeLeadFields(
-  intake: AsgAccidentIntake,
-  locale: Locale,
-): Pick<
+type IntakeLeadFields = Pick<
   AsgLeadInput,
   | "accidentWhen"
   | "otherDriverAtFault"
@@ -20,18 +18,22 @@ export function accidentIntakeLeadFields(
   | "medicalTreatment"
   | "otherDriverInsurance"
   | "hasAttorney"
+  | "accidentType"
+  | "injured"
+  | "injurySeverity"
+  | "ownInsurance"
+  | "preferredCallbackTime"
+  | "additionalNotes"
   | "accidentIntakeSummary"
   | "caseDescription"
-> {
+>;
+
+export function accidentIntakeLeadFields(
+  intake: AsgAccidentIntake,
+  locale: Locale,
+): IntakeLeadFields {
   const m = getMessages(locale).form.intake;
-  const labels = {
-    accidentWhen: m.accidentWhen,
-    otherDriverAtFault: m.otherDriverAtFault,
-    policeReportFiled: m.policeReportFiled,
-    medicalTreatment: m.medicalTreatment,
-    otherDriverInsurance: m.otherDriverInsurance,
-    hasAttorney: m.hasAttorney,
-  };
+  const labels = intakeFieldLabels(m);
   const summary = buildAccidentIntakeSummary(intake, labels, intakeValueLabels(m));
 
   return {
@@ -41,6 +43,12 @@ export function accidentIntakeLeadFields(
     medicalTreatment: intake.medicalTreatment,
     otherDriverInsurance: intake.otherDriverInsurance,
     hasAttorney: intake.hasAttorney,
+    accidentType: intake.accidentType,
+    injured: intake.injured,
+    injurySeverity: intake.injurySeverity,
+    ownInsurance: intake.ownInsurance,
+    preferredCallbackTime: intake.preferredCallbackTime,
+    additionalNotes: intake.additionalNotes,
     accidentIntakeSummary: summary,
     caseDescription: summary,
   };
@@ -49,7 +57,7 @@ export function accidentIntakeLeadFields(
 export function parseAndValidateAccidentIntake(
   body: Record<string, unknown>,
   locale: Locale,
-): { intake: AsgAccidentIntake; fields: ReturnType<typeof accidentIntakeLeadFields> } | { error: string } {
+): { intake: AsgAccidentIntake; fields: IntakeLeadFields } | { error: string } {
   const intake = parseAccidentIntakeFromBody(body);
   const errors = getMessages(locale).form.errors;
   if (!isAccidentIntakeComplete(intake)) {

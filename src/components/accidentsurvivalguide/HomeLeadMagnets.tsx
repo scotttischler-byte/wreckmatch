@@ -3,6 +3,7 @@
 import { BookOpen, Calculator, Scale, ShieldCheck } from "lucide-react";
 import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
 import { CalculatorLeadForm } from "@/components/accidentsurvivalguide/CalculatorLeadForm";
+import { ExpertIntakeBanner } from "@/components/accidentsurvivalguide/ExpertIntakeForm";
 import { SurvivalGuideDownloadForm } from "@/components/accidentsurvivalguide/SurvivalGuideDownloadForm";
 
 export function HomeLeadMagnets() {
@@ -98,6 +99,10 @@ export function HomeLeadMagnets() {
               <SurvivalGuideDownloadForm embedded headline="checklist" />
             </div>
           </article>
+        </div>
+
+        <div className="mt-6 sm:mt-8">
+          <ExpertIntakeBanner />
         </div>
 
         <p className="mx-auto mt-6 flex max-w-3xl items-start gap-2 px-1 text-[0.68rem] leading-relaxed text-[#7a8a98] sm:mt-8 sm:justify-center sm:text-center sm:text-xs">

@@ -38,12 +38,14 @@ function resolveMagnetType(body: Record<string, unknown>): AsgLeadMagnetType {
     explicit === "survival-guide-download" ||
     explicit === "calculator-lead-magnet" ||
     explicit === "calculator-case-review" ||
-    explicit === "attorney-match"
+    explicit === "attorney-match" ||
+    explicit === "expert-intake-asap"
   ) {
     return explicit;
   }
 
   const src = str(body.lead_source);
+  if (src.includes("expert-intake")) return "expert-intake-asap";
   if (src.includes("calculator-lead-magnet")) return "calculator-lead-magnet";
   if (src.includes("compensation-calculator")) return "calculator-case-review";
   if (src.includes("thank-you")) return "attorney-match";
@@ -191,7 +193,8 @@ export async function POST(request: Request) {
 
     const magnetType = resolveMagnetType(body);
     const intake = parseAccidentIntakeFromBody(body);
-    const intakeRequired = magnetType === "calculator-lead-magnet";
+    const intakeRequired =
+      magnetType === "calculator-lead-magnet" || magnetType === "expert-intake-asap";
     if (intakeRequired && !isAccidentIntakeComplete(intake)) {
       return NextResponse.json(
         { success: false, message: getMessages(locale).form.errors.intakeIncomplete },
@@ -218,6 +221,8 @@ export async function POST(request: Request) {
       preferredLanguage: locale,
       caseDescription: str(body.caseDescription) || intakeFields.caseDescription,
       calculatorSummary: str(body.calculator_summary),
+      priorityIntake:
+        magnetType === "expert-intake-asap" || body.priority_intake === true,
       ...intakeFields,
     });
 

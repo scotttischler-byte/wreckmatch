@@ -33,6 +33,13 @@ export type AsgLeadFormPayload = {
   medicalTreatment?: string;
   otherDriverInsurance?: string;
   hasAttorney?: string;
+  accidentType?: string;
+  injured?: string;
+  injurySeverity?: string;
+  ownInsurance?: string;
+  preferredCallbackTime?: string;
+  additionalNotes?: string;
+  priority_intake?: boolean;
 };
 
 /** POST intake form → GHL (via /api/submit-lead on ASG). */
@@ -70,6 +77,13 @@ export type SurvivalGuideFormPayload = {
   medicalTreatment?: string;
   otherDriverInsurance?: string;
   hasAttorney?: string;
+  accidentType?: string;
+  injured?: string;
+  injurySeverity?: string;
+  ownInsurance?: string;
+  preferredCallbackTime?: string;
+  additionalNotes?: string;
+  priority_intake?: boolean;
 };
 
 /** POST guide download form → GHL (via /api/submit-survival-guide). */

@@ -17,7 +17,8 @@ export type AsgLeadMagnetType =
   | "survival-guide-download"
   | "calculator-lead-magnet"
   | "calculator-case-review"
-  | "attorney-match";
+  | "attorney-match"
+  | "expert-intake-asap";
 
 export type AsgLeadInput = {
   firstName: string;
@@ -41,7 +42,14 @@ export type AsgLeadInput = {
   medicalTreatment?: string;
   otherDriverInsurance?: string;
   hasAttorney?: string;
+  accidentType?: string;
+  injured?: string;
+  injurySeverity?: string;
+  ownInsurance?: string;
+  preferredCallbackTime?: string;
+  additionalNotes?: string;
   accidentIntakeSummary?: string;
+  priorityIntake?: boolean;
 };
 
 export type AsgLeadPipelineResult = {
@@ -68,6 +76,9 @@ function tagsForMagnet(type: AsgLeadMagnetType, state?: string): string[] {
     case "attorney-match":
       tags.push("attorney-match-lead", "wreckmatch-referral");
       break;
+    case "expert-intake-asap":
+      tags.push("expert-intake-asap", "priority-intake", "asap-callback");
+      break;
   }
   if (state) tags.push(`state-${state.toLowerCase()}`);
   return tags;
@@ -83,6 +94,8 @@ function automationTrigger(type: AsgLeadMagnetType): string {
       return "email_calculator_case_review";
     case "attorney-match":
       return "asg_attorney_match_request";
+    case "expert-intake-asap":
+      return "expert_intake_asap";
     default:
       return "asg_lead_followup";
   }
@@ -97,6 +110,8 @@ function offerForMagnet(type: AsgLeadMagnetType): string {
       return "Accident Compensation Calculator 2026";
     case "attorney-match":
       return "Free attorney match";
+    case "expert-intake-asap":
+      return "Expert intake — ASAP callback";
     default:
       return "Accident Survival Guide";
   }
@@ -123,6 +138,8 @@ export function buildAsgWebhookPayload(lead: AsgLeadInput, contactId?: string) {
     form_type: lead.magnetType,
     form_name: lead.formName || lead.magnetType,
     automation_trigger: automationTrigger(lead.magnetType),
+    priority_intake:
+      (lead.priorityIntake || lead.magnetType === "expert-intake-asap") ? "yes" : "no",
     trigger_sarah_call: "yes",
     offer: offerForMagnet(lead.magnetType),
     pdf_download_url: pdfUrl,
@@ -139,9 +156,15 @@ export function buildAsgWebhookPayload(lead: AsgLeadInput, contactId?: string) {
     medical_treatment: lead.medicalTreatment || "",
     other_driver_insurance: lead.otherDriverInsurance || "",
     has_attorney: lead.hasAttorney || "",
+    accident_type: lead.accidentType || "",
+    injured: lead.injured || "",
+    injury_severity: lead.injurySeverity || "",
+    own_insurance: lead.ownInsurance || "",
+    preferred_callback_time: lead.preferredCallbackTime || "",
+    additional_notes: lead.additionalNotes || "",
     accident_intake_summary: lead.accidentIntakeSummary || "",
     accident_date: lead.accidentWhen || "",
-    injury_status: lead.medicalTreatment || "",
+    injury_status: lead.injured || lead.medicalTreatment || "",
     insurance_status: lead.otherDriverInsurance || "",
     ghl_contact_id: contactId || "",
     created_at: new Date().toISOString(),
@@ -158,6 +181,8 @@ function sarahOfferLabel(type: AsgLeadMagnetType): string {
       return "calculator case review";
     case "attorney-match":
       return "free attorney match";
+    case "expert-intake-asap":
+      return "expert intake ASAP";
     default:
       return "Accident Survival Guide";
   }
@@ -217,6 +242,22 @@ export async function processAsgLead(lead: AsgLeadInput): Promise<AsgLeadPipelin
           : []),
         ...(lead.hasAttorney
           ? [{ key: "has_attorney", field_value: lead.hasAttorney }]
+          : []),
+        ...(lead.accidentType
+          ? [{ key: "accident_type", field_value: lead.accidentType }]
+          : []),
+        ...(lead.injured ? [{ key: "injured", field_value: lead.injured }] : []),
+        ...(lead.injurySeverity
+          ? [{ key: "injury_severity", field_value: lead.injurySeverity }]
+          : []),
+        ...(lead.ownInsurance
+          ? [{ key: "own_insurance", field_value: lead.ownInsurance }]
+          : []),
+        ...(lead.preferredCallbackTime
+          ? [{ key: "preferred_callback_time", field_value: lead.preferredCallbackTime }]
+          : []),
+        ...(lead.additionalNotes
+          ? [{ key: "additional_notes", field_value: lead.additionalNotes }]
           : []),
         ...(lead.accidentIntakeSummary
           ? [{ key: "accident_intake_summary", field_value: lead.accidentIntakeSummary }]

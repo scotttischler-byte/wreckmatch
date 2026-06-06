@@ -23,7 +23,8 @@ type AsgEvent =
   | "calculator_case_review"
   | "calculator_open_chat"
   | "calculator_download_results"
-  | "calculator_lead_magnet_submit";
+  | "calculator_lead_magnet_submit"
+  | "expert_intake_asap_submit";
 
 declare global {
   interface Window {

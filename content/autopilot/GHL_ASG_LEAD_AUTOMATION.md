@@ -42,6 +42,12 @@ Without `RETELL_API_KEY`, leads still save to GHL and emails still fire; Sarah i
 
 - Same as calculator access; include `{{inboundWebhookRequest.calculator_summary}}` in email or an internal note for your team
 
+### Branch: `expert_intake_asap`
+
+- Tags: `expert-intake-asap`, `priority-intake`, `asap-callback`
+- `priority_intake` = `yes` — route to intake team immediately (SMS + internal alert)
+- Full accident intake fields in webhook (`accident_when`, `accident_type`, `injured`, `injury_severity`, `own_insurance`, `preferred_callback_time`, `additional_notes`, etc.)
+
 ### Branch: `asg_attorney_match_request`
 
 - Tags: `attorney-match-lead`, `wreckmatch-referral`
@@ -78,5 +84,6 @@ Test with a real mobile number after `RETELL_API_KEY` is set in production.
 | Homepage calculator CTA | `POST /api/submit-lead` | calculator-lead-magnet |
 | Calculator case review (results) | `POST /api/submit-lead` | calculator-case-review |
 | Thank-you attorney match | `POST /api/submit-lead` | attorney-match |
+| Expert intake ASAP (homepage) | `POST /api/submit-lead` | expert-intake-asap |
 
 **All requests from `accidentsurvivalguide.com` are routed to GHL** even if `lead_source` is omitted (hostname detection on the API).
