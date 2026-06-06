@@ -97,6 +97,7 @@ export const es: Messages = {
   },
   pressMarquee: {
     ariaLabel: "Cobertura de prensa y colocaciones sindicadas",
+    kicker: "Cobertura de confianza",
     eyebrow: "Como Se Vio En",
     subtitle: "Destacado en periódicos, TV y medios nacionales líderes.",
   },

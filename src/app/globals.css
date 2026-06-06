@@ -143,20 +143,21 @@
   }
 }
 
-/* ASG press / trust badge marquee */
-.asg-marquee {
-  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+/* ASG press strip marquee */
+.asg-press-marquee {
+  mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
 }
 
-.asg-marquee-track {
-  animation: asg-marquee 36s linear infinite;
+.asg-press-marquee-track {
+  animation: asg-press-marquee 44s linear infinite;
+  will-change: transform;
 }
 
-.asg-marquee:hover .asg-marquee-track {
+.asg-press-marquee:hover .asg-press-marquee-track {
   animation-play-state: paused;
 }
 
-@keyframes asg-marquee {
+@keyframes asg-press-marquee {
   from {
     transform: translateX(0);
   }
@@ -167,14 +168,20 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .asg-marquee {
+  .asg-press-marquee {
     mask-image: none;
   }
 
-  .asg-marquee-track {
+  .asg-press-marquee-track {
     animation: none;
     flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
+    gap: 0.75rem;
+  }
+
+  .asg-press-badge {
+    flex: 0 1 auto;
   }
 }
 
