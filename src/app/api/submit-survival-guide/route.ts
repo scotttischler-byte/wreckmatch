@@ -80,6 +80,7 @@ export async function POST(request: Request) {
       postalCode: parsed.zip,
       magnetType: "survival-guide-download",
       leadSource: ASG_LEAD_SOURCE,
+      formName: str(body.form_name) || "survival-guide-download",
       consentEmail: parsed.consentEmail,
       consentSms: parsed.consentSms,
       preferredLanguage: locale,

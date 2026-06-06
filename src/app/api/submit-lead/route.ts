@@ -3,7 +3,9 @@ import {
   GHL_WEBHOOK_URL,
   LAW_FIRM_NAME,
 } from "@/lib/constants";
+import { ASG_LEAD_SOURCE } from "@/lib/ghl-survival-guide";
 import { processAsgLead, type AsgLeadMagnetType } from "@/lib/asg-lead-pipeline";
+import { isAsgRequest } from "@/lib/asg-request";
 import { upsertGhlContact } from "@/lib/ghl";
 import { DEFAULT_LOCALE, isLocale, type Locale } from "@/lib/i18n/config";
 
@@ -32,7 +34,8 @@ function resolveMagnetType(body: Record<string, unknown>): AsgLeadMagnetType {
   if (
     explicit === "survival-guide-download" ||
     explicit === "calculator-lead-magnet" ||
-    explicit === "calculator-case-review"
+    explicit === "calculator-case-review" ||
+    explicit === "attorney-match"
   ) {
     return explicit;
   }
@@ -40,10 +43,12 @@ function resolveMagnetType(body: Record<string, unknown>): AsgLeadMagnetType {
   const src = str(body.lead_source);
   if (src.includes("calculator-lead-magnet")) return "calculator-lead-magnet";
   if (src.includes("compensation-calculator")) return "calculator-case-review";
-  return "calculator-case-review";
+  if (src.includes("thank-you")) return "attorney-match";
+  return "calculator-lead-magnet";
 }
 
-function isAsgLead(body: Record<string, unknown>): boolean {
+function isAsgLead(body: Record<string, unknown>, request: Request): boolean {
+  if (isAsgRequest(request)) return true;
   const src = str(body.lead_source);
   const magnet = str(body.magnet_type);
   return (
@@ -166,7 +171,7 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!isAsgLead(body)) {
+    if (!isAsgLead(body, request)) {
       if (!lastName || lastName === ".") {
         return NextResponse.json(
           { success: false, message: "Missing required field: lastName" },
@@ -188,8 +193,10 @@ export async function POST(request: Request) {
       phone,
       state: stateField,
       city: str(body.city),
+      postalCode: str(body.zip),
       magnetType: resolveMagnetType(body),
-      leadSource: str(body.lead_source) || "www.accidentsurvivalguide.com",
+      leadSource: str(body.lead_source) || ASG_LEAD_SOURCE,
+      formName: str(body.form_name) || str(body.magnet_type) || "asg-intake",
       consentEmail: body.consentEmail !== false,
       consentSms: body.consentSms === true || body.consentSms === "true",
       preferredLanguage: locale,

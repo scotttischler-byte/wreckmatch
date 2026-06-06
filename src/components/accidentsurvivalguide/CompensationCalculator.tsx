@@ -26,6 +26,7 @@ import {
 } from "@/lib/compensation-calculator";
 import { loadCalculatorLead } from "@/lib/asg-lead-storage";
 import { trackAsgEvent } from "@/lib/analytics";
+import { submitAsgLeadForm } from "@/lib/asg-form-submit";
 import { formatMessage } from "@/lib/i18n/get-messages";
 
 const TOTAL_STEPS = 5;
@@ -224,26 +225,21 @@ export function CompensationCalculator() {
     ].join("; ");
 
     try {
-      const res = await fetch("/api/submit-lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName,
-          lastName: ".",
-          email,
-          phone,
-          magnet_type: "calculator-case-review",
-          state: input.state,
-          cityState: input.state ? `, ${input.state}` : "Not specified — compensation calculator",
-          caseDescription: summary,
-          calculator_summary: summary,
-          consentEmail: true,
-          lead_source: "accidentsurvivalguide-compensation-calculator",
-          preferredLanguage: locale,
-        }),
+      const data = await submitAsgLeadForm({
+        firstName,
+        lastName: ".",
+        email,
+        phone,
+        magnet_type: "calculator-case-review",
+        form_name: "calculator-case-review",
+        state: input.state,
+        caseDescription: summary,
+        calculator_summary: summary,
+        consentEmail: true,
+        lead_source: "accidentsurvivalguide-compensation-calculator",
+        preferredLanguage: locale,
       });
-      const data = (await res.json()) as { success?: boolean; message?: string };
-      if (!res.ok || !data.success) {
+      if (!data.success) {
         setReviewError(data.message ?? c.reviewError);
         return;
       }

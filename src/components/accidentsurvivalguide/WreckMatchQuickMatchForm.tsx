@@ -6,6 +6,7 @@ import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvid
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { US_STATES } from "@/lib/accidentsurvivalguide";
+import { submitAsgLeadForm } from "@/lib/asg-form-submit";
 import { trackAsgEvent } from "@/lib/analytics";
 
 type DefaultValues = {
@@ -34,22 +35,20 @@ export function WreckMatchQuickMatchForm({ defaultValues = {} }: { defaultValues
     setError("");
 
     try {
-      const res = await fetch("/api/submit-lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName,
-          lastName: lastName || ".",
-          email,
-          phone,
-          cityState: state ? `, ${state}` : "Not specified — ASG thank you",
-          lead_source: "accidentsurvivalguide-thank-you",
-          preferredLanguage: locale,
-        }),
+      const data = await submitAsgLeadForm({
+        firstName,
+        lastName,
+        email,
+        phone,
+        state,
+        magnet_type: "attorney-match",
+        form_name: "thank-you-attorney-match",
+        consentEmail: true,
+        preferredLanguage: locale,
+        lead_source: "accidentsurvivalguide-thank-you",
       });
-      const data = (await res.json()) as { success?: boolean; message?: string };
 
-      if (!res.ok || !data.success) {
+      if (!data.success) {
         setError(data.message ?? q.networkError);
         return;
       }

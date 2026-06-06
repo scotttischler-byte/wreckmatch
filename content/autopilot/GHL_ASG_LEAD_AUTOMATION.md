@@ -42,6 +42,11 @@ Without `RETELL_API_KEY`, leads still save to GHL and emails still fire; Sarah i
 
 - Same as calculator access; include `{{inboundWebhookRequest.calculator_summary}}` in email or an internal note for your team
 
+### Branch: `asg_attorney_match_request`
+
+- Tags: `attorney-match-lead`, `wreckmatch-referral`
+- Internal notification or nurture for attorney match requests (thank-you page form)
+
 ### Optional
 
 - Internal notification (SMS/email to team) when `trigger_sarah_call` = `yes`
@@ -69,6 +74,9 @@ Test with a real mobile number after `RETELL_API_KEY` is set in production.
 
 | Form | API route | magnet_type |
 |------|-----------|-------------|
-| Homepage guide download | `POST /api/submit-survival-guide` | survival-guide-download |
+| Survival guide download (all pages) | `POST /api/submit-survival-guide` | survival-guide-download |
 | Homepage calculator CTA | `POST /api/submit-lead` | calculator-lead-magnet |
 | Calculator case review (results) | `POST /api/submit-lead` | calculator-case-review |
+| Thank-you attorney match | `POST /api/submit-lead` | attorney-match |
+
+**All requests from `accidentsurvivalguide.com` are routed to GHL** even if `lead_source` is omitted (hostname detection on the API).

@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { US_STATES } from "@/lib/accidentsurvivalguide";
+import { submitSurvivalGuideForm } from "@/lib/asg-form-submit";
 import { trackAsgEvent } from "@/lib/analytics";
 
 type FormState = {
@@ -101,31 +102,21 @@ export function SurvivalGuideDownloadForm({
     setError("");
 
     try {
-      const res = await fetch("/api/submit-survival-guide", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName: form.firstName,
-          lastName: form.lastName,
-          email: form.email,
-          phone: form.phone,
-          state: form.state,
-          city: form.city,
-          zip: form.zip,
-          consentEmail: form.consentEmail,
-          consentSms: form.consentSms,
-          preferredLanguage: locale,
-        }),
+      const data = await submitSurvivalGuideForm({
+        firstName: form.firstName,
+        lastName: form.lastName,
+        email: form.email,
+        phone: form.phone,
+        state: form.state,
+        city: form.city,
+        zip: form.zip,
+        consentEmail: form.consentEmail,
+        consentSms: form.consentSms,
+        preferredLanguage: locale,
+        form_name: embedded ? "embedded-survival-guide" : "survival-guide-download",
       });
-      const data = (await res.json()) as {
-        success?: boolean;
-        message?: string;
-        redirectTo?: string;
-        sarahCallStarted?: boolean;
-        emailAutomationTriggered?: boolean;
-      };
 
-      if (!res.ok || !data.success) {
+      if (!data.success) {
         trackAsgEvent("form_error", { message: data.message ?? "unknown" });
         setError(data.message ?? f.consentError);
         return;

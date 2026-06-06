@@ -16,7 +16,8 @@ import { LAW_FIRM_NAME } from "@/lib/constants";
 export type AsgLeadMagnetType =
   | "survival-guide-download"
   | "calculator-lead-magnet"
-  | "calculator-case-review";
+  | "calculator-case-review"
+  | "attorney-match";
 
 export type AsgLeadInput = {
   firstName: string;
@@ -28,6 +29,7 @@ export type AsgLeadInput = {
   postalCode?: string;
   magnetType: AsgLeadMagnetType;
   leadSource: string;
+  formName?: string;
   consentEmail?: boolean;
   consentSms?: boolean;
   preferredLanguage?: string;
@@ -48,10 +50,17 @@ export type AsgLeadPipelineResult = {
 
 function tagsForMagnet(type: AsgLeadMagnetType, state?: string): string[] {
   const tags = ["wreckmatch-lead", "asg-lead", "sarah-callback-requested"];
-  if (type === "survival-guide-download") {
-    tags.push("survival-guide-lead", "downloaded-guide-yes");
-  } else {
-    tags.push("calculator-lead", "compensation-calculator");
+  switch (type) {
+    case "survival-guide-download":
+      tags.push("survival-guide-lead", "downloaded-guide-yes");
+      break;
+    case "calculator-lead-magnet":
+    case "calculator-case-review":
+      tags.push("calculator-lead", "compensation-calculator");
+      break;
+    case "attorney-match":
+      tags.push("attorney-match-lead", "wreckmatch-referral");
+      break;
   }
   if (state) tags.push(`state-${state.toLowerCase()}`);
   return tags;
@@ -65,8 +74,24 @@ function automationTrigger(type: AsgLeadMagnetType): string {
       return "email_calculator_access";
     case "calculator-case-review":
       return "email_calculator_case_review";
+    case "attorney-match":
+      return "asg_attorney_match_request";
     default:
       return "asg_lead_followup";
+  }
+}
+
+function offerForMagnet(type: AsgLeadMagnetType): string {
+  switch (type) {
+    case "survival-guide-download":
+      return "Accident Survival Guide 2026";
+    case "calculator-lead-magnet":
+    case "calculator-case-review":
+      return "Accident Compensation Calculator 2026";
+    case "attorney-match":
+      return "Free attorney match";
+    default:
+      return "Accident Survival Guide";
   }
 }
 
@@ -89,12 +114,10 @@ export function buildAsgWebhookPayload(lead: AsgLeadInput, contactId?: string) {
     site: ASG_DOMAIN,
     source: LAW_FIRM_NAME,
     form_type: lead.magnetType,
+    form_name: lead.formName || lead.magnetType,
     automation_trigger: automationTrigger(lead.magnetType),
     trigger_sarah_call: "yes",
-    offer:
-      lead.magnetType === "survival-guide-download"
-        ? "Accident Survival Guide 2026"
-        : "Accident Compensation Calculator 2026",
+    offer: offerForMagnet(lead.magnetType),
     pdf_download_url: pdfUrl,
     guide_pdf_path: SURVIVAL_GUIDE_PDF,
     calculator_url: calculatorUrl,
@@ -116,6 +139,8 @@ function sarahOfferLabel(type: AsgLeadMagnetType): string {
       return "compensation calculator";
     case "calculator-case-review":
       return "calculator case review";
+    case "attorney-match":
+      return "free attorney match";
     default:
       return "Accident Survival Guide";
   }

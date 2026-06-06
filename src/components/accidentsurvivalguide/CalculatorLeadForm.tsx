@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { US_STATES } from "@/lib/accidentsurvivalguide";
 import { saveCalculatorLead } from "@/lib/asg-lead-storage";
+import { submitAsgLeadForm } from "@/lib/asg-form-submit";
 import { trackAsgEvent } from "@/lib/analytics";
 
 const fieldClass =
@@ -45,27 +46,16 @@ export function CalculatorLeadForm() {
     };
 
     try {
-      const res = await fetch("/api/submit-lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...lead,
-          magnet_type: "calculator-lead-magnet",
-          cityState: state ? `, ${state}` : "Not specified — calculator lead magnet",
-          state,
-          consentEmail: true,
-          lead_source: "accidentsurvivalguide-calculator-lead-magnet",
-          preferredLanguage: locale,
-        }),
+      const data = await submitAsgLeadForm({
+        ...lead,
+        magnet_type: "calculator-lead-magnet",
+        form_name: "homepage-calculator-lead",
+        state,
+        consentEmail: true,
+        preferredLanguage: locale,
       });
-      const data = (await res.json()) as {
-        success?: boolean;
-        message?: string;
-        sarahCallStarted?: boolean;
-        emailAutomationTriggered?: boolean;
-      };
 
-      if (!res.ok || !data.success) {
+      if (!data.success) {
         setError(data.message ?? h.calculatorLeadError);
         return;
       }
