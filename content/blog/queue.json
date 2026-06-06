@@ -2,8 +2,13 @@
   "postsPerDay": 5,
   "publishStaggerMinutes": 90,
   "requireApproval": true,
-  "lastRunAt": "2026-06-05T16:32:36.554Z",
+  "lastRunAt": "2026-06-06T15:19:49.719Z",
   "recentCitySlugs": [
+    "milwaukee",
+    "arlington",
+    "mesa",
+    "detroit",
+    "atlanta",
     "raleigh",
     "memphis",
     "new-orleans",
@@ -48,11 +53,6 @@
     "las-vegas",
     "tulsa",
     "fort-worth",
-    "seattle",
-    "austin",
-    "charlotte",
-    "jacksonville",
-    "colorado-springs",
-    "el-paso"
+    "seattle"
   ]
 }
