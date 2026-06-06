@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AsgPressMarquee } from "@/components/accidentsurvivalguide/AsgPressMarquee";
 import { SurvivalGuideHeader } from "@/components/accidentsurvivalguide/SurvivalGuideHeader";
 import { SurvivalGuideFooter } from "@/components/accidentsurvivalguide/SurvivalGuideFooter";
 import { AsgJsonLd } from "@/components/accidentsurvivalguide/AsgJsonLd";
@@ -51,6 +52,7 @@ export default function AccidentSurvivalGuideLayout({
       <AsgShell lang={localeHtmlLang(locale)}>
         <AsgJsonLd includeFaq siteName={messages.meta.siteName} faqItems={messages.faq} />
         <SurvivalGuideHeader />
+        <AsgPressMarquee />
         <main className="max-sm:pb-safe-bar">{children}</main>
         <StickyDownloadBar />
         <SurvivalGuideFooter />

@@ -91,6 +91,11 @@ export const en = {
     webinarIntro:
       "Join me live for a calm, plain-English walkthrough of what to do after a crash — and what insurers hope you never learn.",
   },
+  pressMarquee: {
+    ariaLabel: "Press coverage and syndicated media placements",
+    eyebrow: "As seen in",
+    subtitle: "Names and logo-style marks from 500+ placements.",
+  },
   trust: {
     stripAria: "Safety and trust",
     items: [

@@ -95,6 +95,11 @@ export const es: Messages = {
     webinarIntro:
       "Únase en vivo para una guía tranquila y en lenguaje sencillo sobre qué hacer después de un choque — y lo que las aseguradoras esperan que no sepa.",
   },
+  pressMarquee: {
+    ariaLabel: "Cobertura de prensa y colocaciones sindicadas",
+    eyebrow: "Como se vio en",
+    subtitle: "Nombres y marcas de más de 500 colocaciones.",
+  },
   trust: {
     stripAria: "Seguridad y confianza",
     items: [

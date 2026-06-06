@@ -143,6 +143,41 @@
   }
 }
 
+/* ASG press / trust badge marquee */
+.asg-marquee {
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+
+.asg-marquee-track {
+  animation: asg-marquee 68s linear infinite;
+}
+
+.asg-marquee:hover .asg-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes asg-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .asg-marquee {
+    mask-image: none;
+  }
+
+  .asg-marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+
 /* ASG calm page atmosphere */
 .asg-page-texture {
   background-color: #f6fafc;
