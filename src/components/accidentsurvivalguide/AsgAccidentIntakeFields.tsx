@@ -15,9 +15,9 @@ type Props = {
 
 function selectClass(variant: "light" | "dark"): string {
   if (variant === "dark") {
-    return "h-11 w-full min-h-[44px] rounded-xl border-0 bg-white px-3 text-sm text-[#1a3a52] shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80";
+    return "h-12 w-full min-h-[48px] rounded-xl border-0 bg-white px-3 text-base text-[#1a3a52] shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80";
   }
-  return "h-11 min-h-[44px] w-full rounded-lg border border-[#c5dce8] bg-[#fafcfd] px-3 text-sm text-[#1a3a52] outline-none focus-visible:border-[#2a7a9b] focus-visible:ring-3 focus-visible:ring-[#2a7a9b]/20";
+  return "h-12 min-h-[48px] w-full rounded-lg border border-[#c5dce8] bg-[#fafcfd] px-3 text-base text-[#1a3a52] outline-none focus-visible:border-[#2a7a9b] focus-visible:ring-3 focus-visible:ring-[#2a7a9b]/20";
 }
 
 function textareaClass(variant: "light" | "dark"): string {
@@ -159,7 +159,7 @@ export function AsgAccidentIntakeFields({
       <fieldset className="space-y-2.5 border-0 p-0">
         <legend className={`${sectionTitleClass(variant)} mb-1 w-full`}>{m.sectionTitle}</legend>
         <p className={hintClass}>{m.sectionHint}</p>
-        <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-2.5 lg:grid-cols-2">
           {renderSelect("asg-accident-when", m.accidentWhen, "accidentWhen", whenOptions)}
           {renderSelect("asg-accident-type", m.accidentType, "accidentType", accidentTypeOptions)}
           {renderSelect("asg-other-fault", m.otherDriverAtFault, "otherDriverAtFault", yesNoUnsure)}

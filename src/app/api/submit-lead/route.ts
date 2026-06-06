@@ -20,6 +20,13 @@ function str(v: unknown): string {
   return typeof v === "string" ? v.trim() : "";
 }
 
+/** SMS opt-in: explicit checkbox, or implied when form consent covers calls/texts. */
+function resolveAsgSmsConsent(body: Record<string, unknown>): boolean {
+  if (body.consentSms === true || body.consentSms === "true") return true;
+  if (body.consentSms === false || body.consentSms === "false") return false;
+  return body.consentEmail !== false;
+}
+
 function parseCityState(cityState: string) {
   if (!cityState) return { city: "", state: "" };
   const parts = cityState.split(",");
@@ -191,6 +198,14 @@ export async function POST(request: Request) {
     const lang = str(body.preferredLanguage);
     const locale: Locale = isLocale(lang) ? lang : DEFAULT_LOCALE;
 
+    const city = str(body.city);
+    if (!city) {
+      return NextResponse.json(
+        { success: false, message: getMessages(locale).form.errors.city },
+        { status: 400 },
+      );
+    }
+
     const magnetType = resolveMagnetType(body);
     const intake = parseAccidentIntakeFromBody(body);
     const intakeRequired =
@@ -211,13 +226,13 @@ export async function POST(request: Request) {
       email,
       phone,
       state: stateField,
-      city: str(body.city),
+      city,
       postalCode: str(body.zip),
       magnetType,
       leadSource: str(body.lead_source) || ASG_LEAD_SOURCE,
       formName: str(body.form_name) || str(body.magnet_type) || "asg-intake",
       consentEmail: body.consentEmail !== false,
-      consentSms: body.consentSms === true || body.consentSms === "true",
+      consentSms: resolveAsgSmsConsent(body),
       preferredLanguage: locale,
       caseDescription: str(body.caseDescription) || intakeFields.caseDescription,
       calculatorSummary: str(body.calculator_summary),

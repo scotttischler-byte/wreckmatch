@@ -25,6 +25,7 @@ export function CalculatorLeadForm() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [state, setState] = useState("");
+  const [city, setCity] = useState("");
   const [intake, setIntake] = useState<AsgAccidentIntake>(EMPTY_ASG_ACCIDENT_INTAKE);
   const [consent, setConsent] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -50,6 +51,7 @@ export function CalculatorLeadForm() {
       email: email.trim(),
       phone: phone.trim(),
       state,
+      city: city.trim(),
     };
 
     try {
@@ -60,6 +62,7 @@ export function CalculatorLeadForm() {
         form_name: "homepage-calculator-lead",
         state,
         consentEmail: true,
+        consentSms: true,
         preferredLanguage: locale,
       });
 
@@ -95,12 +98,12 @@ export function CalculatorLeadForm() {
 
       <p
         role="note"
-        className="mt-3 rounded-lg bg-black/20 px-3 py-2 text-[0.65rem] leading-relaxed text-amber-100 sm:text-xs"
+        className="mt-3 rounded-lg bg-black/20 px-3 py-2 text-xs leading-relaxed text-amber-100"
       >
         {h.calculatorCardDisclaimer}
       </p>
 
-      <div className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3">
+      <div className="mt-4 grid grid-cols-1 gap-2.5 lg:grid-cols-2 lg:gap-3">
         <Input
           required
           autoComplete="given-name"
@@ -141,7 +144,7 @@ export function CalculatorLeadForm() {
           value={state}
           onChange={(e) => setState(e.target.value)}
           aria-label={f.state}
-          className={`${fieldClass} sm:col-span-2`}
+          className={fieldClass}
         >
           <option value="">{f.selectState}</option>
           {US_STATES.map((s) => (
@@ -150,6 +153,14 @@ export function CalculatorLeadForm() {
             </option>
           ))}
         </select>
+        <Input
+          required
+          autoComplete="address-level2"
+          placeholder={f.city}
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+          className={fieldClass}
+        />
       </div>
 
       <AsgAccidentIntakeFields
@@ -160,12 +171,12 @@ export function CalculatorLeadForm() {
         onChange={(key, value) => setIntake((prev) => ({ ...prev, [key]: value }))}
       />
 
-      <label className="mt-3 flex gap-2.5 rounded-lg bg-black/15 p-3 text-[0.65rem] leading-relaxed text-[#e8f4fa] sm:text-xs">
+      <label className="mt-3 flex min-h-[48px] cursor-pointer items-start gap-3 rounded-lg bg-black/15 p-3 text-xs leading-relaxed text-[#e8f4fa]">
         <input
           type="checkbox"
           checked={consent}
           onChange={(e) => setConsent(e.target.checked)}
-          className="mt-0.5 size-[1.125rem] shrink-0 accent-white"
+          className="mt-0.5 size-5 shrink-0 accent-white"
           required
         />
         <span>{h.calculatorLeadConsent}</span>

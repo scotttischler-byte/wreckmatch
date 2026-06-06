@@ -20,6 +20,7 @@ type PageProps = {
     firstName?: string;
     state?: string;
     phone?: string;
+    city?: string;
   }>;
 };
 
@@ -38,6 +39,7 @@ export default async function ThankYouPage({ searchParams }: PageProps) {
       firstName={params.firstName}
       state={params.state}
       phone={params.phone}
+      city={params.city}
     />
   );
 }

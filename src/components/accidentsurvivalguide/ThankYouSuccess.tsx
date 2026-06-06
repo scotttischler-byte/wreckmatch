@@ -22,9 +22,10 @@ type ThankYouSuccessProps = {
   firstName?: string;
   state?: string;
   phone?: string;
+  city?: string;
 };
 
-export function ThankYouSuccess({ email, firstName, state, phone }: ThankYouSuccessProps) {
+export function ThankYouSuccess({ email, firstName, state, phone, city }: ThankYouSuccessProps) {
   const { messages } = useAsgLocale();
   const t = messages.thankYou;
   const greeting = firstName?.trim() || t.there;
@@ -106,6 +107,7 @@ export function ThankYouSuccess({ email, firstName, state, phone }: ThankYouSucc
               email,
               phone: phone ?? "",
               state: state ?? "",
+              city: city ?? "",
             }}
           />
           <p className="mt-4 text-[0.72rem] leading-relaxed text-[#7a8a98]">{t.wreckmatchDisclaimer}</p>

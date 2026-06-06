@@ -22,6 +22,8 @@ export const es: Messages = {
     getGuide: "Guía de Supervivencia",
     freeGuide: "Guía",
     calculator: "Calculadora de compensación",
+    menuOpen: "Abrir menú",
+    menuClose: "Cerrar menú",
   },
   lang: {
     switch: "Idioma",
@@ -40,18 +42,21 @@ export const es: Messages = {
     calculatorPromoEyebrow: "Herramienta gratuita 2026",
     calculatorPromoTitle: "¿Cuánto podría valer su reclamo por accidente?",
     calculatorPromoSubtitle:
-      "Responda unas preguntas y obtenga una estimación educativa baja–media–alta en unos 5 minutos. No es asesoría legal ni garantía de acuerdo.",
+      "Responda unas preguntas y obtenga una estimación educativa baja–media–alta en menos de 60 segundos. No es asesoría legal ni garantía de acuerdo.",
     calculatorPromoCta: "Iniciar calculadora de compensación gratis",
-    calculatorPromoBadges: "Gratis · ~5 minutos · Sin obligación",
+    calculatorPromoBadges: "Gratis · Menos de 60 segundos · Sin obligación",
     calculatorPromoDisclaimer: "Solo estimación. Consulte a un abogado licenciado sobre su caso.",
     leadMagnetsJump: "Ver calculadora y guía gratis",
     leadMagnetsEyebrow: "Ayuda gratuita después de un choque",
     leadMagnetsHeroLine:
-      "Obtenga una estimación de compensación o su Guía de Supervivencia gratis—lado a lado, en minutos.",
+      "Obtenga una estimación de compensación en menos de 60 segundos o su Guía de Supervivencia gratis—lado a lado y gratis.",
     leadMagnetsTitle: "Dos herramientas gratis — lado a lado",
     trustFree: "100% gratis",
-    trustFast: "~5 minutos",
+    trustFast: "Menos de 60 segundos",
     trustNoObligation: "Sin obligación",
+    mobileTabCalculator: "Estimación",
+    mobileTabGuide: "Guía gratis",
+    mobileTabExpert: "Hablar ya",
     calculatorBadge: "Estimación",
     guideBadge: "Guía gratis",
     leadMagnetsSubtitle:
@@ -76,7 +81,7 @@ export const es: Messages = {
     expertIntakeError: "No se pudo enviar. Llámenos o intente de nuevo.",
     calculatorCardTitle: "Calculadora de compensación",
     calculatorCardSubtitle:
-      "Estimación educativa baja–media–alta en ~5 minutos. Ingrese sus datos para comenzar.",
+      "Estimación educativa baja–media–alta en menos de 60 segundos. Ingrese sus datos para comenzar.",
     calculatorCardDisclaimer:
       "Solo estimación educativa — NO es asesoría legal ni garantía de acuerdo. Los resultados varían según hechos, ley estatal, seguro y lesiones.",
     calculatorCardCta: "Obtener mi estimación gratis",
@@ -247,6 +252,7 @@ export const es: Messages = {
     errors: {
       firstName: "Ingrese su nombre.",
       lastName: "Ingrese su apellido.",
+      city: "Ingrese su ciudad.",
       email: "Ingrese un correo electrónico válido.",
       phone: "Ingrese su número de teléfono.",
       phoneInvalid: "Ingrese un número de teléfono válido.",

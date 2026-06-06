@@ -52,7 +52,7 @@ export default function AccidentSurvivalGuideLayout({
         <AsgJsonLd includeFaq siteName={messages.meta.siteName} faqItems={messages.faq} />
         <SurvivalGuideDisclaimer text={messages.disclaimer} />
         <SurvivalGuideHeader />
-        <main>{children}</main>
+        <main className="max-sm:pb-safe-bar">{children}</main>
         <StickyDownloadBar />
         <SurvivalGuideFooter />
       </div>

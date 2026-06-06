@@ -9,23 +9,44 @@ export function StickyDownloadBar() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 720);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const sentinel = document.getElementById("asg-hero-end");
+    if (!sentinel) return;
+
+    const mobileMq = window.matchMedia("(max-width: 639px)");
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (mobileMq.matches) {
+          setVisible(!entry.isIntersecting);
+        }
+      },
+      { threshold: 0, rootMargin: "0px 0px -10% 0px" },
+    );
+
+    observer.observe(sentinel);
+
+    const onMqChange = (e: MediaQueryListEvent) => {
+      if (!e.matches) setVisible(false);
+    };
+    mobileMq.addEventListener("change", onMqChange);
+
+    return () => {
+      observer.disconnect();
+      mobileMq.removeEventListener("change", onMqChange);
+    };
   }, []);
 
   if (!visible) return null;
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-50 border-t border-[#c5dce8] bg-white/95 px-4 py-3 shadow-[0_-8px_30px_-12px_rgba(26,58,82,0.2)] backdrop-blur sm:hidden"
+      className="fixed bottom-0 left-0 right-0 z-50 border-t border-[#c5dce8] bg-white/95 px-4 pt-3 pb-safe shadow-[0_-8px_30px_-12px_rgba(26,58,82,0.2)] backdrop-blur sm:hidden"
       role="region"
       aria-label={messages.sticky.aria}
     >
       <a
         href="#get-help"
-        className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#2a7a9b] py-3 text-sm font-semibold text-white"
+        className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-[#2a7a9b] text-sm font-semibold text-white active:scale-[0.98]"
       >
         <Download className="size-4" aria-hidden />
         {messages.sticky.cta}

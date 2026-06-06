@@ -20,6 +20,8 @@ export const en = {
     getGuide: "Accident Survival Guide",
     freeGuide: "Survival Guide",
     calculator: "Compensation Calculator",
+    menuOpen: "Open menu",
+    menuClose: "Close menu",
   },
   lang: {
     switch: "Language",
@@ -38,20 +40,23 @@ export const en = {
     calculatorPromoEyebrow: "Free 2026 tool",
     calculatorPromoTitle: "How much could your accident claim be worth?",
     calculatorPromoSubtitle:
-      "Answer a few questions and get a rough low–medium–high estimate in about 5 minutes. Educational only—not legal advice or a guaranteed settlement.",
+      "Answer a few questions and get a rough low–medium–high estimate in under 60 seconds. Educational only—not legal advice or a guaranteed settlement.",
     calculatorPromoCta: "Start Free Compensation Calculator",
-    calculatorPromoBadges: "Free · ~5 minutes · No obligation",
+    calculatorPromoBadges: "Free · Under 60 seconds · No obligation",
     calculatorPromoDisclaimer: "Estimate only. Consult a licensed attorney for advice about your case.",
     leadMagnetsJump: "See free calculator & guide",
     leadMagnetsEyebrow: "Free help after a crash",
     leadMagnetsHeroLine:
-      "Get a rough compensation estimate or your free Accident Survival Guide—side by side, free, and ready in minutes.",
+      "Get a rough compensation estimate in under 60 seconds, or your free Accident Survival Guide—side by side and free.",
     leadMagnetsTitle: "Two free tools — side by side",
     leadMagnetsSubtitle:
       "Estimate a possible compensation range or get the Accident Survival Guide emailed to you. Both are free educational resources—not legal advice.",
     trustFree: "100% free",
-    trustFast: "~5 minutes",
+    trustFast: "Under 60 seconds",
     trustNoObligation: "No obligation",
+    mobileTabCalculator: "Estimate",
+    mobileTabGuide: "Free Guide",
+    mobileTabExpert: "Talk Now",
     calculatorBadge: "Compensation estimate",
     guideBadge: "Free guide",
     leadMagnetsDisclaimerTitle: "Important — read before you continue",
@@ -74,7 +79,7 @@ export const en = {
     expertIntakeError: "Unable to submit. Please call us or try again.",
     calculatorCardTitle: "Compensation Calculator",
     calculatorCardSubtitle:
-      "Rough low–medium–high estimate in ~5 minutes. Enter your info to start — we'll save your results for a free case review.",
+      "Rough low–medium–high estimate in under 60 seconds. Enter your info to start — we'll save your results for a free case review.",
     calculatorCardDisclaimer:
       "Educational estimate only — NOT legal advice, NOT a guaranteed settlement. Results vary widely by facts, state law, insurance, and injury severity.",
     calculatorCardCta: "Get My Free Estimate",
@@ -246,6 +251,7 @@ export const en = {
     errors: {
       firstName: "Please enter your first name.",
       lastName: "Please enter your last name.",
+      city: "Please enter your city.",
       email: "Enter a valid email address.",
       phone: "Please enter your phone number.",
       phoneInvalid: "Enter a valid phone number.",

@@ -84,6 +84,11 @@ function tagsForMagnet(type: AsgLeadMagnetType, state?: string): string[] {
   return tags;
 }
 
+function tagsWithConsent(base: string[], lead: AsgLeadInput): string[] {
+  if (hasSmsConsent(lead)) base.push("sms-opt-in");
+  return base;
+}
+
 function automationTrigger(type: AsgLeadMagnetType): string {
   switch (type) {
     case "survival-guide-download":
@@ -98,6 +103,31 @@ function automationTrigger(type: AsgLeadMagnetType): string {
       return "expert_intake_asap";
     default:
       return "asg_lead_followup";
+  }
+}
+
+function hasSmsConsent(lead: AsgLeadInput): boolean {
+  return lead.consentSms === true;
+}
+
+function buildLeadSmsBody(lead: AsgLeadInput): string {
+  const name = lead.firstName.trim() || "there";
+  const pdfUrl = survivalGuidePdfAbsoluteUrl();
+  const calculatorUrl = `${ASG_BASE_URL}/calculator`;
+
+  switch (lead.magnetType) {
+    case "survival-guide-download":
+      return `Hi ${name}, here's your free Accident Survival Guide: ${pdfUrl} Reply STOP to unsubscribe.`;
+    case "calculator-lead-magnet":
+      return `Hi ${name}, start your free compensation estimate (under 60 sec): ${calculatorUrl} Reply STOP to unsubscribe.`;
+    case "calculator-case-review":
+      return `Hi ${name}, we received your calculator case review. Our team will follow up soon. Reply STOP to unsubscribe.`;
+    case "attorney-match":
+      return `Hi ${name}, thanks for requesting a free attorney match. A specialist will reach out shortly. Reply STOP to unsubscribe.`;
+    case "expert-intake-asap":
+      return `Hi ${name}, we got your ASAP intake request. Expect a call from our team soon. Reply STOP to unsubscribe.`;
+    default:
+      return `Hi ${name}, thanks for contacting Accident Survival Guide. We'll be in touch soon. Reply STOP to unsubscribe.`;
   }
 }
 
@@ -146,7 +176,10 @@ export function buildAsgWebhookPayload(lead: AsgLeadInput, contactId?: string) {
     guide_pdf_path: SURVIVAL_GUIDE_PDF,
     calculator_url: calculatorUrl,
     email_consent: lead.consentEmail !== false ? "Yes" : "No",
-    sms_consent: lead.consentSms ? "Yes" : "No",
+    sms_consent: hasSmsConsent(lead) ? "Yes" : "No",
+    send_lead_sms: hasSmsConsent(lead) ? "yes" : "no",
+    sms_body: hasSmsConsent(lead) ? buildLeadSmsBody(lead) : "",
+    sms_template_key: automationTrigger(lead.magnetType),
     preferred_language: lead.preferredLanguage || "en",
     case_description: lead.caseDescription || lead.accidentIntakeSummary || "",
     calculator_summary: lead.calculatorSummary || "",
@@ -213,10 +246,18 @@ export async function processAsgLead(lead: AsgLeadInput): Promise<AsgLeadPipelin
       state: lead.state,
       city: lead.city,
       postalCode: lead.postalCode,
-      tags: tagsForMagnet(lead.magnetType, lead.state),
+      tags: tagsWithConsent(tagsForMagnet(lead.magnetType, lead.state), lead),
       source: LAW_FIRM_NAME,
       customFields: [
         { key: "lead_source", field_value: lead.leadSource },
+        {
+          key: "sms_consent",
+          field_value: hasSmsConsent(lead) ? "Yes" : "No",
+        },
+        {
+          key: "email_consent",
+          field_value: lead.consentEmail !== false ? "Yes" : "No",
+        },
         {
           key: "last_offer",
           field_value: sarahOfferLabel(lead.magnetType),

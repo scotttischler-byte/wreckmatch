@@ -3,7 +3,7 @@
 When someone submits the **Survival Guide download** or **Calculator** forms on accidentsurvivalguide.com, the site:
 
 1. **Creates/updates a contact** in GHL (API, location `rjrb67xfpyr4MIbZBrFZ`)
-2. **POSTs your inbound webhook** so GHL can send the right email
+2. **POSTs your inbound webhook** so GHL can send the right email **and SMS**
 3. **Starts an outbound call from Sarah** (Retell) to their phone immediately
 
 ## Environment variables (Vercel + local)
@@ -16,42 +16,64 @@ When someone submits the **Survival Guide download** or **Calculator** forms on 
 | `RETELL_PHONE_NUMBER` | Caller ID (E.164) |
 | `RETELL_VOICE_AGENT_ID` or `RETELL_AGENT_ID` | Sarah voice agent |
 
-Without `RETELL_API_KEY`, leads still save to GHL and emails still fire; Sarah is skipped (logged).
+Without `RETELL_API_KEY`, leads still save to GHL and emails/SMS still fire; Sarah is skipped (logged).
+
+## GHL SMS setup (one-time)
+
+1. **Settings → Phone Numbers** — confirm you have an LC Phone / Twilio number with SMS enabled for location `rjrb67xfpyr4MIbZBrFZ`.
+2. **Automation → Create workflow → Inbound Webhook** (same webhook URL as email flows).
+3. After **Create/Update Contact**, add an **If/Else**:
+   - **Condition:** `{{inboundWebhookRequest.send_lead_sms}}` **equals** `yes`
+   - **Yes branch → Send SMS** to contact phone:
+     - **Message body:** `{{inboundWebhookRequest.sms_body}}`
+     - Or use templates below per `sms_template_key`
+4. **Compliance:** Messages include `Reply STOP to unsubscribe.` Contacts tagged `sms-opt-in` when they consent.
+
+### SMS message (pre-filled in webhook as `sms_body`)
+
+| `sms_template_key` | Example text |
+|--------------------|--------------|
+| `email_survival_guide_pdf` | Hi {name}, here's your free Accident Survival Guide: {pdf_url} Reply STOP to unsubscribe. |
+| `email_calculator_access` | Hi {name}, start your free compensation estimate (under 60 sec): {calculator_url} Reply STOP to unsubscribe. |
+| `email_calculator_case_review` | Hi {name}, we received your calculator case review. Our team will follow up soon. Reply STOP to unsubscribe. |
+| `asg_attorney_match_request` | Hi {name}, thanks for requesting a free attorney match. A specialist will reach out shortly. Reply STOP to unsubscribe. |
+| `expert_intake_asap` | Hi {name}, we got your ASAP intake request. Expect a call from our team soon. Reply STOP to unsubscribe. |
+
+**Tip:** Duplicate the SMS step inside each email branch if you want different timing (e.g. SMS immediately, email 1 min later).
 
 ## GHL inbound webhook workflow
 
 1. **Automation → Create workflow → Inbound Webhook** (copy URL into `GHL_WEBHOOK_URL`).
-2. **If/Else** on custom value `automation_trigger`:
+2. **Create/Update Contact** — map `first_name`, `last_name`, `email`, `phone`, `state`, `city`, custom fields `sms_consent`, `email_consent`.
+3. **If/Else** on custom value `automation_trigger`:
 
 ### Branch: `email_survival_guide_pdf`
 
-- Create/update contact (map `first_name`, `last_name`, `email`, `phone`, `state`, etc.)
-- Tags: `wreckmatch-lead`, `asg-lead`, `survival-guide-lead`, `downloaded-guide-yes`, `sarah-callback-requested`
-- **Send Email** — example subject: *Your Free Accident Survival Guide*
-- Body: link `{{inboundWebhookRequest.pdf_download_url}}` or attach the PDF from that URL
+- Tags: `wreckmatch-lead`, `asg-lead`, `survival-guide-lead`, `downloaded-guide-yes`, `sarah-callback-requested`, `sms-opt-in` (if consented)
+- **Send Email** — subject: *Your Free Accident Survival Guide* — link `{{inboundWebhookRequest.pdf_download_url}}`
+- **Send SMS** (if `send_lead_sms` = yes) — `{{inboundWebhookRequest.sms_body}}`
 
 ### Branch: `email_calculator_access`
 
-- Same contact mapping
 - Tags: add `calculator-lead`, `compensation-calculator`
-- **Send Email** — example subject: *Your Accident Compensation Calculator*
-- Body: button/link to `{{inboundWebhookRequest.calculator_url}}`  
-  (e.g. `https://www.accidentsurvivalguide.com/calculator`)
+- **Send Email** — link `{{inboundWebhookRequest.calculator_url}}`
+- **Send SMS** (if `send_lead_sms` = yes)
 
 ### Branch: `email_calculator_case_review`
 
-- Same as calculator access; include `{{inboundWebhookRequest.calculator_summary}}` in email or an internal note for your team
+- Include `{{inboundWebhookRequest.calculator_summary}}` in email or internal note
+- **Send SMS** (if `send_lead_sms` = yes)
 
 ### Branch: `expert_intake_asap`
 
 - Tags: `expert-intake-asap`, `priority-intake`, `asap-callback`
-- `priority_intake` = `yes` — route to intake team immediately (SMS + internal alert)
-- Full accident intake fields in webhook (`accident_when`, `accident_type`, `injured`, `injury_severity`, `own_insurance`, `preferred_callback_time`, `additional_notes`, etc.)
+- `priority_intake` = `yes` — internal alert + **Send SMS** to lead
+- Full accident intake fields in webhook
 
 ### Branch: `asg_attorney_match_request`
 
 - Tags: `attorney-match-lead`, `wreckmatch-referral`
-- Internal notification or nurture for attorney match requests (thank-you page form)
+- **Send SMS** (if `send_lead_sms` = yes)
 
 ### Optional
 
@@ -63,9 +85,13 @@ Without `RETELL_API_KEY`, leads still save to GHL and emails still fire; Sarah i
 Key fields sent on every ASG lead:
 
 - `automation_trigger` — which email branch to run
-- `form_type` — `survival-guide-download` | `calculator-lead-magnet` | `calculator-case-review`
+- `form_type` — `survival-guide-download` | `calculator-lead-magnet` | `calculator-case-review` | etc.
+- `send_lead_sms` — `yes` | `no` — use for SMS If/Else
+- `sms_consent` — `Yes` | `No`
+- `sms_body` — ready-to-send SMS text (when consented)
+- `sms_template_key` — same as `automation_trigger` (for custom templates)
 - `pdf_download_url`, `calculator_url`
-- `email`, `phone`, `first_name`, `lead_source`, `offer`
+- `email`, `phone`, `first_name`, `city`, `lead_source`, `offer`
 - `ghl_contact_id` — if API upsert succeeded
 
 ## Sarah (Retell)
@@ -87,3 +113,5 @@ Test with a real mobile number after `RETELL_API_KEY` is set in production.
 | Expert intake ASAP (homepage) | `POST /api/submit-lead` | expert-intake-asap |
 
 **All requests from `accidentsurvivalguide.com` are routed to GHL** even if `lead_source` is omitted (hostname detection on the API).
+
+SMS consent: survival guide has an explicit text checkbox (default on). Calculator, attorney match, case review, and expert intake consent to calls/texts via the form consent language — webhook sends `send_lead_sms: yes`.

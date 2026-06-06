@@ -41,6 +41,7 @@ function parseLead(
 
   if (!firstName) return { error: errors.firstName };
   if (!lastName) return { error: errors.lastName };
+  if (!city) return { error: errors.city };
   if (!EMAIL_RE.test(email)) return { error: errors.email };
   if (!phone) return { error: errors.phone };
   const phoneDigits = phone.replace(/\D/g, "");
@@ -108,6 +109,7 @@ export async function POST(request: Request) {
     });
     if (parsed.state) thankYouParams.set("state", parsed.state);
     if (parsed.phone) thankYouParams.set("phone", parsed.phone);
+    thankYouParams.set("city", parsed.city);
 
     return NextResponse.json({
       success: true,

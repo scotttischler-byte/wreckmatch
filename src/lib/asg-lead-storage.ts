@@ -8,6 +8,7 @@ export type CalculatorLeadCapture = {
   email: string;
   phone: string;
   state: string;
+  city: string;
 } & Partial<AsgAccidentIntake>;
 
 export function saveCalculatorLead(lead: CalculatorLeadCapture): void {

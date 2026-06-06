@@ -176,6 +176,7 @@ export function CompensationCalculator() {
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [city, setCity] = useState("");
   const [consent, setConsent] = useState(true);
   const [reviewLoading, setReviewLoading] = useState(false);
   const [reviewDone, setReviewDone] = useState(false);
@@ -187,6 +188,7 @@ export function CompensationCalculator() {
     setFirstName(lead.firstName);
     setEmail(lead.email);
     setPhone(lead.phone);
+    if (lead.city) setCity(lead.city);
     if (lead.state) {
       setInput((p) => ({ ...p, state: lead.state }));
     }
@@ -233,9 +235,11 @@ export function CompensationCalculator() {
         magnet_type: "calculator-case-review",
         form_name: "calculator-case-review",
         state: input.state,
+        city: city.trim(),
         caseDescription: summary,
         calculator_summary: summary,
         consentEmail: true,
+        consentSms: true,
         lead_source: "accidentsurvivalguide-compensation-calculator",
         preferredLanguage: locale,
       });
@@ -530,20 +534,33 @@ export function CompensationCalculator() {
                     placeholder={messages.thankYou.formFirstName}
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
+                    className="h-12 min-h-[48px] text-base"
                   />
                   <Input
                     required
                     type="email"
+                    inputMode="email"
                     placeholder={messages.thankYou.formEmail}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    className="h-12 min-h-[48px] text-base"
                   />
                   <Input
                     required
                     type="tel"
+                    inputMode="tel"
                     placeholder={messages.thankYou.formPhone}
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
+                    className="h-12 min-h-[48px] text-base"
+                  />
+                  <Input
+                    required
+                    autoComplete="address-level2"
+                    placeholder={messages.form.city}
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    className="h-12 min-h-[48px] text-base"
                   />
                   <label className="flex gap-2 text-sm text-[#4a6578]">
                     <input

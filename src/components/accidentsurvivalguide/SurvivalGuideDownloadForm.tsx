@@ -51,8 +51,8 @@ function formProgress(form: FormState): number {
   if (form.lastName.trim()) score += 15;
   if (form.email.trim()) score += 20;
   if (form.phone.trim()) score += 20;
-  if (form.state) score += 15;
-  if (form.city) score += 5;
+  if (form.state) score += 10;
+  if (form.city.trim()) score += 15;
   if (form.zip) score += 5;
   if (form.consentEmail || form.consentSms) score += 5;
   return Math.min(100, score);
@@ -179,7 +179,7 @@ export function SurvivalGuideDownloadForm({
 
         <div
           className={
-            embedded ? "mt-2 grid grid-cols-1 gap-3 md:grid-cols-2" : "mt-6 grid gap-4 sm:grid-cols-2"
+            embedded ? "mt-2 grid grid-cols-1 gap-3 lg:grid-cols-2" : "mt-6 grid gap-4 lg:grid-cols-2"
           }
         >
           <label className="block">
@@ -258,9 +258,10 @@ export function SurvivalGuideDownloadForm({
 
           <label className="block">
             <span className="mb-1.5 block text-sm font-medium text-[#3d5568]">
-              {f.city} <span className="text-[#7a8a98]">{f.optional}</span>
+              {f.city} <span className="text-[#c45c5c]">*</span>
             </span>
             <Input
+              required
               autoComplete="address-level2"
               value={form.city}
               onChange={(e) => updateField("city", e.target.value)}
@@ -268,7 +269,7 @@ export function SurvivalGuideDownloadForm({
             />
           </label>
 
-          <label className="block sm:col-span-2">
+          <label className="block lg:col-span-2">
             <span className="mb-1.5 block text-sm font-medium text-[#3d5568]">
               {f.zip} <span className="text-[#7a8a98]">{f.optional}</span>
             </span>
@@ -277,11 +278,11 @@ export function SurvivalGuideDownloadForm({
               inputMode="numeric"
               value={form.zip}
               onChange={(e) => updateField("zip", e.target.value)}
-              className="h-11 max-w-xs border-[#c5dce8] bg-[#fafcfd] px-3"
+              className="h-12 min-h-[48px] max-w-xs border-[#c5dce8] bg-[#fafcfd] px-3 text-base"
             />
           </label>
 
-          <div className="sm:col-span-2">
+          <div className="lg:col-span-2">
             <AsgAccidentIntakeFields
               variant="light"
               messages={f.intake}
@@ -290,25 +291,25 @@ export function SurvivalGuideDownloadForm({
             />
           </div>
 
-          <fieldset className="space-y-2 sm:col-span-2">
+          <fieldset className="space-y-2 lg:col-span-2">
             <legend className="text-sm font-medium text-[#3d5568]">{f.consentLegend}</legend>
-            <label className="flex gap-3">
+            <label className="flex min-h-[48px] cursor-pointer items-start gap-3">
               <input
                 type="checkbox"
                 checked={form.consentEmail}
                 onChange={(e) => updateField("consentEmail", e.target.checked)}
-                className="mt-1 size-4"
+                className="mt-1 size-5 shrink-0"
               />
-              <span className="text-[0.78rem] leading-relaxed text-[#5b6b7f]">{f.consentEmail}</span>
+              <span className="text-xs leading-relaxed text-[#5b6b7f]">{f.consentEmail}</span>
             </label>
-            <label className="flex gap-3">
+            <label className="flex min-h-[48px] cursor-pointer items-start gap-3">
               <input
                 type="checkbox"
                 checked={form.consentSms}
                 onChange={(e) => updateField("consentSms", e.target.checked)}
-                className="mt-1 size-4"
+                className="mt-1 size-5 shrink-0"
               />
-              <span className="text-[0.78rem] leading-relaxed text-[#5b6b7f]">{f.consentSms}</span>
+              <span className="text-xs leading-relaxed text-[#5b6b7f]">{f.consentSms}</span>
             </label>
           </fieldset>
         </div>

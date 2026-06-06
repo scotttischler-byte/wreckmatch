@@ -17,7 +17,7 @@ export type AsgLeadFormPayload = {
   email: string;
   phone: string;
   state?: string;
-  city?: string;
+  city: string;
   zip?: string;
   magnet_type: AsgLeadMagnetType;
   form_name?: string;
@@ -65,7 +65,7 @@ export type SurvivalGuideFormPayload = {
   email: string;
   phone: string;
   state?: string;
-  city?: string;
+  city: string;
   zip?: string;
   consentEmail: boolean;
   consentSms: boolean;

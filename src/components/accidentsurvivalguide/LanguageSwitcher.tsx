@@ -37,7 +37,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
           type="button"
           onClick={() => switchTo(code)}
           className={cn(
-            "rounded-full px-2.5 py-1 transition",
+            "min-h-[36px] min-w-[36px] rounded-full px-3 py-1.5 transition",
             locale === code ? "bg-white text-[#1a3a52] shadow-sm" : "text-[#5b6b7f] hover:text-[#1a3a52]",
           )}
           aria-pressed={locale === code}

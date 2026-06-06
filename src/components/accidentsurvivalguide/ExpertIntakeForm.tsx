@@ -28,6 +28,7 @@ export function ExpertIntakeForm() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [state, setState] = useState("");
+  const [city, setCity] = useState("");
   const [intake, setIntake] = useState<AsgAccidentIntake>({
     ...EMPTY_ASG_ACCIDENT_INTAKE,
     preferredCallbackTime: "asap",
@@ -58,6 +59,7 @@ export function ExpertIntakeForm() {
         email: email.trim(),
         phone: phone.trim(),
         state,
+        city: city.trim(),
         ...intake,
         magnet_type: "expert-intake-asap",
         form_name: "expert-intake-asap",
@@ -98,7 +100,7 @@ export function ExpertIntakeForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4" noValidate id="expert-intake">
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
         <Input
           required
           autoComplete="given-name"
@@ -139,7 +141,7 @@ export function ExpertIntakeForm() {
           value={state}
           onChange={(e) => setState(e.target.value)}
           aria-label={f.state}
-          className={`${fieldClass} sm:col-span-2`}
+          className={fieldClass}
         >
           <option value="">{f.selectState}</option>
           {US_STATES.map((s) => (
@@ -148,6 +150,14 @@ export function ExpertIntakeForm() {
             </option>
           ))}
         </select>
+        <Input
+          required
+          autoComplete="address-level2"
+          placeholder={f.city}
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+          className={fieldClass}
+        />
       </div>
 
       <AsgAccidentIntakeFields
@@ -164,12 +174,12 @@ export function ExpertIntakeForm() {
         {h.expertIntakeDisclaimer}
       </p>
 
-      <label className="flex gap-2.5 rounded-lg bg-white/60 p-3 text-[0.68rem] leading-relaxed text-[#3d5568] sm:text-xs">
+      <label className="flex min-h-[48px] cursor-pointer items-start gap-3 rounded-lg bg-white/60 p-3 text-xs leading-relaxed text-[#3d5568]">
         <input
           type="checkbox"
           checked={consent}
           onChange={(e) => setConsent(e.target.checked)}
-          className="mt-0.5 size-[1.125rem] shrink-0 accent-[#c45c00]"
+          className="mt-0.5 size-5 shrink-0 accent-[#c45c00]"
           required
         />
         <span>{h.expertIntakeConsent}</span>
