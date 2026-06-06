@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { BadgeCheck } from "lucide-react";
 import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
-import { asg, asgCn } from "@/components/accidentsurvivalguide/asg-ui";
+import { asgCn } from "@/components/accidentsurvivalguide/asg-ui";
 import { SCOTT_FOUNDER_IMAGE } from "@/lib/accidentsurvivalguide";
 
 type Variant = "light" | "dark" | "compact" | "story";
