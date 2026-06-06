@@ -5,6 +5,8 @@ import { SURVIVAL_GUIDE_PDF } from "@/lib/accidentsurvivalguide";
 import { DEFAULT_LOCALE, isLocale, type Locale } from "@/lib/i18n/config";
 import { getMessages } from "@/lib/i18n/get-messages";
 import { localizeHref } from "@/lib/i18n/locale-path";
+import { isAccidentIntakeComplete, parseAccidentIntakeFromBody } from "@/lib/asg-intake";
+import { accidentIntakeLeadFields } from "@/lib/asg-intake-lead";
 import { processAsgLead } from "@/lib/asg-lead-pipeline";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -45,6 +47,9 @@ function parseLead(
   if (phoneDigits.length < 10) return { error: errors.phoneInvalid };
   if (!consentSms && !consentEmail) return { error: errors.consent };
 
+  const intake = parseAccidentIntakeFromBody(body);
+  if (!isAccidentIntakeComplete(intake)) return { error: errors.intakeIncomplete };
+
   return {
     firstName,
     lastName,
@@ -70,6 +75,9 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, message: parsed.error }, { status: 400 });
     }
 
+    const intake = parseAccidentIntakeFromBody(body);
+    const intakeFields = accidentIntakeLeadFields(intake, locale);
+
     const result = await processAsgLead({
       firstName: parsed.firstName,
       lastName: parsed.lastName,
@@ -84,6 +92,7 @@ export async function POST(request: Request) {
       consentEmail: parsed.consentEmail,
       consentSms: parsed.consentSms,
       preferredLanguage: locale,
+      ...intakeFields,
     });
 
     if (!result.ok) {

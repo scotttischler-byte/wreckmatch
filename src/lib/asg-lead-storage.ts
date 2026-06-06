@@ -1,3 +1,5 @@
+import type { AsgAccidentIntake } from "@/lib/asg-intake";
+
 const CALC_LEAD_KEY = "asg_calculator_lead";
 
 export type CalculatorLeadCapture = {
@@ -6,7 +8,7 @@ export type CalculatorLeadCapture = {
   email: string;
   phone: string;
   state: string;
-};
+} & Partial<AsgAccidentIntake>;
 
 export function saveCalculatorLead(lead: CalculatorLeadCapture): void {
   if (typeof window === "undefined") return;

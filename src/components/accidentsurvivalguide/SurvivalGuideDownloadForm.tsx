@@ -10,6 +10,12 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { US_STATES } from "@/lib/accidentsurvivalguide";
+import { AsgAccidentIntakeFields } from "@/components/accidentsurvivalguide/AsgAccidentIntakeFields";
+import {
+  EMPTY_ASG_ACCIDENT_INTAKE,
+  isAccidentIntakeComplete,
+  type AsgAccidentIntake,
+} from "@/lib/asg-intake";
 import { submitSurvivalGuideForm } from "@/lib/asg-form-submit";
 import { trackAsgEvent } from "@/lib/analytics";
 
@@ -66,6 +72,7 @@ export function SurvivalGuideDownloadForm({
   const { locale, messages, href } = useAsgLocale();
   const f = messages.form;
   const [form, setForm] = useState<FormState>(INITIAL);
+  const [intake, setIntake] = useState<AsgAccidentIntake>(EMPTY_ASG_ACCIDENT_INTAKE);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [started, setStarted] = useState(false);
@@ -97,6 +104,10 @@ export function SurvivalGuideDownloadForm({
       setError(f.consentError);
       return;
     }
+    if (!isAccidentIntakeComplete(intake)) {
+      setError(f.errors.intakeIncomplete);
+      return;
+    }
 
     setLoading(true);
     setError("");
@@ -114,6 +125,7 @@ export function SurvivalGuideDownloadForm({
         consentSms: form.consentSms,
         preferredLanguage: locale,
         form_name: embedded ? "embedded-survival-guide" : "survival-guide-download",
+        ...intake,
       });
 
       if (!data.success) {
@@ -268,6 +280,15 @@ export function SurvivalGuideDownloadForm({
               className="h-11 max-w-xs border-[#c5dce8] bg-[#fafcfd] px-3"
             />
           </label>
+
+          <div className="sm:col-span-2">
+            <AsgAccidentIntakeFields
+              variant="light"
+              messages={f.intake}
+              values={intake}
+              onChange={(key, value) => setIntake((prev) => ({ ...prev, [key]: value }))}
+            />
+          </div>
 
           <fieldset className="space-y-2 sm:col-span-2">
             <legend className="text-sm font-medium text-[#3d5568]">{f.consentLegend}</legend>

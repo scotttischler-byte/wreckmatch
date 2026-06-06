@@ -35,6 +35,13 @@ export type AsgLeadInput = {
   preferredLanguage?: string;
   caseDescription?: string;
   calculatorSummary?: string;
+  accidentWhen?: string;
+  otherDriverAtFault?: string;
+  policeReportFiled?: string;
+  medicalTreatment?: string;
+  otherDriverInsurance?: string;
+  hasAttorney?: string;
+  accidentIntakeSummary?: string;
 };
 
 export type AsgLeadPipelineResult = {
@@ -124,8 +131,18 @@ export function buildAsgWebhookPayload(lead: AsgLeadInput, contactId?: string) {
     email_consent: lead.consentEmail !== false ? "Yes" : "No",
     sms_consent: lead.consentSms ? "Yes" : "No",
     preferred_language: lead.preferredLanguage || "en",
-    case_description: lead.caseDescription || "",
+    case_description: lead.caseDescription || lead.accidentIntakeSummary || "",
     calculator_summary: lead.calculatorSummary || "",
+    accident_when: lead.accidentWhen || "",
+    other_driver_at_fault: lead.otherDriverAtFault || "",
+    police_report_filed: lead.policeReportFiled || "",
+    medical_treatment: lead.medicalTreatment || "",
+    other_driver_insurance: lead.otherDriverInsurance || "",
+    has_attorney: lead.hasAttorney || "",
+    accident_intake_summary: lead.accidentIntakeSummary || "",
+    accident_date: lead.accidentWhen || "",
+    injury_status: lead.medicalTreatment || "",
+    insurance_status: lead.otherDriverInsurance || "",
     ghl_contact_id: contactId || "",
     created_at: new Date().toISOString(),
   };
@@ -183,6 +200,27 @@ export async function processAsgLead(lead: AsgLeadInput): Promise<AsgLeadPipelin
           key: "automation_trigger",
           field_value: automationTrigger(lead.magnetType),
         },
+        ...(lead.accidentWhen
+          ? [{ key: "accident_when", field_value: lead.accidentWhen }]
+          : []),
+        ...(lead.otherDriverAtFault
+          ? [{ key: "other_driver_at_fault", field_value: lead.otherDriverAtFault }]
+          : []),
+        ...(lead.policeReportFiled
+          ? [{ key: "police_report_filed", field_value: lead.policeReportFiled }]
+          : []),
+        ...(lead.medicalTreatment
+          ? [{ key: "medical_treatment", field_value: lead.medicalTreatment }]
+          : []),
+        ...(lead.otherDriverInsurance
+          ? [{ key: "other_driver_insurance", field_value: lead.otherDriverInsurance }]
+          : []),
+        ...(lead.hasAttorney
+          ? [{ key: "has_attorney", field_value: lead.hasAttorney }]
+          : []),
+        ...(lead.accidentIntakeSummary
+          ? [{ key: "accident_intake_summary", field_value: lead.accidentIntakeSummary }]
+          : []),
       ],
     };
 

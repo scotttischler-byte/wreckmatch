@@ -27,6 +27,12 @@ export type AsgLeadFormPayload = {
   caseDescription?: string;
   calculator_summary?: string;
   lead_source?: string;
+  accidentWhen?: string;
+  otherDriverAtFault?: string;
+  policeReportFiled?: string;
+  medicalTreatment?: string;
+  otherDriverInsurance?: string;
+  hasAttorney?: string;
 };
 
 /** POST intake form → GHL (via /api/submit-lead on ASG). */
@@ -58,6 +64,12 @@ export type SurvivalGuideFormPayload = {
   consentSms: boolean;
   preferredLanguage?: string;
   form_name?: string;
+  accidentWhen?: string;
+  otherDriverAtFault?: string;
+  policeReportFiled?: string;
+  medicalTreatment?: string;
+  otherDriverInsurance?: string;
+  hasAttorney?: string;
 };
 
 /** POST guide download form → GHL (via /api/submit-survival-guide). */

@@ -6,6 +6,8 @@ import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvid
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { US_STATES } from "@/lib/accidentsurvivalguide";
+import { AsgAccidentIntakeFields } from "@/components/accidentsurvivalguide/AsgAccidentIntakeFields";
+import { EMPTY_ASG_ACCIDENT_INTAKE, isAccidentIntakeComplete, type AsgAccidentIntake } from "@/lib/asg-intake";
 import { saveCalculatorLead } from "@/lib/asg-lead-storage";
 import { submitAsgLeadForm } from "@/lib/asg-form-submit";
 import { trackAsgEvent } from "@/lib/analytics";
@@ -23,6 +25,7 @@ export function CalculatorLeadForm() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [state, setState] = useState("");
+  const [intake, setIntake] = useState<AsgAccidentIntake>(EMPTY_ASG_ACCIDENT_INTAKE);
   const [consent, setConsent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -31,6 +34,10 @@ export function CalculatorLeadForm() {
     e.preventDefault();
     if (!consent) {
       setError(h.calculatorLeadConsentRequired);
+      return;
+    }
+    if (!isAccidentIntakeComplete(intake)) {
+      setError(h.calculatorLeadIntakeRequired);
       return;
     }
 
@@ -48,6 +55,7 @@ export function CalculatorLeadForm() {
     try {
       const data = await submitAsgLeadForm({
         ...lead,
+        ...intake,
         magnet_type: "calculator-lead-magnet",
         form_name: "homepage-calculator-lead",
         state,
@@ -60,7 +68,7 @@ export function CalculatorLeadForm() {
         return;
       }
 
-      saveCalculatorLead(lead);
+      saveCalculatorLead({ ...lead, ...intake });
       trackAsgEvent("calculator_lead_magnet_submit", {
         state: state || "unspecified",
         sarah: data.sarahCallStarted ? "yes" : "no",
@@ -143,6 +151,14 @@ export function CalculatorLeadForm() {
           ))}
         </select>
       </div>
+
+      <AsgAccidentIntakeFields
+        className="mt-3"
+        variant="dark"
+        messages={f.intake}
+        values={intake}
+        onChange={(key, value) => setIntake((prev) => ({ ...prev, [key]: value }))}
+      />
 
       <label className="mt-3 flex gap-2.5 rounded-lg bg-black/15 p-3 text-[0.65rem] leading-relaxed text-[#e8f4fa] sm:text-xs">
         <input

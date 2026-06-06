@@ -3,9 +3,12 @@ import {
   GHL_WEBHOOK_URL,
   LAW_FIRM_NAME,
 } from "@/lib/constants";
+import { accidentIntakeLeadFields } from "@/lib/asg-intake-lead";
+import { isAccidentIntakeComplete, parseAccidentIntakeFromBody } from "@/lib/asg-intake";
 import { ASG_LEAD_SOURCE } from "@/lib/ghl-survival-guide";
 import { processAsgLead, type AsgLeadMagnetType } from "@/lib/asg-lead-pipeline";
 import { isAsgRequest } from "@/lib/asg-request";
+import { getMessages } from "@/lib/i18n/get-messages";
 import { upsertGhlContact } from "@/lib/ghl";
 import { DEFAULT_LOCALE, isLocale, type Locale } from "@/lib/i18n/config";
 
@@ -186,6 +189,19 @@ export async function POST(request: Request) {
     const lang = str(body.preferredLanguage);
     const locale: Locale = isLocale(lang) ? lang : DEFAULT_LOCALE;
 
+    const magnetType = resolveMagnetType(body);
+    const intake = parseAccidentIntakeFromBody(body);
+    const intakeRequired = magnetType === "calculator-lead-magnet";
+    if (intakeRequired && !isAccidentIntakeComplete(intake)) {
+      return NextResponse.json(
+        { success: false, message: getMessages(locale).form.errors.intakeIncomplete },
+        { status: 400 },
+      );
+    }
+    const intakeFields = isAccidentIntakeComplete(intake)
+      ? accidentIntakeLeadFields(intake, locale)
+      : {};
+
     const result = await processAsgLead({
       firstName,
       lastName,
@@ -194,14 +210,15 @@ export async function POST(request: Request) {
       state: stateField,
       city: str(body.city),
       postalCode: str(body.zip),
-      magnetType: resolveMagnetType(body),
+      magnetType,
       leadSource: str(body.lead_source) || ASG_LEAD_SOURCE,
       formName: str(body.form_name) || str(body.magnet_type) || "asg-intake",
       consentEmail: body.consentEmail !== false,
       consentSms: body.consentSms === true || body.consentSms === "true",
       preferredLanguage: locale,
-      caseDescription: str(body.caseDescription),
+      caseDescription: str(body.caseDescription) || intakeFields.caseDescription,
       calculatorSummary: str(body.calculator_summary),
+      ...intakeFields,
     });
 
     if (!result.ok) {
