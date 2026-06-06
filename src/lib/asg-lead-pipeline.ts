@@ -18,7 +18,12 @@ export type AsgLeadMagnetType =
   | "calculator-lead-magnet"
   | "calculator-case-review"
   | "attorney-match"
-  | "expert-intake-asap";
+  | "expert-intake-asap"
+  | "webinar-registration";
+
+export const ASG_WEBINAR_LEAD_SOURCE = "accidentsurvivalguide-webinar-registration";
+
+export const WEBINAR_EVENT_LABEL = "Wednesday 7PM ET";
 
 export type AsgLeadInput = {
   firstName: string;
@@ -66,7 +71,10 @@ export type AsgLeadPipelineResult = {
 };
 
 function tagsForMagnet(type: AsgLeadMagnetType, state?: string): string[] {
-  const tags = ["wreckmatch-lead", "asg-lead", "sarah-callback-requested"];
+  const tags = ["wreckmatch-lead", "asg-lead"];
+  if (type !== "webinar-registration") {
+    tags.push("sarah-callback-requested");
+  }
   switch (type) {
     case "survival-guide-download":
       tags.push("survival-guide-lead", "downloaded-guide-yes");
@@ -80,6 +88,9 @@ function tagsForMagnet(type: AsgLeadMagnetType, state?: string): string[] {
       break;
     case "expert-intake-asap":
       tags.push("expert-intake-asap", "priority-intake", "asap-callback");
+      break;
+    case "webinar-registration":
+      tags.push("webinar-lead", "masterclass-registration", "asg-webinar");
       break;
   }
   if (state) tags.push(`state-${state.toLowerCase()}`);
@@ -103,6 +114,8 @@ function automationTrigger(type: AsgLeadMagnetType): string {
       return "asg_attorney_match_request";
     case "expert-intake-asap":
       return "expert_intake_asap";
+    case "webinar-registration":
+      return "webinar_masterclass_registration";
     default:
       return "asg_lead_followup";
   }
@@ -128,6 +141,8 @@ function buildLeadSmsBody(lead: AsgLeadInput): string {
       return `Hi ${name}, thanks for requesting a free attorney match. A specialist will reach out shortly. Reply STOP to unsubscribe.`;
     case "expert-intake-asap":
       return `Hi ${name}, we got your ASAP intake request. Expect a call from our team soon. Reply STOP to unsubscribe.`;
+    case "webinar-registration":
+      return `Hi ${name}, you're registered for our free masterclass (${WEBINAR_EVENT_LABEL}). We'll send reminders before we go live. Reply STOP to unsubscribe.`;
     default:
       return `Hi ${name}, thanks for contacting Accident Survival Guide. We'll be in touch soon. Reply STOP to unsubscribe.`;
   }
@@ -144,6 +159,8 @@ function offerForMagnet(type: AsgLeadMagnetType): string {
       return "Free attorney match";
     case "expert-intake-asap":
       return "Expert intake — ASAP callback";
+    case "webinar-registration":
+      return `Free live masterclass — ${WEBINAR_EVENT_LABEL}`;
     default:
       return "Accident Survival Guide";
   }
@@ -172,7 +189,11 @@ export function buildAsgWebhookPayload(lead: AsgLeadInput, contactId?: string) {
     automation_trigger: automationTrigger(lead.magnetType),
     priority_intake:
       (lead.priorityIntake || lead.magnetType === "expert-intake-asap") ? "yes" : "no",
-    trigger_sarah_call: "yes",
+    trigger_sarah_call: lead.magnetType === "webinar-registration" ? "no" : "yes",
+    registration_channel:
+      lead.magnetType === "webinar-registration" ? "accidentsurvivalguide-webinar" : "",
+    webinar_event_time:
+      lead.magnetType === "webinar-registration" ? WEBINAR_EVENT_LABEL : "",
     offer: offerForMagnet(lead.magnetType),
     pdf_download_url: pdfUrl,
     guide_pdf_path: SURVIVAL_GUIDE_PDF,
@@ -218,9 +239,15 @@ function sarahOfferLabel(type: AsgLeadMagnetType): string {
       return "free attorney match";
     case "expert-intake-asap":
       return "expert intake ASAP";
+    case "webinar-registration":
+      return "free live masterclass";
     default:
       return "Accident Survival Guide";
   }
+}
+
+function shouldTriggerSarahCall(type: AsgLeadMagnetType): boolean {
+  return type !== "webinar-registration";
 }
 
 export async function processAsgLead(lead: AsgLeadInput): Promise<AsgLeadPipelineResult> {
@@ -368,17 +395,29 @@ export async function processAsgLead(lead: AsgLeadInput): Promise<AsgLeadPipelin
     }
   }
 
-  const sarah = await createSarahOutboundCall({
-    toPhone: lead.phone,
-    firstName: lead.firstName,
-    leadSource: lead.leadSource,
-    offerLabel: sarahOfferLabel(lead.magnetType),
-  });
+  let sarahCallStarted = false;
+  let sarahCallId: string | undefined;
+  let sarahSkipReason: string | undefined;
 
-  if (sarah.ok) {
-    console.log("[asg-lead] Sarah outbound call started:", sarah.callId);
+  if (shouldTriggerSarahCall(lead.magnetType)) {
+    const sarah = await createSarahOutboundCall({
+      toPhone: lead.phone,
+      firstName: lead.firstName,
+      leadSource: lead.leadSource,
+      offerLabel: sarahOfferLabel(lead.magnetType),
+    });
+
+    if (sarah.ok) {
+      sarahCallStarted = true;
+      sarahCallId = sarah.callId;
+      console.log("[asg-lead] Sarah outbound call started:", sarah.callId);
+    } else {
+      sarahSkipReason = sarah.reason;
+      console.warn("[asg-lead] Sarah outbound skipped:", sarah.reason, sarah.detail ?? "");
+    }
   } else {
-    console.warn("[asg-lead] Sarah outbound skipped:", sarah.reason, sarah.detail ?? "");
+    sarahSkipReason = "webinar-registration";
+    console.log("[asg-lead] Sarah outbound skipped for webinar registration channel");
   }
 
   const ok = Boolean(contactId || webhookSent);
@@ -393,12 +432,12 @@ export async function processAsgLead(lead: AsgLeadInput): Promise<AsgLeadPipelin
     webhookSent,
     smsSent,
     smsSkipReason,
-    sarahCallStarted: sarah.ok,
-    sarahCallId: sarah.ok ? sarah.callId : undefined,
-    sarahSkipReason: sarah.ok ? undefined : sarah.reason,
+    sarahCallStarted,
+    sarahCallId,
+    sarahSkipReason,
     message:
-      ok && !sarah.ok
-        ? `Lead saved. Sarah call pending (${sarah.reason}).`
+      ok && shouldTriggerSarahCall(lead.magnetType) && !sarahCallStarted
+        ? `Lead saved. Sarah call pending (${sarahSkipReason}).`
         : undefined,
   };
 }

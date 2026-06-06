@@ -25,7 +25,8 @@ type AsgEvent =
   | "calculator_download_results"
   | "calculator_lead_magnet_submit"
   | "expert_intake_asap_submit"
-  | "wreckmatch_funnel_click";
+  | "wreckmatch_funnel_click"
+  | "webinar_registration_submit";
 
 declare global {
   interface Window {

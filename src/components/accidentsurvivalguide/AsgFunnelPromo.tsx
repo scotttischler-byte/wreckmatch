@@ -3,25 +3,23 @@
 import { Calendar, GraduationCap, Phone } from "lucide-react";
 import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
 import { AsgFunnelLink } from "@/components/accidentsurvivalguide/AsgFunnelLink";
+import { AsgLink } from "@/components/accidentsurvivalguide/AsgLink";
+import { WebinarSignupForm } from "@/components/accidentsurvivalguide/WebinarSignupForm";
 import { asg, asgCn } from "@/components/accidentsurvivalguide/asg-ui";
 
 type Variant = "full" | "compact";
 
 export function AsgFunnelPromo({ variant = "full" }: { variant?: Variant }) {
-  const { messages } = useAsgLocale();
+  const { messages, href } = useAsgLocale();
   const f = messages.funnel;
 
   if (variant === "compact") {
     return (
       <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
-        <AsgFunnelLink
-          funnel="masterclass"
-          utmMedium="promo_compact"
-          className={asgCn(asg.btnPrimary, "gap-2 px-5")}
-        >
+        <AsgLink href={href("/webinar")} className={asgCn(asg.btnPrimary, "gap-2 px-5")}>
           <GraduationCap className="size-4" aria-hidden />
           {f.masterclassCta}
-        </AsgFunnelLink>
+        </AsgLink>
         <AsgFunnelLink
           funnel="bookCall"
           utmMedium="promo_compact"
@@ -49,13 +47,9 @@ export function AsgFunnelPromo({ variant = "full" }: { variant?: Variant }) {
             <h3 className={asgCn(asg.h3, "mt-4")}>{f.masterclassTitle}</h3>
             <p className={asgCn(asg.bodySm, "mt-2 flex-1")}>{f.masterclassBody}</p>
             <p className={asgCn(asg.legal, "mt-3")}>{f.masterclassSchedule}</p>
-            <AsgFunnelLink
-              funnel="masterclass"
-              utmMedium="promo_card"
-              className={asgCn(asg.btnPrimary, "mt-5 w-full gap-2")}
-            >
-              {f.masterclassCta}
-            </AsgFunnelLink>
+            <div className="mt-5">
+              <WebinarSignupForm variant="card" formName="asg-webinar-promo-card" />
+            </div>
             <AsgFunnelLink
               funnel="webinarConfirmed"
               utmMedium="promo_card_registered"

@@ -40,9 +40,9 @@ export function SurvivalGuideFooter() {
                 </AsgLink>
               </li>
               <li>
-                <AsgFunnelLink funnel="masterclass" utmMedium="footer" className="hover:text-asg-teal">
+                <AsgLink href="/webinar" className="hover:text-asg-teal">
                   {f.freeMasterclass}
-                </AsgFunnelLink>
+                </AsgLink>
               </li>
               <li>
                 <AsgFunnelLink funnel="bookCall" utmMedium="footer" className="hover:text-asg-teal">

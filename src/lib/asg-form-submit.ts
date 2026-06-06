@@ -1,4 +1,5 @@
 import type { AsgLeadMagnetType } from "@/lib/asg-lead-pipeline";
+import { ASG_WEBINAR_LEAD_SOURCE } from "@/lib/asg-lead-pipeline";
 import { ASG_LEAD_SOURCE } from "@/lib/ghl-survival-guide";
 
 export type AsgLeadSubmitResponse = {
@@ -50,9 +51,9 @@ export async function submitAsgLeadForm(
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      lead_source: ASG_LEAD_SOURCE,
       consentEmail: payload.consentEmail ?? true,
       ...payload,
+      lead_source: payload.lead_source ?? ASG_LEAD_SOURCE,
       lastName: payload.lastName?.trim() || ".",
     }),
   });
@@ -85,6 +86,35 @@ export type SurvivalGuideFormPayload = {
   additionalNotes?: string;
   priority_intake?: boolean;
 };
+
+export type WebinarRegistrationPayload = {
+  firstName: string;
+  lastName?: string;
+  email: string;
+  phone: string;
+  state?: string;
+  city?: string;
+  consentEmail?: boolean;
+  consentSms?: boolean;
+  preferredLanguage?: string;
+  form_name?: string;
+};
+
+/** POST webinar signup → GHL on the ASG webinar channel (no Sarah call). */
+export async function submitWebinarRegistration(
+  payload: WebinarRegistrationPayload,
+): Promise<AsgLeadSubmitResponse> {
+  return submitAsgLeadForm({
+    ...payload,
+    city: payload.city?.trim() || "Not specified",
+    magnet_type: "webinar-registration",
+    form_name: payload.form_name ?? "asg-webinar-signup",
+    lead_source: ASG_WEBINAR_LEAD_SOURCE,
+    consentEmail: payload.consentEmail ?? true,
+    consentSms: payload.consentSms ?? true,
+    preferredLanguage: payload.preferredLanguage,
+  });
+}
 
 /** POST guide download form → GHL (via /api/submit-survival-guide). */
 export async function submitSurvivalGuideForm(

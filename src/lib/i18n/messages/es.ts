@@ -40,6 +40,7 @@ export const es: Messages = {
     heroWebinarTitle: "Masterclass en Vivo Gratis: Qué Hacer Después de un Accidente",
     heroWebinarSchedule: "EN VIVO miércoles 7PM ET · Registro gratis · Sin costo",
     heroWebinarAlreadyRegistered: "¿Ya se registró?",
+    heroWebinarFullPage: "Página completa del webinar →",
     bookCallTitle: "Agendar Llamada Estratégica Gratis",
     bookCallBody:
       "Hable uno a uno con nuestro equipo sobre su accidente, sus opciones y si una referencia de abogado tiene sentido—sin presión.",
@@ -47,6 +48,41 @@ export const es: Messages = {
     bookCallCta: "Agendar Mi Llamada Gratis",
     alreadyRegistered: "¿Ya se registró? Ver confirmación →",
     alreadyBooked: "¿Ya agendó? Ver su cita →",
+  },
+  webinarForm: {
+    metaTitle: "Registro Masterclass en Vivo Gratis",
+    metaDescription:
+      "Regístrese para nuestra masterclass en vivo gratuita sobre qué hacer después de un accidente. EN VIVO miércoles 7PM ET — sin costo, registro confidencial.",
+    pageTitle: "Regístrese para la Masterclass en Vivo Gratis",
+    formTitle: "Reserve su lugar gratis",
+    formSubtitle:
+      "Regístrese aquí en Accident Survival Guide — le enviaremos confirmación y recordatorios por correo/mensaje.",
+    heroFormTitle: "Regístrese gratis — sin costo",
+    noCostNote: "100% gratis asistir. Sin costo. Su información se mantiene confidencial.",
+    consent:
+      "Quiero registrarme para la masterclass gratis y recibir confirmación y recordatorios por correo/mensaje (pueden aplicar tarifas. Responda STOP para cancelar). Entiendo que es educativo—no es asesoría legal.",
+    consentRequired: "Confirme que desea registrarse para la masterclass.",
+    submit: "Reservar Mi Lugar Gratis",
+    submitting: "Guardando su lugar…",
+    error: "No se pudo registrar ahora. Intente de nuevo.",
+    learnItems: [
+      "Por qué no debe apresurarse a dar una declaración grabada a las aseguradoras",
+      "Errores de documentación que pueden debilitar su reclamo",
+      "Cómo las víctimas pueden recuperar gastos médicos, trabajo perdido y dolor",
+      "Cuándo una referencia gratuita de abogado puede tener sentido — sin costo inicial",
+    ],
+    alreadyRegistered: "¿Ya se registró en otra página?",
+    thankYouMetaTitle: "Está Registrado",
+    thankYouMetaDescription: "Su registro para la masterclass gratis está confirmado.",
+    thankYouEyebrow: "Está registrado",
+    thankYouTitle: "¡Está dentro — nos vemos en la masterclass!",
+    thankYouBody: "Hola {name}, guardamos su registro para {email}. Revise su bandeja para confirmación y recordatorios.",
+    thankYouReminder:
+      "Agregue miércoles 7PM ET a su calendario. Recomendamos asistir en vivo — información oportuna para víctimas recientes.",
+    thankYouNextTitle: "¿Quiere hablar antes del webinar?",
+    thankYouNextBody: "Agende una llamada estratégica gratis y confidencial con nuestro equipo — sin costo, sin presión.",
+    backHome: "← Volver al inicio",
+    there: "amigo/a",
   },
   lang: {
     switch: "Idioma",

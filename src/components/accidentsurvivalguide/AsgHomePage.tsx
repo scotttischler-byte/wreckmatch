@@ -122,13 +122,12 @@ export function AsgHomePage({ messages: m }: { messages: Messages }) {
           <h2 className="font-serif text-2xl font-semibold sm:text-3xl">{h.helpTitle}</h2>
           <p className="mx-auto mt-3 max-w-lg text-base leading-relaxed text-asg-sky">{h.helpBody}</p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <AsgFunnelLink
-              funnel="masterclass"
-              utmMedium="home_cta"
+            <AsgLink
+              href="/webinar"
               className="inline-flex min-h-[48px] items-center rounded-lg bg-asg-sage px-6 text-sm font-semibold text-white transition hover:bg-asg-sage/90"
             >
               {h.visitWreckmatch}
-            </AsgFunnelLink>
+            </AsgLink>
             <AsgFunnelLink
               funnel="bookCall"
               utmMedium="home_cta"

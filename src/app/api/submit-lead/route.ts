@@ -46,12 +46,14 @@ function resolveMagnetType(body: Record<string, unknown>): AsgLeadMagnetType {
     explicit === "calculator-lead-magnet" ||
     explicit === "calculator-case-review" ||
     explicit === "attorney-match" ||
-    explicit === "expert-intake-asap"
+    explicit === "expert-intake-asap" ||
+    explicit === "webinar-registration"
   ) {
     return explicit;
   }
 
   const src = str(body.lead_source);
+  if (src.includes("webinar")) return "webinar-registration";
   if (src.includes("expert-intake")) return "expert-intake-asap";
   if (src.includes("calculator-lead-magnet")) return "calculator-lead-magnet";
   if (src.includes("compensation-calculator")) return "calculator-case-review";
@@ -198,15 +200,14 @@ export async function POST(request: Request) {
     const lang = str(body.preferredLanguage);
     const locale: Locale = isLocale(lang) ? lang : DEFAULT_LOCALE;
 
+    const magnetType = resolveMagnetType(body);
     const city = str(body.city);
-    if (!city) {
+    if (!city && magnetType !== "webinar-registration") {
       return NextResponse.json(
         { success: false, message: getMessages(locale).form.errors.city },
         { status: 400 },
       );
     }
-
-    const magnetType = resolveMagnetType(body);
     const intake = parseAccidentIntakeFromBody(body);
     const intakeRequired =
       magnetType === "calculator-lead-magnet" || magnetType === "expert-intake-asap";
@@ -248,12 +249,17 @@ export async function POST(request: Request) {
       );
     }
 
+    const redirectTo =
+      magnetType === "webinar-registration"
+        ? `/webinar/thank-you?email=${encodeURIComponent(email)}&firstName=${encodeURIComponent(firstName)}`
+        : "/thank-you";
+
     return NextResponse.json({
       success: true,
       ghlContactId: result.contactId,
       sarahCallStarted: result.sarahCallStarted,
       emailAutomationTriggered: result.webhookSent,
-      redirectTo: "/thank-you",
+      redirectTo,
     });
   } catch (error) {
     console.error("[submit-lead] unexpected error:", error);
