@@ -9,7 +9,7 @@
 
 import { ASG_BASE_URL, ASG_DOMAIN, SURVIVAL_GUIDE_PDF } from "@/lib/accidentsurvivalguide";
 import { getAsgSurvivalGuideWebhookUrl, survivalGuidePdfAbsoluteUrl } from "@/lib/ghl-survival-guide";
-import { upsertGhlContact, type GhlUpsertInput } from "@/lib/ghl";
+import { sendGhlSms, upsertGhlContact, type GhlUpsertInput } from "@/lib/ghl";
 import { createSarahOutboundCall } from "@/lib/retell-sarah";
 import { LAW_FIRM_NAME } from "@/lib/constants";
 
@@ -57,6 +57,8 @@ export type AsgLeadPipelineResult = {
   contactId?: string;
   isNewContact?: boolean;
   webhookSent: boolean;
+  smsSent: boolean;
+  smsSkipReason?: string;
   sarahCallStarted: boolean;
   sarahCallId?: string;
   sarahSkipReason?: string;
@@ -229,6 +231,7 @@ export async function processAsgLead(lead: AsgLeadInput): Promise<AsgLeadPipelin
     return {
       ok: false,
       webhookSent: false,
+      smsSent: false,
       sarahCallStarted: false,
       message: "Lead automation is not configured (GHL_API_KEY or webhook URL required).",
     };
@@ -313,6 +316,7 @@ export async function processAsgLead(lead: AsgLeadInput): Promise<AsgLeadPipelin
         return {
           ok: false,
           webhookSent: false,
+          smsSent: false,
           sarahCallStarted: false,
           message: "Failed to save lead to CRM.",
         };
@@ -340,6 +344,7 @@ export async function processAsgLead(lead: AsgLeadInput): Promise<AsgLeadPipelin
         return {
           ok: false,
           webhookSent: false,
+          smsSent: false,
           sarahCallStarted: false,
           message: "Failed to send lead to automation.",
         };
@@ -347,6 +352,19 @@ export async function processAsgLead(lead: AsgLeadInput): Promise<AsgLeadPipelin
     } else {
       webhookSent = true;
       console.log("[asg-lead] GHL webhook sent:", lead.magnetType);
+    }
+  }
+
+  let smsSent = false;
+  let smsSkipReason: string | undefined;
+  if (apiKey && contactId && hasSmsConsent(lead)) {
+    const sms = await sendGhlSms(apiKey, contactId, buildLeadSmsBody(lead));
+    if (sms.ok) {
+      smsSent = true;
+      console.log("[asg-lead] GHL SMS sent:", sms.messageId ?? "ok");
+    } else {
+      smsSkipReason = sms.reason;
+      console.warn("[asg-lead] GHL SMS skipped:", sms.reason, sms.body?.slice(0, 200) ?? "");
     }
   }
 
@@ -373,6 +391,8 @@ export async function processAsgLead(lead: AsgLeadInput): Promise<AsgLeadPipelin
     contactId,
     isNewContact,
     webhookSent,
+    smsSent,
+    smsSkipReason,
     sarahCallStarted: sarah.ok,
     sarahCallId: sarah.ok ? sarah.callId : undefined,
     sarahSkipReason: sarah.ok ? undefined : sarah.reason,

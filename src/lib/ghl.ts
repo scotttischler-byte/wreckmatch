@@ -28,6 +28,10 @@ export type GhlUpsertResult =
   | { ok: true; contactId: string; isNew: boolean }
   | { ok: false; status: number; body: string };
 
+export type GhlSendSmsResult =
+  | { ok: true; messageId?: string }
+  | { ok: false; status: number; reason: string; body?: string };
+
 export async function upsertGhlContact(
   apiKey: string,
   input: GhlUpsertInput,
@@ -73,5 +77,44 @@ export async function upsertGhlContact(
     return { ok: true, contactId, isNew: Boolean(parsed.new) };
   } catch {
     return { ok: false, status: res.status, body: text };
+  }
+}
+
+/** Send outbound SMS via GHL LC Phone (requires conversations/message.write on API token). */
+export async function sendGhlSms(
+  apiKey: string,
+  contactId: string,
+  message: string,
+): Promise<GhlSendSmsResult> {
+  const res = await fetch(`${GHL_API_BASE}/conversations/messages`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      Version: "2021-04-15",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      type: "SMS",
+      contactId,
+      message,
+      status: "pending",
+    }),
+  });
+
+  const text = await res.text();
+  if (!res.ok) {
+    return {
+      ok: false,
+      status: res.status,
+      reason: res.status === 401 ? "missing_conversations_scope" : "ghl_sms_failed",
+      body: text,
+    };
+  }
+
+  try {
+    const parsed = JSON.parse(text) as { messageId?: string; id?: string };
+    return { ok: true, messageId: parsed.messageId ?? parsed.id };
+  } catch {
+    return { ok: true };
   }
 }

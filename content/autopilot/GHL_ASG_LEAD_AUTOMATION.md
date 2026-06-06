@@ -10,7 +10,7 @@ When someone submits the **Survival Guide download** or **Calculator** forms on 
 
 | Variable | Purpose |
 |----------|---------|
-| `GHL_API_KEY` | Contact upsert via GHL API |
+| `GHL_API_KEY` | Contact upsert + optional direct SMS (needs `conversations/message.write` scope) |
 | `GHL_WEBHOOK_URL` or `ASG_SURVIVAL_GUIDE_WEBHOOK_URL` | Inbound webhook for workflows |
 | `RETELL_API_KEY` | Sarah outbound calls |
 | `RETELL_PHONE_NUMBER` | Caller ID (E.164) |
@@ -19,6 +19,19 @@ When someone submits the **Survival Guide download** or **Calculator** forms on 
 Without `RETELL_API_KEY`, leads still save to GHL and emails/SMS still fire; Sarah is skipped (logged).
 
 ## GHL SMS setup (one-time)
+
+### A) Direct SMS from the app (recommended)
+
+The site tries to text leads via `POST /conversations/messages` after each lead is saved.
+
+1. **Settings → Private Integrations** → edit the integration used for `GHL_API_KEY`.
+2. Enable scope **`conversations/message.write`** (and `conversations.readonly` if available).
+3. Regenerate the token and update `GHL_API_KEY` in Vercel + `.env.local`.
+4. **Settings → Phone Numbers** — confirm LC Phone SMS is active on location `rjrb67xfpyr4MIbZBrFZ`.
+
+Without that scope, SMS falls back to the inbound webhook workflow only (section B).
+
+### B) SMS via inbound webhook workflow
 
 1. **Settings → Phone Numbers** — confirm you have an LC Phone / Twilio number with SMS enabled for location `rjrb67xfpyr4MIbZBrFZ`.
 2. **Automation → Create workflow → Inbound Webhook** (same webhook URL as email flows).
