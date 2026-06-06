@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img" aria-label="Star Tribune">
+  <rect width="44" height="44" rx="10" fill="#111827"/>
+  <path d="M22 11l2.4 6.2 6.6.5-5 4.1 1.6 6.4L22 24.8l-5.6 3.4 1.6-6.4-5-4.1 6.6-.5L22 11z" fill="#fbbf24"/>
+  <rect x="10" y="31" width="24" height="3" rx="1.5" fill="#fff"/>
+</svg>

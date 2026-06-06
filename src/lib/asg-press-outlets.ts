@@ -1,116 +1,104 @@
-/** Syndicated press / media outlet names for the homepage marquee. */
-export const ASG_PRESS_OUTLETS = [
-  "BrandFeatured",
-  "OpenPR",
-  "Boston Herald",
-  "Star Tribune",
-  "StreetInsider",
-  "WRAL",
-  "NewsOK",
-  "Townhall",
-  "Business Insurance",
-  "Press-Telegram",
-  "Pittsburgh Post-Gazette",
-  "IBTimes",
-  "Wedbush",
-  "FinancialContent",
-  "MarketMinute",
-  "KOTA Radio",
-  "Austin NewsNet",
-  "San Antonio NewsNet",
-  "Waco NewsNet",
-  "Los Angeles NewsNet",
-  "Sacramento NewsNet",
-  "Tampa NewsNet",
-  "Orlando NewsNet",
-  "Nashville NewsNet",
-  "Detroit NewsNet",
-  "Louisville NewsNet",
-  "Portland NewsNet",
-  "Salt Lake City NewsNet",
-  "Sioux Falls NewsNet",
-  "Norfolk NewsNet",
-  "Myrtle Beach NewsNet",
-  "Monterey NewsNet",
-  "Quincy NewsNet",
-  "Santa Barbara NewsNet",
-  "Columbus NewsNet",
-  "Boise NewsNet",
-  "Hawaii NewsNet",
-  "Santa Maria Times",
-  "Lodi News",
-  "Union Democrat",
-  "Sun Chronicle",
-  "KTVN",
-  "KVOA",
-  "KTTC",
-  "KTIV",
-  "KWWL",
-  "KBJR",
-  "WPTA",
-  "WREX",
-  "WAOW",
-  "WGEM",
-  "WKOW",
-  "WQOW",
-  "WSIL",
-  "WVVA",
-  "WXOW",
-  "WBNG",
-  "Texas News Headlines",
-  "California News Reporter",
-  "Florida News Reporter",
-  "Georgia News Desk",
-  "Illinois News Desk",
-  "New York Chronicle",
-  "North Carolina Headlines",
-  "Tennessee Headlines",
-  "Colorado News Desk",
-  "Wisconsin Chronicle",
-  "Rhode Island Chronicle",
-  "The Global Tribune",
-  "The Western Tribune",
-  "The Atlantic Report",
-  "The Morning Lead",
-  "The Great News",
-  "Thrive Insider",
-  "Recent Legal News",
-  "SourceFed",
-  "Small Biz Sense",
-  "RushPR News",
-  "XPR Media",
-] as const;
-
-const LOGO_STYLES = [
-  "border-asg-teal/40 bg-asg-teal text-white",
-  "border-asg-sage/40 bg-asg-sage text-white",
-  "border-white/25 bg-white text-asg-navy",
-  "border-asg-sky/50 bg-asg-sky text-asg-navy",
-  "border-amber-200/50 bg-amber-100 text-asg-navy",
-  "border-emerald-200/50 bg-emerald-100 text-asg-navy",
-] as const;
-
-export function pressOutletMark(name: string): string {
-  const compactName = name.replace(/[^A-Za-z0-9 ]/g, " ").trim();
-  const words = compactName.split(/\s+/).filter(Boolean);
-  const stationMatch = compactName.match(/^[A-Z]{3,5}$/);
-
-  if (stationMatch) {
-    return compactName.slice(0, 4);
-  }
-
-  if (words.length === 1) {
-    const capitals = words[0].replace(/[^A-Z]/g, "");
-    return (capitals.length >= 2 ? capitals : words[0]).slice(0, 3).toUpperCase();
-  }
-
-  return words
-    .slice(0, 3)
-    .map((word) => word[0])
-    .join("")
-    .toUpperCase();
+export interface AsgPressOutlet {
+  id: string;
+  name: string;
+  logoSrc: string;
+  logoWidth: number;
+  logoHeight: number;
+  /** Tailwind arbitrary font stack approximating the outlet wordmark */
+  fontClass: string;
+  nameColor: string;
 }
 
-export function pressOutletLogoStyle(index: number): string {
-  return LOGO_STYLES[index % LOGO_STYLES.length];
-}
+/** Top 10 syndicated placements shown in the homepage press strip. */
+export const ASG_TOP_PRESS_OUTLETS: AsgPressOutlet[] = [
+  {
+    id: "brandfeatured",
+    name: "BrandFeatured",
+    logoSrc: "/press/brandfeatured.svg",
+    logoWidth: 44,
+    logoHeight: 44,
+    fontClass: "font-sans font-extrabold tracking-tight",
+    nameColor: "#0f766e",
+  },
+  {
+    id: "openpr",
+    name: "OpenPR",
+    logoSrc: "/press/openpr.svg",
+    logoWidth: 44,
+    logoHeight: 44,
+    fontClass: "font-sans font-bold tracking-wide",
+    nameColor: "#1d4ed8",
+  },
+  {
+    id: "boston-herald",
+    name: "Boston Herald",
+    logoSrc: "/press/boston-herald.svg",
+    logoWidth: 44,
+    logoHeight: 44,
+    fontClass: "font-serif font-bold tracking-tight",
+    nameColor: "#0c2340",
+  },
+  {
+    id: "star-tribune",
+    name: "Star Tribune",
+    logoSrc: "/press/star-tribune.svg",
+    logoWidth: 44,
+    logoHeight: 44,
+    fontClass: "font-serif font-semibold",
+    nameColor: "#111827",
+  },
+  {
+    id: "streetinsider",
+    name: "StreetInsider",
+    logoSrc: "/press/streetinsider.svg",
+    logoWidth: 44,
+    logoHeight: 44,
+    fontClass: "font-sans font-bold uppercase tracking-[0.12em]",
+    nameColor: "#14532d",
+  },
+  {
+    id: "wral",
+    name: "WRAL",
+    logoSrc: "/press/wral.svg",
+    logoWidth: 44,
+    logoHeight: 44,
+    fontClass: "font-sans font-black tracking-widest",
+    nameColor: "#b91c1c",
+  },
+  {
+    id: "newsok",
+    name: "NewsOK",
+    logoSrc: "/press/newsok.svg",
+    logoWidth: 44,
+    logoHeight: 44,
+    fontClass: "font-sans font-bold",
+    nameColor: "#1e3a8a",
+  },
+  {
+    id: "townhall",
+    name: "Townhall",
+    logoSrc: "/press/townhall.svg",
+    logoWidth: 44,
+    logoHeight: 44,
+    fontClass: "font-serif font-bold",
+    nameColor: "#991b1b",
+  },
+  {
+    id: "business-insurance",
+    name: "Business Insurance",
+    logoSrc: "/press/business-insurance.svg",
+    logoWidth: 44,
+    logoHeight: 44,
+    fontClass: "font-sans font-semibold",
+    nameColor: "#0f4c81",
+  },
+  {
+    id: "press-telegram",
+    name: "Press-Telegram",
+    logoSrc: "/press/press-telegram.svg",
+    logoWidth: 44,
+    logoHeight: 44,
+    fontClass: "font-serif font-bold italic",
+    nameColor: "#1f2937",
+  },
+];

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img" aria-label="StreetInsider">
+  <rect width="44" height="44" rx="10" fill="#14532d"/>
+  <path d="M12 30V14h12.8v3H15.2v3.6h8.4v3H15.2v6.4H12z" fill="#fff"/>
+  <path d="M28 14h3.2l4.8 8.2V14H39v16h-3.2l-4.8-8.2V30H28V14z" fill="#86efac"/>
+</svg>

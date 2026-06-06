@@ -94,7 +94,7 @@ export const en = {
   pressMarquee: {
     ariaLabel: "Press coverage and syndicated media placements",
     eyebrow: "As seen in",
-    subtitle: "Names and logo-style marks from 500+ placements.",
+    subtitle: "Featured in leading news and syndication outlets.",
   },
   trust: {
     stripAria: "Safety and trust",

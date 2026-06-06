@@ -149,7 +149,7 @@
 }
 
 .asg-marquee-track {
-  animation: asg-marquee 68s linear infinite;
+  animation: asg-marquee 36s linear infinite;
 }
 
 .asg-marquee:hover .asg-marquee-track {

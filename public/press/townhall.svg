@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" role="img" aria-label="Townhall">
+  <rect width="44" height="44" rx="10" fill="#991b1b"/>
+  <path d="M22 12l8 6v12H14V18l8-6zm0 4.2L18 20v6h8v-6l-4-3.8z" fill="#fff"/>
+  <rect x="20" y="22" width="4" height="6" fill="#fecaca"/>
+</svg>

@@ -51,8 +51,8 @@ export default function AccidentSurvivalGuideLayout({
     <AsgLocaleProvider locale={locale} messages={messages}>
       <AsgShell lang={localeHtmlLang(locale)}>
         <AsgJsonLd includeFaq siteName={messages.meta.siteName} faqItems={messages.faq} />
-        <SurvivalGuideHeader />
         <AsgPressMarquee />
+        <SurvivalGuideHeader />
         <main className="max-sm:pb-safe-bar">{children}</main>
         <StickyDownloadBar />
         <SurvivalGuideFooter />
