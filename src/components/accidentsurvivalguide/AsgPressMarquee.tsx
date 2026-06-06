@@ -12,11 +12,11 @@ function PressOutletBadge({
   return (
     <span className="asg-press-badge inline-flex shrink-0 items-center rounded-2xl border border-asg-border/55 bg-white/95 px-5 py-3 shadow-sm shadow-asg-navy/[0.05] backdrop-blur-sm transition duration-300 hover:border-asg-teal/25 hover:shadow-md hover:shadow-asg-navy/[0.08] sm:px-6 sm:py-3.5">
       <Image
-        src={outlet.wordmarkSrc}
+        src={outlet.logoSrc}
         alt={outlet.name}
-        width={outlet.wordmarkWidth}
-        height={outlet.wordmarkHeight}
-        className="h-7 w-auto opacity-90 sm:h-9 md:h-10"
+        width={outlet.logoWidth}
+        height={outlet.logoHeight}
+        className="h-7 w-auto max-w-[220px] object-contain object-center sm:h-9 md:h-10"
       />
     </span>
   );
