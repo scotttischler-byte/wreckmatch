@@ -1,207 +1,126 @@
-import Image from "next/image";
-import {
-  AlertCircle,
-  CheckCircle2,
-  Clock,
-  FileText,
-  Heart,
-  MessageCircle,
-  Scale,
-  Shield,
-  Users,
-} from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock, Heart } from "lucide-react";
 import { AsgLink } from "@/components/accidentsurvivalguide/AsgLink";
 import { HomeLeadMagnets } from "@/components/accidentsurvivalguide/HomeLeadMagnets";
-import { getPublishedBlogPosts } from "@/lib/blog/posts";
-import { STATE_SLUGS, STATE_GUIDES, WRECKMATCH_URL } from "@/lib/accidentsurvivalguide";
+import { asg, asgCn } from "@/components/accidentsurvivalguide/asg-ui";
+import { WRECKMATCH_URL } from "@/lib/accidentsurvivalguide";
 import type { Messages } from "@/lib/i18n/get-messages";
-import { formatMessage } from "@/lib/i18n/get-messages";
 
 export function AsgHomePage({ messages: m }: { messages: Messages }) {
   const h = m.home;
-  const recentPosts = getPublishedBlogPosts().slice(0, 6);
 
   return (
     <>
       <HomeLeadMagnets />
 
-      <section className="border-b border-[#c5dce8]/40 bg-white py-10 sm:py-14">
-        <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-12">
-          <blockquote className="order-2 rounded-2xl border border-[#c5dce8] bg-[#f8fbfd] p-6 sm:order-1 sm:p-8">
-            <Heart className="size-7 text-[#5a9a82] sm:size-8" aria-hidden />
-            <p className="mt-4 text-base leading-relaxed text-[#3d5568] sm:mt-6 sm:text-lg">
-              &ldquo;{h.storyQuote}&rdquo;
-            </p>
-            <footer className="mt-4 text-sm font-medium text-[#5b8fa8]">{h.storyAttribution}</footer>
+      <section className={asgCn(asg.sectionTight, "border-b border-asg-border/40 bg-asg-surface")}>
+        <div className={asgCn(asg.container, "grid items-center gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-12")}>
+          <blockquote className={asg.cardPad}>
+            <Heart className="size-6 text-asg-sage" aria-hidden />
+            <p className={asgCn(asg.body, "mt-4 text-lg")}>&ldquo;{h.storyQuote}&rdquo;</p>
+            <footer className="mt-4 text-sm font-medium text-asg-teal">{h.storyAttribution}</footer>
           </blockquote>
-          <div className="relative order-1 aspect-[4/3] overflow-hidden rounded-2xl border border-[#c5dce8] shadow-md sm:order-2">
-            <Image
-              src="/asg-hero-checklist.png"
-              alt={h.heroImageAlt}
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              loading="lazy"
-            />
+          <div>
+            <h2 className={asg.h2}>{h.insideTitle}</h2>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              {m.benefits.slice(0, 4).map((benefit) => (
+                <li
+                  key={benefit}
+                  className="flex gap-3 rounded-lg border border-asg-border/60 bg-asg-page p-4"
+                >
+                  <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-asg-sage" aria-hidden />
+                  <span className={asg.bodySm}>{benefit}</span>
+                </li>
+              ))}
+            </ul>
+            <AsgLink href="/resources" className={asgCn(asg.btnSecondary, "mt-6 gap-2")}>
+              {h.allResources}
+              <ArrowRight className="size-4" aria-hidden />
+            </AsgLink>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
-        <h2 className="font-serif text-2xl font-semibold text-[#1a3a52] sm:text-3xl">{h.insideTitle}</h2>
-        <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {m.benefits.map((benefit) => (
-            <li
-              key={benefit}
-              className="flex gap-3 rounded-xl border border-[#c5dce8]/80 bg-white p-4 text-[#4a6578] shadow-sm"
-            >
-              <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-[#5a9a82]" aria-hidden />
-              <span className="text-sm leading-relaxed sm:text-base">{benefit}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section id="first-24-hours" className="scroll-mt-24 py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <section id="first-24-hours" className={asgCn(asg.section, "scroll-mt-20 bg-asg-page")}>
+        <div className={asg.container}>
           <div className="flex items-center gap-3">
-            <Clock className="size-7 text-[#2a7a9b]" aria-hidden />
-            <h2 className="font-serif text-3xl font-semibold text-[#1a3a52]">{h.first24Title}</h2>
+            <Clock className="size-7 text-asg-teal" aria-hidden />
+            <h2 className={asg.h2}>{h.first24Title}</h2>
           </div>
-          <p className="mt-4 max-w-2xl text-[#5b6b7f]">{h.first24Intro}</p>
+          <p className={asgCn(asg.body, "mt-3 max-w-2xl")}>{h.first24Intro}</p>
           <ol className="mt-10 grid gap-4 sm:grid-cols-2">
             {m.first24Steps.map((step, index) => (
-              <li key={step.title} className="rounded-xl border border-[#c5dce8] bg-white p-6">
-                <span className="text-sm font-semibold text-[#5b8fa8]">
+              <li key={step.title} className={asg.cardPad}>
+                <span className="text-xs font-bold uppercase tracking-wider text-asg-teal">
                   {h.stepLabel} {index + 1}
                 </span>
-                <h3 className="mt-2 font-semibold text-[#1a3a52]">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#5b6b7f]">{step.body}</p>
+                <h3 className="mt-2 font-semibold text-asg-navy">{step.title}</h3>
+                <p className={asgCn(asg.bodySm, "mt-2")}>{step.body}</p>
               </li>
             ))}
           </ol>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <AsgLink href="/#common-mistakes" className={asg.btnSecondary}>
+              {h.mistakesTitle}
+            </AsgLink>
+            <AsgLink href="/#your-rights" className={asg.btnSecondary}>
+              {h.rightsTitle}
+            </AsgLink>
+            <AsgLink href="/blog" className={asg.btnSecondary}>
+              {m.nav.blog}
+            </AsgLink>
+          </div>
         </div>
       </section>
 
-      <section id="common-mistakes" className="scroll-mt-24 bg-[#f4faf8] py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="flex items-center gap-3">
-            <AlertCircle className="size-7 text-[#c4884a]" aria-hidden />
-            <h2 className="font-serif text-3xl font-semibold text-[#1a3a52]">{h.mistakesTitle}</h2>
-          </div>
-          <div className="mt-10 grid gap-4 md:grid-cols-2">
+      <section id="common-mistakes" className={asgCn(asg.section, "scroll-mt-20 bg-asg-elevated")}>
+        <div className={asg.container}>
+          <h2 className={asg.h2}>{h.mistakesTitle}</h2>
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
             {m.commonMistakes.map((item) => (
-              <article key={item.title} className="rounded-xl border border-[#d4e8dc] bg-white p-6">
-                <h3 className="font-semibold text-[#1a3a52]">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#5b6b7f]">{item.body}</p>
+              <article key={item.title} className={asg.cardPad}>
+                <h3 className="font-semibold text-asg-navy">{item.title}</h3>
+                <p className={asgCn(asg.bodySm, "mt-2")}>{item.body}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="your-rights" className="scroll-mt-24 py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="flex items-center gap-3">
-            <Scale className="size-7 text-[#2a7a9b]" aria-hidden />
-            <h2 className="font-serif text-3xl font-semibold text-[#1a3a52]">{h.rightsTitle}</h2>
-          </div>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {[Shield, FileText, Users].map((Icon, i) => {
-              const card = h.rightsCards[i];
-              return (
-                <article key={card.title} className="rounded-xl border border-[#c5dce8] bg-white p-6">
-                  <Icon className="size-6 text-[#5a9a82]" aria-hidden />
-                  <h3 className="mt-4 font-semibold text-[#1a3a52]">{card.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#5b6b7f]">{card.text}</p>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#eef6fb] py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <h2 className="font-serif text-3xl font-semibold text-[#1a3a52]">{h.resourcesTitle}</h2>
-          <p className="mt-3 text-[#5b6b7f]">{h.resourcesIntro}</p>
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            <li>
-              <AsgLink href="/resources" className="block rounded-xl border border-[#c5dce8] bg-white p-5 transition hover:border-[#2a7a9b]/40">
-                <span className="font-semibold text-[#1a3a52]">{h.allResources}</span>
-              </AsgLink>
-            </li>
-            <li>
-              <AsgLink href="/blog" className="block rounded-xl border border-[#c5dce8] bg-white p-5 transition hover:border-[#2a7a9b]/40">
-                <span className="font-semibold text-[#1a3a52]">
-                  {formatMessage(h.blogLink, { count: recentPosts.length })}
-                </span>
-              </AsgLink>
-            </li>
-            {STATE_SLUGS.slice(0, 4).map((slug) => (
-              <li key={slug}>
-                <AsgLink href={`/${slug}`} className="block rounded-xl border border-[#c5dce8] bg-white p-5 transition hover:border-[#2a7a9b]/40">
-                  <span className="font-semibold text-[#1a3a52]">
-                    {formatMessage(h.stateGuideLink, { state: STATE_GUIDES[slug].name })}
-                  </span>
-                </AsgLink>
-              </li>
-            ))}
-          </ul>
-          {recentPosts.length > 0 ? (
-            <ul className="mt-8 space-y-3 border-t border-[#c5dce8]/60 pt-8">
-              <li className="text-sm font-semibold text-[#1a3a52]">{h.latestArticles}</li>
-              {recentPosts.map((post) => (
-                <li key={post.slug}>
-                  <AsgLink href={`/blog/${post.slug}`} className="text-sm text-[#2a7a9b] underline underline-offset-2">
-                    {post.title}
-                  </AsgLink>
-                </li>
-              ))}
-            </ul>
-          ) : null}
-        </div>
-      </section>
-
-      <section id="testimonials" className="scroll-mt-24 py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <h2 className="font-serif text-3xl font-semibold text-[#1a3a52]">{h.testimonialsTitle}</h2>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {m.testimonials.map((t) => (
-              <blockquote key={t.attribution} className="rounded-xl border border-[#c5dce8] bg-white p-6">
-                <p className="leading-relaxed text-[#4a6578]">&ldquo;{t.quote}&rdquo;</p>
-                <footer className="mt-4">
-                  <p className="text-sm font-medium text-[#5b8fa8]">{t.attribution}</p>
-                  <p className="mt-1 text-xs text-[#7a8a98]">{t.verified}</p>
-                </footer>
-              </blockquote>
+      <section id="your-rights" className={asgCn(asg.section, "scroll-mt-20 bg-asg-page")}>
+        <div className={asg.container}>
+          <h2 className={asg.h2}>{h.rightsTitle}</h2>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {h.rightsCards.map((card) => (
+              <article key={card.title} className={asg.cardPad}>
+                <h3 className="font-semibold text-asg-navy">{card.title}</h3>
+                <p className={asgCn(asg.bodySm, "mt-2")}>{card.text}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="faq" className="scroll-mt-24 border-t border-[#c5dce8]/60 bg-white py-16">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6">
-          <h2 className="font-serif text-2xl font-semibold text-[#1a3a52]">{h.faqTitle}</h2>
-          <dl className="mt-8 space-y-6">
+      <section id="faq" className={asgCn(asg.section, "scroll-mt-20 border-t border-asg-border/60 bg-asg-surface")}>
+        <div className={asg.containerNarrow}>
+          <h2 className={asg.h2}>{h.faqTitle}</h2>
+          <dl className="mt-8 divide-y divide-asg-border/60">
             {m.faq.map((item) => (
-              <div key={item.question}>
-                <dt className="font-semibold text-[#1a3a52]">{item.question}</dt>
-                <dd className="mt-2 text-sm leading-relaxed text-[#5b6b7f]">{item.answer}</dd>
+              <div key={item.question} className="py-5 first:pt-0 last:pb-0">
+                <dt className="font-semibold text-asg-navy">{item.question}</dt>
+                <dd className={asgCn(asg.bodySm, "mt-2")}>{item.answer}</dd>
               </div>
             ))}
           </dl>
         </div>
       </section>
 
-      <section className="border-t border-[#c5dce8]/60 bg-[#1a3a52] py-14 text-white">
-        <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
-          <MessageCircle className="mx-auto size-8 text-[#8ecae6]" aria-hidden />
-          <h2 className="mt-4 font-serif text-2xl font-semibold">{h.helpTitle}</h2>
-          <p className="mx-auto mt-3 max-w-xl text-[#b8d4e8]">{h.helpBody}</p>
+      <section className="bg-asg-navy py-14 text-white sm:py-16">
+        <div className={asgCn(asg.containerNarrow, "text-center")}>
+          <h2 className="font-serif text-2xl font-semibold sm:text-3xl">{h.helpTitle}</h2>
+          <p className="mx-auto mt-3 max-w-lg text-base leading-relaxed text-asg-sky">{h.helpBody}</p>
           <a
             href={WRECKMATCH_URL}
-            className="mt-6 inline-flex rounded-full bg-[#5a9a82] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#4d8872]"
+            className="mt-6 inline-flex min-h-[48px] items-center rounded-lg bg-asg-sage px-6 text-sm font-semibold text-white transition hover:bg-asg-sage/90"
             rel="noopener noreferrer"
           >
             {h.visitWreckmatch}

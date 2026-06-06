@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Download } from "lucide-react";
 import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
+import { asg, asgCn } from "@/components/accidentsurvivalguide/asg-ui";
 
 export function StickyDownloadBar() {
   const { messages } = useAsgLocale();
@@ -40,14 +41,11 @@ export function StickyDownloadBar() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-50 border-t border-[#c5dce8] bg-white/95 px-4 pt-3 pb-safe shadow-[0_-8px_30px_-12px_rgba(26,58,82,0.2)] backdrop-blur sm:hidden"
+      className="fixed bottom-0 left-0 right-0 z-50 border-t border-asg-border bg-asg-surface/95 px-4 pt-3 pb-safe shadow-[0_-4px_24px_-8px_rgba(26,58,82,0.15)] backdrop-blur sm:hidden"
       role="region"
       aria-label={messages.sticky.aria}
     >
-      <a
-        href="#get-help"
-        className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-[#2a7a9b] text-sm font-semibold text-white active:scale-[0.98]"
-      >
+      <a href="#get-help" className={asgCn(asg.btnPrimary, "w-full gap-2")}>
         <Download className="size-4" aria-hidden />
         {messages.sticky.cta}
       </a>

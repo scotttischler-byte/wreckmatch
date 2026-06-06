@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { SurvivalGuideDisclaimer } from "@/components/SurvivalGuideDisclaimer";
 import { SurvivalGuideHeader } from "@/components/accidentsurvivalguide/SurvivalGuideHeader";
 import { SurvivalGuideFooter } from "@/components/accidentsurvivalguide/SurvivalGuideFooter";
 import { AsgJsonLd } from "@/components/accidentsurvivalguide/AsgJsonLd";
+import { AsgShell } from "@/components/accidentsurvivalguide/AsgShell";
 import { StickyDownloadBar } from "@/components/accidentsurvivalguide/StickyDownloadBar";
 import { AsgLocaleProvider } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
 import { ASG_BASE_URL } from "@/lib/accidentsurvivalguide";
@@ -48,14 +48,13 @@ export default function AccidentSurvivalGuideLayout({
 
   return (
     <AsgLocaleProvider locale={locale} messages={messages}>
-      <div lang={localeHtmlLang(locale)} className="min-h-screen bg-[#f8fbfd] text-[#1a3a52] antialiased">
+      <AsgShell lang={localeHtmlLang(locale)}>
         <AsgJsonLd includeFaq siteName={messages.meta.siteName} faqItems={messages.faq} />
-        <SurvivalGuideDisclaimer text={messages.disclaimer} />
         <SurvivalGuideHeader />
         <main className="max-sm:pb-safe-bar">{children}</main>
         <StickyDownloadBar />
         <SurvivalGuideFooter />
-      </div>
+      </AsgShell>
     </AsgLocaleProvider>
   );
 }

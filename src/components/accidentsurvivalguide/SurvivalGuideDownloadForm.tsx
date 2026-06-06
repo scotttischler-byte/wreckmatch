@@ -16,6 +16,7 @@ import {
   isAccidentIntakeComplete,
   type AsgAccidentIntake,
 } from "@/lib/asg-intake";
+import { asg, asgCn } from "@/components/accidentsurvivalguide/asg-ui";
 import { submitSurvivalGuideForm } from "@/lib/asg-form-submit";
 import { trackAsgEvent } from "@/lib/analytics";
 
@@ -153,17 +154,17 @@ export function SurvivalGuideDownloadForm({
         onSubmit={handleSubmit}
         className={
           embedded
-            ? "flex flex-1 flex-col px-4 pb-4 pt-2 sm:px-5 sm:pb-5 sm:pt-3"
-            : "rounded-2xl border border-[#c5dce8] bg-white p-6 shadow-[0_20px_50px_-30px_rgba(26,58,82,0.25)] sm:p-8"
+            ? "flex flex-1 flex-col"
+            : asgCn(asg.card, "p-6 shadow-md sm:p-8")
         }
         noValidate
       >
         {!embedded ? (
           <>
-            <h2 id={`${id}-heading`} className="font-serif text-2xl font-semibold text-[#1a3a52]">
+            <h2 id={`${id}-heading`} className={asg.h2}>
               {headlineText}
             </h2>
-            <p className="mt-2 text-sm leading-relaxed text-[#5b6b7f]">{f.subtitle}</p>
+            <p className={asgCn(asg.bodySm, "mt-2")}>{f.subtitle}</p>
           </>
         ) : null}
 
@@ -173,7 +174,11 @@ export function SurvivalGuideDownloadForm({
               <span>{f.progress}</span>
               <span>{progress}%</span>
             </div>
-            <Progress value={progress} className="h-2" aria-valuenow={progress} />
+            <Progress
+              value={progress}
+              className="h-2 [&_[data-slot=progress-indicator]]:bg-asg-teal"
+              aria-valuenow={progress}
+            />
           </div>
         ) : null}
 
@@ -191,7 +196,7 @@ export function SurvivalGuideDownloadForm({
               autoComplete="given-name"
               value={form.firstName}
               onChange={(e) => updateField("firstName", e.target.value)}
-              className="h-12 min-h-[48px] border-[#c5dce8] bg-[#fafcfd] px-3 text-base"
+              className={asg.inputLight}
             />
           </label>
 
@@ -204,7 +209,7 @@ export function SurvivalGuideDownloadForm({
               autoComplete="family-name"
               value={form.lastName}
               onChange={(e) => updateField("lastName", e.target.value)}
-              className="h-12 min-h-[48px] border-[#c5dce8] bg-[#fafcfd] px-3 text-base"
+              className={asg.inputLight}
             />
           </label>
 
@@ -219,7 +224,7 @@ export function SurvivalGuideDownloadForm({
               autoComplete="email"
               value={form.email}
               onChange={(e) => updateField("email", e.target.value)}
-              className="h-12 min-h-[48px] border-[#c5dce8] bg-[#fafcfd] px-3 text-base"
+              className={asg.inputLight}
             />
           </label>
 
@@ -234,7 +239,7 @@ export function SurvivalGuideDownloadForm({
               autoComplete="tel"
               value={form.phone}
               onChange={(e) => updateField("phone", e.target.value)}
-              className="h-12 min-h-[48px] border-[#c5dce8] bg-[#fafcfd] px-3 text-base"
+              className={asg.inputLight}
             />
           </label>
 
@@ -245,7 +250,7 @@ export function SurvivalGuideDownloadForm({
             <select
               value={form.state}
               onChange={(e) => updateField("state", e.target.value)}
-              className="h-12 min-h-[48px] w-full rounded-lg border border-[#c5dce8] bg-[#fafcfd] px-3 text-base text-[#1a3a52] outline-none focus-visible:border-[#2a7a9b] focus-visible:ring-3 focus-visible:ring-[#2a7a9b]/20"
+              className={asg.selectLight}
             >
               <option value="">{f.selectState}</option>
               {US_STATES.map((s) => (
@@ -265,7 +270,7 @@ export function SurvivalGuideDownloadForm({
               autoComplete="address-level2"
               value={form.city}
               onChange={(e) => updateField("city", e.target.value)}
-              className="h-12 min-h-[48px] border-[#c5dce8] bg-[#fafcfd] px-3 text-base"
+              className={asg.inputLight}
             />
           </label>
 
@@ -315,7 +320,7 @@ export function SurvivalGuideDownloadForm({
         </div>
 
         {error ? (
-          <p className="mt-4 text-sm text-[#b42318]" role="alert">
+          <p className={asgCn(asg.alertError, "mt-4")} role="alert">
             {error}
           </p>
         ) : null}
@@ -323,11 +328,7 @@ export function SurvivalGuideDownloadForm({
         <Button
           type="submit"
           disabled={loading}
-          className={
-            embedded
-              ? "mt-4 min-h-[52px] w-full rounded-xl bg-[#2a7a9b] py-3.5 text-base font-bold text-white shadow-md transition active:scale-[0.98] hover:bg-[#236884] disabled:opacity-70"
-              : "mt-6 h-12 w-full rounded-xl bg-[#2a7a9b] text-base font-semibold text-white hover:bg-[#236884] disabled:opacity-70"
-          }
+          className={asgCn(asg.btnPrimary, embedded ? "mt-4 w-full" : "mt-6 w-full")}
         >
           {loading ? (
             <>

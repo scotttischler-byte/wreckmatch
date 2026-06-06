@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Headphones, Loader2, PhoneCall } from "lucide-react";
 import { useAsgLocale } from "@/components/accidentsurvivalguide/AsgLocaleProvider";
 import { AsgAccidentIntakeFields } from "@/components/accidentsurvivalguide/AsgAccidentIntakeFields";
+import { AsgConsentRow, AsgFormError, AsgFormField } from "@/components/accidentsurvivalguide/AsgFormField";
+import { asg, asgCn } from "@/components/accidentsurvivalguide/asg-ui";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { US_STATES } from "@/lib/accidentsurvivalguide";
@@ -14,9 +16,6 @@ import {
 } from "@/lib/asg-intake";
 import { submitAsgLeadForm } from "@/lib/asg-form-submit";
 import { trackAsgEvent } from "@/lib/analytics";
-
-const fieldClass =
-  "h-12 w-full min-h-[48px] rounded-xl border border-[#f5d0a8] bg-white text-base text-[#1a3a52] shadow-sm placeholder:text-[#94a8b8] focus-visible:ring-2 focus-visible:ring-[#e8a04c]/60";
 
 export function ExpertIntakeForm() {
   const { locale, messages, href } = useAsgLocale();
@@ -92,7 +91,7 @@ export function ExpertIntakeForm() {
 
   if (done) {
     return (
-      <p className="rounded-xl border border-[#5a9a82]/40 bg-white/90 px-4 py-4 text-center text-sm font-medium text-[#1a3a52]">
+      <p className={asgCn(asg.cardPad, "text-center text-sm font-medium text-asg-navy")}>
         {h.expertIntakeSuccess}
       </p>
     );
@@ -101,63 +100,65 @@ export function ExpertIntakeForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4" noValidate id="expert-intake">
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
-        <Input
-          required
-          autoComplete="given-name"
-          placeholder={f.firstName}
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          className={fieldClass}
-        />
-        <Input
-          required
-          autoComplete="family-name"
-          placeholder={f.lastName}
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          className={fieldClass}
-        />
-        <Input
-          required
-          type="email"
-          inputMode="email"
-          autoComplete="email"
-          placeholder={f.email}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className={fieldClass}
-        />
-        <Input
-          required
-          type="tel"
-          inputMode="tel"
-          autoComplete="tel"
-          placeholder={f.phone}
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          className={fieldClass}
-        />
-        <select
-          value={state}
-          onChange={(e) => setState(e.target.value)}
-          aria-label={f.state}
-          className={fieldClass}
-        >
-          <option value="">{f.selectState}</option>
-          {US_STATES.map((s) => (
-            <option key={s.value} value={s.value}>
-              {s.label}
-            </option>
-          ))}
-        </select>
-        <Input
-          required
-          autoComplete="address-level2"
-          placeholder={f.city}
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-          className={fieldClass}
-        />
+        <AsgFormField label={f.firstName} required>
+          <Input
+            required
+            autoComplete="given-name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            className={asg.inputLight}
+          />
+        </AsgFormField>
+        <AsgFormField label={f.lastName} required>
+          <Input
+            required
+            autoComplete="family-name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            className={asg.inputLight}
+          />
+        </AsgFormField>
+        <AsgFormField label={f.email} required>
+          <Input
+            required
+            type="email"
+            inputMode="email"
+            autoComplete="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className={asg.inputLight}
+          />
+        </AsgFormField>
+        <AsgFormField label={f.phone} required>
+          <Input
+            required
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            className={asg.inputLight}
+          />
+        </AsgFormField>
+        <AsgFormField label={f.state}>
+          <select value={state} onChange={(e) => setState(e.target.value)} className={asg.selectLight}>
+            <option value="">{f.selectState}</option>
+            {US_STATES.map((s) => (
+              <option key={s.value} value={s.value}>
+                {s.label}
+              </option>
+            ))}
+          </select>
+        </AsgFormField>
+        <AsgFormField label={f.city} required>
+          <Input
+            required
+            autoComplete="address-level2"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            className={asg.inputLight}
+          />
+        </AsgFormField>
       </div>
 
       <AsgAccidentIntakeFields
@@ -167,35 +168,17 @@ export function ExpertIntakeForm() {
         onChange={(key, value) => setIntake((prev) => ({ ...prev, [key]: value }))}
       />
 
-      <p
-        role="note"
-        className="rounded-lg border border-amber-300/60 bg-white/70 px-3 py-2 text-[0.68rem] leading-relaxed text-amber-950 sm:text-xs"
-      >
+      <p className={asg.note} role="note">
         {h.expertIntakeDisclaimer}
       </p>
 
-      <label className="flex min-h-[48px] cursor-pointer items-start gap-3 rounded-lg bg-white/60 p-3 text-xs leading-relaxed text-[#3d5568]">
-        <input
-          type="checkbox"
-          checked={consent}
-          onChange={(e) => setConsent(e.target.checked)}
-          className="mt-0.5 size-5 shrink-0 accent-[#c45c00]"
-          required
-        />
-        <span>{h.expertIntakeConsent}</span>
-      </label>
+      <AsgConsentRow checked={consent} onChange={setConsent}>
+        {h.expertIntakeConsent}
+      </AsgConsentRow>
 
-      {error ? (
-        <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-800" role="alert">
-          {error}
-        </p>
-      ) : null}
+      {error ? <AsgFormError message={error} /> : null}
 
-      <Button
-        type="submit"
-        disabled={loading}
-        className="min-h-[56px] w-full rounded-xl bg-gradient-to-r from-[#c45c00] to-[#e8a04c] py-4 text-base font-bold text-white shadow-lg transition hover:from-[#a84d00] hover:to-[#d49030] active:scale-[0.98] disabled:opacity-70"
-      >
+      <Button type="submit" disabled={loading} className={asgCn(asg.btnPrimary, "w-full")}>
         {loading ? (
           <span className="inline-flex items-center gap-2">
             <Loader2 className="size-5 animate-spin" aria-hidden />
@@ -219,29 +202,24 @@ export function ExpertIntakeBanner() {
   return (
     <section
       id="expert-intake"
-      className="scroll-mt-24 overflow-hidden rounded-2xl border-2 border-[#e8a04c] bg-gradient-to-br from-[#fff8f0] via-[#fff4e6] to-[#ffe8cc] shadow-[0_20px_50px_-20px_rgba(196,92,0,0.35)] sm:rounded-3xl"
+      className="scroll-mt-24 overflow-hidden rounded-2xl border border-asg-border bg-asg-surface shadow-md"
       aria-labelledby="expert-intake-heading"
     >
-      <div className="border-b border-[#f5d0a8]/80 bg-gradient-to-r from-[#c45c00]/10 to-transparent px-4 py-4 sm:px-6 sm:py-5">
+      <div className="border-b border-asg-border bg-asg-elevated px-5 py-4">
         <div className="flex items-start gap-3">
-          <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-[#c45c00] text-white shadow-md">
-            <Headphones className="size-6" aria-hidden />
+          <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-asg-teal text-white">
+            <Headphones className="size-5" aria-hidden />
           </span>
           <div>
-            <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#c45c00] sm:text-xs">
-              {h.expertIntakeEyebrow}
-            </p>
-            <h2
-              id="expert-intake-heading"
-              className="mt-1 font-serif text-xl font-bold text-[#1a3a52] sm:text-2xl"
-            >
+            <p className={asg.eyebrow}>{h.expertIntakeEyebrow}</p>
+            <h2 id="expert-intake-heading" className={asgCn(asg.h3, "mt-1")}>
               {h.expertIntakeTitle}
             </h2>
-            <p className="mt-1.5 text-sm leading-relaxed text-[#5b6b7f]">{h.expertIntakeSubtitle}</p>
+            <p className={asgCn(asg.bodySm, "mt-1")}>{h.expertIntakeSubtitle}</p>
           </div>
         </div>
       </div>
-      <div className="p-4 sm:p-6">
+      <div className="p-5">
         <ExpertIntakeForm />
       </div>
     </section>

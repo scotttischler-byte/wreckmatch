@@ -1,5 +1,6 @@
 "use client";
 
+import { asg } from "@/components/accidentsurvivalguide/asg-ui";
 import type { AsgAccidentIntake } from "@/lib/asg-intake";
 import type { Messages } from "@/lib/i18n/get-messages";
 
@@ -14,29 +15,26 @@ type Props = {
 };
 
 function selectClass(variant: "light" | "dark"): string {
-  if (variant === "dark") {
-    return "h-12 w-full min-h-[48px] rounded-xl border-0 bg-white px-3 text-base text-[#1a3a52] shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80";
-  }
-  return "h-12 min-h-[48px] w-full rounded-lg border border-[#c5dce8] bg-[#fafcfd] px-3 text-base text-[#1a3a52] outline-none focus-visible:border-[#2a7a9b] focus-visible:ring-3 focus-visible:ring-[#2a7a9b]/20";
+  return variant === "dark" ? asg.selectDark : asg.selectLight;
 }
 
 function textareaClass(variant: "light" | "dark"): string {
-  if (variant === "dark") {
-    return "min-h-[80px] w-full rounded-xl border-0 bg-white px-3 py-2 text-sm text-[#1a3a52] shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80";
-  }
-  return "min-h-[80px] w-full rounded-lg border border-[#c5dce8] bg-[#fafcfd] px-3 py-2 text-sm text-[#1a3a52] outline-none focus-visible:border-[#2a7a9b] focus-visible:ring-3 focus-visible:ring-[#2a7a9b]/20";
+  const base = "min-h-[80px] w-full rounded-lg px-3 py-2 text-sm text-asg-navy";
+  return variant === "dark"
+    ? `${base} border-0 bg-white shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80`
+    : `${base} border border-asg-border bg-asg-page outline-none focus-visible:border-asg-teal focus-visible:ring-2 focus-visible:ring-asg-teal/20`;
 }
 
 function labelClass(variant: "light" | "dark"): string {
   return variant === "dark"
-    ? "mb-1 block text-[0.7rem] font-medium leading-snug text-[#d4e8f4] sm:text-xs"
-    : "mb-1.5 block text-sm font-medium text-[#3d5568]";
+    ? "mb-1.5 block text-sm font-medium text-asg-sky"
+    : "mb-1.5 block text-sm font-medium text-asg-navy/80";
 }
 
 function sectionTitleClass(variant: "light" | "dark"): string {
   return variant === "dark"
-    ? "text-[0.75rem] font-semibold uppercase tracking-wide text-[#a8d4e8] sm:text-xs"
-    : "text-sm font-semibold text-[#1a3a52]";
+    ? "text-xs font-bold uppercase tracking-wider text-asg-sky"
+    : "text-sm font-semibold text-asg-navy";
 }
 
 export function AsgAccidentIntakeFields({
@@ -128,7 +126,7 @@ export function AsgAccidentIntakeFields({
         <span className={labelClass(variant)}>
           {label}
           {required ? (
-            <span className={variant === "dark" ? "text-amber-200" : "text-[#c45c5c]"}> *</span>
+            <span className="text-red-400"> *</span>
           ) : null}
         </span>
         <select
@@ -151,8 +149,8 @@ export function AsgAccidentIntakeFields({
 
   const hintClass =
     variant === "dark"
-      ? "text-[0.65rem] leading-relaxed text-[#b8d4e4] sm:text-xs"
-      : "text-xs leading-relaxed text-[#5b6b7f]";
+      ? "text-xs leading-relaxed text-asg-sky/90"
+      : "text-xs leading-relaxed text-asg-muted";
 
   return (
     <div className={`space-y-4 ${className}`}>
