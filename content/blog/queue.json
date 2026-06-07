@@ -2,8 +2,13 @@
   "postsPerDay": 5,
   "publishStaggerMinutes": 90,
   "requireApproval": true,
-  "lastRunAt": "2026-06-06T15:19:49.719Z",
+  "lastRunAt": "2026-06-07T15:26:38.467Z",
   "recentCitySlugs": [
+    "nashville",
+    "austin",
+    "el-paso",
+    "colorado-springs",
+    "phoenix",
     "milwaukee",
     "arlington",
     "mesa",
@@ -48,11 +53,6 @@
     "portland",
     "kansas-city",
     "long-beach",
-    "baltimore",
-    "denver",
-    "las-vegas",
-    "tulsa",
-    "fort-worth",
-    "seattle"
+    "baltimore"
   ]
 }
