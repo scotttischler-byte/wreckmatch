@@ -16,7 +16,7 @@ const POSTS_DIR = path.join(ROOT, "content/blog/posts");
 const DRAFTS_DIR = path.join(ROOT, "content/blog/drafts");
 const QUEUE_PATH = path.join(ROOT, "content/blog/queue.json");
 
-const POSTS_PER_DAY = Number(process.env.BLOG_POSTS_PER_DAY ?? 5);
+const POSTS_PER_DAY = Number(process.env.BLOG_POSTS_PER_DAY ?? 25);
 const AUTO_PUBLISH = process.env.BLOG_AUTO_PUBLISH === "true";
 
 // Inline city list (subset) — full list lives in src/lib/blog/cities.ts at build time

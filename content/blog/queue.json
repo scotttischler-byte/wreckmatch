@@ -1,5 +1,5 @@
 {
-  "postsPerDay": 5,
+  "postsPerDay": 25,
   "publishStaggerMinutes": 90,
   "requireApproval": true,
   "lastRunAt": "2026-06-07T15:26:38.467Z",

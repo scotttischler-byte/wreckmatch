@@ -19,7 +19,7 @@ jobs:
       - name: Generate blog drafts
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          BLOG_POSTS_PER_DAY: "5"
+          BLOG_POSTS_PER_DAY: "25"
           BLOG_AUTO_PUBLISH: "false"
         run: node scripts/generate-blog-batch.mjs
 

@@ -2,7 +2,8 @@ name: Publish SEO Content
 
 on:
   schedule:
-    - cron: "0 14 * * *"
+    # 4 runs/day × 25 posts = 100 posts/day (CDT: 3am, 9am, 3pm, 9pm)
+    - cron: "0 8,14,20,2 * * *"
   workflow_dispatch:
     inputs:
       enrich_limit:
@@ -40,7 +41,7 @@ jobs:
       - name: Generate blog drafts
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          BLOG_POSTS_PER_DAY: "5"
+          BLOG_POSTS_PER_DAY: "25"
         run: node scripts/generate-blog-batch.mjs
 
       - name: Publish from queue

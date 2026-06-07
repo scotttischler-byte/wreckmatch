@@ -51,7 +51,7 @@ function promoteDrafts(limit) {
 
 function main() {
   const queue = loadQueue();
-  const limits = queue.dailyLimits ?? { cityPages: 5, statePages: 2, blogPosts: 5 };
+  const limits = queue.dailyLimits ?? { cityPages: 5, statePages: 2, blogPosts: 25 };
 
   const cityBatch = (queue.queue.cities ?? []).slice(0, limits.cityPages);
   const stateBatch = (queue.queue.states ?? []).slice(0, limits.statePages);

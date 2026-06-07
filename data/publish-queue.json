@@ -2,7 +2,7 @@
   "dailyLimits": {
     "cityPages": 5,
     "statePages": 2,
-    "blogPosts": 5
+    "blogPosts": 25
   },
   "qualityGate": {
     "minWords": 800,
