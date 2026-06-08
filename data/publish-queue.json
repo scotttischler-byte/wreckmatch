@@ -37,6 +37,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-08T12:47:07.198Z",
+  "lastPublishAt": "2026-06-08T17:38:53.243Z",
   "notes": "Conservative start: 5 city pages + 5 blog posts per day max. Run scripts/publish-from-queue.mjs manually or via GitHub Action."
 }
