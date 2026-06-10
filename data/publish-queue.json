@@ -29,7 +29,8 @@
       "new-york"
     ],
     "blogSlugs": [
-      "insurance-pitfalls-in-portland-oregon-what-you-need-to-know"
+      "insurance-pitfalls-in-portland-oregon-what-you-need-to-know",
+      "immediate-steps-to-take-after-a-car-accident-in-oklahoma-city-ok"
     ]
   },
   "queue": {
@@ -37,6 +38,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-08T17:38:53.243Z",
+  "lastPublishAt": "2026-06-10T11:49:08.972Z",
   "notes": "Conservative start: 5 city pages + 5 blog posts per day max. Run scripts/publish-from-queue.mjs manually or via GitHub Action."
 }
