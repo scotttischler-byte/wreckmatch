@@ -882,3 +882,8 @@
 {"ts":"2026-06-10T05:11:33.049Z","event":"start","task":"enrich","argv":["rotate"]}
 {"ts":"2026-06-10T05:11:34.778Z","task":"enrich-cities","ok":true,"exitCode":0,"durationMs":1729,"outputTail":"All top cities already have enriched markdown.\nnpm warn exec The following package was not found and will be installed: tsx@4.22.4\n"}
 {"ts":"2026-06-10T05:11:34.778Z","event":"complete","task":"enrich"}
+{"ts":"2026-06-10T09:45:05.953Z","event":"start","task":"report","argv":["rotate"]}
+{"ts":"2026-06-10T09:45:05.994Z","task":"enrichment-status","ok":true,"exitCode":0,"durationMs":40,"outputTail":"City markdown enrichment: 50/50 (100%)\nAll cities have enriched markdown files.\n"}
+{"ts":"2026-06-10T09:45:06.032Z","task":"autopilot-status","ok":true,"exitCode":0,"durationMs":38,"outputTail":"Autopilot queue: 279/279 cities complete (100%)\n  Last run: 2026-06-10T06:55:33.875315+00:00\n  Last city: tulsa-ok|OK\n\nQueue empty — all cities processed.\n"}
+{"ts":"2026-06-10T09:45:06.274Z","task":"cannibalization","ok":true,"exitCode":0,"durationMs":242,"outputTail":"-injury-claims-seattle-wa → /car-accident-help-seattle\n  301_redirect_to_city: whiplash-injury-claims-tampa-fl → /car-accident-help-tampa\n  301_redirect_to_city: whiplash-injury-claims-tucson-az → /car-accident-help-tucson\n  301_redirect_to_city: whiplash-injury-claims-tulsa-ok → /car-accident-help-tulsa\n  301_redirect_to_city: whiplash-injury-claims-virginia-beach-va → /car-accident-help-virginia-beach\n  301_redirect_to_city: whiplash-injury-claims-washington-dc → /car-accident-help-washington\n"}
+{"ts":"2026-06-10T09:45:06.275Z","event":"complete","task":"report"}
