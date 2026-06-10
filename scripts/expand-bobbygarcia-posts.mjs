@@ -240,8 +240,8 @@ function expandedFaq(post, locale) {
     {
       question: q(`Where are Bobby Garcia Law offices?`, "¿Dónde están las oficinas de Bobby Garcia Law?"),
       answer: q(
-        "5301 S McColl Rd, Edinburg, TX (Rio Grande Valley) and 16610 IH 45 South, Ste 200, The Woodlands, TX (Houston area).",
-        "5301 S McColl Rd, Edinburg, TX (Valle del Río Grande) y 16610 IH 45 South, Ste 200, The Woodlands, TX (área de Houston).",
+        "124 E. Cano Street, Edinburg, TX (Rio Grande Valley) and 16610 IH 45 South, Ste 200, The Woodlands, TX (Houston area).",
+        "124 E. Cano Street, Edinburg, TX (Valle del Río Grande) y 16610 IH 45 South, Ste 200, The Woodlands, TX (área de Houston).",
       ),
     },
   ];

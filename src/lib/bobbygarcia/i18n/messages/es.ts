@@ -110,20 +110,6 @@ export const es: BgMessages = {
       bio: "Durante más de dos décadas, Bobby Garcia ha defendido a clientes de lesiones personales en Texas y a nivel nacional—tratando a cada persona como un individuo, no solo como un caso más.",
       meetLabel: "Conozca a Bobby",
     },
-    "arturo-garcia": {
-      name: "Arturo Garcia",
-      role: "Abogado Consultor",
-      quote:
-        "Cada cliente merece un abogado que escuche primero y luche después. En Bobby Garcia Law, estamos con las familias en los momentos más difíciles y nunca dejamos de exigir responsabilidad.",
-      meetLabel: "Conozca a Arturo",
-    },
-    "roxana-lopez": {
-      name: "Roxana Lopez",
-      role: "Abogado Consultor",
-      quote:
-        "Cuando alguien confía en nosotros su caso, tratamos esa confianza como sagrada. Nuestro trabajo es proteger sus derechos, explicar cada paso con claridad y luchar hasta que se haga justicia.",
-      meetLabel: "Conozca a Roxana",
-    },
   },
   blog: {
     metaTitle: "Guías Legales de Lesiones Personales",

@@ -10,8 +10,6 @@ export type TeamMember = {
 
 export const TEAM: TeamMember[] = [
   { slug: "bobby-garcia", name: "Bobby Garcia", roleEn: "Founding Partner & CEO", roleEs: "Socio Fundador y CEO", group: "attorney", image: "/bobbygarcia/team/bobby-garcia.png", initials: "BG" },
-  { slug: "arturo-garcia", name: "Arturo Garcia", roleEn: "Of Counsel", roleEs: "Abogado Consultor", group: "attorney", image: "/bobbygarcia/team/arturo-garcia.png", initials: "AG" },
-  { slug: "roxana-lopez", name: "Roxana Lopez", roleEn: "Of Counsel", roleEs: "Abogado Consultor", group: "attorney", image: "/bobbygarcia/team/roxana-lopez.png", initials: "RL" },
   { slug: "tamara-rodriguez", name: "Tamara Rodriguez", roleEn: "Litigation Manager", roleEs: "Gerente de Litigio", group: "litigation", image: "/bobbygarcia/team/tamara-rodriguez.png", initials: "TR" },
   { slug: "norma-champion", name: "Norma Champion", roleEn: "Chief Legal Analyst", roleEs: "Analista Legal Principal", group: "litigation", image: "/bobbygarcia/team/norma-champion.png", initials: "NC" },
   { slug: "krissy-fernandez", name: "Krissy Fernandez-Hinojosa", roleEn: "Medical Specialist", roleEs: "Especialista Médica", group: "medical", image: "/bobbygarcia/team/krissy-fernandez.png", initials: "KF" },
@@ -23,4 +21,4 @@ export const TEAM: TeamMember[] = [
   { slug: "melanie-martinez", name: "Melanie Martinez", roleEn: "Litigation Paralegal", roleEs: "Paralegal de Litigio", group: "litigation", initials: "MM" },
 ];
 
-export const TEAM_STATS = { members: TEAM.length, attorneys: 3, guides: 103, faqs: 215 };
+export const TEAM_STATS = { members: TEAM.length, attorneys: 1, guides: 103, faqs: 215 };

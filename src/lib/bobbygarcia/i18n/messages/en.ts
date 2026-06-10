@@ -221,20 +221,6 @@ export const en: BgMessages = {
       bio: "For over two decades, Bobby Garcia has advocated for personal injury clients across Texas and nationwide—treating every person as an individual, not just another case.",
       meetLabel: "Meet Bobby",
     },
-    "arturo-garcia": {
-      name: "Arturo Garcia",
-      role: "Of Counsel",
-      quote:
-        "Every client deserves a lawyer who listens first and fights second. At Bobby Garcia Law, we stand with families through the hardest moments and never stop pushing for accountability.",
-      meetLabel: "Meet Arturo",
-    },
-    "roxana-lopez": {
-      name: "Roxana Lopez",
-      role: "Of Counsel",
-      quote:
-        "When someone trusts us with their case, we treat that trust as sacred. Our job is to protect your rights, explain every step clearly, and fight until justice is done.",
-      meetLabel: "Meet Roxana",
-    },
   },
   blog: {
     metaTitle: "Personal Injury Legal Guides",

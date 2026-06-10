@@ -72,20 +72,22 @@ export default function MeetOurAttorneysPage() {
         />
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-14 sm:px-6 sm:pb-20">
-        <h2 className="text-center font-serif text-2xl font-semibold text-white sm:text-3xl">
-          {p.teamTitle}
-        </h2>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
-          {OTHER_ATTORNEYS.map((attorney) => (
-            <AttorneyCard
-              key={attorney.slug}
-              attorney={attorney}
-              copy={messages.attorneys[attorney.slug]}
-            />
-          ))}
-        </div>
-      </section>
+      {OTHER_ATTORNEYS.length > 0 && (
+        <section className="mx-auto max-w-6xl px-4 pb-14 sm:px-6 sm:pb-20">
+          <h2 className="text-center font-serif text-2xl font-semibold text-white sm:text-3xl">
+            {p.teamTitle}
+          </h2>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+            {OTHER_ATTORNEYS.map((attorney) => (
+              <AttorneyCard
+                key={attorney.slug}
+                attorney={attorney}
+                copy={messages.attorneys[attorney.slug]}
+              />
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="border-t border-[#c9a227]/10 bg-[#0c1525]">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">

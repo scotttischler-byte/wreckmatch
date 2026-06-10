@@ -88,9 +88,9 @@ const WP_GUIDES = [
     titleEn: "Personal Injury Law Firm in Edinburg, TX",
     titleEs: "Despacho de lesiones personales en Edinburg, TX",
     excerptEn:
-      "Rio Grande Valley personal injury attorneys serving Edinburg from 5301 S McColl Rd — free consultations 24/7.",
+      "Rio Grande Valley personal injury attorneys serving Edinburg from 124 E. Cano Street — free consultations 24/7.",
     excerptEs:
-      "Abogados de lesiones personales en el Valle del Río Grande sirviendo Edinburg desde 5301 S McColl Rd — consultas gratis 24/7.",
+      "Abogados de lesiones personales en el Valle del Río Grande sirviendo Edinburg desde 124 E. Cano Street — consultas gratis 24/7.",
     coverImage: "/bobbygarcia/locations/edinburg-office.jpeg",
     practiceArea: "personal-injury",
     city: "Edinburg",

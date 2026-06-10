@@ -20,8 +20,6 @@ const ASSETS = [
   { file: "brand/logo.png", url: `${BASE}/2024/08/LOBG-Logo-2023-300dpi.png` },
   { file: "brand/logo-white.png", url: `${BASE}/2024/06/bgfulllogo-white.png` },
   { file: "team/bobby-garcia.png", url: `${BASE}/2026/02/AA-Web-Employee-Photo-Bobby.png` },
-  { file: "team/arturo-garcia.png", url: `${BASE}/2026/02/AA-Web-Employee-Photo-AJ-Garcia.png` },
-  { file: "team/roxana-lopez.png", url: `${BASE}/2026/02/AA-Web-Employee-Photo-Roxana.png` },
   { file: "team/gloria-salinas.png", url: `${BASE}/2026/02/AA-Web-Employee-Photo-Gloria.png` },
   { file: "team/krissy-fernandez.png", url: `${BASE}/2025/08/AA-Web-Employee-Photo-Krissy-2.png` },
   { file: "team/haley-quiroz.png", url: `${BASE}/2026/02/AA-Web-Employee-Photo-Haley.png` },
