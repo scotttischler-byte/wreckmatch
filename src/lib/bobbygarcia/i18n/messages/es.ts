@@ -73,12 +73,18 @@ export const es: BgMessages = {
     intro: "Consulta gratuita y confidencial. Disponible 24 horas al día, 7 días a la semana. Sin victoria, no hay honorarios.",
     phoneLabel: "Llame ahora",
     available: "Disponible 24/7 · English & Español",
+    emailLabel: "Correo",
+    hoursLabel: "Horario de oficina",
+    officeHours: "Lunes a viernes, 8:00 AM – 5:00 PM",
   },
   footer: {
     tagline: "Bobby está contigo — Justicia Hecha Simple",
     rights: "Todos los derechos reservados.",
     locations: "Ubicaciones",
     phoneLabel: "Atención al cliente 24/7",
+    emailLabel: "Correo",
+    hoursLabel: "Horario de oficina",
+    officeHours: "Lunes a viernes, 8:00 AM – 5:00 PM",
   },
   attorneysPage: {
     metaTitle: "Conozca a Nuestros Abogados",

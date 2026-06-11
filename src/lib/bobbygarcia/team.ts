@@ -16,7 +16,7 @@ export const TEAM: TeamMember[] = [
   { slug: "haley-quiroz", name: "Haley Quiroz", roleEn: "Medical Specialist", roleEs: "Especialista Médica", group: "medical", image: "/bobbygarcia/team/haley-quiroz.png", initials: "HQ" },
   { slug: "hilda-caldwell", name: "Hilda Caldwell", roleEn: "Case Analyst", roleEs: "Analista de Casos", group: "litigation", image: "/bobbygarcia/team/hilda-caldwell.png", initials: "HC" },
   { slug: "gloria-salinas", name: "Gloria Salinas", roleEn: "Office Administrator", roleEs: "Administradora de Oficina", group: "operations", image: "/bobbygarcia/team/gloria-salinas.png", initials: "GS" },
-  { slug: "marty-hernandez", name: "Marty Hernandez", roleEn: "Digital Marketing", roleEs: "Marketing Digital", group: "operations", image: "/bobbygarcia/team/marty-hernandez.png", initials: "MH" },
+  { slug: "marty-hernandez", name: "Marty Hernandez", roleEn: "Digital Marketing / Network Administrator", roleEs: "Marketing Digital / Administrador de Red", group: "operations", image: "/bobbygarcia/team/marty-hernandez.png", initials: "MH" },
   { slug: "jazzlynn-ramirez", name: "Jazzlynn Ramirez", roleEn: "Litigation Paralegal", roleEs: "Paralegal de Litigio", group: "litigation", initials: "JR" },
   { slug: "melanie-martinez", name: "Melanie Martinez", roleEn: "Litigation Paralegal", roleEs: "Paralegal de Litigio", group: "litigation", initials: "MM" },
 ];

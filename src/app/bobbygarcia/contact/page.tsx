@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getBgMessages } from "@/lib/bobbygarcia/i18n/get-messages";
 import { getBgLocale } from "@/lib/bobbygarcia/i18n/server";
-import { BG_LOCATIONS, BG_PHONE_DISPLAY, BG_PHONE_E164, BG_WHATSAPP_URL } from "@/lib/bobbygarcia/site";
+import { BG_EMAIL, BG_LOCATIONS, BG_PHONE_DISPLAY, BG_PHONE_E164, BG_WHATSAPP_URL } from "@/lib/bobbygarcia/site";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = getBgLocale();
@@ -28,6 +28,19 @@ export default function ContactPage() {
         <p className="mt-2 font-serif text-4xl font-semibold text-white">{BG_PHONE_DISPLAY}</p>
         <p className="mt-2 text-sm text-[#8fa3bc]">{c.available}</p>
       </a>
+
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <div className="rounded-xl border border-[#c9a227]/20 bg-[#0f1c2e] p-6">
+          <p className="text-xs font-semibold uppercase tracking-wider text-[#c9a227]">{c.emailLabel}</p>
+          <a href={`mailto:${BG_EMAIL}`} className="mt-2 block text-lg text-white hover:text-[#c9a227]">
+            {BG_EMAIL}
+          </a>
+        </div>
+        <div className="rounded-xl border border-[#c9a227]/20 bg-[#0f1c2e] p-6">
+          <p className="text-xs font-semibold uppercase tracking-wider text-[#c9a227]">{c.hoursLabel}</p>
+          <p className="mt-2 text-lg text-white">{c.officeHours}</p>
+        </div>
+      </div>
 
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
         {[BG_LOCATIONS.rgv, BG_LOCATIONS.houston].map((loc) => (

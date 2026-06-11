@@ -5,6 +5,7 @@ export const BG_DOMAIN = "www.bobbygarcia.com";
 export const BG_BASE_URL = `https://${BG_DOMAIN}`;
 export const BG_PHONE_DISPLAY = "(956) 668-7400";
 export const BG_PHONE_E164 = "+19566687400";
+export const BG_EMAIL = "admin@bobbygarcia.com";
 export const BG_WHATSAPP_URL = "https://wa.me/19566687400";
 
 export const BG_HOSTS = ["bobbygarcia.com", "www.bobbygarcia.com"];
@@ -14,8 +15,8 @@ export const BG_WOODLANDS_ADDRESS = "16610 IH 45 South, Ste 200, The Woodlands, 
 
 export const BG_LOCATIONS = {
   rgv: {
-    labelEn: "Rio Grande Valley — Edinburg",
-    labelEs: "Valle del Río Grande — Edinburg",
+    labelEn: "Rio Grande Valley",
+    labelEs: "Valle del Río Grande",
     address: BG_EDINBURG_ADDRESS,
   },
   houston: {

@@ -67,12 +67,18 @@ export type BgMessages = {
     intro: string;
     phoneLabel: string;
     available: string;
+    emailLabel: string;
+    hoursLabel: string;
+    officeHours: string;
   };
   footer: {
     tagline: string;
     rights: string;
     locations: string;
     phoneLabel: string;
+    emailLabel: string;
+    hoursLabel: string;
+    officeHours: string;
   };
   attorneysPage: {
     metaTitle: string;
@@ -184,12 +190,18 @@ export const en: BgMessages = {
     intro: "Free confidential consultation. Available 24 hours a day, 7 days a week. No win, no fee.",
     phoneLabel: "Call now",
     available: "Available 24/7 · English & Español",
+    emailLabel: "Email",
+    hoursLabel: "Office hours",
+    officeHours: "Monday – Friday, 8:00 AM – 5:00 PM",
   },
   footer: {
     tagline: "Bobby está contigo — Justice Made Simple",
     rights: "All rights reserved.",
     locations: "Office locations",
     phoneLabel: "24/7 Customer Support",
+    emailLabel: "Email",
+    hoursLabel: "Office hours",
+    officeHours: "Monday – Friday, 8:00 AM – 5:00 PM",
   },
   attorneysPage: {
     metaTitle: "Meet Our Attorneys",

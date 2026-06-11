@@ -4,6 +4,7 @@ import { BgLink } from "@/components/bobbygarcia/BgLink";
 import { useBgLocale } from "@/components/bobbygarcia/BgLocaleProvider";
 import {
   BG_BASE_URL,
+  BG_EMAIL,
   BG_LOCATIONS,
   BG_PHONE_DISPLAY,
   BG_PHONE_E164,
@@ -60,16 +61,35 @@ export function BgFooter() {
               </li>
             </ul>
           </div>
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#c9a227]">
-              {f.phoneLabel}
-            </p>
-            <a
-              href={`tel:${BG_PHONE_E164}`}
-              className="mt-3 block font-serif text-2xl text-white transition hover:text-[#c9a227]"
-            >
-              {BG_PHONE_DISPLAY}
-            </a>
+          <div className="space-y-6">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#c9a227]">
+                {f.phoneLabel}
+              </p>
+              <a
+                href={`tel:${BG_PHONE_E164}`}
+                className="mt-3 block font-serif text-2xl text-white transition hover:text-[#c9a227]"
+              >
+                {BG_PHONE_DISPLAY}
+              </a>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#c9a227]">
+                {f.emailLabel}
+              </p>
+              <a
+                href={`mailto:${BG_EMAIL}`}
+                className="mt-2 block text-sm text-white transition hover:text-[#c9a227]"
+              >
+                {BG_EMAIL}
+              </a>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#c9a227]">
+                {f.hoursLabel}
+              </p>
+              <p className="mt-2 text-sm text-white">{f.officeHours}</p>
+            </div>
           </div>
         </div>
 
