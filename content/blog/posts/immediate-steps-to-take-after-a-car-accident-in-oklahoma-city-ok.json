@@ -36,15 +36,13 @@
       "heading": "Exchanging Information",
       "paragraphs": [
         "Once safety has been secured, exchange information with the other driver(s) involved in the accident. Gather the following details:",
-        {
-          "list": [
-            "Full name and contact information",
-            "Insurance company and policy number",
-            "Driver's license number and license plate number",
-            "Make, model, and color of the vehicle"
-          ]
-        },
         "Additionally, collect contact information from any witnesses present at the scene, as their accounts may be crucial."
+      ],
+      "list": [
+        "Full name and contact information",
+        "Insurance company and policy number",
+        "Driver's license number and license plate number",
+        "Make, model, and color of the vehicle"
       ]
     },
     {
