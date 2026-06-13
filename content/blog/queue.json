@@ -4,8 +4,21 @@
   "postsPerDayEs": 13,
   "publishStaggerMinutes": 90,
   "requireApproval": true,
-  "lastRunAt": "2026-06-13T10:41:14.689Z",
+  "lastRunAt": "2026-06-13T21:28:05.592Z",
   "recentCitySlugs": [
+    "portland",
+    "louisville",
+    "miami",
+    "tampa",
+    "detroit",
+    "phoenix",
+    "fresno",
+    "san-diego",
+    "baltimore",
+    "tulsa",
+    "nashville",
+    "long-beach",
+    "denver",
     "chicago",
     "oakland",
     "los-angeles",
@@ -42,8 +55,21 @@
     "arlington",
     "indianapolis",
     "philadelphia",
-    "las-vegas",
-    "columbus"
+    "las-vegas"
   ],
-  "recentCitySlugsEs": []
+  "recentCitySlugsEs": [
+    "jacksonville",
+    "new-york",
+    "albuquerque",
+    "miami",
+    "milwaukee",
+    "dallas",
+    "colorado-springs",
+    "phoenix",
+    "austin",
+    "baltimore",
+    "detroit",
+    "tampa",
+    "atlanta"
+  ]
 }

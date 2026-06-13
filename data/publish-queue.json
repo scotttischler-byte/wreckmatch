@@ -33,7 +33,12 @@
     "blogSlugs": [
       "insurance-pitfalls-in-portland-oregon-what-you-need-to-know",
       "immediate-steps-to-take-after-a-car-accident-in-oklahoma-city-ok",
-      "understanding-uninsured-hit-and-run-accidents-in-tucson-arizona"
+      "understanding-uninsured-hit-and-run-accidents-in-tucson-arizona",
+      "baltimore-maryland-evitando-los-escollos-del-seguro-de-auto-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-detroit-mi-es",
+      "leyes-estatales-y-locales-sobre-accidentes-de-auto-en-miami-florida-es",
+      "pasos-inmediatos-tras-un-accidente-de-auto-en-jacksonville-florida-es",
+      "prevenci-n-y-seguridad-en-accidentes-de-auto-en-phoenix-arizona-es"
     ]
   },
   "queue": {
@@ -41,6 +46,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-13T10:41:15.586Z",
+  "lastPublishAt": "2026-06-13T21:28:07.503Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
