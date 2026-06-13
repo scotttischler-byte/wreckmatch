@@ -2,7 +2,9 @@
   "dailyLimits": {
     "cityPages": 5,
     "statePages": 2,
-    "blogPosts": 25
+    "blogPosts": 13,
+    "blogPostsEn": 13,
+    "blogPostsEs": 13
   },
   "qualityGate": {
     "minWords": 800,
@@ -40,5 +42,5 @@
     "blog": []
   },
   "lastPublishAt": "2026-06-13T10:41:15.586Z",
-  "notes": "Conservative start: 5 city pages + 5 blog posts per day max. Run scripts/publish-from-queue.mjs manually or via GitHub Action."
+  "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }

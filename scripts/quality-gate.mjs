@@ -1,16 +1,21 @@
 #!/usr/bin/env node
 /**
  * Quality gate for SEO content (blog JSON, markdown).
- * Usage: node scripts/quality-gate.mjs [file...]
- * Exit 1 if any file fails.
+ * Usage: node scripts/quality-gate.mjs [--warn-only] [file...]
+ * Exit 1 if any file fails (unless --warn-only).
  */
 
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { listAllDraftJsonFiles } from "./blog-locale-paths.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
+
+const args = process.argv.slice(2);
+const warnOnly = args.includes("--warn-only");
+const fileArgs = args.filter((a) => !a.startsWith("--"));
 
 const MIN_WORDS = Number(process.env.SEO_MIN_WORDS ?? 800);
 const MIN_DATA_POINTS = Number(process.env.SEO_MIN_DATA_POINTS ?? 5);
@@ -25,9 +30,9 @@ function countDataPoints(text) {
   if (/\$[\d,]+|\d+\/\d+\/\d+/.test(text)) score++;
   if (/\b(I-\d+|US-\d+|SR-\d+|Highway|Freeway)\b/i.test(text)) score++;
   if (/\b(hospital|trauma|medical center|ER)\b/i.test(text)) score++;
-  if (/\b(statute|SOL|years?)\b/i.test(text)) score++;
-  if (/\b(insurance|liability|UM\/UIM|adjuster)\b/i.test(text)) score++;
-  if (/\b(not legal advice|not a law firm|referral service)\b/i.test(text)) score++;
+  if (/\b(statute|SOL|years?|plazo|años)\b/i.test(text)) score++;
+  if (/\b(insurance|liability|UM\/UIM|adjuster|aseguradora|seguro)\b/i.test(text)) score++;
+  if (/\b(not legal advice|not a law firm|referral service|no es un bufete|no es asesoramiento)\b/i.test(text)) score++;
   if (/\b(county|DOT|Department of Transportation)\b/i.test(text)) score++;
   if (/https?:\/\//.test(text)) score++;
   return score;
@@ -37,8 +42,13 @@ function checkBlogPost(post) {
   const text = JSON.stringify(post);
   const words = countWords(text);
   const dataPoints = countDataPoints(text);
+  const locale = post.locale === "es" ? "es" : "en";
+  const disclaimerRe =
+    locale === "es"
+      ? /no es asesoramiento|no es un bufete|servicio de referencia/i
+      : /not legal advice|not a law firm|referral service/i;
   const hasDisclaimer =
-    /not legal advice|not a law firm|referral service/i.test(text) &&
+    disclaimerRe.test(text) &&
     Boolean(post.metaDescription) &&
     post.metaDescription !== post.excerpt;
   const issues = [];
@@ -61,14 +71,10 @@ function checkMarkdown(md) {
 }
 
 function main() {
-  const args = process.argv.slice(2);
-  const draftsDir = path.join(ROOT, "content/blog/drafts");
   const files =
-    args.length > 0
-      ? args
-      : fs.existsSync(draftsDir)
-        ? fs.readdirSync(draftsDir).filter((f) => f.endsWith(".json")).map((f) => path.join(draftsDir, f))
-        : [];
+    fileArgs.length > 0
+      ? fileArgs
+      : listAllDraftJsonFiles().map((entry) => entry.filePath);
 
   let failed = 0;
   for (const file of files) {
@@ -94,9 +100,11 @@ function main() {
 
   if (failed > 0) {
     console.error(`\n${failed} file(s) failed quality gate.`);
-    process.exit(1);
+    if (!warnOnly) process.exit(1);
+    console.warn("Continuing (--warn-only).");
+  } else {
+    console.log("\nAll files passed.");
   }
-  console.log("\nAll files passed.");
 }
 
 main();

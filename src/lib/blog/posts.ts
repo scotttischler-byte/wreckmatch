@@ -1,10 +1,18 @@
 import fs from "fs";
 import path from "path";
 import { getAutopilotMarkdownPosts } from "@/lib/blog/markdown-posts";
-import type { BlogFilters, BlogPost, BlogPostStatus } from "@/lib/blog/types";
+import type { BlogFilters, BlogLocale, BlogPost, BlogPostStatus } from "@/lib/blog/types";
 
 const POSTS_DIR = path.join(process.cwd(), "content/blog/posts");
 const DRAFTS_DIR = path.join(process.cwd(), "content/blog/drafts");
+
+function postLocale(post: BlogPost): BlogLocale {
+  return post.locale === "es" ? "es" : "en";
+}
+
+function dirForLocale(base: string, locale: BlogLocale): string {
+  return locale === "es" ? path.join(base, "es") : base;
+}
 
 function readPostsFromDir(dir: string, statusOverride?: BlogPostStatus): BlogPost[] {
   if (!fs.existsSync(dir)) return [];
@@ -21,6 +29,18 @@ function readPostsFromDir(dir: string, statusOverride?: BlogPostStatus): BlogPos
     }
   }
   return posts;
+}
+
+function readLocalePosts(locale: BlogLocale, includeDrafts: boolean): BlogPost[] {
+  const published = readPostsFromDir(dirForLocale(POSTS_DIR, locale));
+  const withLocale = published.map((p) => ({ ...p, locale: postLocale(p) }));
+  if (!includeDrafts) return withLocale;
+
+  const drafts = readPostsFromDir(dirForLocale(DRAFTS_DIR, locale), "draft").map((p) => ({
+    ...p,
+    locale: postLocale(p),
+  }));
+  return [...withLocale, ...drafts];
 }
 
 function mergePosts(jsonPosts: BlogPost[], markdownPosts: BlogPost[]): BlogPost[] {
@@ -43,18 +63,21 @@ function mergePosts(jsonPosts: BlogPost[], markdownPosts: BlogPost[]): BlogPost[
 }
 
 export function getAllBlogPosts(includeDrafts = false): BlogPost[] {
-  const published = readPostsFromDir(POSTS_DIR);
-  const drafts = includeDrafts
-    ? readPostsFromDir(DRAFTS_DIR, "draft")
-    : [];
+  const en = readLocalePosts("en", includeDrafts);
+  const es = readLocalePosts("es", includeDrafts);
   const markdown = getAutopilotMarkdownPosts();
-  return mergePosts([...published, ...drafts], markdown).sort(
+  return mergePosts([...en, ...es], markdown).sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
   );
 }
 
 export function getPublishedBlogPosts(filters?: BlogFilters): BlogPost[] {
   let posts = getAllBlogPosts(false).filter((p) => p.status === "published");
+
+  const locale = filters?.locale;
+  if (locale) {
+    posts = posts.filter((p) => postLocale(p) === locale);
+  }
 
   if (filters?.state) {
     const s = filters.state.toLowerCase();
@@ -85,8 +108,16 @@ export function getPublishedBlogPosts(filters?: BlogFilters): BlogPost[] {
   return posts;
 }
 
-export function getBlogPostBySlug(slug: string, includeDrafts = false): BlogPost | undefined {
-  return getAllBlogPosts(includeDrafts).find((p) => p.slug === slug);
+export function getBlogPostBySlug(
+  slug: string,
+  options?: { includeDrafts?: boolean; locale?: BlogLocale },
+): BlogPost | undefined {
+  const includeDrafts = options?.includeDrafts ?? false;
+  const locale = options?.locale;
+  const posts = locale
+    ? readLocalePosts(locale, includeDrafts)
+    : getAllBlogPosts(includeDrafts);
+  return posts.find((p) => p.slug === slug);
 }
 
 export function getRecentPostCitySlugs(limit = 30): string[] {

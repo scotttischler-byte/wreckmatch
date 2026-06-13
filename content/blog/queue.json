@@ -1,5 +1,7 @@
 {
-  "postsPerDay": 25,
+  "postsPerDay": 13,
+  "postsPerDayEn": 13,
+  "postsPerDayEs": 13,
   "publishStaggerMinutes": 90,
   "requireApproval": true,
   "lastRunAt": "2026-06-13T10:41:14.689Z",
@@ -33,26 +35,15 @@
     "phoenix",
     "kansas-city",
     "mesa",
-    "memphis",
-    "el-paso",
     "milwaukee",
-    "colorado-springs",
     "tampa",
-    "austin",
-    "los-angeles",
     "dallas",
     "new-orleans",
     "arlington",
     "indianapolis",
-    "tulsa",
     "philadelphia",
-    "louisville",
     "las-vegas",
-    "seattle",
-    "nashville",
-    "columbus",
-    "tucson",
-    "charlotte",
-    "detroit"
-  ]
+    "columbus"
+  ],
+  "recentCitySlugsEs": []
 }

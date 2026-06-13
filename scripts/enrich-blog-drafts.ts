@@ -1,20 +1,21 @@
 /**
  * Enrich thin blog drafts using programmatic city/state templates.
- * Usage: npx tsx scripts/enrich-blog-drafts.ts [--publish]
+ * Usage:
+ *   npx tsx scripts/enrich-blog-drafts.ts [--publish] [--all-locales]
+ *   npx tsx scripts/enrich-blog-drafts.ts --locale es --file content/blog/drafts/es/foo.json
  */
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { spawnSync } from "child_process";
 import type { BlogPost } from "../src/lib/blog/types";
+import type { BlogLocale } from "../src/lib/blog/types";
 import type { BlogTemplateId } from "../data/types";
 import { CITIES, getStateForCity } from "../src/lib/seo/cities";
 import { buildProgrammaticBlogPost } from "../src/lib/seo/build-blog-post";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
-const DRAFTS_DIR = path.join(ROOT, "content/blog/drafts");
-const POSTS_DIR = path.join(ROOT, "content/blog/posts");
 
 const TOPIC_TEMPLATE: Record<string, BlogTemplateId> = {
   "immediate-steps": "immediate-steps",
@@ -26,6 +27,18 @@ const TOPIC_TEMPLATE: Record<string, BlogTemplateId> = {
   "rideshare-truck": "truck-accident",
   "prevention-safety": "costly-mistakes",
 };
+
+function draftsDir(locale: BlogLocale) {
+  return locale === "es"
+    ? path.join(ROOT, "content/blog/drafts/es")
+    : path.join(ROOT, "content/blog/drafts");
+}
+
+function postsDir(locale: BlogLocale) {
+  return locale === "es"
+    ? path.join(ROOT, "content/blog/posts/es")
+    : path.join(ROOT, "content/blog/posts");
+}
 
 function inferTemplate(draft: BlogPost): BlogTemplateId {
   if (draft.topic && TOPIC_TEMPLATE[draft.topic]) return TOPIC_TEMPLATE[draft.topic];
@@ -47,10 +60,13 @@ function findCity(draft: BlogPost) {
   );
 }
 
+type CityRecord = NonNullable<ReturnType<typeof findCity>>;
+type StateRecord = NonNullable<ReturnType<typeof getStateForCity>>;
+
 function appendLocalSections(
   post: BlogPost,
-  city: NonNullable<ReturnType<typeof findCity>>,
-  state: NonNullable<ReturnType<typeof getStateForCity>>,
+  city: CityRecord,
+  state: StateRecord,
 ): BlogPost["sections"] {
   const highways = city.major_highways.join(", ");
   const hospitals = city.major_hospitals.join(", ");
@@ -126,7 +142,86 @@ function appendLocalSections(
   return [...post.sections, ...extra];
 }
 
-function enrichDraft(draft: BlogPost): BlogPost | null {
+function appendSpanishLocalSections(
+  post: BlogPost,
+  city: CityRecord,
+  state: StateRecord,
+): BlogPost["sections"] {
+  const highways = city.major_highways.join(", ");
+  const hospitals = city.major_hospitals.join(", ");
+  const hotspots = city.accident_hotspots.join("; ");
+  const extra: BlogPost["sections"] = [
+    {
+      heading: `Recursos médicos en ${city.city} después de un choque`,
+      paragraphs: [
+        `Residentes de ${city.city} suelen acudir a ${hospitals} tras colisiones graves. ${city.trauma_centers_level1[0] ? `Atención de trauma nivel I disponible en ${city.trauma_centers_level1[0]}.` : "Verifique el centro de trauma más cercano si las lesiones pueden ser graves."}`,
+        `Documente cada visita médica — los huecos en el tratamiento son una razón frecuente para que las aseguradoras en ${city.state_abbr} reduzcan ofertas.`,
+        `Guarde recibos de medicamentos, estudios (MRI/CT), fisioterapia y transporte médico.`,
+      ],
+      list: [
+        "Fotografíe lesiones visibles el mismo día cuando sea seguro",
+        "Siga instrucciones de alta y conserve resúmenes de visitas",
+        "No firme autorizaciones médicas amplias para el ajustador",
+      ],
+    },
+    {
+      heading: `Patrones locales de choques: ${highways || city.city}`,
+      paragraphs: [
+        `El área metropolitana reporta aproximadamente ${city.annual_crashes?.toLocaleString() ?? "miles de"} accidentes anuales (est.). Zonas de alto riesgo incluyen ${hotspots || "corredores principales"}.`,
+        `Si el choque ocurrió cerca de ${city.major_highways[0] ?? "una intercambiador"}, anote marcadores, salidas y dirección para el reporte policial.`,
+        `Datos del DOT de ${state.name} en ${state.dot_url} — útiles al disputar culpa o condiciones del camino.`,
+      ],
+    },
+    {
+      heading: `Reportes, tribunales y evidencia en ${city.county}`,
+      paragraphs: [
+        `Solicite el reporte oficial a ${city.police_accident_report_link ? "la policía local" : "la agencia investigadora"}. ${city.county_court ? `${city.county_court} maneja muchos casos civiles en la región.` : ""}`,
+        `Videos de seguridad comercial cerca de ${city.city} suelen borrarse en 7–30 días — envíe cartas de preservación cuando corresponda.`,
+        `${city.local_bar_association} ofrece referencias; WreckMatch LLC también puede conectarle con abogados independientes en ${state.name} sin obligación.`,
+      ],
+    },
+    {
+      heading: "Aviso educativo",
+      paragraphs: [
+        `WreckMatch LLC es un servicio de referencia legal — no un bufete. Esta guía de ${city.city} es educación general y no crea relación abogado-cliente.`,
+        `Las leyes y reglas de seguros cambian; verifique plazos, cobertura y derechos con un abogado licenciado en ${state.name} antes de decisiones sobre su reclamación.`,
+      ],
+    },
+    {
+      heading: `Plazos de acuerdo en ${city.city}`,
+      paragraphs: [
+        `Reclamos menores de daños materiales en ${city.city} pueden resolverse en semanas, pero lesiones con tratamiento, salarios perdidos o culpa disputada suelen tomar meses. Las aseguradoras pueden pedir declaraciones grabadas, exámenes médicos independientes y autorizaciones amplias — revise cada solicitud.`,
+        `${state.name} usa negligencia comparativa ${state.comparative_negligence_rule} con un plazo de prescripción de ${state.statute_limitations_years} años para muchos casos de lesiones.`,
+        `Si fue transportado desde ${city.major_highways[0] ?? "un corredor local"} a ${city.major_hospitals[0] ?? "un hospital"}, organice facturas de ambulancia, ER y seguimiento. UM/UIM y MedPay pueden aplicar si el otro conductor está bajoasegurado.`,
+      ],
+      list: [
+        "No acepte el primer cheque si el tratamiento continúa",
+        "Evite discutir culpa en redes sociales",
+        "Pida denegaciones o reservas de derechos por escrito",
+        "Compare estimaciones de reparación con la aseguradora",
+        "Consulte un abogado licenciado antes de firmar liberaciones",
+      ],
+    },
+    {
+      heading: `Lista de documentos para reclamaciones en ${city.city}`,
+      paragraphs: [
+        `Organice un folder con número de reporte policial, reclamos de seguro, remolque y renta de auto.`,
+        `Solicite facturas médicas detalladas de ${city.major_hospitals[0] ?? "cada proveedor"} — ayudan a detectar errores y negociar.`,
+      ],
+      list: [
+        "Fotos de vehículos y escena desde varios ángulos",
+        "Nombres y teléfonos de testigos",
+        "Nota del empleador por turnos perdidos",
+        "Nombre, teléfono y número de reclamo del ajustador",
+        "Estimaciones de reparación de al menos dos talleres",
+        "Registro de millas a citas médicas",
+      ],
+    },
+  ];
+  return [...post.sections, ...extra];
+}
+
+function enrichDraft(draft: BlogPost, locale: BlogLocale): BlogPost | null {
   const city = findCity(draft);
   if (!city) {
     console.warn(`  No city data for ${draft.city}, ${draft.stateAbbr} — skip`);
@@ -137,8 +232,54 @@ function enrichDraft(draft: BlogPost): BlogPost | null {
 
   const template = inferTemplate(draft);
   const rich = buildProgrammaticBlogPost(city, state, template);
-  const sections = appendLocalSections(rich, city, state);
 
+  if (locale === "es") {
+    const sections = appendSpanishLocalSections(
+      { ...draft, sections: draft.sections?.length ? draft.sections : rich.sections },
+      city,
+      state,
+    );
+    const faq = [
+      ...(draft.faq?.length ? draft.faq : []),
+      {
+        question: `¿Dónde obtengo el reporte de accidente en ${city.city}?`,
+        answer: `Contacte la agencia investigadora en su formulario de intercambio. Reportes en ${city.county} también pueden estar disponibles vía policía local o ${state.dot_url}.`,
+      },
+      {
+        question: `¿WreckMatch da asesoramiento legal en ${city.city}?`,
+        answer: `No. WreckMatch LLC es un servicio de referencia que conecta víctimas con abogados independientes en ${state.name}. No somos un bufete y no brindamos asesoramiento legal.`,
+      },
+      {
+        question: "¿Hay costo por la referencia de WreckMatch?",
+        answer: "WreckMatch LLC es un servicio de referencia gratuito. Los abogados suelen trabajar por contingencia — confirme honorarios directamente con cualquier abogado.",
+      },
+    ];
+    return {
+      ...draft,
+      locale: "es",
+      slug: draft.slug,
+      title: draft.title || `Qué hacer después de un accidente en ${city.city}, ${city.state_abbr}`,
+      status: "draft",
+      publishedAt: draft.publishedAt ?? new Date().toISOString(),
+      metaDescription:
+        draft.metaDescription && draft.metaDescription.length > 80
+          ? draft.metaDescription
+          : `Guía educativa para accidentes en ${city.city}, ${city.state_abbr}. WreckMatch LLC — servicio de referencia, no bufete. No es asesoramiento legal.`,
+      excerpt:
+        draft.excerpt ||
+        `Pasos prácticos después de un choque en ${city.city}, ${state.name}. Educación general, no asesoramiento legal.`,
+      sections,
+      faq,
+      city: city.city,
+      state: city.state,
+      stateAbbr: city.state_abbr,
+      stateSlug: city.state_slug,
+      topic: draft.topic || rich.topic,
+      keywords: draft.keywords?.length ? draft.keywords : rich.keywords,
+    };
+  }
+
+  const sections = appendLocalSections(rich, city, state);
   const faq = [
     ...rich.faq,
     {
@@ -157,6 +298,7 @@ function enrichDraft(draft: BlogPost): BlogPost | null {
 
   return {
     ...rich,
+    locale: "en",
     slug: draft.slug,
     title: draft.title || rich.title,
     status: "draft",
@@ -171,44 +313,76 @@ function enrichDraft(draft: BlogPost): BlogPost | null {
   };
 }
 
-function main() {
-  const publish = process.argv.includes("--publish");
-  if (!fs.existsSync(DRAFTS_DIR)) {
-    console.log("No drafts directory.");
-    return;
-  }
-
-  const files = fs.readdirSync(DRAFTS_DIR).filter((f) => f.endsWith(".json"));
+function processFile(filePath: string, locale: BlogLocale, publish: boolean) {
   let enriched = 0;
   let published = 0;
 
-  for (const file of files) {
-    const filePath = path.join(DRAFTS_DIR, file);
-    const draft = JSON.parse(fs.readFileSync(filePath, "utf8")) as BlogPost;
-    const updated = enrichDraft(draft);
-    if (!updated) continue;
+  if (!fs.existsSync(filePath)) return { enriched, published };
 
-    fs.writeFileSync(filePath, JSON.stringify(updated, null, 2));
-    enriched++;
-    console.log(`Enriched: ${updated.slug}`);
+  const draft = JSON.parse(fs.readFileSync(filePath, "utf8")) as BlogPost;
+  const updated = enrichDraft(draft, locale);
+  if (!updated) return { enriched, published };
 
-    const gate = spawnSync("node", ["scripts/quality-gate.mjs", filePath], { cwd: ROOT });
-    if (gate.status !== 0) {
-      console.warn(`  Quality gate still failing for ${file}`);
-      continue;
-    }
+  fs.writeFileSync(filePath, JSON.stringify(updated, null, 2));
+  enriched++;
+  console.log(`Enriched [${locale}]: ${updated.slug}`);
 
-    if (publish) {
-      updated.status = "published";
-      updated.publishedAt = new Date().toISOString();
-      fs.writeFileSync(path.join(POSTS_DIR, file), JSON.stringify(updated, null, 2));
-      fs.unlinkSync(filePath);
-      published++;
-      console.log(`  Published: ${updated.slug}`);
+  const gate = spawnSync("node", ["scripts/quality-gate.mjs", filePath], { cwd: ROOT });
+  if (gate.status !== 0) {
+    console.warn(`  Quality gate still failing for ${path.basename(filePath)}`);
+    return { enriched, published };
+  }
+
+  if (publish) {
+    const posts = postsDir(locale);
+    fs.mkdirSync(posts, { recursive: true });
+    updated.status = "published";
+    updated.publishedAt = new Date().toISOString();
+    fs.writeFileSync(path.join(posts, path.basename(filePath)), JSON.stringify(updated, null, 2));
+    fs.unlinkSync(filePath);
+    published++;
+    console.log(`  Published [${locale}]: ${updated.slug}`);
+  }
+
+  return { enriched, published };
+}
+
+function main() {
+  const argv = process.argv.slice(2);
+  const publish = argv.includes("--publish");
+  const allLocales = argv.includes("--all-locales");
+  const localeArg = argv.find((a, i) => argv[i - 1] === "--locale") as BlogLocale | undefined;
+  const fileArg = argv.find((a, i) => argv[i - 1] === "--file");
+
+  const locales: BlogLocale[] = fileArg
+    ? [localeArg === "es" ? "es" : "en"]
+    : allLocales || localeArg
+      ? localeArg === "es"
+        ? ["es"]
+        : ["en"]
+      : ["en", "es"];
+
+  let totalEnriched = 0;
+  let totalPublished = 0;
+
+  if (fileArg) {
+    const { enriched, published } = processFile(fileArg, locales[0], publish);
+    totalEnriched += enriched;
+    totalPublished += published;
+  } else {
+    for (const locale of locales) {
+      const dir = draftsDir(locale);
+      if (!fs.existsSync(dir)) continue;
+      const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
+      for (const file of files) {
+        const { enriched, published } = processFile(path.join(dir, file), locale, publish);
+        totalEnriched += enriched;
+        totalPublished += published;
+      }
     }
   }
 
-  console.log(`\nDone: ${enriched} enriched, ${published} published.`);
+  console.log(`\nDone: ${totalEnriched} enriched, ${totalPublished} published.`);
 }
 
 main();

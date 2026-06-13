@@ -1,5 +1,7 @@
 export type BlogPostStatus = "draft" | "published";
 
+export type BlogLocale = "en" | "es";
+
 export type BlogTopic =
   | "immediate-steps"
   | "insurance-pitfalls"
@@ -23,6 +25,8 @@ export type BlogPostFaq = {
 
 export type BlogPost = {
   slug: string;
+  /** Content language — defaults to English when omitted. */
+  locale?: BlogLocale;
   title: string;
   metaDescription: string;
   excerpt: string;
@@ -49,6 +53,7 @@ export type BlogPost = {
 };
 
 export type BlogFilters = {
+  locale?: BlogLocale;
   state?: string;
   topic?: string;
   city?: string;

@@ -22,6 +22,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps) {
   const b = getMessages(locale).blog;
   const filters = await searchParams;
   const posts = getPublishedBlogPosts({
+    locale,
     state: filters.state,
     topic: filters.topic as never,
     q: filters.q,
