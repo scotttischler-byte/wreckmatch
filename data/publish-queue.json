@@ -63,7 +63,13 @@
       "errores-comunes-en-seguros-de-auto-en-los-ngeles-california-es",
       "errores-comunes-en-seguros-de-auto-en-san-francisco-california-es",
       "gu-a-sobre-ajustadores-de-reclamos-en-fresno-california-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-fort-worth-texas-tx-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-fort-worth-texas-tx-es",
+      "accidentes-de-auto-en-louisville-kentucky-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-san-diego-california-lesiones-y-atenci-n-m-dica-es",
+      "claims-adjusters-en-portland-oregon-lo-que-necesitas-saber-es",
+      "errores-comunes-de-seguro-de-auto-en-san-antonio-texas-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-tampa-florida-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-denver-colorado-es"
     ]
   },
   "queue": {
@@ -71,6 +77,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-14T15:59:29.997Z",
+  "lastPublishAt": "2026-06-14T21:24:48.905Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
