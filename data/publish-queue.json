@@ -53,7 +53,17 @@
       "accidentes-de-rideshare-y-camiones-en-washington-dc-lo-que-necesitas-saber-es",
       "claims-adjusters-en-los-ngeles-california-lo-que-necesitas-saber-es",
       "errores-comunes-en-seguros-de-auto-en-san-jose-california-es",
-      "gu-a-sobre-ajustadores-de-reclamos-en-long-beach-california-ca-es"
+      "gu-a-sobre-ajustadores-de-reclamos-en-long-beach-california-ca-es",
+      "accidentes-de-auto-en-mesa-arizona-lo-que-debes-saber-es",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-houston-tx-es",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-louisville-kentucky-es",
+      "accidentes-de-rideshare-y-camiones-en-charlotte-carolina-del-norte-es",
+      "claims-adjusters-en-columbus-ohio-todo-lo-que-necesitas-saber-es",
+      "errores-comunes-de-seguro-de-auto-en-minneapolis-minnesota-mn-es",
+      "errores-comunes-en-seguros-de-auto-en-los-ngeles-california-es",
+      "errores-comunes-en-seguros-de-auto-en-san-francisco-california-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-fresno-california-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-fort-worth-texas-tx-es"
     ]
   },
   "queue": {
@@ -61,6 +71,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-14T10:58:46.301Z",
+  "lastPublishAt": "2026-06-14T15:59:29.997Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
