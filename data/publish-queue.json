@@ -47,7 +47,13 @@
       "errores-comunes-en-seguros-de-auto-en-nueva-york-ny-es",
       "errores-comunes-en-seguros-de-auto-en-seattle-wa-lo-que-debes-saber-es",
       "gu-a-sobre-ajustadores-de-reclamaciones-en-atlanta-georgia-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-albuquerque-nuevo-m-xico-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-albuquerque-nuevo-m-xico-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-oklahoma-city-ok-es",
+      "accidentes-de-rideshare-y-camiones-en-kansas-city-missouri-lo-que-debes-saber-es",
+      "accidentes-de-rideshare-y-camiones-en-washington-dc-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-los-ngeles-california-lo-que-necesitas-saber-es",
+      "errores-comunes-en-seguros-de-auto-en-san-jose-california-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-long-beach-california-ca-es"
     ]
   },
   "queue": {
@@ -55,6 +61,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-14T06:54:13.038Z",
+  "lastPublishAt": "2026-06-14T10:58:46.301Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
