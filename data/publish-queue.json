@@ -38,7 +38,16 @@
       "lesiones-m-dicas-en-accidentes-de-auto-en-detroit-mi-es",
       "leyes-estatales-y-locales-sobre-accidentes-de-auto-en-miami-florida-es",
       "pasos-inmediatos-tras-un-accidente-de-auto-en-jacksonville-florida-es",
-      "prevenci-n-y-seguridad-en-accidentes-de-auto-en-phoenix-arizona-es"
+      "prevenci-n-y-seguridad-en-accidentes-de-auto-en-phoenix-arizona-es",
+      "accidentes-de-auto-en-tampa-florida-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-huida-en-colorado-springs-co-es",
+      "accidentes-de-rideshare-y-camiones-en-dallas-texas-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-milwaukee-wisconsin-todo-lo-que-necesitas-saber-es",
+      "errores-comunes-de-seguro-de-auto-en-chicago-illinois-es",
+      "errores-comunes-en-seguros-de-auto-en-nueva-york-ny-es",
+      "errores-comunes-en-seguros-de-auto-en-seattle-wa-lo-que-debes-saber-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-atlanta-georgia-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-albuquerque-nuevo-m-xico-es"
     ]
   },
   "queue": {
@@ -46,6 +55,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-13T21:28:07.503Z",
+  "lastPublishAt": "2026-06-14T06:54:13.038Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
