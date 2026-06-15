@@ -69,7 +69,18 @@
       "claims-adjusters-en-portland-oregon-lo-que-necesitas-saber-es",
       "errores-comunes-de-seguro-de-auto-en-san-antonio-texas-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-tampa-florida-es",
-      "lesiones-m-dicas-por-accidentes-de-auto-en-denver-colorado-es"
+      "lesiones-m-dicas-por-accidentes-de-auto-en-denver-colorado-es",
+      "accidentes-de-auto-en-atlanta-georgia-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-indianapolis-indiana-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-no-asegurados-y-golpes-y-fugas-en-milwaukee-wi-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-tucson-arizona-es",
+      "accidentes-de-rideshare-y-camiones-en-kansas-city-missouri-lo-que-necesitas-saber-es",
+      "accidentes-de-rideshare-y-camiones-en-las-vegas-nevada-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-el-paso-texas-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-tulsa-oklahoma-lo-que-necesitas-saber-es",
+      "errores-comunes-de-seguro-de-auto-en-colorado-springs-co-es",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-miami-florida-es",
+      "gu-a-de-ajustadores-de-reclamaciones-en-philadelphia-pennsylvania-pa-es"
     ]
   },
   "queue": {
@@ -77,6 +88,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-14T21:24:48.905Z",
+  "lastPublishAt": "2026-06-15T07:36:45.382Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
