@@ -480,3 +480,7 @@
 [2026-06-15T19:06:56.948506+00:00] Queue complete — all cities generated.
 [2026-06-15T21:24:11.002003+00:00] sync-queue: 279 cities with index.md (0 delta).
 [2026-06-15T21:24:11.053586+00:00] Queue complete — all cities generated.
+[2026-06-15T21:38:00.987938+00:00] sync-queue: 279 cities with index.md (0 delta).
+[2026-06-15T21:38:01.046230+00:00] unmark-missing: 0 cities queued for regeneration.
+[2026-06-15T21:38:01.049554+00:00] Run with --batch 0 --publish-json to regenerate.
+[2026-06-15T21:38:01.107174+00:00] Queue complete — all cities generated.
