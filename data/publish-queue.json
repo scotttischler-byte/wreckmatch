@@ -91,7 +91,16 @@
       "gu-a-sobre-ajustadores-de-reclamaciones-en-boston-massachusetts-es",
       "injuries-and-medical-care-after-auto-accidents-in-long-beach-california-es",
       "injuries-and-medical-care-after-car-accidents-in-new-orleans-louisiana-es",
-      "injuries-m-dicas-en-accidentes-de-auto-en-sacramento-california-lo-que-debes-saber-es"
+      "injuries-m-dicas-en-accidentes-de-auto-en-sacramento-california-lo-que-debes-saber-es",
+      "accidentes-de-auto-en-phoenix-arizona-gu-a-sobre-rideshare-y-camiones-es",
+      "accidentes-de-auto-sin-seguro-en-houston-texas-gu-a-completa-es",
+      "errores-comunes-en-seguros-de-auto-en-milwaukee-wisconsin-es-1781562513002",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-indian-polis-indiana-in-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-louisville-kentucky-ky-es",
+      "injuries-and-medical-care-after-auto-accidents-in-washington-dc-es",
+      "injuries-and-medical-considerations-after-car-accidents-in-san-diego-california-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-detroit-michigan-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-nashville-tennessee-es"
     ]
   },
   "queue": {
@@ -99,6 +108,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-15T14:34:04.802Z",
+  "lastPublishAt": "2026-06-15T22:29:27.695Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
