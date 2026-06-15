@@ -80,7 +80,18 @@
       "claims-adjusters-en-tulsa-oklahoma-lo-que-necesitas-saber-es",
       "errores-comunes-de-seguro-de-auto-en-colorado-springs-co-es",
       "evita-los-errores-comunes-de-seguros-de-auto-en-miami-florida-es",
-      "gu-a-de-ajustadores-de-reclamaciones-en-philadelphia-pennsylvania-pa-es"
+      "gu-a-de-ajustadores-de-reclamaciones-en-philadelphia-pennsylvania-pa-es",
+      "accidentes-de-auto-en-san-diego-california-lesiones-m-dicas-y-prevenci-n-es",
+      "accidentes-de-auto-sin-seguro-y-hit-and-run-en-el-paso-texas-es",
+      "accidentes-de-rideshare-y-camiones-en-houston-texas-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-phoenix-arizona-lo-que-necesitas-saber-es",
+      "errores-comunes-de-seguros-de-auto-en-omaha-nebraska-es",
+      "errores-comunes-en-seguros-de-auto-en-arlington-texas-es",
+      "errores-comunes-en-seguros-de-auto-en-milwaukee-wisconsin-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-boston-massachusetts-es",
+      "injuries-and-medical-care-after-auto-accidents-in-long-beach-california-es",
+      "injuries-and-medical-care-after-car-accidents-in-new-orleans-louisiana-es",
+      "injuries-m-dicas-en-accidentes-de-auto-en-sacramento-california-lo-que-debes-saber-es"
     ]
   },
   "queue": {
@@ -88,6 +99,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-15T07:36:45.382Z",
+  "lastPublishAt": "2026-06-15T14:34:04.802Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
