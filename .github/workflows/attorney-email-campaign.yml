@@ -1,0 +1,54 @@
+name: Attorney Email Campaign
+
+on:
+  schedule:
+    - cron: "30 16 * * *" # Daily 16:30 UTC
+  workflow_dispatch:
+
+jobs:
+  plan-and-optionally-send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build attorney campaign preview
+        env:
+          ATTORNEY_CAMPAIGN_FROM: ${{ vars.ATTORNEY_CAMPAIGN_FROM }}
+          ATTORNEY_CAMPAIGN_REPLY_TO: ${{ vars.ATTORNEY_CAMPAIGN_REPLY_TO }}
+          ATTORNEY_CAMPAIGN_UNSUBSCRIBE_URL: ${{ vars.ATTORNEY_CAMPAIGN_UNSUBSCRIBE_URL }}
+          ATTORNEY_CAMPAIGN_PHYSICAL_ADDRESS: ${{ vars.ATTORNEY_CAMPAIGN_PHYSICAL_ADDRESS }}
+          ATTORNEY_CAMPAIGN_WARMUP_START: ${{ vars.ATTORNEY_CAMPAIGN_WARMUP_START }}
+          ATTORNEY_CAMPAIGN_MAX_DAILY: ${{ vars.ATTORNEY_CAMPAIGN_MAX_DAILY }}
+        run: npm run marketing:attorneys:plan
+
+      - name: Upload campaign preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: attorney-email-campaign-preview
+          path: content/marketing/attorney-email-campaign-preview.json
+          if-no-files-found: warn
+
+      - name: Send via Resend when explicitly enabled
+        if: ${{ vars.ATTORNEY_CAMPAIGN_AUTOSEND == 'true' }}
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          ATTORNEY_CAMPAIGN_FROM: ${{ vars.ATTORNEY_CAMPAIGN_FROM }}
+          ATTORNEY_CAMPAIGN_REPLY_TO: ${{ vars.ATTORNEY_CAMPAIGN_REPLY_TO }}
+          ATTORNEY_CAMPAIGN_UNSUBSCRIBE_URL: ${{ vars.ATTORNEY_CAMPAIGN_UNSUBSCRIBE_URL }}
+          ATTORNEY_CAMPAIGN_PHYSICAL_ADDRESS: ${{ vars.ATTORNEY_CAMPAIGN_PHYSICAL_ADDRESS }}
+          ATTORNEY_CAMPAIGN_WARMUP_START: ${{ vars.ATTORNEY_CAMPAIGN_WARMUP_START }}
+          ATTORNEY_CAMPAIGN_MAX_DAILY: ${{ vars.ATTORNEY_CAMPAIGN_MAX_DAILY }}
+        run: |
+          if [ -z "$RESEND_API_KEY" ]; then
+            echo "RESEND_API_KEY secret is required when ATTORNEY_CAMPAIGN_AUTOSEND=true"
+            exit 1
+          fi
+          npm run marketing:attorneys:send

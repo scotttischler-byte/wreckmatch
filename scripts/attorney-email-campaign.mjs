@@ -10,6 +10,7 @@
 
 import fs from "fs";
 import path from "path";
+import { createHash } from "crypto";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -18,14 +19,21 @@ const DEFAULT_DATA_DIR = path.join(ROOT, "data", "attorney-campaign");
 const DEFAULT_ATTORNEYS = path.join(DEFAULT_DATA_DIR, "attorneys.csv");
 const DEFAULT_LEADS = path.join(DEFAULT_DATA_DIR, "leads.csv");
 const DEFAULT_AUDIENCE = path.join(DEFAULT_DATA_DIR, "audience-labs.csv");
+const DEFAULT_SUPPRESSIONS = path.join(DEFAULT_DATA_DIR, "suppressions.csv");
+const DEFAULT_HEALTH = path.join(DEFAULT_DATA_DIR, "sender-health.json");
 const TEMPLATE_ATTORNEYS = path.join(DEFAULT_DATA_DIR, "attorneys.template.csv");
 const TEMPLATE_LEADS = path.join(DEFAULT_DATA_DIR, "leads.template.csv");
 const TEMPLATE_AUDIENCE = path.join(DEFAULT_DATA_DIR, "audience-labs.template.csv");
+const TEMPLATE_SUPPRESSIONS = path.join(DEFAULT_DATA_DIR, "suppressions.template.csv");
 const DEFAULT_LOG = path.join(ROOT, "content", "agents", "attorney-campaign-log.jsonl");
 
 const CAMPAIGN_TRIGGER = "pi_mva_attorney_email_campaign";
 const SEND_CONFIRMATION = "SEND_ATTORNEY_CAMPAIGN";
 const PLACEHOLDER_RE = /example\.com|placeholder|replace_with/i;
+const RESEND_API_BASE = "https://api.resend.com";
+const DEFAULT_RESEND_FROM = "WreckMatch Partner Team <partnerships@partners.wreckmatch.com>";
+const DEFAULT_RESEND_REPLY_TO = "partnerships@partners.wreckmatch.com";
+const WARMUP_SCHEDULE = [25, 35, 50, 70, 90, 120, 150, 200, 250, 325, 400, 500, 650, 800];
 const INVALID_STATUSES = new Set([
   "bounced",
   "do-not-contact",
@@ -95,16 +103,29 @@ function parseArgs(argv) {
     attorneys: DEFAULT_ATTORNEYS,
     leads: DEFAULT_LEADS,
     audienceLabs: DEFAULT_AUDIENCE,
+    suppressions: DEFAULT_SUPPRESSIONS,
+    health: DEFAULT_HEALTH,
     output: "",
     log: DEFAULT_LOG,
     campaignId: `wm-attorney-${new Date().toISOString().slice(0, 10)}`,
+    provider: process.env.ATTORNEY_CAMPAIGN_PROVIDER || "resend",
     webhookUrl:
       process.env.ATTORNEY_CAMPAIGN_WEBHOOK_URL ||
       process.env.GHL_ATTORNEY_CAMPAIGN_WEBHOOK_URL ||
       "",
+    resendApiKey: process.env.RESEND_API_KEY || "",
+    from: process.env.ATTORNEY_CAMPAIGN_FROM || DEFAULT_RESEND_FROM,
+    replyTo: process.env.ATTORNEY_CAMPAIGN_REPLY_TO || DEFAULT_RESEND_REPLY_TO,
+    unsubscribeUrl: process.env.ATTORNEY_CAMPAIGN_UNSUBSCRIBE_URL || "",
+    physicalAddress: process.env.ATTORNEY_CAMPAIGN_PHYSICAL_ADDRESS || "",
+    warmupStart: process.env.ATTORNEY_CAMPAIGN_WARMUP_START || new Date().toISOString().slice(0, 10),
     lookbackDays: 90,
+    cooldownDays: 30,
+    dailyCap: 0,
+    maxDaily: Number(process.env.ATTORNEY_CAMPAIGN_MAX_DAILY || "") || 800,
     limit: 0,
     onlyState: "",
+    ignoreHistory: false,
     send: false,
     confirm: "",
     help: false,
@@ -127,6 +148,12 @@ function parseArgs(argv) {
       case "--audience-labs":
         args.audienceLabs = path.resolve(ROOT, nextValue());
         break;
+      case "--suppressions":
+        args.suppressions = path.resolve(ROOT, nextValue());
+        break;
+      case "--health":
+        args.health = path.resolve(ROOT, nextValue());
+        break;
       case "--output":
         args.output = path.resolve(ROOT, nextValue());
         break;
@@ -136,11 +163,38 @@ function parseArgs(argv) {
       case "--campaign-id":
         args.campaignId = nextValue();
         break;
+      case "--provider":
+        args.provider = nextValue().toLowerCase();
+        break;
       case "--webhook-url":
         args.webhookUrl = nextValue();
         break;
+      case "--from":
+        args.from = nextValue();
+        break;
+      case "--reply-to":
+        args.replyTo = nextValue();
+        break;
+      case "--unsubscribe-url":
+        args.unsubscribeUrl = nextValue();
+        break;
+      case "--physical-address":
+        args.physicalAddress = nextValue();
+        break;
+      case "--warmup-start":
+        args.warmupStart = nextValue();
+        break;
       case "--lookback-days":
         args.lookbackDays = Number(nextValue()) || args.lookbackDays;
+        break;
+      case "--cooldown-days":
+        args.cooldownDays = Number(nextValue()) || args.cooldownDays;
+        break;
+      case "--daily-cap":
+        args.dailyCap = Number(nextValue()) || 0;
+        break;
+      case "--max-daily":
+        args.maxDaily = Number(nextValue()) || args.maxDaily;
         break;
       case "--limit":
         args.limit = Number(nextValue()) || 0;
@@ -153,6 +207,9 @@ function parseArgs(argv) {
         break;
       case "--dry-run":
         args.send = false;
+        break;
+      case "--ignore-history":
+        args.ignoreHistory = true;
         break;
       case "--confirm":
         args.confirm = nextValue();
@@ -182,12 +239,21 @@ Options:
   --attorneys <file>       CSV, JSON, or JSONL attorney list
   --leads <file>           CSV, JSON, or JSONL de-identified/current lead export
   --audience-labs <file>   CSV, JSON, or JSONL Audience Labs export
+  --suppressions <file>    CSV, JSON, or JSONL suppression list
   --output <file>          Write dry-run payloads to JSON
   --campaign-id <id>       Campaign identifier passed to GHL
+  --provider <name>        resend or ghl (default: resend)
+  --from <sender>          Resend From header
+  --reply-to <email>       Resend Reply-To header
+  --unsubscribe-url <url>  HTTPS unsubscribe/preferences URL
+  --warmup-start <date>    Sender warmup start date, YYYY-MM-DD
   --lookback-days <n>      Recent lead window for dated exports (default: 90)
+  --cooldown-days <n>      Do not resend same contact within n days (default: 30)
+  --daily-cap <n>          Override warmup cap for this run
+  --max-daily <n>          Upper ceiling after warmup (default: 800)
   --only-state <state>     Restrict to a single state
   --limit <n>              Process at most n attorneys
-  --send                   POST payloads to ATTORNEY_CAMPAIGN_WEBHOOK_URL
+  --send                   Send through provider
   --confirm ${SEND_CONFIRMATION}
                            Required with --send
 `);
@@ -291,6 +357,16 @@ function loadRecords(filePath) {
   throw new Error(`Unsupported input format for ${filePath}. Use .csv, .json, or .jsonl.`);
 }
 
+function loadOptionalRecords(filePath) {
+  if (!filePath || !fs.existsSync(filePath)) return [];
+  return loadRecords(filePath);
+}
+
+function loadOptionalJson(filePath) {
+  if (!filePath || !fs.existsSync(filePath)) return {};
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
 function normalizeKey(key) {
   return String(key)
     .trim()
@@ -332,6 +408,14 @@ function titleCase(value) {
 
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function normalizeEmail(email) {
+  return String(email || "").trim().toLowerCase();
+}
+
+function emailHash(email) {
+  return createHash("sha256").update(normalizeEmail(email)).digest("hex");
 }
 
 function toNumber(value) {
@@ -432,9 +516,34 @@ function normalizeAudience(record) {
   };
 }
 
-function isAttorneyEligible(attorney, onlyState) {
+function normalizeSuppression(record) {
+  const email = normalizeEmail(pick(record, ["email", "contact_email", "recipient_email"]));
+  const domain = normalizeEmail(pick(record, ["domain", "email_domain"]));
+  const reason = pick(record, ["reason", "status", "type"]).toLowerCase();
+  return { email, emailHash: email ? emailHash(email) : "", domain, reason };
+}
+
+function buildSuppressionIndex(records) {
+  const emailHashes = new Set();
+  const domains = new Set();
+  for (const record of records.map(normalizeSuppression)) {
+    if (record.emailHash) emailHashes.add(record.emailHash);
+    if (record.domain) domains.add(record.domain);
+  }
+  return { emailHashes, domains };
+}
+
+function isSuppressed(email, suppressions) {
+  const normalized = normalizeEmail(email);
+  if (!normalized) return true;
+  const domain = normalized.split("@")[1] || "";
+  return suppressions.emailHashes.has(emailHash(normalized)) || suppressions.domains.has(domain);
+}
+
+function isAttorneyEligible(attorney, onlyState, suppressions) {
   if (!attorney.email || !isValidEmail(attorney.email)) return false;
   if (attorney.status && INVALID_STATUSES.has(attorney.status)) return false;
+  if (isSuppressed(attorney.email, suppressions)) return false;
   if (onlyState && attorney.state !== onlyState) return false;
   return true;
 }
@@ -548,6 +657,7 @@ function buildPayload(attorney, stats, audience, args) {
     firm_name: attorney.firmName,
     contact_name: attorney.contactName,
     contact_email: attorney.email,
+    contact_email_hash: emailHash(attorney.email),
     firm_website: attorney.website,
     attorney_city: attorney.city,
     attorney_state: attorney.state,
@@ -596,12 +706,109 @@ function summarizePayloads(payloads) {
   };
 }
 
+function warmupDay(startDate) {
+  const start = parseDate(startDate);
+  if (!start) return 1;
+  const today = new Date();
+  const todayUtc = Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate());
+  const startUtc = Date.UTC(start.getUTCFullYear(), start.getUTCMonth(), start.getUTCDate());
+  return Math.max(1, Math.floor((todayUtc - startUtc) / (24 * 60 * 60 * 1000)) + 1);
+}
+
+function baseWarmupCap(args) {
+  if (args.dailyCap > 0) return args.dailyCap;
+  const day = warmupDay(args.warmupStart);
+  const scheduled = WARMUP_SCHEDULE[Math.min(day - 1, WARMUP_SCHEDULE.length - 1)];
+  return Math.min(scheduled, args.maxDaily);
+}
+
+function rateFromHealth(health, keys) {
+  for (const key of keys) {
+    const value = health[key];
+    if (value !== undefined && value !== null && value !== "") return toNumber(value);
+  }
+  return 0;
+}
+
+function healthAdjustedCap(baseCap, health) {
+  const bounceRate = rateFromHealth(health, ["bounceRate", "bounce_rate"]);
+  const complaintRate = rateFromHealth(health, ["complaintRate", "complaint_rate", "spamComplaintRate"]);
+  const unsubscribeRate = rateFromHealth(health, ["unsubscribeRate", "unsubscribe_rate"]);
+  const replyRate = rateFromHealth(health, ["replyRate", "reply_rate"]);
+
+  if (complaintRate >= 0.001 || bounceRate >= 0.03) {
+    return {
+      cap: 0,
+      reason: `paused: complaintRate=${complaintRate}, bounceRate=${bounceRate}`,
+    };
+  }
+
+  let cap = baseCap;
+  const reasons = [];
+  if (bounceRate >= 0.02) {
+    cap = Math.floor(cap * 0.5);
+    reasons.push(`bounceRate=${bounceRate}`);
+  }
+  if (unsubscribeRate >= 0.01) {
+    cap = Math.floor(cap * 0.75);
+    reasons.push(`unsubscribeRate=${unsubscribeRate}`);
+  }
+  if (replyRate >= 0.03 && bounceRate < 0.01 && complaintRate === 0) {
+    cap = Math.floor(cap * 1.15);
+    reasons.push(`healthyReplyRate=${replyRate}`);
+  }
+
+  return { cap: Math.max(0, cap), reason: reasons.join(", ") || "healthy" };
+}
+
+function loadRecentSentHashes(logPath, cooldownDays) {
+  const hashes = new Set();
+  if (!fs.existsSync(logPath)) return hashes;
+
+  const cutoff = Date.now() - cooldownDays * 24 * 60 * 60 * 1000;
+  for (const line of fs.readFileSync(logPath, "utf8").split("\n")) {
+    if (!line.trim()) continue;
+    try {
+      const entry = JSON.parse(line);
+      const event = String(entry.event || "");
+      if (!event.includes("attorney_campaign") || !event.endsWith("_sent")) continue;
+      const at = parseDate(entry.at);
+      if (at && at.getTime() < cutoff) continue;
+      const hash = entry.payload?.contact_email_hash;
+      if (hash) hashes.add(hash);
+    } catch {
+      // Ignore malformed historic log lines.
+    }
+  }
+  return hashes;
+}
+
+function applySendControls(payloads, args, health) {
+  const recentSentHashes = args.ignoreHistory ? new Set() : loadRecentSentHashes(args.log, args.cooldownDays);
+  const unsent = payloads.filter((payload) => !recentSentHashes.has(payload.contact_email_hash));
+  const baseCap = baseWarmupCap(args);
+  const adjusted = healthAdjustedCap(baseCap, health);
+  const selected = [...unsent]
+    .sort((a, b) => Number(b.campaign_score) - Number(a.campaign_score))
+    .slice(0, adjusted.cap);
+
+  return {
+    payloads: selected,
+    skippedByHistory: payloads.length - unsent.length,
+    baseCap,
+    cap: adjusted.cap,
+    capReason: adjusted.reason,
+    warmupDay: warmupDay(args.warmupStart),
+  };
+}
+
 function redactForLog(payload) {
   return {
     campaign_id: payload.campaign_id,
     automation_trigger: payload.automation_trigger,
     attorney_id: payload.attorney_id,
     firm_name: payload.firm_name,
+    contact_email_hash: payload.contact_email_hash,
     contact_email_domain: payload.contact_email.split("@")[1] || "",
     market: payload.market,
     campaign_score: payload.campaign_score,
@@ -613,6 +820,121 @@ async function postPayload(webhookUrl, payload) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
+  });
+  const body = await res.text();
+  return { ok: res.ok, status: res.status, body };
+}
+
+function escapeHtml(value) {
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function unsubscribeLink(args, payload) {
+  if (!args.unsubscribeUrl) return "";
+  const url = new URL(args.unsubscribeUrl);
+  url.searchParams.set("campaign", payload.campaign_id);
+  url.searchParams.set("recipient", payload.contact_email_hash);
+  return url.toString();
+}
+
+function emailGreeting(payload) {
+  const name = payload.contact_name?.trim();
+  if (!name || /marketing director|office manager|info/i.test(name)) return "Hi";
+  return `Hi ${name}`;
+}
+
+function buildResendMessage(payload, args) {
+  const unsubscribe = unsubscribeLink(args, payload);
+  const market = escapeHtml(payload.market);
+  const segment = escapeHtml(payload.audience_segment);
+  const leadCount = Number(payload.lead_count_recent || 0);
+  const subject = payload.recommended_subject;
+  const preview = payload.preview_text;
+  const address = args.physicalAddress
+    ? `<p style="color:#6b7280;font-size:12px">${escapeHtml(args.physicalAddress)}</p>`
+    : "";
+  const optOut = unsubscribe
+    ? `<p style="color:#6b7280;font-size:12px">Not interested? <a href="${escapeHtml(unsubscribe)}">Opt out here</a>.</p>`
+    : `<p style="color:#6b7280;font-size:12px">Not interested? Reply "unsubscribe" and we will remove you.</p>`;
+
+  const text = [
+    `${emailGreeting(payload)},`,
+    "",
+    preview,
+    "",
+    `We are expanding WreckMatch partner coverage for PI/MVA attorneys in ${payload.market}.`,
+    leadCount > 0
+      ? `Recent de-identified WreckMatch demand signals in this market: ${leadCount} in the last ${payload.lead_lookback_days} days.`
+      : `Audience Labs is showing ${payload.audience_segment} demand in this market.`,
+    payload.top_accident_types ? `Top accident signals: ${payload.top_accident_types}.` : "",
+    payload.top_injury_signals ? `Top injury signals: ${payload.top_injury_signals}.` : "",
+    `Audience Labs segment: ${payload.audience_segment}; demand score: ${payload.audience_demand_score}; estimated audience: ${payload.audience_size}.`,
+    "",
+    "If your firm is taking qualified motor-vehicle-accident matters, reply and we can share the partner criteria and market fit.",
+    "",
+    "Best,",
+    "WreckMatch Partner Team",
+    "",
+    unsubscribe ? `Opt out: ${unsubscribe}` : "Reply unsubscribe to opt out.",
+    args.physicalAddress || "",
+  ]
+    .filter(Boolean)
+    .join("\n");
+
+  const html = `<!doctype html>
+<html>
+  <body style="font-family:Arial,sans-serif;color:#111827;line-height:1.5">
+    <p>${escapeHtml(emailGreeting(payload))},</p>
+    <p>${escapeHtml(preview)}</p>
+    <p>We are expanding WreckMatch partner coverage for PI/MVA attorneys in <strong>${market}</strong>.</p>
+    <ul>
+      ${
+        leadCount > 0
+          ? `<li>Recent de-identified WreckMatch demand signals: <strong>${leadCount}</strong> in the last ${escapeHtml(payload.lead_lookback_days)} days.</li>`
+          : `<li>Audience Labs is showing ${segment} demand in this market.</li>`
+      }
+      ${payload.top_accident_types ? `<li>Top accident signals: ${escapeHtml(payload.top_accident_types)}</li>` : ""}
+      ${payload.top_injury_signals ? `<li>Top injury signals: ${escapeHtml(payload.top_injury_signals)}</li>` : ""}
+      <li>Audience Labs segment: ${segment}; demand score: ${escapeHtml(payload.audience_demand_score)}; estimated audience: ${escapeHtml(payload.audience_size)}.</li>
+    </ul>
+    <p>If your firm is taking qualified motor-vehicle-accident matters, reply and we can share the partner criteria and market fit.</p>
+    <p>Best,<br />WreckMatch Partner Team</p>
+    ${optOut}
+    ${address}
+  </body>
+</html>`;
+
+  const headers = {};
+  if (unsubscribe) headers["List-Unsubscribe"] = `<${unsubscribe}>`;
+
+  return {
+    from: args.from,
+    to: [payload.contact_email],
+    reply_to: args.replyTo,
+    subject,
+    text,
+    html,
+    headers,
+    tags: [
+      { name: "campaign", value: payload.campaign_id },
+      { name: "trigger", value: CAMPAIGN_TRIGGER },
+      { name: "state", value: payload.attorney_state || "unknown" },
+    ],
+  };
+}
+
+async function sendResendEmail(args, payload) {
+  const res = await fetch(`${RESEND_API_BASE}/emails`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${args.resendApiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(buildResendMessage(payload, args)),
   });
   const body = await res.text();
   return { ok: res.ok, status: res.status, body };
@@ -649,45 +971,85 @@ async function main() {
     "Audience Labs export",
     args.send,
   );
+  args.suppressions = resolveInputFile(
+    args.suppressions,
+    DEFAULT_SUPPRESSIONS,
+    TEMPLATE_SUPPRESSIONS,
+    "Suppression list",
+    false,
+  );
 
   if (args.send) {
     if (args.confirm !== SEND_CONFIRMATION) {
       throw new Error(`Refusing to send. Re-run with --confirm=${SEND_CONFIRMATION}.`);
     }
-    if (!args.webhookUrl || PLACEHOLDER_RE.test(args.webhookUrl)) {
-      throw new Error("ATTORNEY_CAMPAIGN_WEBHOOK_URL is required for --send.");
+    if (args.provider === "ghl" && (!args.webhookUrl || PLACEHOLDER_RE.test(args.webhookUrl))) {
+      throw new Error("ATTORNEY_CAMPAIGN_WEBHOOK_URL is required for --provider=ghl --send.");
     }
+    if (args.provider === "resend") {
+      if (!args.resendApiKey) throw new Error("RESEND_API_KEY is required for --provider=resend --send.");
+      if (!args.from.includes("@")) throw new Error("ATTORNEY_CAMPAIGN_FROM must include a verified sender email.");
+      if (!args.replyTo.includes("@")) throw new Error("ATTORNEY_CAMPAIGN_REPLY_TO must be a monitored inbox.");
+      if (!args.unsubscribeUrl || !args.unsubscribeUrl.startsWith("https://")) {
+        throw new Error("ATTORNEY_CAMPAIGN_UNSUBSCRIBE_URL must be an HTTPS opt-out URL.");
+      }
+      if (!args.physicalAddress) {
+        throw new Error("ATTORNEY_CAMPAIGN_PHYSICAL_ADDRESS is required for campaign email compliance.");
+      }
+    }
+  }
+  if (!["resend", "ghl"].includes(args.provider)) {
+    throw new Error("--provider must be either resend or ghl.");
   }
 
   const attorneys = loadRecords(args.attorneys).map(normalizeAttorney);
   const leads = loadRecords(args.leads).map(normalizeLead);
   const audienceRows = loadRecords(args.audienceLabs).map(normalizeAudience);
+  const suppressions = buildSuppressionIndex(loadOptionalRecords(args.suppressions));
+  const health = loadOptionalJson(args.health);
   const leadStats = buildLeadStats(leads, args.lookbackDays);
   const audienceIndex = buildAudienceIndex(audienceRows);
 
-  let eligible = attorneys.filter((attorney) => isAttorneyEligible(attorney, args.onlyState));
+  let eligible = attorneys.filter((attorney) => isAttorneyEligible(attorney, args.onlyState, suppressions));
   if (args.limit > 0) eligible = eligible.slice(0, args.limit);
 
-  const payloads = eligible.map((attorney) =>
+  const candidatePayloads = eligible.map((attorney) =>
     buildPayload(attorney, statsForAttorney(attorney, leadStats), bestAudienceFor(attorney, audienceIndex), args),
   );
+  const controls = applySendControls(candidatePayloads, args, health);
+  const payloads = controls.payloads;
 
   const summary = summarizePayloads(payloads);
+  const runSummary = {
+    mode: args.send ? "send" : "dry-run",
+    provider: args.provider,
+    campaignId: args.campaignId,
+    candidates: candidatePayloads.length,
+    skippedBySuppressionOrStatus: attorneys.length - eligible.length,
+    skippedByHistory: controls.skippedByHistory,
+    warmupDay: controls.warmupDay,
+    baseDailyCap: controls.baseCap,
+    effectiveDailyCap: controls.cap,
+    capReason: controls.capReason,
+    ...summary,
+  };
   console.log(
-    JSON.stringify(
-      {
-        mode: args.send ? "send" : "dry-run",
-        campaignId: args.campaignId,
-        ...summary,
-      },
-      null,
-      2,
-    ),
+    JSON.stringify(runSummary, null, 2),
   );
 
   if (args.output) {
     fs.mkdirSync(path.dirname(args.output), { recursive: true });
-    fs.writeFileSync(args.output, JSON.stringify({ summary, payloads }, null, 2) + "\n");
+    const controlSummary = {
+      skippedByHistory: controls.skippedByHistory,
+      baseCap: controls.baseCap,
+      cap: controls.cap,
+      capReason: controls.capReason,
+      warmupDay: controls.warmupDay,
+    };
+    fs.writeFileSync(
+      args.output,
+      JSON.stringify({ summary: { ...runSummary, ...controlSummary }, payloads }, null, 2) + "\n",
+    );
     console.log(`Wrote preview: ${path.relative(ROOT, args.output)}`);
   }
 
@@ -698,9 +1060,19 @@ async function main() {
 
   let sent = 0;
   for (const payload of payloads) {
-    const result = await postPayload(args.webhookUrl, payload);
+    const result =
+      args.provider === "resend"
+        ? await sendResendEmail(args, payload)
+        : await postPayload(args.webhookUrl, payload);
     appendLog(args.log, {
-      event: result.ok ? "attorney_campaign_payload_sent" : "attorney_campaign_payload_failed",
+      event: result.ok
+        ? args.provider === "resend"
+          ? "attorney_campaign_email_sent"
+          : "attorney_campaign_payload_sent"
+        : args.provider === "resend"
+          ? "attorney_campaign_email_failed"
+          : "attorney_campaign_payload_failed",
+      provider: args.provider,
       status: result.status,
       payload: redactForLog(payload),
       response: result.ok ? undefined : result.body.slice(0, 500),
@@ -712,7 +1084,7 @@ async function main() {
     sent += 1;
   }
 
-  console.log(`Sent ${sent} campaign payloads to GHL.`);
+  console.log(`Sent ${sent} campaign ${args.provider === "resend" ? "emails via Resend" : "payloads to GHL"}.`);
 }
 
 main().catch((error) => {
