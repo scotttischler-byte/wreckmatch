@@ -1,0 +1,4 @@
+created_at,first_name,last_name,email,phone,city,state,accident_type,injury_status,lead_source,has_attorney
+2026-06-01,Redacted,Redacted,redacted@example.com,0000000000,Houston,TX,Car accident,Back and neck pain,www.wreckmatch.com,No
+2026-06-08,Redacted,Redacted,redacted@example.com,0000000000,Houston,TX,Truck accident,ER visit,accidentsurvivalguide-compensation-calculator,No
+2026-06-10,Redacted,Redacted,redacted@example.com,0000000000,Denver,CO,Car accident,Physical therapy,www.wreckmatch.com,Not specified

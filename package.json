@@ -43,6 +43,8 @@
     "seo:indexnow:publish": "node scripts/indexnow-after-content.mjs --wait-deploy --recent",
     "geo:run": "python3 scripts/geo_automation.py --notify-all-prod",
     "geo:audit": "node scripts/geo-audit-url.mjs",
+    "marketing:attorneys:plan": "node scripts/attorney-email-campaign.mjs --output content/marketing/attorney-email-campaign-preview.json",
+    "marketing:attorneys:send": "node scripts/attorney-email-campaign.mjs --send --confirm=SEND_ATTORNEY_CAMPAIGN",
     "blog:enrich-drafts": "npx tsx scripts/enrich-blog-drafts.ts",
     "blog:enrich-publish": "npx tsx scripts/enrich-blog-drafts.ts --publish",
     "autopilot:build-cities": "python3 scripts/build_cities_master.py",
