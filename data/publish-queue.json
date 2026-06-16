@@ -113,7 +113,17 @@
       "accidentes-de-auto-en-tampa-florida-lesiones-y-asistencia-m-dica-es",
       "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-columbus-ohio-oh-es",
       "claims-adjusters-en-denver-colorado-lo-que-necesitas-saber-es",
-      "evita-los-errores-comunes-de-seguros-de-auto-en-fresno-california-es"
+      "evita-los-errores-comunes-de-seguros-de-auto-en-fresno-california-es",
+      "accidentes-de-auto-en-atlanta-georgia-leyes-estatales-y-locales-es-1781634917057",
+      "accidentes-de-auto-en-el-paso-texas-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-las-vegas-nevada-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-portland-oregon-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-rideshare-y-camiones-en-seattle-wa-es",
+      "accidentes-de-auto-sin-seguro-en-miami-florida-gu-a-esencial-es",
+      "claims-adjusters-en-chicago-illinois-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-kansas-city-missouri-lo-que-necesitas-saber-es",
+      "evita-ca-das-en-seguros-de-auto-en-sacramento-california-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-long-beach-california-es"
     ]
   },
   "queue": {
@@ -121,6 +131,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-16T13:04:38.724Z",
+  "lastPublishAt": "2026-06-16T18:35:36.109Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
