@@ -106,7 +106,14 @@
       "accidentes-de-auto-en-tulsa-oklahoma-leyes-estatales-y-locales-es",
       "accidentes-de-auto-sin-seguro-en-oakland-california-lo-que-debes-saber-es",
       "evita-errores-comunes-de-seguro-de-auto-en-arlington-tx-es",
-      "injuries-and-medical-care-after-auto-accidents-in-nashville-tennessee-es"
+      "injuries-and-medical-care-after-auto-accidents-in-nashville-tennessee-es",
+      "accidentes-de-auto-de-rideshare-en-nueva-york-ny-lo-que-debes-saber-es",
+      "accidentes-de-auto-en-indianapolis-indiana-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-raleigh-north-carolina-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-tampa-florida-lesiones-y-asistencia-m-dica-es",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-columbus-ohio-oh-es",
+      "claims-adjusters-en-denver-colorado-lo-que-necesitas-saber-es",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-fresno-california-es"
     ]
   },
   "queue": {
@@ -114,6 +121,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-16T07:40:01.158Z",
+  "lastPublishAt": "2026-06-16T13:04:38.724Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
