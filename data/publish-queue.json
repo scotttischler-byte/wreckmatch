@@ -123,7 +123,15 @@
       "claims-adjusters-en-chicago-illinois-lo-que-necesitas-saber-es",
       "claims-adjusters-en-kansas-city-missouri-lo-que-necesitas-saber-es",
       "evita-ca-das-en-seguros-de-auto-en-sacramento-california-es",
-      "evita-los-errores-comunes-de-seguro-de-auto-en-long-beach-california-es"
+      "evita-los-errores-comunes-de-seguro-de-auto-en-long-beach-california-es",
+      "accidentes-de-auto-en-detroit-mi-el-problema-de-los-conductores-sin-seguro-y-los-golpes-y--es",
+      "accidentes-de-auto-en-tampa-florida-leyes-estatales-y-locales-es-1781648503601",
+      "accidentes-de-auto-y-lesiones-m-dicas-en-jacksonville-florida-es",
+      "accidentes-de-rideshare-y-camiones-en-boston-massachusetts-es",
+      "claims-adjusters-en-san-antonio-texas-lo-que-necesitas-saber-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-mesa-arizona-es",
+      "evitar-los-errores-comunes-de-seguros-de-auto-en-oklahoma-city-ok-es",
+      "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-san-jos-california-ca-es"
     ]
   },
   "queue": {
@@ -131,6 +139,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-16T18:35:36.109Z",
+  "lastPublishAt": "2026-06-16T22:21:58.460Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
