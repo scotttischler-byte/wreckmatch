@@ -141,7 +141,16 @@
       "evita-errores-comunes-de-seguro-de-auto-en-columbus-ohio-es",
       "evita-errores-comunes-en-el-seguro-de-auto-en-philadelphia-pa-es",
       "gu-a-completa-sobre-ajustadores-de-reclamos-en-omaha-nebraska-es",
-      "gu-a-sobre-ajustadores-de-reclamaciones-en-colorado-springs-colorado-es"
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-colorado-springs-colorado-es",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-raleigh-north-carolina-es",
+      "accidentes-de-rideshare-en-arlington-texas-lo-que-necesitas-saber-es",
+      "accidentes-de-rideshare-y-camiones-en-omaha-nebraska-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-baltimore-maryland-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-portland-oregon-todo-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-san-antonio-texas-todo-lo-que-necesitas-saber-es",
+      "evita-errores-comunes-de-seguro-de-auto-en-fresno-california-es",
+      "houston-texas-evitando-errores-comunes-en-seguros-de-auto-es",
+      "injurias-y-atenci-n-m-dica-en-accidentes-de-auto-en-nueva-york-ny-es"
     ]
   },
   "queue": {
@@ -149,6 +158,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-17T07:24:56.476Z",
+  "lastPublishAt": "2026-06-17T12:27:05.272Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
