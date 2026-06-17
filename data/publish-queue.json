@@ -131,7 +131,17 @@
       "claims-adjusters-en-san-antonio-texas-lo-que-necesitas-saber-es",
       "evita-los-errores-comunes-de-seguro-de-auto-en-mesa-arizona-es",
       "evitar-los-errores-comunes-de-seguros-de-auto-en-oklahoma-city-ok-es",
-      "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-san-jos-california-ca-es"
+      "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-san-jos-california-ca-es",
+      "accidentes-de-auto-en-denver-colorado-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-milwaukee-wisconsin-lo-que-debes-saber-sobre-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-san-jos-california-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-dallas-texas-es",
+      "claims-adjusters-en-sacramento-california-lo-que-necesitas-saber-es",
+      "errores-comunes-de-seguro-de-auto-en-fort-worth-texas-tx-es",
+      "evita-errores-comunes-de-seguro-de-auto-en-columbus-ohio-es",
+      "evita-errores-comunes-en-el-seguro-de-auto-en-philadelphia-pa-es",
+      "gu-a-completa-sobre-ajustadores-de-reclamos-en-omaha-nebraska-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-colorado-springs-colorado-es"
     ]
   },
   "queue": {
@@ -139,6 +149,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-16T22:21:58.460Z",
+  "lastPublishAt": "2026-06-17T07:24:56.476Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
