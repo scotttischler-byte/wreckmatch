@@ -150,7 +150,17 @@
       "claims-adjusters-en-san-antonio-texas-todo-lo-que-necesitas-saber-es",
       "evita-errores-comunes-de-seguro-de-auto-en-fresno-california-es",
       "houston-texas-evitando-errores-comunes-en-seguros-de-auto-es",
-      "injurias-y-atenci-n-m-dica-en-accidentes-de-auto-en-nueva-york-ny-es"
+      "injurias-y-atenci-n-m-dica-en-accidentes-de-auto-en-nueva-york-ny-es",
+      "accidentes-de-auto-en-albuquerque-new-mexico-conoce-las-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-detroit-michigan-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-phoenix-arizona-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-sin-seguro-en-nueva-york-un-enfoque-en-el-hit-and-run-es",
+      "accidentes-de-rideshare-y-camiones-en-el-paso-texas-lo-que-debes-saber-es",
+      "claims-adjusters-en-minneapolis-minnesota-lo-que-necesitas-saber-es-1781715815672",
+      "claims-adjusters-en-minneapolis-minnesota-lo-que-necesitas-saber-es",
+      "evita-trampas-de-seguros-de-auto-en-louisville-kentucky-es",
+      "injuries-and-medical-concerns-in-virginia-beach-va-a-guide-to-auto-accidents-es",
+      "injuries-m-dicas-en-accidentes-de-auto-en-minneapolis-minnesota-es"
     ]
   },
   "queue": {
@@ -158,6 +168,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-17T12:27:05.272Z",
+  "lastPublishAt": "2026-06-17T17:03:38.321Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
