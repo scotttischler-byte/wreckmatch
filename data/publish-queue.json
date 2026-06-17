@@ -160,7 +160,15 @@
       "claims-adjusters-en-minneapolis-minnesota-lo-que-necesitas-saber-es",
       "evita-trampas-de-seguros-de-auto-en-louisville-kentucky-es",
       "injuries-and-medical-concerns-in-virginia-beach-va-a-guide-to-auto-accidents-es",
-      "injuries-m-dicas-en-accidentes-de-auto-en-minneapolis-minnesota-es"
+      "injuries-m-dicas-en-accidentes-de-auto-en-minneapolis-minnesota-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-colorado-springs-co-es",
+      "claims-adjusters-en-kansas-city-missouri-todo-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-long-beach-california-lo-que-necesitas-saber-es",
+      "errores-comunes-en-seguros-de-auto-en-san-francisco-ca-es",
+      "evita-errores-comunes-de-seguros-de-auto-en-sacramento-ca-es",
+      "injuries-m-dicas-en-accidentes-de-auto-en-san-diego-california-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-baltimore-maryland-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-nashville-tennessee-es"
     ]
   },
   "queue": {
@@ -168,6 +176,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-17T17:03:38.321Z",
+  "lastPublishAt": "2026-06-17T22:10:27.083Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
