@@ -175,7 +175,16 @@
       "claims-adjusters-en-indianapolis-indiana-lo-que-debes-saber-es",
       "evita-los-errores-comunes-de-seguros-de-auto-en-san-antonio-texas-es",
       "evita-los-errores-de-seguro-en-accidentes-de-auto-en-atlanta-georgia-es",
-      "injuries-m-dicas-tras-accidentes-de-auto-en-jacksonville-florida-es"
+      "injuries-m-dicas-tras-accidentes-de-auto-en-jacksonville-florida-es",
+      "accidentes-de-auto-sin-seguro-en-los-ngeles-california-lo-que-necesitas-saber-es",
+      "accidentes-de-auto-y-lesiones-m-dicas-en-sacramento-ca-es",
+      "accidentes-de-rideshare-y-camiones-en-virginia-beach-va-lo-que-necesitas-saber-es",
+      "baltimore-maryland-pasos-inmediatos-a-seguir-despu-s-de-un-accidente-de-auto-es",
+      "claims-adjusters-en-indianapolis-indiana-lo-que-necesitas-saber-es",
+      "evita-las-trampas-del-seguro-de-auto-en-jacksonville-florida-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-sacramento-ca-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-memphis-tennessee-es",
+      "kansas-city-missouri-todo-lo-que-necesitas-saber-sobre-los-ajustadores-de-reclamos-es"
     ]
   },
   "queue": {
@@ -183,6 +192,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-18T07:04:37.780Z",
+  "lastPublishAt": "2026-06-18T12:00:30.097Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
