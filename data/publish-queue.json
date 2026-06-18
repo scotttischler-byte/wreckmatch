@@ -184,7 +184,15 @@
       "evita-las-trampas-del-seguro-de-auto-en-jacksonville-florida-es",
       "evita-los-errores-comunes-de-seguro-de-auto-en-sacramento-ca-es",
       "gu-a-sobre-ajustadores-de-reclamos-en-memphis-tennessee-es",
-      "kansas-city-missouri-todo-lo-que-necesitas-saber-sobre-los-ajustadores-de-reclamos-es"
+      "kansas-city-missouri-todo-lo-que-necesitas-saber-sobre-los-ajustadores-de-reclamos-es",
+      "accidentes-de-auto-en-arlington-texas-enfoque-en-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-charlotte-nc-pasos-inmediatos-a-seguir-es",
+      "accidentes-de-auto-sin-seguro-en-san-diego-ca-lo-que-debes-saber-es",
+      "claims-adjusters-en-fresno-california-todo-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-new-orleans-louisiana-lo-que-necesitas-saber-es",
+      "errores-comunes-en-seguros-de-auto-en-houston-texas-es",
+      "evita-las-trampas-del-seguro-de-auto-en-nueva-york-ny-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-philadelphia-pa-es"
     ]
   },
   "queue": {
@@ -192,6 +200,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-18T12:00:30.097Z",
+  "lastPublishAt": "2026-06-18T17:05:55.989Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
