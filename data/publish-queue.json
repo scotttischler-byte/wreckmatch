@@ -168,7 +168,14 @@
       "evita-errores-comunes-de-seguros-de-auto-en-sacramento-ca-es",
       "injuries-m-dicas-en-accidentes-de-auto-en-san-diego-california-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-baltimore-maryland-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-nashville-tennessee-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-nashville-tennessee-es",
+      "accidentes-de-auto-de-rideshare-en-new-orleans-louisiana-lo-que-debes-saber-es",
+      "accidentes-de-auto-en-louisville-kentucky-impacto-de-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-tucson-arizona-leyes-estatales-y-locales-es",
+      "claims-adjusters-en-indianapolis-indiana-lo-que-debes-saber-es",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-san-antonio-texas-es",
+      "evita-los-errores-de-seguro-en-accidentes-de-auto-en-atlanta-georgia-es",
+      "injuries-m-dicas-tras-accidentes-de-auto-en-jacksonville-florida-es"
     ]
   },
   "queue": {
@@ -176,6 +183,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-17T22:10:27.083Z",
+  "lastPublishAt": "2026-06-18T07:04:37.780Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
