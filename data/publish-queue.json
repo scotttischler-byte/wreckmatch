@@ -229,7 +229,13 @@
       "evita-los-errores-comunes-de-seguro-en-fort-worth-texas-es",
       "las-vegas-nevada-evitando-trampas-de-seguros-en-accidentes-de-auto-es",
       "lesiones-m-dicas-por-accidentes-de-auto-en-philadelphia-pa-es",
-      "lesiones-m-dicas-por-accidentes-de-auto-en-phoenix-arizona-es"
+      "lesiones-m-dicas-por-accidentes-de-auto-en-phoenix-arizona-es",
+      "accidentes-de-auto-en-denver-colorado-leyes-estatales-y-locales-es-1781887090018",
+      "accidentes-de-auto-y-lesiones-m-dicas-en-omaha-nebraska-es",
+      "agujeros-en-el-seguro-de-auto-en-minneapolis-minnesota-lo-que-debes-saber-es",
+      "claims-adjusters-en-austin-texas-lo-que-necesitas-saber-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-san-antonio-texas-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-san-diego-california-es-1781680855925"
     ]
   },
   "queue": {
@@ -237,6 +243,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-19T16:40:21.761Z",
+  "lastPublishAt": "2026-06-19T21:19:41.890Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
