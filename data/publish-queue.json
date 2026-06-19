@@ -211,7 +211,15 @@
       "gu-a-sobre-ajustadores-de-reclamaciones-en-colorado-springs-co-es",
       "gu-a-sobre-ajustadores-de-reclamaciones-en-louisville-kentucky-ky-es",
       "injurias-m-dicas-en-accidentes-de-auto-en-oklahoma-city-ok-es",
-      "lesiones-m-dicas-por-accidentes-de-auto-en-albuquerque-nuevo-m-xico-es"
+      "lesiones-m-dicas-por-accidentes-de-auto-en-albuquerque-nuevo-m-xico-es",
+      "accidentes-de-auto-en-indianapolis-indiana-conociendo-las-leyes-locales-es",
+      "accidentes-de-auto-en-miami-florida-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-long-beach-california-es",
+      "errores-comunes-en-seguros-de-auto-en-el-paso-texas-es",
+      "kansas-city-missouri-todo-lo-que-necesitas-saber-sobre-claims-adjusters-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-columbus-ohio-oh-es-1781853628196",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-austin-texas-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-miami-florida-es"
     ]
   },
   "queue": {
@@ -219,6 +227,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-19T07:21:23.598Z",
+  "lastPublishAt": "2026-06-19T12:17:50.232Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
