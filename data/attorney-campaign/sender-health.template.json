@@ -1,0 +1,7 @@
+{
+  "bounceRate": 0,
+  "complaintRate": 0,
+  "unsubscribeRate": 0,
+  "replyRate": 0,
+  "notes": "Replace with recent Resend/GHL metrics. Rates are decimals: 0.01 = 1%."
+}
