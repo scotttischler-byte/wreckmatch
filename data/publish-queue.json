@@ -219,7 +219,17 @@
       "kansas-city-missouri-todo-lo-que-necesitas-saber-sobre-claims-adjusters-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-columbus-ohio-oh-es-1781853628196",
       "lesiones-m-dicas-por-accidentes-de-auto-en-austin-texas-es",
-      "lesiones-m-dicas-por-accidentes-de-auto-en-miami-florida-es"
+      "lesiones-m-dicas-por-accidentes-de-auto-en-miami-florida-es",
+      "accidentes-de-auto-en-san-francisco-california-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-tucson-arizona-lo-que-necesitas-saber-sobre-rideshare-y-camiones-es",
+      "accidentes-de-auto-sin-seguro-en-oakland-california-lo-que-debes-saber-es-1781887135457",
+      "accidentes-de-rideshare-en-oklahoma-city-ok-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-new-orleans-louisiana-todo-lo-que-necesitas-saber-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-seattle-wa-es",
+      "evita-los-errores-comunes-de-seguro-en-fort-worth-texas-es",
+      "las-vegas-nevada-evitando-trampas-de-seguros-en-accidentes-de-auto-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-philadelphia-pa-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-phoenix-arizona-es"
     ]
   },
   "queue": {
@@ -227,6 +237,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-19T12:17:50.232Z",
+  "lastPublishAt": "2026-06-19T16:40:21.761Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
