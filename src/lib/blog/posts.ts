@@ -14,6 +14,74 @@ function dirForLocale(base: string, locale: BlogLocale): string {
   return locale === "es" ? path.join(base, "es") : base;
 }
 
+function stringArray(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .filter((item): item is string => typeof item === "string")
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+function listItems(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  return value.flatMap((item) => {
+    if (typeof item === "string") return [item.trim()].filter(Boolean);
+    if (item && typeof item === "object") {
+      const record = item as Record<string, unknown>;
+      const question = typeof record.question === "string" ? record.question.trim() : "";
+      const answer = typeof record.answer === "string" ? record.answer.trim() : "";
+      if (question && answer) return [`${question} ${answer}`];
+      if (question) return [question];
+      if (answer) return [answer];
+    }
+    return [];
+  });
+}
+
+function normalizeBlogPost(post: BlogPost): BlogPost {
+  const sections = Array.isArray(post.sections)
+    ? post.sections.map((section) => {
+        const paragraphs: string[] = [];
+        const embeddedList: string[] = [];
+
+        if (Array.isArray(section.paragraphs)) {
+          for (const item of section.paragraphs) {
+            if (typeof item === "string") {
+              const text = item.trim();
+              if (text) paragraphs.push(text);
+              continue;
+            }
+            if (item && typeof item === "object") {
+              embeddedList.push(...listItems((item as Record<string, unknown>).list));
+            }
+          }
+        }
+
+        return {
+          ...section,
+          paragraphs,
+          list: [...listItems(section.list), ...embeddedList],
+        };
+      })
+    : [];
+
+  const faq = Array.isArray(post.faq)
+    ? post.faq
+        .map((item) => ({
+          question: typeof item.question === "string" ? item.question.trim() : "",
+          answer: typeof item.answer === "string" ? item.answer.trim() : "",
+        }))
+        .filter((item) => item.question && item.answer)
+    : [];
+
+  return {
+    ...post,
+    keywords: stringArray(post.keywords),
+    sections,
+    faq,
+  };
+}
+
 function readPostsFromDir(dir: string, statusOverride?: BlogPostStatus): BlogPost[] {
   if (!fs.existsSync(dir)) return [];
   const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
@@ -21,7 +89,7 @@ function readPostsFromDir(dir: string, statusOverride?: BlogPostStatus): BlogPos
   for (const file of files) {
     try {
       const raw = fs.readFileSync(path.join(dir, file), "utf8");
-      const post = JSON.parse(raw) as BlogPost;
+      const post = normalizeBlogPost(JSON.parse(raw) as BlogPost);
       if (statusOverride) post.status = statusOverride;
       posts.push(post);
     } catch (e) {
