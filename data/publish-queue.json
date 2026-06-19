@@ -201,7 +201,17 @@
       "gu-a-sobre-ajustadores-de-reclamos-en-omaha-nebraska-es",
       "injuries-and-medical-care-after-car-accidents-in-boston-ma-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-columbus-ohio-oh-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-seattle-wa-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-seattle-wa-es",
+      "accidentes-de-auto-en-charlotte-nc-informaci-n-sobre-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-san-antonio-texas-lesiones-y-aspectos-m-dicos-es",
+      "accidentes-de-auto-sin-seguro-en-jacksonville-florida-lo-que-necesitas-saber-es",
+      "accidentes-de-auto-sin-seguro-en-memphis-tennessee-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-nashville-tennessee-todo-lo-que-necesitas-saber-es",
+      "evita-caer-en-trampas-de-seguros-de-auto-en-nueva-york-ny-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-colorado-springs-co-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-louisville-kentucky-ky-es",
+      "injurias-m-dicas-en-accidentes-de-auto-en-oklahoma-city-ok-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-albuquerque-nuevo-m-xico-es"
     ]
   },
   "queue": {
@@ -209,6 +219,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-18T22:21:28.731Z",
+  "lastPublishAt": "2026-06-19T07:21:23.598Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
