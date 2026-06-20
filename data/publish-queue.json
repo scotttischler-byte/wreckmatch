@@ -261,7 +261,14 @@
       "evita-ca-das-en-el-seguro-de-auto-en-oklahoma-city-ok-es",
       "evita-los-errores-comunes-de-seguro-de-auto-en-san-antonio-texas-es",
       "gu-a-sobre-ajustadores-de-reclamos-en-san-diego-california-es",
-      "lesiones-m-dicas-por-accidentes-de-auto-en-colorado-springs-co-es"
+      "lesiones-m-dicas-por-accidentes-de-auto-en-colorado-springs-co-es",
+      "accidentes-de-auto-en-portland-oregon-enfoque-en-rideshare-y-camiones-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-huidas-en-tulsa-oklahoma-es",
+      "accidentes-de-rideshare-y-camiones-en-sacramento-california-ca-es",
+      "claims-adjusters-en-boston-massachusetts-todo-lo-que-necesitas-saber-es",
+      "columbus-ohio-entendiendo-los-ajustadores-de-reclamos-de-accidentes-de-auto-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-memphis-tn-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-nueva-york-ny-es"
     ]
   },
   "queue": {
@@ -269,6 +276,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-20T15:55:46.851Z",
+  "lastPublishAt": "2026-06-20T21:28:55.877Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
