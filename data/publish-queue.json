@@ -253,7 +253,15 @@
       "injuries-m-dicas-en-accidentes-de-auto-en-houston-texas-es",
       "injuries-m-dicas-y-accidentes-de-auto-en-virginia-beach-virginia-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-colorado-springs-co-es",
-      "lesiones-m-dicas-por-accidentes-de-auto-en-san-diego-california-es"
+      "lesiones-m-dicas-por-accidentes-de-auto-en-san-diego-california-es",
+      "accidentes-de-auto-en-charlotte-north-carolina-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-louisville-kentucky-leyes-estatales-y-locales-es-1781952210014",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-philadelphia-pa-es",
+      "errores-comunes-en-seguros-de-auto-en-atlanta-georgia-es",
+      "evita-ca-das-en-el-seguro-de-auto-en-oklahoma-city-ok-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-san-antonio-texas-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-san-diego-california-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-colorado-springs-co-es"
     ]
   },
   "queue": {
@@ -261,6 +269,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-20T10:43:47.825Z",
+  "lastPublishAt": "2026-06-20T15:55:46.851Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
