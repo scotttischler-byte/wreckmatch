@@ -235,7 +235,18 @@
       "agujeros-en-el-seguro-de-auto-en-minneapolis-minnesota-lo-que-debes-saber-es",
       "claims-adjusters-en-austin-texas-lo-que-necesitas-saber-es",
       "lesiones-m-dicas-por-accidentes-de-auto-en-san-antonio-texas-es",
-      "lesiones-m-dicas-por-accidentes-de-auto-en-san-diego-california-es-1781680855925"
+      "lesiones-m-dicas-por-accidentes-de-auto-en-san-diego-california-es-1781680855925",
+      "accidentes-de-auto-en-nueva-orleans-louisiana-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-tampa-florida-leyes-estatales-y-locales-es-1781937006542",
+      "accidentes-de-auto-sin-aseguranza-y-golpes-y-escapes-en-arlington-tx-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-huidos-en-denver-colorado-es",
+      "accidentes-de-rideshare-y-camiones-en-phoenix-arizona-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-baltimore-maryland-todo-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-las-vegas-nevada-todo-lo-que-necesitas-saber-es",
+      "errores-comunes-en-seguros-de-auto-en-memphis-tennessee-es",
+      "errores-comunes-en-seguros-de-auto-en-portland-oregon-es",
+      "evita-ca-das-en-seguros-de-auto-en-nueva-york-ny-lo-que-debes-saber-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-jacksonville-florida-es"
     ]
   },
   "queue": {
@@ -243,6 +254,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-19T21:19:41.890Z",
+  "lastPublishAt": "2026-06-20T06:33:58.505Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
