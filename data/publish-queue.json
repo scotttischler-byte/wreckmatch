@@ -246,7 +246,14 @@
       "errores-comunes-en-seguros-de-auto-en-memphis-tennessee-es",
       "errores-comunes-en-seguros-de-auto-en-portland-oregon-es",
       "evita-ca-das-en-seguros-de-auto-en-nueva-york-ny-lo-que-debes-saber-es",
-      "gu-a-sobre-ajustadores-de-reclamaciones-en-jacksonville-florida-es"
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-jacksonville-florida-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-charlotte-carolina-del-norte-es",
+      "accidentes-de-rideshare-en-dallas-texas-lo-que-debes-saber-es",
+      "accidentes-de-rideshare-y-camiones-en-tampa-florida-gu-a-completa-es",
+      "injuries-m-dicas-en-accidentes-de-auto-en-houston-texas-es",
+      "injuries-m-dicas-y-accidentes-de-auto-en-virginia-beach-virginia-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-colorado-springs-co-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-san-diego-california-es"
     ]
   },
   "queue": {
@@ -254,6 +261,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-20T06:33:58.505Z",
+  "lastPublishAt": "2026-06-20T10:43:47.825Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
