@@ -1585,3 +1585,6 @@
 {"ts":"2026-06-20T15:42:08.890Z","task":"autopilot-status","ok":true,"exitCode":0,"durationMs":34,"outputTail":"Autopilot queue: 279/279 cities complete (100%)\n  Last run: 2026-06-20T14:32:48.880194+00:00\n  Last city: tulsa-ok|OK\n\nQueue empty — all cities processed.\n"}
 {"ts":"2026-06-20T15:42:09.195Z","task":"cannibalization","ok":true,"exitCode":0,"durationMs":305,"outputTail":"-injury-claims-seattle-wa → /car-accident-help-seattle\n  301_redirect_to_city: whiplash-injury-claims-tampa-fl → /car-accident-help-tampa\n  301_redirect_to_city: whiplash-injury-claims-tucson-az → /car-accident-help-tucson\n  301_redirect_to_city: whiplash-injury-claims-tulsa-ok → /car-accident-help-tulsa\n  301_redirect_to_city: whiplash-injury-claims-virginia-beach-va → /car-accident-help-virginia-beach\n  301_redirect_to_city: whiplash-injury-claims-washington-dc → /car-accident-help-washington\n"}
 {"ts":"2026-06-20T15:42:09.196Z","event":"complete","task":"report"}
+{"ts":"2026-06-20T17:19:56.626Z","event":"start","task":"enrich","argv":["rotate"]}
+{"ts":"2026-06-20T17:19:58.399Z","task":"enrich-cities","ok":true,"exitCode":0,"durationMs":1772,"outputTail":"All top cities already have enriched markdown.\nnpm warn exec The following package was not found and will be installed: tsx@4.22.4\n"}
+{"ts":"2026-06-20T17:19:58.399Z","event":"complete","task":"enrich"}
