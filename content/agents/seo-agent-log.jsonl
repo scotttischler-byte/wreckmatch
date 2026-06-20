@@ -1588,3 +1588,8 @@
 {"ts":"2026-06-20T17:19:56.626Z","event":"start","task":"enrich","argv":["rotate"]}
 {"ts":"2026-06-20T17:19:58.399Z","task":"enrich-cities","ok":true,"exitCode":0,"durationMs":1772,"outputTail":"All top cities already have enriched markdown.\nnpm warn exec The following package was not found and will be installed: tsx@4.22.4\n"}
 {"ts":"2026-06-20T17:19:58.399Z","event":"complete","task":"enrich"}
+{"ts":"2026-06-20T19:15:39.745Z","event":"start","task":"health","argv":["rotate"]}
+{"ts":"2026-06-20T19:15:50.282Z","task":"verify-seo-live","ok":true,"exitCode":1,"durationMs":10537,"outputTail":"app/resources\nOK  https://wreckmatch.vercel.app/resources?q=houston\n\n⚠️  DOMAIN ROUTING: Custom domains are not fully on the wreckmatch Vercel project.\n   1. Remove www.wreckmatch.com from mva-funnel\n   2. Remove wreckmatch.com from injuredhelp-ai\n   3. Add wreckmatch.com, www.wreckmatch.com, injuredhelp.ai, www.injuredhelp.ai to wreckmatch\n   Dashboard: https://vercel.com/scott-tischlers-projects/wreckmatch/settings/domains\n   Reply \"domains moved\" after fixing.\n\n\n5 production check(s) failed.\n"}
+{"ts":"2026-06-20T19:15:50.911Z","task":"validate-sitemaps","ok":true,"exitCode":0,"durationMs":629,"outputTail":"OK  wreckmatch.vercel.app (3929 URLs)\nOK  accidentsurvivalguide.com (3750 URLs)\nOK  injuredhelp.ai (6 URLs)\n"}
+{"ts":"2026-06-20T19:15:51.325Z","task":"ping-feeds","ok":true,"exitCode":1,"durationMs":414,"outputTail":"Feed health check:\n\nOK  https://www.accidentsurvivalguide.com/feed.xml (200)\nFAIL  https://www.wreckmatch.com/feed.xml (404)\nOK  https://wreckmatch.vercel.app/feed.xml (200)\n"}
+{"ts":"2026-06-20T19:15:51.326Z","event":"complete","task":"health"}
