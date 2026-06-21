@@ -290,7 +290,17 @@
       "ajustadores-de-reclamaciones-en-tucson-arizona-lo-que-necesitas-saber-es",
       "comprendiendo-los-ajustadores-de-reclamos-en-chicago-illinois-es",
       "evita-errores-comunes-en-seguros-de-auto-en-chicago-il-es",
-      "evitar-los-errores-comunes-de-seguros-de-auto-en-austin-texas-es"
+      "evitar-los-errores-comunes-de-seguros-de-auto-en-austin-texas-es",
+      "accidentes-de-auto-en-el-paso-texas-impacto-de-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-indianapolis-indiana-lesiones-m-dicas-y-prevenci-n-es",
+      "accidentes-de-auto-en-nueva-york-ny-conocimientos-esenciales-sobre-leyes-estatales-y-local-es",
+      "accidentes-de-auto-en-oklahoma-city-ok-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-omaha-nebraska-pasos-inmediatos-a-seguir-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-nueva-orleans-la-es",
+      "claims-adjusters-en-minneapolis-minnesota-todo-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-tulsa-oklahoma-lo-que-necesitas-saber-es-1782077191638",
+      "errores-comunes-en-seguros-de-auto-en-detroit-mi-lo-que-debes-saber-es",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-virginia-beach-va-es"
     ]
   },
   "queue": {
@@ -298,6 +308,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-21T16:04:23.760Z",
+  "lastPublishAt": "2026-06-21T21:26:34.632Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
