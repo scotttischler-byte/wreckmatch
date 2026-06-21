@@ -268,7 +268,14 @@
       "claims-adjusters-en-boston-massachusetts-todo-lo-que-necesitas-saber-es",
       "columbus-ohio-entendiendo-los-ajustadores-de-reclamos-de-accidentes-de-auto-es",
       "evita-los-errores-comunes-de-seguro-de-auto-en-memphis-tn-es",
-      "lesiones-m-dicas-por-accidentes-de-auto-en-nueva-york-ny-es"
+      "lesiones-m-dicas-por-accidentes-de-auto-en-nueva-york-ny-es",
+      "accidentes-de-auto-en-indianapolis-indiana-leyes-estatales-y-locales-es-1782025324033",
+      "accidentes-de-auto-en-washington-dc-leyes-estatales-y-locales-es",
+      "claims-adjusters-en-new-orleans-louisiana-todo-lo-que-necesitas-saber-es-1781990785432",
+      "errores-comunes-en-seguros-de-auto-en-albuquerque-new-mexico-es",
+      "evita-los-errores-de-seguro-automotriz-en-columbus-ohio-oh-es",
+      "gu-a-para-entender-a-los-ajustadores-de-reclamaciones-en-denver-colorado-es",
+      "lesiones-de-auto-en-tampa-florida-lo-que-necesitas-saber-es"
     ]
   },
   "queue": {
@@ -276,6 +283,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-20T21:28:55.877Z",
+  "lastPublishAt": "2026-06-21T07:02:27.108Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
