@@ -284,7 +284,13 @@
       "evita-ca-das-en-el-seguro-de-auto-en-las-vegas-nevada-es",
       "evita-ca-das-en-seguros-de-auto-en-philadelphia-pa-gu-a-completa-es",
       "gu-a-de-ajustadores-de-reclamos-en-phoenix-arizona-es",
-      "gu-a-sobre-ajustadores-de-reclamaciones-en-detroit-michigan-mi-es"
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-detroit-michigan-mi-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-huidas-en-nashville-tn-es",
+      "accidentes-de-rideshare-y-camiones-en-charlotte-nc-lo-que-necesitas-saber-es",
+      "ajustadores-de-reclamaciones-en-tucson-arizona-lo-que-necesitas-saber-es",
+      "comprendiendo-los-ajustadores-de-reclamos-en-chicago-illinois-es",
+      "evita-errores-comunes-en-seguros-de-auto-en-chicago-il-es",
+      "evitar-los-errores-comunes-de-seguros-de-auto-en-austin-texas-es"
     ]
   },
   "queue": {
@@ -292,6 +298,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-21T11:27:54.164Z",
+  "lastPublishAt": "2026-06-21T16:04:23.760Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
