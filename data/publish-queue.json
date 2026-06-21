@@ -275,7 +275,16 @@
       "errores-comunes-en-seguros-de-auto-en-albuquerque-new-mexico-es",
       "evita-los-errores-de-seguro-automotriz-en-columbus-ohio-oh-es",
       "gu-a-para-entender-a-los-ajustadores-de-reclamaciones-en-denver-colorado-es",
-      "lesiones-de-auto-en-tampa-florida-lo-que-necesitas-saber-es"
+      "lesiones-de-auto-en-tampa-florida-lo-que-necesitas-saber-es",
+      "accidentes-de-auto-en-atlanta-georgia-conoce-las-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-seattle-washington-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-fresno-ca-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-fresno-california-es",
+      "accidentes-de-rideshare-y-camiones-en-omaha-nebraska-es",
+      "evita-ca-das-en-el-seguro-de-auto-en-las-vegas-nevada-es",
+      "evita-ca-das-en-seguros-de-auto-en-philadelphia-pa-gu-a-completa-es",
+      "gu-a-de-ajustadores-de-reclamos-en-phoenix-arizona-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-detroit-michigan-mi-es"
     ]
   },
   "queue": {
@@ -283,6 +292,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-21T07:02:27.108Z",
+  "lastPublishAt": "2026-06-21T11:27:54.164Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
