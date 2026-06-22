@@ -329,7 +329,15 @@
       "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-los-ngeles-ca-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-arlington-texas-tx-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-baltimore-maryland-es-1782113653413",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-fort-worth-texas-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-fort-worth-texas-es",
+      "accidentes-de-auto-en-colorado-springs-colorado-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-houston-texas-conoce-las-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-tampa-florida-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-rideshare-y-camiones-en-san-francisco-california-es",
+      "errores-comunes-de-seguro-de-auto-en-long-beach-california-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-memphis-tennessee-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-san-diego-california-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-kansas-city-missouri-es"
     ]
   },
   "queue": {
@@ -337,6 +345,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-22T18:22:01.148Z",
+  "lastPublishAt": "2026-06-22T22:13:38.287Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
