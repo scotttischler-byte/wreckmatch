@@ -319,7 +319,17 @@
       "evitar-errores-comunes-de-seguro-de-auto-en-tucson-arizona-es",
       "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-sacramento-california-ca-es",
       "gu-a-sobre-ajustadores-de-reclamaciones-en-atlanta-georgia-es-1782135950801",
-      "injuries-medical-accidentes-de-auto-en-oakland-california-ca-es"
+      "injuries-medical-accidentes-de-auto-en-oakland-california-ca-es",
+      "accidentes-de-auto-en-raleigh-north-carolina-pasos-inmediatos-a-seguir-es",
+      "accidentes-de-auto-sin-seguro-en-memphis-tennessee-c-mo-manejar-un-hit-and-run-es",
+      "claims-adjusters-en-dallas-texas-lo-que-debes-saber-es",
+      "errores-comunes-de-seguro-de-auto-en-nueva-york-ny-es",
+      "erros-comunes-en-seguros-de-auto-en-new-york-ny-lo-que-debes-saber-es",
+      "evitar-errores-comunes-en-el-seguro-de-auto-en-jacksonville-florida-es",
+      "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-los-ngeles-ca-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-arlington-texas-tx-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-baltimore-maryland-es-1782113653413",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-fort-worth-texas-es"
     ]
   },
   "queue": {
@@ -327,6 +337,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-22T13:45:53.783Z",
+  "lastPublishAt": "2026-06-22T18:22:01.148Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
