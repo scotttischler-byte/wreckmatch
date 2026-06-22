@@ -308,7 +308,18 @@
       "evita-ca-das-de-seguro-en-boston-massachusetts-consejos-esenciales-es",
       "evita-las-trampas-del-seguro-de-auto-en-dallas-texas-es",
       "evita-trampas-de-seguro-en-long-beach-california-es",
-      "gu-a-sobre-ajustadores-de-reclamos-en-san-francisco-california-es"
+      "gu-a-sobre-ajustadores-de-reclamos-en-san-francisco-california-es",
+      "accidentes-de-auto-en-milwaukee-wisconsin-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-portland-oregon-leyes-estatales-y-locales-es-1782113675838",
+      "accidentes-de-auto-en-seattle-washington-leyes-locales-y-estad-sticas-clave-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-jacksonville-florida-es",
+      "accidentes-de-rideshare-y-camiones-en-louisville-kentucky-ky-lo-que-debes-saber-es",
+      "accidentes-de-rideshare-y-camiones-en-washington-dc-todo-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-miami-florida-todo-lo-que-necesitas-saber-es",
+      "evitar-errores-comunes-de-seguro-de-auto-en-tucson-arizona-es",
+      "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-sacramento-california-ca-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-atlanta-georgia-es-1782135950801",
+      "injuries-medical-accidentes-de-auto-en-oakland-california-ca-es"
     ]
   },
   "queue": {
@@ -316,6 +327,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-22T07:37:22.659Z",
+  "lastPublishAt": "2026-06-22T13:45:53.783Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
