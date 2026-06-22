@@ -300,7 +300,15 @@
       "claims-adjusters-en-minneapolis-minnesota-todo-lo-que-necesitas-saber-es",
       "claims-adjusters-en-tulsa-oklahoma-lo-que-necesitas-saber-es-1782077191638",
       "errores-comunes-en-seguros-de-auto-en-detroit-mi-lo-que-debes-saber-es",
-      "evita-los-errores-comunes-de-seguros-de-auto-en-virginia-beach-va-es"
+      "evita-los-errores-comunes-de-seguros-de-auto-en-virginia-beach-va-es",
+      "accidentes-de-auto-en-fresno-california-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-en-mesa-arizona-consejos-y-estad-sticas-es",
+      "accidentes-de-rideshare-y-camiones-en-columbus-ohio-oh-es",
+      "claims-adjusters-en-tucson-arizona-lo-que-necesitas-saber-es",
+      "evita-ca-das-de-seguro-en-boston-massachusetts-consejos-esenciales-es",
+      "evita-las-trampas-del-seguro-de-auto-en-dallas-texas-es",
+      "evita-trampas-de-seguro-en-long-beach-california-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-san-francisco-california-es"
     ]
   },
   "queue": {
@@ -308,6 +316,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-21T21:26:34.632Z",
+  "lastPublishAt": "2026-06-22T07:37:22.659Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
