@@ -362,7 +362,16 @@
       "accidentes-de-rideshare-y-camiones-en-columbus-ohio-oh-es-1782214044230",
       "claims-adjusters-en-detroit-michigan-lo-que-necesitas-saber-es",
       "evita-los-errores-comunes-de-seguros-de-auto-en-san-diego-ca-es",
-      "injuries-and-medical-considerations-after-auto-accidents-in-mesa-az-es"
+      "injuries-and-medical-considerations-after-auto-accidents-in-mesa-az-es",
+      "accidentes-de-auto-en-memphis-tennessee-lesiones-y-asistencia-m-dica-es",
+      "accidentes-de-auto-en-omaha-nebraska-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-washington-dc-leyes-estatales-y-locales-es-1782251569267",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-seattle-wa-es",
+      "accidentes-de-rideshare-y-camiones-en-albuquerque-new-mexico-es",
+      "evita-errores-comunes-de-seguro-de-auto-en-fort-worth-texas-es",
+      "evitando-errores-comunes-de-seguros-de-auto-en-atlanta-georgia-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-minneapolis-minnesota-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-raleigh-carolina-del-norte-es"
     ]
   },
   "queue": {
@@ -370,6 +379,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-23T16:38:39.312Z",
+  "lastPublishAt": "2026-06-23T21:53:09.206Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
