@@ -353,7 +353,16 @@
       "claims-adjusters-en-colorado-springs-colorado-todo-lo-que-necesitas-saber-es",
       "claims-adjusters-en-miami-florida-lo-que-necesitas-saber-es",
       "evita-errores-comunes-con-el-seguro-de-auto-en-milwaukee-wisconsin-es",
-      "gu-a-de-ajustadores-de-reclamos-en-tucson-arizona-lo-que-necesitas-saber-es"
+      "gu-a-de-ajustadores-de-reclamos-en-tucson-arizona-lo-que-necesitas-saber-es",
+      "accidentes-de-auto-en-boston-massachusetts-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-mesa-arizona-conociendo-las-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-virginia-beach-virginia-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-sin-seguro-en-los-ngeles-california-lo-que-debes-saber-es",
+      "accidentes-de-auto-sin-seguro-gu-a-para-philadelphia-pennsylvania-pa-es",
+      "accidentes-de-rideshare-y-camiones-en-columbus-ohio-oh-es-1782214044230",
+      "claims-adjusters-en-detroit-michigan-lo-que-necesitas-saber-es",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-san-diego-ca-es",
+      "injuries-and-medical-considerations-after-auto-accidents-in-mesa-az-es"
     ]
   },
   "queue": {
@@ -361,6 +370,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-23T11:30:08.653Z",
+  "lastPublishAt": "2026-06-23T16:38:39.312Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
