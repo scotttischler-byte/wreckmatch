@@ -337,7 +337,16 @@
       "errores-comunes-de-seguro-de-auto-en-long-beach-california-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-memphis-tennessee-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-san-diego-california-es",
-      "lesiones-m-dicas-por-accidentes-de-auto-en-kansas-city-missouri-es"
+      "lesiones-m-dicas-por-accidentes-de-auto-en-kansas-city-missouri-es",
+      "accidentes-de-auto-en-san-diego-california-lesiones-y-atenci-n-m-dica-es-1782195610779",
+      "accidentes-de-auto-sin-seguro-en-charlotte-nc-lo-que-necesitas-saber-es",
+      "accidentes-de-rideshare-en-chicago-il-lo-que-necesitas-saber-es",
+      "accidentes-de-rideshare-y-camiones-en-austin-texas-lo-que-debes-saber-es",
+      "baltimore-maryland-evitando-errores-comunes-en-seguros-de-auto-es",
+      "claims-adjusters-en-omaha-nebraska-lo-que-necesitas-saber-es",
+      "el-paso-texas-evitando-errores-comunes-en-seguros-de-auto-es",
+      "evita-errores-comunes-de-seguros-en-accidentes-de-auto-en-oakland-california-es",
+      "gu-a-completa-sobre-ajustadores-de-reclamos-en-san-jose-california-ca-es"
     ]
   },
   "queue": {
@@ -345,6 +354,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-22T22:13:38.287Z",
+  "lastPublishAt": "2026-06-23T06:21:06.232Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
