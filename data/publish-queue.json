@@ -346,7 +346,14 @@
       "claims-adjusters-en-omaha-nebraska-lo-que-necesitas-saber-es",
       "el-paso-texas-evitando-errores-comunes-en-seguros-de-auto-es",
       "evita-errores-comunes-de-seguros-en-accidentes-de-auto-en-oakland-california-es",
-      "gu-a-completa-sobre-ajustadores-de-reclamos-en-san-jose-california-ca-es"
+      "gu-a-completa-sobre-ajustadores-de-reclamos-en-san-jose-california-ca-es",
+      "accidentes-de-auto-en-jacksonville-florida-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-kansas-city-missouri-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-en-charlotte-north-carolina-lo-que-debes-saber-es",
+      "claims-adjusters-en-colorado-springs-colorado-todo-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-miami-florida-lo-que-necesitas-saber-es",
+      "evita-errores-comunes-con-el-seguro-de-auto-en-milwaukee-wisconsin-es",
+      "gu-a-de-ajustadores-de-reclamos-en-tucson-arizona-lo-que-necesitas-saber-es"
     ]
   },
   "queue": {
@@ -354,6 +361,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-23T06:21:06.232Z",
+  "lastPublishAt": "2026-06-23T11:30:08.653Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
