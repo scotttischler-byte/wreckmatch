@@ -382,7 +382,14 @@
       "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-arlington-texas-es",
       "gu-a-completa-sobre-ajustadores-de-reclamos-en-las-vegas-nevada-es",
       "gu-a-sobre-ajustadores-de-reclamos-en-milwaukee-wisconsin-wi-es",
-      "injuries-medicos-en-accidentes-de-auto-en-denver-colorado-es"
+      "injuries-medicos-en-accidentes-de-auto-en-denver-colorado-es",
+      "accidentes-de-auto-sin-seguro-en-baltimore-maryland-un-enfoque-en-el-hit-and-run-es",
+      "accidentes-de-auto-sin-seguro-en-tucson-arizona-c-mo-manejar-un-hit-and-run-es",
+      "accidentes-de-rideshare-y-camiones-en-mesa-arizona-az-es",
+      "evita-las-trampas-del-seguro-de-auto-en-chicago-illinois-es",
+      "injuries-y-atenci-n-m-dica-por-accidentes-de-auto-en-tulsa-oklahoma-es",
+      "kansas-city-missouri-errores-comunes-en-seguros-de-auto-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-charlotte-north-carolina-es"
     ]
   },
   "queue": {
@@ -390,6 +397,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-24T06:21:59.996Z",
+  "lastPublishAt": "2026-06-24T11:01:28.135Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
