@@ -371,7 +371,18 @@
       "evita-errores-comunes-de-seguro-de-auto-en-fort-worth-texas-es",
       "evitando-errores-comunes-de-seguros-de-auto-en-atlanta-georgia-es",
       "gu-a-sobre-ajustadores-de-reclamos-en-minneapolis-minnesota-es",
-      "gu-a-sobre-ajustadores-de-reclamos-en-raleigh-carolina-del-norte-es"
+      "gu-a-sobre-ajustadores-de-reclamos-en-raleigh-carolina-del-norte-es",
+      "accidentes-de-auto-en-el-paso-texas-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-san-francisco-california-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-tulsa-oklahoma-leyes-estatales-y-locales-es-1782281893126",
+      "accidentes-de-rideshare-y-camiones-en-portland-oregon-lo-que-debes-saber-es",
+      "acciones-inmediatas-tras-un-accidente-de-auto-en-indianapolis-indiana-es",
+      "consejos-sobre-seguros-de-auto-en-houston-texas-evitando-errores-comunes-es",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-seattle-wa-es",
+      "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-arlington-texas-es",
+      "gu-a-completa-sobre-ajustadores-de-reclamos-en-las-vegas-nevada-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-milwaukee-wisconsin-wi-es",
+      "injuries-medicos-en-accidentes-de-auto-en-denver-colorado-es"
     ]
   },
   "queue": {
@@ -379,6 +390,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-23T21:53:09.206Z",
+  "lastPublishAt": "2026-06-24T06:21:59.996Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
