@@ -396,7 +396,16 @@
       "evita-ca-das-en-el-seguro-de-auto-en-minneapolis-mn-es",
       "evita-los-errores-de-seguro-de-auto-en-san-francisco-ca-es",
       "gu-a-de-ajustadores-de-reclamaciones-en-atlanta-georgia-ga-es",
-      "gu-a-sobre-ajustadores-de-reclamos-en-san-diego-california-es-1782298885042"
+      "gu-a-sobre-ajustadores-de-reclamos-en-san-diego-california-es-1782298885042",
+      "accidentes-de-auto-en-houston-texas-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-jacksonville-florida-leyes-estatales-y-locales-es-1782336753545",
+      "accidentes-de-auto-sin-seguro-en-nashville-tennessee-lo-que-necesitas-saber-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-long-beach-ca-es",
+      "accidentes-de-rideshare-y-camiones-en-nueva-orleans-louisiana-lo-que-debes-saber-es",
+      "c-mo-navegar-reclamaciones-de-accidentes-de-auto-en-columbus-ohio-es",
+      "claims-adjusters-en-colorado-springs-colorado-gu-a-completa-es",
+      "claims-adjusters-en-fort-worth-texas-todo-lo-que-necesitas-saber-es",
+      "fresno-california-errores-comunes-en-seguros-de-auto-es"
     ]
   },
   "queue": {
@@ -404,6 +413,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-24T16:33:45.970Z",
+  "lastPublishAt": "2026-06-24T21:35:07.031Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
