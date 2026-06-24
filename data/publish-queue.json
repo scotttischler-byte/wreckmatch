@@ -389,7 +389,14 @@
       "evita-las-trampas-del-seguro-de-auto-en-chicago-illinois-es",
       "injuries-y-atenci-n-m-dica-por-accidentes-de-auto-en-tulsa-oklahoma-es",
       "kansas-city-missouri-errores-comunes-en-seguros-de-auto-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-charlotte-north-carolina-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-charlotte-north-carolina-es",
+      "accidentes-de-auto-en-nueva-york-ny-conociendo-las-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-oakland-california-impacto-de-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-tampa-florida-leyes-estatales-y-locales-es-1782318806619",
+      "evita-ca-das-en-el-seguro-de-auto-en-minneapolis-mn-es",
+      "evita-los-errores-de-seguro-de-auto-en-san-francisco-ca-es",
+      "gu-a-de-ajustadores-de-reclamaciones-en-atlanta-georgia-ga-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-san-diego-california-es-1782298885042"
     ]
   },
   "queue": {
@@ -397,6 +404,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-24T11:01:28.135Z",
+  "lastPublishAt": "2026-06-24T16:33:45.970Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
