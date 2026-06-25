@@ -414,7 +414,16 @@
       "evita-los-errores-comunes-de-seguro-de-auto-en-louisville-kentucky-es",
       "evita-los-errores-comunes-en-el-seguro-de-auto-en-jacksonville-florida-es",
       "injuries-m-dicas-en-accidentes-de-auto-en-austin-texas-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-miami-florida-es-1782336869205"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-miami-florida-es-1782336869205",
+      "accidentes-de-auto-en-nueva-york-ny-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-sacramento-ca-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-las-vegas-nevada-es",
+      "accidentes-de-rideshare-en-albuquerque-new-mexico-lo-que-necesitas-saber-es",
+      "ca-das-comunes-de-seguro-de-auto-en-arlington-texas-conozca-sus-riesgos-es",
+      "claims-adjusters-en-mesa-arizona-lo-que-necesitas-saber-es",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-louisville-kentucky-ky-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-miami-florida-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-san-antonio-texas-es"
     ]
   },
   "queue": {
@@ -422,6 +431,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-25T06:20:23.752Z",
+  "lastPublishAt": "2026-06-25T10:52:32.780Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
