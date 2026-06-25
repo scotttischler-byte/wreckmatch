@@ -430,7 +430,15 @@
       "claims-adjusters-en-omaha-nebraska-todo-lo-que-necesitas-saber-es",
       "errores-comunes-en-seguros-de-auto-en-phoenix-arizona-az-es",
       "errores-comunes-en-seguros-de-auto-en-san-jos-california-es",
-      "evita-los-errores-comunes-de-seguros-de-auto-en-tulsa-oklahoma-es"
+      "evita-los-errores-comunes-de-seguros-de-auto-en-tulsa-oklahoma-es",
+      "accidentes-automovil-sticos-y-lesiones-m-dicas-en-colorado-springs-co-es",
+      "accidentes-de-auto-en-memphis-tennessee-conoce-las-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-columbus-ohio-oh-es-1782424495121",
+      "accidentes-de-rideshare-y-camiones-en-denver-colorado-es",
+      "comprendiendo-los-ajustadores-de-reclamos-en-charlotte-carolina-del-norte-es",
+      "evita-las-trampas-del-seguro-de-auto-en-long-beach-california-es",
+      "gu-a-completa-sobre-adjustadores-de-reclamos-en-miami-florida-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-milwaukee-wisconsin-es"
     ]
   },
   "queue": {
@@ -438,6 +446,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-25T16:36:23.096Z",
+  "lastPublishAt": "2026-06-25T21:56:30.174Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
