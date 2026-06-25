@@ -405,7 +405,16 @@
       "c-mo-navegar-reclamaciones-de-accidentes-de-auto-en-columbus-ohio-es",
       "claims-adjusters-en-colorado-springs-colorado-gu-a-completa-es",
       "claims-adjusters-en-fort-worth-texas-todo-lo-que-necesitas-saber-es",
-      "fresno-california-errores-comunes-en-seguros-de-auto-es"
+      "fresno-california-errores-comunes-en-seguros-de-auto-es",
+      "accidentes-de-auto-en-atlanta-georgia-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-los-ngeles-california-rideshare-y-camiones-es",
+      "accidentes-de-rideshare-y-camiones-en-oakland-california-lo-que-debes-saber-es",
+      "claims-adjusters-en-phoenix-arizona-lo-que-necesitas-saber-es-1782336903998",
+      "claims-adjusters-en-phoenix-arizona-lo-que-necesitas-saber-es-1782368420688",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-louisville-kentucky-es",
+      "evita-los-errores-comunes-en-el-seguro-de-auto-en-jacksonville-florida-es",
+      "injuries-m-dicas-en-accidentes-de-auto-en-austin-texas-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-miami-florida-es-1782336869205"
     ]
   },
   "queue": {
@@ -413,6 +422,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-24T21:35:07.031Z",
+  "lastPublishAt": "2026-06-25T06:20:23.752Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
