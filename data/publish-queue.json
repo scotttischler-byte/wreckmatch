@@ -423,7 +423,14 @@
       "claims-adjusters-en-mesa-arizona-lo-que-necesitas-saber-es",
       "evita-los-errores-comunes-de-seguros-de-auto-en-louisville-kentucky-ky-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-miami-florida-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-san-antonio-texas-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-san-antonio-texas-es",
+      "accidentes-de-auto-en-indianapolis-indiana-leyes-estatales-y-locales-es-1782384733632",
+      "accidentes-de-auto-en-kansas-city-missouri-leyes-estatales-y-locales-es-1782384606990",
+      "accidentes-de-auto-en-omaha-nebraska-impacto-de-los-conductores-sin-seguro-y-golpes-y-fuga-es",
+      "claims-adjusters-en-omaha-nebraska-todo-lo-que-necesitas-saber-es",
+      "errores-comunes-en-seguros-de-auto-en-phoenix-arizona-az-es",
+      "errores-comunes-en-seguros-de-auto-en-san-jos-california-es",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-tulsa-oklahoma-es"
     ]
   },
   "queue": {
@@ -431,6 +438,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-25T10:52:32.780Z",
+  "lastPublishAt": "2026-06-25T16:36:23.096Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
