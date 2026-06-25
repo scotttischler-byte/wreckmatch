@@ -1916,3 +1916,6 @@
 {"ts":"2026-06-25T11:35:33.843Z","event":"start","task":"enrich","argv":["rotate"]}
 {"ts":"2026-06-25T11:35:35.778Z","task":"enrich-cities","ok":true,"exitCode":0,"durationMs":1935,"outputTail":"All top cities already have enriched markdown.\nnpm warn exec The following package was not found and will be installed: tsx@4.22.4\n"}
 {"ts":"2026-06-25T11:35:35.778Z","event":"complete","task":"enrich"}
+{"ts":"2026-06-25T14:12:06.286Z","event":"start","task":"indexnow","argv":["rotate"]}
+{"ts":"2026-06-25T14:12:10.242Z","task":"indexnow-all","ok":true,"exitCode":0,"durationMs":3956,"outputTail":"key at /.txt\nIndexNow www.injuredhelp.ai: 400 (6 URLs) — check key at /.txt\nIndexNow www.bobbygarcia.com: 400 (0 URLs) — check key at /.txt\n  Key not reachable at https://www.wreckmatch.com/.txt (404) — IndexNow may return 403\n  Key not reachable at https://www.accidentsurvivalguide.com/.txt (404) — IndexNow may return 403\n  Key not reachable at https://www.injuredhelp.ai/.txt (404) — IndexNow may return 403\n  Key not reachable at https://www.bobbygarcia.com/.txt (403) — IndexNow may return 403\n"}
+{"ts":"2026-06-25T14:12:10.242Z","event":"complete","task":"indexnow"}
