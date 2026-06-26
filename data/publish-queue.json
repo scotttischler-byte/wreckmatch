@@ -438,7 +438,15 @@
       "comprendiendo-los-ajustadores-de-reclamos-en-charlotte-carolina-del-norte-es",
       "evita-las-trampas-del-seguro-de-auto-en-long-beach-california-es",
       "gu-a-completa-sobre-adjustadores-de-reclamos-en-miami-florida-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-milwaukee-wisconsin-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-milwaukee-wisconsin-es",
+      "accidentes-de-auto-en-louisville-kentucky-lo-que-debes-saber-sobre-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-oklahoma-city-oklahoma-conozca-las-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-omaha-nebraska-leyes-estatales-y-locales-es",
+      "accidentes-de-rideshare-y-camiones-en-minneapolis-minnesota-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-tampa-florida-todo-lo-que-necesitas-saber-es",
+      "evita-caer-en-los-errores-comunes-de-seguros-de-auto-en-austin-texas-es",
+      "evitar-errores-comunes-de-seguro-de-auto-en-san-francisco-ca-es",
+      "gu-a-completa-sobre-ajustadores-de-reclamos-en-philadelphia-pa-es"
     ]
   },
   "queue": {
@@ -446,6 +454,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-25T21:56:30.174Z",
+  "lastPublishAt": "2026-06-26T06:31:31.703Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
