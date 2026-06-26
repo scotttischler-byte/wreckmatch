@@ -446,7 +446,17 @@
       "claims-adjusters-en-tampa-florida-todo-lo-que-necesitas-saber-es",
       "evita-caer-en-los-errores-comunes-de-seguros-de-auto-en-austin-texas-es",
       "evitar-errores-comunes-de-seguro-de-auto-en-san-francisco-ca-es",
-      "gu-a-completa-sobre-ajustadores-de-reclamos-en-philadelphia-pa-es"
+      "gu-a-completa-sobre-ajustadores-de-reclamos-en-philadelphia-pa-es",
+      "accidentes-de-auto-sin-seguro-en-mesa-arizona-lo-que-necesitas-saber-es",
+      "accidentes-de-auto-sin-seguro-en-new-orleans-louisiana-qu-hacer-despu-s-de-un-hit-and-run-es",
+      "claims-adjusters-en-dallas-texas-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-jacksonville-florida-todo-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-philadelphia-pennsylvania-lo-que-necesitas-saber-es",
+      "errores-comunes-en-seguros-de-auto-en-fresno-california-es",
+      "errores-comunes-en-seguros-de-auto-en-nueva-york-ny-es-1782455264355",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-fort-worth-texas-es",
+      "injurias-m-dicas-en-accidentes-de-auto-en-virginia-beach-virginia-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-seattle-washington-es"
     ]
   },
   "queue": {
@@ -454,6 +464,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-26T06:31:31.703Z",
+  "lastPublishAt": "2026-06-26T11:11:23.872Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
