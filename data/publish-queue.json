@@ -465,7 +465,16 @@
       "errores-comunes-en-seguros-de-auto-en-oklahoma-city-ok-es",
       "gu-a-de-ajustadores-de-reclamos-en-oakland-california-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-tucson-arizona-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-virginia-beach-virginia-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-virginia-beach-virginia-es",
+      "accidentes-de-auto-en-fort-worth-texas-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-y-chocones-en-philadelphia-pa-es",
+      "errores-comunes-de-seguro-de-auto-en-nueva-york-ny-es-1782509223043",
+      "errores-comunes-en-seguros-de-auto-en-boston-massachusetts-es",
+      "errores-comunes-en-seguros-de-auto-en-sacramento-california-lo-que-debes-saber-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-virginia-beach-virginia-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-louisville-kentucky-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-arlington-texas-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-los-ngeles-california-es"
     ]
   },
   "queue": {
@@ -473,6 +482,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-26T16:32:03.811Z",
+  "lastPublishAt": "2026-06-26T21:29:47.747Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
