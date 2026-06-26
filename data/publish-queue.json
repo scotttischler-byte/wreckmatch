@@ -456,7 +456,16 @@
       "errores-comunes-en-seguros-de-auto-en-nueva-york-ny-es-1782455264355",
       "evita-los-errores-comunes-de-seguros-de-auto-en-fort-worth-texas-es",
       "injurias-m-dicas-en-accidentes-de-auto-en-virginia-beach-virginia-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-seattle-washington-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-seattle-washington-es",
+      "accidentes-de-auto-en-chicago-il-lesiones-y-asistencia-m-dica-es",
+      "accidentes-de-rideshare-en-san-diego-california-lo-que-necesitas-saber-es",
+      "accidentes-de-rideshare-y-camiones-en-san-francisco-ca-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-portland-oregon-lo-que-necesitas-saber-es-1782491520343",
+      "conociendo-a-los-ajustadores-de-reclamaciones-en-indianapolis-indiana-es",
+      "errores-comunes-en-seguros-de-auto-en-oklahoma-city-ok-es",
+      "gu-a-de-ajustadores-de-reclamos-en-oakland-california-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-tucson-arizona-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-virginia-beach-virginia-es"
     ]
   },
   "queue": {
@@ -464,6 +473,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-26T11:11:23.872Z",
+  "lastPublishAt": "2026-06-26T16:32:03.811Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
