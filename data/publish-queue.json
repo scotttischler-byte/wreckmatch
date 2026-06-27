@@ -498,7 +498,16 @@
       "evita-errores-comunes-de-seguro-de-auto-en-dallas-texas-es",
       "gu-a-sobre-ajustadores-de-reclamos-en-milwaukee-wisconsin-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-charlotte-carolina-del-norte-es",
-      "lesiones-m-dicas-por-accidentes-de-auto-en-milwaukee-wisconsin-es"
+      "lesiones-m-dicas-por-accidentes-de-auto-en-milwaukee-wisconsin-es",
+      "accidentes-de-auto-en-chicago-illinois-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-columbus-ohio-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-nashville-tennessee-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-no-asegurados-y-hit-run-en-raleigh-north-carolina-es",
+      "accidentes-de-rideshare-en-austin-texas-lo-que-debes-saber-es",
+      "claims-adjusters-en-miami-florida-todo-lo-que-necesitas-saber-es-1782573949117",
+      "claims-adjusters-en-new-orleans-louisiana-lo-que-necesitas-saber-es-1782574134485",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-jacksonville-florida-es",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-memphis-tn-es"
     ]
   },
   "queue": {
@@ -506,6 +515,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-27T15:28:57.752Z",
+  "lastPublishAt": "2026-06-27T21:17:13.612Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
