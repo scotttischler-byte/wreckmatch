@@ -474,7 +474,15 @@
       "gu-a-sobre-ajustadores-de-reclamaciones-en-virginia-beach-virginia-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-louisville-kentucky-es",
       "lesiones-m-dicas-por-accidentes-de-auto-en-arlington-texas-es",
-      "lesiones-m-dicas-por-accidentes-de-auto-en-los-ngeles-california-es"
+      "lesiones-m-dicas-por-accidentes-de-auto-en-los-ngeles-california-es",
+      "accidentes-de-auto-en-detroit-mi-informaci-n-sobre-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-oakland-california-incidentes-de-rideshare-y-camiones-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-omaha-nebraska-es",
+      "accidentes-sin-seguro-y-choques-por-huida-en-colorado-springs-co-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-raleigh-carolina-del-norte-es",
+      "injuries-and-medical-care-after-car-accidents-in-boston-ma-es-1782509234985",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-tucson-arizona-es-1782540129941",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-miami-florida-es-1782368375343"
     ]
   },
   "queue": {
@@ -482,6 +490,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-26T21:29:47.747Z",
+  "lastPublishAt": "2026-06-27T06:05:27.889Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
