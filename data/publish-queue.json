@@ -491,7 +491,14 @@
       "evita-los-errores-comunes-de-seguro-de-auto-en-columbus-ohio-es",
       "evita-los-errores-comunes-de-seguro-de-auto-en-los-angeles-california-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-long-beach-california-es",
-      "lesiones-m-dicas-por-accidentes-de-auto-en-milwaukee-wisconsin-es-1782384593890"
+      "lesiones-m-dicas-por-accidentes-de-auto-en-milwaukee-wisconsin-es-1782384593890",
+      "accidentes-de-auto-en-san-diego-california-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-huidos-en-las-vegas-nv-es",
+      "claims-adjusters-en-el-paso-texas-gu-a-completa-es",
+      "evita-errores-comunes-de-seguro-de-auto-en-dallas-texas-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-milwaukee-wisconsin-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-charlotte-carolina-del-norte-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-milwaukee-wisconsin-es"
     ]
   },
   "queue": {
@@ -499,6 +506,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-27T10:21:28.910Z",
+  "lastPublishAt": "2026-06-27T15:28:57.752Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
