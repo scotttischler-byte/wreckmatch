@@ -482,7 +482,16 @@
       "gu-a-sobre-ajustadores-de-reclamaciones-en-raleigh-carolina-del-norte-es",
       "injuries-and-medical-care-after-car-accidents-in-boston-ma-es-1782509234985",
       "lesiones-m-dicas-en-accidentes-de-auto-en-tucson-arizona-es-1782540129941",
-      "lesiones-m-dicas-por-accidentes-de-auto-en-miami-florida-es-1782368375343"
+      "lesiones-m-dicas-por-accidentes-de-auto-en-miami-florida-es-1782368375343",
+      "accidentes-de-auto-en-long-beach-california-seguridad-en-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-tampa-florida-leyes-estatales-y-locales-es-1782540150501",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-san-jose-california-es",
+      "claims-adjusters-en-houston-texas-lo-que-necesitas-saber-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-baltimore-maryland-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-columbus-ohio-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-los-angeles-california-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-long-beach-california-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-milwaukee-wisconsin-es-1782384593890"
     ]
   },
   "queue": {
@@ -490,6 +499,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-27T06:05:27.889Z",
+  "lastPublishAt": "2026-06-27T10:21:28.910Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
