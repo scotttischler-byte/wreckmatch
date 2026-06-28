@@ -523,7 +523,15 @@
       "errores-comunes-en-seguros-de-auto-en-charlotte-nc-es",
       "evita-los-errores-comunes-de-seguros-de-auto-en-denver-colorado-es",
       "evita-los-peligros-del-seguro-de-auto-en-portland-oregon-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-houston-texas-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-houston-texas-es",
+      "accidentes-de-auto-en-boston-ma-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-huidas-en-oklahoma-city-ok-es",
+      "accidentes-de-rideshare-y-camiones-en-indianapolis-indiana-in-es",
+      "accidentes-de-rideshare-y-camiones-en-sacramento-california-es",
+      "claims-adjusters-en-seattle-washington-lo-que-necesitas-saber-es",
+      "evita-los-peligros-del-seguro-de-auto-en-raleigh-nc-es",
+      "evitar-trampas-de-seguro-en-accidentes-de-auto-en-nueva-york-ny-es",
+      "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-filadelfia-pa-es"
     ]
   },
   "queue": {
@@ -531,6 +539,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-28T10:41:12.494Z",
+  "lastPublishAt": "2026-06-28T15:28:42.132Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
