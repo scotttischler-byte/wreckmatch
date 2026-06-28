@@ -507,7 +507,15 @@
       "claims-adjusters-en-miami-florida-todo-lo-que-necesitas-saber-es-1782573949117",
       "claims-adjusters-en-new-orleans-louisiana-lo-que-necesitas-saber-es-1782574134485",
       "evita-los-errores-comunes-de-seguro-de-auto-en-jacksonville-florida-es",
-      "evita-los-errores-comunes-de-seguros-de-auto-en-memphis-tn-es"
+      "evita-los-errores-comunes-de-seguros-de-auto-en-memphis-tn-es",
+      "accidentes-de-auto-en-atlanta-georgia-lesiones-y-atenci-n-m-dica-es-1782594835173",
+      "accidentes-de-auto-en-las-vegas-nevada-pasos-inmediatos-a-seguir-es",
+      "accidentes-de-auto-en-miami-florida-leyes-estatales-y-locales-es-1782628205613",
+      "accidentes-de-auto-sin-seguro-en-phoenix-arizona-qu-hacer-es",
+      "accidentes-de-rideshare-y-camiones-en-oakland-california-estad-sticas-y-consejos-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-oakland-california-es",
+      "evita-los-escollos-del-seguro-de-auto-en-fort-worth-texas-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-san-diego-california-es-1782595030437"
     ]
   },
   "queue": {
@@ -515,6 +523,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-27T21:17:13.612Z",
+  "lastPublishAt": "2026-06-28T06:32:58.238Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
