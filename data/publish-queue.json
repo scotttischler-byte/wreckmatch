@@ -531,7 +531,14 @@
       "claims-adjusters-en-seattle-washington-lo-que-necesitas-saber-es",
       "evita-los-peligros-del-seguro-de-auto-en-raleigh-nc-es",
       "evitar-trampas-de-seguro-en-accidentes-de-auto-en-nueva-york-ny-es",
-      "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-filadelfia-pa-es"
+      "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-filadelfia-pa-es",
+      "accidentes-de-auto-en-colorado-springs-colorado-conoce-las-leyes-locales-y-estatales-es",
+      "accidentes-de-auto-en-detroit-michigan-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-indianapolis-indiana-lesiones-y-atenci-n-m-dica-es-1782681150228",
+      "accidentes-de-auto-en-seattle-washington-comprendiendo-las-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-virginia-beach-virginia-leyes-estatales-y-locales-es",
+      "claims-adjusters-en-jacksonville-florida-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-san-antonio-texas-gu-a-completa-es"
     ]
   },
   "queue": {
@@ -539,6 +546,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-28T15:28:42.132Z",
+  "lastPublishAt": "2026-06-28T21:13:02.795Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
