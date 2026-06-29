@@ -538,7 +538,16 @@
       "accidentes-de-auto-en-seattle-washington-comprendiendo-las-leyes-estatales-y-locales-es",
       "accidentes-de-auto-en-virginia-beach-virginia-leyes-estatales-y-locales-es",
       "claims-adjusters-en-jacksonville-florida-lo-que-necesitas-saber-es",
-      "claims-adjusters-en-san-antonio-texas-gu-a-completa-es"
+      "claims-adjusters-en-san-antonio-texas-gu-a-completa-es",
+      "accidentes-de-auto-en-nashville-tennessee-rideshare-y-camiones-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-huida-en-las-vegas-nevada-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-huidos-en-new-orleans-louisiana-es",
+      "accidentes-de-rideshare-y-camiones-en-washington-dc-lo-que-debes-saber-es",
+      "claims-adjusters-en-minneapolis-minnesota-lo-que-debes-saber-es",
+      "claims-adjusters-en-tucson-arizona-lo-que-necesitas-saber-es-1782716470686",
+      "claims-adjusters-en-tulsa-oklahoma-lo-que-necesitas-saber-es-1782681060692",
+      "evita-ca-das-comunes-en-el-seguro-de-auto-en-colorado-springs-co-es",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-dallas-texas-es"
     ]
   },
   "queue": {
@@ -546,6 +555,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-28T21:13:02.795Z",
+  "lastPublishAt": "2026-06-29T07:01:14.330Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
