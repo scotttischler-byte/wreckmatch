@@ -547,7 +547,15 @@
       "claims-adjusters-en-tucson-arizona-lo-que-necesitas-saber-es-1782716470686",
       "claims-adjusters-en-tulsa-oklahoma-lo-que-necesitas-saber-es-1782681060692",
       "evita-ca-das-comunes-en-el-seguro-de-auto-en-colorado-springs-co-es",
-      "evita-los-errores-comunes-de-seguros-de-auto-en-dallas-texas-es"
+      "evita-los-errores-comunes-de-seguros-de-auto-en-dallas-texas-es",
+      "accidentes-de-auto-en-columbus-ohio-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-mesa-arizona-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-sin-seguro-en-tulsa-oklahoma-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-kansas-city-missouri-lo-que-necesitas-saber-es-1782716301810",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-atlanta-georgia-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-detroit-michigan-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-minneapolis-minnesota-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-tulsa-oklahoma-es"
     ]
   },
   "queue": {
@@ -555,6 +563,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-29T07:01:14.330Z",
+  "lastPublishAt": "2026-06-29T12:46:44.723Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
