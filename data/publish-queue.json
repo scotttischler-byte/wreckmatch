@@ -564,7 +564,13 @@
       "claims-adjusters-en-jacksonville-florida-lo-que-necesitas-saber-es-1782737073752",
       "evita-los-errores-comunes-de-seguros-de-auto-en-philadelphia-pa-es",
       "evitar-errores-comunes-de-seguro-de-auto-en-memphis-tennessee-es",
-      "injuries-and-medical-care-after-car-accidents-in-memphis-tennessee-tn-es"
+      "injuries-and-medical-care-after-car-accidents-in-memphis-tennessee-tn-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-huidas-en-los-ngeles-ca-es",
+      "accidentes-de-auto-y-lesiones-m-dicas-en-nueva-york-ny-es",
+      "accidentes-de-rideshare-y-camiones-en-san-francisco-ca-lo-que-debes-saber-es",
+      "claims-adjusters-en-tampa-florida-todo-lo-que-necesitas-saber-es-1782752461194",
+      "errores-comunes-de-seguro-de-auto-en-portland-oregon-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-phoenix-arizona-es"
     ]
   },
   "queue": {
@@ -572,6 +578,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-29T17:01:04.570Z",
+  "lastPublishAt": "2026-06-29T21:44:07.438Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
