@@ -555,7 +555,16 @@
       "lesiones-m-dicas-en-accidentes-de-auto-en-atlanta-georgia-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-detroit-michigan-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-minneapolis-minnesota-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-tulsa-oklahoma-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-tulsa-oklahoma-es",
+      "accidentes-de-auto-en-oakland-california-comprendiendo-las-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-atlanta-georgia-es",
+      "accidentes-de-rideshare-y-camiones-en-nueva-orleans-louisiana-es",
+      "claims-adjusters-en-albuquerque-nuevo-m-xico-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-fort-worth-texas-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-jacksonville-florida-lo-que-necesitas-saber-es-1782737073752",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-philadelphia-pa-es",
+      "evitar-errores-comunes-de-seguro-de-auto-en-memphis-tennessee-es",
+      "injuries-and-medical-care-after-car-accidents-in-memphis-tennessee-tn-es"
     ]
   },
   "queue": {
@@ -563,6 +572,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-29T12:46:44.723Z",
+  "lastPublishAt": "2026-06-29T17:01:04.570Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
