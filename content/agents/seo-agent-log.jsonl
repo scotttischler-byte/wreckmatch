@@ -2261,3 +2261,6 @@
 {"ts":"2026-06-29T22:50:29.563Z","task":"validate-sitemaps","ok":true,"exitCode":0,"durationMs":639,"outputTail":"OK  wreckmatch.vercel.app (4701 URLs)\nOK  accidentsurvivalguide.com (4522 URLs)\nOK  injuredhelp.ai (6 URLs)\n"}
 {"ts":"2026-06-29T22:50:30.103Z","task":"ping-feeds","ok":true,"exitCode":1,"durationMs":539,"outputTail":"Feed health check:\n\nOK  https://www.accidentsurvivalguide.com/feed.xml (200)\nFAIL  https://www.wreckmatch.com/feed.xml (404)\nOK  https://wreckmatch.vercel.app/feed.xml (200)\n"}
 {"ts":"2026-06-29T22:50:30.103Z","event":"complete","task":"health"}
+{"ts":"2026-06-29T23:57:27.768Z","event":"start","task":"enrich","argv":["rotate"]}
+{"ts":"2026-06-29T23:57:29.676Z","task":"enrich-cities","ok":true,"exitCode":0,"durationMs":1908,"outputTail":"All top cities already have enriched markdown.\nnpm warn exec The following package was not found and will be installed: tsx@4.22.4\n"}
+{"ts":"2026-06-29T23:57:29.676Z","event":"complete","task":"enrich"}
