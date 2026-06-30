@@ -570,7 +570,15 @@
       "accidentes-de-rideshare-y-camiones-en-san-francisco-ca-lo-que-debes-saber-es",
       "claims-adjusters-en-tampa-florida-todo-lo-que-necesitas-saber-es-1782752461194",
       "errores-comunes-de-seguro-de-auto-en-portland-oregon-es",
-      "gu-a-sobre-ajustadores-de-reclamos-en-phoenix-arizona-es"
+      "gu-a-sobre-ajustadores-de-reclamos-en-phoenix-arizona-es",
+      "accidentes-de-auto-en-colorado-springs-colorado-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-nashville-tennessee-leyes-estatales-y-locales-es-1782769314012",
+      "accidentes-de-auto-en-portland-oregon-leyes-estatales-y-locales-es-1782769429284",
+      "accidentes-de-rideshare-y-camiones-en-washington-dc-lo-que-necesitas-saber-es-1782769345427",
+      "c-mo-navegar-el-proceso-de-ajustadores-de-reclamos-en-minneapolis-mn-es",
+      "errores-comunes-en-seguros-de-auto-en-raleigh-north-carolina-es",
+      "evita-ca-das-en-el-seguro-de-auto-en-jacksonville-florida-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-columbus-ohio-es"
     ]
   },
   "queue": {
@@ -578,6 +586,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-29T21:44:07.438Z",
+  "lastPublishAt": "2026-06-30T06:25:10.435Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
