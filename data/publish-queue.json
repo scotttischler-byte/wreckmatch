@@ -584,7 +584,18 @@
       "accidentes-de-rideshare-y-camiones-en-dallas-texas-lo-que-debes-saber-es",
       "evita-las-trampas-de-seguros-de-auto-en-tucson-arizona-es",
       "evita-los-errores-de-seguros-de-auto-en-oklahoma-city-ok-es",
-      "injuries-and-medical-assistance-after-auto-accidents-in-virginia-beach-va-es"
+      "injuries-and-medical-assistance-after-auto-accidents-in-virginia-beach-va-es",
+      "accidentes-de-auto-en-colorado-springs-colorado-enfoque-en-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-el-paso-texas-leyes-estatales-y-locales-es-1782818449496",
+      "accidentes-de-auto-en-kansas-city-missouri-leyes-estatales-y-locales-es-1782837100529",
+      "accidentes-de-auto-en-nashville-tennessee-leyes-estatales-y-locales-es-1782818326657",
+      "accidentes-de-auto-en-san-antonio-texas-gu-a-sobre-accidentes-con-conductores-no-asegurado-es",
+      "accidentes-de-rideshare-en-new-orleans-louisiana-lo-que-debes-saber-es",
+      "claims-adjusters-en-phoenix-arizona-lo-que-necesitas-saber-es-1782818465205",
+      "evita-ca-das-en-seguros-de-auto-en-fresno-california-es",
+      "evita-las-trampas-de-seguros-de-auto-en-memphis-tn-es",
+      "evita-los-escollos-del-seguro-de-auto-en-chicago-illinois-es",
+      "fort-worth-texas-evitando-los-escollos-del-seguro-de-auto-es"
     ]
   },
   "queue": {
@@ -592,6 +603,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-30T11:21:08.912Z",
+  "lastPublishAt": "2026-06-30T16:32:02.305Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
