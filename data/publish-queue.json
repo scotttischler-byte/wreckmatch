@@ -595,7 +595,17 @@
       "evita-ca-das-en-seguros-de-auto-en-fresno-california-es",
       "evita-las-trampas-de-seguros-de-auto-en-memphis-tn-es",
       "evita-los-escollos-del-seguro-de-auto-en-chicago-illinois-es",
-      "fort-worth-texas-evitando-los-escollos-del-seguro-de-auto-es"
+      "fort-worth-texas-evitando-los-escollos-del-seguro-de-auto-es",
+      "accidentes-de-auto-en-boston-ma-errores-comunes-en-seguros-es",
+      "accidentes-de-auto-no-asegurados-y-fugas-en-san-antonio-texas-es",
+      "claims-adjusters-en-columbus-ohio-lo-que-necesitas-saber-es",
+      "evita-errores-comunes-de-seguro-de-auto-en-jacksonville-florida-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-albuquerque-new-mexico-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-baltimore-maryland-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-denver-colorado-es",
+      "injuries-and-medical-care-after-auto-accidents-in-jacksonville-florida-es",
+      "injuries-medical-accidentes-de-auto-en-seattle-wa-es",
+      "lesiones-en-accidentes-de-auto-en-san-diego-ca-lo-que-necesitas-saber-es"
     ]
   },
   "queue": {
@@ -603,6 +613,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-30T16:32:02.305Z",
+  "lastPublishAt": "2026-06-30T21:48:44.983Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
