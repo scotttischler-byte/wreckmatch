@@ -578,7 +578,13 @@
       "c-mo-navegar-el-proceso-de-ajustadores-de-reclamos-en-minneapolis-mn-es",
       "errores-comunes-en-seguros-de-auto-en-raleigh-north-carolina-es",
       "evita-ca-das-en-el-seguro-de-auto-en-jacksonville-florida-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-columbus-ohio-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-columbus-ohio-es",
+      "accidentes-de-auto-sin-seguro-en-virginia-beach-va-lo-que-necesitas-saber-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-boston-massachusetts-es",
+      "accidentes-de-rideshare-y-camiones-en-dallas-texas-lo-que-debes-saber-es",
+      "evita-las-trampas-de-seguros-de-auto-en-tucson-arizona-es",
+      "evita-los-errores-de-seguros-de-auto-en-oklahoma-city-ok-es",
+      "injuries-and-medical-assistance-after-auto-accidents-in-virginia-beach-va-es"
     ]
   },
   "queue": {
@@ -586,6 +592,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-30T06:25:10.435Z",
+  "lastPublishAt": "2026-06-30T11:21:08.912Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
