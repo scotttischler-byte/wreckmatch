@@ -614,7 +614,17 @@
       "gu-a-sobre-accidentes-de-rideshare-y-camiones-en-los-ngeles-ca-es",
       "gu-a-sobre-ajustadores-de-reclamos-de-accidentes-de-auto-en-detroit-mi-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-albuquerque-nuevo-m-xico-es-1782855944731",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-detroit-michigan-mi-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-detroit-michigan-mi-es",
+      "accidentes-de-auto-en-albuquerque-new-mexico-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-huidas-en-jacksonville-florida-es",
+      "ajustadores-de-reclamos-en-phoenix-arizona-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-milwaukee-wisconsin-lo-que-necesitas-saber-es",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-nueva-york-ny-es",
+      "evita-trampas-de-seguro-en-memphis-tennessee-es",
+      "gu-a-completa-sobre-ajustadores-de-reclamos-en-atlanta-georgia-es",
+      "injuries-and-medical-considerations-after-car-accidents-in-arlington-texas-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-indianapolis-indiana-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-chicago-illinois-es"
     ]
   },
   "queue": {
@@ -622,6 +632,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-01T06:48:21.073Z",
+  "lastPublishAt": "2026-07-01T11:36:00.433Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
