@@ -633,7 +633,13 @@
       "errores-comunes-en-seguros-de-auto-en-mesa-arizona-lo-que-debes-saber-es",
       "lesiones-m-dicas-por-accidentes-de-auto-en-fresno-california-es",
       "lesiones-m-dicas-por-accidentes-de-auto-en-long-beach-california-es",
-      "lesiones-m-dicas-por-accidentes-de-auto-en-oklahoma-city-ok-es"
+      "lesiones-m-dicas-por-accidentes-de-auto-en-oklahoma-city-ok-es",
+      "accidentes-de-auto-en-omaha-nebraska-lesiones-y-atenci-n-m-dica-es-1782923553152",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-chicago-il-es",
+      "accidentes-de-auto-sin-seguro-y-hit-and-run-en-nashville-tennessee-es",
+      "claims-adjusters-en-tulsa-oklahoma-todo-lo-que-necesitas-saber-es",
+      "evitando-errores-comunes-de-seguro-de-auto-en-austin-texas-es",
+      "injuries-m-dicas-en-accidentes-de-auto-en-arlington-texas-es"
     ]
   },
   "queue": {
@@ -641,6 +647,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-01T16:35:32.448Z",
+  "lastPublishAt": "2026-07-01T21:50:26.562Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
