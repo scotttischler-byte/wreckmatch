@@ -605,7 +605,16 @@
       "gu-a-sobre-ajustadores-de-reclamos-en-denver-colorado-es",
       "injuries-and-medical-care-after-auto-accidents-in-jacksonville-florida-es",
       "injuries-medical-accidentes-de-auto-en-seattle-wa-es",
-      "lesiones-en-accidentes-de-auto-en-san-diego-ca-lo-que-necesitas-saber-es"
+      "lesiones-en-accidentes-de-auto-en-san-diego-ca-lo-que-necesitas-saber-es",
+      "accidentes-de-auto-en-miami-florida-leyes-estatales-y-locales-es-1782855959523",
+      "accidentes-de-auto-en-sacramento-california-conociendo-las-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-louisville-kentucky-es",
+      "accidentes-de-rideshare-y-camiones-en-portland-oregon-lo-que-necesitas-saber-es",
+      "errores-comunes-en-el-seguro-de-auto-en-washington-dc-lo-que-debes-saber-es",
+      "gu-a-sobre-accidentes-de-rideshare-y-camiones-en-los-ngeles-ca-es",
+      "gu-a-sobre-ajustadores-de-reclamos-de-accidentes-de-auto-en-detroit-mi-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-albuquerque-nuevo-m-xico-es-1782855944731",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-detroit-michigan-mi-es"
     ]
   },
   "queue": {
@@ -613,6 +622,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-06-30T21:48:44.983Z",
+  "lastPublishAt": "2026-07-01T06:48:21.073Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
