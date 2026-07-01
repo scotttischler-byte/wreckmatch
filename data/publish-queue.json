@@ -624,7 +624,16 @@
       "gu-a-completa-sobre-ajustadores-de-reclamos-en-atlanta-georgia-es",
       "injuries-and-medical-considerations-after-car-accidents-in-arlington-texas-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-indianapolis-indiana-es",
-      "lesiones-m-dicas-por-accidentes-de-auto-en-chicago-illinois-es"
+      "lesiones-m-dicas-por-accidentes-de-auto-en-chicago-illinois-es",
+      "accidentes-de-rideshare-y-camiones-en-austin-texas-lo-que-necesitas-saber-es",
+      "accidentes-de-rideshare-y-camiones-en-baltimore-maryland-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-dallas-texas-lo-que-necesitas-saber-es-1782905757072",
+      "errores-comunes-de-seguro-de-auto-en-nueva-orleans-louisiana-es",
+      "errores-comunes-de-seguros-de-auto-en-charlotte-carolina-del-norte-es",
+      "errores-comunes-en-seguros-de-auto-en-mesa-arizona-lo-que-debes-saber-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-fresno-california-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-long-beach-california-es",
+      "lesiones-m-dicas-por-accidentes-de-auto-en-oklahoma-city-ok-es"
     ]
   },
   "queue": {
@@ -632,6 +641,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-01T11:36:00.433Z",
+  "lastPublishAt": "2026-07-01T16:35:32.448Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
