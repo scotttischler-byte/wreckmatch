@@ -647,7 +647,16 @@
       "accidentes-de-auto-en-philadelphia-pennsylvania-leyes-estatales-y-locales-es",
       "claims-adjusters-en-los-ngeles-california-lo-que-necesitas-saber-es-1782942622992",
       "claims-adjusters-en-tucson-arizona-lo-que-necesitas-saber-es-1782942469500",
-      "errores-comunes-de-seguros-de-auto-en-baltimore-maryland-es"
+      "errores-comunes-de-seguros-de-auto-en-baltimore-maryland-es",
+      "accidentes-de-auto-en-long-beach-california-conozca-las-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-raleigh-north-carolina-lo-que-necesitas-saber-sobre-rideshare-y-cami-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-los-ngeles-ca-es",
+      "accidentes-de-auto-y-lesiones-m-dicas-en-columbus-ohio-oh-es",
+      "errores-comunes-en-seguros-de-auto-en-oklahoma-city-ok-es-1782972600381",
+      "errores-comunes-en-seguros-de-auto-en-omaha-nebraska-es",
+      "evita-los-peligros-del-seguro-de-auto-en-san-jose-california-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-colorado-springs-colorado-es-1782972772076",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-detroit-michigan-mi-es-1782972653074"
     ]
   },
   "queue": {
@@ -655,6 +664,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-02T06:12:55.602Z",
+  "lastPublishAt": "2026-07-02T10:51:31.656Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
