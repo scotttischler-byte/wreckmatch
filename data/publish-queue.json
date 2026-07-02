@@ -665,7 +665,12 @@
       "evita-los-errores-comunes-de-seguro-de-auto-en-el-paso-texas-es",
       "evita-los-errores-comunes-de-seguros-de-auto-en-louisville-kentucky-es",
       "gu-a-sobre-ajustadores-de-reclamaciones-en-san-antonio-texas-tx-es",
-      "injuries-and-medical-care-after-an-auto-accident-in-charlotte-nc-es"
+      "injuries-and-medical-care-after-an-auto-accident-in-charlotte-nc-es",
+      "accidentes-de-auto-en-sacramento-california-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-houston-tx-es-1783008805059",
+      "claims-adjusters-en-dallas-texas-lo-que-necesitas-saber-es-1783008772602",
+      "errores-comunes-de-seguro-de-auto-en-raleigh-north-carolina-es",
+      "evita-los-peligros-del-seguro-de-auto-en-jacksonville-florida-es"
     ]
   },
   "queue": {
@@ -673,6 +678,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-02T16:15:27.212Z",
+  "lastPublishAt": "2026-07-02T21:19:58.307Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
