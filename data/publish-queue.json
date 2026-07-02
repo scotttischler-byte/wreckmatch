@@ -656,7 +656,16 @@
       "errores-comunes-en-seguros-de-auto-en-omaha-nebraska-es",
       "evita-los-peligros-del-seguro-de-auto-en-san-jose-california-es",
       "gu-a-sobre-ajustadores-de-reclamaciones-en-colorado-springs-colorado-es-1782972772076",
-      "gu-a-sobre-ajustadores-de-reclamaciones-en-detroit-michigan-mi-es-1782972653074"
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-detroit-michigan-mi-es-1782972653074",
+      "accidentes-de-auto-en-new-orleans-louisiana-leyes-estatales-y-locales-es",
+      "accidentes-de-rideshare-y-camiones-en-baltimore-maryland-lo-que-necesitas-saber-es-1782989368985",
+      "accidentes-de-rideshare-y-camiones-en-phoenix-arizona-lo-que-necesitas-saber-es-1783008794288",
+      "claims-adjusters-en-boston-massachusetts-todo-lo-que-necesitas-saber-es-1783008923430",
+      "claims-adjusters-en-detroit-michigan-lo-que-necesitas-saber-es-1782989488244",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-el-paso-texas-es",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-louisville-kentucky-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-san-antonio-texas-tx-es",
+      "injuries-and-medical-care-after-an-auto-accident-in-charlotte-nc-es"
     ]
   },
   "queue": {
@@ -664,6 +673,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-02T10:51:31.656Z",
+  "lastPublishAt": "2026-07-02T16:15:27.212Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
