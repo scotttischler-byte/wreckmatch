@@ -639,7 +639,15 @@
       "accidentes-de-auto-sin-seguro-y-hit-and-run-en-nashville-tennessee-es",
       "claims-adjusters-en-tulsa-oklahoma-todo-lo-que-necesitas-saber-es",
       "evitando-errores-comunes-de-seguro-de-auto-en-austin-texas-es",
-      "injuries-m-dicas-en-accidentes-de-auto-en-arlington-texas-es"
+      "injuries-m-dicas-en-accidentes-de-auto-en-arlington-texas-es",
+      "accidentes-de-auto-en-atlanta-georgia-leyes-estatales-y-locales-es-1782942602197",
+      "accidentes-de-auto-en-kansas-city-missouri-leyes-estatales-y-locales-es-1782972753509",
+      "accidentes-de-auto-en-las-vegas-nevada-uninsured-hit-and-run-es",
+      "accidentes-de-auto-en-milwaukee-wisconsin-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-philadelphia-pennsylvania-leyes-estatales-y-locales-es",
+      "claims-adjusters-en-los-ngeles-california-lo-que-necesitas-saber-es-1782942622992",
+      "claims-adjusters-en-tucson-arizona-lo-que-necesitas-saber-es-1782942469500",
+      "errores-comunes-de-seguros-de-auto-en-baltimore-maryland-es"
     ]
   },
   "queue": {
@@ -647,6 +655,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-01T21:50:26.562Z",
+  "lastPublishAt": "2026-07-02T06:12:55.602Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
