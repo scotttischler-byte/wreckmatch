@@ -670,7 +670,14 @@
       "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-houston-tx-es-1783008805059",
       "claims-adjusters-en-dallas-texas-lo-que-necesitas-saber-es-1783008772602",
       "errores-comunes-de-seguro-de-auto-en-raleigh-north-carolina-es",
-      "evita-los-peligros-del-seguro-de-auto-en-jacksonville-florida-es"
+      "evita-los-peligros-del-seguro-de-auto-en-jacksonville-florida-es",
+      "accidentes-de-auto-en-chicago-illinois-leyes-estatales-y-locales-es-1783026986346",
+      "accidentes-de-auto-en-milwaukee-wisconsin-leyes-estatales-y-locales-es-1783058837889",
+      "accidentes-de-auto-sin-seguro-en-jacksonville-florida-lo-que-debes-saber-es",
+      "accidentes-de-rideshare-en-san-diego-california-lo-que-necesitas-saber-es-1783058714874",
+      "accidentes-de-rideshare-y-camiones-en-tampa-florida-lo-que-debes-saber-es",
+      "evite-los-escollos-del-seguro-de-auto-en-louisville-kentucky-es",
+      "gu-a-completa-sobre-ajustadores-de-reclamos-en-columbus-ohio-oh-es"
     ]
   },
   "queue": {
@@ -678,6 +685,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-02T21:19:58.307Z",
+  "lastPublishAt": "2026-07-03T06:07:40.891Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
