@@ -677,7 +677,17 @@
       "accidentes-de-rideshare-en-san-diego-california-lo-que-necesitas-saber-es-1783058714874",
       "accidentes-de-rideshare-y-camiones-en-tampa-florida-lo-que-debes-saber-es",
       "evite-los-escollos-del-seguro-de-auto-en-louisville-kentucky-es",
-      "gu-a-completa-sobre-ajustadores-de-reclamos-en-columbus-ohio-oh-es"
+      "gu-a-completa-sobre-ajustadores-de-reclamos-en-columbus-ohio-oh-es",
+      "accidentes-de-auto-en-fresno-california-leyes-estatales-y-locales-es-1783058667563",
+      "accidentes-de-auto-en-jacksonville-florida-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-sin-seguro-en-austin-texas-lo-que-necesitas-saber-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-huida-en-denver-colorado-es",
+      "accidentes-de-rideshare-y-camiones-en-san-diego-california-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-colorado-springs-colorado-lo-que-necesitas-saber-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-nueva-york-ny-es",
+      "evita-los-errores-comunes-de-seguros-en-tulsa-oklahoma-es",
+      "evitar-errores-comunes-de-seguro-de-auto-en-philadelphia-pa-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-kansas-city-missouri-es"
     ]
   },
   "queue": {
@@ -685,6 +695,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-03T06:07:40.891Z",
+  "lastPublishAt": "2026-07-03T10:47:12.928Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
