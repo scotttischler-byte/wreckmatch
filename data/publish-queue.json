@@ -687,7 +687,15 @@
       "evita-los-errores-comunes-de-seguro-de-auto-en-nueva-york-ny-es",
       "evita-los-errores-comunes-de-seguros-en-tulsa-oklahoma-es",
       "evitar-errores-comunes-de-seguro-de-auto-en-philadelphia-pa-es",
-      "gu-a-sobre-ajustadores-de-reclamaciones-en-kansas-city-missouri-es"
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-kansas-city-missouri-es",
+      "accidentes-de-auto-en-atlanta-georgia-leyes-estatales-y-locales-es-1783094352602",
+      "accidentes-de-auto-en-austin-texas-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-jacksonville-florida-pasos-inmediatos-a-seguir-es",
+      "accidentes-de-rideshare-en-sacramento-california-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-philadelphia-pennsylvania-todo-lo-que-necesitas-saber-es",
+      "evita-errores-comunes-de-seguro-de-auto-en-washington-dc-es",
+      "evitar-ca-das-en-seguros-de-auto-en-seattle-wa-consejos-y-estad-sticas-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-oklahoma-city-ok-es"
     ]
   },
   "queue": {
@@ -695,6 +703,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-03T10:47:12.928Z",
+  "lastPublishAt": "2026-07-03T16:03:02.184Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
