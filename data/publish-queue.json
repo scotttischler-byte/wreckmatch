@@ -695,7 +695,15 @@
       "claims-adjusters-en-philadelphia-pennsylvania-todo-lo-que-necesitas-saber-es",
       "evita-errores-comunes-de-seguro-de-auto-en-washington-dc-es",
       "evitar-ca-das-en-seguros-de-auto-en-seattle-wa-consejos-y-estad-sticas-es",
-      "gu-a-sobre-ajustadores-de-reclamaciones-en-oklahoma-city-ok-es"
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-oklahoma-city-ok-es",
+      "accidentes-de-auto-en-nashville-tennessee-leyes-estatales-y-locales-es-1783113401731",
+      "accidentes-de-auto-en-portland-oregon-lesiones-m-dicas-y-prevenci-n-es",
+      "accidentes-de-auto-sin-seguro-en-omaha-nebraska-lo-que-necesitas-saber-es",
+      "accidentes-de-auto-sin-seguro-y-huida-en-oakland-california-es",
+      "claims-adjusters-en-miami-florida-todo-lo-que-necesitas-saber-es-1783094578514",
+      "claims-adjusters-en-san-antonio-texas-todo-lo-que-necesitas-saber-es-1783094373829",
+      "errores-comunes-en-seguros-de-auto-en-arlington-texas-es-1783094294918",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-omaha-nebraska-es"
     ]
   },
   "queue": {
@@ -703,6 +711,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-03T16:03:02.184Z",
+  "lastPublishAt": "2026-07-03T21:19:25.838Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
