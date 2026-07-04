@@ -703,7 +703,15 @@
       "claims-adjusters-en-miami-florida-todo-lo-que-necesitas-saber-es-1783094578514",
       "claims-adjusters-en-san-antonio-texas-todo-lo-que-necesitas-saber-es-1783094373829",
       "errores-comunes-en-seguros-de-auto-en-arlington-texas-es-1783094294918",
-      "gu-a-sobre-ajustadores-de-reclamaciones-en-omaha-nebraska-es"
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-omaha-nebraska-es",
+      "accidentes-de-auto-en-nueva-orleans-louisiana-leyes-estatales-y-locales-es-1783113548280",
+      "accidentes-de-rideshare-y-camiones-en-detroit-mi-lo-que-debes-saber-es",
+      "claims-adjusters-en-charlotte-north-carolina-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-las-vegas-nevada-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-las-vegas-nevada-todo-lo-que-necesitas-saber-es-1783144644516",
+      "errores-comunes-en-seguros-de-auto-en-columbus-ohio-es",
+      "houston-texas-evitando-errores-comunes-en-seguros-de-auto-es-1783113515993",
+      "injuries-m-dicas-en-accidentes-de-auto-en-sacramento-california-es"
     ]
   },
   "queue": {
@@ -711,6 +719,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-03T21:19:25.838Z",
+  "lastPublishAt": "2026-07-04T05:57:28.291Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
