@@ -711,7 +711,15 @@
       "claims-adjusters-en-las-vegas-nevada-todo-lo-que-necesitas-saber-es-1783144644516",
       "errores-comunes-en-seguros-de-auto-en-columbus-ohio-es",
       "houston-texas-evitando-errores-comunes-en-seguros-de-auto-es-1783113515993",
-      "injuries-m-dicas-en-accidentes-de-auto-en-sacramento-california-es"
+      "injuries-m-dicas-en-accidentes-de-auto-en-sacramento-california-es",
+      "accidentes-de-auto-en-mesa-arizona-lo-que-necesitas-saber-sobre-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-san-diego-california-leyes-estatales-y-locales-es-1783144487366",
+      "accidentes-de-auto-en-seattle-wa-lo-que-necesitas-saber-sobre-rideshare-y-camiones-es",
+      "accidentes-de-auto-sin-seguro-y-huida-en-portland-oregon-es",
+      "claims-adjusters-en-minneapolis-minnesota-gu-a-completa-es",
+      "claims-adjusters-en-raleigh-north-carolina-lo-que-necesitas-saber-es",
+      "errores-comunes-en-seguros-de-auto-en-louisville-kentucky-es",
+      "evita-las-trampas-del-seguro-de-auto-en-tulsa-oklahoma-es"
     ]
   },
   "queue": {
@@ -719,6 +727,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-04T05:57:28.291Z",
+  "lastPublishAt": "2026-07-04T10:24:18.851Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
