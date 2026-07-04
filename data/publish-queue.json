@@ -727,7 +727,14 @@
       "claims-adjusters-en-chicago-illinois-todo-lo-que-necesitas-saber-es",
       "evita-las-trampas-del-seguro-de-auto-en-arlington-texas-es",
       "evita-las-trampas-del-seguro-de-auto-en-colorado-springs-co-es",
-      "injuries-m-dicas-por-accidentes-de-auto-en-washington-dc-es"
+      "injuries-m-dicas-por-accidentes-de-auto-en-washington-dc-es",
+      "accidentes-de-auto-en-chicago-illinois-leyes-locales-y-estatales-es",
+      "accidentes-de-rideshare-y-camiones-en-detroit-mi-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-houston-texas-lo-que-debes-saber-es",
+      "claims-adjusters-en-nueva-york-ny-todo-lo-que-necesitas-saber-es",
+      "gu-a-para-entender-a-los-ajustadores-de-reclamaciones-en-oakland-california-es",
+      "injuries-and-medical-concerns-after-car-accidents-in-san-jose-california-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-albuquerque-nuevo-m-xico-es-1783026965057"
     ]
   },
   "queue": {
@@ -735,6 +742,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-04T15:16:00.479Z",
+  "lastPublishAt": "2026-07-04T21:08:02.757Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
