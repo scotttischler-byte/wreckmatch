@@ -719,7 +719,15 @@
       "claims-adjusters-en-minneapolis-minnesota-gu-a-completa-es",
       "claims-adjusters-en-raleigh-north-carolina-lo-que-necesitas-saber-es",
       "errores-comunes-en-seguros-de-auto-en-louisville-kentucky-es",
-      "evita-las-trampas-del-seguro-de-auto-en-tulsa-oklahoma-es"
+      "evita-las-trampas-del-seguro-de-auto-en-tulsa-oklahoma-es",
+      "accidentes-de-auto-en-fresno-california-leyes-estatales-y-locales-es-1783160430879",
+      "accidentes-de-auto-en-milwaukee-wisconsin-leyes-estatales-y-locales-es-1783160633188",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-oklahoma-city-ok-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-phoenix-arizona-lo-que-debes-saber-es",
+      "claims-adjusters-en-chicago-illinois-todo-lo-que-necesitas-saber-es",
+      "evita-las-trampas-del-seguro-de-auto-en-arlington-texas-es",
+      "evita-las-trampas-del-seguro-de-auto-en-colorado-springs-co-es",
+      "injuries-m-dicas-por-accidentes-de-auto-en-washington-dc-es"
     ]
   },
   "queue": {
@@ -727,6 +735,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-04T10:24:18.851Z",
+  "lastPublishAt": "2026-07-04T15:16:00.479Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
