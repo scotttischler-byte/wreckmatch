@@ -741,7 +741,17 @@
       "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-indianapolis-indiana-es",
       "claims-adjusters-en-detroit-michigan-gu-a-completa-es",
       "errores-comunes-de-seguro-de-auto-en-san-jos-california-es",
-      "evitar-los-errores-comunes-de-seguro-de-auto-en-kansas-city-missouri-es"
+      "evitar-los-errores-comunes-de-seguro-de-auto-en-kansas-city-missouri-es",
+      "accidentes-de-auto-en-dallas-texas-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-philadelphia-pa-impacto-de-rideshare-y-camiones-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-phoenix-arizona-es",
+      "accidentes-de-rideshare-y-camiones-en-baltimore-maryland-lo-que-necesitas-saber-es-1783247117843",
+      "claims-adjusters-en-austin-texas-lo-que-necesitas-saber-es-1783232048960",
+      "evita-errores-de-seguro-en-omaha-nebraska-claves-para-una-protecci-n-efectiva-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-jacksonville-florida-es-1783247030842",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-raleigh-nc-es",
+      "evita-los-errores-de-seguro-de-auto-en-indianapolis-indiana-es",
+      "gu-a-de-ajustadores-de-reclamaciones-en-nashville-tennessee-tn-es"
     ]
   },
   "queue": {
@@ -749,6 +759,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-05T06:17:10.263Z",
+  "lastPublishAt": "2026-07-05T10:28:19.371Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
