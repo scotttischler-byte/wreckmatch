@@ -734,7 +734,14 @@
       "claims-adjusters-en-nueva-york-ny-todo-lo-que-necesitas-saber-es",
       "gu-a-para-entender-a-los-ajustadores-de-reclamaciones-en-oakland-california-es",
       "injuries-and-medical-concerns-after-car-accidents-in-san-jose-california-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-albuquerque-nuevo-m-xico-es-1783026965057"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-albuquerque-nuevo-m-xico-es-1783026965057",
+      "accidentes-de-auto-en-fort-worth-texas-leyes-estatales-y-locales-es-1783199145779",
+      "accidentes-de-auto-en-fort-worth-texas-leyes-estatales-y-locales-es-1783232026344",
+      "accidentes-de-auto-en-portland-oregon-rideshare-y-camiones-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-indianapolis-indiana-es",
+      "claims-adjusters-en-detroit-michigan-gu-a-completa-es",
+      "errores-comunes-de-seguro-de-auto-en-san-jos-california-es",
+      "evitar-los-errores-comunes-de-seguro-de-auto-en-kansas-city-missouri-es"
     ]
   },
   "queue": {
@@ -742,6 +749,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-04T21:08:02.757Z",
+  "lastPublishAt": "2026-07-05T06:17:10.263Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
