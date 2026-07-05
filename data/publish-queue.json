@@ -751,7 +751,17 @@
       "evita-los-errores-comunes-de-seguro-de-auto-en-jacksonville-florida-es-1783247030842",
       "evita-los-errores-comunes-de-seguros-de-auto-en-raleigh-nc-es",
       "evita-los-errores-de-seguro-de-auto-en-indianapolis-indiana-es",
-      "gu-a-de-ajustadores-de-reclamaciones-en-nashville-tennessee-tn-es"
+      "gu-a-de-ajustadores-de-reclamaciones-en-nashville-tennessee-tn-es",
+      "accidentes-de-auto-en-chicago-illinois-leyes-estatales-y-locales-es-1783264936681",
+      "accidentes-de-auto-en-columbus-ohio-leyes-estatales-y-locales-es-1783247245374",
+      "accidentes-de-auto-en-washington-dc-rideshare-y-camiones-es",
+      "accidentes-de-auto-sin-seguro-en-new-orleans-louisiana-lo-que-necesitas-saber-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-kansas-city-mo-es",
+      "claims-adjusters-en-columbus-ohio-todo-lo-que-necesitas-saber-es-1783264962162",
+      "claims-adjusters-en-el-paso-texas-todo-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-san-francisco-california-lo-que-necesitas-saber-es",
+      "evita-las-trampas-del-seguro-de-auto-en-omaha-nebraska-es",
+      "injuries-and-medical-care-after-auto-accidents-in-tucson-arizona-es"
     ]
   },
   "queue": {
@@ -759,6 +769,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-05T10:28:19.371Z",
+  "lastPublishAt": "2026-07-05T15:25:47.277Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
