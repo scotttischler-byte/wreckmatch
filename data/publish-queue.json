@@ -761,7 +761,15 @@
       "claims-adjusters-en-el-paso-texas-todo-lo-que-necesitas-saber-es",
       "claims-adjusters-en-san-francisco-california-lo-que-necesitas-saber-es",
       "evita-las-trampas-del-seguro-de-auto-en-omaha-nebraska-es",
-      "injuries-and-medical-care-after-auto-accidents-in-tucson-arizona-es"
+      "injuries-and-medical-care-after-auto-accidents-in-tucson-arizona-es",
+      "accidentes-de-auto-en-boston-massachusetts-enfoque-en-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-minneapolis-minnesota-leyes-estatales-y-locales-es",
+      "evita-las-trampas-de-seguro-de-auto-en-portland-oregon-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-albuquerque-nm-es",
+      "injuries-and-medical-concerns-after-car-accidents-in-milwaukee-wi-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-austin-texas-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-detroit-michigan-es-1783264912951",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-fort-worth-texas-es-1782942584826"
     ]
   },
   "queue": {
@@ -769,6 +777,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-05T15:25:47.277Z",
+  "lastPublishAt": "2026-07-05T21:13:55.002Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
