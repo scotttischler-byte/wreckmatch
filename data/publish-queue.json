@@ -793,7 +793,13 @@
       "claims-adjusters-en-mesa-arizona-todo-lo-que-necesitas-saber-es",
       "claims-adjusters-en-tulsa-oklahoma-todo-lo-que-necesitas-saber-es-1783340119266",
       "gu-a-completa-sobre-ajustadores-de-reclamos-en-jacksonville-florida-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-baltimore-maryland-es-1783339950788"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-baltimore-maryland-es-1783339950788",
+      "accidentes-de-auto-en-phoenix-arizona-leyes-estatales-y-locales-es",
+      "claims-adjusters-en-long-beach-california-lo-que-necesitas-saber-es-1783357313293",
+      "evita-las-trampas-de-seguros-de-auto-en-san-jos-california-es",
+      "evita-los-errores-comunes-en-seguros-de-auto-en-indianapolis-in-es",
+      "fresno-california-evitando-pitfalls-de-seguro-de-auto-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-memphis-tennessee-es-1783075448083"
     ]
   },
   "queue": {
@@ -801,6 +807,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-06T17:01:56.915Z",
+  "lastPublishAt": "2026-07-06T21:47:08.753Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
