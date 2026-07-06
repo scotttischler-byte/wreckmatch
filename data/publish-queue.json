@@ -769,7 +769,15 @@
       "injuries-and-medical-concerns-after-car-accidents-in-milwaukee-wi-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-austin-texas-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-detroit-michigan-es-1783264912951",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-fort-worth-texas-es-1782942584826"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-fort-worth-texas-es-1782942584826",
+      "accidentes-de-auto-en-louisville-kentucky-leyes-estatales-y-locales-es-1783285851768",
+      "accidentes-de-auto-en-virginia-beach-virginia-legislaciones-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-en-nashville-tennessee-qu-hacer-en-un-hit-and-run-es",
+      "claims-adjusters-en-houston-texas-lo-que-necesitas-saber-es-1783286031346",
+      "errores-comunes-en-seguros-de-auto-en-san-antonio-texas-es",
+      "evita-las-trampas-de-seguros-de-auto-en-miami-florida-es",
+      "fresno-california-evitando-los-errores-comunes-en-seguros-de-auto-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-fort-worth-texas-es-1783160611125"
     ]
   },
   "queue": {
@@ -777,6 +785,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-05T21:13:55.002Z",
+  "lastPublishAt": "2026-07-06T06:50:29.834Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
