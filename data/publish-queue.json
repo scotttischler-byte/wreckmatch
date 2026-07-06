@@ -777,7 +777,14 @@
       "errores-comunes-en-seguros-de-auto-en-san-antonio-texas-es",
       "evita-las-trampas-de-seguros-de-auto-en-miami-florida-es",
       "fresno-california-evitando-los-errores-comunes-en-seguros-de-auto-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-fort-worth-texas-es-1783160611125"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-fort-worth-texas-es-1783160611125",
+      "accidentes-de-auto-en-nueva-orleans-louisiana-leyes-estatales-y-locales-es-1783320415796",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-albuquerque-nm-es",
+      "accidentes-de-rideshare-y-camiones-en-milwaukee-wisconsin-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-austin-texas-lo-que-necesitas-saber-es-1783320626589",
+      "claims-adjusters-en-fort-worth-texas-lo-que-necesitas-saber-es-1783320435245",
+      "evita-errores-comunes-en-seguros-de-auto-en-tucson-arizona-es",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-san-diego-ca-es-1783339935919"
     ]
   },
   "queue": {
@@ -785,6 +792,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-06T06:50:29.834Z",
+  "lastPublishAt": "2026-07-06T12:15:23.075Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
