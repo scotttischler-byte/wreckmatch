@@ -784,7 +784,16 @@
       "claims-adjusters-en-austin-texas-lo-que-necesitas-saber-es-1783320626589",
       "claims-adjusters-en-fort-worth-texas-lo-que-necesitas-saber-es-1783320435245",
       "evita-errores-comunes-en-seguros-de-auto-en-tucson-arizona-es",
-      "evita-los-errores-comunes-de-seguros-de-auto-en-san-diego-ca-es-1783339935919"
+      "evita-los-errores-comunes-de-seguros-de-auto-en-san-diego-ca-es-1783339935919",
+      "accidentes-de-auto-en-tampa-florida-leyes-estatales-y-locales-es-1783340102992",
+      "accidentes-de-auto-sin-seguro-en-milwaukee-wisconsin-lo-que-debes-saber-es",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-atlanta-georgia-es-1783357192776",
+      "accidentes-de-rideshare-en-camiones-gu-a-para-el-paso-texas-es",
+      "accidentes-de-rideshare-en-san-francisco-ca-lo-que-debes-saber-es",
+      "claims-adjusters-en-mesa-arizona-todo-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-tulsa-oklahoma-todo-lo-que-necesitas-saber-es-1783340119266",
+      "gu-a-completa-sobre-ajustadores-de-reclamos-en-jacksonville-florida-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-baltimore-maryland-es-1783339950788"
     ]
   },
   "queue": {
@@ -792,6 +801,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-06T12:15:23.075Z",
+  "lastPublishAt": "2026-07-06T17:01:56.915Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
