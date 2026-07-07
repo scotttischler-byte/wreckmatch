@@ -823,7 +823,17 @@
       "claims-adjusters-en-nashville-tennessee-lo-que-necesitas-saber-es",
       "evita-errores-comunes-en-el-seguro-de-auto-en-miami-florida-es",
       "evitar-errores-de-seguro-de-auto-en-austin-texas-consejos-esenciales-es",
-      "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-nueva-york-ny-es"
+      "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-nueva-york-ny-es",
+      "accidentes-de-auto-en-colorado-springs-co-lo-que-debes-saber-sobre-rideshare-y-camiones-es",
+      "claims-adjusters-en-philadelphia-pennsylvania-todo-lo-que-necesitas-saber-es-1783460015948",
+      "evita-errores-comunes-de-seguros-de-auto-en-seattle-wa-es",
+      "evita-los-errores-de-seguro-en-chicago-illinois-lo-que-necesitas-saber-es",
+      "evita-los-errores-de-seguro-en-san-diego-california-es",
+      "gu-a-de-ajustadores-de-reclamaciones-en-milwaukee-wisconsin-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-portland-oregon-or-es",
+      "injuries-and-medical-care-after-auto-accidents-in-albuquerque-new-mexico-es",
+      "injuries-and-medical-care-after-auto-accidents-in-raleigh-north-carolina-es",
+      "injuries-and-medical-care-in-auto-accidents-in-chicago-il-es"
     ]
   },
   "queue": {
@@ -831,6 +841,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-07T16:41:01.635Z",
+  "lastPublishAt": "2026-07-07T21:36:04.514Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
