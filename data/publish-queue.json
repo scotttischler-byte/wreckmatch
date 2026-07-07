@@ -812,7 +812,18 @@
       "accidentes-de-auto-en-mesa-arizona-conociendo-las-leyes-locales-y-estatales-es",
       "claims-adjusters-en-dallas-texas-todo-lo-que-necesitas-saber-es",
       "evita-errores-comunes-en-el-seguro-de-auto-en-san-jose-california-es",
-      "evita-los-errores-comunes-de-seguro-de-auto-en-charlotte-nc-es"
+      "evita-los-errores-comunes-de-seguro-de-auto-en-charlotte-nc-es",
+      "accidentes-de-auto-en-colorado-springs-colorado-enfoque-en-rideshare-y-camiones-es-1783442343151",
+      "accidentes-de-auto-en-houston-texas-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-tampa-florida-gu-a-sobre-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-virginia-beach-virginia-lo-que-debes-saber-sobre-las-leyes-estatales-es",
+      "accidentes-de-auto-sin-seguro-en-denver-colorado-lo-que-debes-saber-es",
+      "accidentes-de-auto-sin-seguro-en-mesa-arizona-lo-que-necesitas-saber-es-1783442364197",
+      "claims-adjusters-en-minneapolis-minnesota-todo-lo-que-necesitas-saber-es-1783442324057",
+      "claims-adjusters-en-nashville-tennessee-lo-que-necesitas-saber-es",
+      "evita-errores-comunes-en-el-seguro-de-auto-en-miami-florida-es",
+      "evitar-errores-de-seguro-de-auto-en-austin-texas-consejos-esenciales-es",
+      "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-nueva-york-ny-es"
     ]
   },
   "queue": {
@@ -820,6 +831,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-07T11:18:25.401Z",
+  "lastPublishAt": "2026-07-07T16:41:01.635Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
