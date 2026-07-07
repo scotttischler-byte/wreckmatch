@@ -799,7 +799,14 @@
       "evita-las-trampas-de-seguros-de-auto-en-san-jos-california-es",
       "evita-los-errores-comunes-en-seguros-de-auto-en-indianapolis-in-es",
       "fresno-california-evitando-pitfalls-de-seguro-de-auto-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-memphis-tennessee-es-1783075448083"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-memphis-tennessee-es-1783075448083",
+      "accidentes-de-auto-en-memphis-tennessee-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-philadelphia-pennsylvania-leyes-estatales-y-locales-es-1783374404428",
+      "accidentes-de-auto-sin-seguro-en-sacramento-ca-informaci-n-esencial-es",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-omaha-nebraska-es",
+      "accidentes-de-rideshare-en-tulsa-oklahoma-lo-que-debes-saber-es",
+      "accidentes-de-rideshare-y-camiones-en-tulsa-oklahoma-lo-que-debes-saber-es",
+      "claims-adjusters-en-detroit-michigan-todo-lo-que-necesitas-saber-es"
     ]
   },
   "queue": {
@@ -807,6 +814,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-06T21:47:08.753Z",
+  "lastPublishAt": "2026-07-07T06:21:46.408Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
