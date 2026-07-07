@@ -806,7 +806,13 @@
       "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-omaha-nebraska-es",
       "accidentes-de-rideshare-en-tulsa-oklahoma-lo-que-debes-saber-es",
       "accidentes-de-rideshare-y-camiones-en-tulsa-oklahoma-lo-que-debes-saber-es",
-      "claims-adjusters-en-detroit-michigan-todo-lo-que-necesitas-saber-es"
+      "claims-adjusters-en-detroit-michigan-todo-lo-que-necesitas-saber-es",
+      "accidentes-de-auto-en-kansas-city-missouri-leyes-estatales-y-locales-es-1783423086416",
+      "accidentes-de-auto-en-long-beach-california-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-mesa-arizona-conociendo-las-leyes-locales-y-estatales-es",
+      "claims-adjusters-en-dallas-texas-todo-lo-que-necesitas-saber-es",
+      "evita-errores-comunes-en-el-seguro-de-auto-en-san-jose-california-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-charlotte-nc-es"
     ]
   },
   "queue": {
@@ -814,6 +820,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-07T06:21:46.408Z",
+  "lastPublishAt": "2026-07-07T11:18:25.401Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
