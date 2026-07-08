@@ -850,7 +850,13 @@
       "evita-las-trampas-de-seguros-de-auto-en-louisville-kentucky-es",
       "evita-las-trampas-del-seguro-de-auto-en-austin-texas-es",
       "evita-los-errores-de-seguro-en-accidentes-de-auto-en-jacksonville-florida-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-memphis-tennessee-es-1783357275484"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-memphis-tennessee-es-1783357275484",
+      "accidentes-de-auto-sin-seguro-en-oakland-california-lo-que-necesitas-saber-es",
+      "accidentes-de-rideshare-y-camiones-en-detroit-michigan-lo-que-necesitas-saber-es",
+      "accidentes-de-rideshare-y-camiones-en-memphis-tennessee-lo-que-debes-saber-es",
+      "claims-adjusters-en-philadelphia-pennsylvania-todo-lo-que-necesitas-saber-es-1783506695245",
+      "claims-adjusters-en-san-antonio-texas-lo-que-debes-saber-es",
+      "errores-comunes-de-seguro-de-auto-en-nueva-york-ny-es-1783527056378"
     ]
   },
   "queue": {
@@ -858,6 +864,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-08T10:31:38.434Z",
+  "lastPublishAt": "2026-07-08T16:11:56.374Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
