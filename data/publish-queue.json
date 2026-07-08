@@ -840,7 +840,17 @@
       "errores-comunes-en-seguros-de-auto-en-memphis-tennessee-es-1783488729209",
       "evita-los-errores-comunes-de-seguros-de-auto-en-indianapolis-in-es",
       "injuries-y-atenci-n-m-dica-en-accidentes-de-auto-en-austin-texas-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-long-beach-california-es-1783459980357"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-long-beach-california-es-1783459980357",
+      "accidentes-de-auto-en-los-angeles-california-lo-que-debes-saber-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-portland-oregon-es",
+      "accidentes-de-rideshare-en-san-francisco-california-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-dallas-texas-todo-lo-que-necesitas-saber-es-1783488791649",
+      "claims-adjusters-en-jacksonville-florida-lo-que-debes-saber-es",
+      "claims-adjusters-en-phoenix-arizona-todo-lo-que-necesitas-saber-es",
+      "evita-las-trampas-de-seguros-de-auto-en-louisville-kentucky-es",
+      "evita-las-trampas-del-seguro-de-auto-en-austin-texas-es",
+      "evita-los-errores-de-seguro-en-accidentes-de-auto-en-jacksonville-florida-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-memphis-tennessee-es-1783357275484"
     ]
   },
   "queue": {
@@ -848,6 +858,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-08T05:33:15.592Z",
+  "lastPublishAt": "2026-07-08T10:31:38.434Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
