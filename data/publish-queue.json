@@ -856,7 +856,16 @@
       "accidentes-de-rideshare-y-camiones-en-memphis-tennessee-lo-que-debes-saber-es",
       "claims-adjusters-en-philadelphia-pennsylvania-todo-lo-que-necesitas-saber-es-1783506695245",
       "claims-adjusters-en-san-antonio-texas-lo-que-debes-saber-es",
-      "errores-comunes-de-seguro-de-auto-en-nueva-york-ny-es-1783527056378"
+      "errores-comunes-de-seguro-de-auto-en-nueva-york-ny-es-1783527056378",
+      "accidentes-de-auto-en-arlington-texas-comprendiendo-las-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-charlotte-carolina-del-norte-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-kansas-city-missouri-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-mesa-arizona-conoce-las-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-nashville-tennessee-leyes-estatales-y-locales-es-1783545403318",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-omaha-nebraska-es-1783526985692",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-san-diego-california-es",
+      "errores-comunes-de-seguros-de-auto-en-nueva-york-ny-lo-que-debes-saber-es",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-albuquerque-new-mexico-es"
     ]
   },
   "queue": {
@@ -864,6 +873,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-08T16:11:56.374Z",
+  "lastPublishAt": "2026-07-08T21:19:38.129Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
