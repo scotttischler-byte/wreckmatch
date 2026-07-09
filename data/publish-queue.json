@@ -880,7 +880,18 @@
       "baltimore-md-evitando-los-escollos-del-seguro-de-auto-es",
       "claims-adjusters-en-chicago-illinois-lo-que-necesitas-saber-es-1783577659807",
       "evita-los-peligros-del-seguro-de-auto-en-nueva-orleans-louisiana-es",
-      "evita-trampas-de-seguros-de-auto-en-boston-ma-es"
+      "evita-trampas-de-seguros-de-auto-en-boston-ma-es",
+      "accidentes-de-auto-en-jacksonville-florida-lo-que-debes-saber-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-colorado-springs-co-es-1783614945874",
+      "accidentes-de-auto-y-lesiones-m-dicas-en-nueva-york-ny-es-1783595132822",
+      "accidentes-de-rideshare-y-camiones-en-indianapolis-indiana-lo-que-debes-saber-es",
+      "accidentes-de-rideshare-y-camiones-en-washington-dc-lo-que-necesitas-saber-es-1783595038030",
+      "claims-adjusters-en-austin-texas-todo-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-dallas-texas-todo-lo-que-necesitas-saber-es-1783615042606",
+      "claims-adjusters-en-nueva-york-ny-lo-que-necesitas-saber-es",
+      "errores-comunes-en-seguros-de-auto-en-nashville-tennessee-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-chicago-il-es",
+      "gu-a-sobre-adjustadores-de-reclamos-en-dallas-texas-es"
     ]
   },
   "queue": {
@@ -888,6 +899,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-09T11:06:11.448Z",
+  "lastPublishAt": "2026-07-09T16:37:26.666Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
