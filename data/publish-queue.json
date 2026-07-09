@@ -865,7 +865,14 @@
       "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-omaha-nebraska-es-1783526985692",
       "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-san-diego-california-es",
       "errores-comunes-de-seguros-de-auto-en-nueva-york-ny-lo-que-debes-saber-es",
-      "evita-los-errores-comunes-de-seguros-de-auto-en-albuquerque-new-mexico-es"
+      "evita-los-errores-comunes-de-seguros-de-auto-en-albuquerque-new-mexico-es",
+      "accidentes-de-auto-en-fort-worth-texas-pasos-inmediatos-a-seguir-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-dallas-texas-es-1783577696251",
+      "accidentes-de-auto-y-lesiones-m-dicas-en-fresno-california-lo-que-necesitas-saber-es",
+      "accidentes-de-rideshare-y-camiones-en-tampa-florida-lo-que-debes-saber-es-1783545441848",
+      "evita-errores-comunes-en-seguros-de-auto-en-raleigh-nc-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-albuquerque-nm-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-las-vegas-nevada-es"
     ]
   },
   "queue": {
@@ -873,6 +880,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-08T21:19:38.129Z",
+  "lastPublishAt": "2026-07-09T06:17:06.596Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
