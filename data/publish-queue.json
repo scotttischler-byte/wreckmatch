@@ -872,7 +872,15 @@
       "accidentes-de-rideshare-y-camiones-en-tampa-florida-lo-que-debes-saber-es-1783545441848",
       "evita-errores-comunes-en-seguros-de-auto-en-raleigh-nc-es",
       "gu-a-sobre-ajustadores-de-reclamos-en-albuquerque-nm-es",
-      "gu-a-sobre-ajustadores-de-reclamos-en-las-vegas-nevada-es"
+      "gu-a-sobre-ajustadores-de-reclamos-en-las-vegas-nevada-es",
+      "accidentes-de-auto-en-miami-florida-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-minneapolis-minnesota-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-san-jose-california-es-1783595058916",
+      "accidentes-de-rideshare-y-camiones-en-sacramento-ca-lo-que-necesitas-saber-es",
+      "baltimore-md-evitando-los-escollos-del-seguro-de-auto-es",
+      "claims-adjusters-en-chicago-illinois-lo-que-necesitas-saber-es-1783577659807",
+      "evita-los-peligros-del-seguro-de-auto-en-nueva-orleans-louisiana-es",
+      "evita-trampas-de-seguros-de-auto-en-boston-ma-es"
     ]
   },
   "queue": {
@@ -880,6 +888,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-09T06:17:06.596Z",
+  "lastPublishAt": "2026-07-09T11:06:11.448Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
