@@ -891,7 +891,15 @@
       "claims-adjusters-en-nueva-york-ny-lo-que-necesitas-saber-es",
       "errores-comunes-en-seguros-de-auto-en-nashville-tennessee-es",
       "evita-los-errores-comunes-de-seguro-de-auto-en-chicago-il-es",
-      "gu-a-sobre-adjustadores-de-reclamos-en-dallas-texas-es"
+      "gu-a-sobre-adjustadores-de-reclamos-en-dallas-texas-es",
+      "accidentes-de-auto-en-boston-massachusetts-leyes-estatales-y-locales-es-1783615021285",
+      "accidentes-de-auto-en-omaha-nebraska-pasos-inmediatos-a-seguir-es-1783632598135",
+      "accidentes-de-auto-en-tucson-arizona-lesiones-y-asistencia-m-dica-es",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-louisville-kentucky-ky-es",
+      "claims-adjusters-en-charlotte-north-carolina-lo-que-necesitas-saber-es-1783632678786",
+      "evita-los-errores-comunes-de-seguro-en-denver-colorado-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-tulsa-oklahoma-es",
+      "injuries-and-medical-treatment-after-car-accidents-in-oklahoma-city-ok-es"
     ]
   },
   "queue": {
@@ -899,6 +907,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-09T16:37:26.666Z",
+  "lastPublishAt": "2026-07-09T21:33:41.735Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
