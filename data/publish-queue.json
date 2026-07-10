@@ -918,7 +918,18 @@
       "errores-comunes-de-seguros-de-auto-en-fresno-california-es",
       "evita-las-trampas-de-seguros-de-auto-en-albuquerque-nm-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-chicago-illinois-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-dallas-texas-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-dallas-texas-es",
+      "accidentes-de-auto-en-oklahoma-city-oklahoma-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-tampa-florida-conozca-las-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-huidos-en-arlington-texas-es",
+      "accidentes-de-rideshare-y-camiones-en-miami-florida-es",
+      "claims-adjusters-en-fort-worth-texas-lo-que-necesitas-saber-es-1783681508513",
+      "claims-adjusters-en-omaha-nebraska-todo-lo-que-necesitas-saber-es-1783701245540",
+      "dallas-texas-evitando-trampas-comunes-en-seguros-de-auto-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-austin-texas-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-mesa-arizona-az-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-miami-florida-es-1783058649891",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-new-orleans-louisiana-es"
     ]
   },
   "queue": {
@@ -926,6 +937,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-10T11:05:12.497Z",
+  "lastPublishAt": "2026-07-10T16:34:08.915Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
