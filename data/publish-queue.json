@@ -907,7 +907,18 @@
       "claims-adjusters-en-portland-oregon-lo-que-necesitas-saber-es-1783632817560",
       "errores-comunes-en-seguros-de-auto-en-mesa-arizona-es",
       "injuries-m-dicas-en-accidentes-de-auto-en-long-beach-california-es",
-      "injuries-m-dicas-en-accidentes-de-auto-en-nashville-tennessee-es"
+      "injuries-m-dicas-en-accidentes-de-auto-en-nashville-tennessee-es",
+      "accidentes-de-auto-en-oakland-california-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-en-atlanta-ga-qu-hacer-en-un-hit-and-run-es",
+      "accidentes-de-rideshare-en-raleigh-north-carolina-lo-que-debes-saber-es",
+      "accidentes-de-rideshare-y-camiones-en-baltimore-maryland-lo-que-necesitas-saber-es-1783664098138",
+      "claims-adjusters-en-columbus-ohio-lo-que-necesitas-saber-es-1783681358582",
+      "claims-adjusters-en-denver-colorado-todo-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-los-ngeles-california-todo-lo-que-necesitas-saber-es",
+      "errores-comunes-de-seguros-de-auto-en-fresno-california-es",
+      "evita-las-trampas-de-seguros-de-auto-en-albuquerque-nm-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-chicago-illinois-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-dallas-texas-es"
     ]
   },
   "queue": {
@@ -915,6 +926,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-10T06:17:26.689Z",
+  "lastPublishAt": "2026-07-10T11:05:12.497Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
