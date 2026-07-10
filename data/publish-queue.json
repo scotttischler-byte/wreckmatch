@@ -899,7 +899,15 @@
       "claims-adjusters-en-charlotte-north-carolina-lo-que-necesitas-saber-es-1783632678786",
       "evita-los-errores-comunes-de-seguro-en-denver-colorado-es",
       "gu-a-sobre-ajustadores-de-reclamos-en-tulsa-oklahoma-es",
-      "injuries-and-medical-treatment-after-car-accidents-in-oklahoma-city-ok-es"
+      "injuries-and-medical-treatment-after-car-accidents-in-oklahoma-city-ok-es",
+      "accidentes-de-auto-en-nueva-york-ny-leyes-estatales-y-locales-es-1783664061719",
+      "accidentes-de-auto-en-philadelphia-pennsylvania-leyes-estatales-y-locales-es-1783632656576",
+      "accidentes-de-auto-sin-seguro-en-san-antonio-texas-lo-que-debes-saber-es",
+      "accidentes-de-rideshare-y-camiones-en-detroit-mi-gu-a-esencial-es",
+      "claims-adjusters-en-portland-oregon-lo-que-necesitas-saber-es-1783632817560",
+      "errores-comunes-en-seguros-de-auto-en-mesa-arizona-es",
+      "injuries-m-dicas-en-accidentes-de-auto-en-long-beach-california-es",
+      "injuries-m-dicas-en-accidentes-de-auto-en-nashville-tennessee-es"
     ]
   },
   "queue": {
@@ -907,6 +915,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-09T21:33:41.735Z",
+  "lastPublishAt": "2026-07-10T06:17:26.689Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
