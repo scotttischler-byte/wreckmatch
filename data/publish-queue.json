@@ -929,7 +929,13 @@
       "evita-los-errores-comunes-de-seguro-de-auto-en-austin-texas-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-mesa-arizona-az-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-miami-florida-es-1783058649891",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-new-orleans-louisiana-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-new-orleans-louisiana-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-washington-dc-es",
+      "claims-adjusters-en-columbus-ohio-todo-lo-que-necesitas-saber-es-1783701095339",
+      "evita-las-trampas-del-seguro-de-auto-en-nashville-tn-es",
+      "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-virginia-beach-va-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-las-vegas-nevada-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-phoenix-arizona-es"
     ]
   },
   "queue": {
@@ -937,6 +943,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-10T16:34:08.915Z",
+  "lastPublishAt": "2026-07-10T21:15:29.295Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
