@@ -957,7 +957,13 @@
       "accidentes-de-rideshare-y-camiones-en-jacksonville-florida-lo-que-necesitas-saber-es",
       "claims-adjusters-en-denver-colorado-lo-que-necesitas-saber-es-1783763284852",
       "claims-adjusters-en-sacramento-california-lo-que-necesitas-saber-es-1783763153973",
-      "evita-las-trampas-de-seguro-en-detroit-michigan-gu-a-completa-es"
+      "evita-las-trampas-de-seguro-en-detroit-michigan-gu-a-completa-es",
+      "accidentes-de-auto-en-albuquerque-nuevo-m-xico-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-phoenix-arizona-leyes-estatales-y-locales-es-1783782163593",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-raleigh-north-carolina-es-1783803545521",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-huidas-en-omaha-nebraska-es",
+      "claims-adjusters-en-houston-texas-todo-lo-que-necesitas-saber-es",
+      "evita-los-errores-comunes-de-seguros-en-kansas-city-mo-es"
     ]
   },
   "queue": {
@@ -965,6 +971,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-11T15:05:37.122Z",
+  "lastPublishAt": "2026-07-11T21:01:04.502Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
