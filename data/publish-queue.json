@@ -935,7 +935,16 @@
       "evita-las-trampas-del-seguro-de-auto-en-nashville-tn-es",
       "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-virginia-beach-va-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-las-vegas-nevada-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-phoenix-arizona-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-phoenix-arizona-es",
+      "accidentes-de-auto-en-albuquerque-new-mexico-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-boston-massachusetts-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-colorado-springs-colorado-leyes-estatales-y-locales-es-1783718109833",
+      "accidentes-de-auto-en-tucson-arizona-leyes-estatales-y-locales-es-1783717983744",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-huidos-en-phoenix-arizona-es",
+      "accidentes-de-rideshare-y-camiones-en-portland-oregon-lo-que-debes-saber-es-1783718013163",
+      "evita-errores-comunes-en-seguros-de-auto-en-san-antonio-texas-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-houston-tx-es",
+      "gu-a-sobre-adjustadores-de-reclamos-en-san-francisco-ca-es"
     ]
   },
   "queue": {
@@ -943,6 +952,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-10T21:15:29.295Z",
+  "lastPublishAt": "2026-07-11T05:23:27.653Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
