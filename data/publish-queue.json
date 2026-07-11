@@ -944,7 +944,11 @@
       "accidentes-de-rideshare-y-camiones-en-portland-oregon-lo-que-debes-saber-es-1783718013163",
       "evita-errores-comunes-en-seguros-de-auto-en-san-antonio-texas-es",
       "evita-los-errores-comunes-de-seguro-de-auto-en-houston-tx-es",
-      "gu-a-sobre-adjustadores-de-reclamos-en-san-francisco-ca-es"
+      "gu-a-sobre-adjustadores-de-reclamos-en-san-francisco-ca-es",
+      "accidentes-de-auto-en-miami-florida-leyes-estatales-y-locales-es-1783747262058",
+      "accidentes-de-auto-en-portland-oregon-leyes-estatales-y-locales-es-1783747386105",
+      "accidentes-de-rideshare-en-kansas-city-missouri-lo-que-debes-saber-es",
+      "claims-adjusters-en-memphis-tennessee-todo-lo-que-necesitas-saber-es"
     ]
   },
   "queue": {
@@ -952,6 +956,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-11T05:23:27.653Z",
+  "lastPublishAt": "2026-07-11T09:48:09.040Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
