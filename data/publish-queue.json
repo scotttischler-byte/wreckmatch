@@ -948,7 +948,16 @@
       "accidentes-de-auto-en-miami-florida-leyes-estatales-y-locales-es-1783747262058",
       "accidentes-de-auto-en-portland-oregon-leyes-estatales-y-locales-es-1783747386105",
       "accidentes-de-rideshare-en-kansas-city-missouri-lo-que-debes-saber-es",
-      "claims-adjusters-en-memphis-tennessee-todo-lo-que-necesitas-saber-es"
+      "claims-adjusters-en-memphis-tennessee-todo-lo-que-necesitas-saber-es",
+      "accidentes-de-auto-en-chicago-illinois-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-fort-worth-texas-uninsured-hit-and-run-es",
+      "accidentes-de-auto-en-louisville-kentucky-pasos-inmediatos-a-seguir-es",
+      "accidentes-de-auto-en-san-diego-california-leyes-estatales-y-locales-es-1783763138507",
+      "accidentes-de-rideshare-y-camiones-en-fresno-california-lo-que-necesitas-saber-es",
+      "accidentes-de-rideshare-y-camiones-en-jacksonville-florida-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-denver-colorado-lo-que-necesitas-saber-es-1783763284852",
+      "claims-adjusters-en-sacramento-california-lo-que-necesitas-saber-es-1783763153973",
+      "evita-las-trampas-de-seguro-en-detroit-michigan-gu-a-completa-es"
     ]
   },
   "queue": {
@@ -956,6 +965,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-11T09:48:09.040Z",
+  "lastPublishAt": "2026-07-11T15:05:37.122Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
