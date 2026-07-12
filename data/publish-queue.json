@@ -989,7 +989,17 @@
       "evita-las-trampas-del-seguro-de-auto-en-dallas-texas-es-1783803455196",
       "evita-los-errores-comunes-de-seguro-de-auto-en-nueva-orleans-louisiana-es",
       "evita-los-errores-comunes-de-seguros-de-auto-en-columbus-ohio-es",
-      "evita-los-errores-de-seguro-de-auto-en-atlanta-georgia-es"
+      "evita-los-errores-de-seguro-de-auto-en-atlanta-georgia-es",
+      "accidentes-de-auto-en-colorado-springs-colorado-leyes-estatales-y-locales-es-1783868806746",
+      "accidentes-de-auto-en-fresno-california-leyes-locales-y-estatales-es",
+      "accidentes-de-auto-en-indianapolis-indiana-lesiones-y-atenci-n-m-dica-es-1783868967508",
+      "accidentes-de-rideshare-y-camiones-en-las-vegas-nevada-es",
+      "accidentes-de-rideshare-y-camiones-en-omaha-nebraska-lo-que-debes-saber-es",
+      "claims-adjusters-en-detroit-michigan-lo-que-necesitas-saber-es-1783890160735",
+      "claims-adjusters-en-kansas-city-missouri-lo-que-necesitas-saber-es-1783868827591",
+      "el-paso-texas-evitando-errores-comunes-en-seguros-de-auto-es-1783889958152",
+      "evita-errores-comunes-de-seguros-de-auto-en-chicago-il-es",
+      "evita-los-errores-de-seguro-en-accidentes-de-auto-en-philadelphia-pa-es"
     ]
   },
   "queue": {
@@ -997,6 +1007,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-12T15:10:16.354Z",
+  "lastPublishAt": "2026-07-12T21:02:45.098Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
