@@ -970,7 +970,17 @@
       "accidentes-de-auto-sin-seguro-en-mesa-arizona-lo-que-debes-saber-es",
       "accidentes-de-rideshare-y-camiones-en-seattle-wa-lo-que-debes-saber-es",
       "claims-adjusters-en-austin-texas-lo-que-necesitas-saber-es-1783803660423",
-      "claims-adjusters-en-tampa-florida-lo-que-necesitas-saber-es"
+      "claims-adjusters-en-tampa-florida-lo-que-necesitas-saber-es",
+      "accidentes-de-auto-en-omaha-nebraska-lesiones-y-atenci-n-m-dica-es-1783834705682",
+      "accidentes-de-auto-en-sacramento-california-pasos-inmediatos-a-seguir-es",
+      "accidentes-de-auto-en-seattle-washington-leyes-estatales-y-locales-es-1783834584372",
+      "accidentes-de-auto-en-tucson-arizona-lo-que-debes-saber-sobre-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-virginia-beach-virginia-leyes-estatales-y-locales-es-1783850489046",
+      "accidentes-de-auto-sin-seguro-en-los-angeles-california-lo-que-debes-saber-es",
+      "claims-adjusters-en-baltimore-maryland-lo-que-debes-saber-es",
+      "claims-adjusters-en-indianapolis-indiana-todo-lo-que-necesitas-saber-es",
+      "evita-errores-comunes-en-el-seguro-de-auto-en-jacksonville-florida-es",
+      "evita-las-trampas-del-seguro-de-auto-en-colorado-springs-co-es-1783803597246"
     ]
   },
   "queue": {
@@ -978,6 +988,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-12T05:39:01.448Z",
+  "lastPublishAt": "2026-07-12T10:01:56.286Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
