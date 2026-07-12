@@ -963,7 +963,14 @@
       "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-raleigh-north-carolina-es-1783803545521",
       "accidentes-de-auto-sin-seguro-y-golpes-y-huidas-en-omaha-nebraska-es",
       "claims-adjusters-en-houston-texas-todo-lo-que-necesitas-saber-es",
-      "evita-los-errores-comunes-de-seguros-en-kansas-city-mo-es"
+      "evita-los-errores-comunes-de-seguros-en-kansas-city-mo-es",
+      "accidentes-de-auto-en-charlotte-north-carolina-leyes-estatales-y-locales-es-1783834724274",
+      "accidentes-de-auto-en-las-vegas-nevada-leyes-estatales-y-locales-es-1783803630659",
+      "accidentes-de-auto-en-oklahoma-city-oklahoma-leyes-estatales-y-locales-es-1783803493415",
+      "accidentes-de-auto-sin-seguro-en-mesa-arizona-lo-que-debes-saber-es",
+      "accidentes-de-rideshare-y-camiones-en-seattle-wa-lo-que-debes-saber-es",
+      "claims-adjusters-en-austin-texas-lo-que-necesitas-saber-es-1783803660423",
+      "claims-adjusters-en-tampa-florida-lo-que-necesitas-saber-es"
     ]
   },
   "queue": {
@@ -971,6 +978,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-11T21:01:04.502Z",
+  "lastPublishAt": "2026-07-12T05:39:01.448Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
