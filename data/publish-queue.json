@@ -1008,7 +1008,16 @@
       "evitar-trampas-de-seguro-de-auto-en-memphis-tennessee-es",
       "gu-a-sobre-ajustadores-de-reclamaciones-en-arlington-texas-tx-es",
       "gu-a-sobre-ajustadores-de-reclamaciones-en-washington-dc-es",
-      "gu-a-sobre-ajustadores-de-reclamos-en-oklahoma-city-oklahoma-es"
+      "gu-a-sobre-ajustadores-de-reclamos-en-oklahoma-city-oklahoma-es",
+      "accidentes-de-auto-sin-seguro-en-philadelphia-pennsylvania-lo-que-debes-saber-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-nashville-tn-es",
+      "accidentes-de-rideshare-y-camiones-en-kansas-city-missouri-lo-que-debes-saber-es-1783921687918",
+      "accidentes-de-rideshare-y-camiones-en-san-antonio-texas-lo-que-debes-saber-es",
+      "acciones-inmediatas-tras-un-accidente-de-auto-en-memphis-tennessee-es",
+      "claims-adjusters-en-mesa-arizona-todo-lo-que-necesitas-saber-es-1783921663474",
+      "claims-adjusters-en-phoenix-arizona-todo-lo-que-necesitas-saber-es-1783921868474",
+      "evitar-los-errores-comunes-de-seguro-de-auto-en-philadelphia-pa-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-san-diego-ca-es"
     ]
   },
   "queue": {
@@ -1016,6 +1025,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-13T05:51:13.020Z",
+  "lastPublishAt": "2026-07-13T11:24:44.748Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
