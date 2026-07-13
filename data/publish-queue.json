@@ -999,7 +999,16 @@
       "claims-adjusters-en-kansas-city-missouri-lo-que-necesitas-saber-es-1783868827591",
       "el-paso-texas-evitando-errores-comunes-en-seguros-de-auto-es-1783889958152",
       "evita-errores-comunes-de-seguros-de-auto-en-chicago-il-es",
-      "evita-los-errores-de-seguro-en-accidentes-de-auto-en-philadelphia-pa-es"
+      "evita-los-errores-de-seguro-en-accidentes-de-auto-en-philadelphia-pa-es",
+      "accidentes-de-auto-en-boston-massachusetts-lesiones-y-atenci-n-m-dica-es-1783889974848",
+      "accidentes-de-auto-sin-seguro-en-albuquerque-nuevo-m-xico-todo-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-denver-colorado-lo-que-necesitas-saber-es-1783890006998",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-houston-texas-es",
+      "evitar-ca-das-comunes-en-seguros-de-auto-en-louisville-ky-es",
+      "evitar-trampas-de-seguro-de-auto-en-memphis-tennessee-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-arlington-texas-tx-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-washington-dc-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-oklahoma-city-oklahoma-es"
     ]
   },
   "queue": {
@@ -1007,6 +1016,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-12T21:02:45.098Z",
+  "lastPublishAt": "2026-07-13T05:51:13.020Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
