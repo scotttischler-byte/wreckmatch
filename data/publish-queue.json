@@ -1023,7 +1023,17 @@
       "claims-adjusters-en-phoenix-arizona-todo-lo-que-necesitas-saber-es-1783941880526",
       "evita-ca-das-en-el-seguro-de-auto-en-washington-dc-consejos-y-estad-sticas-es",
       "evita-los-errores-comunes-de-seguro-de-auto-en-virginia-beach-va-es",
-      "evita-los-errores-comunes-de-seguros-de-auto-en-dallas-texas-es-1783941680534"
+      "evita-los-errores-comunes-de-seguros-de-auto-en-dallas-texas-es-1783941680534",
+      "accidentes-de-auto-en-charlotte-nc-pasos-inmediatos-a-seguir-es-1783960972253",
+      "accidentes-de-auto-en-nueva-york-ny-leyes-estatales-y-locales-es-1783961015082",
+      "accidentes-de-auto-en-san-jos-california-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-san-jos-california-leyes-estatales-y-locales-es-1783976673675",
+      "accidentes-de-auto-sin-seguro-en-baltimore-md-lo-que-debes-saber-es",
+      "accidentes-de-auto-sin-seguro-en-san-francisco-california-es",
+      "accidentes-de-rideshare-y-camiones-en-los-ngeles-ca-lo-que-necesitas-saber-es",
+      "accidentes-de-rideshare-y-camiones-en-san-francisco-ca-lo-que-necesitas-saber-es-1783976715945",
+      "claims-adjusters-en-arlington-texas-gu-a-completa-es",
+      "claims-adjusters-en-austin-texas-lo-que-necesitas-saber-es-1783976836385"
     ]
   },
   "queue": {
@@ -1031,6 +1041,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-13T16:43:53.003Z",
+  "lastPublishAt": "2026-07-13T21:07:20.376Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
