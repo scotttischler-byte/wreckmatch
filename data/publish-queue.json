@@ -1017,7 +1017,13 @@
       "claims-adjusters-en-mesa-arizona-todo-lo-que-necesitas-saber-es-1783921663474",
       "claims-adjusters-en-phoenix-arizona-todo-lo-que-necesitas-saber-es-1783921868474",
       "evitar-los-errores-comunes-de-seguro-de-auto-en-philadelphia-pa-es",
-      "gu-a-sobre-ajustadores-de-reclamaciones-en-san-diego-ca-es"
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-san-diego-ca-es",
+      "accidentes-de-auto-en-mesa-arizona-leyes-estatales-y-locales-es-1783941864581",
+      "accidentes-de-auto-en-tampa-florida-lesiones-y-atenci-n-m-dica-es-1783941849562",
+      "claims-adjusters-en-phoenix-arizona-todo-lo-que-necesitas-saber-es-1783941880526",
+      "evita-ca-das-en-el-seguro-de-auto-en-washington-dc-consejos-y-estad-sticas-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-virginia-beach-va-es",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-dallas-texas-es-1783941680534"
     ]
   },
   "queue": {
@@ -1025,6 +1031,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-13T11:24:44.748Z",
+  "lastPublishAt": "2026-07-13T16:43:53.003Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
