@@ -1057,7 +1057,15 @@
       "evita-errores-comunes-de-seguro-de-auto-en-colorado-springs-co-es",
       "evita-los-errores-comunes-en-seguros-de-auto-en-portland-oregon-es",
       "evitar-errores-comunes-con-el-seguro-de-auto-en-baltimore-maryland-es",
-      "gu-a-sobre-ajustadores-de-reclamos-en-chicago-il-es"
+      "gu-a-sobre-ajustadores-de-reclamos-en-chicago-il-es",
+      "accidentes-de-auto-en-milwaukee-wisconsin-leyes-estatales-y-locales-es-1784063367627",
+      "accidentes-de-auto-sin-seguro-en-san-jose-california-gu-a-esencial-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-tulsa-oklahoma-es",
+      "accidentes-de-rideshare-en-dallas-texas-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-minneapolis-minnesota-lo-que-necesitas-saber-es-1784043333030",
+      "evita-los-errores-de-seguro-de-auto-en-long-beach-california-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-nueva-york-ny-es",
+      "injurias-m-dicas-en-accidentes-de-auto-en-nueva-york-ny-es"
     ]
   },
   "queue": {
@@ -1065,6 +1073,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-14T15:35:37.127Z",
+  "lastPublishAt": "2026-07-14T21:09:47.885Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
