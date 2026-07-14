@@ -1048,7 +1048,16 @@
       "claims-adjusters-en-columbus-ohio-lo-que-necesitas-saber-es-1784005138415",
       "evita-errores-comunes-de-seguro-de-auto-en-las-vegas-nevada-es",
       "evita-los-escollos-de-seguros-de-auto-en-albuquerque-nm-es",
-      "gu-a-sobre-ajustadores-de-reclamos-en-virginia-beach-va-es"
+      "gu-a-sobre-ajustadores-de-reclamos-en-virginia-beach-va-es",
+      "accidentes-de-auto-en-boston-massachusetts-conoce-las-leyes-locales-y-estatales-es",
+      "accidentes-de-auto-en-mesa-arizona-conoce-las-leyes-estatales-y-locales-es-1784023989572",
+      "accidentes-de-auto-en-nueva-orleans-louisiana-leyes-estatales-y-locales-es-1784043133548",
+      "accidentes-de-rideshare-y-camiones-en-baltimore-maryland-lo-que-necesitas-saber-es-1784023820054",
+      "claims-adjusters-en-new-orleans-louisiana-lo-que-necesitas-saber-es-1784024013268",
+      "evita-errores-comunes-de-seguro-de-auto-en-colorado-springs-co-es",
+      "evita-los-errores-comunes-en-seguros-de-auto-en-portland-oregon-es",
+      "evitar-errores-comunes-con-el-seguro-de-auto-en-baltimore-maryland-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-chicago-il-es"
     ]
   },
   "queue": {
@@ -1056,6 +1065,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-14T10:13:37.254Z",
+  "lastPublishAt": "2026-07-14T15:35:37.127Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
