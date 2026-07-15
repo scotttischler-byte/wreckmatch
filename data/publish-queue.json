@@ -1079,7 +1079,13 @@
       "adjustadores-de-reclamaciones-en-boston-massachusetts-gu-a-completa-es",
       "evita-errores-comunes-en-seguros-de-auto-en-jacksonville-florida-es",
       "evita-los-errores-de-seguro-de-auto-en-san-antonio-texas-es",
-      "gu-a-sobre-ajustadores-de-reclamos-en-virginia-beach-virginia-va-es"
+      "gu-a-sobre-ajustadores-de-reclamos-en-virginia-beach-virginia-va-es",
+      "accidentes-de-auto-en-sacramento-california-leyes-estatales-y-locales-es-1784110570116",
+      "accidentes-de-auto-en-seattle-wa-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-omaha-nebraska-es-1784129657007",
+      "accidentes-de-rideshare-y-camiones-en-fresno-california-lo-que-necesitas-saber-es-1784110621292",
+      "evita-las-trampas-del-seguro-de-auto-en-phoenix-arizona-es",
+      "evita-trampas-de-seguro-en-indianapolis-in-lo-que-debes-saber-es"
     ]
   },
   "queue": {
@@ -1087,6 +1093,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-15T10:20:23.710Z",
+  "lastPublishAt": "2026-07-15T15:35:55.134Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
