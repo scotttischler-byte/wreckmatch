@@ -1071,7 +1071,15 @@
       "claims-adjusters-en-houston-texas-lo-que-necesitas-saber-es-1784091586441",
       "evita-los-errores-comunes-de-seguro-de-auto-en-austin-texas-es-1784063200202",
       "evita-los-errores-comunes-de-seguros-de-auto-en-washington-dc-es",
-      "gu-a-sobre-ajustadores-de-reclamaciones-en-fresno-california-es"
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-fresno-california-es",
+      "accidentes-de-auto-en-charlotte-north-carolina-leyes-estatales-y-locales-es-1784091573375",
+      "accidentes-de-auto-en-long-beach-california-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-albuquerque-nuevo-m-xico-es",
+      "accidentes-de-rideshare-y-camiones-en-colorado-springs-co-es",
+      "adjustadores-de-reclamaciones-en-boston-massachusetts-gu-a-completa-es",
+      "evita-errores-comunes-en-seguros-de-auto-en-jacksonville-florida-es",
+      "evita-los-errores-de-seguro-de-auto-en-san-antonio-texas-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-virginia-beach-virginia-va-es"
     ]
   },
   "queue": {
@@ -1079,6 +1087,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-15T04:59:50.571Z",
+  "lastPublishAt": "2026-07-15T10:20:23.710Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
