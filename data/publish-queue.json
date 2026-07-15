@@ -1065,7 +1065,13 @@
       "claims-adjusters-en-minneapolis-minnesota-lo-que-necesitas-saber-es-1784043333030",
       "evita-los-errores-de-seguro-de-auto-en-long-beach-california-es",
       "gu-a-sobre-ajustadores-de-reclamos-en-nueva-york-ny-es",
-      "injurias-m-dicas-en-accidentes-de-auto-en-nueva-york-ny-es"
+      "injurias-m-dicas-en-accidentes-de-auto-en-nueva-york-ny-es",
+      "accidentes-de-auto-en-kansas-city-missouri-leyes-estatales-y-locales-es-1784091475301",
+      "accidentes-de-rideshare-y-camiones-en-philadelphia-pennsylvania-es",
+      "claims-adjusters-en-houston-texas-lo-que-necesitas-saber-es-1784091586441",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-austin-texas-es-1784063200202",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-washington-dc-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-fresno-california-es"
     ]
   },
   "queue": {
@@ -1073,6 +1079,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-14T21:09:47.885Z",
+  "lastPublishAt": "2026-07-15T04:59:50.571Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
