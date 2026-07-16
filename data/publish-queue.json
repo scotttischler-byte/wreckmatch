@@ -1120,7 +1120,17 @@
       "evita-las-trampas-del-seguro-en-dallas-tx-lo-que-necesitas-saber-es",
       "evita-los-errores-comunes-de-seguro-de-auto-en-louisville-ky-es",
       "gu-a-sobre-ajustadores-de-reclamos-en-san-antonio-texas-tx-es",
-      "injuries-and-medical-care-after-auto-accidents-in-milwaukee-wi-es"
+      "injuries-and-medical-care-after-auto-accidents-in-milwaukee-wi-es",
+      "accidentes-de-auto-en-charlotte-north-carolina-conoce-las-leyes-locales-y-estatales-es",
+      "accidentes-de-auto-en-houston-texas-lesiones-y-aspectos-m-dicos-es",
+      "accidentes-de-auto-en-phoenix-arizona-leyes-estatales-y-locales-es-1784236316570",
+      "accidentes-de-auto-en-san-diego-california-leyes-estatales-y-locales-es-1784216749824",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-tucson-arizona-es",
+      "accidentes-de-rideshare-y-camiones-en-chicago-illinois-lo-que-debes-saber-es",
+      "claims-adjusters-en-kansas-city-missouri-lo-que-debes-saber-es",
+      "errores-comunes-en-seguros-de-auto-en-denver-colorado-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-oklahoma-city-ok-es-1784236339323",
+      "gu-a-sobre-ajustadores-de-reclamos-en-atlanta-georgia-lo-que-necesitas-saber-es"
     ]
   },
   "queue": {
@@ -1128,6 +1138,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-16T15:49:07.008Z",
+  "lastPublishAt": "2026-07-16T21:12:23.892Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
