@@ -1112,7 +1112,15 @@
       "errores-comunes-en-seguros-de-auto-en-raleigh-north-carolina-es-1784179255947",
       "evita-errores-comunes-de-seguro-de-auto-en-jacksonville-florida-es-1784196963221",
       "evita-errores-comunes-de-seguros-en-colorado-springs-co-es",
-      "houston-texas-ca-das-comunes-de-seguros-de-auto-es"
+      "houston-texas-ca-das-comunes-de-seguros-de-auto-es",
+      "accidentes-de-auto-en-arlington-texas-rideshare-y-camiones-es",
+      "accidentes-de-auto-sin-seguro-en-jacksonville-florida-lo-que-debes-saber-es-1784216819821",
+      "accidentes-de-rideshare-y-camiones-en-tulsa-oklahoma-datos-y-consejos-es",
+      "claims-adjusters-en-boston-massachusetts-todo-lo-que-necesitas-saber-es-1784197166774",
+      "evita-las-trampas-del-seguro-en-dallas-tx-lo-que-necesitas-saber-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-louisville-ky-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-san-antonio-texas-tx-es",
+      "injuries-and-medical-care-after-auto-accidents-in-milwaukee-wi-es"
     ]
   },
   "queue": {
@@ -1120,6 +1128,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-16T10:19:30.866Z",
+  "lastPublishAt": "2026-07-16T15:49:07.008Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
