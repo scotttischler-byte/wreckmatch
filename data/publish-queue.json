@@ -1094,7 +1094,15 @@
       "claims-adjusters-en-memphis-tennessee-lo-que-necesitas-saber-es",
       "claims-adjusters-en-miami-florida-lo-que-necesitas-saber-es-1784129617685",
       "dallas-tx-evitando-errores-comunes-en-seguros-de-auto-es",
-      "evita-las-trampas-de-seguros-de-auto-en-el-paso-texas-es"
+      "evita-las-trampas-de-seguros-de-auto-en-el-paso-texas-es",
+      "accidentes-de-auto-en-mesa-arizona-conozca-las-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-tulsa-oklahoma-leyes-estatales-y-locales-es-1784149841863",
+      "accidentes-de-rideshare-y-camiones-en-seattle-washington-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-kansas-city-missouri-lo-que-necesitas-saber-es-1784149727011",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-columbus-ohio-oh-es",
+      "evita-trampas-de-seguros-en-philadelphia-pa-lo-que-necesitas-saber-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-albuquerque-nm-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-portland-oregon-or-es"
     ]
   },
   "queue": {
@@ -1102,6 +1110,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-15T21:11:05.084Z",
+  "lastPublishAt": "2026-07-16T05:21:42.987Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
