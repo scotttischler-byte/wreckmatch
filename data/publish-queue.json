@@ -1130,7 +1130,17 @@
       "claims-adjusters-en-kansas-city-missouri-lo-que-debes-saber-es",
       "errores-comunes-en-seguros-de-auto-en-denver-colorado-es",
       "gu-a-sobre-ajustadores-de-reclamaciones-en-oklahoma-city-ok-es-1784236339323",
-      "gu-a-sobre-ajustadores-de-reclamos-en-atlanta-georgia-lo-que-necesitas-saber-es"
+      "gu-a-sobre-ajustadores-de-reclamos-en-atlanta-georgia-lo-que-necesitas-saber-es",
+      "accidentes-de-auto-en-columbus-ohio-pasos-inmediatos-a-seguir-es",
+      "accidentes-de-auto-en-fort-worth-texas-leyes-estatales-y-locales-es-1784265881472",
+      "accidentes-de-auto-en-fresno-california-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-milwaukee-wisconsin-leyes-estatales-y-locales-es-1784265703129",
+      "accidentes-de-auto-sin-seguro-en-memphis-tennessee-lo-que-necesitas-saber-es-1784265771426",
+      "claims-adjusters-en-albuquerque-new-mexico-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-baltimore-maryland-lo-que-necesitas-saber-es-1784265720787",
+      "evitar-errores-comunes-en-el-seguro-de-auto-en-albuquerque-nm-es",
+      "injuries-and-medical-care-after-car-accidents-in-detroit-michigan-es-1784043104426",
+      "injuries-and-medical-care-after-car-accidents-in-detroit-michigan-es"
     ]
   },
   "queue": {
@@ -1138,6 +1148,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-16T21:12:23.892Z",
+  "lastPublishAt": "2026-07-17T05:25:03.448Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
