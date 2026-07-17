@@ -1155,7 +1155,16 @@
       "ajustadores-de-reclamos-en-milwaukee-wisconsin-lo-que-necesitas-saber-es",
       "columbus-ohio-lesiones-m-dicas-en-accidentes-de-auto-es",
       "evita-los-errores-comunes-de-seguro-de-auto-en-long-beach-ca-es",
-      "evita-los-errores-comunes-de-seguros-en-albuquerque-nm-es"
+      "evita-los-errores-comunes-de-seguros-en-albuquerque-nm-es",
+      "accidentes-de-auto-en-charlotte-north-carolina-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-en-el-paso-texas-leyes-estatales-y-locales-es-1784301736405",
+      "accidentes-de-auto-sin-seguro-en-omaha-nebraska-lo-que-necesitas-saber-es-1784301781527",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-tulsa-oklahoma-es",
+      "accidentes-de-rideshare-y-camiones-en-oakland-california-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-omaha-nebraska-todo-lo-que-necesitas-saber-es-1784322450410",
+      "evita-ca-das-de-seguros-en-mesa-arizona-consejos-esenciales-es",
+      "evita-ca-das-en-el-seguro-de-auto-en-dallas-texas-gu-a-completa-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-nueva-york-ny-es-1784301752250"
     ]
   },
   "queue": {
@@ -1163,6 +1172,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-17T15:25:03.117Z",
+  "lastPublishAt": "2026-07-17T21:07:34.893Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
