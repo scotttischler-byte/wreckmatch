@@ -1147,7 +1147,15 @@
       "claims-adjusters-en-los-ngeles-california-lo-que-necesitas-saber-es-1784265899043",
       "errores-comunes-en-seguros-de-auto-en-tampa-florida-es",
       "evita-los-errores-comunes-de-seguro-de-auto-en-detroit-mi-es",
-      "injuries-m-dicas-en-accidentes-de-auto-en-kansas-city-missouri-es"
+      "injuries-m-dicas-en-accidentes-de-auto-en-kansas-city-missouri-es",
+      "accidentes-de-auto-en-chicago-illinois-leyes-estatales-y-locales-es-1784282900845",
+      "accidentes-de-auto-en-raleigh-north-carolina-conozca-las-leyes-locales-y-estatales-es",
+      "accidentes-de-auto-en-washington-dc-leyes-estatales-y-locales-es-1784283099265",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-oklahoma-city-ok-es-1784282971755",
+      "ajustadores-de-reclamos-en-milwaukee-wisconsin-lo-que-necesitas-saber-es",
+      "columbus-ohio-lesiones-m-dicas-en-accidentes-de-auto-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-long-beach-ca-es",
+      "evita-los-errores-comunes-de-seguros-en-albuquerque-nm-es"
     ]
   },
   "queue": {
@@ -1155,6 +1163,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-17T10:12:07.796Z",
+  "lastPublishAt": "2026-07-17T15:25:03.117Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
