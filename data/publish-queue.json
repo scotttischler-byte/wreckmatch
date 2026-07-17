@@ -1140,7 +1140,14 @@
       "claims-adjusters-en-baltimore-maryland-lo-que-necesitas-saber-es-1784265720787",
       "evitar-errores-comunes-en-el-seguro-de-auto-en-albuquerque-nm-es",
       "injuries-and-medical-care-after-car-accidents-in-detroit-michigan-es-1784043104426",
-      "injuries-and-medical-care-after-car-accidents-in-detroit-michigan-es"
+      "injuries-and-medical-care-after-car-accidents-in-detroit-michigan-es",
+      "accidentes-de-auto-y-lesiones-m-dicas-en-virginia-beach-virginia-va-es",
+      "accidentes-de-rideshare-y-camiones-en-fresno-california-es",
+      "accidentes-de-rideshare-y-camiones-en-tampa-florida-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-los-ngeles-california-lo-que-necesitas-saber-es-1784265899043",
+      "errores-comunes-en-seguros-de-auto-en-tampa-florida-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-detroit-mi-es",
+      "injuries-m-dicas-en-accidentes-de-auto-en-kansas-city-missouri-es"
     ]
   },
   "queue": {
@@ -1148,6 +1155,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-17T05:25:03.448Z",
+  "lastPublishAt": "2026-07-17T10:12:07.796Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
