@@ -1190,7 +1190,14 @@
       "evita-los-errores-comunes-de-seguro-de-auto-en-memphis-tennessee-es",
       "gu-a-sobre-ajustadores-de-reclamaciones-en-portland-oregon-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-el-paso-texas-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-kansas-city-missouri-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-kansas-city-missouri-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-washington-dc-es-1784386920817",
+      "claims-adjusters-en-colorado-springs-colorado-lo-que-necesitas-saber-es-1784408369124",
+      "claims-adjusters-en-oklahoma-city-ok-lo-que-necesitas-saber-es",
+      "evita-las-trampas-del-seguro-de-auto-en-detroit-michigan-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-seattle-wa-es-1784408327803",
+      "gu-a-de-ajustadores-de-reclamaciones-en-san-diego-california-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-portland-oregon-es-1784387019955"
     ]
   },
   "queue": {
@@ -1198,6 +1205,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-18T15:03:44.574Z",
+  "lastPublishAt": "2026-07-18T20:59:33.524Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
