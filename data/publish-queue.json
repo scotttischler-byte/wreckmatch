@@ -1172,7 +1172,15 @@
       "houston-tx-evitando-errores-comunes-al-contratar-seguros-de-auto-es",
       "injuries-m-dicas-en-accidentes-de-auto-en-sacramento-california-es-1784063215068",
       "lesiones-m-dicas-en-accidentes-de-auto-en-atlanta-georgia-es-1783960876680",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-austin-texas-es-1784179271227"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-austin-texas-es-1784179271227",
+      "accidentes-de-auto-en-atlanta-georgia-rideshare-y-camiones-en-la-i-95-e-i-75-es",
+      "accidentes-de-auto-sin-seguro-en-minneapolis-minnesota-qu-hacer-en-un-hit-and-run-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-huidos-en-baltimore-maryland-es",
+      "errores-comunes-en-seguros-de-auto-en-nashville-tennessee-es-1784350577694",
+      "gu-a-sobre-adjusters-de-reclamaciones-en-milwaukee-wisconsin-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-columbus-ohio-oh-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-miami-florida-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-colorado-springs-co-es-1784005109427"
     ]
   },
   "queue": {
@@ -1180,6 +1188,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-18T04:57:01.948Z",
+  "lastPublishAt": "2026-07-18T09:46:49.198Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
