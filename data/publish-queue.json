@@ -1164,7 +1164,15 @@
       "claims-adjusters-en-omaha-nebraska-todo-lo-que-necesitas-saber-es-1784322450410",
       "evita-ca-das-de-seguros-en-mesa-arizona-consejos-esenciales-es",
       "evita-ca-das-en-el-seguro-de-auto-en-dallas-texas-gu-a-completa-es",
-      "gu-a-sobre-ajustadores-de-reclamos-en-nueva-york-ny-es-1784301752250"
+      "gu-a-sobre-ajustadores-de-reclamos-en-nueva-york-ny-es-1784301752250",
+      "accidentes-de-auto-en-washington-d-c-conociendo-las-leyes-estatales-y-locales-es",
+      "accidentes-de-rideshare-y-camiones-en-chicago-illinois-lo-que-debes-saber-es-1784322337916",
+      "claims-adjusters-en-boston-massachusetts-lo-que-necesitas-saber-es-1784322318890",
+      "houston-texas-evita-los-errores-comunes-al-asegurar-tu-auto-es",
+      "houston-tx-evitando-errores-comunes-al-contratar-seguros-de-auto-es",
+      "injuries-m-dicas-en-accidentes-de-auto-en-sacramento-california-es-1784063215068",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-atlanta-georgia-es-1783960876680",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-austin-texas-es-1784179271227"
     ]
   },
   "queue": {
@@ -1172,6 +1180,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-17T21:07:34.893Z",
+  "lastPublishAt": "2026-07-18T04:57:01.948Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
