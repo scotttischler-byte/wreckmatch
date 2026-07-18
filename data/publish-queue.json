@@ -1180,7 +1180,17 @@
       "gu-a-sobre-adjusters-de-reclamaciones-en-milwaukee-wisconsin-es",
       "gu-a-sobre-ajustadores-de-reclamaciones-en-columbus-ohio-oh-es",
       "gu-a-sobre-ajustadores-de-reclamaciones-en-miami-florida-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-colorado-springs-co-es-1784005109427"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-colorado-springs-co-es-1784005109427",
+      "accidentes-de-auto-en-fort-worth-texas-pasos-inmediatos-a-seguir-es-1784367807465",
+      "accidentes-de-rideshare-y-camiones-en-fresno-california-lo-que-necesitas-saber-es-1784367893101",
+      "accidentes-de-rideshare-y-camiones-en-miami-florida-lo-que-necesitas-saber-es",
+      "errores-comunes-de-seguro-de-auto-en-denver-colorado-lo-que-debes-saber-es",
+      "errores-comunes-en-seguros-de-auto-en-charlotte-carolina-del-norte-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-indianapolis-in-es-1784367826844",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-memphis-tennessee-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-portland-oregon-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-el-paso-texas-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-kansas-city-missouri-es"
     ]
   },
   "queue": {
@@ -1188,6 +1198,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-18T09:46:49.198Z",
+  "lastPublishAt": "2026-07-18T15:03:44.574Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
