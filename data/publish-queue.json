@@ -1197,7 +1197,16 @@
       "evita-las-trampas-del-seguro-de-auto-en-detroit-michigan-es",
       "evita-los-errores-comunes-de-seguro-de-auto-en-seattle-wa-es-1784408327803",
       "gu-a-de-ajustadores-de-reclamaciones-en-san-diego-california-es",
-      "gu-a-sobre-ajustadores-de-reclamaciones-en-portland-oregon-es-1784387019955"
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-portland-oregon-es-1784387019955",
+      "accidentes-de-auto-en-long-beach-california-leyes-estatales-y-locales-es-1784408241517",
+      "accidentes-de-auto-en-portland-oregon-seguridad-en-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-raleigh-north-carolina-leyes-estatales-y-locales-es-1784408355881",
+      "accidentes-de-auto-en-virginia-beach-virginia-lesiones-y-aspectos-m-dicos-es",
+      "accidentes-de-auto-sin-seguro-en-arlington-texas-lo-que-debes-saber-es",
+      "accidentes-de-auto-sin-seguro-en-washington-dc-impacto-y-consejos-es",
+      "accidentes-de-rideshare-y-camiones-en-oakland-california-estad-sticas-y-consejos-es-1784408271261",
+      "evita-trampas-de-seguro-en-accidentes-de-auto-en-las-vegas-nv-es",
+      "injuries-and-medical-care-after-auto-accidents-in-jacksonville-florida-fl-es"
     ]
   },
   "queue": {
@@ -1205,6 +1214,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-18T20:59:33.524Z",
+  "lastPublishAt": "2026-07-19T05:30:46.651Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
