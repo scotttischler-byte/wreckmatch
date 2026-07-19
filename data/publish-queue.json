@@ -1216,7 +1216,17 @@
       "evita-los-errores-de-seguro-de-auto-en-fort-worth-texas-es",
       "evitar-errores-comunes-en-seguros-de-auto-en-columbus-ohio-oh-es",
       "gu-a-de-ajustadores-de-reclamos-en-denver-colorado-lo-que-necesitas-saber-es",
-      "injuries-m-dicas-en-accidentes-de-auto-en-albuquerque-new-mexico-es"
+      "injuries-m-dicas-en-accidentes-de-auto-en-albuquerque-new-mexico-es",
+      "accidentes-de-auto-en-dallas-texas-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-milwaukee-wisconsin-conociendo-las-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-minneapolis-minnesota-prevenci-n-y-tratamiento-de-lesiones-es",
+      "accidentes-de-auto-en-sacramento-california-leyes-estatales-y-locales-es-1784473565247",
+      "accidentes-de-auto-sin-seguro-en-new-orleans-louisiana-lo-que-necesitas-saber-es-1784473479499",
+      "claims-adjusters-en-fresno-california-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-san-jose-california-todo-lo-que-necesitas-saber-es",
+      "gu-a-de-ajustadores-de-reclamos-en-memphis-tennessee-tn-es",
+      "injuries-m-dicas-en-accidentes-de-auto-en-raleigh-north-carolina-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-denver-colorado-es"
     ]
   },
   "queue": {
@@ -1224,6 +1234,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-19T10:00:00.305Z",
+  "lastPublishAt": "2026-07-19T15:06:33.299Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
