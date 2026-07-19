@@ -1226,7 +1226,12 @@
       "claims-adjusters-en-san-jose-california-todo-lo-que-necesitas-saber-es",
       "gu-a-de-ajustadores-de-reclamos-en-memphis-tennessee-tn-es",
       "injuries-m-dicas-en-accidentes-de-auto-en-raleigh-north-carolina-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-denver-colorado-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-denver-colorado-es",
+      "accidentes-de-rideshare-y-camiones-en-kansas-city-missouri-es",
+      "errores-comunes-en-seguros-de-auto-en-chicago-illinois-es",
+      "errores-comunes-en-seguros-de-auto-en-mesa-arizona-lo-que-necesitas-saber-es",
+      "evita-los-errores-comunes-de-seguros-en-virginia-beach-va-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-louisville-kentucky-es-1784063349805"
     ]
   },
   "queue": {
@@ -1234,6 +1239,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-19T15:06:33.299Z",
+  "lastPublishAt": "2026-07-19T20:59:59.573Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
