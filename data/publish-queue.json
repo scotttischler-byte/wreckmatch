@@ -1206,7 +1206,17 @@
       "accidentes-de-auto-sin-seguro-en-washington-dc-impacto-y-consejos-es",
       "accidentes-de-rideshare-y-camiones-en-oakland-california-estad-sticas-y-consejos-es-1784408271261",
       "evita-trampas-de-seguro-en-accidentes-de-auto-en-las-vegas-nv-es",
-      "injuries-and-medical-care-after-auto-accidents-in-jacksonville-florida-fl-es"
+      "injuries-and-medical-care-after-auto-accidents-in-jacksonville-florida-fl-es",
+      "accidentes-de-auto-en-los-ngeles-california-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-tulsa-oklahoma-conoce-las-leyes-locales-y-estatales-es",
+      "accidentes-de-auto-sin-seguro-y-fugas-en-washington-dc-qu-hacer-es",
+      "accidentes-de-rideshare-y-camiones-en-arlington-texas-estad-sticas-y-consejos-es",
+      "claims-adjusters-en-san-jose-california-lo-que-necesitas-saber-es",
+      "errores-comunes-en-seguros-de-auto-en-nueva-york-ny-lo-que-debes-saber-es",
+      "evita-los-errores-de-seguro-de-auto-en-fort-worth-texas-es",
+      "evitar-errores-comunes-en-seguros-de-auto-en-columbus-ohio-oh-es",
+      "gu-a-de-ajustadores-de-reclamos-en-denver-colorado-lo-que-necesitas-saber-es",
+      "injuries-m-dicas-en-accidentes-de-auto-en-albuquerque-new-mexico-es"
     ]
   },
   "queue": {
@@ -1214,6 +1224,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-19T05:30:46.651Z",
+  "lastPublishAt": "2026-07-19T10:00:00.305Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
