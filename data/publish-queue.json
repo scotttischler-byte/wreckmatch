@@ -1251,7 +1251,15 @@
       "evita-los-errores-comunes-de-seguros-de-auto-en-fort-worth-texas-es-1784526554908",
       "injuries-m-dicas-por-accidentes-de-auto-en-tampa-florida-es",
       "lesiones-m-dicas-en-accidentes-de-auto-en-louisville-kentucky-ky-es-1784367842075",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-louisville-kentucky-ky-es"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-louisville-kentucky-ky-es",
+      "accidentes-de-auto-en-san-diego-california-leyes-estatales-y-locales-es-1784545205828",
+      "accidentes-de-auto-y-lesiones-m-dicas-en-philadelphia-pennsylvania-pa-es",
+      "claims-adjusters-en-baltimore-maryland-todo-lo-que-necesitas-saber-es-1784563262701",
+      "claims-adjusters-en-jacksonville-florida-gu-a-completa-es",
+      "errores-comunes-al-contratar-seguros-de-auto-en-nueva-york-ny-es",
+      "evita-trampas-de-seguro-en-miami-florida-lo-que-debes-saber-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-san-antonio-texas-tx-es-1784545222016",
+      "las-vegas-nv-ca-das-comunes-en-el-seguro-de-auto-es"
     ]
   },
   "queue": {
@@ -1259,6 +1267,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-20T11:03:17.484Z",
+  "lastPublishAt": "2026-07-20T16:01:07.605Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
