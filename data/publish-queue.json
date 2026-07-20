@@ -1259,7 +1259,15 @@
       "errores-comunes-al-contratar-seguros-de-auto-en-nueva-york-ny-es",
       "evita-trampas-de-seguro-en-miami-florida-lo-que-debes-saber-es",
       "gu-a-sobre-ajustadores-de-reclamaciones-en-san-antonio-texas-tx-es-1784545222016",
-      "las-vegas-nv-ca-das-comunes-en-el-seguro-de-auto-es"
+      "las-vegas-nv-ca-das-comunes-en-el-seguro-de-auto-es",
+      "accidentes-de-auto-en-colorado-springs-colorado-leyes-estatales-y-locales-es-1784582337335",
+      "accidentes-de-auto-en-indianapolis-indiana-pasos-inmediatos-a-seguir-es",
+      "accidentes-de-auto-en-new-orleans-louisiana-leyes-estatales-y-locales-es-1784582489504",
+      "accidentes-de-auto-en-oakland-california-seguridad-en-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-seattle-wa-lesiones-y-atenci-n-m-dica-es-1784563212206",
+      "accidentes-de-auto-sin-seguro-en-oakland-california-lo-que-necesitas-saber-es-1784582384274",
+      "accidentes-de-auto-sin-seguros-en-kansas-city-missouri-lo-que-debes-saber-es",
+      "evitando-errores-comunes-de-seguro-de-auto-en-chicago-illinois-es"
     ]
   },
   "queue": {
@@ -1267,6 +1275,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-20T16:01:07.605Z",
+  "lastPublishAt": "2026-07-20T21:21:51.391Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
