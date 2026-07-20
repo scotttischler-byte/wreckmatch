@@ -1231,7 +1231,19 @@
       "errores-comunes-en-seguros-de-auto-en-chicago-illinois-es",
       "errores-comunes-en-seguros-de-auto-en-mesa-arizona-lo-que-necesitas-saber-es",
       "evita-los-errores-comunes-de-seguros-en-virginia-beach-va-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-louisville-kentucky-es-1784063349805"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-louisville-kentucky-es-1784063349805",
+      "accidentes-de-auto-en-baltimore-maryland-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-denver-colorado-pasos-inmediatos-a-seguir-es",
+      "accidentes-de-auto-en-el-paso-texas-leyes-estatales-y-locales-es-1784526449449",
+      "accidentes-de-auto-en-nashville-tennessee-rideshare-y-camiones-es-1784526491096",
+      "accidentes-de-auto-en-tucson-arizona-leyes-estatales-y-locales-es-1784494667602",
+      "accidentes-de-auto-sin-seguro-en-columbus-ohio-lo-que-necesitas-saber-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-houston-texas-es",
+      "accidentes-de-rideshare-y-camiones-en-oakland-california-lo-que-necesitas-saber-es-1784494696118",
+      "acciones-inmediatas-despu-s-de-un-accidente-de-auto-en-washington-dc-es",
+      "claims-adjusters-en-austin-texas-lo-que-necesitas-saber-es-1784494794792",
+      "claims-adjusters-en-los-angeles-california-lo-que-necesitas-saber-es-1784526599394",
+      "claims-adjusters-en-los-angeles-california-lo-que-necesitas-saber-es"
     ]
   },
   "queue": {
@@ -1239,6 +1251,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-19T20:59:59.573Z",
+  "lastPublishAt": "2026-07-20T05:50:04.159Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
