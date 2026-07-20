@@ -1243,7 +1243,15 @@
       "acciones-inmediatas-despu-s-de-un-accidente-de-auto-en-washington-dc-es",
       "claims-adjusters-en-austin-texas-lo-que-necesitas-saber-es-1784494794792",
       "claims-adjusters-en-los-angeles-california-lo-que-necesitas-saber-es-1784526599394",
-      "claims-adjusters-en-los-angeles-california-lo-que-necesitas-saber-es"
+      "claims-adjusters-en-los-angeles-california-lo-que-necesitas-saber-es",
+      "accidentes-de-auto-en-albuquerque-new-mexico-enfoque-en-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-kansas-city-missouri-leyes-estatales-y-locales-es-1784526585470",
+      "accidentes-de-auto-sin-seguro-en-long-beach-california-informaci-n-clave-es",
+      "claims-adjusters-en-sacramento-california-lo-que-necesitas-saber-es-1784526465616",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-fort-worth-texas-es-1784526554908",
+      "injuries-m-dicas-por-accidentes-de-auto-en-tampa-florida-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-louisville-kentucky-ky-es-1784367842075",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-louisville-kentucky-ky-es"
     ]
   },
   "queue": {
@@ -1251,6 +1259,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-20T05:50:04.159Z",
+  "lastPublishAt": "2026-07-20T11:03:17.484Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
