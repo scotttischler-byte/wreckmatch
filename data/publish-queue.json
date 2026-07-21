@@ -1267,7 +1267,16 @@
       "accidentes-de-auto-en-seattle-wa-lesiones-y-atenci-n-m-dica-es-1784563212206",
       "accidentes-de-auto-sin-seguro-en-oakland-california-lo-que-necesitas-saber-es-1784582384274",
       "accidentes-de-auto-sin-seguros-en-kansas-city-missouri-lo-que-debes-saber-es",
-      "evitando-errores-comunes-de-seguro-de-auto-en-chicago-illinois-es"
+      "evitando-errores-comunes-de-seguro-de-auto-en-chicago-illinois-es",
+      "accidentes-de-auto-en-detroit-michigan-lesiones-y-atenci-n-m-dica-es-1784582318862",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-minneapolis-minnesota-mn-es",
+      "accidentes-de-rideshare-y-camiones-en-minneapolis-minnesota-lo-que-debes-saber-es",
+      "claims-adjusters-en-boston-massachusetts-todo-lo-que-necesitas-saber-es-1784582351283",
+      "claims-adjusters-en-tampa-florida-lo-que-necesitas-saber-es-1784582506666",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-tucson-arizona-es",
+      "evita-los-errores-de-seguro-de-auto-en-denver-colorado-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-charlotte-north-carolina-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-arlington-texas-tx-es-1784563063228"
     ]
   },
   "queue": {
@@ -1275,6 +1284,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-20T21:21:51.391Z",
+  "lastPublishAt": "2026-07-21T05:31:30.531Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
