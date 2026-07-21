@@ -1292,7 +1292,14 @@
       "claims-adjusters-en-mesa-arizona-todo-lo-que-necesitas-saber-es-1784630121822",
       "errores-comunes-en-seguros-de-auto-en-tucson-arizona-es",
       "evita-los-errores-comunes-de-seguros-de-auto-en-nueva-york-ny-es-1784649086221",
-      "fort-worth-texas-evitando-errores-comunes-en-seguros-de-auto-es"
+      "fort-worth-texas-evitando-errores-comunes-en-seguros-de-auto-es",
+      "accidentes-de-auto-en-baltimore-maryland-gu-a-sobre-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-portland-oregon-leyes-estatales-y-locales-es-1784649278733",
+      "accidentes-de-rideshare-en-dallas-texas-lo-que-debes-saber-es-1784649157919",
+      "charlottesville-carolina-del-norte-errores-comunes-en-seguros-de-auto-es",
+      "claims-adjusters-en-atlanta-georgia-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-houston-texas-lo-que-necesitas-saber-es-1784649300782",
+      "claims-adjusters-en-nashville-tennessee-lo-que-necesitas-saber-es-1784649139962"
     ]
   },
   "queue": {
@@ -1300,6 +1307,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-21T15:55:05.481Z",
+  "lastPublishAt": "2026-07-21T21:19:37.147Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
