@@ -1276,7 +1276,15 @@
       "evita-los-errores-comunes-de-seguro-de-auto-en-tucson-arizona-es",
       "evita-los-errores-de-seguro-de-auto-en-denver-colorado-es",
       "gu-a-sobre-ajustadores-de-reclamaciones-en-charlotte-north-carolina-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-arlington-texas-tx-es-1784563063228"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-arlington-texas-tx-es-1784563063228",
+      "accidentes-de-auto-en-long-beach-california-leyes-estatales-y-locales-es-1784611725143",
+      "accidentes-de-auto-en-memphis-tennessee-leyes-estatales-y-locales-es-1784630107798",
+      "accidentes-de-auto-en-washington-dc-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-omaha-nebraska-es-1784630016719",
+      "claims-adjusters-en-houston-texas-lo-que-necesitas-saber-es-1784611742287",
+      "claims-adjusters-en-seattle-washington-todo-lo-que-necesitas-saber-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-mesa-arizona-az-es-1784494766842",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-miami-florida-es-1784582457951"
     ]
   },
   "queue": {
@@ -1284,6 +1292,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-21T05:31:30.531Z",
+  "lastPublishAt": "2026-07-21T10:35:26.406Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
