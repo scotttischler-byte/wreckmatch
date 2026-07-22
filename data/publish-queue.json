@@ -1315,7 +1315,16 @@
       "accidentes-de-rideshare-y-camiones-en-jacksonville-florida-lo-que-debes-saber-es",
       "claims-adjusters-en-chicago-illinois-lo-que-necesitas-saber-es-1784697999018",
       "evita-ca-das-de-seguros-en-colorado-springs-co-lo-que-debes-saber-es",
-      "evita-los-errores-comunes-de-seguros-de-auto-en-mesa-arizona-es"
+      "evita-los-errores-comunes-de-seguros-de-auto-en-mesa-arizona-es",
+      "accidentes-de-auto-en-nashville-tennessee-leyes-estatales-y-locales-es-1784716459921",
+      "accidentes-de-auto-en-san-jose-california-lesiones-m-dicas-y-prevenci-n-es",
+      "accidentes-de-auto-sin-seguro-en-fresno-california-gu-a-sobre-golpes-y-fugas-es",
+      "accidentes-de-rideshare-y-camiones-en-tucson-arizona-lo-que-debes-saber-es",
+      "claims-adjusters-en-atlanta-georgia-lo-que-necesitas-saber-es-1784716472131",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-nueva-orleans-louisiana-es",
+      "evitar-trampas-de-seguros-en-accidentes-de-auto-en-philadelphia-pennsylvania-es",
+      "gu-a-de-ajustadores-de-reclamaciones-en-albuquerque-new-mexico-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-milwaukee-wisconsin-es"
     ]
   },
   "queue": {
@@ -1323,6 +1332,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-22T10:34:36.876Z",
+  "lastPublishAt": "2026-07-22T15:50:24.821Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
