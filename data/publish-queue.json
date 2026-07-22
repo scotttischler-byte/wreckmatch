@@ -1306,7 +1306,16 @@
       "accidentes-de-auto-en-oklahoma-city-oklahoma-leyes-estatales-y-locales-es-1784668752927",
       "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-seattle-wa-es-1784668676005",
       "claims-adjusters-en-boston-massachusetts-todo-lo-que-necesitas-saber-es-1784668646172",
-      "el-paso-texas-evitando-los-escollos-del-seguro-de-auto-es"
+      "el-paso-texas-evitando-los-escollos-del-seguro-de-auto-es",
+      "accidentes-de-auto-en-arlington-texas-conozca-las-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-tampa-florida-lesiones-y-atenci-n-m-dica-es-1784697971676",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-oakland-california-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-tulsa-oklahoma-es-1784716390131",
+      "accidentes-de-auto-y-lesiones-m-dicas-en-albuquerque-new-mexico-es",
+      "accidentes-de-rideshare-y-camiones-en-jacksonville-florida-lo-que-debes-saber-es",
+      "claims-adjusters-en-chicago-illinois-lo-que-necesitas-saber-es-1784697999018",
+      "evita-ca-das-de-seguros-en-colorado-springs-co-lo-que-debes-saber-es",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-mesa-arizona-es"
     ]
   },
   "queue": {
@@ -1314,6 +1323,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-22T05:28:33.128Z",
+  "lastPublishAt": "2026-07-22T10:34:36.876Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
