@@ -1299,7 +1299,14 @@
       "charlottesville-carolina-del-norte-errores-comunes-en-seguros-de-auto-es",
       "claims-adjusters-en-atlanta-georgia-lo-que-necesitas-saber-es",
       "claims-adjusters-en-houston-texas-lo-que-necesitas-saber-es-1784649300782",
-      "claims-adjusters-en-nashville-tennessee-lo-que-necesitas-saber-es-1784649139962"
+      "claims-adjusters-en-nashville-tennessee-lo-que-necesitas-saber-es-1784649139962",
+      "accidentes-de-auto-en-detroit-michigan-leyes-estatales-y-locales-es-1784668630523",
+      "accidentes-de-auto-en-kansas-city-missouri-leyes-estatales-y-locales-es-1784697986571",
+      "accidentes-de-auto-en-nueva-york-ny-lesiones-y-asistencia-m-dica-es",
+      "accidentes-de-auto-en-oklahoma-city-oklahoma-leyes-estatales-y-locales-es-1784668752927",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-seattle-wa-es-1784668676005",
+      "claims-adjusters-en-boston-massachusetts-todo-lo-que-necesitas-saber-es-1784668646172",
+      "el-paso-texas-evitando-los-escollos-del-seguro-de-auto-es"
     ]
   },
   "queue": {
@@ -1307,6 +1314,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-21T21:19:37.147Z",
+  "lastPublishAt": "2026-07-22T05:28:33.128Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
