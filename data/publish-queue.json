@@ -1324,7 +1324,18 @@
       "evita-los-errores-comunes-de-seguros-de-auto-en-nueva-orleans-louisiana-es",
       "evitar-trampas-de-seguros-en-accidentes-de-auto-en-philadelphia-pennsylvania-es",
       "gu-a-de-ajustadores-de-reclamaciones-en-albuquerque-new-mexico-es",
-      "gu-a-sobre-ajustadores-de-reclamaciones-en-milwaukee-wisconsin-es"
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-milwaukee-wisconsin-es",
+      "accidentes-de-auto-en-denver-colorado-leyes-estatales-y-locales-es-1784735295303",
+      "accidentes-de-auto-en-indianapolis-indiana-pasos-inmediatos-a-seguir-es-1784754999615",
+      "accidentes-de-auto-sin-seguro-en-detroit-mi-todo-lo-que-debes-saber-es",
+      "accidentes-de-rideshare-y-camiones-en-baltimore-maryland-es",
+      "claims-adjusters-en-louisville-kentucky-lo-que-necesitas-saber-es-1784754939872",
+      "claims-adjusters-en-memphis-tennessee-todo-lo-que-necesitas-saber-es-1784755056332",
+      "errores-comunes-de-seguro-de-auto-en-boston-massachusetts-es",
+      "evita-ca-das-en-el-seguro-automotriz-en-fort-worth-texas-es",
+      "evita-ca-das-en-el-seguro-de-auto-en-san-antonio-texas-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-sacramento-ca-es-1784755011467",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-minneapolis-minnesota-es"
     ]
   },
   "queue": {
@@ -1332,6 +1343,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-22T15:50:24.821Z",
+  "lastPublishAt": "2026-07-22T21:17:41.219Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
