@@ -1362,7 +1362,14 @@
       "errores-comunes-en-seguros-de-auto-en-san-diego-california-es",
       "evita-los-errores-comunes-de-seguro-de-auto-en-kansas-city-missouri-es",
       "gu-a-sobre-ajustadores-de-reclamaciones-en-virginia-beach-virginia-va-es",
-      "injuries-and-medical-considerations-after-auto-accidents-in-jacksonville-fl-es"
+      "injuries-and-medical-considerations-after-auto-accidents-in-jacksonville-fl-es",
+      "accidentes-de-auto-en-el-paso-texas-lesiones-y-atenci-n-m-dica-es-1784822512031",
+      "accidentes-de-auto-en-louisville-kentucky-leyes-estatales-y-locales-es-1784822416688",
+      "accidentes-de-auto-en-washington-dc-conoce-las-leyes-estatales-y-locales-es",
+      "accidentes-de-rideshare-en-mesa-arizona-lo-que-necesitas-saber-es",
+      "claims-adjusters-en-charlotte-north-carolina-todo-lo-que-necesitas-saber-es",
+      "evita-errores-comunes-de-seguro-de-auto-en-austin-tx-es",
+      "evita-los-errores-comunes-de-seguros-de-auto-en-dallas-texas-es-1784841128870"
     ]
   },
   "queue": {
@@ -1370,6 +1377,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-23T16:02:30.436Z",
+  "lastPublishAt": "2026-07-23T21:12:48.874Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
