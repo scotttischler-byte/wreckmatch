@@ -1335,7 +1335,15 @@
       "evita-ca-das-en-el-seguro-automotriz-en-fort-worth-texas-es",
       "evita-ca-das-en-el-seguro-de-auto-en-san-antonio-texas-es",
       "evita-los-errores-comunes-de-seguro-de-auto-en-sacramento-ca-es-1784755011467",
-      "gu-a-sobre-ajustadores-de-reclamaciones-en-minneapolis-minnesota-es"
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-minneapolis-minnesota-es",
+      "accidentes-de-auto-en-el-paso-texas-leyes-estatales-y-locales-es-1784784887790",
+      "accidentes-de-auto-en-phoenix-arizona-lesiones-y-atenci-n-m-dica-es-1784784765481",
+      "accidentes-de-auto-en-tucson-arizona-leyes-estatales-y-locales-es-1784755042286",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-miami-florida-es",
+      "accidentes-de-rideshare-en-tulsa-oklahoma-lo-que-necesitas-saber-es",
+      "evita-los-errores-de-seguro-de-auto-en-arlington-texas-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-albuquerque-new-mexico-es-1784735309745",
+      "injuries-and-medical-assistance-after-auto-accidents-in-raleigh-north-carolina-es"
     ]
   },
   "queue": {
@@ -1343,6 +1351,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-22T21:17:41.219Z",
+  "lastPublishAt": "2026-07-23T05:35:01.496Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
