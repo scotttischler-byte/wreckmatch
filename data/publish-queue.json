@@ -1353,7 +1353,16 @@
       "errores-comunes-en-seguros-de-auto-en-denver-colorado-es-1784802647617",
       "errores-comunes-en-seguros-de-auto-en-portland-oregon-es-1784784858381",
       "gu-a-sobre-ajustadores-de-reclamaciones-en-virginia-beach-va-es",
-      "gu-a-sobre-ajustadores-de-reclamos-en-long-beach-california-ca-es-1784784897432"
+      "gu-a-sobre-ajustadores-de-reclamos-en-long-beach-california-ca-es-1784784897432",
+      "accidentes-de-auto-en-albuquerque-new-mexico-conozca-las-leyes-locales-y-estatales-es",
+      "accidentes-de-auto-en-mesa-arizona-conoce-las-leyes-locales-y-estatales-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-fresno-california-es-1784822455326",
+      "accidentes-de-rideshare-y-camiones-en-indianapolis-indiana-es",
+      "claims-adjusters-en-denver-colorado-gu-a-completa-es",
+      "errores-comunes-en-seguros-de-auto-en-san-diego-california-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-kansas-city-missouri-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-virginia-beach-virginia-va-es",
+      "injuries-and-medical-considerations-after-auto-accidents-in-jacksonville-fl-es"
     ]
   },
   "queue": {
@@ -1361,6 +1370,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-23T10:31:35.242Z",
+  "lastPublishAt": "2026-07-23T16:02:30.436Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
