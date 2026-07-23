@@ -1343,7 +1343,17 @@
       "accidentes-de-rideshare-en-tulsa-oklahoma-lo-que-necesitas-saber-es",
       "evita-los-errores-de-seguro-de-auto-en-arlington-texas-es",
       "gu-a-sobre-ajustadores-de-reclamos-en-albuquerque-new-mexico-es-1784735309745",
-      "injuries-and-medical-assistance-after-auto-accidents-in-raleigh-north-carolina-es"
+      "injuries-and-medical-assistance-after-auto-accidents-in-raleigh-north-carolina-es",
+      "accidentes-de-auto-en-las-vegas-nevada-leyes-estatales-y-locales-es-1784784778065",
+      "accidentes-de-auto-en-new-orleans-louisiana-leyes-estatales-y-locales-es-1784802676335",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-omaha-nebraska-es-1784802607502",
+      "accidentes-de-rideshare-en-oklahoma-city-ok-lo-que-necesitas-saber-es-1784784805157",
+      "claims-adjusters-en-sacramento-california-lo-que-necesitas-saber-es-1784802578424",
+      "errores-comunes-en-seguros-de-auto-en-columbus-ohio-es-1784802539560",
+      "errores-comunes-en-seguros-de-auto-en-denver-colorado-es-1784802647617",
+      "errores-comunes-en-seguros-de-auto-en-portland-oregon-es-1784784858381",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-virginia-beach-va-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-long-beach-california-ca-es-1784784897432"
     ]
   },
   "queue": {
@@ -1351,6 +1361,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-23T05:35:01.496Z",
+  "lastPublishAt": "2026-07-23T10:31:35.242Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
