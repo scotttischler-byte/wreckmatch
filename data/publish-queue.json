@@ -1378,7 +1378,15 @@
       "gu-a-sobre-ajustadores-de-reclamaciones-en-nashville-tennessee-es",
       "gu-a-sobre-ajustadores-de-reclamos-de-accidentes-de-auto-en-san-francisco-ca-es",
       "injuries-m-dicas-en-accidentes-de-auto-en-atlanta-georgia-es",
-      "injuries-m-dicas-en-accidentes-de-auto-en-los-angeles-california-es"
+      "injuries-m-dicas-en-accidentes-de-auto-en-los-angeles-california-es",
+      "accidentes-de-auto-en-detroit-michigan-lesiones-y-atenci-n-m-dica-es-1784888854711",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-philadelphia-pa-es",
+      "accidentes-de-rideshare-y-camiones-en-miami-florida-lo-que-necesitas-saber-es-1784888768996",
+      "accidentes-de-rideshare-y-camiones-en-raleigh-north-carolina-es",
+      "claims-adjusters-en-houston-texas-lo-que-necesitas-saber-es-1784888879027",
+      "el-paso-texas-ca-das-comunes-en-seguros-de-auto-es",
+      "errores-comunes-en-seguros-de-auto-en-virginia-beach-va-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-minneapolis-minnesota-mn-es"
     ]
   },
   "queue": {
@@ -1386,6 +1394,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-24T05:29:45.868Z",
+  "lastPublishAt": "2026-07-24T10:28:03.813Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
