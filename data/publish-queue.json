@@ -1395,7 +1395,15 @@
       "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-milwaukee-wisconsin-es",
       "evita-ca-das-en-el-seguro-de-auto-en-nueva-orleans-louisiana-es",
       "evita-errores-comunes-de-seguro-de-auto-en-tulsa-oklahoma-es",
-      "evita-las-trampas-del-seguro-de-auto-en-indianapolis-in-es"
+      "evita-las-trampas-del-seguro-de-auto-en-indianapolis-in-es",
+      "accidentes-de-auto-en-fort-worth-texas-conoce-las-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-memphis-tennessee-pasos-inmediatos-a-seguir-es",
+      "accidentes-de-auto-en-san-antonio-texas-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-chicago-illinois-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-huidos-en-long-beach-california-es",
+      "claims-adjusters-en-los-angeles-california-todo-lo-que-necesitas-saber-es",
+      "evita-las-trampas-del-seguro-de-auto-en-boston-ma-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-atlanta-georgia-es-1784907028435"
     ]
   },
   "queue": {
@@ -1403,6 +1411,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-24T15:32:19.370Z",
+  "lastPublishAt": "2026-07-24T21:13:41.258Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
