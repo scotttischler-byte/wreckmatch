@@ -1369,7 +1369,16 @@
       "accidentes-de-rideshare-en-mesa-arizona-lo-que-necesitas-saber-es",
       "claims-adjusters-en-charlotte-north-carolina-todo-lo-que-necesitas-saber-es",
       "evita-errores-comunes-de-seguro-de-auto-en-austin-tx-es",
-      "evita-los-errores-comunes-de-seguros-de-auto-en-dallas-texas-es-1784841128870"
+      "evita-los-errores-comunes-de-seguros-de-auto-en-dallas-texas-es-1784841128870",
+      "accidentes-de-auto-en-colorado-springs-colorado-leyes-estatales-y-locales-es-1784841151948",
+      "accidentes-de-auto-en-minneapolis-minnesota-lesiones-y-atenci-n-m-dica-es-1784841140117",
+      "accidentes-de-auto-sin-seguro-en-memphis-tennessee-qu-hacer-y-c-mo-actuar-es",
+      "accidentes-de-rideshare-y-camiones-en-nashville-tennessee-lo-que-debes-saber-es",
+      "claims-adjusters-en-tucson-arizona-lo-que-necesitas-saber-es-1784841163869",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-nashville-tennessee-es",
+      "gu-a-sobre-ajustadores-de-reclamos-de-accidentes-de-auto-en-san-francisco-ca-es",
+      "injuries-m-dicas-en-accidentes-de-auto-en-atlanta-georgia-es",
+      "injuries-m-dicas-en-accidentes-de-auto-en-los-angeles-california-es"
     ]
   },
   "queue": {
@@ -1377,6 +1386,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-23T21:12:48.874Z",
+  "lastPublishAt": "2026-07-24T05:29:45.868Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
