@@ -1386,7 +1386,16 @@
       "claims-adjusters-en-houston-texas-lo-que-necesitas-saber-es-1784888879027",
       "el-paso-texas-ca-das-comunes-en-seguros-de-auto-es",
       "errores-comunes-en-seguros-de-auto-en-virginia-beach-va-es",
-      "gu-a-sobre-ajustadores-de-reclamaciones-en-minneapolis-minnesota-mn-es"
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-minneapolis-minnesota-mn-es",
+      "accidentes-de-auto-en-boston-massachusetts-lesiones-y-atenci-n-m-dica-es-1784888724576",
+      "accidentes-de-auto-en-jacksonville-florida-pasos-inmediatos-a-seguir-es-1784888815206",
+      "accidentes-de-auto-en-nueva-york-ny-enfoque-en-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-omaha-nebraska-leyes-estatales-y-locales-es-1784907122517",
+      "accidentes-de-auto-en-seattle-wa-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-milwaukee-wisconsin-es",
+      "evita-ca-das-en-el-seguro-de-auto-en-nueva-orleans-louisiana-es",
+      "evita-errores-comunes-de-seguro-de-auto-en-tulsa-oklahoma-es",
+      "evita-las-trampas-del-seguro-de-auto-en-indianapolis-in-es"
     ]
   },
   "queue": {
@@ -1394,6 +1403,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-24T10:28:03.813Z",
+  "lastPublishAt": "2026-07-24T15:32:19.370Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
