@@ -1410,7 +1410,13 @@
       "fresno-california-evita-los-errores-comunes-al-contratar-un-seguro-de-auto-es",
       "gu-a-de-ajustadores-de-reclamos-en-philadelphia-pa-es",
       "gu-a-sobre-ajustadores-de-reclamaciones-en-baltimore-maryland-es",
-      "injuries-m-dicas-en-accidentes-de-auto-en-long-beach-california-es-1784927588908"
+      "injuries-m-dicas-en-accidentes-de-auto-en-long-beach-california-es-1784927588908",
+      "accidentes-de-auto-en-philadelphia-pennsylvania-leyes-estatales-y-locales-es-1784957022171",
+      "accidentes-de-rideshare-en-albuquerque-new-mexico-lo-que-debes-saber-es",
+      "claims-adjusters-en-fresno-california-lo-que-necesitas-saber-es-1784956929544",
+      "claims-adjusters-en-seattle-washington-todo-lo-que-necesitas-saber-es-1784973324384",
+      "claims-adjusters-en-tampa-florida-lo-que-necesitas-saber-es-1784957033862",
+      "evita-los-errores-comunes-de-seguros-en-memphis-tennessee-es"
     ]
   },
   "queue": {
@@ -1418,6 +1424,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-25T05:23:58.683Z",
+  "lastPublishAt": "2026-07-25T09:57:16.296Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
