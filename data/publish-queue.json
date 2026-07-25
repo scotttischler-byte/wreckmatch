@@ -1425,7 +1425,19 @@
       "errores-comunes-en-seguros-de-auto-en-phoenix-arizona-es",
       "errores-comunes-en-seguros-de-auto-en-sacramento-california-es",
       "evita-los-errores-comunes-de-seguro-de-auto-en-minneapolis-mn-es",
-      "gu-a-de-ajustadores-de-reclamos-en-portland-oregon-lo-que-necesitas-saber-es"
+      "gu-a-de-ajustadores-de-reclamos-en-portland-oregon-lo-que-necesitas-saber-es",
+      "accidentes-de-auto-en-atlanta-georgia-leyes-estatales-y-locales-es-1785013159525",
+      "accidentes-de-auto-en-memphis-tennessee-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-new-york-ny-lo-que-debes-saber-sobre-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-oklahoma-city-ok-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-tucson-arizona-enfrentando-el-desaf-o-de-uninsured-hit-and-run-es",
+      "accidentes-de-auto-en-virginia-beach-virginia-leyes-estatales-y-locales-es-1785013252122",
+      "claims-adjusters-en-kansas-city-missouri-lo-que-necesitas-saber-es-1785013169994",
+      "claims-adjusters-en-miami-florida-lo-que-necesitas-saber-es-1785013264021",
+      "errores-comunes-de-seguros-de-auto-en-nueva-orleans-louisiana-es",
+      "errores-comunes-en-seguros-de-auto-en-arlington-texas-es-1784992243775",
+      "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-tampa-florida-fl-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-denver-colorado-es"
     ]
   },
   "queue": {
@@ -1433,6 +1445,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-25T15:11:26.732Z",
+  "lastPublishAt": "2026-07-25T21:01:09.020Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
