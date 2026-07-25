@@ -1416,7 +1416,16 @@
       "claims-adjusters-en-fresno-california-lo-que-necesitas-saber-es-1784956929544",
       "claims-adjusters-en-seattle-washington-todo-lo-que-necesitas-saber-es-1784973324384",
       "claims-adjusters-en-tampa-florida-lo-que-necesitas-saber-es-1784957033862",
-      "evita-los-errores-comunes-de-seguros-en-memphis-tennessee-es"
+      "evita-los-errores-comunes-de-seguros-en-memphis-tennessee-es",
+      "accidentes-de-auto-en-nashville-tennessee-conoce-las-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-en-san-francisco-ca-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-sin-seguro-en-mesa-arizona-lo-que-necesitas-saber-es-1784973348633",
+      "accidentes-de-auto-sin-seguro-y-choques-por-huida-en-chicago-il-es",
+      "accidentes-de-rideshare-y-camiones-en-las-vegas-nevada-lo-que-necesitas-saber-es-1784973336873",
+      "errores-comunes-en-seguros-de-auto-en-phoenix-arizona-es",
+      "errores-comunes-en-seguros-de-auto-en-sacramento-california-es",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-minneapolis-mn-es",
+      "gu-a-de-ajustadores-de-reclamos-en-portland-oregon-lo-que-necesitas-saber-es"
     ]
   },
   "queue": {
@@ -1424,6 +1433,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-25T09:57:16.296Z",
+  "lastPublishAt": "2026-07-25T15:11:26.732Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
