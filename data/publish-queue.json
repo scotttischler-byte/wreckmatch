@@ -1403,7 +1403,14 @@
       "accidentes-de-auto-sin-seguro-y-golpes-y-huidos-en-long-beach-california-es",
       "claims-adjusters-en-los-angeles-california-todo-lo-que-necesitas-saber-es",
       "evita-las-trampas-del-seguro-de-auto-en-boston-ma-es",
-      "gu-a-sobre-ajustadores-de-reclamaciones-en-atlanta-georgia-es-1784907028435"
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-atlanta-georgia-es-1784907028435",
+      "accidentes-de-auto-en-colorado-springs-co-lesiones-y-atenci-n-m-dica-es",
+      "accidentes-de-auto-sin-seguro-en-arlington-texas-gu-a-completa-es",
+      "accidentes-de-rideshare-en-san-jose-california-lo-que-necesitas-saber-es",
+      "fresno-california-evita-los-errores-comunes-al-contratar-un-seguro-de-auto-es",
+      "gu-a-de-ajustadores-de-reclamos-en-philadelphia-pa-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-baltimore-maryland-es",
+      "injuries-m-dicas-en-accidentes-de-auto-en-long-beach-california-es-1784927588908"
     ]
   },
   "queue": {
@@ -1411,6 +1418,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-24T21:13:41.258Z",
+  "lastPublishAt": "2026-07-25T05:23:58.683Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
