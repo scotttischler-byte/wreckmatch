@@ -1451,7 +1451,16 @@
       "accidentes-de-auto-en-milwaukee-wisconsin-uninsured-hit-and-run-es",
       "gu-a-sobre-ajustadores-de-reclamaciones-en-mesa-arizona-az-es",
       "gu-a-sobre-ajustadores-de-reclamos-en-tulsa-oklahoma-es-1785044325246",
-      "injuries-m-dicas-en-virginia-beach-virginia-lo-que-necesitas-saber-es"
+      "injuries-m-dicas-en-virginia-beach-virginia-lo-que-necesitas-saber-es",
+      "accidentes-de-auto-en-kansas-city-missouri-leyes-estatales-y-locales-es-1785060520131",
+      "accidentes-de-auto-en-minneapolis-minnesota-impacto-de-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-san-diego-ca-leyes-estatales-y-locales-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-milwaukee-wisconsin-es-1785060444574",
+      "accidentes-de-rideshare-y-camiones-en-philadelphia-pennsylvania-lo-que-debes-saber-es",
+      "ajustadores-de-reclamos-en-fort-worth-texas-gu-a-completa-es",
+      "claims-adjusters-en-tampa-florida-lo-que-necesitas-saber-es-1785060533336",
+      "errores-comunes-en-seguros-de-auto-en-albuquerque-new-mexico-es-1785060488449",
+      "evita-ca-das-en-seguros-de-auto-en-austin-texas-es"
     ]
   },
   "queue": {
@@ -1459,6 +1468,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-26T10:08:58.131Z",
+  "lastPublishAt": "2026-07-26T15:13:17.529Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
