@@ -1437,7 +1437,16 @@
       "errores-comunes-de-seguros-de-auto-en-nueva-orleans-louisiana-es",
       "errores-comunes-en-seguros-de-auto-en-arlington-texas-es-1784992243775",
       "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-tampa-florida-fl-es",
-      "gu-a-sobre-ajustadores-de-reclamaciones-en-denver-colorado-es"
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-denver-colorado-es",
+      "accidentes-de-auto-en-chicago-illinois-leyes-estatales-y-locales-es-1785044395627",
+      "accidentes-de-rideshare-en-camiones-en-san-antonio-texas-lo-que-debes-saber-es",
+      "errores-comunes-en-seguros-de-auto-en-detroit-michigan-es",
+      "evita-los-escollos-del-seguro-de-auto-en-tulsa-oklahoma-es",
+      "injuries-and-medical-considerations-after-car-accidents-in-el-paso-texas-es",
+      "injuries-m-dicas-en-accidentes-de-auto-en-austin-texas-es-1784957006498",
+      "injuries-m-dicas-en-accidentes-de-auto-en-fort-worth-texas-es",
+      "injuries-m-dicas-en-accidentes-de-auto-en-mesa-arizona-az-es",
+      "injuries-m-dicas-en-accidentes-de-auto-en-omaha-nebraska-es"
     ]
   },
   "queue": {
@@ -1445,6 +1454,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-25T21:01:09.020Z",
+  "lastPublishAt": "2026-07-26T05:40:09.074Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
