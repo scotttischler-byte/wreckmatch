@@ -1446,7 +1446,12 @@
       "injuries-m-dicas-en-accidentes-de-auto-en-austin-texas-es-1784957006498",
       "injuries-m-dicas-en-accidentes-de-auto-en-fort-worth-texas-es",
       "injuries-m-dicas-en-accidentes-de-auto-en-mesa-arizona-az-es",
-      "injuries-m-dicas-en-accidentes-de-auto-en-omaha-nebraska-es"
+      "injuries-m-dicas-en-accidentes-de-auto-en-omaha-nebraska-es",
+      "accidentes-de-auto-en-albuquerque-new-mexico-lesiones-m-dicas-y-m-s-es",
+      "accidentes-de-auto-en-milwaukee-wisconsin-uninsured-hit-and-run-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-mesa-arizona-az-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-tulsa-oklahoma-es-1785044325246",
+      "injuries-m-dicas-en-virginia-beach-virginia-lo-que-necesitas-saber-es"
     ]
   },
   "queue": {
@@ -1454,6 +1459,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-26T05:40:09.074Z",
+  "lastPublishAt": "2026-07-26T10:08:58.131Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
