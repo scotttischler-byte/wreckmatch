@@ -1460,7 +1460,16 @@
       "ajustadores-de-reclamos-en-fort-worth-texas-gu-a-completa-es",
       "claims-adjusters-en-tampa-florida-lo-que-necesitas-saber-es-1785060533336",
       "errores-comunes-en-seguros-de-auto-en-albuquerque-new-mexico-es-1785060488449",
-      "evita-ca-das-en-seguros-de-auto-en-austin-texas-es"
+      "evita-ca-das-en-seguros-de-auto-en-austin-texas-es",
+      "accidentes-de-auto-en-sacramento-california-leyes-estatales-y-locales-es-1785078782050",
+      "accidentes-de-auto-en-san-diego-california-leyes-estatales-y-locales-es-1785100015139",
+      "accidentes-de-auto-en-tampa-florida-pasos-inmediatos-a-seguir-es",
+      "accidentes-de-auto-sin-seguro-en-louisville-kentucky-lo-que-debes-saber-es",
+      "claims-adjusters-en-los-ngeles-california-lo-que-necesitas-saber-es-1785078792563",
+      "errores-comunes-de-seguros-de-auto-en-nueva-york-ny-es",
+      "errores-comunes-en-seguros-de-auto-en-san-francisco-ca-es-1785078760395",
+      "evita-errores-comunes-de-seguro-de-auto-en-el-paso-texas-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-portland-oregon-es-1785078696184"
     ]
   },
   "queue": {
@@ -1468,6 +1477,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-26T15:13:17.529Z",
+  "lastPublishAt": "2026-07-26T21:07:15.018Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
