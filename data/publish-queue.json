@@ -1479,7 +1479,14 @@
       "claims-adjusters-en-long-beach-california-lo-que-necesitas-saber-es-1785099907447",
       "evita-las-trampas-del-seguro-de-auto-en-nueva-york-ny-es-1785131894776",
       "evita-los-errores-comunes-de-seguro-en-las-vegas-nevada-es",
-      "gu-a-sobre-ajustadores-de-reclamos-en-jacksonville-florida-fl-es"
+      "gu-a-sobre-ajustadores-de-reclamos-en-jacksonville-florida-fl-es",
+      "accidentes-de-auto-en-seattle-wa-impacto-de-rideshare-y-camiones-es",
+      "accidentes-de-auto-sin-seguro-en-tulsa-oklahoma-lo-que-necesitas-saber-es-1785151973635",
+      "claims-adjusters-en-houston-texas-lo-que-necesitas-saber-es-1785151938871",
+      "claims-adjusters-en-san-diego-california-todo-lo-que-necesitas-saber-es",
+      "errores-comunes-en-seguros-de-auto-en-mesa-arizona-lo-que-debes-saber-es-1785151884884",
+      "gu-a-sobre-ajustadores-de-reclamos-en-san-jose-california-ca-es",
+      "injuries-and-medical-care-after-car-accidents-in-oklahoma-city-ok-es"
     ]
   },
   "queue": {
@@ -1487,6 +1494,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-27T06:01:51.178Z",
+  "lastPublishAt": "2026-07-27T11:34:36.862Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
