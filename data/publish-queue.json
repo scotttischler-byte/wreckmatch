@@ -1469,7 +1469,17 @@
       "errores-comunes-de-seguros-de-auto-en-nueva-york-ny-es",
       "errores-comunes-en-seguros-de-auto-en-san-francisco-ca-es-1785078760395",
       "evita-errores-comunes-de-seguro-de-auto-en-el-paso-texas-es",
-      "gu-a-sobre-ajustadores-de-reclamaciones-en-portland-oregon-es-1785078696184"
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-portland-oregon-es-1785078696184",
+      "accidentes-de-auto-en-albuquerque-new-mexico-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-columbus-ohio-leyes-estatales-y-locales-es-1785131927674",
+      "accidentes-de-auto-en-san-jose-california-lesiones-m-dicas-y-recursos-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-miami-florida-fl-es",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-sacramento-ca-es",
+      "accidentes-de-rideshare-y-camiones-en-atlanta-ga-lo-que-debes-saber-es",
+      "claims-adjusters-en-long-beach-california-lo-que-necesitas-saber-es-1785099907447",
+      "evita-las-trampas-del-seguro-de-auto-en-nueva-york-ny-es-1785131894776",
+      "evita-los-errores-comunes-de-seguro-en-las-vegas-nevada-es",
+      "gu-a-sobre-ajustadores-de-reclamos-en-jacksonville-florida-fl-es"
     ]
   },
   "queue": {
@@ -1477,6 +1487,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-26T21:07:15.018Z",
+  "lastPublishAt": "2026-07-27T06:01:51.178Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
