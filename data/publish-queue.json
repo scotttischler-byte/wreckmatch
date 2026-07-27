@@ -1486,7 +1486,17 @@
       "claims-adjusters-en-san-diego-california-todo-lo-que-necesitas-saber-es",
       "errores-comunes-en-seguros-de-auto-en-mesa-arizona-lo-que-debes-saber-es-1785151884884",
       "gu-a-sobre-ajustadores-de-reclamos-en-san-jose-california-ca-es",
-      "injuries-and-medical-care-after-car-accidents-in-oklahoma-city-ok-es"
+      "injuries-and-medical-care-after-car-accidents-in-oklahoma-city-ok-es",
+      "accidentes-de-auto-en-charlotte-north-carolina-leyes-estatales-y-locales-es-1785152058276",
+      "accidentes-de-auto-en-chicago-illinois-leyes-estatales-y-locales-es-1785151923686",
+      "accidentes-de-auto-en-indianapolis-indiana-leyes-estatales-y-locales-es-1785169718362",
+      "accidentes-de-auto-sin-seguro-y-golpes-y-fugas-en-san-jos-california-es",
+      "acciones-inmediatas-tras-un-accidente-de-auto-en-raleigh-north-carolina-es",
+      "claims-adjusters-en-detroit-michigan-todo-lo-que-necesitas-saber-es-1785152071824",
+      "claims-adjusters-en-memphis-tennessee-todo-lo-que-necesitas-saber-es-1785169864175",
+      "el-paso-texas-errores-comunes-en-seguros-de-auto-es",
+      "evita-las-trampas-de-seguros-de-auto-en-memphis-tennessee-es",
+      "injuries-and-medical-considerations-after-auto-accidents-in-virginia-beach-va-es"
     ]
   },
   "queue": {
@@ -1494,6 +1504,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-27T11:34:36.862Z",
+  "lastPublishAt": "2026-07-27T16:31:09.301Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
