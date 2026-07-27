@@ -1496,7 +1496,16 @@
       "claims-adjusters-en-memphis-tennessee-todo-lo-que-necesitas-saber-es-1785169864175",
       "el-paso-texas-errores-comunes-en-seguros-de-auto-es",
       "evita-las-trampas-de-seguros-de-auto-en-memphis-tennessee-es",
-      "injuries-and-medical-considerations-after-auto-accidents-in-virginia-beach-va-es"
+      "injuries-and-medical-considerations-after-auto-accidents-in-virginia-beach-va-es",
+      "accidentes-de-auto-sin-seguro-en-boston-massachusetts-consejos-y-estad-sticas-es",
+      "accidentes-de-rideshare-y-camiones-en-atlanta-georgia-lo-que-debes-saber-es",
+      "claims-adjusters-en-detroit-michigan-lo-que-necesitas-saber-es-1785187138980",
+      "errores-comunes-en-seguros-de-auto-en-milwaukee-wisconsin-es-1785169813430",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-nueva-york-ny-es-1785187088905",
+      "gu-a-sobre-ajustadores-de-reclamos-en-minneapolis-minnesota-es-1785169733066",
+      "injuries-m-dicas-en-accidentes-de-auto-en-san-antonio-texas-es",
+      "las-vegas-nevada-conociendo-las-leyes-estatales-y-locales-sobre-accidentes-de-auto-es",
+      "las-vegas-nevada-evitando-errores-comunes-en-seguros-de-auto-es"
     ]
   },
   "queue": {
@@ -1504,6 +1513,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-27T16:31:09.301Z",
+  "lastPublishAt": "2026-07-27T21:21:13.943Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
