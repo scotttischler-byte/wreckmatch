@@ -1511,7 +1511,16 @@
       "accidentes-de-rideshare-y-camiones-en-memphis-tennessee-lo-que-necesitas-saber-es",
       "errores-comunes-de-seguro-en-virginia-beach-va-c-mo-evitarlos-es",
       "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-portland-oregon-es",
-      "lesiones-m-dicas-en-accidentes-de-auto-en-arlington-texas-tx-es-1784907002142"
+      "lesiones-m-dicas-en-accidentes-de-auto-en-arlington-texas-tx-es-1784907002142",
+      "accidentes-de-auto-en-dallas-texas-lo-que-debes-saber-es",
+      "accidentes-de-auto-en-las-vegas-nevada-el-problema-de-los-conductores-sin-seguro-y-golpes--es",
+      "accidentes-de-auto-en-phoenix-arizona-lesiones-y-atenci-n-m-dica-es-1785216171274",
+      "accidentes-de-auto-sin-seguro-en-fort-worth-texas-lo-que-debes-saber-es",
+      "accidentes-de-rideshare-en-arlington-texas-lo-que-debes-saber-es",
+      "claims-adjusters-en-louisville-kentucky-todo-lo-que-necesitas-saber-es",
+      "errores-comunes-en-seguros-de-auto-en-nashville-tennessee-es-1785216156830",
+      "evita-los-errores-comunes-de-seguro-de-auto-en-nueva-york-ny-es-1785235365323",
+      "gu-a-de-ajustadores-de-reclamos-en-omaha-nebraska-es"
     ]
   },
   "queue": {
@@ -1519,6 +1528,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-28T05:25:43.147Z",
+  "lastPublishAt": "2026-07-28T10:45:42.100Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
