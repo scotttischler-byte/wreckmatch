@@ -1505,7 +1505,13 @@
       "gu-a-sobre-ajustadores-de-reclamos-en-minneapolis-minnesota-es-1785169733066",
       "injuries-m-dicas-en-accidentes-de-auto-en-san-antonio-texas-es",
       "las-vegas-nevada-conociendo-las-leyes-estatales-y-locales-sobre-accidentes-de-auto-es",
-      "las-vegas-nevada-evitando-errores-comunes-en-seguros-de-auto-es"
+      "las-vegas-nevada-evitando-errores-comunes-en-seguros-de-auto-es",
+      "accidentes-de-auto-en-milwaukee-wisconsin-leyes-estatales-y-locales-es-1785187118544",
+      "accidentes-de-auto-en-philadelphia-pennsylvania-conoce-las-leyes-estatales-y-locales-es",
+      "accidentes-de-rideshare-y-camiones-en-memphis-tennessee-lo-que-necesitas-saber-es",
+      "errores-comunes-de-seguro-en-virginia-beach-va-c-mo-evitarlos-es",
+      "gu-a-completa-sobre-ajustadores-de-reclamaciones-en-portland-oregon-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-arlington-texas-tx-es-1784907002142"
     ]
   },
   "queue": {
@@ -1513,6 +1519,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-27T21:21:13.943Z",
+  "lastPublishAt": "2026-07-28T05:25:43.147Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
