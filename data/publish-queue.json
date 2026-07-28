@@ -1520,7 +1520,17 @@
       "claims-adjusters-en-louisville-kentucky-todo-lo-que-necesitas-saber-es",
       "errores-comunes-en-seguros-de-auto-en-nashville-tennessee-es-1785216156830",
       "evita-los-errores-comunes-de-seguro-de-auto-en-nueva-york-ny-es-1785235365323",
-      "gu-a-de-ajustadores-de-reclamos-en-omaha-nebraska-es"
+      "gu-a-de-ajustadores-de-reclamos-en-omaha-nebraska-es",
+      "accidentes-de-auto-en-boston-massachusetts-rideshare-y-camiones-es",
+      "accidentes-de-auto-en-raleigh-north-carolina-leyes-estatales-y-locales-es-1785235524106",
+      "accidentes-de-auto-sin-seguro-en-seattle-wa-gu-a-completa-es",
+      "baltimore-maryland-evitando-errores-comunes-en-seguros-de-auto-es-1785255064525",
+      "claims-adjusters-en-colorado-springs-colorado-lo-que-necesitas-saber-es-1785235536999",
+      "errores-comunes-de-seguro-de-auto-en-omaha-nebraska-es",
+      "gu-a-sobre-ajustadores-de-reclamaciones-en-oklahoma-city-ok-es-1785235409183",
+      "houston-tx-evita-los-errores-comunes-de-seguros-de-auto-es",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-atlanta-georgia-es-1785131911504",
+      "lesiones-m-dicas-en-accidentes-de-auto-en-charlotte-carolina-del-norte-es-1784735394392"
     ]
   },
   "queue": {
@@ -1528,6 +1538,6 @@
     "states": [],
     "blog": []
   },
-  "lastPublishAt": "2026-07-28T10:45:42.100Z",
+  "lastPublishAt": "2026-07-28T16:14:25.779Z",
   "notes": "4 runs/day × 13 EN + 13 ES = ~52 posts per locale daily. Run via publish-seo.yml or scripts manually."
 }
